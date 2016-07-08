@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    
+
+      {% include header.html %}
+
+      <div id="main" class="main-content initiative-content">
+        <div class="usa-grid initiative-description">
+          
+      {{ content }}
+
+{% assign slug = page.indicator | replace: '.', '-' %}
+{% assign dataset_name = 'indicator_' | append: slug %}
+
+{% assign sdg_goals = site.data.sdg_goals %}
+{% assign sdg_indicators = site.data.sdg_indicator_metadata %}
+{% assign sdg_indicator = site.data[dataset_name] %}
+
+{% for indicators in sdg_indicators %}
+{% if indicators.indicator_id == page.indicator %}
+  {% assign indicator_title = indicators.indicator %}
+{% endif %}
+{% endfor %}
+
+{% assign array = "" | split: ""  %}
+{% assign row = array %}
+{% assign labels = array %}
+
+{% for indicator in sdg_indicator %}
+  {% assign row = row | push: indicator[page.indicator_variable] %}
+  {% assign labels = labels | push: indicator.year %}
+{% endfor %}
+
+<h2>Indicator {{ page.indicator }} - {{ indicator_title }}</h2>
+
+{% if page.graph == 'longitudinal' %}
+  {% include components/line.html row=row labels=labels %}
+{% endif %}
+
+<h3>{{ page.variable_description }}</h3>
+<p>{{ page.variable_notes }}</p>
+
+<aside id="secondary" class="related plm-mu">
+
+  <h4>Source: <a href="{{ page.source_url }}">{{ page.source_title }}</a></h4>
+  <p>{{ page.source_notes }}</p>
+
+  <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="button icon">Download CSV<i class="fa fa-download"></i></a>
+
+</aside>
+
+<h2>Goal {{ page.sdg_goal }}</h2>
+
+{% for indicators in sdg_indicators %}
+
+{% assign goal = indicators.goal | plus:0 %}
+
+{% assign slug = indicators.indicator_id | replace: '.', '-' %}
+
+{% if goal == page.sdg_goal %}
+  <h5><a href="{{ site.baseurl }}/{{ slug }}">{{ indicators.indicator_id }} {{ indicators.indicator }}</a></h5>
+{% endif %}
+
+{% endfor %}
+
+      </div>
+      
+    </div>
+    
+    {% include scripts.html %}
+    
+  </body>
+
+</html>

@@ -1,0 +1,51 @@
+{% assign id = page.indicator | slugify %}
+<div id="chart-{{ id }}" class="ct-chart ct-major-eleventh"></div>
+<script>
+(function () {
+  var container = '#chart-{{ id }}'
+  var labels = {{ include.labels | jsonify }}
+  var row = {{ include.row | jsonify }}
+
+  // Construct array of objects from data using indicators
+  var series = row
+  var chartData = {
+    labels: labels,
+    series: [series]
+  }
+  var chartOpts = {
+    showArea: true,
+    scaleMinSpace: 30,
+    axisY: {
+      onlyInteger: false,
+      labelInterpolationFnc: function (value) {
+        // do whatever math operation you want here
+        return value + '%';
+      }
+    },
+    axisX: {
+      showGrid: false,
+      labelInterpolationFnc: function (value) {
+        return value.toString().slice(-2)
+      }
+    },
+    lineSmooth: Chartist.Interpolation.none({
+      fillHoles: true,
+    }), 
+    plugins: [
+      Chartist.plugins.tooltip({
+        class: 'chartist-tooltip',
+        tooltipFnc: function(_, value) {
+          return value + '%';
+        }
+      }),
+      Chartist.plugins.ctAccessibility({
+        caption: '{{ row.Indicator }}',
+        seriesHeader: 'year',
+        summary: '{{ row.description }}',
+        valueTransform: Chartist.noop
+      })
+    ],
+  }
+  new Chartist.Line(container, chartData, chartOpts)
+})()
+</script>

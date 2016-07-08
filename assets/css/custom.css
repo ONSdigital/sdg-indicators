@@ -1,0 +1,252 @@
+body {
+    background-color: #d6d7d9;
+}
+
+.usa-banner {
+    background-color : #205493;
+    padding : 5rem 0 4rem 0;
+    color : #fff;
+}
+
+.usa-banner.banner-small {
+    padding : 2rem 0 0 0;
+}
+
+.usa-banner h1 {
+    margin-top : 5rem;
+}
+
+.usa-label {
+    display : table;
+} 
+
+table th {
+    text-align: left;
+}
+
+.main-content {
+    padding-top : 140px;
+    background-color: #fff;
+}
+
+
+
+header.fixed-header {
+    top: 0;
+    position: fixed;
+    height: 155px;
+    width: 100%;
+    z-index: 1;
+    background-color: #ffffff;
+    border-bottom: 1px solid #f1f1f1;
+    padding-bottom: 13px;
+    margin: auto;
+    -webkit-transition: height 0.3s;
+    -moz-transition: height 0.3s;
+    -ms-transition: height 0.3s;
+    -o-transition: height 0.3s;
+    transition: height 0.3s;    
+}
+
+header.fixed-header .site-navbar ul {
+    margin: auto;
+    padding: 0;
+}
+
+.usa-unstyled-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+header.fixed-header .site-navbar ul li {
+    display: table-cell;
+    position: relative;
+    width: 212px;
+    text-align: center;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;    
+}
+
+header.fixed-header .site-navbar ul li#nav-logo {
+    width: 150px;
+}
+
+header.fixed-header .site-navbar ul li a {
+    color: #112e51;
+    display : inline-block;
+    text-decoration: none;
+    vertical-align: top;
+    padding-top : 4em;
+    border-bottom : .5rem solid #fff;
+    font-weight: bold;
+}
+
+header.fixed-header .site-navbar ul li a:hover {
+    border-bottom : .5rem solid #F5A623;
+}
+
+header.fixed-header .site-navbar ul li#nav-logo a,
+header.fixed-header .site-navbar ul li#nav-logo a:hover {
+    padding : 0;
+    border-bottom : 0;
+}
+
+
+.usa-header-logo-img {
+
+}
+
+header.smaller {
+    height: 105px;
+}
+
+header.smaller .site-navbar ul li {
+    height: 70px;
+}
+
+header.smaller .site-navbar ul li a {
+    padding-top : 1.5em;
+}
+
+
+header.smaller .usa-header-logo-img {
+    height : 100px;
+}
+
+a.nav-toggle {
+    float : right;
+}
+
+
+@media (min-width: 600px) {
+    .nav-logo-text, 
+    .logo-collapsed {
+        display : none;
+    }
+
+}
+
+.logo-collapsed {
+    position : absolute;
+    z-index : 999999;
+    margin : 5px 2rem 0 2rem;
+    width : 80px;
+    height : 80px;
+    text-indent: -99999em;
+    overflow : hidden;
+    background: url('/assets/img/TGG_Icon_Color_18.png');
+    background-size : 100%;
+    float : left;    
+}
+
+
+@media (max-width: 600px) {
+
+    .usa-disclaimer {
+        font-size : 1.5rem !important;
+    }
+
+    header.fixed-header, 
+    header.smaller {
+        height : 80px;
+    }  
+
+    .main-content {
+        padding-top : 65px;
+    }    
+
+    header .site-navbar.opened {
+        background-color : #fff;
+        clear: both;
+    }
+
+    header .site-navbar #nav-logo {
+        display: none !important;
+    }
+
+    header.fixed-header .site-navbar ul li, 
+    header.smaller .site-navbar ul li {
+       width : 100%;
+        height : 4em;
+        text-align: left;
+        display : block; 
+    }
+
+    header.smaller .site-navbar ul li a, 
+    header.fixed-header .site-navbar ul li a {
+        padding : 0;
+        width : 100%;
+        height : 4em;
+        text-align: left;
+        display : block;   
+        border-bottom : 0;     
+    }
+
+    header.smaller .site-navbar ul li a:hover, 
+    header.fixed-header .site-navbar ul li a:hover {
+        border-bottom : 0;
+    }
+
+
+    header .site-navbar.opened {
+        background-color : #fff;
+        clear: both;
+    }
+
+    header .site-navbar #nav-logo {
+        display: none !important;
+    }
+
+
+.initiative-block {
+    width : 100%;
+    display : block;
+    padding : 2rem !important;
+    height : auto !important;
+}
+
+.initiative-block h3 {
+margin-top : 1rem;
+display : block;
+}
+
+}
+
+.usa-footer {
+    background-color: #f1f1f1
+}
+
+.usa-footer-contact-links {
+    text-align : left;
+}
+
+
+/* Initiative template */
+
+.initiative-block {
+    height : 20rem;
+    background-color : #205493;
+    padding : 0 2rem;
+    margin-bottom : 2rem;
+    color : #fff;
+}
+
+
+a.initiative-block, 
+a.initiative-block:link,
+a.initiative-block:hover, 
+a.initiative-block:visited {
+    color : #fff;
+}
+
+.initiative-content .usa-banner-content {
+    text-align : center;
+}
+
+.initiative-description {
+    font-size : 2rem;
+}

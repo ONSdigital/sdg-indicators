@@ -1,0 +1,59 @@
+{% include head.html %}
+
+{% include header.html %}
+
+        <div id="main" class="main-content" role="main">            
+
+            <section class="usa-banner">
+                <div class="usa-grid">
+
+                    <div class="usa-banner-content" id="main-content">
+                        <h1>
+                            U.S. Indicators For The Sustainable Development Goals
+                        </h1>
+                        <h2 class="usa-font-lead">
+                           The Sustainable Development Goals (SDGs) are an intergovernmental set of aspiration Goals with 169 targets. 
+                        </h2>
+                    </div>
+
+                </div>
+            </section>            
+
+            <section class="usa-section">
+   
+                <div class="usa-grid">
+
+                    <h2>
+                        Goals
+                    </h2>
+
+                    <section class="goals-list">
+                    {% assign sdg_goals = site.data.sdg_goals %}
+
+                    {% for goals in sdg_goals %}
+
+                    {% assign img_path = goals.goal | plus:0 %}
+
+                    {% if img_path < 10 %}
+                        {% assign img_path = 0  %}
+                    {% else %}
+                        {% assign img_path = ''  %}
+                    {% endif %}
+
+
+                    <a class="usa-width-one-fourth" href="./{{ goals.short | slugify }}">
+                    <img class="goal-icon" src="{{ site.baseurl }}/assets/img/TGG_Icon_Color_{{ img_path }}{{ goals.goal }}.png" alt="icon for Goal {{ goals.goal }} - {{ goals.title }}" />
+                    </a>
+
+                    {% endfor %}
+
+                    </section>
+                  
+                </div>
+
+            </section>
+
+
+        </div>
+
+{% include footer.html %}

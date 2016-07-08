@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    
+
+      {% include header.html %}
+
+      <div id="main" class="main-content initiative-content">
+        <div class="usa-grid initiative-description">
+      {{ content }}
+
+{% assign sdg_goals = site.data.sdg_goals %}
+{% assign sdg_indicators = site.data.sdg_indicator_metadata %}
+
+<h2>Goal {{ page.sdg_goal }}</h2>
+
+{% for indicators in sdg_indicators %}
+
+{% assign goal = indicators.goal | plus:0 %}
+{% assign slug = indicators.indicator_id | replace: '.', '-' %}
+
+{% if goal == page.sdg_goal %}
+  <h5><a href="{{ site.baseurl }}/{{ slug }}">{{ indicators.indicator_id }} {{ indicators.indicator }}</a></h5>
+{% endif %}
+
+{% endfor %}
+
+      </div>
+      
+    </div>
+    
+    {% include scripts.html %}
+    
+  </body>
+
+</html>
