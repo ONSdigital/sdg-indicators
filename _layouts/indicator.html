@@ -9,6 +9,31 @@
       {% include header.html %}
 
       <div id="main" class="main-content initiative-content">
+
+        <section class="usa-banner">
+            <div class="usa-grid">
+                <div class="usa-banner-content">
+                  <h2 class="goal-heading">
+                    {% assign sdg_goals = site.data.sdg_goals %}
+                    {% for goals in sdg_goals %}
+
+                      {% assign page_goal_num = page.sdg_goal | plus:0 %}
+                      {% assign goals_goal_num = goals.goal | plus:0 %}
+
+                      {% if page_goal_num == goals_goal_num %}
+
+                        <a href="{{ site.baseurl }}/{{ goals.short | slugify }}">
+                        Goal {{ goals.goal }} - {{ goals.title }}
+                        </a>
+
+                      {% endif %}
+
+                    {% endfor %}
+                  </h2>
+                </div>
+            </div>
+        </section>
+
         <div class="usa-grid initiative-description">
           
       {{ content }}
@@ -53,19 +78,71 @@
 
 </aside>
 
-<h2>Goal {{ page.sdg_goal }}</h2>
+<div class="metadata-table">
+<h3>Metadata</h3>
 
-{% for indicators in sdg_indicators %}
+<table>
+  <tr>
+    <th>Goal and Target Addressed</th>
+    <td>{{ page.goal_and_target_addressed }}</td>
+  </tr>
 
-{% assign goal = indicators.goal | plus:0 %}
+  <tr>
+  <th>Indicator Definition</th>
+  <td>{{ page.indicator_definition }}</td>
+  </tr>
+  <tr>
+  <th>Actual Indicator Available</th>
+  <td>{{ page.actual_indicator_available }}</td>
+  </tr>
+  <tr>
+  <th>Method of Computation</th>
+  <td>{{ page.method_of_computation }}</td>
+  </tr>
+  <tr>
+  <th>Sources and Data Collection</th>
+  <td>{{ page.sources_and_data_collection }}</td>
+  </tr>
+  <tr>
+  <th>International and National References</th>
+  <td>{{ page.international_and_national_references }}</td>
+  </tr>
+  <tr>
+  <th>Unit of Measure</th>
+  <td>{{ page.unit_of_measure }}</td>
+  </tr>
+  <tr>
+  <th>Disaggregation #1</th>
+  <td>{{ page.disaggregation_1 }}</td>
+  </tr>
+  <tr>
+  <th>Disaggregation #2</th>
+  <td>{{ page.disaggregation_2 }}</td>
+  </tr>
+  <tr>
+  <th>Time Reference</th>
+  <td>{{ page.time_reference }}</td>
+  </tr>
+  <tr>
+  <th>Periodicity</th>
+  <td>{{ page.periodicity }}</td>
+  </tr>
+  <tr>
+  <th>Date of Release by NSO</th>
+  <td>{{ page.date_of_release_by_nso }}</td>
+  </tr>
+  <tr>
+  <th>Schedule Updated</th>
+  <td>{{ page.scheduled_update }}</td>
+  </tr>
+  <tr>
+  <th>Comments and Limitations</th>
+  <td>{{ page.comments_and_limitations }}</td>
+  </tr>
+</table>
+</div>
 
-{% assign slug = indicators.indicator_id | replace: '.', '-' %}
 
-{% if goal == page.sdg_goal %}
-  <h5><a href="{{ site.baseurl }}/{{ slug }}">{{ indicators.indicator_id }} {{ indicators.indicator }}</a></h5>
-{% endif %}
-
-{% endfor %}
 
       </div>
       
