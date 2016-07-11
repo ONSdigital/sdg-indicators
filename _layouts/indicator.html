@@ -67,7 +67,7 @@
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">Data</a></li>
     <li role="presentation"><a href="#metadata" aria-controls="metadata" role="tab" data-toggle="tab">Metadata</a></li>
-    <li role="presentation"><a href="#download" aria-controls="download" role="tab" data-toggle="tab">Download Source</a></li>
+    <li role="presentation"><a href="#edit" aria-controls="edit" role="tab" data-toggle="tab">Edit (Requires Password)</a></li>
   </ul>
 
   <!-- Tab panes -->
@@ -75,16 +75,25 @@
     <div role="tabpanel" class="tab-pane active" id="data">
 
       <div class="datatable-container">
-        <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/data/indicator_{{ page.indicator | slugify }}.csv">Edit Data</a>
 
         <div id="datatable"></div>
+
+        <aside id="secondary" class="related plm-mu">
+
+          <h4>Source: <a href="{{ page.source_url }}">{{ page.source_title }}</a></h4>
+          <p>{{ page.source_notes }}</p>
+
+          <a style="display:none" href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary">Download CSV<i class="fa fa-download"></i></a>
+
+        </aside>        
+
+
       </div>
 
     </div>
     <div role="tabpanel" class="tab-pane" id="metadata">
       <div class="metadata-table">
-      
-      <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/_indicators/indicator_{{ page.indicator | slugify }}.md">Edit Metadata</a>
+    
 
       <table>
         <tr>
@@ -150,16 +159,13 @@
 
     </div>
 
-    <div role="tabpanel" class="tab-pane" id="download">
-      <div class="download-container">
-        <aside id="secondary" class="related plm-mu">
+    <div role="tabpanel" class="tab-pane" id="edit">
+      <div class="edit-container">
 
-          <h4>Source: <a href="{{ page.source_url }}">{{ page.source_title }}</a></h4>
-          <p>{{ page.source_notes }}</p>
+        <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/data/indicator_{{ page.indicator | slugify }}.csv">Edit Data</a>
 
-          <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary">Download CSV<i class="fa fa-download"></i></a>
+        <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/_indicators/indicator_{{ page.indicator | slugify }}.md">Edit Metadata</a>
 
-        </aside>
       </div>
     </div>
 
@@ -186,7 +192,7 @@
     element: 'datatable', 
     allow_download: true,
     csv_options: {separator: ',', delimiter: '"'},
-    datatables_options: {"paging": false}
+    datatables_options: {"paging": false, "searching": false}
   });
 </script>
     
