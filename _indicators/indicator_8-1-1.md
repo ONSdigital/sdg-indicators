@@ -25,6 +25,4 @@ periodicity: "Annual (monthly also available but not shown here)"
 date_of_release_by_nso: ""
 scheduled_update: "August 2017 (NSO); October 2017 (NRP)"
 comments_and_limitations: ""
-
-
 ---
