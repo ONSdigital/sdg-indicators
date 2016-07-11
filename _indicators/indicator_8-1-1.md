@@ -10,4 +10,21 @@ variable_notes: "YEAR indicates change between indicated year to preceding year.
 source_title: "Bureau of Economic Analysis, Regional Economic Accounts"
 source_url: http://bea.gov/regional/index.htm
 source_notes: "Click on GDP by State, then select United States under Per capita real GDP"
+indicator_name: "8.5.2 Unemployment rate, by sex, age group and persons with disabilities"
+goal_and_target_addressed: "Target 8.5 By 2030, achieve full and productive employment and decent work for all women and men, including for young people and persons with disabilities, and equal pay for work of equal value"
+indicator_definition: "Pending from UNSD"
+actual_indicator_available: "Unemployment rate, total, by sex, selected age group"
+method_of_computation: "Unemployment Rate, total is for 16 years and over. Unemployment rate: The ratio of unemployed to the civilian labor force expressed as a percent [i.e., 100 times (unemployed/labor force)]. Unemployed persons: All persons who had no employment during the reference week, were available for work, except for temporary illness, and had made specific efforts to find employment some time during the 4 week-period ending with the reference week. Persons who were waiting to be recalled to a job from which they had been laid off need not have been looking for work to be classified as unemployed. Civilian labor force: All persons in the civilian noninstitutional population classified as either employed or unemployed. Employed persons: All persons who, during the reference week (week including the twelfth day of the month), (a) did any work as paid employees, worked in their own business or profession or on their own farm, or worked 15 hours or more as unpaid workers in an enterprise operated by a member of their family, or (b) were not working but who had jobs from which they were temporarily absent. Each employed person is counted only once, even if he or she holds more than one job.  Civilian noninstitutional population: Persons 16 years of age and older residing in the 50 states and the District of Columbia, who are not inmates of institutions (e.g., penal and mental facilities, homes for the aged), and who are not on active duty in the Armed Forces. Sources: http://www.bls.gov/bls/faqs.htm  and http://www.bls.gov/cps/cps_htgm.htm"
+sources_and_data_collection: "Web source: Table A-1. Employment status of the civilian population by sex and age http://www.bls.gov/webapps/legacy/cpsatab1.htm Data are  derived from the Current Population Survey (CPS), which is conducted by the Census Bureau for  Bureau of Labor Statistics (BLS)."
+international_and_national_references: "BLS Methodology Chapter 1. Labor Force Data Derived from the Current Population Survey http://www.bls.gov/opub/hom/pdf/homch1.pdf; BLS International Labor Comparisons http://www.bls.gov/fls/"
+unit_of_measure: "Percentage."
+disaggregation_1: "Data for men, women, and both sexes 16-19 years old."
+disaggregation_2: "National and by state (availability by state may vary)."
+time_reference: "2015 is latest available"
+periodicity: "Annual (monthly also available but not shown here)"
+date_of_release_by_nso: ""
+scheduled_update: "August 2017 (NSO); October 2017 (NRP)"
+comments_and_limitations: ""
+
+
 ---
