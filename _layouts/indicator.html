@@ -60,17 +60,7 @@
   {% include components/line.html row=row labels=labels %}
 {% endif %}
 
-<h3>{{ page.variable_description }}</h3>
-<p>{{ page.variable_notes }}</p>
-
-<aside id="secondary" class="related plm-mu">
-
-  <h4>Source: <a href="{{ page.source_url }}">{{ page.source_title }}</a></h4>
-  <p>{{ page.source_notes }}</p>
-
-  <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="button icon">Download CSV<i class="fa fa-download"></i></a>
-
-</aside>
+{{ page.content }}
 
 <div>
 
@@ -78,6 +68,7 @@
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">Data</a></li>
     <li role="presentation"><a href="#metadata" aria-controls="metadata" role="tab" data-toggle="tab">Metadata</a></li>
+    <li role="presentation"><a href="#download" aria-controls="download" role="tab" data-toggle="tab">Download Source</a></li>
   </ul>
 
   <!-- Tab panes -->
@@ -85,6 +76,8 @@
     <div role="tabpanel" class="tab-pane active" id="data">
 
       <div class="datatable-container">
+        <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/data/indicator_{{ page.indicator | slugify }}.csv">Edit Data</a>
+
         <div id="datatable"></div>
       </div>
 
@@ -92,6 +85,8 @@
     <div role="tabpanel" class="tab-pane" id="metadata">
       <div class="metadata-table">
       
+      <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/_indicators/indicator_{{ page.indicator | slugify }}.md">Edit Metadata</a>
+
       <table>
         <tr>
           <th>Goal and Target Addressed</th>
@@ -155,7 +150,23 @@
 
 
     </div>
+
+    <div role="tabpanel" class="tab-pane" id="download">
+      <div class="download-container">
+        <aside id="secondary" class="related plm-mu">
+
+          <h4>Source: <a href="{{ page.source_url }}">{{ page.source_title }}</a></h4>
+          <p>{{ page.source_notes }}</p>
+
+          <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary">Download CSV<i class="fa fa-download"></i></a>
+
+        </aside>
+      </div>
+    </div>
+
+
   </div>
+    <!-- / Tab panes -->
 
 </div>
 
@@ -163,7 +174,7 @@
 
 
 
-      </div>
+      </div>   <!-- usa-grid -->
       
     </div>
     

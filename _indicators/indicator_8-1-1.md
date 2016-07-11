@@ -26,3 +26,6 @@ date_of_release_by_nso: ""
 scheduled_update: "August 2017 (NSO); October 2017 (NRP)"
 comments_and_limitations: ""
 ---
+### U.S. Per capita real GDP, percent change from preceding period.
+
+YEAR indicates change between indicated year to preceding year. Per capita real GDP statistics reflect Census Bureau midyear population estimates available as of December 2014. Data in this table was last updated by BEA December 10, 2015.
