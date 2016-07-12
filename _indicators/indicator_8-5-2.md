@@ -11,7 +11,7 @@ source_title:
 source_url:
 source_notes:
 indicator_name:
-goal_and_target_addressed:
+target:
 indicator_definition:
 actual_indicator_available:
 method_of_computation:
