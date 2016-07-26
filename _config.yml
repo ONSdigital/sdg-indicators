@@ -35,99 +35,91 @@ prose:
   ignore: ['/assets', '/_includes', '/_layouts', '/scripts', '/sass' ]
   metadata:
     _indicators:
-      - name: "sdg_goal"
-        field: 
-            element: text
-            label: "SDG Goal #"  
-      - name: "indicator"
-        field: 
-            element: text
-            label: "Indicator #"  
-      - name: "indicator_variable"
-        field: 
-            element: text
-            label: "Indicator Variable"  
-      - name: "graph"
-        field: 
-            element: text
-            label: "Graph Type"  
-      - name: "variable_description"
-        field: 
-            element: text
-            label: "Variable Description"  
-      - name: "variable_notes"
-        field: 
-            element: text
-            label: "Variable Notes"  
-      - name: "source_title"
-        field: 
-            element: text
-            label: "Source Title"  
-      - name: "source_url"
-        field: 
-            element: text
-            label: "Source URL"  
-      - name: "source_notes"
-        field: 
-            element: text
-            label: "Source Notes"  
       - name: "indicator_name"
         field: 
             element: text
-            label: "Indicator Name"  
-      - name: "goal_and_target_addressed"
+            label: "SDG Indicator Name"  
+      - name: "target"
         field: 
-            element: text
-            label: "Goal and Target Addressed"  
+            element: textarea
+            label: "SDG Target Addressed"  
       - name: "indicator_definition"
         field: 
-            element: text
-            label: "Indicator Definition"  
+            element: textarea
+            label: "Definition of SDG Indicator"  
       - name: "actual_indicator_available"
         field: 
             element: text
-            label: "Actual Indicator Available"  
+            label: "Actual indicator available"  
+      - name: "actual_indicator_available_description"
+        field: 
+            element: text
+            label: "Description of actual indicator available"  
       - name: "method_of_computation"
         field: 
-            element: text
-            label: "Method of Computation"  
-      - name: "sources_and_data_collection"
+            element: textarea
+            label: "Method of computation"  
+      - name: "comments_and_limitations"
         field: 
             element: text
-            label: "Sources and Data Collection"  
-      - name: "international_and_national_references"
-        field: 
-            element: text
-            label: "International and National References"  
-      - name: "unit_of_measure"
-        field: 
-            element: text
-            label: "Unit of Measure"  
-      - name: "disaggregation_1"
-        field: 
-            element: text
-            label: "Disaggregation 1"  
-      - name: "disaggregation_2"
-        field: 
-            element: text
-            label: "Disaggregation 2"  
-      - name: "time_reference"
-        field: 
-            element: text
-            label: "Time Reference"  
+            label: "Comments and limitations"  
       - name: "periodicity"
         field: 
             element: text
             label: "Periodicity"  
-      - name: "date_of_release_by_nso"
+      - name: "time_period"
         field: 
             element: text
-            label: "Date of Release by NSO"  
-      - name: "scheduled_update"
+            label: "Time Period"  
+      - name: "unit_of_measure"
         field: 
             element: text
-            label: "Scheduled Update"  
-      - name: "comments_and_limitations"
+            label: "Unit of measure"  
+      - name: "disaggregation_categories"
         field: 
             element: text
-            label: "Comments and Limitations"  
+            label: "Disaggregation #1 (Industry or social categories)"  
+      - name: "disaggregation_geography"
+        field: 
+            element: text
+            label: "Disaggregation #2 (Geographical coverage)"  
+      - name: "date_of_national_source_publication"
+        field: 
+            element: text
+            label: "Date of public data release from National source"  
+            placeholder: "MONTH YEAR"
+      - name: "date_metadata_updated"
+        field: 
+            element: text
+            label: "Date of last Update of This Page"  
+            placeholder: "MONTH YEAR"
+      - name: "scheduled_update_by_national_source"
+        field: 
+            element: text
+            label: "Scheduled Update by National source"  
+            placeholder: "MONTH/YEAR (Next Agency Release)"
+      - name: "scheduled_update_by_SDG_team"
+        field: 
+            element: text
+            label: "Scheduled Update by SDG Team"  
+            placeholder: "MONTH/YEAR (NRP Database)"
+      - name: "source_agency_staff_name"
+        field: 
+            element: text
+            label: "Data Source1 (Agency STAFF NAME)"  
+      - name: "source_agency_staff_email"
+        field: 
+            element: text
+            label: "Data Source2 (Staff E-MAIL)"  
+      - name: "source_agency_survey_dataset"
+        field: 
+            element: text
+            label: "Data Source3 (Agency/Survey/Dataset name)"  
+      - name: "source_url"
+        field: 
+            element: text
+            label: "Indicator WEB address (closest to data provided)"   
+      - name: "international_and_national_references"
+        field: 
+            element: text
+            label: "International and National References"
