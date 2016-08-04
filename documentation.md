@@ -4,4 +4,4 @@ title: Documentation
 permalink: /documentation/
 ---
 
-Documentation goes here
+Documentation would go here.
