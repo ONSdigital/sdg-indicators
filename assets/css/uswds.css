@@ -610,7 +610,7 @@ body {
   .usa-grid-full .usa-width-one-whole {
     float: left;
     display: block;
-    margin-right: 2.35765%;
+    margin-right: 1.35765%;
     width: 100%;
   }
   .usa-grid .usa-width-one-whole:last-child,
@@ -2845,4 +2845,33 @@ fieldset {
 
 ul {
   list-style: none;
+}
+
+.usa-grid .usa-width-one-fourth,
+.usa-grid-full .usa-width-one-fourth {
+  float: left;
+  display: block;
+  margin-right: 1.35765%;
+  width: 18.23176%;
+}
+.usa-grid .usa-width-one-fourth:last-child,
+.usa-grid-full .usa-width-one-fourth:last-child {
+  margin-right: 0;
+}
+.usa-grid .usa-width-one-fourth:nth-child(2n),
+.usa-grid-full .usa-width-one-fourth:nth-child(2n) {
+  float: left;
+  display: block;
+  margin-right: 1.35765%;
+  width: 18.23176%;
+}
+.usa-grid .usa-width-one-fourth:nth-child(2n):last-child,
+.usa-grid-full .usa-width-one-fourth:nth-child(2n):last-child {
+  margin-right: 0;
+}
+  }
+
+  @media screen and (min-width: 1201px)
+.usa-grid .usa-width-one-fourth:nth-child(4n), .usa-grid-full .usa-width-one-fourth:nth-child(4n) {
+    margin-right: .5;
 }
