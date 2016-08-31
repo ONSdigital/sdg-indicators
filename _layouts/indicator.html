@@ -82,9 +82,11 @@
 
         <aside id="secondary" class="related plm-mu">
 
-          <h4>Note: See metadata tab for sources, definitions, and methodology information</h4>
+          <h4>See metadata tab for sources, definitions, and methodology information</h4>
 
-          <a style="display:none" href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary">Download CSV<i class="fa fa-download"></i></a>
+          <div class="button_wrapper">
+              <a class="usa-button usa-button-big" href="{{ site.baseurl }}/data/{{ dataset_name }}.csv">Download CSV</a>
+          </div>
 
         </aside>        
 
@@ -173,7 +175,7 @@
   init_table({
     csv_path: '../data/{{ dataset_name }}.csv', 
     element: 'datatable', 
-    allow_download: true,
+    allow_download: false,
     csv_options: {separator: ',', delimiter: '"'},
     datatables_options: {"paging": false, "bInfo" : false, "searching": false}
   });
