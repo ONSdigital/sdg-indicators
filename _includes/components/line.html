@@ -1,8 +1,8 @@
 {% assign id = page.indicator | slugify %}
-<div id="chart-{{ id }}" class="ct-chart ct-major-eleventh"></div>
+<div id="linechart-{{ id }}" class="ct-chart ct-major-eleventh"></div>
 <script>
 (function () {
-  var container = '#chart-{{ id }}'
+  var container = '#linechart-{{ id }}'
   var labels = {{ include.labels | jsonify }}
   var row = {{ include.row | jsonify }}
 
@@ -25,7 +25,7 @@
     axisX: {
       showGrid: false,
       labelInterpolationFnc: function (value) {
-        return value.toString().slice(-2)
+        return value.toString()
       }
     },
     lineSmooth: Chartist.Interpolation.none({

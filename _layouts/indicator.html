@@ -59,6 +59,8 @@
 
 {% if page.graph == 'longitudinal' %}
   {% include components/line.html row=row labels=labels %}
+  <hr>
+  {% include components/bar.html row=row labels=labels %}
 {% endif %}
 
 {{ page.content }}
