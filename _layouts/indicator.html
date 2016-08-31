@@ -82,8 +82,7 @@
 
         <aside id="secondary" class="related plm-mu">
 
-          <h4>Source: <a href="{{ page.source_url }}">{{ page.source_title }}</a></h4>
-          <p>{{ page.source_notes }}</p>
+          <h4>Note: See metadata tab for sources, definitions, and methodology information</h4>
 
           <a style="display:none" href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary">Download CSV<i class="fa fa-download"></i></a>
 
@@ -176,7 +175,7 @@
     element: 'datatable', 
     allow_download: true,
     csv_options: {separator: ',', delimiter: '"'},
-    datatables_options: {"paging": false, "searching": false}
+    datatables_options: {"paging": false, "bInfo" : false, "searching": false}
   });
 </script>
     
