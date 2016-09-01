@@ -1,7 +1,7 @@
 ---
 layout: page
 title: News and Events
-permalink: /newsandevents/
+permalink: /about/
 ---
 
  - Coming soon: US National Reporting Platform launches its Pilot (ETA 9/2016)
