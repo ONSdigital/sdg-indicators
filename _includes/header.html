@@ -4,7 +4,11 @@
                 <div class="usa-disclaimer {{ site.github.environment }} {{ jekyll.environment }}">
                     <div class="usa-grid">
                         <span class="usa-disclaimer-official">
-                          <img class="usa-flag_icon" alt="U.S. flag signifying that this is a United States federal government website" src="{{ site.baseurl }}/assets/img/us_flag_small.png"> Not yet an official website of the United States government
+                          {% if site.github.environment == 'dotcom' %}
+                            This is a staging site used to update and preview indicator data
+                          {% else %}
+                          <img class="usa-flag_icon" alt="U.S. flag signifying that this is a United States federal government website" src="{{ site.baseurl }}/assets/img/us_flag_small.png"> Not yet an official website of the United States government                          
+                          {% endif %}
                         </span>
                         <a href="{{ site.baseurl }}/admin" class="login-link">User Login</a>
                         <span class="usa-disclaimer-stage">This site is a work in progress</span>
