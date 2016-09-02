@@ -1,7 +1,7 @@
 ---
 layout: page
-title: News and Events
-permalink: /newsandevents/
+title: News & Events
+permalink: /news/
 ---
 
 ### Check this page for news regarding the reporting of US statistics for global indicators and opportunities to contribute to measuring achievement of the sustainable development goals
