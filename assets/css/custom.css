@@ -2,6 +2,34 @@ body {
     background-color: #d6d7d9;
 }
 
+.logo-home {
+    float: left;
+    text-indent: -99999em;
+    overflow : hidden;
+    background: url('../../assets/img/logo.png');
+    background-size : cover;
+    background-repeat: no-repeat;
+}
+
+.logo-home-mobile {
+    display : none;
+}
+
+header.fixed-header .logo-home {
+    margin : 42px 0 0 0;
+    width : 300px;
+    height : 65px;
+
+}
+
+header.fixed-header.smaller .logo-home {
+    margin : 10px 50px 0 0;
+    width : 250px;
+    height : 50px;
+}
+
+
+
 .usa-banner {
     background-color : #205493;
     padding : 5rem 0 4rem 0;
@@ -49,7 +77,6 @@ header.fixed-header {
 }
 
 header.fixed-header .site-navbar ul {
-    margin: auto;
     padding: 0;
 }
 
@@ -96,9 +123,6 @@ header.fixed-header .site-navbar ul li#nav-logo a:hover {
 }
 
 
-.usa-header-logo-img {
-
-}
 
 header.smaller {
     height: 105px;
@@ -122,7 +146,7 @@ a.nav-toggle {
 }
 
 
-@media (min-width: 600px) {
+@media (min-width: 700px) {
     .nav-logo-text,
     .logo-collapsed {
         display : none;
@@ -131,24 +155,40 @@ a.nav-toggle {
 }
 
 .logo-collapsed {
-    position : absolute;
-    z-index : 999999;
     margin : 5px 2rem 0 2rem;
     width : 80px;
     height : 80px;
-    text-indent: -99999em;
-    overflow : hidden;
-    background: url('../../assets/img/TGG_Icon_Color_18.png');
-    background-size : 100%;
-    float : left;
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
-    .usa-disclaimer {
-        font-size : 1.5rem !important;
+    .usa-grid {
+        padding : 0 1.5rem;
     }
+    
+  
+    .usa-disclaimer {
+        font-size : 1.25rem !important;
+    }
+
+    .usa-banner h1 {
+        margin-top: 1rem;
+    }    
+
+    .logo-home-mobile {
+        margin : 7px 0 0 15px;
+        width : 100px;
+        height : 40px;        
+        display : block;
+        float: left;
+        text-indent: -99999em;
+        overflow : hidden;
+        background: url('../../assets/img/logo.png');
+        background-size : cover;
+        background-repeat: no-repeat;
+    }
+
 
     header.fixed-header,
     header.smaller {
@@ -156,7 +196,7 @@ a.nav-toggle {
     }
 
     .main-content {
-        padding-top : 65px;
+        padding-top : 80px;
     }
 
     header .site-navbar.opened {
@@ -164,7 +204,7 @@ a.nav-toggle {
         clear: both;
     }
 
-    header .site-navbar #nav-logo {
+    header .site-navbar .logo-home, .login-link {
         display: none !important;
     }
 
@@ -402,6 +442,10 @@ p a, .usa-content-list a {
 
 .github-login {
     margin-bottom : 5em;
+}
+
+.github-login .usa-button.logout {
+    background-color : #981b1e;
 }
 
 
