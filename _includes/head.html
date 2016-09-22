@@ -34,19 +34,23 @@
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ site.baseurl }}/assets/img/favicons/favicon-114.png"><!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}/assets/img/favicons/favicon-144.png"><!-- CSS
 ================================================== -->
+        {% 
+            assign cache_bust = site.time | replace: ' ', '-' | replace: ':', '-' 
+        %}
+
         <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/uswds.css">
-        <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/custom.css">
         <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/chartist.css">
-        <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/chartist-plugin-tooltip.css">        
-        <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/responsive-nav.css">
+        <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/chartist-plugin-tooltip.css">                
+        <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/uswds.css?v={{ cache_bust }}">
+        <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/custom.css?v={{ cache_bust }}">
+        <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/responsive-nav.css?v={{ cache_bust }}">
 
         <script src="{{ site.baseurl }}/assets/js/vendor/responsive-nav.js"></script>
         <script src="{{ site.baseurl }}/assets/js/vendor/chartist.min.js"></script>
         <script src="{{ site.baseurl }}/assets/js/vendor/chartist-plugin-accessibility.min.js"></script>
         <script src="{{ site.baseurl }}/assets/js/vendor/chartist-plugin-tooltip.min.js"></script>
         <script src="{{ site.baseurl }}/assets/js/vendor/jquery-1.11.3.min.js" type="text/javascript"></script>        
-        <script src="{{ site.baseurl }}/assets/js/main.js"></script>
+        <script src="{{ site.baseurl }}/assets/js/main.js?v={{ cache_bust }}"></script>
 
     </head>
     <body>
