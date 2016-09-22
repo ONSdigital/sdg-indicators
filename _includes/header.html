@@ -10,7 +10,9 @@
                             This is an official website of the United States government                          
                           {% endif %}
                         </span>
-                        <a href="{{ site.baseurl }}/admin" class="login-link">Login / Logout</a>
+                        {% if site.github.environment == 'dotcom' %}
+                          <a href="{{ site.baseurl }}/admin" class="login-link">Login / Logout</a>
+                        {% endif %}
                         <span class="usa-disclaimer-stage">This site is a work in progress</span>
                     </div>
                 </div>
