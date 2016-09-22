@@ -29,6 +29,9 @@ collections:
   goals:
     output: true    
 
+analytics:
+  ga_prod: 'UA-42145528-4'
+
 # Prose configuration
 prose: 
   ignore: ['/assets', '/_includes', '/_layouts', '/scripts', '/sass' ]
@@ -36,23 +39,23 @@ prose:
     _indicators:
       - name: "indicator_name"
         field: 
-            element: hidden
+            element: text
             label: "SDG Indicator Name"
             scope: global  
       - name: "target"
         field: 
-            element: hidden
+            element: text
             label: "SDG Target Addressed"  
             scope: global
       - name: "indicator_definition"
         field: 
-            element: hidden
+            element: textarea
             label: "Definition of SDG Indicator"  
             scope: global
       - name: "method_of_computation"
         field: 
-            element: hidden
-            label: "Method of global SDG computation"  
+            element: textarea
+            label: "Method of computation for global SDG indicator"  
             scope: global      
       - name: "actual_indicator_available"
         field: 
@@ -60,7 +63,7 @@ prose:
             label: "Actual indicator available"  
       - name: "actual_indicator_available_description"
         field: 
-            element: text
+            element: textarea
             label: "Description of actual indicator available"  
       - name: "us_method_of_computation"
         field: 
@@ -68,7 +71,7 @@ prose:
             label: "Method of computation"     
       - name: "comments_and_limitations"
         field: 
-            element: text
+            element: textarea
             label: "Comments and limitations"  
       - name: "periodicity"
         field: 
@@ -125,7 +128,7 @@ prose:
       - name: "source_url"
         field: 
             element: text
-            label: "Indicator WEB address (closest to data provided)"   
+            label: "Indicator web address (closest to data provided)"   
       - name: "international_and_national_references"
         field: 
             element: text
