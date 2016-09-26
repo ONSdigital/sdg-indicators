@@ -69,7 +69,9 @@
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">Data</a></li>
     <li role="presentation"><a href="#metadata" aria-controls="metadata" role="tab" data-toggle="tab">Metadata</a></li>
+    {% if site.github.environment == 'dotcom' %}
     <li role="presentation"><a href="#edit" aria-controls="edit" role="tab" data-toggle="tab">Edit (Requires Password)</a></li>
+    {% endif %}
   </ul>
 
   <!-- Tab panes -->
@@ -144,6 +146,7 @@
 
     </div>
 
+    {% if site.github.environment == 'dotcom' %}
     <div role="tabpanel" class="tab-pane" id="edit">
       <div class="edit-container">
 
@@ -153,6 +156,7 @@
 
       </div>
     </div>
+    {% endif %}
 
 
   </div>
