@@ -36,16 +36,24 @@ prose:
     _indicators:
       - name: "indicator_name"
         field: 
-            element: text
-            label: "SDG Indicator Name"  
+            element: hidden
+            label: "SDG Indicator Name"
+            scope: global  
       - name: "target"
         field: 
-            element: textarea
+            element: hidden
             label: "SDG Target Addressed"  
+            scope: global
       - name: "indicator_definition"
         field: 
-            element: textarea
+            element: hidden
             label: "Definition of SDG Indicator"  
+            scope: global
+      - name: "method_of_computation"
+        field: 
+            element: hidden
+            label: "Method of global SDG computation"  
+            scope: global      
       - name: "actual_indicator_available"
         field: 
             element: text
@@ -54,10 +62,10 @@ prose:
         field: 
             element: text
             label: "Description of actual indicator available"  
-      - name: "method_of_computation"
+      - name: "us_method_of_computation"
         field: 
             element: textarea
-            label: "Method of computation"  
+            label: "Method of computation"     
       - name: "comments_and_limitations"
         field: 
             element: text
