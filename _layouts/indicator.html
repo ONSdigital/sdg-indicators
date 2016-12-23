@@ -55,12 +55,21 @@
   {% assign labels = labels | push: indicator.year %}
 {% endfor %}
 
+
 <h2>Indicator {{ page.indicator }} - {{ indicator_title }}</h2>
 
+{% if page.graph == 'bar' or page.graph == 'longitudinal' %}
+
+{% assign graph_type = page.graph %}
+
 {% if page.graph == 'longitudinal' %}
+  {% assign graph_type = 'line' %}
+{% endif %}
+
+{% assign graph_template = 'components/' | append: graph_type | append: '.html' %}
 
   <h3>{{ page.graph_title }}</h3>
-  {% include components/line.html row=row labels=labels %}
+  {% include {{graph_template}} row=row labels=labels %}
 {% endif %}
 
 {{ page.content }}
