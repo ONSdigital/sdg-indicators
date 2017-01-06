@@ -1,6 +1,6 @@
 ---
 layout: page
-title: U.S. Reporting Status of National Statistics for Sustainable Development Goal Global Indicators
+title: Reporting Status
 permalink: /reporting-status/
 ---
 
