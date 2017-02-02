@@ -1,59 +1,43 @@
-<footer class="usa-footer usa-footer-big usa-sans" role="contentinfo">
-    <div class="usa-grid usa-footer-return-to-top">
-      <a href="#">Return to top</a>
-    </div>
-
-    <div class="usa-footer-secondary_section usa-footer-big-secondary-section">
-      <div class="usa-grid">
-        <div class="usa-footer-contact-links usa-width-one-half">
-          <address>
-            <h3 class="usa-footer-contact-heading footer-about-heading">About</h3>
-            <p>This is the official website of the Portland bushwick salvia humblebrag, pour-over nostrud try-hard occaecat. 3 wolf moon taxidermy ad heirloom banh mi. Celiac succulents odio vero literally, nihil chartreuse knausgaard craft beer laboris mustache lyft raw denim gochujang. Adipisicing quinoa kitsch copper mug health goth, normcore sed skateboard drinking vinegar. Tofu assumenda paleo, whatever trust fund lyft mixtape est chambray typewriter roof party.</p>
-          </address>
-        </div>
-
-        <div class="usa-footer-logo usa-width-one-half">
-          <h3 class="footer-contact-heading">Contact</h3>
-            <p class="contact">For content questions, <br>Email: {{ site.email_contacts.questions }} <br>For site functionality, <br>Email: {{ site.email_contacts.functional }}</p>
-          <p>&nbsp;</p>
-        </div>
+<footer role="contentinfo">
+  <div>
+    <a href="#">Return to top</a>
+  </div>
+  <div>
+    <div>
+      <div>
+        <address>
+          <h3 class="footer-about-heading">About</h3>
+          <p>This is the official website of the Portland bushwick salvia humblebrag, pour-over nostrud try-hard occaecat. 3 wolf moon taxidermy ad heirloom banh mi. Celiac succulents odio vero literally, nihil chartreuse knausgaard craft beer laboris mustache lyft raw denim gochujang. Adipisicing quinoa kitsch copper mug health goth, normcore sed skateboard drinking vinegar. Tofu assumenda paleo, whatever trust fund lyft mixtape est chambray typewriter roof party.</p>
+        </address>
+      </div>
+      <div>
+        <h3 class="footer-contact-heading">Contact</h3>
+        <p class="contact">For content questions, <br>Email: {{ site.email_contacts.questions }} <br>For site functionality, <br>Email: {{ site.email_contacts.functional }}</p>
+        <p>&nbsp;</p>
       </div>
     </div>
-  </footer>
-
-
-  <!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
-  <!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
-
-
-  <!-- Google Analytics -->
+  </div>
+</footer>
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
+<!-- Google Analytics -->
 {% comment %}
-  <script>
-
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    {% if site.github.environment == 'dotcom' %}
-      
-    {% else %}
-
-      ga('create', '{{ site.analytics['ga_prod'] }}', 'auto');
-
-      // anonymize user IPs (chops off the last IP triplet)
-      ga('set', 'anonymizeIp', true);
-
-      // forces SSL even if the page were somehow loaded over http://
-      ga('set', 'forceSSL', true);
-
-      ga('send', 'pageview');      
-
-    {% endif %}        
-
-  </script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+{% if site.github.environment == 'dotcom' %}
+  
+{% else %}
+  ga('create', '{{ site.analytics['ga_prod'] }}', 'auto');
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+  // forces SSL even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+  ga('send', 'pageview');
+{% endif %}
+</script>
 {% endcomment %}
-
-
-    </body>
+</body>
 </html>

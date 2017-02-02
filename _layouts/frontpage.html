@@ -1,60 +1,39 @@
 {% include head.html %}
-
 {% include header.html %}
-
-        <div id="main" class="main-content" role="main">
-
-            <section class="usa-banner">
-                <div class="usa-grid">
-
-                    <div class="usa-banner-content">
-                        <h1>
-                            UK National Statistics for the UN Sustainable Development Goals
-                        </h1>
-
-                    </div>
-
-                </div>
-            </section>
-
-            <section class="usa-section">
-                <div class="usa-grid">
-                            <div class="usa-font-lead intro-paragraph">
-                               Click on each goal for UK national statistics for Sustainable Development Goal global indicators.
-                            </div>
-                    
-
-                    <section class="goals-list">
-                    {% assign sdg_goals = site.data.sdg_goals %}
-
-                    {% for goals in sdg_goals %}
-
+<div id="main" class="main-content" role="main">
+    <section class="usa-banner">
+        <div class="usa-grid">
+            <div class="usa-banner-content">
+                <h1>
+                UK National Statistics for the UN Sustainable Development Goals
+                </h1>
+            </div>
+        </div>
+    </section>
+    <section class="usa-section">
+        <div class="usa-grid">
+            <div class="usa-font-lead intro-paragraph">
+                Click on each goal for UK national statistics for Sustainable Development Goal global indicators.
+            </div>
+            
+            <section class="goals-list">
+                {% assign sdg_goals = site.data.sdg_goals %}
+                {% for goals in sdg_goals %}
                     {% assign img_path = goals.goal | plus:0 %}
-
                     {% if img_path < 10 %}
                         {% assign img_path = 0  %}
                     {% else %}
                         {% assign img_path = ''  %}
                     {% endif %}
-
-
                     <a class="usa-width-one-fourth" href="./{{ goals.short | slugify }}/">
-                    <img class="goal-icon" src="{{ site.baseurl }}/assets/img/TGG_Icon_Color_{{ img_path }}{{ goals.goal }}.png" alt="icon for Goal {{ goals.goal }} - {{ goals.title }}" />
-                    </a>                    
-
-                    {% endfor %}
-
-                    <div class="usa-width-one-fourth">
-                        <img class="goal-icon" src="{{ site.baseurl }}/assets/img/TGG_Icon_Color_18.png" alt="icon for Global Goals" />
-                    </div>                    
-
-                    </section>
-
+                        <img class="goal-icon" src="{{ site.baseurl }}/assets/img/TGG_Icon_Color_{{ img_path }}{{ goals.goal }}.png" alt="icon for Goal {{ goals.goal }} - {{ goals.title }}" />
+                    </a>
+                {% endfor %}
+                <div class="usa-width-one-fourth">
+                    <img class="goal-icon" src="{{ site.baseurl }}/assets/img/TGG_Icon_Color_18.png" alt="icon for Global Goals" />
                 </div>
-
             </section>
-
-
         </div>
-
+    </section>
+</div>
 {% include footer.html %}
