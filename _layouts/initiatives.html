@@ -1,27 +1,23 @@
 {% include head.html %}
 {% include header.html %}
-<div id="main" class="main-content" role="main">
-    
-    <section class="usa-banner banner-small">
-        <div class="usa-grid">
-            <div class="usa-banner-content">
-                <h1>
-                {{ page.title }}
-                </h1>
-                <h2 class="usa-font-lead">
-                </h2>
+<div id="main" role="main">
+    <section>
+        <div>
+            <div>
+                <h1>{{ page.title }}</h1>
+                <h2></h2>
             </div>
         </div>
     </section>
-    <div class="usa-grid">
+    <div>
         {{ content }}
     </div>
-    <div class="usa-grid">
+    <div>
         {% for initiative in site.initiatives %}
-            <a href="/{{ initiative.permalink }}" class="usa-width-one-third initiative-block">
+            <a href="/{{ initiative.permalink }}">
                 <h3>{{ initiative.title }}</h3>
             </a>
-        {% cycle '', '', '</div><div class="usa-grid">' %}
+        {% cycle '', '', '</div><div>' %}
     {% endfor %}
     
 </div>
