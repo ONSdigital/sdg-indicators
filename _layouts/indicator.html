@@ -29,7 +29,6 @@
         </section>
 
         <div class="usa-grid initiative-description">
-          
 
 {% assign slug = page.indicator | replace: '.', '-' %}
 {% assign dataset_name = 'indicator_' | append: slug %}
@@ -126,6 +125,7 @@
       </table>
 
 
+{% comment %}
       <h2>U.S. Metadata</h2>
       <p class="metadata-notes">
         This table provides metadata for the actual indicator available from U.S. statistics closest to the corresponding global 
@@ -148,7 +148,7 @@
 
       </table>
       </div>
-
+{% endcomment %}
 
 
     </div>
