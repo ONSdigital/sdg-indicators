@@ -43,12 +43,8 @@
             assign cache_bust = site.time | date: "%Y%m%d%H%M%S"
         %}
 
-        <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/chartist.css">
-        <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/chartist-plugin-tooltip.css">                
-        <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/uswds.css?v={{ cache_bust }}">
-        <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/custom.css?v={{ cache_bust }}">
-        <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/responsive-nav.css?v={{ cache_bust }}">
+        <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/default.css?v={{ cache_bust }}">        
+
 
         <script src="{{ site.baseurl }}/assets/js/vendor/responsive-nav.js"></script>
         <script src="{{ site.baseurl }}/assets/js/vendor/chartist.min.js"></script>
