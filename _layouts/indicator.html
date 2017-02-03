@@ -50,10 +50,16 @@
   <aside id="secondary" class="related plm-mu"><h4>See metadata tab for sources, definitions, and methodology information</h4></aside>
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">Data</a></li>
-    <li role="presentation"><a href="#metadata" aria-controls="metadata" role="tab" data-toggle="tab">Metadata</a></li>
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#data" role="tab">Data</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#metadata" role="tab">Metadata</a>
+    </li>
     {% if site.github.environment == 'dotcom' %}
-      <li role="presentation"><a href="#edit" aria-controls="edit" role="tab" data-toggle="tab">Edit (Requires Password)</a></li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#edit" role="tab">Edit</a>
+      </li>
     {% endif %}
   </ul>
   <!-- Tab panes -->
