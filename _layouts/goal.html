@@ -28,7 +28,7 @@
         {% assign img_path = ''  %}
     {% endif %}
 
-    <img src="{{ site.baseurl }}/assets/img/goals/TGG_Icon_Color_{{ img_path }}{{ page_goal_num }}.png" alt="icon for Goal {{ goals.goal }} - {{ goals.title }}" />
+    <img src="{{ site.baseurl }}/assets/img/goals/{{ page_goal_num }}.png" alt="icon for Goal {{ goals.goal }} - {{ goals.title }}" />
 
     {{ content }}
     {% assign sdg_goals = site.data.sdg_goals %}
