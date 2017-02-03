@@ -20,6 +20,16 @@
     </div>
   </section>
   <div>
+
+    {% assign img_path = goals.goal | plus:0 %}
+    {% if img_path < 10 %}
+        {% assign img_path = 0  %}
+    {% else %}
+        {% assign img_path = ''  %}
+    {% endif %}
+
+    <img src="{{ site.baseurl }}/assets/img/goals/TGG_Icon_Color_{{ img_path }}{{ page_goal_num }}.png" alt="icon for Goal {{ goals.goal }} - {{ goals.title }}" />
+
     {{ content }}
     {% assign sdg_goals = site.data.sdg_goals %}
     {% assign sdg_indicators = site.data.sdg_indicator_metadata %}
