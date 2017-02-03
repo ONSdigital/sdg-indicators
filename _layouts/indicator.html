@@ -2,24 +2,18 @@
 {% include header.html %}
 <div id="main-content" class="container">
   <section>
-    <div>
-      <div>
-        <h2>
-        {% assign sdg_goals = site.data.sdg_goals %}
-        {% for goals in sdg_goals %}
-          {% assign page_goal_num = page.sdg_goal | plus:0 %}
-          {% assign goals_goal_num = goals.goal | plus:0 %}
-          {% if page_goal_num == goals_goal_num %}
-            <a href="{{ site.baseurl }}/{{ goals.short | slugify }}">
-              Goal {{ goals.goal }} - {{ goals.title }}
-            </a>
-          {% endif %}
-        {% endfor %}
-        </h2>
-      </div>
-    </div>
-  </section>
-  <div>
+    <h2>
+    {% assign sdg_goals = site.data.sdg_goals %}
+    {% for goals in sdg_goals %}
+      {% assign page_goal_num = page.sdg_goal | plus:0 %}
+      {% assign goals_goal_num = goals.goal | plus:0 %}
+      {% if page_goal_num == goals_goal_num %}
+        <a href="{{ site.baseurl }}/{{ goals.short | slugify }}">
+          Goal {{ goals.goal }} - {{ goals.title }}
+        </a>
+      {% endif %}
+    {% endfor %}
+    </h2>
     {% assign slug = page.indicator | replace: '.', '-' %}
     {% assign dataset_name = 'indicator_' | append: slug %}
     {% assign sdg_goals = site.data.sdg_goals %}
@@ -49,85 +43,75 @@
       {% include {{graph_template}} row=row labels=labels %}
     {% endif %}
     {{ page.content }}
-    <div>
-    <aside id="secondary" class="related plm-mu"><h4>See metadata tab for sources, definitions, and methodology information</h4></aside>
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">Data</a></li>
-      <li role="presentation"><a href="#metadata" aria-controls="metadata" role="tab" data-toggle="tab">Metadata</a></li>
-      {% if site.github.environment == 'dotcom' %}
-        <li role="presentation"><a href="#edit" aria-controls="edit" role="tab" data-toggle="tab">Edit (Requires Password)</a></li>
-      {% endif %}
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="data">
-        <div class="datatable-container">
-          <h4>{{ page.graph_title }}</h4>
-          <div id="datatable"></div>
-          <div class="button_wrapper">
-            <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv">Download CSV</a>
-          </div>
-          
+  <aside id="secondary" class="related plm-mu"><h4>See metadata tab for sources, definitions, and methodology information</h4></aside>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">Data</a></li>
+    <li role="presentation"><a href="#metadata" aria-controls="metadata" role="tab" data-toggle="tab">Metadata</a></li>
+    {% if site.github.environment == 'dotcom' %}
+      <li role="presentation"><a href="#edit" aria-controls="edit" role="tab" data-toggle="tab">Edit (Requires Password)</a></li>
+    {% endif %}
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="data">
+      <div class="datatable-container">
+        <h4>{{ page.graph_title }}</h4>
+        <div id="datatable"></div>
+        <div class="button_wrapper">
+          <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv">Download CSV</a>
         </div>
       </div>
-      <div role="tabpanel" class="tab-pane" id="metadata">
-        <div class="metadata-table">
-          
-          <h2>Global Metadata</h2>
-          <p class="metadata-notes">
-            This table provides information on metadata for SDG indicators as defined by the UNSC. Complete global <a href="{{ this_sdg_indicator_metadata.goal_meta_link }}">metadata documentation on all indicators in Goal {{ page_goal_num }}</a> is provided by the UN Statistics Division.
-          </p>
-          <table>
-            {% for indicator_metadata in site.prose.metadata._indicators %}
-              {% if indicator_metadata.field.scope == "global" %}
-                <tr>
-                  <th>  {{ indicator_metadata.field.label }} </th>
-                  <td>  {{ page[indicator_metadata.name] }} </td>
-                </tr>
-              {% endif %}
-            {% endfor %}
-          </table>
-          {% comment %}
-          <h2>U.S. Metadata</h2>
-          <p class="metadata-notes">
-            This table provides metadata for the actual indicator available from U.S. statistics closest to the corresponding global
-            SDG indicator. Please note that even when the global SDG indicator is fully available from U.S. statistics, this table
-            should be consulted for information on national methodology and other US-specific metadata information
-          </p>
-          <table>
-            {% for indicator_metadata in site.prose.metadata._indicators %}
-              {% if indicator_metadata.field.scope != "global" %}
-                <tr>
-                  <th>  {{ indicator_metadata.field.label }} </th>
-                  <td>  {{ page[indicator_metadata.name] }} </td>
-                </tr>
-              {% endif %}
-            {% endfor %}
-          </table>
-        </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="metadata">
+      <div class="metadata-table">
+        <h2>Global Metadata</h2>
+        <p class="metadata-notes">
+          This table provides information on metadata for SDG indicators as defined by the UNSC. Complete global <a href="{{ this_sdg_indicator_metadata.goal_meta_link }}">metadata documentation on all indicators in Goal {{ page_goal_num }}</a> is provided by the UN Statistics Division.
+        </p>
+        <table>
+          {% for indicator_metadata in site.prose.metadata._indicators %}
+            {% if indicator_metadata.field.scope == "global" %}
+              <tr>
+                <th>  {{ indicator_metadata.field.label }} </th>
+                <td>  {{ page[indicator_metadata.name] }} </td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+        </table>
+        {% comment %}
+        <h2>U.S. Metadata</h2>
+        <p class="metadata-notes">
+          This table provides metadata for the actual indicator available from U.S. statistics closest to the corresponding global
+          SDG indicator. Please note that even when the global SDG indicator is fully available from U.S. statistics, this table
+          should be consulted for information on national methodology and other US-specific metadata information
+        </p>
+        <table>
+          {% for indicator_metadata in site.prose.metadata._indicators %}
+            {% if indicator_metadata.field.scope != "global" %}
+              <tr>
+                <th>  {{ indicator_metadata.field.label }} </th>
+                <td>  {{ page[indicator_metadata.name] }} </td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+        </table>
       {% endcomment %}
     </div>
-    {% if site.github.environment == 'dotcom' %}
-      <div role="tabpanel" class="tab-pane" id="edit">
-        <div class="edit-container">
-          <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/data/indicator_{{ page.indicator | slugify }}.csv">Edit Data</a>
-          <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/_indicators/{{ page.indicator | slugify }}.md">Edit Metadata</a>
-        </div>
-      </div>
-    {% endif %}
   </div>
-  <!-- / Tab panes -->
-</div>
-</div> 
-
-    <div>
-        <a href="#">Return to top</a>
+  {% if site.github.environment == 'dotcom' %}
+    <div role="tabpanel" class="tab-pane" id="edit">
+      <div class="edit-container">
+        <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/data/indicator_{{ page.indicator | slugify }}.csv">Edit Data</a>
+        <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/_indicators/{{ page.indicator | slugify }}.md">Edit Metadata</a>
+      </div>
     </div>
-
-
+  {% endif %}
 </div>
-
+<!-- / Tab panes -->
+<a href="#">Return to top</a>
+</section>
+</div>
 {% include scripts.html %}
 <script>
 init_table({
@@ -138,5 +122,4 @@ csv_options: {separator: ',', delimiter: '"'},
 datatables_options: {"paging": false, "bInfo" : false, "searching": false}
 });
 </script>
-
 {% include footer.html %}
