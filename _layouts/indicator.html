@@ -1,10 +1,10 @@
 {% include head.html %}
 {% include header.html %}
-<div id="main" class="main-content initiative-content">
+<div id="main-content">
   <section>
     <div>
       <div>
-        <h2 class="goal-heading">
+        <h2>
         {% assign sdg_goals = site.data.sdg_goals %}
         {% for goals in sdg_goals %}
           {% assign page_goal_num = page.sdg_goal | plus:0 %}
@@ -19,7 +19,7 @@
       </div>
     </div>
   </section>
-  <div class="initiative-description">
+  <div>
     {% assign slug = page.indicator | replace: '.', '-' %}
     {% assign dataset_name = 'indicator_' | append: slug %}
     {% assign sdg_goals = site.data.sdg_goals %}
