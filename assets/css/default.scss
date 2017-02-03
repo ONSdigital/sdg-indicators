@@ -5,6 +5,7 @@
 
 $main-background-color: 				#eaeaea;
 $vanilla: 								#fff;
+$footer-color:                          #E5E6E7;                        
 
 
 body {
@@ -22,7 +23,13 @@ header {
 	}
 }
 
+h1, h2, h3, h4, h5, h6 {
+   font-family: 'Open Sans', sans-serif; 
+}
+
 #main-content {
+
+    font-family: 'Roboto', sans-serif;
 
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -45,7 +52,7 @@ header {
 
 footer {
     background-color: #414042;
-    color: #E5E6E7;
+    color: $footer-color;
 
     h3 {
 		margin-top: 32px;    
@@ -62,7 +69,11 @@ footer {
     }
 
     a {
-        color: #E5E6E7;
+        color: $footer-color;
+
+        &:hover {
+            color: lighten($footer-color, 20%);
+        }
     }
 
     .licence {
