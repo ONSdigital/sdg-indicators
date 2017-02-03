@@ -6,8 +6,9 @@ function init_table(options) {
   var allow_download = options.allow_download || false;
   var csv_options = options.csv_options || {};
   var datatables_options = options.datatables_options || {};
+  var table_class = options.table_class || 'table table-hover';
 
-  $("#" + el).html("<table class='table table-striped table-condensed' id='my-table'></table>");
+  $("#" + el).html('<table class="' + table_class + '" id="my-table"></table>');
 
   $.when($.get(csv_path)).then(
     function(data){      
