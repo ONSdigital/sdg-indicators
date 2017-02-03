@@ -1,17 +1,73 @@
 <footer role="contentinfo">
-  <div>
-    <div>
-      <div>
-        <h3>Email Contact</h3>
-        <dl>
-          <dt>Content questions</dt>
-          <dd>{{ site.email_contacts.questions }}</dd>
-          <dt>Site functionality</dt>
-          <dd>{{ site.email_contacts.functional }}</dd>
-        </dl>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <h3>Help</h3>
+        <ul>
+          <li>
+            <a href="/help/accessibility">Accessibility</a>
+          </li>
+          <li>
+            <a href="/help/cookiesandprivacy">Cookies and privacy</a>
+          </li>
+          <li>
+            <a href="/help/termsandconditions">Terms and conditions</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        <h3>About ONS</h3>
+        <ul>
+          <li>
+            <a href="/aboutus/whatwedo">What we do</a>
+          </li>
+          <li>
+            <a href="/aboutus/careers">Careers</a>
+          </li>
+          <li>
+            <a href="/aboutus/contactus">Contact us</a>
+          </li>
+          <li>
+            <a href="/news">News</a>
+          </li>
+          <li>
+            <a href="/aboutus/transparencyandgovernance/freedomofinformationfoi">Freedom of Information</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        <h3>Connect with us</h3>
+        <ul>
+          <li>
+            <a href="mailto:{{ site.email_contacts.questions }}">Content Questions</a>
+          </li>
+          <li>
+            <a href="mailto:{{ site.email_contacts.functional }}">Site functionality</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/ONS" target="_blank">Twitter</a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/ONS" target="_blank">Facebook</a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/company/office-for-national-statistics" target="_blank">LinkedIn</a>
+          </li>
+          <li>
+            <a href="https://public.govdelivery.com/accounts/UKONS/subscribers/new" target="_blank">Email alerts</a>
+          </li>
+        </ul>
       </div>
     </div>
+    <div class="row licence">
+      <img alt="OGL" width="60" height="25" src="{{ site.baseurl }}/assets/img/ogl.png">
+      <p>
+        All content is available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank">Open Government Licence v3.0</a> <span class="icon icon-external--light-small"></span>, except where otherwise stated
+      </p>
+    </div>
   </div>
+
+</div>
 </footer>
 <!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
 <!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
@@ -23,17 +79,17 @@
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 {% if site.github.environment == 'dotcom' %}
-  
+
 {% else %}
-  ga('create', '{{ site.analytics['ga_prod'] }}', 'auto');
-  // anonymize user IPs (chops off the last IP triplet)
-  ga('set', 'anonymizeIp', true);
-  // forces SSL even if the page were somehow loaded over http://
-  ga('set', 'forceSSL', true);
-  ga('send', 'pageview');
+ga('create', '{{ site.analytics['ga_prod'] }}', 'auto');
+// anonymize user IPs (chops off the last IP triplet)
+ga('set', 'anonymizeIp', true);
+// forces SSL even if the page were somehow loaded over http://
+ga('set', 'forceSSL', true);
+ga('send', 'pageview');
 {% endif %}
 </script>
 {% endcomment %}
-</div>
+<!-- /.container </div> -->
 </body>
 </html>
