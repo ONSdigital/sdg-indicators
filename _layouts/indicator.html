@@ -32,6 +32,9 @@
       {% assign row = row | push: indicator[page.indicator_variable] %}
       {% assign labels = labels | push: indicator.year %}
     {% endfor %}
+
+    <img src="{{ site.baseurl }}/assets/img/goals/{{ page_goal_num }}.png" alt="icon for Goal {{ goals.goal }} - {{ goals.title }}" />
+
     <h3>Indicator {{ page.indicator }} - {{ indicator_title }}</h3>
     {% if page.graph == 'bar' or page.graph == 'longitudinal' %}
       {% assign graph_type = page.graph %}
@@ -42,6 +45,7 @@
       <h4>{{ page.graph_title }}</h4>
       {% include {{graph_template}} row=row labels=labels %}
     {% endif %}
+
     {{ page.content }}
   <aside id="secondary" class="related plm-mu"><h4>See metadata tab for sources, definitions, and methodology information</h4></aside>
   <!-- Nav tabs -->
