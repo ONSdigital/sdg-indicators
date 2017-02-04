@@ -122,12 +122,10 @@
 </div>
 {% include scripts.html %}
 <script>
-init_table({
-csv_path: '../data/{{ dataset_name }}.csv',
-element: 'datatable',
-allow_download: false,
-csv_options: {separator: ',', delimiter: '"'},
-datatables_options: {"paging": false, "bInfo" : false, "searching": false}
+  init_table({
+    csv_path: '../data/{{ dataset_name }}.csv',
+    element: 'datatable',
+    allow_download: false
 });
 </script>
 {% include footer.html %}
