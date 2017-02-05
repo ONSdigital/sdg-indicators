@@ -46,6 +46,11 @@ var chartInstance = new Chart(document.getElementById('linechart-{{ id }}'), {
               gridLines: {
                   color: "rgba(0, 0, 0, 0)",
               }
+          }],
+          yAxes: [{
+            ticks: {
+                suggestedMin: 0
+            }
           }]
         },
         legend: {
