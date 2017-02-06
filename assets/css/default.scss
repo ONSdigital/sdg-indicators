@@ -5,17 +5,26 @@
 
 $main-background-color: 				#eaeaea;
 $vanilla: 								#fff;
-$footer-color:                          #E5E6E7;                        
+$footer-color:                          #E5E6E7;         
+$goal-colors:                           #E5243B #DDA63A #4C9F38 #C5192D #FF3A21 #26BDE2 #FCC30B #A21942 #FD6925 #DD1367 #FD9D24 #BF8B2E #3F7E44 #0A97D9 #56C02B #00689D #19486A;             
+
+@for $i from 1 through length($goal-colors) {
+    $c: nth($goal-colors, $i);
+
+    .goal-#{$i} {
+        background-color: $c;
+    }
+}
 
 
 body {
-	background: $main-background-color;
+	background: $main-background-color url('../img/SDG Wheel_Transparent-01.png') bottom right no-repeat;
 	padding: 0;
 	margin: 0;
 }
 
 header {
-	background: $vanilla;
+	background: $vanilla url('../img/sdgbg.png') bottom left repeat-x;
 	margin: 0;
 
 	nav {
@@ -36,6 +45,14 @@ ul {
     padding: 0;
     list-style-type: none;
 }
+
+
+
+
+
+
+
+
 
 #main-content {
 

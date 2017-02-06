@@ -10,16 +10,17 @@
           {% assign page_goal_num = page.sdg_goal | plus:0 %}
           {% assign goals_goal_num = goals.goal | plus:0 %}
           {% if page_goal_num == goals_goal_num %}
+            {% assign page_goal = goals %}
             <a href="{{ site.baseurl }}/{{ goals.short | slugify }}/">
               Goal {{ goals.goal }} - {{ goals.title }}
             </a>
           {% endif %}
         {% endfor %}
-        </h2>
+        </h2> 
       </div>
     </div>
   </section>
-  <div>
+  <div class="goal-{{page.sdg_goal}}">
 
     {% assign img_path = goals.goal | plus:0 %}
     {% if img_path < 10 %}
@@ -28,8 +29,11 @@
         {% assign img_path = ''  %}
     {% endif %}
 
-    <img src="{{ site.baseurl }}/assets/img/goals/{{ page_goal_num }}.png" alt="icon for Goal {{ goals.goal }} - {{ goals.title }}" />
+    <img src="{{ site.baseurl }}/assets/img/goals/{{ page_goal_num }}.png" alt="icon for Goal {{ page.sdg_goal }} - {{ page.title }}" />
 
+ <!--    **-- <h1>{{ page.colour }}</h1> --**
+ -->
+ 
     {{ content }}
     {% assign sdg_goals = site.data.sdg_goals %}
     {% assign sdg_indicators = site.data.sdg_indicator_metadata %}
