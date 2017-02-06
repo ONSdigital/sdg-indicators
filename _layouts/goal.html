@@ -20,7 +20,7 @@
       </div>
     </div>
   </section>
-  <div class="goal-{{page.sdg_goal}}">
+  <div class="goal-{{page.sdg_goal}} goal-indicators">
 
     {% assign img_path = goals.goal | plus:0 %}
     {% if img_path < 10 %}
@@ -31,8 +31,8 @@
 
     <img src="{{ site.baseurl }}/assets/img/goals/{{ page_goal_num }}.png" alt="icon for Goal {{ page.sdg_goal }} - {{ page.title }}" />
 
- <!--    **-- <h1>{{ page.colour }}</h1> --**
- -->
+<!--     **-- <h1>{{ page.colour }}</h1> --** -->
+
  
     {{ content }}
     {% assign sdg_goals = site.data.sdg_goals %}
