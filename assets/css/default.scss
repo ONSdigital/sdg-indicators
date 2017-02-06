@@ -8,22 +8,6 @@ $vanilla: 								#fff;
 $footer-color:                          #E5E6E7;         
 $goal-colors:                           #E5243B #DDA63A #4C9F38 #C5192D #FF3A21 #26BDE2 #FCC30B #A21942 #FD6925 #DD1367 #FD9D24 #BF8B2E #3F7E44 #0A97D9 #56C02B #00689D #19486A;             
 
-
-@for $i from 1 through length($goal-colors) {
-    $c: nth($goal-colors, $i);
-
-    .goal-#{$i} {
-        //background-color: $c;
-
-        &:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-    }
-}
-
-
 body {
 	background: $main-background-color url('../img/SDG Wheel_Transparent-01.png') bottom 50px right -300px no-repeat;
 	padding: 0;
@@ -66,8 +50,16 @@ ul {
 
 
 
-
-
+@for $i from 1 through length($goal-colors) {
+    .goal-#{$i} {
+        .heading {
+            $c: nth($goal-colors, $i);
+            background-color: $c;
+            border-top: 2px solid darken($c, 15%);
+            border-bottom: 5px solid darken($c, 20%);
+        }
+    }
+}
 
 #main-content {
 
@@ -76,34 +68,87 @@ ul {
     padding-top: 1rem;
     padding-bottom: 1rem;
 
-	a {
-		padding: 5px;
-		background: white;
-		display: inline-block;
-		margin-bottom: 5px;
-
-		&:hover {
-			background: darken(white, 10%);
-		}
-	}
-
-	img {
-		width: 200px;
-	}
-
-    li {
-        width: 19%;
-        float: left;
+    .heading {
 
         a {
+            background: transparent;
+            color: white;
             display: block;
-            height: 100%;
-            padding: 1rem;
-
+            
             &:hover {
                 text-decoration: none;
             }
         }
+
+        img {
+            width: 200px;
+            float: left;
+        }
+
+        h2 {
+            width: 100%;
+            padding: 10px 10px 10px 0;
+
+            &:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        }
+    }
+
+    img {
+        width: 200px;
+        margin-right: 0.4rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .goal-indicators {
+        clear: left;
+        margin-top: 0.5rem;
+
+        a {
+            padding: 5px;
+            background: white;
+            display: inline-block;
+            margin-bottom: 5px;
+
+            &:hover {
+                background: darken(white, 10%);
+            }
+        }
+
+        li {
+            width: 19%;
+            float: left;
+            margin-right: 1px;
+            margin-top: 1px;
+
+            span {
+                display: block;
+                margin-bottom: 0.5rem;
+                font-weight: bold;
+                padding-bottom: 0.2rem;
+                border-bottom: 2px solid black;
+            }
+
+            a {
+                color: black;
+                display: block;
+                height: 100%;
+                padding: 1rem;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    .goal-indicators:after {
+        content: "";
+        display: table;
+        clear: both;
     }
 }
 
