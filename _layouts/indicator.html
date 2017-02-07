@@ -101,8 +101,8 @@
         {% for indicator_metadata in site.prose.metadata._indicators %}
           {% if indicator_metadata.field.scope != "global" %}
             <tr>
-              <th>  {{ indicator_metadata.field.label }} </th>
-              <td>  {{ page[indicator_metadata.name] }} </td>
+              <th>{{ indicator_metadata.field.label }}</th>
+              <td>{{ page[indicator_metadata.name] }}</td>
             </tr>
           {% endif %}
         {% endfor %}
