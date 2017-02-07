@@ -17,19 +17,36 @@ body {
 header {
 	background: $vanilla url('../img/sdgbg.png') bottom left repeat-x;
 	margin: 0;
+    padding-bottom: 2rem;
 
 	.nav {
 		margin: 0;
-        margin-top: -50px;
+        margin-top: -65px;
         padding-bottom: 30px;
+
+        .nav-item {
+            padding: 0;
+
+            a {
+                padding: 0.5em 1em;
+            }
+        }
+
+        a.current {
+            border-bottom: 2px solid black;
+        }
 	}
 
-    h1 {
-        padding-top: 0.5rem;
+    #home {
+        margin-top: 0.5em;
         background: transparent url('../img/un-emblem.png') -12px 0 no-repeat;
+        background-size: 547px 89px;
         width: 547px;
         height: 89px;
-        background-size: 547px 89px;
+        display: block;
+    }
+
+    h1 {
         text-indent: -9999rem;
     }
 }
@@ -63,9 +80,14 @@ ul {
         }
 
         .goal-indicators {
-            li span {
-                border-color: $dark-c;
-                color: $dark-c;
+            li {
+
+                border: 1px solid rgba(0, 0, 0, 0.1);
+
+                span {
+                    border-color: $dark-c;
+                    color: $dark-c;
+                }
             }
         }
     }
@@ -147,7 +169,7 @@ ul {
             transition: background 1s;
 
             &:hover {
-                background: darken(white, 20%);
+                background: transparent;
             }
         }
 
