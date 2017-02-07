@@ -19,12 +19,10 @@
       </div>
     {% endcomment %}
     <a href="{{ site.baseurl }}/" id="home"><h1>Sustainable Development Goals</h1></a>
-
-
-
     <ul class="nav float-right">
       <li class="nav-item">
-        <a href="{{ site.baseurl }}/" {% if page.permalink == "/" %}class="nav-link current"{% else %}class="nav-link"{% endif %}>Statistics</a>
+
+        <a href="{{ site.baseurl }}/" {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" %}class="nav-link"{% else %}class="nav-link current"{% endif %}>Statistics</a>
       </li>
       <li class="nav-item">
         <a href="{{ site.baseurl }}/reporting-status" {% if page.permalink == "/reporting-status/" %}class="nav-link current"{% else %}class="nav-link"{% endif %}>Reporting Status</a>
@@ -32,8 +30,9 @@
       <li class="nav-item">
         <a href="{{ site.baseurl }}/news" {% if page.permalink == "/news/" %}class="nav-link current"{% else %}class="nav-link"{% endif %}>News &amp; Events</a>
       </li>
-<!--       <li class="nav-item">
-        <a class="nav-link" href="#">{{ page.permalink }}</a>
+<!--       
+ <li class="nav-item">
+        <a class="nav-link" href="#">**{{ page.permalink }} - sp: {{stats_page}}</a>
       </li> -->
     </ul>
   </div>
