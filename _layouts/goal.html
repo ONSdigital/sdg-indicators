@@ -1,7 +1,9 @@
 {% include head.html %}
 {% include header.html %}
-<div id="main-content" class="container goal-{{page.sdg_goal}}">
-  <div class="heading">
+
+
+<div class="heading goal-{{page.sdg_goal}}">
+  <div class="container">
     <img src="{{ site.baseurl }}/assets/img/goals/{{ page.sdg_goal }}.png" alt="icon for Goal {{ page.sdg_goal }} - {{ page.title }}" />
     <div>
       <h2>
@@ -19,6 +21,11 @@
       </h2> 
     </div>
   </div>
+</div>
+
+
+<div id="main-content" class="container ">
+  
 
   <div class="goal-indicators">
 

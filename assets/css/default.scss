@@ -73,9 +73,9 @@ ul {
     $dark-c: darken($c, 20%);
 
     .goal-#{$i} {
-        .heading {
+        &.heading {
             background-color: $c;
-            border-top: 2px solid darken($c, 15%);
+            //border-top: 2px solid darken($c, 15%);
             border-bottom: 5px solid $dark-c;
         }
 
@@ -93,54 +93,61 @@ ul {
     }
 }
 
+.heading {
+
+    a {
+        background: transparent;
+        color: white;
+        display: block;
+        
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    img {
+        width: 200px;
+        float: left;
+        margin-bottom: 0;
+        margin-right: 2rem;
+    }
+
+    h2, h3 {
+        //width: 100%;
+        padding: 10px 10px 0 0;
+        margin-bottom: 0;
+        color: white;
+
+/*
+        &:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+*/
+    }
+
+    h2 {
+        margin-bottom: 1rem;
+    }
+
+    //margin-bottom: 1.5rem;
+    padding: 2rem 0;
+
+    div:after {
+        content: "";
+        display: table;
+        clear: both;        
+    }
+}
+
 #main-content {
 
     font-family: 'Roboto', sans-serif;
+    background: white;
 
-    padding-top: 1rem;
+    padding-top: 1.8rem;
     padding-bottom: 1rem;
-
-    .heading {
-
-        a {
-            background: transparent;
-            color: white;
-            display: block;
-            
-            &:hover {
-                text-decoration: none;
-            }
-        }
-
-        img {
-            width: 200px;
-            float: left;
-            margin-bottom: 0;
-        }
-
-        h2, h3 {
-            //width: 100%;
-            padding: 10px 10px 0 0;
-            margin-bottom: 0;
-            color: white;
-
-/*
-            &:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-*/
-        }
-
-        margin-bottom: 1.5rem;
-
-        div:after {
-            content: "";
-            display: table;
-            clear: both;        
-        }
-    }
 
     h4 {
         margin-bottom: 1.5rem;

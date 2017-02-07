@@ -1,26 +1,30 @@
 {% include head.html %}
 {% include header.html %}
 
+<div class="heading goal-{{page.sdg_goal}}">
+  <div class="container">
+    <img src="{{ site.baseurl }}/assets/img/goals/{{ page.sdg_goal }}.png" alt="icon for Goal {{ page.sdg_goal }} - {{ page.title }}" />
+    <div>
+      <h2>
+      {% assign sdg_goals = site.data.sdg_goals %}
+      {% for goals in sdg_goals %}
+        {% assign page_goal_num = page.sdg_goal | plus:0 %}
+        {% assign goals_goal_num = goals.goal | plus:0 %}
+        {% if page_goal_num == goals_goal_num %}
+          <a href="{{ site.baseurl }}/{{ goals.short | slugify }}">
+            {{ goals.title }}
+          </a>
+        {% endif %}
+      {% endfor %}
+      </h2>  
+      <h3>Indicator {{ page.indicator }} - {{ page.title }}</h3>
+    </div>
+  </div>
+</div>
+
 <div id="main-content" class="container goal-{{page.sdg_goal}}">
 
-  <div class="heading">
-      <img src="{{ site.baseurl }}/assets/img/goals/{{ page.sdg_goal }}.png" alt="icon for Goal {{ page.sdg_goal }} - {{ page.title }}" />
-      <div>
-        <h2>
-        {% assign sdg_goals = site.data.sdg_goals %}
-        {% for goals in sdg_goals %}
-          {% assign page_goal_num = page.sdg_goal | plus:0 %}
-          {% assign goals_goal_num = goals.goal | plus:0 %}
-          {% if page_goal_num == goals_goal_num %}
-            <a href="{{ site.baseurl }}/{{ goals.short | slugify }}">
-              {{ goals.title }}
-            </a>
-          {% endif %}
-        {% endfor %}
-        </h2>  
-        <h3>Indicator {{ page.indicator }} - {{ page.title }}</h3>
-      </div>
-  </div>
+  
 
   <section>
     {% assign slug = page.indicator | replace: '.', '-' %}
