@@ -10,9 +10,9 @@
       {% assign goals_goal_num = goals.goal | plus:0 %}
       {% if page_goal_num == goals_goal_num %}
         {% assign page_goal = goals %}
-        <a href="{{ site.baseurl }}/{{ goals.short | slugify }}/">
+        <!-- <a href="{{ site.baseurl }}/{{ goals.short | slugify }}/"> -->
           <!--Goal {{ goals.goal }} - --> {{ goals.title }}
-        </a>
+        <!-- </a> -->
       {% endif %}
     {% endfor %}
     </h2> 
