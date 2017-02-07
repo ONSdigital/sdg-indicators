@@ -44,11 +44,11 @@ ul {
     list-style-type: none;
 }
 
-
-
-
-
-
+.table-hover {
+    tbody tr:hover {
+        background: darken(white, 12%);
+    }
+}
 
 @for $i from 1 through length($goal-colors) {
 
@@ -96,18 +96,36 @@ ul {
             margin-bottom: 0;
         }
 
-        h2 {
-            width: 100%;
+        h2, h3 {
+            //width: 100%;
             padding: 10px 10px 0 0;
             margin-bottom: 0;
             color: white;
 
+/*
             &:after {
                 content: "";
                 display: table;
                 clear: both;
             }
+*/
         }
+
+        margin-bottom: 1.5rem;
+
+        div:after {
+            content: "";
+            display: table;
+            clear: both;        
+        }
+    }
+
+    h4 {
+        margin-bottom: 1.5rem;
+    }
+
+    canvas {
+        margin-bottom: 1.5rem;
     }
 
     img {
@@ -129,7 +147,7 @@ ul {
             transition: background 1s;
 
             &:hover {
-                background: darken(white, 10%);
+                background: darken(white, 20%);
             }
         }
 
@@ -165,6 +183,29 @@ ul {
         content: "";
         display: table;
         clear: both;
+    }
+
+    .nav-tabs {
+        .nav-item {
+            a {
+                background: none;
+                border: none;
+
+                &.active {
+                    border-bottom: 2px solid black;
+                }
+            }
+        }
+    }
+
+    .tab-content {
+        .tab-pane {
+            padding-top: 1.5rem;
+
+            th {
+                width: 35%;
+            }
+        }
     }
 
     .to-top {
