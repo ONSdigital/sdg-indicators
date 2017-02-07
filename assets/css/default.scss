@@ -51,12 +51,22 @@ ul {
 
 
 @for $i from 1 through length($goal-colors) {
+
+    $c: nth($goal-colors, $i);
+    $dark-c: darken($c, 20%);
+
     .goal-#{$i} {
         .heading {
-            $c: nth($goal-colors, $i);
             background-color: $c;
             border-top: 2px solid darken($c, 15%);
-            border-bottom: 5px solid darken($c, 20%);
+            border-bottom: 5px solid $dark-c;
+        }
+
+        .goal-indicators {
+            li span {
+                border-color: $dark-c;
+                color: $dark-c;
+            }
         }
     }
 }
@@ -115,6 +125,8 @@ ul {
             background: white;
             display: inline-block;
             margin-bottom: 5px;
+            -webkit-transition: background 0.5s; 
+            transition: background 1s;
 
             &:hover {
                 background: darken(white, 10%);
@@ -132,7 +144,8 @@ ul {
                 margin-bottom: 0.5rem;
                 font-weight: bold;
                 padding-bottom: 0.2rem;
-                border-bottom: 2px solid black;
+                border-bottom-width: 2px;
+                border-bottom-style: solid;
             }
 
             a {
@@ -140,7 +153,7 @@ ul {
                 display: block;
                 height: 100%;
                 padding: 1rem;
-
+                
                 &:hover {
                     text-decoration: none;
                 }
