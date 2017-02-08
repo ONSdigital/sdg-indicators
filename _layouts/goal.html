@@ -1,69 +1,29 @@
 {% include head.html %}
 {% include header.html %}
 
-
 <div class="heading goal-{{page.sdg_goal}}">
   <div class="container">
     <img src="{{ site.baseurl }}/assets/img/goals/{{ page.sdg_goal }}.png" alt="icon for Goal {{ page.sdg_goal }} - {{ page.title }}" />
     <div>
-      <h2>
-      {% assign sdg_goals = site.data.sdg_goals %}
-      {% for goals in sdg_goals %}
-        {% assign page_goal_num = page.sdg_goal | plus:0 %}
-        {% assign goals_goal_num = goals.goal | plus:0 %}
-        {% if page_goal_num == goals_goal_num %}
-          {% assign page_goal = goals %}
-          <!-- <a href="{{ site.baseurl }}/{{ goals.short | slugify }}/"> -->
-            <!--Goal {{ goals.goal }} - --> {{ goals.title }}
-          <!-- </a> -->
-        {% endif %}
-      {% endfor %}
-      </h2> 
+      <h2>{{page.title}}</h2> 
     </div>
   </div>
 </div>
 
+<div id="main-content" class="container goal-indicators">
+  {{ content }}
 
-<div id="main-content" class="container ">
-  
+  {% assign indicators = site.data.sdg_indicator_metadata | where:'goal', page.sdg_goal %}
+  {% for indicator in indicators %}
+    {% cycle 'add row' : '<div class="row no-gutters">', nil, nil, nil %}
+        <div class="col-sm-3">
+            <a href="{{ site.baseurl }}/{{ indicator.indicator_id | replace: '.', '-' }}"><span>{{ indicator.indicator_id }}</span> {{ indicator.indicator }}</a>
+        </div>
+    {% cycle 'end row' : nil, nil, nil, '</div>' %}
+    {% endfor %}
+  {% cycle 'end row' : nil, '</div>', '</div>', '</div>' %}
 
-  <div class="goal-indicators">
-
-    {% assign img_path = goals.goal | plus:0 %}
-    {% if img_path < 10 %}
-        {% assign img_path = 0  %}
-    {% else %}
-        {% assign img_path = ''  %}
-    {% endif %}
- 
-    {{ content }}
-    
-    {% assign sdg_goals = site.data.sdg_goals %}
-    {% assign sdg_indicators = site.data.sdg_indicator_metadata %}
-    {% assign sdg_indicator_pages = site.indicators %}
-    <ul>
-      {% for indicators in sdg_indicators %}
-        {% assign goal = indicators.goal | plus:0 %}
-        {% assign slug = indicators.indicator_id | replace: '.', '-' %}
-        {% if goal == page.sdg_goal %}
-          {% for sdg_indicator_page in sdg_indicator_pages %}
-            {% if sdg_indicator_page.indicator == indicators.indicator_id %}
-              {% if sdg_indicator_page.graph != "" and sdg_indicator_page.graph != nil %}
-                {% assign graph_type = sdg_indicator_page.graph %}
-                {% assign graph_set = 'graph ' %}
-              {% else %}
-                {% assign graph_type = '' %}
-                {% assign graph_set = 'no-graph' %}
-              {% endif %}
-            {% endif %}
-          {% endfor %}
-          <li class="{{ graph_set }}{{ graph_type }}"><a href="{{ site.baseurl }}/{{ slug }}"><span>{{ indicators.indicator_id }}</span> {{ indicators.indicator }}</a></li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
-
-      <a href="#" class="to-top">Return to top</a>
+  <a href="#" class="to-top">Return to top</a>
 
 </div>
 
