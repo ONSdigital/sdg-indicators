@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<div id="main-content" class="container goal-indicators">
+<div id="main-content" class="container goal-indicators goal-{{page.sdg_goal}}">
   {{ content }}
 
   {% assign indicators = site.data.sdg_indicator_metadata | where:'goal', page.sdg_goal %}
