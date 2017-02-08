@@ -4,6 +4,7 @@
 @import "bootstrap.scss";
 
 $main-background-color: 				#eaeaea;
+$nav-active-border:                     #014c8c;
 $vanilla: 								#fff;
 $footer-color:                          #E5E6E7;         
 $goal-colors:                           #E5243B #DDA63A #4C9F38 #C5192D #FF3A21 #26BDE2 #FCC30B #A21942 #FD6925 #DD1367 #FD9D24 #BF8B2E #3F7E44 #0A97D9 #56C02B #00689D #19486A;             
@@ -12,14 +13,22 @@ body {
 	background: $main-background-color; // url('../img/SDG Wheel_Transparent-01.png') bottom 50px right -300px no-repeat;
 	padding: 0;
 	margin: 0;
+    margin-top: 8rem;
 }
 
 header {
 	background: $vanilla url('../img/sdgbg.png') bottom left repeat-x;
 	margin: 0;
     padding-bottom: 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
 
 	.nav {
+
+        margin-top: 2rem;
+
         .nav-item {
             padding: 0;
 
@@ -29,7 +38,7 @@ header {
         }
 
         a.current {
-            border-bottom: 2px solid black;
+            border-bottom: 2px solid $nav-active-border;
         }
 	}
 
@@ -61,6 +70,10 @@ ul {
     tbody tr:hover {
         background: darken(white, 12%);
     }
+}
+
+.download-csv {
+    margin-top: 1.5rem;
 }
 
 @for $i from 1 through length($goal-colors) {
@@ -106,26 +119,21 @@ ul {
     }
 
     h2, h3 {
-        //width: 100%;
         padding: 10px 10px 0 0;
         margin-bottom: 0;
         color: white;
-
-/*
-        &:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-*/
     }
 
     h2 {
         margin-bottom: 1rem;
     }
 
-    //margin-bottom: 1.5rem;
-    padding: 2rem 0;
+    h3 {
+        font-size: 1.25rem;
+        line-height: 1.9rem;
+    }
+
+    padding: 2rem 0 0.3rem 0;
 
     div:after {
         content: "";
