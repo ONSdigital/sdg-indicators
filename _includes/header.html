@@ -1,27 +1,9 @@
 <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
 <header role="banner">
   <div class="container">
-      {% comment %}
-      <div class="{{ site.github.environment }} {{ jekyll.environment }}">
-        <div>
-          <span>
-            {% if site.github.environment == 'dotcom' %}
-              This is a staging site used to update and preview indicator data
-            {% else %}
-              This is an official website of the United States government
-            {% endif %}
-          </span>
-          {% if site.github.environment == 'dotcom' %}
-            <a href="{{ site.baseurl }}/admin" class="login-link">Login / Logout</a>
-          {% endif %}
-          <span>This site is a work in progress</span>
-        </div>
-      </div>
-    {% endcomment %}
     <a href="{{ site.baseurl }}/" id="home"><h1>Sustainable Development Goals</h1></a>
     <ul class="nav float-right">
       <li class="nav-item">
-
         <a href="{{ site.baseurl }}/" {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" %}class="nav-link"{% else %}class="nav-link current"{% endif %}>Statistics</a>
       </li>
       <li class="nav-item">
@@ -30,10 +12,6 @@
       <li class="nav-item">
         <a href="{{ site.baseurl }}/news" {% if page.permalink == "/news/" %}class="nav-link current"{% else %}class="nav-link"{% endif %}>News &amp; Events</a>
       </li>
-<!--       
- <li class="nav-item">
-        <a class="nav-link" href="#">**{{ page.permalink }} - sp: {{stats_page}}</a>
-      </li> -->
     </ul>
   </div>
 </header>
