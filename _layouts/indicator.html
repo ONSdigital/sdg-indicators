@@ -3,7 +3,9 @@
 
 <div class="heading goal-{{page.sdg_goal}}">
   <div class="container">
-    <img src="{{ site.baseurl }}/assets/img/goals/{{ page.sdg_goal }}.png" alt="icon for Goal {{ page.sdg_goal }} - {{ page.title }}" />
+    <a href="{{ site.baseurl }}/{{ goals.short | slugify }}" title="View this goal's indicator list">
+      <img src="{{ site.baseurl }}/assets/img/goals/{{ page.sdg_goal }}.png" alt="icon for Goal {{ page.sdg_goal }} - {{ page.title }}" />
+    </a>
     <div>
       <h2>
       {% assign sdg_goals = site.data.sdg_goals %}
