@@ -35,30 +35,47 @@ prose:
   metadata:
     _indicators:
       - name: "indicator_name"
-        field:
-            element: hidden
+        field: 
+            element: text
             label: "SDG Indicator Name"
             scope: global
       - name: "target"
-        field:
-            element: hidden
+        field: 
+            element: text
             label: "SDG Target Addressed"
             scope: global
       - name: "indicator_definition"
-        field:
-            element: hidden
+        field: 
+            element: textarea
             label: "Definition of SDG Indicator"
             scope: global
       - name: "method_of_computation"
-        field:
-            element: hidden
-            label: "Method of global SDG computation"
+        field: 
+            element: textarea
+            label: "Method of computation for global SDG indicator"
             scope: global
+      - name: "un_designated_tier"
+        field: 
+            element: text
+            label: "UN Designated Tier"
+            scope: global
+      - name: "un_custodial_agency"
+        field: 
+            element: text
+            label: "UN Custodial Agency"
+            scope: global
+      - name: "graph_title"
+        field: 
+            element: text
+            label: "Graph Title"  
       - name: "actual_indicator_available"
         field:
             element: text
             label: "Actual indicator available"
       - name: "actual_indicator_available_description"
+        field: 
+            element: textarea
+            label: "Description of actual indicator available"  
         field:
             element: text
             label: "Description of actual indicator available"
@@ -67,9 +84,9 @@ prose:
             element: textarea
             label: "Method of computation"
       - name: "comments_and_limitations"
-        field:
-            element: text
-            label: "Comments and limitations"
+        field: 
+            element: textarea
+            label: "Comments and limitations"  
       - name: "periodicity"
         field:
             element: text
@@ -125,7 +142,7 @@ prose:
       - name: "source_url"
         field:
             element: text
-            label: "Indicator WEB address (closest to data provided)"
+            label: "Indicator web address (closest to data provided)"   
       - name: "international_and_national_references"
         field:
             element: text
