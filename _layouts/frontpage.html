@@ -7,14 +7,16 @@
     {% assign sdg_goals = site.data.sdg_goals %}
 
     {% for goal in sdg_goals %}
-        {% cycle 'add row' : '<div class="row no-gutters">', nil, nil, nil %}
-            <div class="col-sm-3">
+        {% cycle 'add row' : '<div class="row no-gutters">', nil, nil, nil, nil, nil %}
+            <div class="col-sm-2">
                 <a href="./{{ goal.short | slugify }}/"><img src="{{ site.baseurl }}/assets/img/goals/{{ goal.goal }}.png" alt="icon for Goal {{ goal.goal }} - {{ goal.title }}" /></a>
             </div>
-        {% cycle 'end row' : nil, nil, nil, '</div>' %}
+        {% cycle 'end row' : nil, nil, nil, nil, nil, '</div>' %}
     {% endfor %}
-    {% cycle 'end row' : nil, '</div>', '</div>', '</div>' %}
+    </div>
+
+    <!-- {% cycle 'end row' : nil, '</div>', '</div>', '</div>', '</div>' %} -->
     
-    <a href="#" class="to-top">Return to top</a>
+    <div class="to-top"><a href="#">Return to top</a></div>
 </div>
 {% include footer.html %}
