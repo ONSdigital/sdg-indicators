@@ -57,7 +57,12 @@
     {% endif %}
 
     {{ page.content }}
-  <aside id="secondary" class="related plm-mu"><h4>See metadata tab for sources, definitions, and methodology information</h4></aside>
+
+
+    <div class="alert alert-warning" role="alert">
+      <i class="fa fa-info" aria-hidden="true"></i> See metadata tab for sources, definitions, and methodology information
+    </div>
+
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">
@@ -123,7 +128,9 @@
   {% endif %}
 </div>
 <!-- / Tab panes -->
-<div class="to-top"><a href="#">Return to top</a></div>
+<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="fa fa-arrow-circle-o-up
+"></span></a>
+
 </section>
 </div>
 {% include scripts.html %}

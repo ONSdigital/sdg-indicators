@@ -4,7 +4,7 @@
 @import "bootstrap.scss";
 
 $main-background-color: 				#eaeaea;
-$nav-active-border:                     #014c8c;
+$dark-highlight:                        #014c8c;
 $vanilla: 								#fff;
 $footer-color:                          #E5E6E7;         
 $goal-colors:                           #E5243B #DDA63A #4C9F38 #C5192D #FF3A21 #26BDE2 #FCC30B #A21942 #FD6925 #DD1367 #FD9D24 #BF8B2E #3F7E44 #0A97D9 #56C02B #00689D #19486A;             
@@ -38,7 +38,7 @@ header {
         }
 
         a.current {
-            border-bottom: 2px solid $nav-active-border;
+            border-bottom: 2px solid $dark-highlight;
         }
 	}
 
@@ -182,6 +182,7 @@ ul {
         }
 
         div {
+
             span {
                 display: block;
                 margin-bottom: 0.5rem;
@@ -199,7 +200,12 @@ ul {
                 
                 &:hover {
                     text-decoration: none;
+                    background: white;
                 }
+            }
+
+            &.row {
+                background: darken(white, 5%);
             }
         }
     }
@@ -236,16 +242,23 @@ ul {
         }
     }
 
-    .to-top {
-        display: none;
-        position: absolute;
+    #back-to-top {
+        cursor: pointer;
+        position: fixed;
+        bottom: 20px;
         right: 20px;
-        bottom: 16px;
-        width: 40px;
-        height: 40px;
-        text-indent: -9999rem;
-        background: red;
-        border-radius: 20px;
+        display:none;
+        background: lighten($dark-highlight, 10%);
+        font-size: 3rem;
+        padding: 0.5rem 1.0rem;
+
+        &:hover {
+            background: $dark-highlight;
+        }
+    }
+
+    .fa-info {
+        margin-right: 5px;
     }
 }
 
