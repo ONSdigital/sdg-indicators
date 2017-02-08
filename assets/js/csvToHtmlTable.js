@@ -8,7 +8,7 @@ function init_table(options) {
       datatables_options = options.datatables_options || { paging: false, bInfo: false, searching: false},
       table_class = options.table_class || 'table table-hover';
 
-  $('#' + el).html('<table class="' + table_class + '" id="my-table"></table>');
+  $('#' + el).html('<table class="table-responsive ' + table_class + ' id="csv-table"></table>');
   var table = $('#' + el).find('table');
 
   $.when($.get(csv_path)).then(
