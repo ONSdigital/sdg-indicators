@@ -1,41 +1,23 @@
-            <a class="skipnav" href="#main-content">Skip main navigation</a>
-
-            <header role="banner" class="fixed-header">
-                <div class="usa-disclaimer {{ site.github.environment }} {{ jekyll.environment }}">
-                    <div class="usa-grid">
-                        <span class="usa-disclaimer-official">
-                          {% if site.github.environment == 'dotcom' %}
-                            This is a staging site used to update and preview indicator data
-                          {% else %}
-                            This is an official website of the United States government                          
-                          {% endif %}
-                        </span>
-                        {% if site.github.environment == 'dotcom' %}
-                          <a href="{{ site.baseurl }}/admin" class="login-link">Login / Logout</a>
-                        {% endif %}
-                        <span class="usa-disclaimer-stage">This site is a work in progress</span>
-                    </div>
-                </div>
-                 
-                 <a href="{{ site.baseurl }}/" class="logo-home-mobile"><h1>Sustainable Development Goals</h1></a>
-
-                <nav class="site-navbar nav-collapse usa-grid">
-                  <a href="{{ site.baseurl }}/" class="logo-home"><h1>Sustainable Development Goals</h1></a>
-
-                  <ul class="usa-unstyled-list">
-                    <li class="nav-item">
-                      <a href="{{ site.baseurl }}/">Goals</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="{{ site.baseurl }}/documentation">Documentation</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="{{ site.baseurl }}/news">News &amp; Events</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="{{ site.baseurl }}/contact">Contact</a>
-                    </li>
-                  </ul>
-                </nav>
-
-            </header>
+<a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
+<header role="banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <a href="{{ site.baseurl }}/" id="home"><h1>Sustainable Development Goals</h1></a>
+      </div>
+      <div class="col-md-6">
+        <ul class="nav float-right">
+          <li class="nav-item">
+            <a href="{{ site.baseurl }}/" {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" %}class="nav-link"{% else %}class="nav-link current"{% endif %}>Statistics</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ site.baseurl }}/reporting-status" {% if page.permalink == "/reporting-status/" %}class="nav-link current"{% else %}class="nav-link"{% endif %}>Reporting Status</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ site.baseurl }}/news" {% if page.permalink == "/news/" %}class="nav-link current"{% else %}class="nav-link"{% endif %}>News &amp; Events</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

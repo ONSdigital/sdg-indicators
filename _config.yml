@@ -12,6 +12,13 @@ baseurl: "/sdg-indicators" # the subpath of your site, e.g. /blog
 url: ""
 data_dir: data
 
+###################################################################################################
+email_contacts:
+  questions: email@email.com
+  suggestions: email@email.com
+  functional: email@email.com
+###################################################################################################
+
 #Github Repo
 repo_name: sdg-indicators
 branch: gh-pages
@@ -58,6 +65,20 @@ prose:
             element: textarea
             label: "Method of computation for global SDG indicator"
             scope: global
+      - name: "un_designated_tier"
+        field: 
+            element: text
+            label: "UN Designated Tier"
+            scope: global
+      - name: "un_custodial_agency"
+        field: 
+            element: text
+            label: "UN Custodial Agency"
+            scope: global
+      - name: "graph_title"
+        field: 
+            element: text
+            label: "Graph Title"  
       - name: "actual_indicator_available"
         field:
             element: text
