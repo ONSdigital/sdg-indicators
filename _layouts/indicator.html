@@ -55,7 +55,12 @@
       {% endif %}
       {% assign graph_template = 'components/' | append: graph_type | append: '.html' %}
       <h4>{{ page.graph_title }}</h4>
-      {% include {{graph_template}} row=row labels=labels %}
+
+
+      <div class="plot-container">
+        {% include {{graph_template}} row=row labels=labels %}
+      </div>
+
     {% endif %}
 
     {{ page.content }}

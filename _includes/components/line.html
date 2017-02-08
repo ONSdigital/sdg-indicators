@@ -35,6 +35,7 @@ var chartInstance = new Chart(document.getElementById('linechart-{{ id }}'), {
     data: data,
     options: {
         responsive: true,
+        maintainAspectRatio: false,
         scales: {
           xAxes: [{
               gridLines: {
