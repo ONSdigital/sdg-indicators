@@ -37,4 +37,26 @@ crossorigin="anonymous"></script>
 //         return false;
 //     });
 // });
+
+$(function() {
+    // Initialize affix and add an offset to add affix class on scroll
+    // $('#main-nav').affix({
+    //   offset: {
+    //     top: 100
+    //   }
+    // })
+
+    $(window).scroll(function() {
+        if ($(".navbar").offset().top > 50) {
+            $("#main-nav").addClass("collapsed");
+            console.log('test');
+        } else {
+            $("#main-nav").removeClass("collapsed");
+        }
+    });
+
+
+
+});
+
 </script>

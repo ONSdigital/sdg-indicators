@@ -8,13 +8,9 @@ $main-background-color: 				#eaeaea;
 $dark-highlight:                        #0275d8;
 $vanilla: 								#fff;
 $footer-color:                          #E5E6E7;         
-$goal-colors:                           #E5243B #DDA63A #4C9F38 #C5192D #FF3A21 #26BDE2 #FCC30B #A21942 #FD6925 #DD1367 #FD9D24 #BF8B2E #3F7E44 #0A97D9 #56C02B #00689D #19486A;             
-
-
-
-
-
-
+$goal-colors:                           #E5243B #DDA63A #4C9F38 #C5192D #FF3A21 #26BDE2 #FCC30B #A21942 #FD6925 #DD1367 #FD9D24 #BF8B2E #3F7E44 #0A97D9 #56C02B #00689D #19486A;       
+$navbar-height:                         75;
+$collapsed-navbar-height:               $navbar-height - 30;      
 
 .row.no-gutters {
   margin-right: 0;
@@ -26,9 +22,6 @@ $goal-colors:                           #E5243B #DDA63A #4C9F38 #C5192D #FF3A21 
   padding-left: 0;
 }
 
-
-
-
 body {
 	background: $main-background-color; // url('../img/SDG Wheel_Transparent-01.png') bottom 50px right -300px no-repeat;
 	padding: 0;
@@ -39,17 +32,27 @@ header {
     background: $vanilla url('../img/sdgbg.png') bottom left repeat-x;
 
     .container {
-        padding-left: 0;
-        padding-right: 0;
-
         .navbar-default {
-            background: transparent;
             border: none;
         }
     }
 }
 
+#main-nav {
+    li {
+        text-transform: uppercase;
+    }
 
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+
+    height: $navbar-height + unquote("px");
+
+    &.collapsed {
+        height: $collapsed-navbar-height + unquote("px");
+    }
+}
 
 /*header {
 	background: $vanilla url('../img/sdgbg.png') bottom left repeat-x;
@@ -183,7 +186,7 @@ ul {
     font-family: 'Roboto', sans-serif;
     background: white;
 
-    padding-top: 15px;
+    padding-top: $navbar-height + unquote("px");
     padding-bottom: 15px;
 
     h4 {
