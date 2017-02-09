@@ -1,11 +1,22 @@
 {% include head.html %}
 {% include header.html %}
 
-<div class="heading goal-{{page.sdg_goal}}">
-  <div class="container">
-    <img src="{{ site.baseurl }}/assets/img/goals/{{ page.sdg_goal }}.png" alt="icon for Goal {{ page.sdg_goal }} - {{ page.title }}" />
-    <div>
-      <h2>{{page.title}}</h2> 
+<div class="heading goal-{{page.sdg_goal}} container">
+  <div class="row">
+    <div class="col-xs-4 col-md-3 col-lg-2">
+      <img src="{{ site.baseurl }}/assets/img/goals/{{ page.sdg_goal }}.png" alt="icon for Goal {{ page.sdg_goal }} - {{ page.title }}" />
+    </div>
+    <div class="col-xs-8 col-md-9 col-lg-10">
+      <h2>
+      {% assign sdg_goals = site.data.sdg_goals %}
+      {% for goals in sdg_goals %}
+        {% assign page_goal_num = page.sdg_goal | plus:0 %}
+        {% assign goals_goal_num = goals.goal | plus:0 %}
+        {% if page_goal_num == goals_goal_num %}
+        <span class="hidden-sm hidden-md hidden-lg">Goal {{page_goal_num}}: </span>{{ goals.title }}
+        {% endif %}
+      {% endfor %}
+      </h2>
     </div>
   </div>
 </div>
