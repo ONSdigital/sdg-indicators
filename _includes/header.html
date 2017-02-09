@@ -15,14 +15,14 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li class="nav-item">
-            <a href="{{ site.baseurl }}/" {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" %}class="nav-link"{% else %}class="nav-link current"{% endif %}>Statistics</a>
+        <li {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" %}class="nav-link"{% else %}class="nav-link active"{% endif %}>
+            <a href="{{ site.baseurl }}/">Statistics</a>
           </li>
-          <li class="nav-item">
-            <a href="{{ site.baseurl }}/reporting-status" {% if page.permalink == "/reporting-status/" %}class="nav-link current"{% else %}class="nav-link"{% endif %}>Reporting Status</a>
+          <li {% if page.permalink == "/reporting-status/" %}class="nav-link active"{% else %}class="nav-link"{% endif %}>
+            <a href="{{ site.baseurl }}/reporting-status">Reporting Status</a>
           </li>
-          <li class="nav-item">
-            <a href="{{ site.baseurl }}/news" {% if page.permalink == "/news/" %}class="nav-link current"{% else %}class="nav-link"{% endif %}>News &amp; Events</a>
+          <li {% if page.permalink == "/news/" %}class="nav-link active"{% else %}class="nav-link"{% endif %}>
+            <a href="{{ site.baseurl }}/news">News &amp; Events</a>
           </li>
       </ul>
     </div>
