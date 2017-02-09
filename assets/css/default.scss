@@ -24,7 +24,7 @@ $collapsed-navbar-height:               $navbar-height - 30;
 
 body {
 	background: $main-background-color; // url('../img/SDG Wheel_Transparent-01.png') bottom 50px right -300px no-repeat;
-	padding: 0;
+	padding: $navbar-height + unquote("px") 0 0 0;
 	margin: 0;
 }
 
@@ -160,7 +160,7 @@ ul {
     font-family: 'Roboto', sans-serif;
     background: white;
 
-    padding-top: $navbar-height + unquote("px");
+    padding-top: 15px;
     padding-bottom: 15px;
 
     h4 {
