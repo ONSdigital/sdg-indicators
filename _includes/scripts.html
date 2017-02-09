@@ -56,6 +56,17 @@ $(function() {
     });
 
 
+    if($('.goal-indicators').length) {
+        var elementHeights = $('.goal-indicators a').map(function() {
+            return $(this).height() + 15;
+        }).get();
+        // Math.max takes a variable number of arguments
+        // `apply` is equivalent to passing each height as an argument
+        var maxHeight = Math.max.apply(null, elementHeights);
+        // Set each height to the max height
+        $('.goal-indicators a').height(maxHeight);
+    }
+
 
 });
 
