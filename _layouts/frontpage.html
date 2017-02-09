@@ -8,11 +8,14 @@
 
     {% for goal in sdg_goals %}
         {% cycle 'add row' : '<div class="row no-gutters">', nil, nil, nil, nil, nil %}
-            <div class="col-sm-2">
+            <div class="col-xs-4 col-md-2">
                 <a href="./{{ goal.short | slugify }}/"><img src="{{ site.baseurl }}/assets/img/goals/{{ goal.goal }}.png" alt="icon for Goal {{ goal.goal }} - {{ goal.title }}" /></a>
             </div>
         {% cycle 'end row' : nil, nil, nil, nil, nil, '</div>' %}
     {% endfor %}
+        <div class="col-xs-4 col-md-2">
+            <img src="{{ site.baseurl }}/assets/img/goals/18.png" alt="The Global Goals for Sustainable Development" />
+        </div>
     </div>
 </div>
 {% include footer.html %}
