@@ -1,12 +1,13 @@
 {% include head.html %}
 {% include header.html %}
-
-<div class="heading goal-{{page.sdg_goal}}">
-  <div class="container">
-    <a href="{{ site.baseurl }}/{{ goals.short | slugify }}" title="View this goal's indicator list">
-      <img src="{{ site.baseurl }}/assets/img/goals/{{ page.sdg_goal }}.png" alt="icon for Goal {{ page.sdg_goal }} - {{ page.title }}" />
-    </a>
-    <div>
+<div class="heading goal-{{page.sdg_goal}} container">
+  <div class="row">
+    <div class="col-xs-3">
+      <a href="{{ site.baseurl }}/{{ goals.short | slugify }}" title="View this goal's indicator list">
+        <img src="{{ site.baseurl }}/assets/img/goals/{{ page.sdg_goal }}.png" alt="icon for Goal {{ page.sdg_goal }} - {{ page.title }}" />
+      </a>
+    </div>
+    <div class="col-xs-9">
       <h2>
       {% assign sdg_goals = site.data.sdg_goals %}
       {% for goals in sdg_goals %}
@@ -14,12 +15,12 @@
         {% assign goals_goal_num = goals.goal | plus:0 %}
         {% if page_goal_num == goals_goal_num %}
           <a href="{{ site.baseurl }}/{{ goals.short | slugify }}">
-            {{ goals.title }}
+            <span class="hidden-sm hidden-md hidden-lg">Goal {{page_goal_num}}: </span>{{ goals.title }}
           </a>
         {% endif %}
       {% endfor %}
-      </h2>  
-      <h3>Indicator {{ page.indicator }} - {{ page.title }}</h3>
+      </h2>
+      <h3>Indicator {{ page.indicator }}: {{ page.title }}</h3>
     </div>
   </div>
 </div>
@@ -135,8 +136,7 @@
   {% endif %}
 </div>
 <!-- / Tab panes -->
-<!-- <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="fa fa-arrow-circle-o-up
-"></span></a> -->
+
 
 </section>
 </div>
