@@ -1,7 +1,8 @@
 ---
 # site styles
 ---
-@import "bootstrap.scss";
+//@import "bootstrap.scss";
+//@import "bootstrap-4.0.0-alpha.6/bootstrap.scss";
 
 $main-background-color: 				#eaeaea;
 $dark-highlight:                        #0275d8;
@@ -9,14 +10,48 @@ $vanilla: 								#fff;
 $footer-color:                          #E5E6E7;         
 $goal-colors:                           #E5243B #DDA63A #4C9F38 #C5192D #FF3A21 #26BDE2 #FCC30B #A21942 #FD6925 #DD1367 #FD9D24 #BF8B2E #3F7E44 #0A97D9 #56C02B #00689D #19486A;             
 
+
+
+
+
+
+
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+
+
+
 body {
 	background: $main-background-color; // url('../img/SDG Wheel_Transparent-01.png') bottom 50px right -300px no-repeat;
 	padding: 0;
 	margin: 0;
-    margin-top: 8rem;
 }
 
 header {
+    background: $vanilla url('../img/sdgbg.png') bottom left repeat-x;
+
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+
+        .navbar-default {
+            background: transparent;
+            border: none;
+        }
+    }
+}
+
+
+
+/*header {
 	background: $vanilla url('../img/sdgbg.png') bottom left repeat-x;
 	margin: 0;
     padding-bottom: 2rem;
@@ -54,7 +89,7 @@ header {
     h1 {
         text-indent: -9999rem;
     }
-}
+}*/
 
 h1, h2, h3, h4, h5, h6 {
    font-family: 'Open Sans', sans-serif; 
