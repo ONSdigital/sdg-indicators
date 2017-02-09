@@ -1,64 +1,24 @@
 {% include head.html %}
-
 {% include header.html %}
+<div id="main-content" class="container" role="main">
+    <h1>UK National Statistics for the UN Sustainable Development Goals</h1>
+    <p>This is the official website of the Portland bushwick salvia humblebrag, pour-over nostrud try-hard occaecat. 3 wolf moon taxidermy ad heirloom banh mi. Celiac succulents odio vero literally, nihil chartreuse knausgaard craft beer laboris mustache lyft raw denim gochujang. Adipisicing quinoa kitsch copper mug health goth, normcore sed skateboard drinking vinegar. Tofu assumenda paleo, whatever trust fund lyft mixtape est chambray typewriter roof party.</p>
+    <p>Click on each goal for UK national statistics for Sustainable Development Goal global indicators.</p>
+    {% assign sdg_goals = site.data.sdg_goals %}
 
-        <div id="main" class="main-content" role="main">
+    {% for goal in sdg_goals %}
+        {% cycle 'add row' : '<div class="row no-gutters">', nil, nil, nil, nil, nil %}
+            <div class="col-sm-2">
+                <a href="./{{ goal.short | slugify }}/"><img src="{{ site.baseurl }}/assets/img/goals/{{ goal.goal }}.png" alt="icon for Goal {{ goal.goal }} - {{ goal.title }}" /></a>
+            </div>
+        {% cycle 'end row' : nil, nil, nil, nil, nil, '</div>' %}
+    {% endfor %}
+    </div>
 
-            <section class="usa-banner">
-                <div class="usa-grid">
+    <!-- {% cycle 'end row' : nil, '</div>', '</div>', '</div>', '</div>' %} -->
+    
+    <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="fa fa-arrow-circle-o-up
+"></span></a>
 
-                    <div class="usa-banner-content">
-                        <h1>
-                            U.K. National Statistics for the UN Sustainable Development Goals
-                        </h1>
-
-                    </div>
-
-                </div>
-            </section>
-
-            <section class="usa-section">
-
-                <div class="usa-grid">
-                      <h2>
-                          Goals
-                      </h2>
-                            <h3 class="usa-font-lead">
-                               Click on each goal to access U.K. national statistics for Sustainable Development Goal global indicators.
-                            </h3>
-                    
-
-                    <section class="goals-list">
-                    {% assign sdg_goals = site.data.sdg_goals %}
-
-                    {% for goals in sdg_goals %}
-
-                    {% assign img_path = goals.goal | plus:0 %}
-
-                    {% if img_path < 10 %}
-                        {% assign img_path = 0  %}
-                    {% else %}
-                        {% assign img_path = ''  %}
-                    {% endif %}
-
-
-                    <a class="usa-width-one-fourth" href="./{{ goals.short | slugify }}/">
-                    <img class="goal-icon" src="{{ site.baseurl }}/assets/img/TGG_Icon_Color_{{ img_path }}{{ goals.goal }}.png" alt="icon for Goal {{ goals.goal }} - {{ goals.title }}" />
-                    </a>                    
-
-                    {% endfor %}
-
-                    <div class="usa-width-one-fourth">
-                        <img class="goal-icon" src="{{ site.baseurl }}/assets/img/TGG_Icon_Color_18.png" alt="icon for Global Goals" />
-                    </div>                    
-
-                    </section>
-
-                </div>
-
-            </section>
-
-
-        </div>
-
+</div>
 {% include footer.html %}
