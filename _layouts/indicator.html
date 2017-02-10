@@ -28,6 +28,9 @@
 </div>
 
 <div id="main-content" class="container goal-{{page.sdg_goal}}">
+
+  {% include components/dev-disclaimer.html %}
+
   <section>
     {% assign slug = page.indicator | replace: '.', '-' %}
     {% assign dataset_name = 'indicator_' | append: slug %}
