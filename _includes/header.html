@@ -1,23 +1,45 @@
 <a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
 <header role="banner">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <a href="{{ site.baseurl }}/" id="home"><h1>Sustainable Development Goals</h1></a>
-      </div>
-      <div class="col-md-6">
-        <ul class="nav float-right">
-          <li class="nav-item">
-            <a href="{{ site.baseurl }}/" {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" %}class="nav-link"{% else %}class="nav-link current"{% endif %}>Statistics</a>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="main-nav">
+<div class="container">
+  <div>
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{ site.baseurl }}/" id="home">
+        <img src="http://www.un.org/sustainabledevelopment/wp-content/uploads/2015/12/SDG_logo_with_UN_emblem.png" />
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" %}class="nav-link"{% else %}class="nav-link active"{% endif %}>
+            <a href="{{ site.baseurl }}/">Statistics</a>
           </li>
-          <li class="nav-item">
-            <a href="{{ site.baseurl }}/reporting-status" {% if page.permalink == "/reporting-status/" %}class="nav-link current"{% else %}class="nav-link"{% endif %}>Reporting Status</a>
+          <li {% if page.permalink == "/reporting-status/" %}class="nav-link active"{% else %}class="nav-link"{% endif %}>
+            <a href="{{ site.baseurl }}/reporting-status">Reporting Status</a>
           </li>
-          <li class="nav-item">
-            <a href="{{ site.baseurl }}/news" {% if page.permalink == "/news/" %}class="nav-link current"{% else %}class="nav-link"{% endif %}>News &amp; Events</a>
+          <li {% if page.permalink == "/news/" %}class="nav-link active"{% else %}class="nav-link"{% endif %}>
+            <a href="{{ site.baseurl }}/news">News &amp; Events</a>
           </li>
-        </ul>
-      </div>
+      </ul>
     </div>
   </div>
+  </div>
+</nav>
+
 </header>
+
+<!-- <div class="container no-gutters">
+  <nav class="breadcrumb">
+    <a class="breadcrumb-item" href="#">Home</a>
+    <a class="breadcrumb-item" href="#">Library</a>
+    <a class="breadcrumb-item" href="#">Data</a>
+    <span class="breadcrumb-item active">Bootstrap</span>
+  </nav>
+</div> -->

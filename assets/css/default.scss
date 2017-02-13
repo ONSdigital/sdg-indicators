@@ -1,58 +1,103 @@
 ---
 # site styles
 ---
-@import "bootstrap.scss";
+//@import "bootstrap.scss";
+//@import "bootstrap-4.0.0-alpha.6/bootstrap.scss";
 
 $main-background-color: 				#eaeaea;
 $dark-highlight:                        #0275d8;
 $vanilla: 								#fff;
 $footer-color:                          #E5E6E7;         
-$goal-colors:                           #E5243B #DDA63A #4C9F38 #C5192D #FF3A21 #26BDE2 #FCC30B #A21942 #FD6925 #DD1367 #FD9D24 #BF8B2E #3F7E44 #0A97D9 #56C02B #00689D #19486A;             
+$goal-colors:                           #E5243B #DDA63A #4C9F38 #C5192D #FF3A21 #26BDE2 #FCC30B #A21942 #FD6925 #DD1367 #FD9D24 #BF8B2E #3F7E44 #0A97D9 #56C02B #00689D #19486A;       
+$navbar-height:                         105;
+$collapsed-navbar-height:               $navbar-height - 30;      
+
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.container.no-gutters {
+    padding-left: 0;
+    padding-right: 0;
+}
 
 body {
 	background: $main-background-color; // url('../img/SDG Wheel_Transparent-01.png') bottom 50px right -300px no-repeat;
-	padding: 0;
+	padding: $navbar-height + unquote("px") 0 0 0;
 	margin: 0;
-    margin-top: 8rem;
 }
 
 header {
-	background: $vanilla url('../img/sdgbg.png') bottom left repeat-x;
-	margin: 0;
-    padding-bottom: 2rem;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 100;
+    background: $vanilla url('../img/sdgbg.png') bottom left repeat-x;
 
-	.nav {
-
-        margin-top: 2rem;
-
-        .nav-item {
-            padding: 0;
-
-            a {
-                padding: 0.5em 1em;
-            }
+    .container {
+        .navbar-default {
+            border: none;
         }
+    }
+}
 
-        a.current {
-            border-bottom: 2px solid $dark-highlight;
-        }
-	}
+.breadcrumb {
+    margin-bottom: 0;
+}
 
-    #home {
-        margin-top: 0.5em;
-        background: transparent url('../img/un-emblem.png') -12px 0 no-repeat;
-        background-size: 547px 89px;
-        width: 547px;
-        height: 89px;
-        display: block;
+#main-nav {
+    li {
+        text-transform: uppercase;
     }
 
-    h1 {
-        text-indent: -9999rem;
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+    border: none;
+
+    height: $navbar-height + unquote("px");
+    background: white url(../img/sdgbg.png) bottom left repeat-x;
+
+    .navbar-brand img {
+        //height: $navbar-height - 35 + unquote("px");
+        -webkit-transition: all .35s;
+        -moz-transition: all .35s;
+        transition: all .35s;
+        max-width: 360px;
+
+         /* Extra Small Devices, Phones */ 
+        @media only screen and (max-width : 480px) {
+            max-width: 225px;
+        }
+    }
+
+    ul.nav {
+        margin-top: 12px;
+
+        li {
+            a {
+                background: none;
+                padding: 2px;
+                margin: 2px 15px;
+            }
+
+            &.active {
+                a {
+                    color: #333;
+                    border-bottom: 2px solid #333;
+                }
+            }
+
+        }
+    }
+
+    &.collapsed {
+        height: $collapsed-navbar-height + unquote("px");
+        .navbar-brand img {
+            height: $navbar-height - 65 + unquote("px");
+        }
     }
 }
 
@@ -74,6 +119,7 @@ ul {
 
 .download-csv {
     margin-top: 1.5rem;
+    text-transform: uppercase;
 }
 
 @for $i from 1 through length($goal-colors) {
@@ -100,7 +146,6 @@ ul {
 }
 
 .heading {
-
     a {
         background: transparent;
         color: white;
@@ -111,36 +156,32 @@ ul {
         }
     }
 
-    img {
-        width: 200px;
-        float: left;
-        margin-bottom: 0;
-        margin-right: 2rem;
-    }
-
     h2, h3 {
-        padding: 10px 10px 0 0;
-        margin-bottom: 0;
         color: white;
     }
 
     h2 {
-        margin-bottom: 1rem;
+        margin-top: 12px;
+
+        /* Extra Small Devices, Phones */ 
+        @media only screen and (max-width : 480px) {
+            font-size: 15px;
+        }
     }
 
     h3 {
-        font-size: 1.25rem;
-        line-height: 1.9rem;
-        padding-bottom: 2.5rem;
+        /* Extra Small Devices, Phones */ 
+        @media only screen and (max-width : 480px) {
+            font-size: 13px;
+        }
     }
 
-    padding: 2rem 0 0.8rem 0;
-
-    div:after {
-        content: "";
-        display: table;
-        clear: both;        
+    img {
+        max-width: 100%;
+        margin-top: 10px;
     }
+
+
 }
 
 #main-content {
@@ -167,47 +208,33 @@ ul {
     }
 
     &.goal-indicators {
-        clear: left;
-
         a {
-            padding: 5px;
-            background: darken(white, 5%);
+            color: black;
+            padding: 1rem;
+            //background: darken(white, 5%);
             display: inline-block;
-            margin-bottom: 5px;
             -webkit-transition: background 0.3s; 
             transition: background 0.3s;
+            height: 100%;
+            width: 100%;
+            text-decoration: none;
 
             &:hover {
                 background: transparent;
             }
         }
 
-        div {
+        span {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            padding-bottom: 0.2rem;
+            border-bottom-width: 2px;
+            border-bottom-style: solid;
+        }
 
-            span {
-                display: block;
-                margin-bottom: 0.5rem;
-                font-weight: bold;
-                padding-bottom: 0.2rem;
-                border-bottom-width: 2px;
-                border-bottom-style: solid;
-            }
-
-            a {
-                color: black;
-                display: block;
-                height: 100%;
-                padding: 1rem;
-                
-                &:hover {
-                    text-decoration: none;
-                    background: white;
-                }
-            }
-
-            &.row {
-                background: darken(white, 5%);
-            }
+        &.row {
+            background: darken(white, 5%);
         }
     }
 
@@ -219,11 +246,20 @@ ul {
 
     .nav-tabs {
         .nav-item {
+            background: none;
+            border: none;
+
             a {
-                background: none;
                 border: none;
 
-                &.active {
+                &:hover {
+                    background: none;
+                }
+            }
+
+            &.active {
+                a {
+                    border: none;
                     border-bottom: 2px solid black;
                 }
             }
@@ -260,6 +296,12 @@ ul {
 
     .fa-info {
         margin-right: 5px;
+    }
+    
+    .alert a {
+        display: inline;
+        color: inherit;
+        padding: 0;
     }
 }
 

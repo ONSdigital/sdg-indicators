@@ -2,7 +2,7 @@
 crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
@@ -20,21 +20,53 @@ crossorigin="anonymous"></script>
 //         $('.goal-indicators li').height(maxHeight);
 //     }
 // });
+// $(function() {
+//     $(window).scroll(function () {
+//         if ($(this).scrollTop() > 50) {
+//             $('#back-to-top').fadeIn();
+//         } else {
+//             $('#back-to-top').fadeOut();
+//         }
+//     });
+    
+//     // scroll body to 0px on click
+//     $('#back-to-top').click(function () {
+//         $('body,html').animate({
+//             scrollTop: 0
+//         }, 250);
+//         return false;
+//     });
+// });
+
 $(function() {
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 50) {
-            $('#back-to-top').fadeIn();
+    // Initialize affix and add an offset to add affix class on scroll
+    // $('#main-nav').affix({
+    //   offset: {
+    //     top: 100
+    //   }
+    // })
+
+    $(window).scroll(function() {
+        if ($(".navbar").offset().top > 50) {
+            $("#main-nav").addClass("collapsed");
         } else {
-            $('#back-to-top').fadeOut();
+            $("#main-nav").removeClass("collapsed");
         }
     });
-    
-    // scroll body to 0px on click
-    $('#back-to-top').click(function () {
-        $('body,html').animate({
-            scrollTop: 0
-        }, 250);
-        return false;
-    });
+
+
+    // if($('.goal-indicators').length) {
+    //     var elementHeights = $('.goal-indicators a').map(function() {
+    //         return $(this).height() + 15;
+    //     }).get();
+    //     // Math.max takes a variable number of arguments
+    //     // `apply` is equivalent to passing each height as an argument
+    //     var maxHeight = Math.max.apply(null, elementHeights);
+    //     // Set each height to the max height
+    //     $('.goal-indicators a').height(maxHeight);
+    // }
+
+
 });
+
 </script>
