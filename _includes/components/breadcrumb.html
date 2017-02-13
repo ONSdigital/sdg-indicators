@@ -1,5 +1,9 @@
 <ol class="breadcrumb">
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Goal</a></li>
-  <li class="active">Indicator</li>
+  <li><a href="{{ site.baseurl }}/">Home</a></li>
+  {% if goal_href %}
+      <li><a href="{{ goal_href }}" title="{{ goal_title }}">Goal {{ goal_number }}</a></li>
+      <li class="active">{{ indicator_title }}</li>
+  {% else %}
+      <li class="active">Goal {{ goal_number }}</li>
+  {% endif %}
 </ol>

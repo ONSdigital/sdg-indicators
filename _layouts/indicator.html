@@ -15,6 +15,7 @@
           {% assign page_goal_num = page.sdg_goal | plus:0 %}
           {% assign goals_goal_num = goals.goal | plus:0 %}
           {% if page_goal_num == goals_goal_num %}
+            {% assign found_goal = goals %}
             <a href="{{ site.baseurl }}/{{ goals.short | slugify }}">
               <span class="hidden-sm hidden-md hidden-lg">Goal {{page_goal_num}}: </span>{{ goals.title }}
             </a>
@@ -22,14 +23,19 @@
         {% endfor %}
         </h2>
         <h3>Indicator {{ page.indicator }}: {{ page.title }}</h3>
-      </div>
+      </div>  
     </div>
   </div>
 </div>
 
 <div id="main-content" class="container goal-{{page.sdg_goal}}">
 
+  {% capture goal_href %}{{ site.baseurl }}/{{ found_goal.short | slugify }}{% endcapture %}
+  {% capture goal_number %}{{ found_goal.goal }}{% endcapture %}
+  {% capture goal_title %}{{ found_goal.title }}{% endcapture %}
+  {% capture indicator_title %}{{ page.title }}{% endcapture %}
   {% include components/breadcrumb.html %}
+
   {% include components/dev-disclaimer.html %}
 
   <section>

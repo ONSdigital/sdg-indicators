@@ -13,7 +13,9 @@
         {% for goals in sdg_goals %}
           {% assign page_goal_num = page.sdg_goal | plus:0 %}
           {% assign goals_goal_num = goals.goal | plus:0 %}
-          {% if page_goal_num == goals_goal_num %}
+        {% if page_goal_num == goals_goal_num %}
+          {% assign found_goal = goals %}
+
           <span class="hidden-sm hidden-md hidden-lg">Goal {{page_goal_num}}: </span>{{ goals.title }}
           {% endif %}
         {% endfor %}
@@ -26,12 +28,14 @@
 <div id="main-content" class="container goal-indicators goal-{{page.sdg_goal}}">
   {{ content }}
 
+  {% capture goal_title %}{{ found_goal.title }}{% endcapture %}
+  {% capture goal_number %}{{ found_goal.goal }}{% endcapture %}
   {% include components/breadcrumb.html %}
   {% include components/dev-disclaimer.html %}
 
   {% assign indicators = site.data.sdg_indicator_metadata | where:'goal', page.sdg_goal %}
   {% for indicator in indicators %}
-    {% cycle 'add row' : '<div class="row no-gutters">', nil, nil, nil %}
+    {% cycle 'add row' : '<div class="indicator-cards row no-gutters">', nil, nil, nil %}
         <div class="col-md-6 col-lg-3">
             <a href="{{ site.baseurl }}/{{ indicator.indicator_id | replace: '.', '-' }}"><span>{{ indicator.indicator_id }}</span> {{ indicator.indicator }}</a>
         </div>
