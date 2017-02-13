@@ -1,25 +1,23 @@
 {% include head.html %}
 {% include header.html %}
 <div id="main-content" class="container" role="main">
+
+    {% include components/dev-disclaimer.html %}
     <h1>UK data for Sustainable Development Goal indicators</h1>
-    <p>This is a development website for collecting and disseminating UK data for the Sustainable Development Goal global indicators. This is a collaboration between the ONS Sustainable Development Goals team and the ONS Data Science Campus, building on the earlier work of the US. Currently data on the site may be test data. Please send any comments and feedback to
-    <a href="mailto:sustainabledevelopment@ons.gov.uk">sustainabledevelopment@ons.gov.uk</a></p>
+
     <p>Click on each goal for UK national statistics for Sustainable Development Goal global indicators.</p>
     {% assign sdg_goals = site.data.sdg_goals %}
 
     {% for goal in sdg_goals %}
         {% cycle 'add row' : '<div class="row no-gutters">', nil, nil, nil, nil, nil %}
-            <div class="col-sm-2">
+            <div class="col-xs-4 col-md-2">
                 <a href="./{{ goal.short | slugify }}/"><img src="{{ site.baseurl }}/assets/img/goals/{{ goal.goal }}.png" alt="icon for Goal {{ goal.goal }} - {{ goal.title }}" /></a>
             </div>
         {% cycle 'end row' : nil, nil, nil, nil, nil, '</div>' %}
     {% endfor %}
+        <div class="col-xs-4 col-md-2">
+            <img src="{{ site.baseurl }}/assets/img/goals/18.png" alt="The Global Goals for Sustainable Development" />
+        </div>
     </div>
-
-    <!-- {% cycle 'end row' : nil, '</div>', '</div>', '</div>', '</div>' %} -->
-    
-    <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="fa fa-arrow-circle-o-up
-"></span></a>
-
 </div>
 {% include footer.html %}
