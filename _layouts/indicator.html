@@ -1,26 +1,22 @@
 {% include head.html %}
 {% include header.html %}
+
+{% assign goal = site.data.sdg_goals | where: "goal", page.sdg_goal | first %}
+{% capture goal_uri %}{{ site.baseurl }}/{{ goal.short | slugify }}{% endcapture %}
+
 <div class="heading goal-{{page.sdg_goal}}">
   <div class="container">
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2">
-        <a href="{{ site.baseurl }}/{{ goals.short | slugify }}" title="View this goal's indicator list">
+        <a href="{{ goal_uri }}" title="View this goal's indicator list">
           <img src="{{ site.baseurl }}/assets/img/goals/{{ page.sdg_goal }}.png" alt="icon for Goal {{ page.sdg_goal }} - {{ page.title }}" />
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h2>
-        {% assign sdg_goals = site.data.sdg_goals %}
-        {% for goals in sdg_goals %}
-          {% assign page_goal_num = page.sdg_goal | plus:0 %}
-          {% assign goals_goal_num = goals.goal | plus:0 %}
-          {% if page_goal_num == goals_goal_num %}
-            {% assign found_goal = goals %}
-            <a href="{{ site.baseurl }}/{{ goals.short | slugify }}">
-              <span class="hidden-sm hidden-md hidden-lg">Goal {{page_goal_num}}: </span>{{ goals.title }}
+            <a href="{{ goal_uri }}">
+              <span class="hidden-sm hidden-md hidden-lg">Goal {{page.sdg_goal}}: </span>{{ goal.title }}
             </a>
-          {% endif %}
-        {% endfor %}
         </h2>
         <h3>Indicator {{ page.indicator }}: {{ page.title }}</h3>
       </div>  
@@ -30,9 +26,9 @@
 
 <div id="main-content" class="container goal-{{page.sdg_goal}}">
 
-  {% capture goal_href %}{{ site.baseurl }}/{{ found_goal.short | slugify }}{% endcapture %}
-  {% capture goal_number %}{{ found_goal.goal }}{% endcapture %}
-  {% capture goal_title %}{{ found_goal.title }}{% endcapture %}
+  {% capture goal_href %}{{ goal_uri }}{% endcapture %}
+  {% capture goal_number %}{{ goal.goal }}{% endcapture %}
+  {% capture goal_title %}{{ goal.title }}{% endcapture %}
   {% capture indicator_title %}{{ page.title }}{% endcapture %}
   {% include components/breadcrumb.html %}
 
@@ -41,7 +37,7 @@
   <section>
     {% assign slug = page.indicator | replace: '.', '-' %}
     {% assign dataset_name = 'indicator_' | append: slug %}
-    {% assign sdg_goals = site.data.sdg_goals %}
+
     {% assign sdg_indicators = site.data.sdg_indicator_metadata %}
     {% assign sdg_indicator = site.data[dataset_name] %}
     {% for indicators in sdg_indicators %}
@@ -66,7 +62,6 @@
       {% assign graph_template = 'components/' | append: graph_type | append: '.html' %}
       <h4>{{ page.graph_title }}</h4>
 
-
       <div class="plot-container">
         {% include {{graph_template}} row=row labels=labels %}
       </div>
@@ -74,7 +69,6 @@
     {% endif %}
 
     {{ page.content }}
-
 
     <div class="alert alert-warning" role="alert">
       <i class="fa fa-info" aria-hidden="true"></i> See metadata tab for sources, definitions, and methodology information
