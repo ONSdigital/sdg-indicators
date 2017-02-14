@@ -8,8 +8,16 @@
 # Site settings
 title: U.K. Indicators For The Sustainable Development Goals
 description: Data Platform Prototype
+baseurl: "" # the subpath of your site, e.g. /blog
 url: ""
 data_dir: data
+
+###################################################################################################
+email_contacts:
+  questions: email@email.com
+  suggestions: email@email.com
+  functional: email@email.com
+###################################################################################################
 
 #Github Repo
 repo_name: sdg-indicators
@@ -32,28 +40,31 @@ collections:
   goals:
     output: true
 
+analytics:
+  ga_prod: 'UA-42145528-4'
+
 # Prose configuration
 prose:
   ignore: ['/assets', '/_includes', '/_layouts', '/scripts', '/sass' ]
   metadata:
     _indicators:
       - name: "indicator_name"
-        field: 
+        field:
             element: text
             label: "SDG Indicator Name"
             scope: global
       - name: "target"
-        field: 
+        field:
             element: text
             label: "SDG Target Addressed"
             scope: global
       - name: "indicator_definition"
-        field: 
+        field:
             element: textarea
             label: "Definition of SDG Indicator"
             scope: global
       - name: "method_of_computation"
-        field: 
+        field:
             element: textarea
             label: "Method of computation for global SDG indicator"
             scope: global
@@ -76,20 +87,17 @@ prose:
             element: text
             label: "Actual indicator available"
       - name: "actual_indicator_available_description"
-        field: 
-            element: textarea
-            label: "Description of actual indicator available"  
         field:
-            element: text
+            element: textarea
             label: "Description of actual indicator available"
       - name: "us_method_of_computation"
         field:
             element: textarea
             label: "Method of computation"
       - name: "comments_and_limitations"
-        field: 
+        field:
             element: textarea
-            label: "Comments and limitations"  
+            label: "Comments and limitations"
       - name: "periodicity"
         field:
             element: text
@@ -145,7 +153,7 @@ prose:
       - name: "source_url"
         field:
             element: text
-            label: "Indicator web address (closest to data provided)"   
+            label: "Indicator web address (closest to data provided)"
       - name: "international_and_national_references"
         field:
             element: text
