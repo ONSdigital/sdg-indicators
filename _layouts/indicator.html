@@ -31,42 +31,22 @@
   {% capture goal_title %}{{ goal.title }}{% endcapture %}
   {% capture indicator_title %}{{ page.title }}{% endcapture %}
   {% include components/breadcrumb.html %}
-
   {% include components/dev-disclaimer.html %}
 
   <section>
-    {% assign slug = page.indicator | replace: '.', '-' %}
-    {% assign dataset_name = 'indicator_' | append: slug %}
 
-    {% assign sdg_indicators = site.data.sdg_indicator_metadata %}
-    {% assign sdg_indicator = site.data[dataset_name] %}
-    {% for indicators in sdg_indicators %}
-      {% if indicators.indicator_id == page.indicator %}
-        {% assign this_sdg_indicator_metadata = indicators %}
-      {% endif %}
-    {% endfor %}
-    {% assign indicator_title = this_sdg_indicator_metadata.indicator %}
-    {% assign array = "" | split: ""  %}
-    {% assign row = array %}
-    {% assign labels = array %}
-    {% for indicator in sdg_indicator %}
-      {% assign row = row | push: indicator[page.indicator_variable] %}
-      {% assign labels = labels | push: indicator.year %}
-    {% endfor %}
+  {% capture dataset_name %}indicator_{{page.indicator | slugify }}{% endcapture %}
+  {% assign sdg_indicator_data = site.data[dataset_name] %}
+  {% assign indicator_metadata = sdg_indicators | where: "indicator_id", page.indicator | first %}
 
-    {% if page.graph == 'bar' or page.graph == 'longitudinal' %}
-      {% assign graph_type = page.graph %}
-      {% if page.graph == 'longitudinal' %}
-        {% assign graph_type = 'line' %}
-      {% endif %}
-      {% assign graph_template = 'components/' | append: graph_type | append: '.html' %}
-      <h4>{{ page.graph_title }}</h4>
+    {% assign json_data = sdg_indicator_data | jsonify %}
+    {% include components/charts/chart.html graph_type=page.graph data=json_data chart_title=page.graph_title %}
 
-      <div class="plot-container">
-        {% include {{graph_template}} row=row labels=labels %}
-      </div>
 
-    {% endif %}
+
+
+
+
 
     {{ page.content }}
 

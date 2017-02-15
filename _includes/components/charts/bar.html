@@ -5,14 +5,16 @@
   // 3.5.2
   // 1.5.2 // 2 bars
   // 4.b.1 // 3 bars
+  var rawData = {{include.data}};
+
   var data = {
-      labels: {{ include.labels | jsonify }},
+      labels: _.pluck(rawData, Object.keys(rawData[0])[0]),
       datasets: [
           {
               label: 'Overall',
               backgroundColor: '#4864a6',
               borderColor: '#4864a6',
-              data: {{ include.row | jsonify }}
+              data: _.pluck(rawData, Object.keys(rawData[0])[1])
           }
       ]
   };
