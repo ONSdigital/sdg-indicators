@@ -2,8 +2,11 @@
 {% assign unit_label = page.variable_unit_label %}
 <canvas id='linechart-{{ id }}'></canvas>
 <script>
+
+var rawData = {{include.data}};
+
 var data = {
-    labels: {{ include.labels | jsonify }},
+    labels: _.pluck(rawData, Object.keys(rawData[0])[0]),
     datasets: [
         {
             label: 'Overall',
@@ -24,8 +27,8 @@ var data = {
             pointHoverBorderWidth: 2,
             pointRadius: 5,
             pointHitRadius: 10,
-            data: {{ include.row | jsonify }},
-            spanGaps: false,
+            data: _.pluck(rawData, Object.keys(rawData[0])[1]),
+            spanGaps: false
         }
     ]
 };
