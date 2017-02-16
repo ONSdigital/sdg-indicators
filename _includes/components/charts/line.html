@@ -3,39 +3,27 @@
 <canvas id='linechart-{{ id }}'></canvas>
 <script>
 
-var rawData = {{include.data}};
-
-var data = {
-    labels: _.pluck(rawData, Object.keys(rawData[0])[0]),
-    datasets: [
-        {
-            label: 'Overall',
-            fill: false,
-            lineTension: 0.1,
-            backgroundColor: 'rgba(75,192,192,0.4)',
-            borderColor: 'rgba(75,192,192,1)',
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: 'rgba(75,192,192,1)',
-            pointBackgroundColor: '',
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-            pointHoverBorderColor: 'rgba(220,220,220,1)',
-            pointHoverBorderWidth: 2,
-            pointRadius: 5,
-            pointHitRadius: 10,
-            data: _.pluck(rawData, Object.keys(rawData[0])[1]),
-            spanGaps: false
-        }
-    ]
-};
-
-var chartInstance = new Chart(document.getElementById('linechart-{{ id }}'), {
+var chartInfo = chartDataProcessor.getChartInfo({{include.data}}, {
+        fill: false,
+        lineTension: 0.1,
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: 'rgba(75,192,192,1)',
+        pointBackgroundColor: '',
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+        pointHoverBorderColor: 'rgba(220,220,220,1)',
+        pointHoverBorderWidth: 2,
+        pointRadius: 5,
+        pointHitRadius: 10,
+        spanGaps: false
+    }),
+    chartInstance = new Chart(document.getElementById('linechart-{{ id }}'), {
     type: 'line',
-    data: data,
+    data: chartInfo,
     options: {
         responsive: true,
         maintainAspectRatio: false,

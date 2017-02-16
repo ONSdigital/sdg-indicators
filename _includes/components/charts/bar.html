@@ -5,23 +5,10 @@
   // 3.5.2
   // 1.5.2 // 2 bars
   // 4.b.1 // 3 bars
-  var rawData = {{include.data}};
-
-  var data = {
-      labels: _.pluck(rawData, Object.keys(rawData[0])[0]),
-      datasets: [
-          {
-              label: 'Overall',
-              backgroundColor: '#4864a6',
-              borderColor: '#4864a6',
-              data: _.pluck(rawData, Object.keys(rawData[0])[1])
-          }
-      ]
-  };
-
-  var chartInstance = new Chart(document.getElementById('barchart-{{ id }}'), {
+  var chartInfo = chartDataProcessor.getChartInfo({{include.data}}),
+      chartInstance = new Chart(document.getElementById('barchart-{{ id }}'), {
       type: 'bar',
-      data: data,
+      data: chartInfo,
       options: {
           responsive: true,
           maintainAspectRatio: false,

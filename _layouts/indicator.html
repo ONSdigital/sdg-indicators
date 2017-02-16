@@ -42,12 +42,6 @@
     {% assign json_data = sdg_indicator_data | jsonify %}
     {% include components/charts/chart.html graph_type=page.graph data=json_data chart_title=page.graph_title %}
 
-
-
-
-
-
-
     {{ page.content }}
 
     <div class="alert alert-warning" role="alert">
@@ -109,6 +103,7 @@
       </table>
     {% endcomment %}
   </div>
+  {% comment %}
   {% if site.github.environment == 'dotcom' %}
     <div role="tabpanel" class="tab-pane" id="edit">
       <div class="edit-container">
@@ -117,6 +112,7 @@
       </div>
     </div>
   {% endif %}
+  {% endcomment %}
 </div>
 <!-- / Tab panes -->
 
