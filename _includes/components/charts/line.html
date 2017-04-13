@@ -3,6 +3,8 @@
 <canvas id='linechart-{{ id }}'></canvas>
 <script>
 
+//console.info('charting for: ', {{include.data}});
+
 var chartInfo = chartDataProcessor.getChartInfo({{include.data}}, {
         fill: false,
         lineTension: 0.1,
