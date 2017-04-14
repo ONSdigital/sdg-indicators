@@ -11,6 +11,9 @@
 <canvas id='linechart-{{ id }}'></canvas>
 <script>
 
+var chartInstance;
+
+
 var datasetObject = {
     fill: false,
     lineTension: 0.1,
@@ -31,43 +34,54 @@ var datasetObject = {
 };
 
 var data = {{include.data}};
+
 // initially, get overall:
-var chartInfo = dataManager.getChartInfo(data, null, datasetObject);
+var dm = new dataManager(data, datasetObject);
+var chartInfo = dm.getChartInfo(null);
+createPlot(chartInfo);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 var $seriesSelect = $('#series select');
 $seriesSelect.on('change', function() {
   var seriesType = $(this).find('option:selected').val();
-  var chartInfo = dataManager.getChartInfo(seriesType ? seriesType : null);
+  var chartInfo = dm.getChartInfo(seriesType ? seriesType : null);
+  createPlot(chartInfo);
 });
-dataManager.getSeriesLabels(data).forEach(function(series) {
+dm.getSeriesLabels(data).forEach(function(series) {
   $seriesSelect.append($('<option/>').attr('value', series).text(series));
 });
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-chartInstance = new Chart(document.getElementById('linechart-{{ id }}'), {
-  type: 'line',
-  data: chartInfo,
-  options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        xAxes: [{
-            gridLines: {
-                color: '#ccc',
-            }
-        }],
-        yAxes: [{
-          ticks: {
-              suggestedMin: 0
-          }
-        }]
-      },
-      legend: {
-        display: true
-      }
-  }
-});
 
+function createPlot(chartInfo) {
+
+  if(chartInstance) {
+    chartInstance.destroy();
+  }
+
+  chartInstance = new Chart(document.getElementById('linechart-{{ id }}'), {
+    type: 'line',
+    data: chartInfo,
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          xAxes: [{
+              gridLines: {
+                  color: '#ccc',
+              }
+          }],
+          yAxes: [{
+            ticks: {
+                suggestedMin: 0
+            }
+          }]
+        },
+        legend: {
+          display: true
+        }
+    }
+  });
+}
 
 </script>
