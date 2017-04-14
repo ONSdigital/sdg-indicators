@@ -25,7 +25,7 @@ var dataManager = {
     return true;
   },
 
-  getChartInfo: function(data, datasetObject) {
+  getChartInfo: function(data, field, datasetObject) {
 
     var datasets = [];
     var fields = this.getFields(data[0]);
@@ -33,6 +33,8 @@ var dataManager = {
     var seriesData;
     var years;
 
+
+/*
     [null].concat(fields).forEach(function(field, index) {
 
       seriesData = _.chain(data)
@@ -53,16 +55,32 @@ var dataManager = {
             borderWidth: 1
           }, datasetObject));
     });
+*/
+
+      seriesData = _.chain(data)
+                .filter(function(i) { return field ? that.onlyPropertySet(i, fields, field) : that.allNull(i, fields); })
+                .sortBy(function(i) { return i.Year; })
+                .value();
+
+      years = _.pluck(seriesData, 'Year');
+
+      datasets.push(
+          _.extend({
+            label: field ? field : 'Overall',
+            backgroundColor: '#' + that.colors[0],
+            borderColor: '#' + that.colors[0],
+            data: _.pluck(seriesData, 'Value'),
+            borderWidth: 1
+          }, datasetObject));
 
     return {
       datasets: datasets,
       labels: years
     };
+  },
+
+  getSeriesLabels: function(data) {
+    return this.getFields(data[0]);
   }
-
-  // return {
-  //   getChartInfo: getChartInfo
-  // };
-
 };
 
