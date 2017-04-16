@@ -36,17 +36,19 @@ function dataManager(data, datasetObject) {
     var seriesData = [];
     var years;
 
-    if(!field) {
-      seriesData.push(
-        _.chain(this.data)
-          .filter(function(i) { return field ? that.onlyPropertySet(i, fields, field) : that.allNull(i, fields); })
-          .sortBy(function(i) { return i.Year; })
-          .value()
-      );
-    } else {
+    // use all:
+    seriesData.push(
+      _.chain(this.data)
+        .filter(function(i) { return that.allNull(i, fields); })
+        .sortBy(function(i) { return i.Year; })
+        .value()
+    );
+
+    // with optional field:
+    if(field) {
       var data =
         _.chain(this.data)
-          .filter(function(i) { return field ? that.onlyPropertySet(i, fields, field) : that.allNull(i, fields); })
+          .filter(function(i) { return that.onlyPropertySet(i, fields, field); })
           .sortBy(function(i) { return i.Year; })
           .value();
 
@@ -60,8 +62,9 @@ function dataManager(data, datasetObject) {
     }
 
     _.forEach(seriesData, function(d, index) {
+      console.log('d: ', d);
       datasets.push(_.extend({
-            label: field ? d[0][field] : 'All',
+            label: d[0][field] ? d[0][field] : 'All',
             backgroundColor: '#' + colors[index],
             borderColor: '#' + colors[index],
             data: _.pluck(d, 'Value'),
