@@ -28,21 +28,29 @@ function dataManager(data, datasetObject) {
     return true;
   };
 
-  this.getChartInfo = function(field) {
+  this.getData = function(field) {
 
-    var datasets = [];
-    var fields = this.getFields(this.data[0]);
-    var that = this;
-    var seriesData = [];
-    var years;
+    var datasets = [],
+        fields = this.getFields(this.data[0]),
+        that = this,
+        seriesData = [],
+        tableData = [],
+        years,
+        allFunc = function() {
+          return _.chain(this.data)
+            .filter(function(i) { return that.allNull(i, fields); })
+            .sortBy(function(i) { return i.Year; })
+            .map(function(d) { return _.pick(d, _.identity); })
+            .value();
+        };
 
     // use all:
-    seriesData.push(
-      _.chain(this.data)
-        .filter(function(i) { return that.allNull(i, fields); })
-        .sortBy(function(i) { return i.Year; })
-        .value()
-    );
+    seriesData.push(allFunc());
+    tableData.push({
+      title: 'Overall',
+      headings: ['Year', 'Value'],
+      data: allFunc()
+    });
 
     // with optional field:
     if(field) {
@@ -50,19 +58,33 @@ function dataManager(data, datasetObject) {
         _.chain(this.data)
           .filter(function(i) { return that.onlyPropertySet(i, fields, field); })
           .sortBy(function(i) { return i.Year; })
+          .map(function(d) { return _.pick(d, _.identity); })
           .value();
 
       // breakdown by that field's individual series:
       _.chain(data).pluck(field).uniq().value()
         .forEach(function(value, index) {
           seriesData.push(
-            _.chain(data).filter(function(d) { return d[field] == value; }).sortBy(function(d) { return d.Year; }).value()
+            _.chain(data)
+              .filter(function(d) { return d[field] == value; })
+              .sortBy(function(d) { return d.Year; }).value()
           );
-        });
+      });
+
+      // rejoin unique field value for tableData:
+      tableData.push({
+        title: 'Breakdown by ' + field,
+        headings: ['Year'].concat(field).concat('Value'),
+        data: _.chain(seriesData)
+         .filter(function(result) { return result[0][field]; })
+         .reduce(function(result, arr) {
+          return result.concat(arr);
+        }, [])
+        .value()
+      });
     }
 
     _.forEach(seriesData, function(d, index) {
-      console.log('d: ', d);
       datasets.push(_.extend({
             label: d[0][field] ? d[0][field] : 'All',
             backgroundColor: '#' + colors[index],
@@ -74,9 +96,19 @@ function dataManager(data, datasetObject) {
 
     years = _.pluck(seriesData[0], 'Year');
 
+    // sort on tableData 'Year'
+    tableData = tableData.map(function(td) {
+      return {
+        data: _.sortBy(td.data, function(d) { return d.Date; }),
+        headings: td.headings,
+        title: td.title
+      };
+    });
+
     return {
       datasets: datasets,
-      labels: years
+      labels: years,
+      tables: tableData
     };
   };
 

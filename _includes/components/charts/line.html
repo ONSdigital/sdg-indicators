@@ -1,19 +1,15 @@
 {% assign id = page.indicator | slugify %}
 {% assign unit_label = page.variable_unit_label %}
-
-
 <div id="series">
   <select>
     <option value="">All</option>
   </select>
 </div>
-
 <canvas id='linechart-{{ id }}'></canvas>
 <script>
 
+
 var chartInstance;
-
-
 var datasetObject = {
     fill: false,
     lineTension: 0.1,
@@ -32,26 +28,9 @@ var datasetObject = {
     pointHitRadius: 10,
     spanGaps: false
 };
-
 var data = {{include.data}};
 
-// initially, get overall:
-var dm = new dataManager(data, datasetObject);
-var chartInfo = dm.getChartInfo(null);
-createPlot(chartInfo);
-
 ////////////////////////////////////////////////////////////////////////////////////////////////
-var $seriesSelect = $('#series select');
-$seriesSelect.on('change', function() {
-  var seriesType = $(this).find('option:selected').val();
-  var chartInfo = dm.getChartInfo(seriesType ? seriesType : null);
-  createPlot(chartInfo);
-});
-dm.getSeriesLabels(data).forEach(function(series) {
-  $seriesSelect.append($('<option/>').attr('value', series).text(series));
-});
-////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 function createPlot(chartInfo) {
 
@@ -83,5 +62,80 @@ function createPlot(chartInfo) {
     }
   });
 }
+
+function createTables(chartInfo, options) {
+  //chartInfo.tables;
+
+  options = options || {};
+  var csv_path = options.csv_path,
+      el = options.element || '#datatables',
+      allow_download = options.allow_download || false,
+      csv_options = options.csv_options || {separator: ',', delimiter: '"'},
+      datatables_options = options.datatables_options || { paging: false, bInfo: false, searching: false},
+      table_class = options.table_class || 'table table-hover';
+
+  // clear:
+  $(el).html('');
+
+  // loop through chartInfo.
+  chartInfo.tables.forEach(function(tableData, index) {
+
+    $(el).append($('<h3 />').text(tableData.title));
+
+    var currentId = 'indicatortable' + index;
+
+    var currentTable = $('<table />').attr({
+      'class': 'table-responsive ' + table_class,
+      'id' : currentId
+    });
+
+    $(el).append(currentTable);
+
+    var table_head = '<thead><tr>';
+
+    tableData.headings.forEach(function(heading) {
+      table_head += '<th>' + heading + '</th>';
+    });
+
+    table_head += '</tr></thead>';
+    currentTable.append(table_head);
+    currentTable.append('<tbody></tbody>');
+
+    tableData.data.forEach(function(data) {
+      var row_html = '<tr>';
+      tableData.headings.forEach(function(heading) {
+        row_html += '<td>' + data[heading] + '</td>';
+      });
+      row_html += '</tr>';
+      currentTable.find('tbody').append(row_html);
+    });
+
+    currentTable.DataTable(datatables_options);
+  });
+}
+
+
+
+$(function() {
+  // initially, get overall:
+  var dm = new dataManager(data, datasetObject);
+  var chartInfo = dm.getData(null);
+  //console.log('info: ', chartInfo);
+  createPlot(chartInfo);
+  createTables(chartInfo);
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+  var $seriesSelect = $('#series select');
+  $seriesSelect.on('change', function() {
+    var seriesType = $(this).find('option:selected').val();
+    var chartInfo = dm.getData(seriesType ? seriesType : null);
+    //console.log('info: ', chartInfo);
+    createPlot(chartInfo);
+    createTables(chartInfo);
+  });
+  dm.getSeriesLabels(data).forEach(function(series) {
+    $seriesSelect.append($('<option/>').attr('value', series).text(series));
+  });
+});
 
 </script>
