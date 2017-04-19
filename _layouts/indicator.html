@@ -84,16 +84,16 @@
           {% endif %}
         {% endfor %}
       </table>
-      {% comment %}
-      <h2>U.S. Metadata</h2>
+      
+      <h2>UK Data Source(s) Metadata</h2>
       <p>
-        This table provides metadata for the actual indicator available from U.S. statistics closest to the corresponding global
-        SDG indicator. Please note that even when the global SDG indicator is fully available from U.S. statistics, this table
-        should be consulted for information on national methodology and other US-specific metadata information
+        This table provides metadata for the actual indicator available from U.K. statistics closest to the corresponding global
+        SDG indicator. Please note that even when the global SDG indicator is fully available from U.K. statistics, this table
+        should be consulted for information on national methodology and other UK-specific metadata information
       </p>
       <table>
         {% for indicator_metadata in site.prose.metadata._indicators %}
-          {% if indicator_metadata.field.scope != "global" %}
+          {% if indicator_metadata.field.scope == "uksource" %}
             <tr>
               <th>{{ indicator_metadata.field.label }}</th>
               <td>{{ page[indicator_metadata.name] }}</td>
@@ -101,7 +101,7 @@
           {% endif %}
         {% endfor %}
       </table>
-    {% endcomment %}
+    
   </div>
 
   {% if site.github.environment == 'dotcom' %}

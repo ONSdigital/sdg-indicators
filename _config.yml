@@ -48,6 +48,7 @@ prose:
   ignore: ['/assets', '/_includes', '/_layouts', '/scripts', '/sass' ]
   metadata:
     _indicators:
+    ######### Global #########
       - name: "indicator"
         field:
             element: hidden
@@ -88,6 +89,74 @@ prose:
             element: text
             label: "Link to UN Metadata"
             scope: global
+      ######### UK Sources #########
+      ## Source 1
+      - name: source_active_1
+        field:
+            element: checkbox
+            label: Source Active
+            help: Whether or not to display this source
+            value: false
+            scope: uksource
+      - name: source_organisation_1
+        field:
+            element: text
+            label: "Organisation"
+            scope: uksource
+      - name: "source_periodicity_1"
+        field:
+            element: text
+            label: "Periodicity"
+            scope: uksource
+      - name: "source_earliest_available_1"
+        field:
+            element: text
+            label: "Earliest Available Data"
+            scope: uksource
+      - name: "source_geographical_coverage_1"
+        field:
+            element: text
+            label: "Geographical Coverage"
+            scope: uksource
+      - name: "source_link_1"
+        field:
+            element: text
+            label: "Link"
+            scope: uksource
+      ## Source 2
+      - name: source_active_2
+        field:
+            element: checkbox
+            label: Source Active
+            help: Whether or not to display this source
+            value: false
+            scope: uksource
+      - name: source_organisation_2
+        field:
+            element: text
+            label: "Organisation"
+            scope: uksource
+      - name: "source_periodicity_2"
+        field:
+            element: text
+            label: "Periodicity"
+            scope: uksource
+      - name: "source_earliest_available_2"
+        field:
+            element: text
+            label: "Earliest Available Data"
+            scope: uksource
+      - name: "source_geographical_coverage_2"
+        field:
+            element: text
+            label: "Geographical Coverage"
+            scope: uksource
+      - name: "source_link_2"
+        field:
+            element: text
+            label: "Link"
+            scope: uksource
+      ######### Chart Info #########
       - name: "graph_title"
         field: 
             element: text
@@ -108,10 +177,6 @@ prose:
         field:
             element: textarea
             label: "Comments and limitations"
-      - name: "periodicity"
-        field:
-            element: text
-            label: "Periodicity"
       - name: "time_period"
         field:
             element: text
