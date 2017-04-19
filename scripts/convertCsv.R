@@ -5,10 +5,13 @@ oldDefault <- structure(list(year = 2015L, var_1 = 0L, var_2 = 0L),
                         .Names = c("year", "var_1", "var_2"),
                         class = "data.frame", row.names = c(NA, -1L))  
 
-newDefault <- data.frame(Year = 2015L:2016L, 
-                         Group = rep(NA_character_, 2),
-                         Value = rep(0,2),
+newDefault <- data.frame(Year = c(2015L, 2015L, 2015L, 2016L, 2016L, 2016L),
+                         Group = c("A", "B", NA, "A", "B", NA), 
+                         Value = c(1, 3, 2, 1, 3, 2),
                          stringsAsFactors = FALSE)
+
+
+# Read in -----------------------------------------------------------------
 
 
 csvfiles <- Sys.glob("data/indicator*.csv")
@@ -17,7 +20,14 @@ names(csvfiles) <- gsub("\\.csv$", "", gsub("^data/indicator_", "", csvfiles))
 csvs <- lapply(csvfiles, read.csv, stringsAsFactors = FALSE,
                na.strings = c("", " ", "NA", "N/A", "NULL"))
 
+
+# Copy the new default ----------------------------------------------------
+
+
 newcsvs <- lapply(csvs, function(x) newDefault)
+
+
+# Override for 3-3-1 ------------------------------------------------------
 
 ind <- "3-3-1"
 csv <- csvs[[ind]]
@@ -80,4 +90,14 @@ csvNew <- csvSexL %>%
   arrange(Year, Age)
 
 newcsvs[[ind]] <- csvNew
+
+
+# Write all ---------------------------------------------------------------
+
+for (i in seq_along(newcsvs)) {
+  file <- file.path("data", paste0("indicator_", names(newcsvs)[i], ".csv"))
+  cat(file, fill = TRUE)
+  
+  write.csv(newcsvs[[i]], file = file, na = "", row.names = FALSE)
+}
 
