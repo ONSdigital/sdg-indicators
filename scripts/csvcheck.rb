@@ -1,5 +1,7 @@
 require 'csv'
 
+status = true
+
 # Add an is_float method to the string
 class String
   def is_float?
@@ -10,29 +12,38 @@ end
 csvs = Dir.glob("data/indicator*.csv")
 
 csvs.each do |csv|
-  puts " "
-  puts csv
+  
   dat = CSV.read(csv, :headers => true)
   # you can get the headers so now you can error if they're wrong
-  puts "#{dat.headers[0]}, #{dat.headers[-1]}"
+
+  unless dat.headers[0] == "Year"
+    status = false
+    STDERR.puts "First column not called \"Year\" in #{csv}"
+  end
   
-  puts "Is last col Value: #{dat.headers[-1] == 'Value'}"
-  puts "Is first col Year: #{dat.headers[0] == 'Year'}"
-
-
+  unless dat.headers[-1] == "Value"
+    status = false
+    STDERR.puts "Last column not called \"Value\" in #{csv}"
+  end
+  
+  # Now get the value column
   val = dat.map{|x| x[-1]}  
   # Check that they're not all missing
+  #allmissing = val.map{|x| x.nil?}.all?
+  #puts "All missing: #{allmissing}"
   
-  allmissing = val.map{|x| x.nil?}.all?
-  puts "All missing: #{allmissing}"
+  # Check that value is numeric (or nil)
+  num = val.map{|x| if x.nil? then true else x.is_float? end}
   
-  
-  # Check that value is numeric
-  unless allmissing
-      num = val.map{|x| if x.nil? then true else x.is_float? end}
-      puts "All value numeric?: #{num.all?}"
+  unless num.all?
+    status = false
+    STDERR.puts "All entries in Value must be missing or numeric: #{csv}"
   end
   
 end
+
+exit if status
+
+exit 1
 
 
