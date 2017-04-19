@@ -42,7 +42,10 @@ csvs.each do |csv|
   
 end
 
-exit if status
+if status
+  puts "csv check passed"
+  exit
+end
 
 exit 1
 
