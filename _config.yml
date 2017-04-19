@@ -48,6 +48,11 @@ prose:
   ignore: ['/assets', '/_includes', '/_layouts', '/scripts', '/sass' ]
   metadata:
     _indicators:
+      - name: "indicator"
+        field:
+            element: hidden
+            label: "SDG Indicator Number"
+            scope: global
       - name: "indicator_name"
         field:
             element: text
@@ -77,6 +82,11 @@ prose:
         field: 
             element: text
             label: "UN Custodial Agency"
+            scope: global
+      - name: "link_to_un_metadata"
+        field:
+            element: text
+            label: "Link to UN Metadata"
             scope: global
       - name: "graph_title"
         field: 
