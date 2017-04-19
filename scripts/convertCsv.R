@@ -15,6 +15,8 @@ newDefault <- data.frame(Year = c(2015L, 2015L, 2015L, 2016L, 2016L, 2016L),
 
 
 csvfiles <- Sys.glob("data/indicator*.csv")
+# Leave 14-1-1
+csvfiles <- csvfiles[!grepl("14-1-1", csvfiles)]
 names(csvfiles) <- gsub("\\.csv$", "", gsub("^data/indicator_", "", csvfiles))
 
 csvs <- lapply(csvfiles, read.csv, stringsAsFactors = FALSE,
