@@ -196,6 +196,33 @@ ul {
         margin-bottom: 1.5rem;
     }
 
+    #fields {
+      label {
+        background-color: #efefef;
+        padding: 3px;
+        margin-right: 7px;
+        font-weight: normal;
+        border: 1px solid #ccc;
+
+        input {
+          margin-left: 5px;
+        }
+
+        &:hover {
+          border-color: #555;
+        }
+
+        &.disabled {
+          color: #888;
+          cursor: not-allowed;
+
+          &:hover {
+            border-color: #ccc;
+          }
+        }
+      }
+    }
+
     .plot-container {
         height: 350px;
         margin-bottom: 4.5rem;
