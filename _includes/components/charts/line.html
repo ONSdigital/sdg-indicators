@@ -138,9 +138,13 @@ $(function() {
   var fieldLimit = 2;
   $('body').on('click', 'input:checkbox', function() {
     if($('#fields :checked').length === fieldLimit) {
-      $('#fields input:not(:checked)').attr('disabled', true);
+      var selector = $('#fields input:not(:checked)');
+      selector.attr('disabled', true);
+      selector.parent().addClass('disabled');
     } else {
-      $('#fields input').removeAttr('disabled');
+      var selector = $('#fields input');
+      selector.removeAttr('disabled');
+      selector.parent().removeClass('disabled');
     }
 
     var selectedFields = [];
