@@ -30,6 +30,12 @@ markdown: kramdown
 # Travis Support
 exclude: [vendor]
 
+# International Support
+# Eg name: Australia and adjective: Australian
+country:
+  name: UK
+  adjective: UK
+
 # Pages
 collections:
   pages:
@@ -97,32 +103,52 @@ prose:
             label: Source Active
             help: Whether or not to display this source
             value: false
-            scope: uksource
+            scope: source
       - name: source_organisation_1
         field:
             element: text
             label: "Organisation"
-            scope: uksource
+            scope: source
       - name: "source_periodicity_1"
         field:
             element: text
             label: "Periodicity"
-            scope: uksource
+            scope: source
       - name: "source_earliest_available_1"
         field:
             element: text
             label: "Earliest Available Data"
-            scope: uksource
+            scope: source
       - name: "source_geographical_coverage_1"
         field:
             element: text
             label: "Geographical Coverage"
-            scope: uksource
+            scope: source
       - name: "source_link_1"
         field:
             element: text
             label: "Link"
-            scope: uksource
+            scope: source
+      - name: "source_release_date_1"
+        field:
+            element: text
+            label: "Release Date"
+            scope: source
+      - name: "source_next_release_1"
+        field:
+            element: text
+            label: "Next Release Date"
+            scope: source
+      - name: "source_statistical_classification_1"
+        field:
+            element: text
+            label: "Statistical Classification"
+            scope: source
+      - name: "source_contact_1"
+        field:
+            element: text
+            label: "Contact Details"
+            scope: source
       ## Source 2
       - name: source_active_2
         field:
@@ -130,32 +156,52 @@ prose:
             label: Source Active
             help: Whether or not to display this source
             value: false
-            scope: uksource
+            scope: source
       - name: source_organisation_2
         field:
             element: text
             label: "Organisation"
-            scope: uksource
+            scope: source
       - name: "source_periodicity_2"
         field:
             element: text
             label: "Periodicity"
-            scope: uksource
+            scope: source
       - name: "source_earliest_available_2"
         field:
             element: text
             label: "Earliest Available Data"
-            scope: uksource
+            scope: source
       - name: "source_geographical_coverage_2"
         field:
             element: text
             label: "Geographical Coverage"
-            scope: uksource
+            scope: source
       - name: "source_link_2"
         field:
             element: text
             label: "Link"
-            scope: uksource
+            scope: source
+      - name: "source_release_date_2"
+        field:
+            element: text
+            label: "Release Date"
+            scope: source
+      - name: "source_next_release_2"
+        field:
+            element: text
+            label: "Next Release Date"
+            scope: source
+      - name: "source_statistical_classification_2"
+        field:
+            element: text
+            label: "Statistical Classification"
+            scope: source
+      - name: "source_contact_2"
+        field:
+            element: text
+            label: "Contact Details"
+            scope: source
       ######### Chart Info #########
       - name: "graph_title"
         field: 

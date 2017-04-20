@@ -85,15 +85,15 @@
         {% endfor %}
       </table>
       
-      <h2>UK Data Source(s) Metadata</h2>
+      <h2>Data Source(s) Metadata</h2>
       <p>
-        This table provides metadata for the actual indicator available from U.K. statistics closest to the corresponding global
-        SDG indicator. Please note that even when the global SDG indicator is fully available from U.K. statistics, this table
-        should be consulted for information on national methodology and other UK-specific metadata information
+        This table provides metadata for the actual indicator available from {{ site.country.name }} statistics closest to the corresponding global
+        SDG indicator. Please note that even when the global SDG indicator is fully available from {{ site.country.adjective }} statistics, this table
+        should be consulted for information on national methodology and other {{ site.country.adjective }}-specific metadata information
       </p>
       <table>
         {% for indicator_metadata in site.prose.metadata._indicators %}
-          {% if indicator_metadata.field.scope == "uksource" %}
+          {% if indicator_metadata.field.scope == "source" %}
             <tr>
               <th>{{ indicator_metadata.field.label }}</th>
               <td>{{ page[indicator_metadata.name] }}</td>
