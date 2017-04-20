@@ -8,7 +8,6 @@
 <canvas id='linechart-{{ id }}'></canvas>
 <script>
 
-
 var chartInstance;
 var datasetObject = {
     fill: false,
@@ -116,26 +115,31 @@ function createTables(chartInfo, options) {
 
 
 
+
+
+
 $(function() {
   // initially, get overall:
   var dm = new dataManager(data, datasetObject);
   var chartInfo = dm.getData(null);
-  //console.log('info: ', chartInfo);
+
   createPlot(chartInfo);
   createTables(chartInfo);
 
   ////////////////////////////////////////////////////////////////////////////////////////////////
   var $seriesSelect = $('#series select');
+
   $seriesSelect.on('change', function() {
     var seriesType = $(this).find('option:selected').val();
-    var chartInfo = dm.getData(seriesType ? seriesType : null);
-    //console.log('info: ', chartInfo);
+    var chartInfo = dm.getData(seriesType ? ['Grade', 'Planet'] /*seriesType*/ : null);
     createPlot(chartInfo);
     createTables(chartInfo);
   });
+
   dm.getSeriesLabels(data).forEach(function(series) {
     $seriesSelect.append($('<option/>').attr('value', series).text(series));
   });
+
 });
 
 </script>
