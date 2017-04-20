@@ -22,13 +22,19 @@ email_contacts:
 #Github Repo
 repo_name: sdg-indicators
 branch: gh-pages
-org_name: datasciencecampus
+org_name: dougmet
 
 # Build settings
 markdown: kramdown
 
 # Travis Support
 exclude: [vendor]
+
+# International Support
+# Eg name: Australia and adjective: Australian
+country:
+  name: UK
+  adjective: UK
 
 # Pages
 collections:
@@ -48,6 +54,12 @@ prose:
   ignore: ['/assets', '/_includes', '/_layouts', '/scripts', '/sass' ]
   metadata:
     _indicators:
+    ######### Global #########
+      - name: "indicator"
+        field:
+            element: hidden
+            label: "SDG Indicator Number"
+            scope: global
       - name: "indicator_name"
         field:
             element: text
@@ -78,6 +90,117 @@ prose:
             element: text
             label: "UN Custodial Agency"
             scope: global
+      - name: "link_to_un_metadata"
+        field:
+            element: text
+            label: "Link to UN Metadata"
+            scope: global
+      ######### UK Sources #########
+      ## Source 1
+      - name: source_active_1
+        field:
+            element: checkbox
+            label: Source Active
+            help: Whether or not to display this source
+            value: true
+      - name: source_organisation_1
+        field:
+            element: text
+            label: "Organisation"
+            scope: source_1
+      - name: "source_periodicity_1"
+        field:
+            element: text
+            label: "Periodicity"
+            scope: source_1
+      - name: "source_earliest_available_1"
+        field:
+            element: text
+            label: "Earliest Available Data"
+            scope: source_1
+      - name: "source_geographical_coverage_1"
+        field:
+            element: text
+            label: "Geographical Coverage"
+            scope: source_1
+      - name: "source_link_1"
+        field:
+            element: text
+            label: "Link"
+            scope: source_1
+      - name: "source_release_date_1"
+        field:
+            element: text
+            label: "Release Date"
+            scope: source_1
+      - name: "source_next_release_1"
+        field:
+            element: text
+            label: "Next Release Date"
+            scope: source_1
+      - name: "source_statistical_classification_1"
+        field:
+            element: text
+            label: "Statistical Classification"
+            scope: source_1
+      - name: "source_contact_1"
+        field:
+            element: text
+            label: "Contact Details"
+            scope: source_1
+      ## Source 2
+      - name: source_active_2
+        field:
+            element: checkbox
+            label: Source Active
+            help: Whether or not to display this source
+            value: false
+      - name: source_organisation_2
+        field:
+            element: text
+            label: "Organisation"
+            scope: source_2
+      - name: "source_periodicity_2"
+        field:
+            element: text
+            label: "Periodicity"
+            scope: source_2
+      - name: "source_earliest_available_2"
+        field:
+            element: text
+            label: "Earliest Available Data"
+            scope: source_2
+      - name: "source_geographical_coverage_2"
+        field:
+            element: text
+            label: "Geographical Coverage"
+            scope: source_2
+      - name: "source_link_2"
+        field:
+            element: text
+            label: "Link"
+            scope: source_2
+      - name: "source_release_date_2"
+        field:
+            element: text
+            label: "Release Date"
+            scope: source_2
+      - name: "source_next_release_2"
+        field:
+            element: text
+            label: "Next Release Date"
+            scope: source_2
+      - name: "source_statistical_classification_2"
+        field:
+            element: text
+            label: "Statistical Classification"
+            scope: source_2
+      - name: "source_contact_2"
+        field:
+            element: text
+            label: "Contact Details"
+            scope: source_2
+      ######### Chart Info #########
       - name: "graph_title"
         field: 
             element: text
@@ -98,10 +221,6 @@ prose:
         field:
             element: textarea
             label: "Comments and limitations"
-      - name: "periodicity"
-        field:
-            element: text
-            label: "Periodicity"
       - name: "time_period"
         field:
             element: text
