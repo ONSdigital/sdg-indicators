@@ -85,23 +85,39 @@
         {% endfor %}
       </table>
       
-      <h2>Data Source(s) Metadata</h2>
-      <p>
-        This table provides metadata for the actual indicator available from {{ site.country.name }} statistics closest to the corresponding global
-        SDG indicator. Please note that even when the global SDG indicator is fully available from {{ site.country.adjective }} statistics, this table
-        should be consulted for information on national methodology and other {{ site.country.adjective }}-specific metadata information
-      </p>
-      <table>
-        {% for indicator_metadata in site.prose.metadata._indicators %}
-          {% if indicator_metadata.field.scope == "source" %}
-            <tr>
-              <th>{{ indicator_metadata.field.label }}</th>
-              <td>{{ page[indicator_metadata.name] }}</td>
-            </tr>
-          {% endif %}
-        {% endfor %}
-      </table>
-    
+      {% assign n_sources = 0 %}
+      {% for i in (1..5) %}
+        {% assign src_active = "source_active_" | append: i %}
+        {% if page[src_active] == true %}
+          {% assign n_sources  = n_sources | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+
+      {% if n_sources > 0 %}
+        <h2>Data Source(s) Metadata</h2>
+        <p>
+          This table provides metadata for the actual indicator available from {{ site.country.name }} statistics closest to the corresponding global
+          SDG indicator. Please note that even when the global SDG indicator is fully available from {{ site.country.adjective }} statistics, this table
+          should be consulted for information on national methodology and other {{ site.country.adjective }}-specific metadata information
+        </p>
+      
+
+        {% for i in (1..n_sources) %}
+          {% assign src_active = "source_active_" | append: i %}
+          {% assign src_scope = "source_" | append: i %}
+          <h3>Source {{ i }}</h3>
+            <table>
+            {% for indicator_metadata in site.prose.metadata._indicators %}
+              {% if indicator_metadata.field.scope == src_scope %}
+                <tr>
+                  <th>{{ indicator_metadata.field.label }}</th>
+                  <td>{{ page[indicator_metadata.name] }}</td>
+                </tr>
+              {% endif %}
+            {% endfor %}
+            </table>
+          {% endfor %}
+        {% endif %}
   </div>
 
   {% if site.github.environment == 'dotcom' %}
