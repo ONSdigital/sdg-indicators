@@ -49,6 +49,9 @@ function dataManager(data, datasetObject) {
             label: field && fieldValue ? field + ' ' + fieldValue : 'All',
             backgroundColor: '#' + colors[datasetIndex],
             borderColor: '#' + colors[datasetIndex],
+            borderDash: [10, 5],
+            //pointHoverBackgroundColor: colors[datasetIndex],
+            //pointHoverBorderColor: colors[datasetIndex],
             data: _.pluck(data, 'Value'),
             borderWidth: 1
           }, this.datasetObject);

@@ -25,8 +25,8 @@ var datasetObject = {
     pointBackgroundColor: '',
     pointBorderWidth: 1,
     pointHoverRadius: 5,
-    pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-    pointHoverBorderColor: 'rgba(220,220,220,1)',
+    //pointHoverBackgroundColor: 'rgba(0,0,0,1)',
+    //pointHoverBorderColor: 'rgba(0,0,0,1)',
     pointHoverBorderWidth: 2,
     pointRadius: 5,
     pointHitRadius: 10,
@@ -140,11 +140,11 @@ $(function() {
     if($('#fields :checked').length === fieldLimit) {
       var selector = $('#fields input:not(:checked)');
       selector.attr('disabled', true);
-      selector.parent().addClass('disabled');
+      selector.parent().addClass('disabled').attr('title', 'Maximum of ' + fieldLimit + ' selections; unselect another to select this field');
     } else {
       var selector = $('#fields input');
       selector.removeAttr('disabled');
-      selector.parent().removeClass('disabled');
+      selector.parent().removeClass('disabled').removeAttr('title');
     }
 
     var selectedFields = [];
