@@ -105,15 +105,11 @@ function dataManager(data, datasetObject) {
       });
     }
 
-    var res = {
+    return {
       datasets: datasets,
       labels: years,
       tables: tableData
     };
-
-    console.log('returning from dataManger: ', res);
-
-    return res;
   };
 
   this.getSeriesLabels = function(data) {
