@@ -67,7 +67,7 @@
     <div role="tabpanel" class="tab-pane active" id="data">
       <h4>{{ page.graph_title }}</h4>
       <div id="datatables"></div>
-      <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary download-csv">Download CSV</a>
+      <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary download-csv">Download source CSV</a>
     </div>
     <div role="tabpanel" class="tab-pane" id="metadata">
       <h2>Global Metadata</h2>
@@ -84,7 +84,7 @@
           {% endif %}
         {% endfor %}
       </table>
-      
+
       {% assign n_sources = 0 %}
       {% for i in (1..5) %}
         {% assign src_active = "source_active_" | append: i %}
@@ -100,8 +100,6 @@
           SDG indicator. Please note that even when the global SDG indicator is fully available from {{ site.country.adjective }} statistics, this table
           should be consulted for information on national methodology and other {{ site.country.adjective }}-specific metadata information
         </p>
-      
-
         {% for i in (1..n_sources) %}
           {% assign src_active = "source_active_" | append: i %}
           {% assign src_scope = "source_" | append: i %}

@@ -1,5 +1,6 @@
 {% assign id = page.indicator | slugify %}
 {% assign unit_label = page.variable_unit_label %}
+
 <!--<div id="series">
   <select>
     <option value="">All</option>
@@ -67,6 +68,25 @@ function createPlot(chartInfo) {
   });
 }
 
+function toCsv(tableData) {
+  var lines = [],
+      headings = tableData.headings;
+
+  lines.push(headings.join(','));
+
+  _.each(tableData.data, function(dataValues) {
+    var line = [];
+
+     _.each(headings, function(heading) {
+        line.push(dataValues[heading]);
+     });
+
+     lines.push(line.join(','));
+  });
+
+  return lines.join('\n');
+}
+
 function createTables(chartInfo, options) {
 
   options = options || {};
@@ -84,6 +104,13 @@ function createTables(chartInfo, options) {
   chartInfo.tables.forEach(function(tableData, index) {
 
     $(el).append($('<h3 />').text(tableData.title));
+    $(el).append($('<a />').text('Download data')
+        .attr({
+          'href': URL.createObjectURL(new Blob([toCsv(tableData)], { type: 'text/csv' })),
+          'download': '{{id}}-' + tableData.title + '.csv',
+          'class': 'btn btn-primary'
+        })
+        .data('csvdata', toCsv(tableData)));
 
     var currentId = 'indicatortable' + index;
 
@@ -124,16 +151,6 @@ $(function() {
 
   createPlot(chartInfo);
   createTables(chartInfo);
-
-  ////////////////////////////////////////////////////////////////////////////////////////////////
-  // var $seriesSelect = $('#series select');
-
-  // $seriesSelect.on('change', function() {
-  //   var seriesType = $(this).find('option:selected').val();
-  //   var chartInfo = dm.getData(seriesType ? ['Grade', 'Planet'] /*seriesType*/ : null);
-  //   createPlot(chartInfo);
-  //   createTables(chartInfo);
-  // });
 
   var fieldLimit = 2;
   $('body').on('click', 'input:checkbox', function() {
