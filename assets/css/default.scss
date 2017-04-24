@@ -11,6 +11,13 @@ $footer-color:                          #E5E6E7;
 $goal-colors:                           #E5243B #DDA63A #4C9F38 #C5192D #FF3A21 #26BDE2 #FCC30B #A21942 #FD6925 #DD1367 #FD9D24 #BF8B2E #3F7E44 #0A97D9 #56C02B #00689D #19486A;
 $navbar-height:                         105;
 $collapsed-navbar-height:               $navbar-height - 30;
+@mixin noselect {
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
 
 .row.no-gutters {
   margin-right: 0;
@@ -201,6 +208,9 @@ ul {
     }
 
     #fields {
+
+      @include noselect;
+
       label {
         background-color: #efefef;
         padding: 3px;
@@ -230,6 +240,10 @@ ul {
     .plot-container {
         height: 350px;
         margin-bottom: 4.5rem;
+    }
+
+    canvas {
+      @include noselect;
     }
 
     .no-gutters img {
