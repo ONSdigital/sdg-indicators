@@ -67,6 +67,25 @@ function createPlot(chartInfo) {
   });
 }
 
+function toCsv(tableData) {
+  var lines = [],
+      headings = tableData.headings;
+
+  lines.push(headings.join(','));
+
+   _.each(tableData.data, function(dataValues) {
+     var line = [];
+
+     _.each(headings, function(heading) {
+        line.push(dataValues[heading]);
+     });
+
+     lines.push(line.join(','));
+  });
+
+  return lines.join('\n');
+}
+
 function createTables(chartInfo, options) {
 
   options = options || {};
@@ -80,8 +99,21 @@ function createTables(chartInfo, options) {
   // clear:
   $(el).html('');
 
+/*
+  var typedArray = "123,abc,456"; //your csv as a string
+  var blob = new Blob([typedArray], {type: "text/csv"});
+  var url = URL.createObjectURL(blob);
+  var a = document.querySelector("#shane"); // the id of the <a> element where you will render the download link
+  a.href = url;
+  a.download = "file.csv";
+  "file.csv"
+*/
+
   // loop through chartInfo.
   chartInfo.tables.forEach(function(tableData, index) {
+
+  console.log('this table\'s data is: ', tableData);
+  console.log('this table\'s csv is: ', toCsv(tableData));
 
     $(el).append($('<h3 />').text(tableData.title));
 
@@ -124,16 +156,6 @@ $(function() {
 
   createPlot(chartInfo);
   createTables(chartInfo);
-
-  ////////////////////////////////////////////////////////////////////////////////////////////////
-  // var $seriesSelect = $('#series select');
-
-  // $seriesSelect.on('change', function() {
-  //   var seriesType = $(this).find('option:selected').val();
-  //   var chartInfo = dm.getData(seriesType ? ['Grade', 'Planet'] /*seriesType*/ : null);
-  //   createPlot(chartInfo);
-  //   createTables(chartInfo);
-  // });
 
   var fieldLimit = 2;
   $('body').on('click', 'input:checkbox', function() {
