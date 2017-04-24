@@ -1,5 +1,6 @@
 {% assign id = page.indicator | slugify %}
 {% assign unit_label = page.variable_unit_label %}
+
 <!--<div id="series">
   <select>
     <option value="">All</option>
@@ -73,8 +74,8 @@ function toCsv(tableData) {
 
   lines.push(headings.join(','));
 
-   _.each(tableData.data, function(dataValues) {
-     var line = [];
+  _.each(tableData.data, function(dataValues) {
+    var line = [];
 
      _.each(headings, function(heading) {
         line.push(dataValues[heading]);
@@ -99,23 +100,17 @@ function createTables(chartInfo, options) {
   // clear:
   $(el).html('');
 
-/*
-  var typedArray = "123,abc,456"; //your csv as a string
-  var blob = new Blob([typedArray], {type: "text/csv"});
-  var url = URL.createObjectURL(blob);
-  var a = document.querySelector("#shane"); // the id of the <a> element where you will render the download link
-  a.href = url;
-  a.download = "file.csv";
-  "file.csv"
-*/
-
   // loop through chartInfo.
   chartInfo.tables.forEach(function(tableData, index) {
 
-  console.log('this table\'s data is: ', tableData);
-  console.log('this table\'s csv is: ', toCsv(tableData));
-
     $(el).append($('<h3 />').text(tableData.title));
+    $(el).append($('<a />').text('Download data')
+        .attr({
+          'href': URL.createObjectURL(new Blob([toCsv(tableData)], { type: 'text/csv' })),
+          'download': '{{id}}-' + tableData.title + '.csv',
+          'class': 'btn btn-primary'
+        })
+        .data('csvdata', toCsv(tableData)));
 
     var currentId = 'indicatortable' + index;
 
