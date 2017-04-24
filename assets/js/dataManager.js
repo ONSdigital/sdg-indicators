@@ -52,7 +52,10 @@ function dataManager(data, datasetObject) {
             borderDash: [10, 5],
             //pointHoverBackgroundColor: colors[datasetIndex],
             //pointHoverBorderColor: colors[datasetIndex],
-            data: _.pluck(data, 'Value'),
+            data: _.map(years, function(year) {
+              var found = _.findWhere(data, { Year: year });
+              return found ? found.Value : null;
+            }),
             borderWidth: 1
           }, this.datasetObject);
           datasetIndex++;
