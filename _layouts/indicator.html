@@ -56,6 +56,9 @@
     <li role="presentation" class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab">Metadata</a>
     </li>
+    <li role="presentation" class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab">Sources</a>
+    </li>
     {% if site.github.environment == 'dotcom' %}
       <li role="presentation" class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#edit" aria-controls="edit" role="tab">Edit</a>
@@ -108,43 +111,57 @@
         </table>
       </div>
 
-      <div id="sourcemetadata">
-        <!-- Count the non-empty sources (up to 5) -->
-        {% assign n_sources = 0 %}
-        {% for i in (1..5) %}
+      <!-- Method of Computation -->
+      <div id="computationmetadata">
+        <h2>Method of Computation</h2>
+         
+        <table class="table table-hover">
+          {% for indicator_metadata in site.prose.metadata._indicators %}
+            {% if indicator_metadata.field.scope == "computation" %}
+              <tr>
+                <th scope="row">  {{ indicator_metadata.field.label }} </th>
+                <td>{{ page[indicator_metadata.name] }}</td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="sources">
+      <!-- Count the non-empty sources (up to 5) -->
+      {% assign n_sources = 0 %}
+      {% for i in (1..5) %}
+        {% assign src_active = "source_active_" | append: i %}
+        {% if page[src_active] == true %}
+          {% assign n_sources  = n_sources | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+
+      {% if n_sources > 0 %}
+        <h2>Data Source{% if n_sources > 1 %}s{% endif %} Metadata</h2>
+    
+        <div class="row no-gutters">
+        {% for i in (1..n_sources) %}
           {% assign src_active = "source_active_" | append: i %}
-          {% if page[src_active] == true %}
-            {% assign n_sources  = n_sources | plus: 1 %}
-          {% endif %}
-        {% endfor %}
-  
-        {% if n_sources > 0 %}
-          <h2>Data Source{% if n_sources > 1 %}s{% endif %} Metadata</h2>
+          {% assign src_scope = "source_" | append: i %}
 
-        
-            
-          <div class="row no-gutters">
-          {% for i in (1..n_sources) %}
-            {% assign src_active = "source_active_" | append: i %}
-            {% assign src_scope = "source_" | append: i %}
-
-            <div class="col-md-6">
-              <h3>Source {{ i }}</h3>
-              <table>
-              {% for indicator_metadata in site.prose.metadata._indicators %}
-                {% if indicator_metadata.field.scope == src_scope %}
-                  <tr>
-                    <th>{{ indicator_metadata.field.label }}</th>
-                    <td>{{ page[indicator_metadata.name] }}</td>
-                  </tr>
-                {% endif %}
-              {% endfor %}
-              </table>
-            </div>
+          <div class="col-md-6">
+            <h3>Source {{ i }}</h3>
+            <table class="table table-hover">
+            {% for indicator_metadata in site.prose.metadata._indicators %}
+              {% if indicator_metadata.field.scope == src_scope %}
+                <tr>
+                  <th>{{ indicator_metadata.field.label }}</th>
+                  <td>{{ page[indicator_metadata.name] }}</td>
+                </tr>
+              {% endif %}
             {% endfor %}
-            </div>
-          {% endif %}
-        </div>
+            </table>
+          </div>
+          {% endfor %}
+          </div>
+        {% endif %}
   </div>
 
   {% if site.github.environment == 'dotcom' %}
