@@ -120,10 +120,16 @@
   
         {% if n_sources > 0 %}
           <h2>Data Source{% if n_sources > 1 %}s{% endif %} Metadata</h2>
+
+        
+            
+          <div class="row no-gutters">
           {% for i in (1..n_sources) %}
             {% assign src_active = "source_active_" | append: i %}
             {% assign src_scope = "source_" | append: i %}
-            <h3>Source {{ i }}</h3>
+
+            <div class="col-md-6">
+              <h3>Source {{ i }}</h3>
               <table>
               {% for indicator_metadata in site.prose.metadata._indicators %}
                 {% if indicator_metadata.field.scope == src_scope %}
@@ -134,7 +140,9 @@
                 {% endif %}
               {% endfor %}
               </table>
+            </div>
             {% endfor %}
+            </div>
           {% endif %}
         </div>
   </div>
