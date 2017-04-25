@@ -54,7 +54,7 @@ prose:
   ignore: ['/assets', '/_includes', '/_layouts', '/scripts', '/sass' ]
   metadata:
     _indicators:
-    ######### Global #########
+    ######### Global Metadata #########
       - name: "indicator"
         field:
             element: hidden
@@ -95,12 +95,97 @@ prose:
             element: text
             label: "Link to UN Metadata"
             scope: global
-      ######### UK Sources #########
+      ######### National Metadata #########
+      - name: "national_indicator_available"
+        field:
+            element: text
+            label: "Actual Indicator Available"
+            scope: national
+      - name: "national_indicator_description"
+        field:
+            element: text
+            label: "Actual Indicator Description"
+            scope: national
+      - name: "national_indicator_periodicity"
+        field:
+            element: text
+            label: "Indicator Periodicity"
+            scope: national
+      - name: "national_earliest_available_data"
+        field:
+            element: text
+            label: "Earliest Available Data"
+            scope: national
+      - name: "national_geographical_coverage"
+        field:
+            element: text
+            label: "Geographic Coverage"
+            scope: national
+      - name: "admin_release_date"
+        field:
+            element: text
+            label: "Release Date"
+            help: "A date in YYYY-MM-DD format"
+            placeholder: "YYYY-MM-DD"
+            scope: national
+      - name: "admin_next_release"
+        field:
+            element: text
+            label: "Next Release"
+            help: "A date in YYYY-MM-DD format"
+            placeholder: "YYYY-MM-DD"
+            scope: national
+      - name: "admin_statistical_classification"
+        field:
+            element: text
+            label: "Statistical Classification"
+            scope: national
+      - name: "admin_contact_details"
+        field:
+            element: text
+            label: "Contact Details"
+            scope: national
+      - name: "computation_method"
+        field:
+            element: text
+            label: "Method of Computation"
+            scope: national
+      - name: "computation_definitions"
+        field:
+            element: text
+            label: "Definitions Used"
+            scope: national
+      - name: "computation_calculations"
+        field:
+            element: text
+            label: "Calculations"
+            scope: national
+      - name: "computation_numerator"
+        field:
+            element: text
+            label: "Numerator"
+            scope: national
+      - name: "computation_denominator"
+        field:
+            element: text
+            label: "Denominator"
+            scope: national
+      - name: "computation_disaggregation"
+        field:
+            element: text
+            label: "Disaggregation"
+            scope: national
+      - name: "computation_comments"
+        field:
+            element: text
+            label: "Comments and Limitations"
+            scope: national
+      ######### National Sources #########
       ## Source 1
       - name: source_active_1
         field:
             element: checkbox
-            label: Source Active
+            label: Source 1 Active
             help: Whether or not to display this source
             value: true
       - name: source_organisation_1
@@ -152,7 +237,7 @@ prose:
       - name: source_active_2
         field:
             element: checkbox
-            label: Source Active
+            label: Source 2 Active
             help: Whether or not to display this source
             value: false
       - name: source_organisation_2
@@ -200,6 +285,58 @@ prose:
             element: text
             label: "Contact Details"
             scope: source_2
+      ## Source 3
+      - name: source_active_3
+        field:
+            element: checkbox
+            label: Source 3 Active
+            help: Whether or not to display this source
+            value: false
+      - name: source_organisation_3
+        field:
+            element: text
+            label: "Organisation"
+            scope: source_3
+      - name: "source_periodicity_3"
+        field:
+            element: text
+            label: "Periodicity"
+            scope: source_3
+      - name: "source_earliest_available_3"
+        field:
+            element: text
+            label: "Earliest Available Data"
+            scope: source_3
+      - name: "source_geographical_coverage_3"
+        field:
+            element: text
+            label: "Geographical Coverage"
+            scope: source_3
+      - name: "source_link_3"
+        field:
+            element: text
+            label: "Link"
+            scope: source_3
+      - name: "source_release_date_3"
+        field:
+            element: text
+            label: "Release Date"
+            scope: source_3
+      - name: "source_next_release_3"
+        field:
+            element: text
+            label: "Next Release Date"
+            scope: source_3
+      - name: "source_statistical_classification_3"
+        field:
+            element: text
+            label: "Statistical Classification"
+            scope: source_3
+      - name: "source_contact_3"
+        field:
+            element: text
+            label: "Contact Details"
+            scope: source_3
       ######### Chart Info #########
       - name: "graph_title"
         field: 
@@ -229,51 +366,4 @@ prose:
         field:
             element: text
             label: "Unit of measure"
-      - name: "disaggregation_categories"
-        field:
-            element: text
-            label: "Disaggregation #1 (Industry or social categories)"
-      - name: "disaggregation_geography"
-        field:
-            element: text
-            label: "Disaggregation #2 (Geographical coverage)"
-      - name: "date_of_national_source_publication"
-        field:
-            element: text
-            label: "Date of public data release from National source"
-            placeholder: "MONTH YEAR"
-      - name: "date_metadata_updated"
-        field:
-            element: text
-            label: "Date of last Update of This Page"
-            placeholder: "MONTH YEAR"
-      - name: "scheduled_update_by_national_source"
-        field:
-            element: text
-            label: "Scheduled Update by National source"
-            placeholder: "MONTH/YEAR (Next Agency Release)"
-      - name: "scheduled_update_by_SDG_team"
-        field:
-            element: text
-            label: "Scheduled Update by SDG Team"
-            placeholder: "MONTH/YEAR (NRP Database)"
-      - name: "source_agency_staff_name"
-        field:
-            element: text
-            label: "Data Source1 (Agency STAFF NAME)"
-      - name: "source_agency_staff_email"
-        field:
-            element: text
-            label: "Data Source2 (Staff E-MAIL)"
-      - name: "source_agency_survey_dataset"
-        field:
-            element: text
-            label: "Data Source3 (Agency/Survey/Dataset name)"
-      - name: "source_url"
-        field:
-            element: text
-            label: "Indicator web address (closest to data provided)"
-      - name: "international_and_national_references"
-        field:
-            element: text
-            label: "International and National References"
+    
