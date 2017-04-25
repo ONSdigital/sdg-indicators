@@ -70,52 +70,81 @@
       <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary download-csv">Download source CSV</a>
     </div>
     <div role="tabpanel" class="tab-pane" id="metadata">
-      <h2>Global Metadata</h2>
-      <p>
-        This table provides information on metadata for SDG indicators as defined by the UNSC. Complete global <a href="{{ this_sdg_indicator_metadata.goal_meta_link }}">metadata documentation on all indicators in Goal {{ page_goal_num }}</a> is provided by the UN Statistics Division.
-      </p>
-      <table class="table table-hover">
-        {% for indicator_metadata in site.prose.metadata._indicators %}
-          {% if indicator_metadata.field.scope == "global" %}
-            <tr>
-              <th scope="row">  {{ indicator_metadata.field.label }} </th>
-              <td>{{ page[indicator_metadata.name] }}</td>
-            </tr>
+
+      <!-- Global Metadata -->
+      <div id="globalmetadata">
+        <h2>Global Metadata</h2>
+        <p>
+          This table provides information on metadata for SDG indicators as defined by the UNSC. Complete global <a href="{{ this_sdg_indicator_metadata.goal_meta_link }}">metadata documentation on all indicators in Goal {{ page_goal_num }}</a> is provided by the UN Statistics Division.
+        </p>
+        <table class="table table-hover">
+          {% for indicator_metadata in site.prose.metadata._indicators %}
+            {% if indicator_metadata.field.scope == "global" %}
+              <tr>
+                <th scope="row">  {{ indicator_metadata.field.label }} </th>
+                <td>{{ page[indicator_metadata.name] }}</td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+        </table>
+      </div>
+
+      <!-- National Metadata -->
+      <div id="nationalmetadata">
+        <h2>National Metadata</h2>
+          <p>This table provides metadata for the actual indicator available from {{ site.country.name }} statistics closest to the corresponding global
+            SDG indicator. Please note that even when the global SDG indicator is fully available from {{ site.country.adjective }} statistics, this table
+            should be consulted for information on national methodology and other {{ site.country.adjective }}-specific metadata information.
+          </p>
+        <table class="table table-hover">
+          {% for indicator_metadata in site.prose.metadata._indicators %}
+            {% if indicator_metadata.field.scope == "national" %}
+              <tr>
+                <th scope="row">  {{ indicator_metadata.field.label }} </th>
+                <td>{{ page[indicator_metadata.name] }}</td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+        </table>
+      </div>
+
+      <div id="sourcemetadata">
+        <!-- Count the non-empty sources (up to 5) -->
+        {% assign n_sources = 0 %}
+        {% for i in (1..5) %}
+          {% assign src_active = "source_active_" | append: i %}
+          {% if page[src_active] == true %}
+            {% assign n_sources  = n_sources | plus: 1 %}
           {% endif %}
         {% endfor %}
-      </table>
+  
+        {% if n_sources > 0 %}
+          <h2>Data Source{% if n_sources > 1 %}s{% endif %} Metadata</h2>
 
-      {% assign n_sources = 0 %}
-      {% for i in (1..5) %}
-        {% assign src_active = "source_active_" | append: i %}
-        {% if page[src_active] == true %}
-          {% assign n_sources  = n_sources | plus: 1 %}
-        {% endif %}
-      {% endfor %}
+        
+            
+          <div class="row no-gutters">
+          {% for i in (1..n_sources) %}
+            {% assign src_active = "source_active_" | append: i %}
+            {% assign src_scope = "source_" | append: i %}
 
-      {% if n_sources > 0 %}
-        <h2>Data Source(s) Metadata</h2>
-        <p>
-          This table provides metadata for the actual indicator available from {{ site.country.name }} statistics closest to the corresponding global
-          SDG indicator. Please note that even when the global SDG indicator is fully available from {{ site.country.adjective }} statistics, this table
-          should be consulted for information on national methodology and other {{ site.country.adjective }}-specific metadata information
-        </p>
-        {% for i in (1..n_sources) %}
-          {% assign src_active = "source_active_" | append: i %}
-          {% assign src_scope = "source_" | append: i %}
-          <h3>Source {{ i }}</h3>
-            <table>
-            {% for indicator_metadata in site.prose.metadata._indicators %}
-              {% if indicator_metadata.field.scope == src_scope %}
-                <tr>
-                  <th>{{ indicator_metadata.field.label }}</th>
-                  <td>{{ page[indicator_metadata.name] }}</td>
-                </tr>
-              {% endif %}
+            <div class="col-md-6">
+              <h3>Source {{ i }}</h3>
+              <table>
+              {% for indicator_metadata in site.prose.metadata._indicators %}
+                {% if indicator_metadata.field.scope == src_scope %}
+                  <tr>
+                    <th>{{ indicator_metadata.field.label }}</th>
+                    <td>{{ page[indicator_metadata.name] }}</td>
+                  </tr>
+                {% endif %}
+              {% endfor %}
+              </table>
+            </div>
             {% endfor %}
-            </table>
-          {% endfor %}
-        {% endif %}
+            </div>
+          {% endif %}
+        </div>
   </div>
 
   {% if site.github.environment == 'dotcom' %}
