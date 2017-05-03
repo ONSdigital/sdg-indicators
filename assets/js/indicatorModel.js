@@ -1,9 +1,33 @@
-function dataManager(data, datasetObject) {
+var indicatorModel = function(data) {
 
-  var colors = ['e5243b', '4c9f38', 'ff3a21', '26bde2', 'dd1367', 'fd9d24', '3f7e44', '00689d'];
   var that = this;
   this.data = data;
-  this.datasetObject = datasetObject;
+  this.selectedFields = [];
+
+  this.onDataComplete = new event(this);
+  this.onSeriesComplete = new event(this);
+  this.onSeriesSelectedChanged = new event(this);
+
+  this.datasetObject = {
+    fill: false,
+    lineTension: 0.1,
+    borderCapStyle: 'butt',
+    borderDash: [],
+    borderDashOffset: 0.0,
+    borderJoinStyle: 'miter',
+    pointBorderColor: 'rgba(75,192,192,1)',
+    pointBackgroundColor: '',
+    pointBorderWidth: 1,
+    pointHoverRadius: 5,
+    //pointHoverBackgroundColor: 'rgba(0,0,0,1)',
+    //pointHoverBorderColor: 'rgba(0,0,0,1)',
+    pointHoverBorderWidth: 2,
+    pointRadius: 5,
+    pointHitRadius: 10,
+    spanGaps: false
+  };
+
+  var colors = ['e5243b', '4c9f38', 'ff3a21', '26bde2', 'dd1367', 'fd9d24', '3f7e44', '00689d'];
 
   this.getSelectableFields = function(obj) {
     return _.filter(Object.keys(obj), function(key) { return ['Year', 'Value'].indexOf(key) === -1; });
@@ -17,7 +41,7 @@ function dataManager(data, datasetObject) {
     return true;
   };
 
-  this.onlyPropertySet =function(obj, allFields, property) {
+  this.onlyPropertySet = function(obj, allFields, property) {
     for(var loop = 0; loop < allFields.length; loop++) {
       if(allFields[loop] === property && !obj[allFields[loop]]) {
         return false;	// has to have a value
@@ -28,16 +52,22 @@ function dataManager(data, datasetObject) {
     return true;
   };
 
-  this.getData = function(fields) {
+  this.updateSelectedFields = function(fields) {
+    this.selectedFields = fields;
+    this.getData();
+  };
 
-    var datasets = [],
+  this.getData = function(initial) {
+
+    var fields = this.selectedFields,
+        datasets = [],
         selectableFields = this.getSelectableFields(this.data[0]),
         that = this,
         seriesData = [],
         tableData = [],
         years = _.chain(this.data).pluck('Year').uniq().sortBy(function(d) { return d.Year; }).value(),
         allFunc = function() {
-          return _.chain(this.data)
+          return _.chain(that.data)
             .filter(function(i) { return that.allNull(i, selectableFields); })
             .sortBy(function(i) { return i.Year; })
             .map(function(d) { return _.pick(d, _.identity); })
@@ -57,7 +87,7 @@ function dataManager(data, datasetObject) {
               return found ? found.Value : null;
             }),
             borderWidth: 1
-          }, this.datasetObject);
+          }, that.datasetObject);
           datasetIndex++;
           return ds;
         };
@@ -78,7 +108,7 @@ function dataManager(data, datasetObject) {
     if(_.isArray(fields)) {
       fields.forEach(function(field) {
         var data =
-          _.chain(this.data)
+          _.chain(that.data)
             .filter(function(i) { return that.onlyPropertySet(i, selectableFields, field); })
             .sortBy(function(i) { return i.Year; })
             .map(function(d) { return _.pick(d, _.identity); })
@@ -105,15 +135,30 @@ function dataManager(data, datasetObject) {
       });
     }
 
-    return {
+    this.onDataComplete.notify({
       datasets: datasets,
       labels: years,
       tables: tableData
-    };
-  };
+    });
 
-  this.getSeriesLabels = function(data) {
-    return this.getSelectableFields(data[0]);
+    if(initial) {
+      this.onSeriesComplete.notify({
+        series: this.getSelectableFields(data[0])
+      });
+    } else {
+      this.onSeriesSelectedChanged.notify({
+        series: this.selectedFields
+      });
+    }
   };
-}
+};
+
+indicatorModel.prototype = {
+  initialise: function() {
+    this.getData(true);
+  },
+  getData: function() {
+    this.getData();
+  }
+};
 
