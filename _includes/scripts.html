@@ -20,10 +20,10 @@ $(function() {
         }
     });
 
-    if($('section#data').length) {
-      var model = new indicatorModel($('section#data').data('indicatordata')),
+    if($('#indicatorData').length) {
+      var model = new indicatorModel($('#indicatorData').data('indicatordata')),
       view  = new indicatorView(model, {
-        rootElement: 'section#data'
+        rootElement: '#indicatorData'
       }),
       controller = new indicatorController(model, view);
       controller.initialise();

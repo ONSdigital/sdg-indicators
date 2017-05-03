@@ -31,7 +31,7 @@
   %} {% assign indicator_metadata = sdg_indicators | where: "indicator_id", page.indicator | first %} {% assign json_data
   = sdg_indicator_data | jsonify %} {{ page.content }}
 
-  <section id="data" data-indicatordata='{{json_data}}'>
+  <section id="indicatorData" data-indicatordata='{{json_data}}'>
     {% include components/charts/chart.html graph_type=page.graph data=json_data chart_title=page.graph_title %}
 
     <div class="alert alert-warning" role="alert">
