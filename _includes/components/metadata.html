@@ -3,7 +3,7 @@
   {% for indicator_metadata in site.prose.metadata._indicators %}
     {% if indicator_metadata.field.scope == include.scope %}
       <tr>
-        <th scope="row">  {{ indicator_metadata.field.label }} </th>
+        <th scope="row">{{ indicator_metadata.field.label }} </th>
         <td>{{ page[indicator_metadata.name] }}</td>
       </tr>
       {% endif %}
