@@ -6,8 +6,7 @@
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2">
         <a href="{{ goal_uri }}" title="View this goal's indicator list">
-          <img src="{{ site.baseurl }}/assets/img/goals/{{ page.sdg_goal }}.png" alt="icon for Goal {{ page.sdg_goal }} - {{ page.title }}"
-          />
+          <img src="{{ site.baseurl }}/assets/img/goals/{{ page.sdg_goal }}.png" alt="icon for Goal {{ page.sdg_goal }} - {{ page.title }}" />
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
@@ -28,12 +27,12 @@
   goal_title %}{{ goal.title }}{% endcapture %} {% capture indicator_title %}{{ page.title }}{% endcapture %} {% include
   components/breadcrumb.html %} {% include components/dev-disclaimer.html %}
 
-  <section>
+  {% capture dataset_name %}indicator_{{page.indicator | slugify }}{% endcapture %} {% assign sdg_indicator_data = site.data[dataset_name]
+  %} {% assign indicator_metadata = sdg_indicators | where: "indicator_id", page.indicator | first %} {% assign json_data
+  = sdg_indicator_data | jsonify %} {{ page.content }}
 
-    {% capture dataset_name %}indicator_{{page.indicator | slugify }}{% endcapture %} {% assign sdg_indicator_data = site.data[dataset_name]
-    %} {% assign indicator_metadata = sdg_indicators | where: "indicator_id", page.indicator | first %} {% assign json_data
-    = sdg_indicator_data | jsonify %} {% include components/charts/chart.html graph_type=page.graph data=json_data chart_title=page.graph_title
-    %} {{ page.content }}
+  <section id="data" data-indicatordata='{{json_data}}'>
+    {% include components/charts/chart.html graph_type=page.graph data=json_data chart_title=page.graph_title %}
 
     <div class="alert alert-warning" role="alert">
       <i class="fa fa-info" aria-hidden="true"></i> See metadata tab for sources, definitions, and methodology information
@@ -135,4 +134,4 @@
 
   </section>
 </div>
-{% include scripts.html %} {% include footer.html %}
+{% include footer.html %}

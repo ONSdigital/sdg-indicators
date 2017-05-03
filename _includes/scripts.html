@@ -3,11 +3,13 @@ crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
 <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 <script src="//cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-<script src='{{ site.baseurl }}/assets/js/dataManager.js'></script>
+<script src='{{ site.baseurl }}/assets/js/event.js'></script>
+<script src='{{ site.baseurl }}/assets/js/indicatorModel.js'></script>
+<script src="{{ site.baseurl }}/assets/js/indicatorView.js"></script>
+<script src="{{ site.baseurl }}/assets/js/indicatorController.js"></script>
 <script>
 $(function() {
     $(window).scroll(function() {
@@ -17,5 +19,14 @@ $(function() {
             $("#main-nav").removeClass("collapsed");
         }
     });
+
+    if($('section#data').length) {
+      var model = new indicatorModel($('section#data').data('indicatordata')),
+      view  = new indicatorView(model, {
+        rootElement: 'section#data'
+      }),
+      controller = new indicatorController(model, view);
+      controller.initialise();
+    }
 });
 </script>
