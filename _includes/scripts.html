@@ -20,6 +20,24 @@ $(function() {
         }
     });
 
+    $('#metadata .collapsible h3').click(function() {
+      var $container = $(this).closest('div'),
+          $article = $(this).next('article'),
+          $span = $(this).find('span');
+
+      $article.slideToggle(function() {
+        if($container.hasClass('expanded')) {
+          $container.removeClass('expanded');
+          $container.addClass('collapsed');
+          $span.html(' (Expand)');
+        } else {
+          $container.removeClass('collapsed');
+          $container.addClass('expanded');
+          $span.html(' (Collapse)');
+        }
+      });
+    });
+
     if($('#indicatorData').length) {
       var model = new indicatorModel($('#indicatorData').data('indicatordata')),
       view  = new indicatorView(model, {
