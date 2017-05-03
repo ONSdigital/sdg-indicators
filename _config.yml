@@ -149,37 +149,37 @@ prose:
         field:
             element: text
             label: "Method of Computation"
-            scope: national
-      - name: "computation_definitions"
+            scope: computation
+      - name: "computation_units"
         field:
             element: text
-            label: "Definitions Used"
-            scope: national
+            label: "Units of Measure"
+            scope: computation
       - name: "computation_calculations"
         field:
             element: text
             label: "Calculations"
-            scope: national
+            scope: computation
       - name: "computation_numerator"
         field:
             element: text
             label: "Numerator"
-            scope: national
+            scope: computation
       - name: "computation_denominator"
         field:
             element: text
             label: "Denominator"
-            scope: national
+            scope: computation
       - name: "computation_disaggregation"
         field:
             element: text
             label: "Disaggregation"
-            scope: national
+            scope: computation
       - name: "computation_comments"
         field:
             element: text
             label: "Comments and Limitations"
-            scope: national
+            scope: computation
       ######### National Sources #########
       ## Source 1
       - name: source_active_1
@@ -217,11 +217,15 @@ prose:
         field:
             element: text
             label: "Release Date"
+            help: "A date in YYYY-MM-DD format"
+            placeholder: "YYYY-MM-DD"
             scope: source_1
       - name: "source_next_release_1"
         field:
             element: text
             label: "Next Release Date"
+            help: "A date in YYYY-MM-DD format"
+            placeholder: "YYYY-MM-DD"
             scope: source_1
       - name: "source_statistical_classification_1"
         field:
@@ -269,11 +273,15 @@ prose:
         field:
             element: text
             label: "Release Date"
+            help: "A date in YYYY-MM-DD format"
+            placeholder: "YYYY-MM-DD"
             scope: source_2
       - name: "source_next_release_2"
         field:
             element: text
             label: "Next Release Date"
+            help: "A date in YYYY-MM-DD format"
+            placeholder: "YYYY-MM-DD"
             scope: source_2
       - name: "source_statistical_classification_2"
         field:
@@ -321,11 +329,15 @@ prose:
         field:
             element: text
             label: "Release Date"
+            help: "A date in YYYY-MM-DD format"
+            placeholder: "YYYY-MM-DD"
             scope: source_3
       - name: "source_next_release_3"
         field:
             element: text
             label: "Next Release Date"
+            help: "A date in YYYY-MM-DD format"
+            placeholder: "YYYY-MM-DD"
             scope: source_3
       - name: "source_statistical_classification_3"
         field:

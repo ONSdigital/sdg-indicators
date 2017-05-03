@@ -1,8 +1,5 @@
-{% include head.html %}
-{% include header.html %}
-
-{% assign goal = site.data.sdg_goals | where: "goal", page.sdg_goal | first %}
-{% capture goal_uri %}{{ site.baseurl }}/{{ goal.short | slugify }}{% endcapture %}
+{% include head.html %} {% include header.html %} {% assign goal = site.data.sdg_goals | where: "goal", page.sdg_goal | first
+%} {% capture goal_uri %}{{ site.baseurl }}/{{ goal.short | slugify }}{% endcapture %}
 
 <div class="heading goal-{{page.sdg_goal}}">
   <div class="container">
@@ -14,9 +11,9 @@
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h2>
-            <a href="{{ goal_uri }}">
-              <span class="hidden-sm hidden-md hidden-lg">Goal {{page.sdg_goal}}: </span>{{ goal.title }}
-            </a>
+          <a href="{{ goal_uri }}">
+            <span class="hidden-sm hidden-md hidden-lg">Goal {{page.sdg_goal}}: </span>{{ goal.title }}
+          </a>
         </h2>
         <h3>Indicator {{ page.indicator }}: {{ page.title }}</h3>
       </div>
@@ -26,140 +23,79 @@
 
 <div id="main-content" class="container goal-{{page.sdg_goal}}">
 
-  {% capture goal_href %}{{ goal_uri }}{% endcapture %}
-  {% capture goal_number %}{{ goal.goal }}{% endcapture %}
-  {% capture goal_title %}{{ goal.title }}{% endcapture %}
-  {% capture indicator_title %}{{ page.title }}{% endcapture %}
-  {% include components/breadcrumb.html %}
-  {% include components/dev-disclaimer.html %}
+  {% capture goal_href %}{{ goal_uri }}{% endcapture %} {% capture goal_number %}{{ goal.goal }}{% endcapture %} {% capture
+  goal_title %}{{ goal.title }}{% endcapture %} {% capture indicator_title %}{{ page.title }}{% endcapture %} {% include
+  components/breadcrumb.html %} {% include components/dev-disclaimer.html %}
 
-  <section>
+  {% capture dataset_name %}indicator_{{page.indicator | slugify }}{% endcapture %} {% assign sdg_indicator_data = site.data[dataset_name]
+  %} {% assign indicator_metadata = sdg_indicators | where: "indicator_id", page.indicator | first %} {% assign json_data
+  = sdg_indicator_data | jsonify %} {{ page.content }}
 
-  {% capture dataset_name %}indicator_{{page.indicator | slugify }}{% endcapture %}
-  {% assign sdg_indicator_data = site.data[dataset_name] %}
-  {% assign indicator_metadata = sdg_indicators | where: "indicator_id", page.indicator | first %}
-
-    {% assign json_data = sdg_indicator_data | jsonify %}
+  <section id="indicatorData" data-indicatordata='{{json_data}}'>
     {% include components/charts/chart.html graph_type=page.graph data=json_data chart_title=page.graph_title %}
-
-    {{ page.content }}
 
     <div class="alert alert-warning" role="alert">
       <i class="fa fa-info" aria-hidden="true"></i> See metadata tab for sources, definitions, and methodology information
     </div>
 
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item active">
-      <a class="nav-link" data-toggle="tab" href="#data" aria-controls="data" role="tab">Data</a>
-    </li>
-    <li role="presentation" class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab">Metadata</a>
-    </li>
-    {% if site.github.environment == 'dotcom' %}
-      <li role="presentation" class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#edit" aria-controls="edit" role="tab">Edit</a>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="nav-item active">
+        <a class="nav-link" data-toggle="tab" href="#data" aria-controls="data" role="tab">Data</a>
       </li>
-    {% endif %}
-  </ul>
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="data">
-      <h4>{{ page.graph_title }}</h4>
-      <div id="datatables"></div>
-      <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary download-csv">Download source CSV</a>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="metadata">
+      <li role="presentation" class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab">Metadata</a>
+      </li>
+      <li role="presentation" class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab">Sources</a>
+      </li>
+      {% if site.github.environment == 'dotcom' %}
+        <li role="presentation" class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#edit" aria-controls="edit" role="tab">Edit</a>
+        </li>
+      {% endif %}
+    </ul>
 
-      <!-- Global Metadata -->
-      <div id="globalmetadata">
-        <h2>Global Metadata</h2>
-        <p>
-          This table provides information on metadata for SDG indicators as defined by the UNSC. Complete global <a href="{{ this_sdg_indicator_metadata.goal_meta_link }}">metadata documentation on all indicators in Goal {{ page_goal_num }}</a> is provided by the UN Statistics Division.
-        </p>
-        <table class="table table-hover">
-          {% for indicator_metadata in site.prose.metadata._indicators %}
-            {% if indicator_metadata.field.scope == "global" %}
-              <tr>
-                <th scope="row">  {{ indicator_metadata.field.label }} </th>
-                <td>{{ page[indicator_metadata.name] }}</td>
-              </tr>
-            {% endif %}
-          {% endfor %}
-        </table>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="data">
+        <h4>{{ page.graph_title }}</h4>
+        <div id="datatables"></div>
+        <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary download-csv">Download source CSV</a>
       </div>
-
-      <!-- National Metadata -->
-      <div id="nationalmetadata">
-        <h2>National Metadata</h2>
-          <p>This table provides metadata for the actual indicator available from {{ site.country.name }} statistics closest to the corresponding global
-            SDG indicator. Please note that even when the global SDG indicator is fully available from {{ site.country.adjective }} statistics, this table
-            should be consulted for information on national methodology and other {{ site.country.adjective }}-specific metadata information.
-          </p>
-        <table class="table table-hover">
-          {% for indicator_metadata in site.prose.metadata._indicators %}
-            {% if indicator_metadata.field.scope == "national" %}
-              <tr>
-                <th scope="row">  {{ indicator_metadata.field.label }} </th>
-                <td>{{ page[indicator_metadata.name] }}</td>
-              </tr>
-            {% endif %}
-          {% endfor %}
-        </table>
-      </div>
-
-      <div id="sourcemetadata">
-        <!-- Count the non-empty sources (up to 5) -->
-        {% assign n_sources = 0 %}
-        {% for i in (1..5) %}
-          {% assign src_active = "source_active_" | append: i %}
-          {% if page[src_active] == true %}
-            {% assign n_sources  = n_sources | plus: 1 %}
-          {% endif %}
-        {% endfor %}
-  
-        {% if n_sources > 0 %}
-          <h2>Data Source{% if n_sources > 1 %}s{% endif %} Metadata</h2>
-
-        
-            
-          <div class="row no-gutters">
-          {% for i in (1..n_sources) %}
-            {% assign src_active = "source_active_" | append: i %}
-            {% assign src_scope = "source_" | append: i %}
-
-            <div class="col-md-6">
-              <h3>Source {{ i }}</h3>
-              <table>
-              {% for indicator_metadata in site.prose.metadata._indicators %}
-                {% if indicator_metadata.field.scope == src_scope %}
-                  <tr>
-                    <th>{{ indicator_metadata.field.label }}</th>
-                    <td>{{ page[indicator_metadata.name] }}</td>
-                  </tr>
-                {% endif %}
-              {% endfor %}
-              </table>
-            </div>
-            {% endfor %}
-            </div>
-          {% endif %}
+      <div role="tabpanel" class="tab-pane" id="metadata">
+        <!-- Global Metadata -->
+        <div id="globalMetadata">
+          <h2>Global Metadata</h2>
+          <p>This table provides information on metadata for SDG indicators as defined by the UNSC. Complete global <a href="{{ this_sdg_indicator_metadata.goal_meta_link }}">metadata documentation on all indicators in Goal {{ page_goal_num }}</a> is provided by the UN Statistics Division.</p>
+          {% include components/metadata.html scope='global' %}
         </div>
-  </div>
-
-  {% if site.github.environment == 'dotcom' %}
-    <div role="tabpanel" class="tab-pane" id="edit">
-      <div class="edit-container">
-        <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/data/indicator_{{ page.indicator | slugify }}.csv">Edit Data</a>
-        <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/_indicators/{{ page.indicator | slugify }}.md">Edit Metadata</a>
+        <!-- National Metadata -->
+        <div id="nationalMetadata">
+          <h2>National Metadata</h2>
+          <p>This table provides metadata for the actual indicator available from {{ site.country.name }} statistics closest to the corresponding global
+              SDG indicator. Please note that even when the global SDG indicator is fully available from {{ site.country.adjective }} statistics, this table
+              should be consulted for information on national methodology and other {{ site.country.adjective }}-specific metadata information.</p>
+            {% include components/metadata.html scope='national' %}
+        </div>
+        <!-- Method of Computation -->
+        <div id="computationMetadata">
+          <h2>Method of Computation</h2>
+          {% include components/metadata.html scope='computation' %}
+        </div>
       </div>
+      <div role="tabpanel" class="tab-pane" id="sources">
+        {% include components/sources.html %}
+      </div>
+      {% if site.github.environment == 'dotcom' %}
+      <div role="tabpanel" class="tab-pane" id="edit">
+        <div class="edit-container">
+          <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/data/indicator_{{ page.indicator | slugify }}.csv">Edit Data</a>
+          <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/_indicators/{{ page.indicator | slugify }}.md">Edit Metadata</a>
+        </div>
+      </div>
+      {% endif %}
     </div>
-  {% endif %}
-
+  </section>
 </div>
-<!-- / Tab panes -->
-
-</section>
-</div>
-{% include scripts.html %}
 {% include footer.html %}

@@ -33,11 +33,14 @@ csvs.each do |csv|
   #puts "All missing: #{allmissing}"
   
   # Check that value is numeric (or nil)
-  num = val.map{|x| if x.nil? then true else x.is_float? end}
+  num = val.map{|x| if x.nil? || x.strip() == "" then true else x.is_float? end}
   
   unless num.all?
     status = false
+    lines = num.each_index.select{|i| !num[i]}.map{|x| x+2}
+    vals = val.each_index.select{|i| !num[i]}.map{|x| val[x]}
     STDERR.puts "All entries in Value must be missing or numeric: #{csv}"
+    STDERR.puts "Problem on lines: #{lines} with bad values #{vals}}"
   end
   
 end
