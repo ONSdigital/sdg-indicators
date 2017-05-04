@@ -1,7 +1,8 @@
-var indicatorModel = function(data) {
+var indicatorModel = function(options) {
 
   var that = this;
-  this.data = data;
+  this.data = options.data;
+  this.indicatorId = options.indicatorId;
   this.selectedFields = [];
 
   this.onDataComplete = new event(this);
@@ -153,12 +154,13 @@ var indicatorModel = function(data) {
     this.onDataComplete.notify({
       datasets: datasets,
       labels: years,
-      tables: tableData
+      tables: tableData,
+      indicatorId: this.indicatorId
     });
 
     if(initial) {
       this.onSeriesComplete.notify({
-        series: this.getSelectableFields(data[0])
+        series: this.getSelectableFields(this.data[0])
       });
     } else {
       this.onSeriesSelectedChanged.notify({

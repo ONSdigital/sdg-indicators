@@ -102,7 +102,7 @@ var indicatorView = function(model, options) {
     return lines.join('\n');
   };
 
-  this.createTables = function(chartInfo, options) {
+  this.createTables = function(chartInfo) {
 
     options = options || {};
     var that = this,
@@ -123,7 +123,7 @@ var indicatorView = function(model, options) {
       $(el).append($('<a />').text('Download data')
           .attr({
             'href': URL.createObjectURL(new Blob([that.toCsv(tableData)], { type: 'text/csv' })),
-            'download': that.id + tableData.title + '.csv',
+            'download': chartInfo.indicatorId + tableData.title + '.csv',
             'class': 'btn btn-primary'
           })
           .data('csvdata', that.toCsv(tableData)));
