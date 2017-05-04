@@ -136,6 +136,7 @@ var indicatorView = function(model, options) {
       });
 
       $(el).append(currentTable);
+      $(el).append('<hr />');
 
       var table_head = '<thead><tr>';
 
@@ -149,8 +150,8 @@ var indicatorView = function(model, options) {
 
       tableData.data.forEach(function(data) {
         var row_html = '<tr>';
-        tableData.headings.forEach(function(heading) {
-          row_html += '<td>' + data[heading] + '</td>';
+        tableData.headings.forEach(function(heading, index) {
+          row_html += '<td>' + data[index] + '</td>';
         });
         row_html += '</tr>';
         currentTable.find('tbody').append(row_html);

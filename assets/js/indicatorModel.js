@@ -101,7 +101,9 @@ var indicatorModel = function(data) {
     tableData.push({
       title: 'Overall',
       headings: ['Year', 'Value'],
-      data: allFunc()
+      data: _.map(allFunc(), function(d) {
+        return [d.Year, d.Value]
+      })
     });
 
     // with optional fields:
@@ -114,11 +116,24 @@ var indicatorModel = function(data) {
             .map(function(d) { return _.pick(d, _.identity); })
             .value();
 
-        // table data:
+        // Year, fieldvalue-1, fieldvalue-2, fieldvalue-n
+        var uniqueFieldValues = _.chain(data).pluck(field).uniq().sortBy(function(d) { return d[field]; }).value(),
+            result = _.map(years, function(year) {
+              return _.reduce(_.where(data, { 'Year': year }), function(o, v){
+                o.Year = v.Year;
+                o[v[field]] = v.Value;
+                return o;
+            }, {});
+          });
+
         tableData.push({
           title: 'Breakdown by ' + field,
-          headings: Object.keys(data[0]),
-          data: data
+          headings: ['Year'].concat(uniqueFieldValues),
+          data: _.map(result, function(r) {
+              return [r.Year].concat(_.map(uniqueFieldValues, function(f) {
+                return r[f];
+              }));
+          })
         });
 
         // breakdown by that field's individual series:
