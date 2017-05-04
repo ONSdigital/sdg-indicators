@@ -92,8 +92,8 @@ var indicatorView = function(model, options) {
     _.each(tableData.data, function(dataValues) {
       var line = [];
 
-      _.each(headings, function(heading) {
-          line.push(dataValues[heading]);
+      _.each(headings, function(heading, index) {
+          line.push(dataValues[index]);
       });
 
       lines.push(line.join(','));
