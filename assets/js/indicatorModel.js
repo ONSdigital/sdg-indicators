@@ -91,7 +91,7 @@ var indicatorModel = function(options) {
               var found = _.findWhere(data, { Year: year });
               return found ? found.Value : null;
             }),
-            borderWidth: 1
+            borderWidth: field ? 1 : 3
           }, that.datasetObject);
           datasetIndex++;
           return ds;
