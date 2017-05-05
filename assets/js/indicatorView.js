@@ -110,7 +110,7 @@ var indicatorView = function(model, options) {
         el = options.element || '#datatables',
         allow_download = options.allow_download || false,
         csv_options = options.csv_options || {separator: ',', delimiter: '"'},
-        datatables_options = options.datatables_options || { paging: false, bInfo: false, searching: false},
+        datatables_options = options.datatables_options || { paging: false, bInfo: false, searching: false, autoWidth: true },
         table_class = options.table_class || 'table table-hover';
 
     // clear:
@@ -157,6 +157,7 @@ var indicatorView = function(model, options) {
         currentTable.find('tbody').append(row_html);
       });
 
+      datatables_options.aoColumns = _.map(tableData.headings, function(h) { return { sWidth: (100/tableData.headings.length) + '%' }; });
       currentTable.DataTable(datatables_options);
     });
   };
