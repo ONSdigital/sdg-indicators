@@ -110,7 +110,7 @@ var indicatorView = function(model, options) {
         el = options.element || '#datatables',
         allow_download = options.allow_download || false,
         csv_options = options.csv_options || {separator: ',', delimiter: '"'},
-        datatables_options = options.datatables_options || { paging: false, bInfo: false, searching: false, autoWidth: true },
+        datatables_options = options.datatables_options || { paging: false, bInfo: false, searching: false, scrollX: true, sScrollXInner: '100%', sScrollX: '100%' },
         table_class = options.table_class || 'table table-hover';
 
     // clear:
