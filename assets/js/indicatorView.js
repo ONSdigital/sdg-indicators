@@ -120,45 +120,53 @@ var indicatorView = function(model, options) {
     chartInfo.tables.forEach(function(tableData, index) {
 
       $(el).append($('<h3 />').text(tableData.title));
-      $(el).append($('<a />').text('Download data')
-          .attr({
-            'href': URL.createObjectURL(new Blob([that.toCsv(tableData)], { type: 'text/csv' })),
-            'download': chartInfo.indicatorId + tableData.title + '.csv',
-            'class': 'btn btn-primary'
-          })
-          .data('csvdata', that.toCsv(tableData)));
 
-      var currentId = 'indicatortable' + index;
+      if(tableData.data.length) {
+        $(el).append($('<a />').text('Download data')
+            .attr({
+              'href': URL.createObjectURL(new Blob([that.toCsv(tableData)], { type: 'text/csv' })),
+              'download': chartInfo.indicatorId + tableData.title + '.csv',
+              'class': 'btn btn-primary'
+            })
+            .data('csvdata', that.toCsv(tableData)));
 
-      var currentTable = $('<table />').attr({
-        'class': 'table-responsive ' + table_class,
-        'id' : currentId
-      });
+        var currentId = 'indicatortable' + index;
 
-      $(el).append(currentTable);
-      $(el).append('<hr />');
-
-      var table_head = '<thead><tr>';
-
-      tableData.headings.forEach(function(heading) {
-        table_head += '<th>' + heading + '</th>';
-      });
-
-      table_head += '</tr></thead>';
-      currentTable.append(table_head);
-      currentTable.append('<tbody></tbody>');
-
-      tableData.data.forEach(function(data) {
-        var row_html = '<tr>';
-        tableData.headings.forEach(function(heading, index) {
-          row_html += '<td>' + (data[index] ? data[index] : '-') + '</td>';
+        var currentTable = $('<table />').attr({
+          'class': 'table-responsive ' + table_class,
+          'id' : currentId
         });
-        row_html += '</tr>';
-        currentTable.find('tbody').append(row_html);
-      });
 
-      datatables_options.aoColumns = _.map(tableData.headings, function(h) { return { sWidth: (100/tableData.headings.length) + '%' }; });
-      currentTable.DataTable(datatables_options);
+        var table_head = '<thead><tr>';
+
+        tableData.headings.forEach(function(heading) {
+          table_head += '<th>' + heading + '</th>';
+        });
+
+        table_head += '</tr></thead>';
+        currentTable.append(table_head);
+        currentTable.append('<tbody></tbody>');
+
+        tableData.data.forEach(function(data) {
+          var row_html = '<tr>';
+          tableData.headings.forEach(function(heading, index) {
+            row_html += '<td>' + (data[index] ? data[index] : '-') + '</td>';
+          });
+          row_html += '</tr>';
+          currentTable.find('tbody').append(row_html);
+        });
+
+        $(el).append(currentTable);
+
+        // equal width columns:
+        datatables_options.aoColumns = _.map(tableData.headings, function(h) { return { sWidth: (100/tableData.headings.length) + '%' }; });
+        currentTable.DataTable(datatables_options);
+
+      } else {
+        $(el).append($('<p />').text('There is no data for this breakdown.'));
+      }
+
+      $(el).append('<hr />');
     });
   };
 };

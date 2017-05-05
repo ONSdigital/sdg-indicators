@@ -134,11 +134,11 @@ var indicatorModel = function(options) {
         tableData.push({
           title: 'Breakdown by ' + field,
           headings: ['Year'].concat(uniqueFieldValues),
-          data: _.map(result, function(r) {
+          data: _.filter(result, function(r) { return r.Value; }).length ? _.map(result, function(r) {
               return [r.Year].concat(_.map(uniqueFieldValues, function(f) {
                 return r[f];
               }));
-          })
+          }) : []
         });
 
         // breakdown by that field's individual series:
@@ -175,13 +175,13 @@ var indicatorModel = function(options) {
         tableData.push({
           title: 'Breakdown by ' + fields.join( ' and '),
           headings: ['Year'].concat(_.map(uniqueFieldCombinations, function(fc) { return fc[fields[0]] + ' and ' + fc[fields[1]]; })),
-          data: _.map(years, function(year) {
+          data: combinedData.length ? _.map(years, function(year) {
             return [year].concat(_.map(uniqueFieldCombinations, function(ufc) {
                 ufc.Year = year;
                 var found = _.findWhere(combinedData, ufc);
                 return found ? found.Value : undefined;
             }));
-          })
+          }) : []
         });
 
         //console.log('data combined: ', JSON.stringify(combinedData));
