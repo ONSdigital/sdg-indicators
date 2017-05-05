@@ -134,7 +134,7 @@ var indicatorModel = function(options) {
         tableData.push({
           title: 'Breakdown by ' + field,
           headings: ['Year'].concat(uniqueFieldValues),
-          data: _.filter(result, function(r) { return r.Value; }).length ? _.map(result, function(r) {
+          data: _.filter(data, function(d) { return d.Value; }).length ? _.map(result, function(r) {
               return [r.Year].concat(_.map(uniqueFieldValues, function(f) {
                 return r[f];
               }));
