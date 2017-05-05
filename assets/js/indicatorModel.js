@@ -42,11 +42,15 @@ var indicatorModel = function(options) {
     return true;
   };
 
-  this.onlyPropertySet = function(obj, allFields, property) {
+  this.onlyPropertySet = function(obj, allFields, properties) {
+    if(!_.isArray(properties)) {
+      properties = [properties];
+    }
+
     for(var loop = 0; loop < allFields.length; loop++) {
-      if(allFields[loop] === property && !obj[allFields[loop]]) {
+      if(properties.indexOf(allFields[loop]) !== -1 && !obj[allFields[loop]]) {
         return false;	// has to have a value
-      } else if(allFields[loop] !== property && obj[allFields[loop]]) {
+      } else if(properties.indexOf(allFields[loop]) === -1 && obj[allFields[loop]]) {
         return false;	// has to have no value set
       }
     }
@@ -149,6 +153,39 @@ var indicatorModel = function(options) {
             ));
         });
       });
+
+      // combined disaggregations:
+      if(fields.length === 2) {
+        // extract data:
+        var combinedData =
+            _.chain(that.data)
+              .filter(function(i) { return that.onlyPropertySet(i, selectableFields, fields); })
+              .sortBy(function(i) { return i.Year; })
+              .map(function(d) { return _.pick(d, _.identity); })
+              .value();
+
+        // get unique field labels:
+        var uniqueFieldCombinations = _.map(_.groupBy(combinedData,function(d){
+          return d[fields[0]] + '_' + d[fields[1]];
+        }),function(grouped){
+          return _.pick(grouped[0], fields[0], fields[1]);
+          //return grouped[0][fields[0]] + '_' + grouped[0][fields[1]];
+        });
+
+        tableData.push({
+          title: 'Breakdown by ' + fields.join( ' and '),
+          headings: ['Year'].concat(_.map(uniqueFieldCombinations, function(fc) { return fc[fields[0]] + ' and ' + fc[fields[1]]; })),
+          data: _.map(years, function(year) {
+            return [year].concat(_.map(uniqueFieldCombinations, function(ufc) {
+                ufc.Year = year;
+                var found = _.findWhere(combinedData, ufc);
+                return found ? found.Value : undefined;
+            }));
+          })
+        });
+
+        //console.log('data combined: ', JSON.stringify(combinedData));
+      }
     }
 
     this.onDataComplete.notify({
