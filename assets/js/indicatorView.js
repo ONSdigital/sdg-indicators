@@ -151,7 +151,7 @@ var indicatorView = function(model, options) {
       tableData.data.forEach(function(data) {
         var row_html = '<tr>';
         tableData.headings.forEach(function(heading, index) {
-          row_html += '<td>' + data[index] + '</td>';
+          row_html += '<td>' + (data[index] ? data[index] : '-') + '</td>';
         });
         row_html += '</tr>';
         currentTable.find('tbody').append(row_html);
