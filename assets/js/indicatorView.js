@@ -67,7 +67,7 @@ var indicatorView = function(model, options) {
           scales: {
             xAxes: [{
                 gridLines: {
-                    color: '#ccc',
+                    color: '#ddd',
                 }
             }],
             yAxes: [{
@@ -77,7 +77,8 @@ var indicatorView = function(model, options) {
             }]
           },
           legend: {
-            display: true
+            display: true,
+            usePointStyle: true
           }
       }
     });

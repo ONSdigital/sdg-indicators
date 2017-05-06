@@ -11,24 +11,14 @@ var indicatorModel = function(options) {
 
   this.datasetObject = {
     fill: false,
-    lineTension: 0.1,
-    borderCapStyle: 'butt',
-    borderDash: [],
-    borderDashOffset: 0.0,
-    borderJoinStyle: 'miter',
-    pointBorderColor: 'rgba(75,192,192,1)',
-    pointBackgroundColor: '',
-    pointBorderWidth: 1,
     pointHoverRadius: 5,
-    //pointHoverBackgroundColor: 'rgba(0,0,0,1)',
-    //pointHoverBorderColor: 'rgba(0,0,0,1)',
+    pointBackgroundColor: '#ffffff',
     pointHoverBorderWidth: 2,
-    pointRadius: 5,
-    pointHitRadius: 10,
+    tension: 0,
     spanGaps: false
   };
 
-  var colors = ['e5243b', '4c9f38', 'ff3a21', '26bde2', 'dd1367', 'fd9d24', '3f7e44', '00689d'];
+  var colors = ['000000', 'e5243b', '4c9f38', 'ff3a21', '26bde2', 'dd1367', 'fd9d24', '3f7e44', '00689d'];
 
   this.getSelectableFields = function(obj) {
     return _.filter(Object.keys(obj), function(key) { return ['Year', 'Value'].indexOf(key) === -1; });
@@ -80,18 +70,18 @@ var indicatorModel = function(options) {
         },
         datasetIndex = 0,
         convertToDataset = function(data, field, fieldValue) {
-          var ds = _.extend({
+          var fieldIndex = field ? _.findIndex(that.selectedFields, function(f) { return f === field; }) : undefined,
+              ds = _.extend({
             label: field && fieldValue ? field + ' ' + fieldValue : 'All',
-            backgroundColor: '#' + colors[datasetIndex],
             borderColor: '#' + colors[datasetIndex],
-            borderDash: [10, 5],
-            //pointHoverBackgroundColor: colors[datasetIndex],
-            //pointHoverBorderColor: colors[datasetIndex],
+            pointBorderColor: '#' + colors[datasetIndex],
             data: _.map(years, function(year) {
               var found = _.findWhere(data, { Year: year });
               return found ? found.Value : null;
             }),
-            borderWidth: field ? 1 : 3
+            borderWidth: field ? 2 : 4,
+            // apply dash to secondary fields:
+            borderDash: fieldIndex > 0 ? [((fieldIndex + 1) * 2), ((fieldIndex + 1) * 2)] : []
           }, that.datasetObject);
           datasetIndex++;
           return ds;
