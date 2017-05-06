@@ -67,7 +67,7 @@ var indicatorView = function(model, options) {
           scales: {
             xAxes: [{
                 gridLines: {
-                    color: '#ccc',
+                    color: '#ddd',
                 }
             }],
             yAxes: [{
@@ -77,7 +77,8 @@ var indicatorView = function(model, options) {
             }]
           },
           legend: {
-            display: true
+            display: true,
+            usePointStyle: true
           }
       }
     });
@@ -92,8 +93,8 @@ var indicatorView = function(model, options) {
     _.each(tableData.data, function(dataValues) {
       var line = [];
 
-      _.each(headings, function(heading) {
-          line.push(dataValues[heading]);
+      _.each(headings, function(heading, index) {
+          line.push(dataValues[index]);
       });
 
       lines.push(line.join(','));
@@ -102,7 +103,7 @@ var indicatorView = function(model, options) {
     return lines.join('\n');
   };
 
-  this.createTables = function(chartInfo, options) {
+  this.createTables = function(chartInfo) {
 
     options = options || {};
     var that = this,
@@ -110,7 +111,7 @@ var indicatorView = function(model, options) {
         el = options.element || '#datatables',
         allow_download = options.allow_download || false,
         csv_options = options.csv_options || {separator: ',', delimiter: '"'},
-        datatables_options = options.datatables_options || { paging: false, bInfo: false, searching: false},
+        datatables_options = options.datatables_options || { paging: false, bInfo: false, searching: false, scrollX: true, sScrollXInner: '100%', sScrollX: '100%' },
         table_class = options.table_class || 'table table-hover';
 
     // clear:
@@ -120,43 +121,53 @@ var indicatorView = function(model, options) {
     chartInfo.tables.forEach(function(tableData, index) {
 
       $(el).append($('<h3 />').text(tableData.title));
-      $(el).append($('<a />').text('Download data')
-          .attr({
-            'href': URL.createObjectURL(new Blob([that.toCsv(tableData)], { type: 'text/csv' })),
-            'download': that.id + tableData.title + '.csv',
-            'class': 'btn btn-primary'
-          })
-          .data('csvdata', that.toCsv(tableData)));
 
-      var currentId = 'indicatortable' + index;
+      if(tableData.data.length) {
+        $(el).append($('<a />').text('Download data')
+            .attr({
+              'href': URL.createObjectURL(new Blob([that.toCsv(tableData)], { type: 'text/csv' })),
+              'download': chartInfo.indicatorId + tableData.title + '.csv',
+              'class': 'btn btn-primary'
+            })
+            .data('csvdata', that.toCsv(tableData)));
 
-      var currentTable = $('<table />').attr({
-        'class': 'table-responsive ' + table_class,
-        'id' : currentId
-      });
+        var currentId = 'indicatortable' + index;
 
-      $(el).append(currentTable);
-
-      var table_head = '<thead><tr>';
-
-      tableData.headings.forEach(function(heading) {
-        table_head += '<th>' + heading + '</th>';
-      });
-
-      table_head += '</tr></thead>';
-      currentTable.append(table_head);
-      currentTable.append('<tbody></tbody>');
-
-      tableData.data.forEach(function(data) {
-        var row_html = '<tr>';
-        tableData.headings.forEach(function(heading) {
-          row_html += '<td>' + data[heading] + '</td>';
+        var currentTable = $('<table />').attr({
+          'class': 'table-responsive ' + table_class,
+          'id' : currentId
         });
-        row_html += '</tr>';
-        currentTable.find('tbody').append(row_html);
-      });
 
-      currentTable.DataTable(datatables_options);
+        var table_head = '<thead><tr>';
+
+        tableData.headings.forEach(function(heading) {
+          table_head += '<th>' + heading + '</th>';
+        });
+
+        table_head += '</tr></thead>';
+        currentTable.append(table_head);
+        currentTable.append('<tbody></tbody>');
+
+        tableData.data.forEach(function(data) {
+          var row_html = '<tr>';
+          tableData.headings.forEach(function(heading, index) {
+            row_html += '<td>' + (data[index] ? data[index] : '-') + '</td>';
+          });
+          row_html += '</tr>';
+          currentTable.find('tbody').append(row_html);
+        });
+
+        $(el).append(currentTable);
+
+        // equal width columns:
+        datatables_options.aoColumns = _.map(tableData.headings, function(h) { return { sWidth: (100/tableData.headings.length) + '%' }; });
+        currentTable.DataTable(datatables_options);
+
+      } else {
+        $(el).append($('<p />').text('There is no data for this breakdown.'));
+      }
+
+      $(el).append('<hr />');
     });
   };
 };

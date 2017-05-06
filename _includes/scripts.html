@@ -39,7 +39,10 @@ $(function() {
     });
 
     if($('#indicatorData').length) {
-      var model = new indicatorModel($('#indicatorData').data('indicatordata')),
+      var model = new indicatorModel({
+        data: $('#indicatorData').data('indicatordata'),
+        indicatorId: $('#indicatorData').data('indicatorid')
+      }),
       view  = new indicatorView(model, {
         rootElement: '#indicatorData'
       }),
