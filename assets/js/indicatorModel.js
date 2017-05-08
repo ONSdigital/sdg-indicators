@@ -60,7 +60,7 @@ var indicatorModel = function(options) {
         that = this,
         seriesData = [],
         tableData = [],
-        years = _.chain(this.data).pluck('Year').uniq().sortBy(function(d) { return d.Year; }).value(),
+        years = _.chain(this.data).pluck('Year').uniq().sortBy(function(year) { return year; }).value(),
         allFunc = function() {
           return _.chain(that.data)
             .filter(function(i) { return that.allNull(i, selectableFields); })
