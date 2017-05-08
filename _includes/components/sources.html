@@ -8,7 +8,7 @@
 {% endfor %}
 
 {% if n_sources > 0 %}
-  <h3>Data Source{% if n_sources > 1 %}s{% endif %} Metadata</h3>
+  <h3>{{ site.country.name }} Data Source{% if n_sources > 1 %}s{% endif %} Metadata</h3>
   <div class="row no-gutters">
   {% for i in (1..n_sources) %}
    {% assign src_active = "source_active_" | append: i %}
