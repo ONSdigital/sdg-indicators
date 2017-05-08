@@ -18,7 +18,7 @@ var indicatorModel = function(options) {
     spanGaps: false
   };
 
-  var colors = ['000000', 'e5243b', '4c9f38', 'ff3a21', '26bde2', 'dd1367', 'fd9d24', '3f7e44', '00689d'];
+  var colors = ['777777', '0082e5', '79c3fc', '005da7', 'ff9c18', 'f47d00', 'ad8cf3', '9675e2'];
 
   this.getSelectableFields = function(obj) {
     return _.filter(Object.keys(obj), function(key) { return ['Year', 'Value'].indexOf(key) === -1; });
