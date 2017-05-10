@@ -373,6 +373,88 @@ ul {
         }
     }
 
+    .success {
+      background-color: #d9534f;
+    }
+
+    .warning {
+      background-color: #f0ad4e;
+    }
+
+    .danger {
+      background-color: #5cb85c;
+    }
+
+    .statuses {
+      line-height: 30px;
+      height: 30px;
+      padding-left: 5px;
+      display: none;
+    }
+
+    .status {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 3px;
+
+      &:not(:first-child) {
+        margin-left: 10px;
+      }
+    }
+
+    .status-goal {
+      display: none;
+    }
+
+    .value {
+      color: #777;
+      font-weight: bold;
+      margin-left: 3px;
+    }
+
+    .goal-stats {
+      height: 10px;
+//      margin-bottom: 15px;
+
+      & span {
+        display: inline-block;
+        height: 10px;
+        font-weight: bold;
+      }
+    }
+
+    .divider {
+      height: 15px;
+      display: none;
+    }
+
+    .goal {
+      clear: left;
+      border: 1px solid #efefef;
+      margin-bottom: 4px;
+    }
+
+    .frame {
+      width: 0;
+      float: left;
+      min-height: 1px;
+    }
+
+    .details {
+      width: 100%;
+      float: left;
+
+      h3 {
+        margin-top: 10px;
+      }
+    }
+
+    .frame img {
+      display: none;
+    }
+
     #back-to-top {
         cursor: pointer;
         position: fixed;
