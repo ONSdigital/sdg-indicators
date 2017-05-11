@@ -8,7 +8,7 @@ $vanilla: #fff;
 $footer-color : #E5E6E7;
 $goal-colors : #E5243B #DDA63A #4C9F38 #C5192D #FF3A21 #26BDE2 #FCC30B #A21942 #FD6925 #DD1367 #FD9D24 #BF8B2E #3F7E44 #0A97D9 #56C02B #00689D #19486A;
 $navbar-height : 175;
-$collapsed-navbar-height : $navbar-height - 30;
+$collapsed-navbar-height: $navbar-height - 30;
 @mixin noselect {
   user-select: none;
   -moz-user-select: none;
@@ -64,6 +64,11 @@ header {
   transition: all .35s;
   border: none;
   height: $navbar-height+unquote("px");
+
+  // @media only screen and (max-width: 990px) {
+  //   height: 155px;
+  // }
+
   background: white url(../img/sdgbg.png) bottom left repeat-x;
   #disclaimer {
     background: #f2dede;
@@ -91,14 +96,22 @@ header {
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
-    max-width: 290px;
+    max-width: 390px;
+
     /* Extra Small Devices, Phones */
     @media only screen and (max-width: 480px) {
       max-width: 225px;
     }
+
+    @media only screen and (max-width: 990px) {
+      max-width: 280px;
+    }
   }
   ul.nav {
     margin-top: 12px;
+
+    
+
     li {
       a {
         background: none;
