@@ -158,26 +158,31 @@ ul {
 }
 
 @for $i from 1 through length($goal-colors) {
+  $c: nth($goal-colors, $i);
+  $dark-c: darken($c, 20%);
 
-    $c: nth($goal-colors, $i);
-    $dark-c: darken($c, 20%);
-
-    .goal-#{$i} {
-        &.heading {
-            background-color: $c;
-            //border-top: 2px solid darken($c, 15%);
-            border-bottom: 5px solid $dark-c;
-        }
-
-        &.goal-indicators {
-            div {
-                span {
-                    border-color: $dark-c;
-                    color: $dark-c;
-                }
-            }
-        }
+  .goal-#{$i} {
+    &.heading {
+      background-color: $c;
+      //border-top: 2px solid darken($c, 15%);
+      border-bottom: 5px solid $dark-c;
     }
+
+    &.goal-indicators {
+      div {
+        span {
+          border-color: $dark-c;
+          color: $dark-c;
+        }
+      }
+    }
+  }
+
+  .goal-tiles #goal-#{$i} {
+    &:hover {
+      background-color: $c;
+    }
+  }
 }
 
 .heading {
@@ -325,6 +330,13 @@ ul {
         //width: 170px;
         //width: percentage(1/6);
         width: 100%;
+        border: 1px solid transparent;
+        padding: 2px;
+        margin: 2px 2px 0 0;
+
+        // &:hover {
+        //   border-color: #333;
+        // }
     }
 
     &.goal-indicators {
