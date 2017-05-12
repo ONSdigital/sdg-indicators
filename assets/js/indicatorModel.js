@@ -109,7 +109,7 @@ var indicatorModel = function (options) {
     // use all:
     datasets.push(convertToDataset(allFunc()));
     tableData.push({
-      title: this.country,
+      title: 'Headline for ' + this.country,
       headings: ['Year', 'Value'],
       data: _.map(allFunc(), function (d) {
         return [d.Year, d.Value]
