@@ -74,19 +74,19 @@
               {% include components/metadata.html scope='national' %}
           </article>
         </div>
+        <!-- Method of Computation -->
+        <div class="collapsible collapsed">
+          <h3>Method of Computation<span> (Expand)</span></h3>
+          <article>
+            {% include components/metadata.html scope='computation' %}
+          </article>
+        </div>
         <!-- Global Metadata -->
         <div class="collapsible collapsed">
           <h3>Global Metadata<span> (Expand)</span></h3>
           <article>
             <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. Complete global <a href="{{ page['goal_meta_link'] }}">metadata</a> is provided by the UN Statistics Division.</p>
             {% include components/metadata.html scope='global' %}
-          </article>
-        </div>
-        <!-- Method of Computation -->
-        <div class="collapsible collapsed">
-          <h3>Method of Computation<span> (Expand)</span></h3>
-          <article>
-            {% include components/metadata.html scope='computation' %}
           </article>
         </div>
       </div>
