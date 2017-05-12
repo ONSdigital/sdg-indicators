@@ -85,7 +85,7 @@ var indicatorModel = function (options) {
             return f === field;
           }) : undefined,
           ds = _.extend({
-            label: field && fieldValue ? field + ' ' + fieldValue : 'All',
+            label: field && fieldValue ? field + ' ' + fieldValue : that.country,
             borderColor: '#' + colors[datasetIndex],
             pointBorderColor: '#' + colors[datasetIndex],
             data: _.map(years, function (year) {
