@@ -78,7 +78,16 @@ var indicatorView = function (model, options) {
         },
         legend: {
           display: true,
-          usePointStyle: true
+          usePointStyle: true,
+          position: 'bottom',
+          padding: 20
+        },
+        title: {
+          fontSize: 18,
+          fontStyle: 'normal',
+          display: this._model.chartTitle,
+          text: this._model.chartTitle,
+          padding: 20
         }
       }
     });

@@ -38,7 +38,8 @@ $(function() {
       var model = new indicatorModel({
         data: $('#indicatorData').data('indicatordata'),
         country: $('#indicatorData').data('country'),
-        indicatorId: $('#indicatorData').data('indicatorid')
+        indicatorId: $('#indicatorData').data('indicatorid'),
+        chartTitle: $('#indicatorData').data('charttitle')
       }),
       view  = new indicatorView(model, {
         rootElement: '#indicatorData'

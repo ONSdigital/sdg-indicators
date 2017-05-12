@@ -4,6 +4,7 @@ var indicatorModel = function (options) {
   this.data = options.data;
   this.country = options.country;
   this.indicatorId = options.indicatorId;
+  this.chartTitle = options.chartTitle;
   this.selectedFields = [];
 
   this.onDataComplete = new event(this);
