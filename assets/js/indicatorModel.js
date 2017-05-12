@@ -7,6 +7,7 @@ var indicatorModel = function (options) {
   this.chartTitle = options.chartTitle;
   this.measurementUnit = options.measurementUnit;
   this.dataSource = options.dataSource;
+  this.geographicalArea = options.geographicalArea;
   this.selectedFields = [];
 
   this.onDataComplete = new event(this);

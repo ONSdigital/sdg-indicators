@@ -84,7 +84,7 @@ var indicatorView = function (model, options) {
         },
         layout: {
           padding: {
-            bottom: 40
+            bottom: 55
           }
         },
         legend: {
@@ -106,6 +106,16 @@ var indicatorView = function (model, options) {
     Chart.pluginService.register({
       afterDatasetsDraw: function(chart) {
         var $canvas = $(that._rootElement).find('canvas');
+
+        var textOutputs = [
+          'Source: ' + (that._model.dataSource ? that._model.dataSource : ''),
+          'Geographical Area: ' + (that._model.geographicalArea ? that._model.geographicalArea : '')
+        ];
+
+        var textRowHeight = 20;
+        var x = $canvas.width();
+        var y = $canvas.height() - 40 - (textOutputs.length * textOutputs.length);
+
         var canvas = $canvas.get(0);
         var ctx = canvas.getContext("2d");
 
@@ -113,8 +123,12 @@ var indicatorView = function (model, options) {
         ctx.textBaseline = 'middle';
         ctx.font = '14px Arial';
         ctx.fillStyle = '#6e6e6e';
-        ctx.fillText('Source: ' + (that._model.dataSource ? that._model.dataSource : ''), $canvas.width(), $canvas.height() - 15);
-      }
+
+        _.each(textOutputs, function(textOutput) {
+          ctx.fillText(textOutput, x, y);
+          y += textRowHeight;
+        });
+       }
     });
   };
 

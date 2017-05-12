@@ -41,7 +41,8 @@ $(function() {
         indicatorId: $('#indicatorData').data('indicatorid'),
         chartTitle: $('#indicatorData').data('charttitle'),
         measurementUnit: $('#indicatorData').data('measurementunit'),
-        dataSource: $('#indicatorData').data('datasource')
+        dataSource: $('#indicatorData').data('datasource'),
+        geographicalArea: $('#indicatorData').data('geographicalarea')
       }),
       view  = new indicatorView(model, {
         rootElement: '#indicatorData'
