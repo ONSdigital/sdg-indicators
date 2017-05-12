@@ -37,6 +37,7 @@ $(function() {
     if($('#indicatorData').length) {
       var model = new indicatorModel({
         data: $('#indicatorData').data('indicatordata'),
+        country: $('#indicatorData').data('country'),
         indicatorId: $('#indicatorData').data('indicatorid')
       }),
       view  = new indicatorView(model, {
@@ -46,6 +47,8 @@ $(function() {
       controller.initialise();
     }
 
+    ////////////////////////////////////////////////////////////////////////
+    // temporary code, relating to random generation of 'reporting status' 
     ////////////////////////////////////////////////////////////////////////
     function randomSum(sum, nrOfNumbers) {
       var a = new Array(nrOfNumbers);
