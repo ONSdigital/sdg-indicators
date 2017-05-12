@@ -31,7 +31,6 @@
   {% capture goal_title %}{{ found_goal.title }}{% endcapture %}
   {% capture goal_number %}{{ found_goal.goal }}{% endcapture %}
   {% include components/breadcrumb.html %}
-  {% include components/dev-disclaimer.html %}
 
   {% assign indicators = site.data.sdg_indicator_metadata | where:'goal', page.sdg_goal %}
   {% for indicator in indicators %}

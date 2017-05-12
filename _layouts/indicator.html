@@ -25,7 +25,7 @@
 
   {% capture goal_href %}{{ goal_uri }}{% endcapture %} {% capture goal_number %}{{ goal.goal }}{% endcapture %} {% capture
   goal_title %}{{ goal.title }}{% endcapture %} {% capture indicator_title %}{{ page.title }}{% endcapture %} {% include
-  components/breadcrumb.html %} {% include components/dev-disclaimer.html %}
+  components/breadcrumb.html %}
 
   {% capture dataset_name %}indicator_{{page.indicator | slugify }}{% endcapture %} {% assign sdg_indicator_data = site.data[dataset_name]
   %} {% assign indicator_metadata = sdg_indicators | where: "indicator_id", page.indicator | first %} {% assign json_data
