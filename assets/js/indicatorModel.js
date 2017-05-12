@@ -6,6 +6,7 @@ var indicatorModel = function (options) {
   this.indicatorId = options.indicatorId;
   this.chartTitle = options.chartTitle;
   this.measurementUnit = options.measurementUnit;
+  this.dataSource = options.dataSource;
   this.selectedFields = [];
 
   this.onDataComplete = new event(this);

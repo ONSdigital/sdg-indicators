@@ -37,7 +37,7 @@
   {{ page.content }}
 
   <section id="indicatorData" data-indicatordata='{{json_data}}' data-indicatorid='{{dataset_name}}' data-country="{{ site.country.name }}"
-    data-charttitle="{{ page.actual_indicator_available }}" data-measurementunit="{{ page.computation_units }}">
+    data-charttitle="{{ page.actual_indicator_available }}" data-measurementunit="{{ page.computation_units }}" data-datasource="{{ page.source_organisation_1 }}">
     {% include components/charts/chart.html graph_type=page.graph data=json_data %}
 
     <div class="alert alert-warning" role="alert">

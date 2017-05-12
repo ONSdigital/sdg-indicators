@@ -57,6 +57,8 @@ var indicatorView = function (model, options) {
     if (this._chartInstance) {
       this._chartInstance.destroy();
     }
+    
+    var that = this;
 
     this._chartInstance = new Chart($(this._rootElement).find('canvas'), {
       type: 'line',
@@ -80,6 +82,11 @@ var indicatorView = function (model, options) {
             }
           }]
         },
+        layout: {
+          padding: {
+            bottom: 40
+          }
+        },
         legend: {
           display: true,
           usePointStyle: true,
@@ -93,6 +100,20 @@ var indicatorView = function (model, options) {
           text: this._model.chartTitle,
           padding: 20
         }
+      }
+    });
+
+    Chart.pluginService.register({
+      afterDatasetsDraw: function(chart) {
+        var $canvas = $(that._rootElement).find('canvas');
+        var canvas = $canvas.get(0);
+        var ctx = canvas.getContext("2d");
+
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'middle';
+        ctx.font = '14px Arial';
+        ctx.fillStyle = '#6e6e6e';
+        ctx.fillText('Source: ' + (that._model.dataSource ? that._model.dataSource : ''), $canvas.width(), $canvas.height() - 15);
       }
     });
   };

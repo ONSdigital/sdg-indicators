@@ -40,7 +40,8 @@ $(function() {
         country: $('#indicatorData').data('country'),
         indicatorId: $('#indicatorData').data('indicatorid'),
         chartTitle: $('#indicatorData').data('charttitle'),
-        measurementUnit: $('#indicatorData').data('measurementunit')
+        measurementUnit: $('#indicatorData').data('measurementunit'),
+        dataSource: $('#indicatorData').data('datasource')
       }),
       view  = new indicatorView(model, {
         rootElement: '#indicatorData'
