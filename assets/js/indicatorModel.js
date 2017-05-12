@@ -2,6 +2,7 @@ var indicatorModel = function (options) {
 
   var that = this;
   this.data = options.data;
+  this.country = options.country;
   this.indicatorId = options.indicatorId;
   this.selectedFields = [];
 
@@ -108,7 +109,7 @@ var indicatorModel = function (options) {
     // use all:
     datasets.push(convertToDataset(allFunc()));
     tableData.push({
-      title: 'Overall',
+      title: this.country,
       headings: ['Year', 'Value'],
       data: _.map(allFunc(), function (d) {
         return [d.Year, d.Value]
