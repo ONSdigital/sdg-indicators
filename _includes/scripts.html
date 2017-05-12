@@ -39,7 +39,8 @@ $(function() {
         data: $('#indicatorData').data('indicatordata'),
         country: $('#indicatorData').data('country'),
         indicatorId: $('#indicatorData').data('indicatorid'),
-        chartTitle: $('#indicatorData').data('charttitle')
+        chartTitle: $('#indicatorData').data('charttitle'),
+        measurementUnit: $('#indicatorData').data('measurementunit')
       }),
       view  = new indicatorView(model, {
         rootElement: '#indicatorData'

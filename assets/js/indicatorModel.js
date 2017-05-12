@@ -5,6 +5,7 @@ var indicatorModel = function (options) {
   this.country = options.country;
   this.indicatorId = options.indicatorId;
   this.chartTitle = options.chartTitle;
+  this.measurementUnit = options.measurementUnit;
   this.selectedFields = [];
 
   this.onDataComplete = new event(this);

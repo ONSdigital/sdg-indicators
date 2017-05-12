@@ -73,6 +73,10 @@ var indicatorView = function (model, options) {
           yAxes: [{
             ticks: {
               suggestedMin: 0
+            },
+            scaleLabel: {
+              display: this._model.measurementUnit,
+              labelString: this._model.measurementUnit
             }
           }]
         },
