@@ -90,6 +90,7 @@ var indicatorView = function (model, options) {
         },
         layout: {
           padding: {
+            top: 20,
             bottom: 55
           }
         },
