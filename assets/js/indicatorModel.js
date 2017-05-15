@@ -4,6 +4,10 @@ var indicatorModel = function (options) {
   this.data = options.data;
   this.country = options.country;
   this.indicatorId = options.indicatorId;
+  this.chartTitle = options.chartTitle;
+  this.measurementUnit = options.measurementUnit;
+  this.dataSource = options.dataSource;
+  this.geographicalArea = options.geographicalArea;
   this.selectedFields = [];
 
   this.roundingFunc = options.roundingFunc || function(value) {

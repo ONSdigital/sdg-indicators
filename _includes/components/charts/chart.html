@@ -6,7 +6,6 @@
 
     {% assign graph_template = 'components/charts/' | append: graph_type | append: '.html' %}
 
-    <h4>{{ include.graph_title }}</h4>
     <div class="plot-container">
         {% include {{graph_template}} data=include.data %}
     </div>
