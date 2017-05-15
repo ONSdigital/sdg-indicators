@@ -11,7 +11,12 @@ var indicatorView = function (model, options) {
   this._rootElement = options.rootElement;
 
   this._model.onDataComplete.attach(function (sender, args) {
-    view_obj.createPlot(args);
+    if(!view_obj._chartInstance) {
+      view_obj.createPlot(args);
+    } else {
+      view_obj.updatePlot(args);
+    }
+    
     view_obj.createTables(args);
   });
 
@@ -52,11 +57,12 @@ var indicatorView = function (model, options) {
     });
   };
 
-  this.createPlot = function (chartInfo) {
+  this.updatePlot = function(chartInfo) {
+    view_obj._chartInstance.data.datasets = chartInfo.datasets;
+    view_obj._chartInstance.update(1000, true);
+  };
 
-    if (this._chartInstance) {
-      this._chartInstance.destroy();
-    }
+  this.createPlot = function (chartInfo) {
     
     var that = this;
 
@@ -104,7 +110,7 @@ var indicatorView = function (model, options) {
     });
 
     Chart.pluginService.register({
-      afterDatasetsDraw: function(chart) {
+      afterDraw: function(chart) {
         var $canvas = $(that._rootElement).find('canvas');
 
         var textOutputs = [
