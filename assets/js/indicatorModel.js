@@ -10,6 +10,17 @@ var indicatorModel = function (options) {
   this.geographicalArea = options.geographicalArea;
   this.selectedFields = [];
 
+  this.roundingFunc = options.roundingFunc || function(value) {
+    var to = 3, mult = Math.pow(10, to - Math.floor(Math.log(value) / Math.LN10) - 1);
+    return Math.round(value * mult) / mult;
+  };
+
+  // prepare the data according to the rounding function:
+  this.data = _.map(this.data, function(item) {
+    item.Value = that.roundingFunc(item.Value);
+    return item;
+  });
+
   this.onDataComplete = new event(this);
   this.onSeriesComplete = new event(this);
   this.onSeriesSelectedChanged = new event(this);
