@@ -127,7 +127,7 @@ var indicatorModel = function (options) {
       title: 'Headline for ' + this.country,
       headings: ['Year', 'Value'],
       data: _.map(allFunc(), function (d) {
-        return [d.Year, d.Value]
+        return [d.Year, d.Value];
       })
     });
 
