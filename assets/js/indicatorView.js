@@ -49,7 +49,7 @@ var indicatorView = function (model, options) {
 
   this.initialiseSeries = function (args) {
     args.series.forEach(function (series) {
-      $('#fields').append($('<label/>').text(series).append($('<input/>')
+      $('#fields').append($('<label/>').text(series.field).append($('<input/>')
         .attr({
           'type': 'checkbox',
           'value': series,

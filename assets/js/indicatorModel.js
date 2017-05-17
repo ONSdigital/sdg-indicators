@@ -36,9 +36,17 @@ var indicatorModel = function (options) {
 
   var colors = ['777777', '0082e5', '79c3fc', '005da7', 'ff9c18', 'f47d00', 'ad8cf3', '9675e2'];
 
-  this.getSelectableFields = function (obj) {
-    return _.filter(Object.keys(obj), function (key) {
+  this.getFieldsAndValues = function () {
+    var that = this, uniqueFields = _.filter(Object.keys(this.data[0]), function (key) {
       return ['Year', 'Value'].indexOf(key) === -1;
+    });
+
+    // return field and its unique fields:
+    return _.map(uniqueFields, function(field) {
+      return {
+        field: field,
+        values: _.filter(_.uniq(_.pluck(that.data, field)), function(f) { return f; })
+      };
     });
   };
 
@@ -74,7 +82,7 @@ var indicatorModel = function (options) {
 
     var fields = this.selectedFields,
       datasets = [],
-      selectableFields = this.getSelectableFields(this.data[0]),
+      selectableFields = _.pluck(this.getFieldsAndValues(), 'field'),
       that = this,
       seriesData = [],
       tableData = [],
@@ -243,7 +251,7 @@ var indicatorModel = function (options) {
 
     if (initial) {
       this.onSeriesComplete.notify({
-        series: this.getSelectableFields(this.data[0])
+        series: this.getFieldsAndValues()
       });
     } else {
       this.onSeriesSelectedChanged.notify({
