@@ -29,7 +29,7 @@ var indicatorModel = function (options) {
     fill: false,
     pointHoverRadius: 5,
     pointBackgroundColor: '#ffffff',
-    pointHoverBorderWidth: 2,
+    pointHoverBorderWidth: 1,
     tension: 0,
     spanGaps: false
   };
