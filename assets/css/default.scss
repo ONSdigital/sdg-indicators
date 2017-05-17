@@ -261,14 +261,18 @@ ul {
   }
   #fields {
     @include noselect;
+    padding-top: 14px;
     label {
       background-color: #efefef;
       padding: 3px;
-      margin-right: 7px;
+      display: block;
       font-weight: normal;
       border: 1px solid #ccc;
+      position: relative;
       input {
-        margin-left: 5px;
+        position: absolute;
+        top: 3px;
+        right: 5px;
       }
       &:hover {
         border-color: #555;

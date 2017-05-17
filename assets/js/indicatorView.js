@@ -52,7 +52,7 @@ var indicatorView = function (model, options) {
       $('#fields').append($('<label/>').text(series.field).append($('<input/>')
         .attr({
           'type': 'checkbox',
-          'value': series,
+          'value': series.field,
         })));
     });
   };
