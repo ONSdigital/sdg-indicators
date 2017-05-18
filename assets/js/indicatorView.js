@@ -11,7 +11,12 @@ var indicatorView = function (model, options) {
   this._rootElement = options.rootElement;
 
   this._model.onDataComplete.attach(function (sender, args) {
-    view_obj.createPlot(args);
+    if(!view_obj._chartInstance) {
+      view_obj.createPlot(args);
+    } else {
+      view_obj.updatePlot(args);
+    }
+    
     view_obj.createTables(args);
   });
 
@@ -52,11 +57,14 @@ var indicatorView = function (model, options) {
     });
   };
 
-  this.createPlot = function (chartInfo) {
+  this.updatePlot = function(chartInfo) {
+    view_obj._chartInstance.data.datasets = chartInfo.datasets;
+    view_obj._chartInstance.update(1000, true);
+  };
 
-    if (this._chartInstance) {
-      this._chartInstance.destroy();
-    }
+  this.createPlot = function (chartInfo) {
+    
+    var that = this;
 
     this._chartInstance = new Chart($(this._rootElement).find('canvas'), {
       type: 'line',
@@ -73,14 +81,61 @@ var indicatorView = function (model, options) {
           yAxes: [{
             ticks: {
               suggestedMin: 0
+            },
+            scaleLabel: {
+              display: this._model.measurementUnit,
+              labelString: this._model.measurementUnit
             }
           }]
         },
+        layout: {
+          padding: {
+            top: 20,
+            bottom: 55
+          }
+        },
         legend: {
           display: true,
-          usePointStyle: true
+          usePointStyle: true,
+          position: 'bottom',
+          padding: 20
+        },
+        title: {
+          fontSize: 18,
+          fontStyle: 'normal',
+          display: this._model.chartTitle,
+          text: this._model.chartTitle,
+          padding: 20
         }
       }
+    });
+
+    Chart.pluginService.register({
+      afterDraw: function(chart) {
+        var $canvas = $(that._rootElement).find('canvas');
+
+        var textOutputs = [
+          'Source: ' + (that._model.dataSource ? that._model.dataSource : ''),
+          'Geographical Area: ' + (that._model.geographicalArea ? that._model.geographicalArea : '')
+        ];
+
+        var textRowHeight = 20;
+        var x = $canvas.width();
+        var y = $canvas.height() - 40 - (textOutputs.length * textOutputs.length);
+
+        var canvas = $canvas.get(0);
+        var ctx = canvas.getContext("2d");
+
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'middle';
+        ctx.font = '14px Arial';
+        ctx.fillStyle = '#6e6e6e';
+
+        _.each(textOutputs, function(textOutput) {
+          ctx.fillText(textOutput, x, y);
+          y += textRowHeight;
+        });
+       }
     });
   };
 
