@@ -23,35 +23,37 @@ var indicatorModel = function (options) {
   this.selectedFields = [];
 
   // initialise the field information, unique fields and unique values for each field:
-  this.fieldInfo = _.map(_.filter(Object.keys(this.data[0]), function (key) {
-      return ['Year', 'Value'].indexOf(key) === -1;
-    }), function(field) {
-    return {
-      field: field,
-      values: _.chain(that.data).pluck(field).uniq().filter(function(f) { return f; }).value()
+  (function initialise() {
+    that.fieldInfo = _.map(_.filter(Object.keys(that.data[0]), function (key) {
+        return ['Year', 'Value'].indexOf(key) === -1;
+      }), function(field) {
+      return {
+        field: field,
+        values: _.chain(that.data).pluck(field).uniq().filter(function(f) { return f; }).value()
+      };
+    });
+
+    that.years = _.chain(that.data).pluck('Year').uniq().sortBy(function (year) {
+      return year;
+    }).value();
+
+    that.selectableFields = _.pluck(that.fieldInfo, 'field');
+
+    // prepare the data according to the rounding function:
+    that.data = _.map(that.data, function(item) {
+      item.Value = that.roundingFunc(item.Value);
+      return item;
+    });
+
+    that.datasetObject = {
+      fill: false,
+      pointHoverRadius: 5,
+      pointBackgroundColor: '#ffffff',
+      pointHoverBorderWidth: 1,
+      tension: 0,
+      spanGaps: false
     };
-  });
-
-  this.years = _.chain(this.data).pluck('Year').uniq().sortBy(function (year) {
-    return year;
-  }).value();
-
-  this.selectableFields = _.pluck(this.fieldInfo, 'field');
-
-  // prepare the data according to the rounding function:
-  this.data = _.map(this.data, function(item) {
-    item.Value = that.roundingFunc(item.Value);
-    return item;
-  });
-
-  this.datasetObject = {
-    fill: false,
-    pointHoverRadius: 5,
-    pointBackgroundColor: '#ffffff',
-    pointHoverBorderWidth: 1,
-    tension: 0,
-    spanGaps: false
-  };
+  }());
 
   var colors = ['777777', '0082e5', '79c3fc', '005da7', 'ff9c18', 'f47d00', 'ad8cf3', '9675e2'];
 
