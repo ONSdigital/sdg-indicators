@@ -4,7 +4,7 @@ var indicatorView = function (model, options) {
 
   var view_obj = this;
 
-  this._fieldLimit = 2;
+  //this._fieldLimit = 2;
   this._model = model;
 
   this._chartInstance = undefined;
@@ -25,26 +25,30 @@ var indicatorView = function (model, options) {
   });
 
   this._model.onSeriesSelectedChanged.attach(function (sender, args) {
-    var selector;
-    if (args.series.length === view_obj._fieldLimit) {
-      selector = $('#fields input:not(:checked)');
-      selector.attr('disabled', true);
-      selector.parent().addClass('disabled').attr('title', 'Maximum of ' + view_obj._fieldLimit + ' selections; unselect another to select this field');
-    } else {
-      selector = $('#fields input');
-      selector.removeAttr('disabled');
-      selector.parent().removeClass('disabled').removeAttr('title');
-    }
+    // var selector;
+    // if (args.series.length === view_obj._fieldLimit) {
+    //   selector = $('#fields input:not(:checked)');
+    //   selector.attr('disabled', true);
+    //   selector.parent().addClass('disabled').attr('title', 'Maximum of ' + view_obj._fieldLimit + ' selections; unselect another to select this field');
+    // } else {
+    //   selector = $('#fields input');
+    //   selector.removeAttr('disabled');
+    //   selector.parent().removeClass('disabled').removeAttr('title');
+    // }
   });
 
   $(this._rootElement).on('click', 'input:checkbox', function () {
-    var selectedFields = [];
-
-    $('#fields input:checked').each(function (i, field) {
-      selectedFields.push($(field).val());
-    });
-
-    view_obj._model.updateSelectedFields(selectedFields);
+    view_obj._model.updateSelectedFields(_.chain(_.map($('#fields input:checked'), function (fieldValue) {
+      return {
+        value: $(fieldValue).val(),
+        field: $(fieldValue).data('field')
+      };
+    })).groupBy('field').map(function(value, key) {
+      return {
+          field: key,
+          values: _.pluck(value, 'value')
+      };
+    }).value());
   });
 
   this.initialiseSeries = function (args) {

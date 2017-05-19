@@ -32,6 +32,10 @@ var indicatorModel = function (options) {
     };
   });
 
+  this.years = _.chain(this.data).pluck('Year').uniq().sortBy(function (year) {
+    return year;
+  }).value();
+
   this.selectableFields = _.pluck(this.fieldInfo, 'field');
 
   // prepare the data according to the rounding function:
@@ -74,6 +78,7 @@ var indicatorModel = function (options) {
   };
 
   this.updateSelectedFields = function (fields) {
+    console.log('Selected fields: ', fields);
     this.selectedFields = fields;
     this.getData();
   };
@@ -85,9 +90,6 @@ var indicatorModel = function (options) {
       that = this,
       seriesData = [],
       tableData = [],
-      years = _.chain(this.data).pluck('Year').uniq().sortBy(function (year) {
-        return year;
-      }).value(),
       datasetIndex = 0,
       convertToDataset = function (data, field, fieldValue) {
         var fieldIndex = field ? _.findIndex(that.selectedFields, function (f) {
@@ -97,7 +99,7 @@ var indicatorModel = function (options) {
             label: field && fieldValue ? field + ' ' + fieldValue : that.country,
             borderColor: '#' + colors[datasetIndex],
             pointBorderColor: '#' + colors[datasetIndex],
-            data: _.map(years, function (year) {
+            data: _.map(that.years, function (year) {
               var found = _.findWhere(data, {
                 Year: year
               });
@@ -128,7 +130,7 @@ var indicatorModel = function (options) {
 
     this.onDataComplete.notify({
       datasets: datasets,
-      labels: years,
+      labels: this.years,
       tables: tableData,
       indicatorId: this.indicatorId
     });
