@@ -1,0 +1,10 @@
+ <script type="text/template" id="item_template">
+    <% _.each(series, function(seriesItem) { %>
+      <div>
+        <h5><%=seriesItem.field%></h5>
+        <% _.each(seriesItem.values, function(value) { %>
+          <label><input type="checkbox" value="<%=value%>" /><%=value%></label>
+        <% }); %>
+      </div>
+    <% }); %>
+  </script>

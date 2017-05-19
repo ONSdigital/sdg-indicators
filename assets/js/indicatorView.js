@@ -48,13 +48,11 @@ var indicatorView = function (model, options) {
   });
 
   this.initialiseSeries = function (args) {
-    args.series.forEach(function (series) {
-      $('#fields').append($('<label/>').text(series.field).append($('<input/>')
-        .attr({
-          'type': 'checkbox',
-          'value': series.field,
-        })));
-    });
+    var template = _.template($("#item_template").html());
+
+    $('#fields').html(template({
+        series: args.series
+    }));
   };
 
   this.updatePlot = function(chartInfo) {

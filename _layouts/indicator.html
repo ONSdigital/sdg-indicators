@@ -1,5 +1,9 @@
-{% include head.html %} {% include header.html %} {% assign goal = site.data.sdg_goals | where: "goal", page.sdg_goal | first
-%} {% capture goal_uri %}{{ site.baseurl }}/{{ goal.short | slugify }}{% endcapture %}
+{% include head.html %} 
+{% include header.html %} 
+{% assign goal = site.data.sdg_goals | where: "goal", page.sdg_goal | first %} 
+{% capture goal_uri %}{{ site.baseurl }}/{{ goal.short | slugify }}{% endcapture %}
+
+{% include components/fields-template.html %}
 
 <div class="heading goal-{{page.sdg_goal}}">
   <div class="container">
