@@ -57,10 +57,10 @@ var indicatorModel = function (options) {
 
   var colors = ['777777', '0082e5', '79c3fc', '005da7', 'ff9c18', 'f47d00', 'ad8cf3', '9675e2'];
 
-  this.getHeadline = function() {
+  this.getHeadline = function(fields) {
     var that = this, allNull = function (obj) {
       for (var loop = 0; loop < that.selectableFields.length; loop++) {
-        if (obj[fields[loop]])
+        if (obj[that.selectableFields[loop]])
           return false;
       }
       return true;
