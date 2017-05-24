@@ -7,7 +7,7 @@ var indicatorModel = function (options) {
 
   // data rounding:
   this.roundingFunc = options.roundingFunc || function(value) {
-    var to = 3, mult = Math.pow(10, to - Math.floor(Math.log(value) / Math.LN10) - 1);
+    var to = 3, mult = Math.pow(10, to - Math.floor(Math.log(Math.abs(value)) / Math.LN10) - 1);
     return Math.round(value * mult) / mult;
   };
 
