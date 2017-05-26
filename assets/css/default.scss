@@ -263,7 +263,7 @@ ul {
     @include noselect;
     padding-top: 14px;
     label {
-      background-color: #efefef;
+      background-color: #fff;
       padding: 3px;
       display: block;
       font-weight: normal;
@@ -275,13 +275,22 @@ ul {
         right: 5px;
       }
       &:hover {
-        border-color: #555;
+        border-color: #acacac;
       }
       &.disabled {
         color: #888;
         cursor: not-allowed;
         &:hover {
           border-color: #ccc;
+        }
+      }
+
+      &.unavailable {
+        background-color: #666;
+        color: white;
+
+        & input {
+          display: none;
         }
       }
     }

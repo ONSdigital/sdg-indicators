@@ -4,6 +4,7 @@ var indicatorModel = function (options) {
   this.onDataComplete = new event(this);
   this.onSeriesComplete = new event(this);
   this.onSeriesSelectedChanged = new event(this);
+  this.onFieldsStatusUpdated = new event(this);
 
   // data rounding:
   this.roundingFunc = options.roundingFunc || function(value) {
@@ -14,6 +15,9 @@ var indicatorModel = function (options) {
   // general members:
   var that = this;
   this.data = options.data;
+
+  console.log(JSON.stringify(this.data));
+
   this.country = options.country;
   this.indicatorId = options.indicatorId;
   this.chartTitle = options.chartTitle;
@@ -21,6 +25,7 @@ var indicatorModel = function (options) {
   this.dataSource = options.dataSource;
   this.geographicalArea = options.geographicalArea;
   this.selectedFields = [];
+  this.modifiedField = undefined; // a field that is being modified
 
   // initialise the field information, unique fields and unique values for each field:
   (function initialise() {
@@ -79,13 +84,17 @@ var indicatorModel = function (options) {
       .value();
   };
 
-  this.updateSelectedFields = function (fields) {
+  this.updateSelectedFields = function (fields, modifiedField) {
     console.log('Selected fields: ', fields);
     this.selectedFields = fields;
+    this.modifiedField = modifiedField;
     this.getData();
   };
 
   this.getData = function (initial) {
+
+    // field: 'Grade'
+    // values: ['A', 'B']
 
     var fields = this.selectedFields,
       datasets = [],
@@ -118,6 +127,43 @@ var indicatorModel = function (options) {
     if (fields && !_.isArray(fields)) {
       fields = [].concat(fields);
     }
+
+    // update the statuses of the fields based on the selected fields' state:
+    var matchedData = _.filter(this.data, function(item) {
+        // if(that.modifiedField === fields[loop] &)
+        //   return true;  // just 
+        var isMatch = true;
+
+        for(var loop = 0; loop < fields.length; loop++) {
+          
+          // allow all objects with any value for currently selected field:
+          //if(item[fields[loop].field] && that.modifiedField === fields[loop].field) {
+          //  isMatch = true;
+          //}
+
+          if(fields[loop].field === that.modifiedField) {
+            continue;
+          }
+         
+          // or on each field:
+          if(fields[loop].values.indexOf(item[fields[loop].field]) === -1)
+            isMatch = false;
+        }
+
+        return isMatch;
+    });
+
+    // extract the unique field values:
+    this.onFieldsStatusUpdated.notify({
+      data: _.map(_.pluck(this.fieldInfo, 'field'), function(f) {
+        return {
+          field: f,
+          values: //supply all modified fields for the clicked field:
+            _.chain(f === that.modifiedField ? that.data : matchedData).pluck(f).uniq().filter(function(v) { return v; }).value()
+        };
+      }),
+      modifiedField: that.modifiedField 
+    });
 
     // headline:
     var headline = this.getHeadline();

@@ -37,7 +37,41 @@ var indicatorView = function (model, options) {
     // }
   });
 
+  this._model.onFieldsStatusUpdated.attach(function (sender, args) {
+    
+    console.log('updating field states with: ', args);
+
+    // initially, mark all as disabled:
+    $(view_obj._rootElement).find(':checkbox[data-field!="' + args.modifiedField + '"]').data('unavailable', 'true');
+
+    _.each(args.data, function(fieldGroup) {
+      _.each(fieldGroup.values, function(value) {
+        $(view_obj._rootElement).find(':checkbox[data-field="' + fieldGroup.field + '"][value="' + value + '"]').removeData('unavailable');
+      });
+    });
+
+    // now update:
+    var unavailable;
+    $(view_obj._rootElement).find(':checkbox').each(function(index, el) {
+      unavailable = $(el).data('unavailable');
+
+      $(el).parent()[unavailable ? 'addClass' : 'removeClass']('unavailable');
+
+      if(unavailable) {
+        $(el).hide();
+      } else {
+        $(el).show();
+      }
+    });
+  });
+
   $(this._rootElement).on('click', 'input:checkbox', function () {
+
+    // don't permit unavailable selections:
+    if($(this).parent().hasClass('unavailable')) {
+      return;
+    }
+
     view_obj._model.updateSelectedFields(_.chain(_.map($('#fields input:checked'), function (fieldValue) {
       return {
         value: $(fieldValue).val(),
@@ -48,7 +82,7 @@ var indicatorView = function (model, options) {
           field: key,
           values: _.pluck(value, 'value')
       };
-    }).value());
+    }).value(), $(this).data('field'));
   });
 
   this.initialiseSeries = function (args) {
