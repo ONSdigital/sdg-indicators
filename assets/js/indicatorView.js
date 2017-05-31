@@ -38,37 +38,23 @@ var indicatorView = function (model, options) {
   });
 
   this._model.onFieldsStatusUpdated.attach(function (sender, args) {
-    
     console.log('updating field states with: ', args);
 
-    // initially, mark all as disabled:
-    $(view_obj._rootElement).find(':checkbox[data-field!="' + args.modifiedField + '"]').data('unavailable', 'true');
+    // reset: 
+    $(view_obj._rootElement).find('label').removeClass('selected possible excluded');
 
     _.each(args.data, function(fieldGroup) {
-      _.each(fieldGroup.values, function(value) {
-        $(view_obj._rootElement).find(':checkbox[data-field="' + fieldGroup.field + '"][value="' + value + '"]').removeData('unavailable');
+      _.each(fieldGroup.values, function(fieldItem) {
+        var element = $(view_obj._rootElement).find(':checkbox[value="' + fieldItem.value + '"][data-field="' + fieldGroup.field + '"]');
+        element.parent().addClass(fieldItem.state);
       });
-    });
-
-    // now update:
-    var unavailable;
-    $(view_obj._rootElement).find(':checkbox').each(function(index, el) {
-      unavailable = $(el).data('unavailable');
-
-      $(el).parent()[unavailable ? 'addClass' : 'removeClass']('unavailable');
-
-      if(unavailable) {
-        $(el).hide();
-      } else {
-        $(el).show();
-      }
     });
   });
 
   $(this._rootElement).on('click', 'input:checkbox', function () {
 
-    // don't permit unavailable selections:
-    if($(this).parent().hasClass('unavailable')) {
+    // don't permit excluded selections:
+    if($(this).parent().hasClass('excluded')) {
       return;
     }
 
@@ -82,7 +68,7 @@ var indicatorView = function (model, options) {
           field: key,
           values: _.pluck(value, 'value')
       };
-    }).value(), $(this).data('field'));
+    }).value());
   });
 
   this.initialiseSeries = function (args) {

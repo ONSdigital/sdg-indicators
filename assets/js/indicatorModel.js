@@ -6,6 +6,8 @@ var indicatorModel = function (options) {
   this.onSeriesSelectedChanged = new event(this);
   this.onFieldsStatusUpdated = new event(this);
 
+  this.temp = '';
+  
   // data rounding:
   this.roundingFunc = options.roundingFunc || function(value) {
     var to = 3, mult = Math.pow(10, to - Math.floor(Math.log(Math.abs(value)) / Math.LN10) - 1);
@@ -16,7 +18,7 @@ var indicatorModel = function (options) {
   var that = this;
   this.data = options.data;
 
-  console.log(JSON.stringify(this.data));
+  //console.log(JSON.stringify(this.data));
 
   this.country = options.country;
   this.indicatorId = options.indicatorId;
@@ -25,7 +27,7 @@ var indicatorModel = function (options) {
   this.dataSource = options.dataSource;
   this.geographicalArea = options.geographicalArea;
   this.selectedFields = [];
-  this.modifiedField = undefined; // a field that is being modified
+  this.fieldValueStatuses = [];
 
   // initialise the field information, unique fields and unique values for each field:
   (function initialise() {
@@ -34,7 +36,11 @@ var indicatorModel = function (options) {
       }), function(field) {
       return {
         field: field,
-        values: _.chain(that.data).pluck(field).uniq().filter(function(f) { return f; }).value()
+        values: _.map(_.chain(that.data).pluck(field).uniq().filter(function(f) { return f; }).value(),
+          function(f) { return {
+            value: f,
+            state: 'possible'
+          }})
       };
     });
 
@@ -84,19 +90,20 @@ var indicatorModel = function (options) {
       .value();
   };
 
-  this.updateSelectedFields = function (fields, modifiedField) {
-    console.log('Selected fields: ', fields);
+  this.updateSelectedFields = function (fields) {
+    //console.log('Selected fields: ', fields);
     this.selectedFields = fields;
-    this.modifiedField = modifiedField;
     this.getData();
   };
 
   this.getData = function (initial) {
 
+    this.temp += '!';
+
     // field: 'Grade'
     // values: ['A', 'B']
-
     var fields = this.selectedFields,
+      selectedFieldTypes = _.pluck(fields, 'field'),
       datasets = [],
       that = this,
       seriesData = [],
@@ -124,27 +131,17 @@ var indicatorModel = function (options) {
         return ds;
       };
 
+    //console.log('Selected field types', selectedFieldTypes);
+
     if (fields && !_.isArray(fields)) {
       fields = [].concat(fields);
     }
 
     // update the statuses of the fields based on the selected fields' state:
     var matchedData = _.filter(this.data, function(item) {
-        // if(that.modifiedField === fields[loop] &)
-        //   return true;  // just 
         var isMatch = true;
 
         for(var loop = 0; loop < fields.length; loop++) {
-          
-          // allow all objects with any value for currently selected field:
-          //if(item[fields[loop].field] && that.modifiedField === fields[loop].field) {
-          //  isMatch = true;
-          //}
-
-          if(fields[loop].field === that.modifiedField) {
-            continue;
-          }
-         
           // or on each field:
           if(fields[loop].values.indexOf(item[fields[loop].field]) === -1)
             isMatch = false;
@@ -153,16 +150,41 @@ var indicatorModel = function (options) {
         return isMatch;
     });
 
-    // extract the unique field values:
+    // now we need to update each field/value with selected/possible/excluded:
+    //this.fieldValueStatuses
+
+    var fieldsAndValues = _.map(_.pluck(this.fieldInfo, 'field'), function(f) {
+      return {
+        field: f,
+        values: 
+          _.chain(matchedData).pluck(f).uniq().filter(function(v) { return v; }).value()
+      };
+    });
+
+    // go through the fieldInfo and mark each item as either selected/possible/excluded:
+    _.each(this.fieldInfo, function(fieldInfoItem) {
+      var matched = _.findWhere(fieldsAndValues, { field: fieldInfoItem.field });
+      _.each(fieldInfoItem.values, function(fieldItem) {
+        // it's a selected field, so it's either selected or possible
+        if(selectedFieldTypes.indexOf(fieldInfoItem.field) != -1) {
+          if(matched.values.indexOf(fieldItem.value) != -1) {
+            fieldItem.state = 'selected';
+          } else {
+            fieldItem.state = 'possible';
+          }
+        } else {
+          // it's not a selected field, so it's either possible or excluded:
+          if(matched.values.indexOf(fieldItem.value) != -1) {
+            fieldItem.state = '';
+          } else {
+            fieldItem.state = 'excluded';
+          }
+        } 
+      });
+    });
+
     this.onFieldsStatusUpdated.notify({
-      data: _.map(_.pluck(this.fieldInfo, 'field'), function(f) {
-        return {
-          field: f,
-          values: //supply all modified fields for the clicked field:
-            _.chain(f === that.modifiedField ? that.data : matchedData).pluck(f).uniq().filter(function(v) { return v; }).value()
-        };
-      }),
-      modifiedField: that.modifiedField 
+      data: this.fieldInfo
     });
 
     // headline:

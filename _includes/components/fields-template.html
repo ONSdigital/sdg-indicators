@@ -2,8 +2,8 @@
   <% _.each(series, function(seriesItem) { %>
     <div>
       <h5><%=seriesItem.field%></h5>
-      <% _.each(seriesItem.values, function(value) { %>
-        <label><input type="checkbox" value="<%=value%>" data-field="<%=seriesItem.field%>" /><%=value%></label>
+      <% _.each(seriesItem.values, function(item) { %>
+        <label><input type="checkbox" value="<%=item.value%>" data-field="<%=seriesItem.field%>" /><%=item.value%></label>
       <% }); %>
     </div>
   <% }); %>
