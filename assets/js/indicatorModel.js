@@ -170,7 +170,9 @@ var indicatorModel = function (options) {
           if(matched.values.indexOf(fieldItem.value) != -1) {
             fieldItem.state = 'selected';
           } else {
-            fieldItem.state = 'possible';
+            if(fieldItem.state !== 'excluded') {
+              fieldItem.state = 'possible';
+            }
           }
         } else {
           // it's not a selected field, so it's either possible or excluded:
