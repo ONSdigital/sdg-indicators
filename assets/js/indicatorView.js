@@ -49,7 +49,33 @@ var indicatorView = function (model, options) {
         element.parent().addClass(fieldItem.state);
       });
     });
+
+    _.each(args.selectionStates, function(ss) {
+      // find the appropriate 'bar'
+      var element = $(view_obj._rootElement).find('.variable-selector[data-field="' + ss.field + '"]');
+      element.find('.bar .default').css('width', ss.fieldSelection.defaultState + '%');
+      element.find('.bar .possible').css('width', ss.fieldSelection.possibleState + '%');
+      element.find('.bar .excluded').css('width', ss.fieldSelection.excludedState + '%');
+    });
   });
+
+  $(document).click(function(e) {
+    $('.variable-options').hide();
+  });
+
+  $(this._rootElement).on('click', '.variable-selector', function(e) {
+
+    var options = $(this).find('.variable-options');
+    var optionsVisible = options.is(':visible');
+
+    // ensure any others are hidden:
+    $('.variable-options').hide();
+
+    // but reinstate this one:
+    $(options)[optionsVisible ? 'hide' : 'show']();
+
+    e.stopPropagation();
+  });  
 
   $(this._rootElement).on('click', 'input:checkbox', function () {
 
@@ -68,7 +94,10 @@ var indicatorView = function (model, options) {
           field: key,
           values: _.pluck(value, 'value')
       };
-    }).value());
+    }).value(), {
+      field: $(this).data('field'),
+      selected: $(this).is(':checked')
+    });
   });
 
   this.initialiseSeries = function (args) {

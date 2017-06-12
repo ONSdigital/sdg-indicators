@@ -5,8 +5,6 @@ var indicatorModel = function (options) {
   this.onSeriesComplete = new event(this);
   this.onSeriesSelectedChanged = new event(this);
   this.onFieldsStatusUpdated = new event(this);
-
-  this.temp = '';
   
   // data rounding:
   this.roundingFunc = options.roundingFunc || function(value) {
@@ -17,9 +15,6 @@ var indicatorModel = function (options) {
   // general members:
   var that = this;
   this.data = options.data;
-
-  //console.log(JSON.stringify(this.data));
-
   this.country = options.country;
   this.indicatorId = options.indicatorId;
   this.chartTitle = options.chartTitle;
@@ -28,6 +23,7 @@ var indicatorModel = function (options) {
   this.geographicalArea = options.geographicalArea;
   this.selectedFields = [];
   this.fieldValueStatuses = [];
+  this.userInteraction = {};
 
   // initialise the field information, unique fields and unique values for each field:
   (function initialise() {
@@ -40,7 +36,8 @@ var indicatorModel = function (options) {
           function(f) { return {
             value: f,
             state: 'possible'
-          }})
+          };
+        })
       };
     });
 
@@ -90,15 +87,17 @@ var indicatorModel = function (options) {
       .value();
   };
 
-  this.updateSelectedFields = function (fields) {
+  this.updateSelectedFields = function (fields, userInteraction) {
     //console.log('Selected fields: ', fields);
     this.selectedFields = fields;
+    this.userInteraction = userInteraction;
+
+    //console.log('user interaction: ', userInteraction);
+
     this.getData();
   };
 
   this.getData = function (initial) {
-
-    this.temp += '!';
 
     // field: 'Grade'
     // values: ['A', 'B']
@@ -150,6 +149,8 @@ var indicatorModel = function (options) {
         return isMatch;
     });
 
+    //console.log('matched data: ', matchedData);
+
     // now we need to update each field/value with selected/possible/excluded:
     //this.fieldValueStatuses
 
@@ -161,32 +162,63 @@ var indicatorModel = function (options) {
       };
     });
 
+    //console.log('*** fields and values: ----> ', fieldsAndValues);
+
+    var debugStates = [];
+
     // go through the fieldInfo and mark each item as either selected/possible/excluded:
     _.each(this.fieldInfo, function(fieldInfoItem) {
       var matched = _.findWhere(fieldsAndValues, { field: fieldInfoItem.field });
       _.each(fieldInfoItem.values, function(fieldItem) {
+
+        //console.log(fieldItem.value, ' is ', fieldItem.state);
+
         // it's a selected field, so it's either selected or possible
         if(selectedFieldTypes.indexOf(fieldInfoItem.field) != -1) {
           if(matched.values.indexOf(fieldItem.value) != -1) {
             fieldItem.state = 'selected';
           } else {
-            if(fieldItem.state !== 'excluded') {
-              fieldItem.state = 'possible';
+            if(fieldInfoItem.field !== that.userInteraction.field) {
+              fieldItem.state = 'excluded';
+            } else {
+              if(fieldItem.state !== 'excluded') {
+                fieldItem.state = 'possible';
+              }
             }
           }
         } else {
           // it's not a selected field, so it's either possible or excluded:
           if(matched.values.indexOf(fieldItem.value) != -1) {
-            fieldItem.state = '';
+            fieldItem.state = 'default';  // just waiting around for something to happen
           } else {
             fieldItem.state = 'excluded';
           }
         } 
+
+        debugStates.push('[' + fieldItem.value + ' is ' + fieldItem.state + ']');
+
       });
     });
 
+    //console.log(debugStates.join(', '));
+    //console.log(this.fieldInfo);
+
+    var fieldSelectionInfo = this.fieldInfo.map(function(fi) {
+      var maxFieldValueCount = fi.values.length,
+          fieldStates = _.pluck(fi.values, 'state');
+      return {
+        field: fi.field,
+        fieldSelection: {
+          possibleState: (_.filter(fieldStates, function(fv) { return fv === 'possible'; }).length / maxFieldValueCount) * 100,
+          defaultState: (_.filter(fieldStates, function(fv) { return fv === 'default' || fv === 'selected'; }).length / maxFieldValueCount) * 100,
+          excludedState: (_.filter(fieldStates, function(fv) { return fv === 'excluded'; }).length / maxFieldValueCount) * 100
+        }
+      };      
+    });
+
     this.onFieldsStatusUpdated.notify({
-      data: this.fieldInfo
+      data: this.fieldInfo,
+      selectionStates: fieldSelectionInfo
     });
 
     // headline:
