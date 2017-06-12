@@ -12,9 +12,13 @@
             {% unless url_text %}
               {% assign url_text = 'Link' %}
             {% endunless %}
-            <a href="{{ page[indicator_metadata.name] }}">
-              {{ url_text }}
-            </a>
+
+            {% if page[indicator_metadata.name] contains "http" or page[indicator_metadata.name] contains "mailto" %}
+              <a href="{{ page[indicator_metadata.name] }}">
+                {{ url_text }}
+              </a>
+            {% endif %}
+            
           {% else %}
             {{ page[indicator_metadata.name] }}
           {% endif %}
