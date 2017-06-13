@@ -5,16 +5,8 @@
     {% endif %}
 
     {% assign graph_template = 'components/charts/' | append: graph_type | append: '.html' %}
-
-    <div class="row">
-      <div id="fields" />  
+    <div id="fields"></div>
+    <div class="plot-container">
+        {% include {{graph_template}} data=include.data %}
     </div>
-    <div class="row">
-      <div class="col-sm-12" style="height: 400px">
-        <div class="plot-container">
-            {% include {{graph_template}} data=include.data %}
-        </div>
-      </div>
-    </div>
-
 {% endif %}
