@@ -149,7 +149,7 @@ var indicatorModel = function (options) {
         return isMatch;
     });
 
-    //console.log('matched data: ', matchedData);
+   // console.log('matched data: ', matchedData);
 
     // now we need to update each field/value with selected/possible/excluded:
     //this.fieldValueStatuses
@@ -163,6 +163,12 @@ var indicatorModel = function (options) {
     });
 
     //console.log('*** fields and values: ----> ', fieldsAndValues);
+
+    // debug
+    _.each(fieldsAndValues, function(fv) {
+      console.log(fv.field, ': ', fv.values.join(','));
+    });
+    // debug end
 
     var debugStates = [];
 
@@ -179,7 +185,12 @@ var indicatorModel = function (options) {
             fieldItem.state = 'selected';
           } else {
             if(fieldInfoItem.field !== that.userInteraction.field) {
-              fieldItem.state = 'excluded';
+              if(fieldItem.state === 'possible') {
+                //fieldItem.state = 'excluded';
+              } else if(fieldItem.state === 'excluded') {
+                //fieldItem.state = 'possible';
+              }
+              //
             } else {
               if(fieldItem.state !== 'excluded') {
                 fieldItem.state = 'possible';

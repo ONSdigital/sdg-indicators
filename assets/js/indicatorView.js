@@ -38,7 +38,7 @@ var indicatorView = function (model, options) {
   });
 
   this._model.onFieldsStatusUpdated.attach(function (sender, args) {
-    console.log('updating field states with: ', args);
+    //console.log('updating field states with: ', args);
 
     // reset: 
     $(view_obj._rootElement).find('label').removeClass('selected possible excluded');
