@@ -153,21 +153,35 @@ var indicatorModel = function (options) {
 
         for(var loop = 0; loop < fields.length; loop++) {
 
-          // the name of the field: fields[loop].field
+          if(fields[loop].field === that.userInteraction.field) {
+            // or:
+            // the name of the field: fields[loop].field
+            var inValues = _.pluck(_.filter(_.chain(that.fieldInfo)
+            .findWhere({ field : fields[loop].field })
+            .value().values, function(f) { return f.state !== 'excluded'; }), 'value');
 
-          var inValues = _.pluck(_.filter(_.chain(that.fieldInfo)
-           .findWhere({ field : fields[loop].field })
-           .value().values, function(f) { return f.state !== 'excluded'; }), 'value');
-
-           if(inValues.indexOf(item[fields[loop].field]) === -1) {
-            isMatch = false;
-           }
+            if(inValues.indexOf(item[fields[loop].field]) === -1) {
+              isMatch = false;
+            }
+          } else {
+            // 
+          }
         }
 
         return isMatch;
     });
 
     console.table(matchedData);
+
+
+    var matchedData2 = _.filter(matchedData, function(item) {
+      var isMatch = true;
+
+
+
+
+      return isMatch;
+    });
 
     // now we need to update each field/value with selected/possible/excluded:
     //this.fieldValueStatuses
