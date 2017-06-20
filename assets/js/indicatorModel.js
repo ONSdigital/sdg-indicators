@@ -35,7 +35,7 @@ var indicatorModel = function (options) {
         values: _.map(_.chain(that.data).pluck(field).uniq().filter(function(f) { return f; }).value(),
           function(f) { return {
             value: f,
-            state: 'possible'
+            state: 'default'
           };
         })
       };
@@ -96,6 +96,9 @@ var indicatorModel = function (options) {
 
   this.getData = function (initial) {
 
+
+    console.log('getData....');
+
     // field: 'Grade'
     // values: ['A', 'B']
     var fields = this.selectedFields,
@@ -134,8 +137,21 @@ var indicatorModel = function (options) {
     }
 
     // update the statuses of the fields based on the selected fields' state:
+
+    var isAll = true;
+    _.each(that.fieldInfo, function(fi) {
+      if(!_.every(fi.values, function(v) { return v.state === 'default'; })) {
+        isAll = false;
+      }
+    });
+
+    console.log('isAll: ', isAll);
+
+
     var matchedData = _.filter(this.data, function(item) {
         var isMatch = true;
+
+        console.log('fi: ', that.fieldInfo);
 
         for(var loop = 0; loop < fields.length; loop++) {
           // or on each field:
@@ -165,6 +181,7 @@ var indicatorModel = function (options) {
     _.each(fieldsAndValues, function(fv) {
       console.log(fv.field, ': ', fv.values.join(','));
     });
+    console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
     // debug end
 
     var debugStates = [];

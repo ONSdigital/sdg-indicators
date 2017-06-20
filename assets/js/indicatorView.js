@@ -64,6 +64,12 @@ var indicatorView = function (model, options) {
   });
 
   $(this._rootElement).on('click', 'label', function (e) {
+    $(this).find(':checkbox').trigger('click');
+    e.preventDefault();
+    e.stopPropagation();
+  });
+  
+  $(this._rootElement).on('click', ':checkbox', function(e) {
 
     // don't permit excluded selections:
     if($(this).hasClass('excluded')) {
