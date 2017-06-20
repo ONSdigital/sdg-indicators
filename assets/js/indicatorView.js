@@ -72,7 +72,7 @@ var indicatorView = function (model, options) {
   $(this._rootElement).on('click', ':checkbox', function(e) {
 
     // don't permit excluded selections:
-    if($(this).hasClass('excluded')) {
+    if($(this).parent().hasClass('excluded')) {
       return;
     }
 
