@@ -91,9 +91,6 @@ var indicatorModel = function (options) {
     //console.log('Selected fields: ', fields);
     this.selectedFields = fields;
     this.userInteraction = userInteraction;
-
-    //console.log('user interaction: ', userInteraction);
-
     this.getData();
   };
 

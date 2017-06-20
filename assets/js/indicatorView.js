@@ -63,24 +63,10 @@ var indicatorView = function (model, options) {
     $('.variable-options').hide();
   });
 
-  $(this._rootElement).on('click', '.variable-selector', function(e) {
-
-    var options = $(this).find('.variable-options');
-    var optionsVisible = options.is(':visible');
-
-    // ensure any others are hidden:
-    $('.variable-options').hide();
-
-    // but reinstate this one:
-    $(options)[optionsVisible ? 'hide' : 'show']();
-
-    e.stopPropagation();
-  });  
-
-  $(this._rootElement).on('click', 'input:checkbox', function () {
+  $(this._rootElement).on('click', 'label', function (e) {
 
     // don't permit excluded selections:
-    if($(this).parent().hasClass('excluded')) {
+    if($(this).hasClass('excluded')) {
       return;
     }
 
@@ -98,6 +84,22 @@ var indicatorView = function (model, options) {
       field: $(this).data('field'),
       selected: $(this).is(':checked')
     });
+
+    e.stopPropagation();
+  });
+
+  $(this._rootElement).on('click', '.variable-selector', function(e) {
+
+    var options = $(this).find('.variable-options');
+    var optionsVisible = options.is(':visible');
+
+    // ensure any others are hidden:
+    $('.variable-options').hide();
+
+    // but reinstate this one:
+    $(options)[optionsVisible ? 'hide' : 'show']();
+
+    e.stopPropagation();
   });
 
   this.initialiseSeries = function (args) {
