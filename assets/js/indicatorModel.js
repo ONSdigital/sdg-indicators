@@ -97,7 +97,7 @@ var indicatorModel = function (options) {
   this.getData = function (initial) {
 
 
-    console.log('getData....');
+    //console.log('getData....');
 
     // field: 'Grade'
     // values: ['A', 'B']
@@ -137,7 +137,7 @@ var indicatorModel = function (options) {
     }
 
     // update the statuses of the fields based on the selected fields' state:
-
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     var isAll = true;
     _.each(that.fieldInfo, function(fi) {
       if(!_.every(fi.values, function(v) { return v.state === 'default'; })) {
@@ -145,24 +145,29 @@ var indicatorModel = function (options) {
       }
     });
 
-    console.log('isAll: ', isAll);
-
+    //console.log('isAll: ', isAll);
+   // console.log('fi: ', that.fieldInfo);
 
     var matchedData = _.filter(this.data, function(item) {
         var isMatch = true;
 
-        console.log('fi: ', that.fieldInfo);
-
         for(var loop = 0; loop < fields.length; loop++) {
-          // or on each field:
-          if(fields[loop].values.indexOf(item[fields[loop].field]) === -1)
+
+          // the name of the field: fields[loop].field
+
+          var inValues = _.pluck(_.filter(_.chain(that.fieldInfo)
+           .findWhere({ field : fields[loop].field })
+           .value().values, function(f) { return f.state !== 'excluded'; }), 'value');
+
+           if(inValues.indexOf(item[fields[loop].field]) === -1) {
             isMatch = false;
+           }
         }
 
         return isMatch;
     });
 
-   // console.log('matched data: ', matchedData);
+    console.table(matchedData);
 
     // now we need to update each field/value with selected/possible/excluded:
     //this.fieldValueStatuses
@@ -179,9 +184,9 @@ var indicatorModel = function (options) {
 
     // debug
     _.each(fieldsAndValues, function(fv) {
-      console.log(fv.field, ': ', fv.values.join(','));
+      //console.log(fv.field, ': ', fv.values.join(','));
     });
-    console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+    //console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
     // debug end
 
     var debugStates = [];
