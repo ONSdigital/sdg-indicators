@@ -1,5 +1,9 @@
 var indicatorModel = function (options) {
 
+  Array.prototype.containsValue = function(val) {
+    return this.indexOf(val) != -1;
+  };
+
   // events:
   this.onDataComplete = new event(this);
   this.onSeriesComplete = new event(this);
@@ -96,7 +100,6 @@ var indicatorModel = function (options) {
 
   this.getData = function (initial) {
 
-
     //console.log('getData....');
 
     // field: 'Grade'
@@ -145,46 +148,31 @@ var indicatorModel = function (options) {
       }
     });
 
-    //console.log('isAll: ', isAll);
-   // console.log('fi: ', that.fieldInfo);
-
     var matchedData = _.filter(this.data, function(item) {
         var isMatch = true;
 
         for(var loop = 0; loop < fields.length; loop++) {
 
-          if(fields[loop].field === that.userInteraction.field) {
-            // or:
-            // the name of the field: fields[loop].field
-            var inValues = _.pluck(_.filter(_.chain(that.fieldInfo)
-            .findWhere({ field : fields[loop].field })
-            .value().values, function(f) { return f.state !== 'excluded'; }), 'value');
+          // if(fields[loop].field === that.userInteraction.field) {
+          //   // or:
+          //   // the name of the field: fields[loop].field
+          //   var inValues = _.pluck(_.filter(_.chain(that.fieldInfo)
+          //   .findWhere({ field : fields[loop].field })
+          //   .value().values, function(f) { return f.state !== 'excluded'; }), 'value');
 
-            if(inValues.indexOf(item[fields[loop].field]) === -1) {
+          //   if(inValues.indexOf(item[fields[loop].field]) === -1) {
+          //     isMatch = false;
+          //   }
+          // } else {
+            if(fields[loop].values.indexOf(item[fields[loop].field]) === -1)
               isMatch = false;
-            }
-          } else {
-            // 
-          }
+          // }
         }
 
         return isMatch;
     });
 
     console.table(matchedData);
-
-
-    var matchedData2 = _.filter(matchedData, function(item) {
-      var isMatch = true;
-
-
-
-
-      return isMatch;
-    });
-
-    // now we need to update each field/value with selected/possible/excluded:
-    //this.fieldValueStatuses
 
     var fieldsAndValues = _.map(_.pluck(this.fieldInfo, 'field'), function(f) {
       return {
@@ -194,54 +182,49 @@ var indicatorModel = function (options) {
       };
     });
 
-    //console.log('*** fields and values: ----> ', fieldsAndValues);
-
-    // debug
-    _.each(fieldsAndValues, function(fv) {
-      //console.log(fv.field, ': ', fv.values.join(','));
-    });
-    //console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-    // debug end
-
     var debugStates = [];
+
+    //  fieldInfo: THE STATES OF THE FIELDS
+    //    field: 'Col1', values: [ { state: 'default', value: 'A' } ]
+    //
+    //  fieldsAndValues: THE VALUES THAT ARE AVAILABLE IN THE SELECTION
+    //    field: 'Col1', values: [ 'B', 'C' ]
+    //
+    //  selectedFieldTypes: THE FIELDS THAT ARE SELECTED
+    //    ['Col1', 'Col2']
+    //
 
     // go through the fieldInfo and mark each item as either selected/possible/excluded:
     _.each(this.fieldInfo, function(fieldInfoItem) {
+
       var matched = _.findWhere(fieldsAndValues, { field: fieldInfoItem.field });
+
+      // go through each field value state:
       _.each(fieldInfoItem.values, function(fieldItem) {
 
-        //console.log(fieldItem.value, ' is ', fieldItem.state);
-
-        // it's a selected field, so it's either selected or possible
-        if(selectedFieldTypes.indexOf(fieldInfoItem.field) != -1) {
-          if(matched.values.indexOf(fieldItem.value) != -1) {
-            fieldItem.state = 'selected';
+        if(matched.values.containsValue(fieldItem.value)) {
+          fieldItem.state = 'selected';
+        } else {
+          if(fieldInfoItem.field === that.userInteraction.field) {
+            // possible:
+            if(!['excluded'].containsValue(fieldItem.state)) {
+              fieldItem.state = 'possible';
+            }
           } else {
-            if(fieldInfoItem.field !== that.userInteraction.field) {
-              if(fieldItem.state === 'possible') {
-                //fieldItem.state = 'excluded';
-              } else if(fieldItem.state === 'excluded') {
-                //fieldItem.state = 'possible';
-              }
-              //
+            // is this field the only field with selections? if so, 
+            // its excluded can be 'possible'
+            if(selectedFieldTypes.length === 1 && selectedFieldTypes[0] === fieldInfoItem.field) {
+              fieldItem.state = 'possible';
             } else {
-              if(fieldItem.state !== 'excluded') {
-                fieldItem.state = 'possible';
-              }
+              fieldItem.state = 'excluded';
             }
           }
-        } else {
-          // it's not a selected field, so it's either possible or excluded:
-          if(matched.values.indexOf(fieldItem.value) != -1) {
-            fieldItem.state = 'default';  // just waiting around for something to happen
-          } else {
-            fieldItem.state = 'excluded';
-          }
-        } 
+        }
 
         debugStates.push('[' + fieldItem.value + ' is ' + fieldItem.state + ']');
 
       });
+
     });
 
     //console.log(debugStates.join(', '));
