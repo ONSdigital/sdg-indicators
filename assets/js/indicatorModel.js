@@ -167,7 +167,8 @@ var indicatorModel = function (options) {
       datasetIndex = 0,
       getCombinationDescription = function(combination) {
         return _.map(Object.keys(combination), function(key) {
-          return key + ' ' + combination[key];
+          return combination[key];
+          //return key + ' ' + combination[key];
         }).join(', ');
       },
       convertToDataset = function (data, combinationDescription /*field, fieldValue*/) {
@@ -348,6 +349,7 @@ var indicatorModel = function (options) {
     });
 
     _.chain(filteredDatasets)
+      // TODO, probably best to sort on property count, ordered by selectableFields index:
       .sortBy(function(ds) { return ds.combinationDescription; })
       .each(function(ds) { datasets.push(convertToDataset(ds.data, ds.combinationDescription)); });
 
