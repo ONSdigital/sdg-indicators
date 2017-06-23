@@ -170,14 +170,14 @@ var indicatorModel = function (options) {
           return key + ' ' + combination[key];
         }).join(', ');
       },
-      convertToDataset = function (data, combination /*field, fieldValue*/) {
+      convertToDataset = function (data, combinationDescription /*field, fieldValue*/) {
         // var fieldIndex = field ? _.findIndex(that.selectedFields, function (f) {
         //     return f === field;
         //   }) : undefined,
         var fieldIndex,
           ds = _.extend({
             //label: field && fieldValue ? field + ' ' + fieldValue : that.country,
-            label: combination ? getCombinationDescription(combination) : that.country,
+            label: combinationDescription ? combinationDescription : that.country,
             borderColor: '#' + colors[datasetIndex],
             pointBorderColor: '#' + colors[datasetIndex],
             data: _.map(that.years, function (year) {
@@ -186,7 +186,7 @@ var indicatorModel = function (options) {
               });
               return found ? found.Value : null;
             }),
-            borderWidth: /*field*/ combination ? 2 : 4,
+            borderWidth: /*field*/ combinationDescription ? 2 : 4,
             // apply dash to secondary fields:
             //borderDash: fieldIndex > 0 ? [((fieldIndex + 1) * 2), ((fieldIndex + 1) * 2)] : []
           }, that.datasetObject);
@@ -329,29 +329,28 @@ var indicatorModel = function (options) {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     // extract the possible combinations for the selected field values:
     var combinations = this.getCombinationData(this.selectedFields);
-    console.log(combinations);
+    var filteredDatasets = [];
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     _.each(combinations, function(combination) {
-      //var filtered = _.where(that.data, combination);
-
       var filtered = _.filter(that.data, function(dataItem) {
         var matched = true;
         for (var loop = 0; loop < that.selectableFields.length; loop++) {
-
-          //console.log(that.selectableFields[loop], dataItem[that.selectableFields[loop]], combination[that.selectableFields[loop]]);
-
-          if (/*dataItem[that.selectableFields[loop]] &&*/ dataItem[that.selectableFields[loop]] !== combination[that.selectableFields[loop]])
+          if (dataItem[that.selectableFields[loop]] !== combination[that.selectableFields[loop]])
             matched = false;
         }
         return matched;
       });
 
-
-      datasets.push(convertToDataset(filtered, combination));
-
-
-      //console.log('filtered: ', filtered);
+      filteredDatasets.push({
+        data: filtered,
+        combinationDescription: getCombinationDescription(combination)
+      });
     });
+
+    _.chain(filteredDatasets)
+      .sortBy(function(ds) { return ds.combinationDescription; })
+      .each(function(ds) { datasets.push(convertToDataset(ds.data, ds.combinationDescription)); });
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     this.onDataComplete.notify({
