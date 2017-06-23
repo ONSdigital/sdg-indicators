@@ -180,6 +180,7 @@ var indicatorModel = function (options) {
             //label: field && fieldValue ? field + ' ' + fieldValue : that.country,
             label: combinationDescription ? combinationDescription : that.country,
             borderColor: '#' + colors[datasetIndex],
+            backgroundColor: '#' + colors[datasetIndex],
             pointBorderColor: '#' + colors[datasetIndex],
             data: _.map(that.years, function (year) {
               var found = _.findWhere(data, {

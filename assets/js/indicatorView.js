@@ -158,7 +158,8 @@ var indicatorView = function (model, options) {
         },
         legend: {
           display: true,
-          usePointStyle: true,
+          //usePointStyle: true,
+          usePointStyle: false,
           position: 'bottom',
           padding: 20
         },
