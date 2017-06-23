@@ -97,6 +97,52 @@ var indicatorModel = function (options) {
     this.userInteraction = userInteraction;
     this.getData();
   };
+  
+  this.getCombinationData = function(obj) {
+    var getCombinations = function(fields, arr, n) {
+      var index = 0, ret = [];
+      for(var i = 0; i < arr.length; i++) {
+        var elem = (n == 1) ? arr[i] : arr.shift();
+        var field = (n == 1) ? fields[i] : fields.shift();
+        for(var j = 0; j < elem.length; j++) {
+          if(n == 1) {
+            ret.push({
+              value: elem[j],
+              field: field
+            });
+          } else {
+            var childperm = getCombinations(fields.slice(), arr.slice(), n-1);
+            for(var k = 0; k < childperm.length; k++) {
+              ret.push([{
+                value: elem[j],
+                field: field
+              }].concat(childperm[k]));
+            }            
+          }
+        }
+      }
+      return ret;
+    };
+
+    var	loop = 1,
+        res = [],
+        src = JSON.parse(JSON.stringify(obj));
+    
+    for(; loop <= src.length; loop++) { 
+      obj = JSON.parse(JSON.stringify(src));
+      res = res.concat(getCombinations(_.pluck(obj, 'field'), _.pluck(obj, 'values'), loop));
+    }
+
+    return _.map(res, function(r) {
+      if(!_.isArray(r)) {
+        r = [r];
+      }
+      return _.object(
+        _.pluck(r, 'field'),
+        _.pluck(r, 'value')
+      );
+    });
+  };
 
   this.getData = function (initial) {
 
@@ -172,7 +218,7 @@ var indicatorModel = function (options) {
         return isMatch;
     });
 
-    console.table(matchedData);
+    //console.table(matchedData);
 
     var fieldsAndValues = _.map(_.pluck(this.fieldInfo, 'field'), function(f) {
       return {
@@ -184,6 +230,9 @@ var indicatorModel = function (options) {
 
     var debugStates = [];
 
+    //  this.selectedFields
+    //    field: 'Col1', values: [ 'B' ]
+    //
     //  fieldInfo: THE STATES OF THE FIELDS
     //    field: 'Col1', values: [ { state: 'default', value: 'A' } ]
     //
@@ -194,41 +243,50 @@ var indicatorModel = function (options) {
     //    ['Col1', 'Col2']
     //
 
-    // go through the fieldInfo and mark each item as either selected/possible/excluded:
-    _.each(this.fieldInfo, function(fieldInfoItem) {
+      // go through the fieldInfo and mark each item as either selected/possible/excluded:
+      _.each(this.fieldInfo, function(fieldInfoItem) {
 
-      var matched = _.findWhere(fieldsAndValues, { field: fieldInfoItem.field });
+        var matched = _.findWhere(fieldsAndValues, { field: fieldInfoItem.field });
 
-      // go through each field value state:
-      _.each(fieldInfoItem.values, function(fieldItem) {
+        // go through each field value state:
+        _.each(fieldInfoItem.values, function(fieldItem) {
 
-        if(matched.values.containsValue(fieldItem.value)) {
-          fieldItem.state = 'selected';
-        } else {
-          if(fieldInfoItem.field === that.userInteraction.field) {
-            // possible:
-            if(!['excluded'].containsValue(fieldItem.state)) {
-              fieldItem.state = 'possible';
+          if(that.selectedFields.length === 0) {
+            fieldItem.state = 'default';
+          } else if(matched.values.containsValue(fieldItem.value)) {
+            var selected = _.findWhere(that.selectedFields, { field: fieldInfoItem.field });
+            if(selected && selected.values.containsValue(fieldItem.value)) {
+              fieldItem.state = 'selected';
+            } else {
+              fieldItem.state = 'default';
             }
           } else {
-            // is this field the only field with selections? if so, 
-            // its excluded can be 'possible'
-            if(selectedFieldTypes.length === 1 && selectedFieldTypes[0] === fieldInfoItem.field) {
-              fieldItem.state = 'possible';
+            if(fieldInfoItem.field === that.userInteraction.field) {
+              // possible:
+              if(!['excluded'].containsValue(fieldItem.state)) {
+                fieldItem.state = 'possible';
+              }
             } else {
-              fieldItem.state = 'excluded';
+              // is this field the only field with selections? if so, 
+              // its excluded can be 'possible'
+              if(selectedFieldTypes.length === 1 && selectedFieldTypes[0] === fieldInfoItem.field) {
+                fieldItem.state = 'possible';
+              } else {
+                fieldItem.state = 'excluded';
+              }
             }
           }
-        }
 
-        debugStates.push('[' + fieldItem.value + ' is ' + fieldItem.state + ']');
+          //debugStates.push('[' + fieldItem.value + ' is ' + fieldItem.state + ']');
 
+        });
       });
-
-    });
-
-    //console.log(debugStates.join(', '));
-    //console.log(this.fieldInfo);
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // extract the possible combinations for the selected field values:
+    var combinations = this.getCombinationData(this.selectedFields);
+    console.log(combinations);
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     var fieldSelectionInfo = this.fieldInfo.map(function(fi) {
       var maxFieldValueCount = fi.values.length,
