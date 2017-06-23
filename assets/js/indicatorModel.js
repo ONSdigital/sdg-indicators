@@ -165,12 +165,19 @@ var indicatorModel = function (options) {
       seriesData = [],
       tableData = [],
       datasetIndex = 0,
-      convertToDataset = function (data, field, fieldValue) {
-        var fieldIndex = field ? _.findIndex(that.selectedFields, function (f) {
-            return f === field;
-          }) : undefined,
+      getCombinationDescription = function(combination) {
+        return _.map(Object.keys(combination), function(key) {
+          return key + ' ' + combination[key];
+        }).join(', ');
+      },
+      convertToDataset = function (data, combination /*field, fieldValue*/) {
+        // var fieldIndex = field ? _.findIndex(that.selectedFields, function (f) {
+        //     return f === field;
+        //   }) : undefined,
+        var fieldIndex,
           ds = _.extend({
-            label: field && fieldValue ? field + ' ' + fieldValue : that.country,
+            //label: field && fieldValue ? field + ' ' + fieldValue : that.country,
+            label: combination ? getCombinationDescription(combination) : that.country,
             borderColor: '#' + colors[datasetIndex],
             pointBorderColor: '#' + colors[datasetIndex],
             data: _.map(that.years, function (year) {
@@ -179,9 +186,9 @@ var indicatorModel = function (options) {
               });
               return found ? found.Value : null;
             }),
-            borderWidth: field ? 2 : 4,
+            borderWidth: /*field*/ combination ? 2 : 4,
             // apply dash to secondary fields:
-            borderDash: fieldIndex > 0 ? [((fieldIndex + 1) * 2), ((fieldIndex + 1) * 2)] : []
+            //borderDash: fieldIndex > 0 ? [((fieldIndex + 1) * 2), ((fieldIndex + 1) * 2)] : []
           }, that.datasetObject);
         datasetIndex++;
         return ds;
@@ -338,6 +345,10 @@ var indicatorModel = function (options) {
         }
         return matched;
       });
+
+
+      datasets.push(convertToDataset(filtered, combination));
+
 
       //console.log('filtered: ', filtered);
     });
