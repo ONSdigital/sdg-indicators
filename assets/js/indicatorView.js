@@ -183,13 +183,13 @@ var indicatorView = function (model, options) {
         ];
 
         var textRowHeight = 20;
-        var x = $canvas.width();
+        var x = 0;
         var y = $canvas.height() - 40 - (textOutputs.length * textOutputs.length);
 
         var canvas = $canvas.get(0);
         var ctx = canvas.getContext("2d");
 
-        ctx.textAlign = 'right';
+        ctx.textAlign = 'left';
         ctx.textBaseline = 'middle';
         ctx.font = '14px Arial';
         ctx.fillStyle = '#6e6e6e';
