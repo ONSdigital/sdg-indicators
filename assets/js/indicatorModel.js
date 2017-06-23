@@ -54,6 +54,14 @@ var indicatorModel = function (options) {
     // prepare the data according to the rounding function:
     that.data = _.map(that.data, function(item) {
       item.Value = that.roundingFunc(item.Value);
+
+      // remove any undefined/null values:
+      _.each(Object.keys(item), function(key) {
+        if(_.isNull(item[key]) || _.isUndefined(item[key])) {
+          delete item[key];
+        }
+      });
+
       return item;
     });
 
@@ -70,7 +78,7 @@ var indicatorModel = function (options) {
   var colors = ['777777', '0082e5', '79c3fc', '005da7', 'ff9c18', 'f47d00', 'ad8cf3', '9675e2'];
 
   this.getHeadline = function(fields) {
-    var that = this, allNull = function (obj) {
+    var that = this, allUndefined = function (obj) {
       for (var loop = 0; loop < that.selectableFields.length; loop++) {
         if (obj[that.selectableFields[loop]])
           return false;
@@ -80,7 +88,7 @@ var indicatorModel = function (options) {
 
     return _.chain(that.data)
       .filter(function (i) {
-        return allNull(i);
+        return allUndefined(i);
       })
       .sortBy(function (i) {
         return i.Year;
@@ -281,13 +289,7 @@ var indicatorModel = function (options) {
 
         });
       });
-    
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // extract the possible combinations for the selected field values:
-    var combinations = this.getCombinationData(this.selectedFields);
-    console.log(combinations);
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+        
     var fieldSelectionInfo = this.fieldInfo.map(function(fi) {
       var maxFieldValueCount = fi.values.length,
           fieldStates = _.pluck(fi.values, 'state');
@@ -316,6 +318,30 @@ var indicatorModel = function (options) {
         return [d.Year, d.Value];
       })
     });
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // extract the possible combinations for the selected field values:
+    var combinations = this.getCombinationData(this.selectedFields);
+    console.log(combinations);
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    _.each(combinations, function(combination) {
+      //var filtered = _.where(that.data, combination);
+
+      var filtered = _.filter(that.data, function(dataItem) {
+        var matched = true;
+        for (var loop = 0; loop < that.selectableFields.length; loop++) {
+
+          //console.log(that.selectableFields[loop], dataItem[that.selectableFields[loop]], combination[that.selectableFields[loop]]);
+
+          if (/*dataItem[that.selectableFields[loop]] &&*/ dataItem[that.selectableFields[loop]] !== combination[that.selectableFields[loop]])
+            matched = false;
+        }
+        return matched;
+      });
+
+      //console.log('filtered: ', filtered);
+    });
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     this.onDataComplete.notify({
       datasets: datasets,
