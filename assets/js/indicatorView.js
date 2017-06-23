@@ -9,6 +9,9 @@ var indicatorView = function (model, options) {
 
   this._chartInstance = undefined;
   this._rootElement = options.rootElement;
+  
+  $('.plot-container', this._rootElement) 
+    .css('height', Math.min(options.maxChartHeight, (screen.height - 450 /* 450px magic number, considering other design elements */)) + 'px'); 
 
   this._model.onDataComplete.attach(function (sender, args) {
     if(!view_obj._chartInstance) {
