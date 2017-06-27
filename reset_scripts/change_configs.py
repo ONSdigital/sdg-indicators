@@ -34,7 +34,7 @@ def reset_yaml(file, repo = None, name = None, adjective = None, org = None):
   with open(file, 'w') as outfile:
     yaml.dump(data, outfile, default_flow_style = False)
 
-if __name__ == '__main__':
+def main():
   # Ensure the path is relative
   filepath = os.path.dirname(os.path.realpath(__file__))
   os.chdir(filepath)
@@ -64,3 +64,6 @@ if __name__ == '__main__':
     adjective = args.adjective, 
     org = args.org
   )
+
+if __name__ == '__main__':
+  main()
