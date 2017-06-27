@@ -1,16 +1,26 @@
 # reset_csvs.py
 
+# Import the modules
 import argparse
 import pandas as pd
 import re
 import os
 
+# Define a function that identifies the list of indicators and generates
+# new indicator files for each of them
 def reset_csvs():
   """
   Reset the csv files with test data
   """
   # Perform checks to make sure the arguments were passed correctly
-  df = pd.read_csv("../data/sdg_indicator_datasets.csv")
+  try:
+    df = pd.read_csv("../data/sdg_indicator_datasets.csv")
+  except:
+    if not os.path.exists(file):
+      print("sdg_indicator_datasets.csv does not exist")
+    else:
+      print("Could not open sdg_indicator_datasets.csv, is it locked?")
+  
   indicators = df['indicator'].dropna()
   # Create the test data sets
   blank_df = {
