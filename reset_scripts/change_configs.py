@@ -1,10 +1,11 @@
-# Import the libraries
-import yaml
-import pandas as pd 
-import re
-import os
+# Import standard libraries
 import argparse
+import os
+import re
 
+# Import third party libraries
+import pandas as pd
+import yaml
 
 # Define a function to change the repository name
 def reset_yaml(file, repo = None, name = None, adjective = None, org = None):

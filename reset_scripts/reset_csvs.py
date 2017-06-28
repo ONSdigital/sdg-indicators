@@ -1,10 +1,10 @@
-# reset_csvs.py
-
-# Import the modules
+# Import standard libraries
 import argparse
-import pandas as pd
-import re
 import os
+import re
+
+# Import third party libraries
+import pandas as pd
 
 
 # Define a function that identifies the list of indicators and generates
