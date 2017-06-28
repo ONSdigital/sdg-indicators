@@ -6,6 +6,7 @@ import pandas as pd
 import re
 import os
 
+
 # Define a function that identifies the list of indicators and generates
 # new indicator files for each of them
 def reset_csvs():
@@ -34,6 +35,7 @@ def reset_csvs():
   # Overwrite the csvs
   for i in indicators:
     blank_df.to_csv('../data/indicator_' + re.sub('\.', '-', i) + '.csv')
+
 
 if __name__ == "__main__":
   filepath = os.path.dirname(os.path.realpath(__file__))

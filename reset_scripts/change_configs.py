@@ -5,6 +5,7 @@ import re
 import os
 import argparse
 
+
 # Define a function to change the repository name
 def reset_yaml(file, repo = None, name = None, adjective = None, org = None):
   
@@ -33,6 +34,7 @@ def reset_yaml(file, repo = None, name = None, adjective = None, org = None):
   # Save the yaml
   with open(file, 'w') as outfile:
     yaml.dump(data, outfile, default_flow_style = False)
+
 
 def main():
   # Ensure the path is relative
@@ -64,6 +66,7 @@ def main():
     adjective = args.adjective, 
     org = args.org
   )
+
 
 if __name__ == '__main__':
   main()
