@@ -343,10 +343,13 @@ var indicatorModel = function (options) {
         return matched;
       });
 
-      filteredDatasets.push({
-        data: filtered,
-        combinationDescription: getCombinationDescription(combination)
-      });
+      if(filtered.length) {
+        // but some combinations may not have any data:
+        filteredDatasets.push({
+          data: filtered,
+          combinationDescription: getCombinationDescription(combination)
+        });
+      }
     });
 
     _.chain(filteredDatasets)
