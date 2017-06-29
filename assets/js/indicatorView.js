@@ -248,10 +248,10 @@ var indicatorView = function (model, options) {
       datatables_options = options.datatables_options || {
         paging: false,
         bInfo: false,
-        searching: false,
+        searching: false/*,
         scrollX: true,
         sScrollXInner: '100%',
-        sScrollX: '100%'
+        sScrollX: '100%'*/
       },
       table_class = options.table_class || 'table table-hover';
 
