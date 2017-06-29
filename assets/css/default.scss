@@ -152,9 +152,21 @@ ul {
   }
 }
 
-.download-csv {
+.btn-download {
   margin-top: 1.5rem;
-  text-transform: uppercase;
+  background: #0F8243;
+
+  &:hover, &:active {
+    background: #0b5d30;
+  }
+}
+
+h5.download {
+  font-weight: bold;
+}
+
+h5 + .btn-download {
+  margin-top: 0.5rem;
 }
 
 @for $i from 1 through length($goal-colors) {

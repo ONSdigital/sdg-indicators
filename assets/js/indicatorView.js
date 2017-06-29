@@ -293,13 +293,18 @@ var indicatorView = function (model, options) {
         $(el).append(currentTable);
 
         if(window.Modernizr && window.Modernizr.blobconstructor) {
-          $(el).append($('<a />').text('Download data')
+          $(el).append($('<h5 />').text('Download all indicator data')
+            .attr({
+              'class': 'download'
+            }));
+          $(el).append($('<a />').text('.csv')
             .attr({
               'href': URL.createObjectURL(new Blob([that.toCsv(tableData)], {
                 type: 'text/csv'
               })),
               'download': chartInfo.indicatorId + tableData.title + '.csv',
-              'class': 'btn btn-primary'
+              'title': 'Download as CSV',
+              'class': 'btn btn-primary btn-download'
             })
             .data('csvdata', that.toCsv(tableData)));
         }
