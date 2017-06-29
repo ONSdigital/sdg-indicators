@@ -264,18 +264,6 @@ var indicatorView = function (model, options) {
       $(el).append($('<h3 />').text(tableData.title));
 
       if (tableData.data.length) {
-        if(window.Modernizr && window.Modernizr.blobconstructor) {
-          $(el).append($('<a />').text('Download data')
-            .attr({
-              'href': URL.createObjectURL(new Blob([that.toCsv(tableData)], {
-                type: 'text/csv'
-              })),
-              'download': chartInfo.indicatorId + tableData.title + '.csv',
-              'class': 'btn btn-primary'
-            })
-            .data('csvdata', that.toCsv(tableData)));
-        }
-
         var currentId = 'indicatortable' + index;
 
         var currentTable = $('<table />').attr({
@@ -303,6 +291,18 @@ var indicatorView = function (model, options) {
         });
 
         $(el).append(currentTable);
+
+        if(window.Modernizr && window.Modernizr.blobconstructor) {
+          $(el).append($('<a />').text('Download data')
+            .attr({
+              'href': URL.createObjectURL(new Blob([that.toCsv(tableData)], {
+                type: 'text/csv'
+              })),
+              'download': chartInfo.indicatorId + tableData.title + '.csv',
+              'class': 'btn btn-primary'
+            })
+            .data('csvdata', that.toCsv(tableData)));
+        }
 
         // equal width columns:
         datatables_options.aoColumns = _.map(tableData.headings, function (h) {
