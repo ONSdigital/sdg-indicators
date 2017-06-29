@@ -40,6 +40,15 @@ var indicatorView = function (model, options) {
     // }
   });
 
+  this._model.onFieldsCleared.attach(function(sender, args) {
+    $(view_obj._rootElement).find(':checkbox').prop('checked', false);
+    $(view_obj._rootElement).find('#clear').addClass('disabled');
+  });
+
+  this._model.onSelectionUpdate.attach(function(sender, fieldSelectedCount) {
+    $(view_obj._rootElement).find('#clear')[fieldSelectedCount ? 'removeClass' : 'addClass']('disabled');
+  });
+
   this._model.onFieldsStatusUpdated.attach(function (sender, args) {
     //console.log('updating field states with: ', args);
 
@@ -64,6 +73,10 @@ var indicatorView = function (model, options) {
 
   $(document).click(function(e) {
     $('.variable-options').hide();
+  });
+
+  $(this._rootElement).on('click', '#clear', function() {
+    view_obj._model.clearSelectedFields();
   });
 
   $(this._rootElement).on('click', 'label', function (e) {

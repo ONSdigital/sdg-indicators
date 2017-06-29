@@ -9,6 +9,8 @@ var indicatorModel = function (options) {
   this.onSeriesComplete = new event(this);
   this.onSeriesSelectedChanged = new event(this);
   this.onFieldsStatusUpdated = new event(this);
+  this.onFieldsCleared = new event(this);
+  this.onSelectionUpdate = new event(this);
   
   // data rounding:
   this.roundingFunc = options.roundingFunc || function(value) {
@@ -99,11 +101,19 @@ var indicatorModel = function (options) {
       .value();
   };
 
+  this.clearSelectedFields = function() {
+    this.selectedFields = [];
+    this.userInteraction = {};
+    this.getData();
+    this.onFieldsCleared.notify();
+  };
+
   this.updateSelectedFields = function (fields, userInteraction) {
     //console.log('Selected fields: ', fields);
     this.selectedFields = fields;
     this.userInteraction = userInteraction;
     this.getData();
+    this.onSelectionUpdate.notify(fields.length);
   };
   
   this.getCombinationData = function(obj) {
