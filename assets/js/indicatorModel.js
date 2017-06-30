@@ -304,8 +304,16 @@ var indicatorModel = function (options) {
             }
           }
 
-          //debugStates.push('[' + fieldItem.value + ' is ' + fieldItem.state + ']');
+          // update the selected field information based on the new states:
+          if(fieldItem.state != 'selected' && that.selectedFields.length) {
+            // find it in the equivalent fieldInfo, and remove:
+            // field: fieldInfoItem.field
+            var toUpdate = _.findWhere(that.selectedFields, { field: fieldInfoItem.field });
 
+            if(toUpdate) {
+              toUpdate.values = _.without(toUpdate.values, fieldItem.value);
+            }
+          }
         });
       });
         
@@ -340,6 +348,10 @@ var indicatorModel = function (options) {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     // extract the possible combinations for the selected field values:
+
+    console.log('this.selectedFields', this.selectedFields);
+    console.log('this.fieldInfo', this.fieldInfo);
+    
     var combinations = this.getCombinationData(this.selectedFields);
     var filteredDatasets = [];
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
