@@ -213,39 +213,85 @@ var indicatorModel = function (options) {
     }
 
     // update the statuses of the fields based on the selected fields' state:
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    var isAll = true;
-    _.each(that.fieldInfo, function(fi) {
-      if(!_.every(fi.values, function(v) { return v.state === 'default'; })) {
-        isAll = false;
-      }
-    });
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // var isAll = true;
+    // _.each(that.fieldInfo, function(fi) {
+    //   if(!_.every(fi.values, function(v) { return v.state === 'default'; })) {
+    //     isAll = false;
+    //   }
+    // });
 
-    var matchedData = _.filter(this.data, function(item) {
-        var isMatch = true;
+    //console.log('filter first on: ', _.chain(that.selectedFields).pluck('field').without(that.userInteraction.field).value());
+    //console.log('and then on...', this.userInteraction.field);
+    //console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+    //console.log(fields);
 
-        for(var loop = 0; loop < fields.length; loop++) {
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-          // if(fields[loop].field === that.userInteraction.field) {
-          //   // or:
-          //   // the name of the field: fields[loop].field
-          //   var inValues = _.pluck(_.filter(_.chain(that.fieldInfo)
-          //   .findWhere({ field : fields[loop].field })
-          //   .value().values, function(f) { return f.state !== 'excluded'; }), 'value');
 
-          //   if(inValues.indexOf(item[fields[loop].field]) === -1) {
-          //     isMatch = false;
-          //   }
-          // } else {
-            if(fields[loop].values.indexOf(item[fields[loop].field]) === -1)
-              isMatch = false;
-          // }
+    console.log('original: ', this.data.length);
+
+    var andFieldNames = _.chain(that.selectedFields).pluck('field').without(that.userInteraction.field).value(),
+        andFields = _.filter(fields, function(f) { return andFieldNames.containsValue(f.field); }),
+        isMatch, 
+        matchedData = [];
+
+    // first, filter on the field types that have not just been modified:
+    if(andFields.length) {
+      matchedData = _.filter(this.data, function(item) {
+        isMatch = true;
+        for(var loop = 0; loop < andFields.length; loop++) {
+          if(!andFields[loop].values.containsValue(item[andFields[loop].field])) {
+            isMatch = false;
+          }
         }
-
         return isMatch;
-    });
+      });
+    } else {
+      matchedData = this.data;
+    }
 
-    //console.table(matchedData);
+    // and then, on the field that has just been modified:
+
+    // ***********************************************************
+    // FIRST, find out what's currently left:
+    // SECOND, then do a selection on the remaining fields:
+    // ***********************************************************
+    var possibleValues = [];
+
+    if(that.userInteraction.field) {
+
+      // what's available for this field?
+      var preFilter = _.chain(matchedData).pluck(that.userInteraction.field).filter(function(item) { return item; }).uniq().value();
+
+      console.log('SELFIELDS ', that.selectedFields);
+    
+      // filter on this field's selections:
+      var interactiveFieldValues = _.findWhere(that.selectedFields, { 'field' : that.userInteraction.field }) ? 
+        _.findWhere(fields, { 'field' : that.userInteraction.field }).values : [];
+      
+      console.log('selected values for THAT field!: ', interactiveFieldValues);
+
+      // might be none if the last click cleared the selections for this field:
+      if(interactiveFieldValues.length) {
+        // now do a filter on what's been selected
+        matchedData = _.filter(matchedData, function(item) {
+          return interactiveFieldValues.containsValue(item[that.userInteraction.field]);
+        });
+      }
+      
+      console.table(matchedData);
+
+      var postFilter = _.chain(matchedData).pluck(that.userInteraction.field).filter(function(item) { return item; }).uniq().value();
+
+      possibleValues = _.difference(preFilter, postFilter);
+
+      console.log('pre: ', preFilter, ', post: ', postFilter, ', diff: ', _.difference(preFilter, postFilter));
+    }
+    
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    console.log('post length: ', matchedData.length);
+    console.log('possible values: ', possibleValues.toString());
 
     var fieldsAndValues = _.map(_.pluck(this.fieldInfo, 'field'), function(f) {
       return {
@@ -270,52 +316,88 @@ var indicatorModel = function (options) {
     //    ['Col1', 'Col2']
     //
 
-      // go through the fieldInfo and mark each item as either selected/possible/excluded:
-      _.each(this.fieldInfo, function(fieldInfoItem) {
+    // go through the fieldInfo and mark each item as either selected/possible/excluded:
+    //console.log(this.fieldInfo);
 
-        var matched = _.findWhere(fieldsAndValues, { field: fieldInfoItem.field });
+    //console.table(fieldsAndValues);
 
-        // go through each field value state:
-        _.each(fieldInfoItem.values, function(fieldItem) {
+   // console.table(_.map(fieldsAndValues, function(item) { return { field: item.field, values: item.values.toString() }; }));
 
-          if(that.selectedFields.length === 0) {
+    _.each(this.fieldInfo, function(fieldInfoItem) {
+
+      var currentFieldAndValues = _.findWhere(fieldsAndValues, { field: fieldInfoItem.field });
+
+
+      //console.log('fii: ', fieldInfoItem.field);
+
+      //console.log(matched);
+      // go through each field value state:
+      _.each(fieldInfoItem.values, function(fieldItem) {
+
+        // reset:
+        if(that.selectedFields.length === 0) {
+          fieldItem.state = 'default';
+        } else if(fieldInfoItem.field !== that.userInteraction.field) {
+          if(currentFieldAndValues.values.containsValue(fieldItem.value) && _.findWhere(that.selectedFields, { field: fieldInfoItem.field })) {
+            fieldItem.state = 'selected';
+          } else if(currentFieldAndValues.values.containsValue(fieldItem.value)) {
             fieldItem.state = 'default';
-          } else if(matched.values.containsValue(fieldItem.value)) {
-            var selected = _.findWhere(that.selectedFields, { field: fieldInfoItem.field });
-            if(selected && selected.values.containsValue(fieldItem.value)) {
-              fieldItem.state = 'selected';
-            } else {
-              fieldItem.state = 'default';
+          } else {
+            fieldItem.state = 'excluded';
+            console.log('excluding something: ', fieldItem);
+          }
+        } else {
+          // the currently interacting field:
+
+          // 
+        }
+
+
+        // is the field somethings that's just been interacted with?
+
+
+/*
+        if(that.selectedFields.length === 0) {
+          fieldItem.state = 'default';
+        } else if(matched.values.containsValue(fieldItem.value)) {
+          var selected = _.findWhere(that.selectedFields, { field: fieldInfoItem.field });
+          if(selected && selected.values.containsValue(fieldItem.value)) {
+            fieldItem.state = 'selected';
+          } else {
+            fieldItem.state = 'default';
+          }
+        } else {
+          if(fieldInfoItem.field === that.userInteraction.field) {
+            // possible:
+            if(!['excluded'].containsValue(fieldItem.state)) {
+              fieldItem.state = 'possible';
             }
           } else {
-            if(fieldInfoItem.field === that.userInteraction.field) {
-              // possible:
-              if(!['excluded'].containsValue(fieldItem.state)) {
-                fieldItem.state = 'possible';
-              }
+            // is this field the only field with selections? if so, 
+            // its excluded can be 'possible'
+            if(selectedFieldTypes.length === 1 && selectedFieldTypes[0] === fieldInfoItem.field) {
+              fieldItem.state = 'possible';
             } else {
-              // is this field the only field with selections? if so, 
-              // its excluded can be 'possible'
-              if(selectedFieldTypes.length === 1 && selectedFieldTypes[0] === fieldInfoItem.field) {
-                fieldItem.state = 'possible';
-              } else {
-                fieldItem.state = 'excluded';
-              }
+              fieldItem.state = 'excluded';
             }
           }
+        }
+*/
 
-          // update the selected field information based on the new states:
-          if(fieldItem.state != 'selected' && that.selectedFields.length) {
-            // find it in the equivalent fieldInfo, and remove:
-            // field: fieldInfoItem.field
-            var toUpdate = _.findWhere(that.selectedFields, { field: fieldInfoItem.field });
+/*
+        // update the selected field information based on the new states:
+        if(fieldItem.state != 'selected' && that.selectedFields.length) {
+          // find it in the equivalent fieldInfo, and remove:
+          // field: fieldInfoItem.field
+          var toUpdate = _.findWhere(that.selectedFields, { field: fieldInfoItem.field });
 
-            if(toUpdate) {
-              toUpdate.values = _.without(toUpdate.values, fieldItem.value);
-            }
+          if(toUpdate) {
+            toUpdate.values = _.without(toUpdate.values, fieldItem.value);
           }
-        });
+        }
+*/
       });
+    });
         
     var fieldSelectionInfo = this.fieldInfo.map(function(fi) {
       var maxFieldValueCount = fi.values.length,
@@ -349,8 +431,8 @@ var indicatorModel = function (options) {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     // extract the possible combinations for the selected field values:
 
-    console.log('this.selectedFields', this.selectedFields);
-    console.log('this.fieldInfo', this.fieldInfo);
+    // console.log('this.selectedFields', this.selectedFields);
+    // console.log('this.fieldInfo', this.fieldInfo);
     
     var combinations = this.getCombinationData(this.selectedFields);
     var filteredDatasets = [];

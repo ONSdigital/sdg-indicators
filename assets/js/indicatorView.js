@@ -104,6 +104,7 @@ var indicatorView = function (model, options) {
       };
     }).value(), {
       field: $(this).data('field'),
+      value: $(this).val(),
       selected: $(this).is(':checked')
     });
 
