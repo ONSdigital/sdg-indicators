@@ -1,7 +1,7 @@
 var indicatorSearch = function() {
   that = this;
-  this.element = $('#indicator_search');
-  this.dataUrl = this.element.data('url');
+  this.inputElement = $('#indicator_search');
+  this.dataUrl = this.inputElement.data('url');
   this.indicatorData = [];
   this.hasErrored = false;
 
@@ -9,11 +9,15 @@ var indicatorSearch = function() {
     for(var goalLoop = 0; goalLoop < data.length; goalLoop++) {
       for(var indicatorLoop = 0; indicatorLoop < data[goalLoop].goal.indicators.length; indicatorLoop++) {
         var currentIndicator = data[goalLoop].goal.indicators[indicatorLoop];
-        currentIndicator.goalId = data[goalLoop].id;
-        currentIndicator.goalTitle = data[goalLoop].title;
+        currentIndicator.goalId = data[goalLoop].goal.id;
+        currentIndicator.goalTitle = data[goalLoop].goal.title;
         that.indicatorData.push(currentIndicator);
       }
     }
+  };
+
+  this.doSearch = function(searchText) {
+    console.log('searching on ', searchText);
   };
 
   $.getJSON(this.dataUrl, function(data) {
@@ -21,6 +25,29 @@ var indicatorSearch = function() {
   }).fail(function(err) {
     that.hasErrored = true;
     console.error(err);
+  });
+
+  this.inputElement.keyup(function() {
+
+    var searchValue = that.inputElement.val();
+
+    var searchResults = _.filter(that.indicatorData, function(indicator) {
+      return indicator.title.indexOf(searchValue) != -1;
+    });
+    
+    var results = [];
+    _.each(searchResults, function(result) {
+      results.push({
+        parsedTitle: result.title.replace(new RegExp('(' + searchValue + ')', 'gi'), '<span class="match">$1</span>'),
+        id: result.id,
+        title: result.title,
+        href: result.href,
+        goalId: result.goalId,
+        goalTitle: result.goalTitle
+      });
+    });
+
+    //console.log(results);
   });
 };
 
