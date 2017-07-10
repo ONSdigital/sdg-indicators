@@ -20,35 +20,86 @@ var indicatorSearch = function() {
     console.log('searching on ', searchText);
   };
 
-  $.getJSON(this.dataUrl, function(data) {
-    that.processData(data);
-  }).fail(function(err) {
-    that.hasErrored = true;
-    console.error(err);
-  });
+  this.getData = function() {
 
-  this.inputElement.keyup(function() {
+    return new Promise(function(resolve, reject) {
 
+      // if(Modernizr.localStorage &&) {
+
+      // }
+
+      $.getJSON(that.dataUrl, function(data) {
+        that.processData(data);
+        resolve();
+      }).fail(function(err) {
+        that.hasErrored = true;
+        console.error(err);
+        reject(Error(err));
+      });      
+    });
+  };
+
+  this.inputElement.keyup(function(e) {
     var searchValue = that.inputElement.val();
-
-    var searchResults = _.filter(that.indicatorData, function(indicator) {
-      return indicator.title.indexOf(searchValue) != -1;
-    });
-    
-    var results = [];
-    _.each(searchResults, function(result) {
-      results.push({
-        parsedTitle: result.title.replace(new RegExp('(' + searchValue + ')', 'gi'), '<span class="match">$1</span>'),
-        id: result.id,
-        title: result.title,
-        href: result.href,
-        goalId: result.goalId,
-        goalTitle: result.goalTitle
-      });
-    });
-
-    //console.log(results);
+    if(e.keyCode === 13 && searchValue.length) {
+      window.location.replace(that.inputElement.data('pageurl') + searchValue);
+    }
   });
+
+  if($('#main-content').hasClass('search-results')) {
+        
+    var results = [],
+        searchString = unescape(location.search.substring(1));
+
+    // we got here because of a redirect, so reinstate:
+    this.inputElement.val(searchString);
+
+    $('#main-content h1 span').text(searchString);
+    $('#main-content h1').show();
+  
+    this.getData().then(function() {
+      var searchResults = _.filter(that.indicatorData, function(indicator) {
+        return indicator.title.indexOf(searchString) != -1; 
+      });
+
+      // goal
+      //    indicators
+      // goal
+      //    indicators    
+
+      _.each(searchResults, function(result) {
+        var goal = _.findWhere(results, { goalId: result.goalId }),
+            indicator = {
+              parsedTitle: result.title.replace(new RegExp('(' + searchString + ')', 'gi'), '<span class="match">$1</span>'),
+              id: result.id,
+              title: result.title,
+              href: result.href,
+            };
+
+        if(!goal) {
+          results.push({
+            goalId: result.goalId,
+            goalTitle: result.goalTitle,
+            indicators: [indicator]
+          });
+        } else {
+          goal.indicators.push(indicator);
+        }
+      });
+
+      $('.loader').hide();
+
+      var template = _.template(
+        $("script.results").html()
+      );
+
+      $('div.results').html(template({
+        searchResults: results,
+        resultsCount: searchResults.length,
+        imgPath: $('.results').data('imgpath')
+      }));
+    });
+  }
 };
 
 indicatorSearch.prototype = {

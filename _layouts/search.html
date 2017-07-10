@@ -1,0 +1,43 @@
+{% include head.html %}
+{% include header.html %}
+<div id="main-content" class="container search-results" role="main">
+  {% include components/loading.html %}
+  <h1 style="display:none">Search results for '<span id="search-term"></span>'</h1>
+  <div class="results" data-imgpath="{{ site.baseurl }}/assets/img/goals/">
+  </div>
+</div>
+
+<script type="text/template" class="results">
+
+  <% if(resultsCount) { %>
+    <p><%= resultsCount %> indicator<% if(resultsCount != 1) { %>s<% } %> found across <%= searchResults.length %> goal<% if(searchResults.length != 1) { %>s<% } %></p>
+
+    <% _.each(searchResults, function(goal){ %>
+      <div class="row">
+        <div class="col-sm-12">
+          <h4>Goal - <%= goal.goalId %> - <%= goal.goalTitle %></h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <img src="<%= imgPath%><%= goal.goalId%>.png" />
+        </div>
+        <div class="col-sm-10">
+          <ul>
+            <% _.each(goal.indicators, function(indicator){ %>
+              <li>
+                Indicator <%= indicator.id %> - <a href="<%=indicator.href%>"><%=indicator.parsedTitle%></a>
+              </li>
+            <% }); %>
+          </ul>
+        </div>
+      </div>
+    <% }); %>
+
+  <% } else { %>
+    <p>No results</p>
+  <% } %>
+
+</script>
+
+{% include footer.html %}
