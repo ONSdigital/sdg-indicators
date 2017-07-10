@@ -34,7 +34,10 @@ def reset_csvs():
   )
   # Overwrite the csvs
   for i in indicators:
-    blank_df.to_csv('../data/indicator_' + re.sub('\.', '-', i) + '.csv')
+    blank_df.to_csv(
+      '../data/indicator_' + re.sub('\.', '-', i) + '.csv',
+      index = False
+    )
 
 
 if __name__ == "__main__":
