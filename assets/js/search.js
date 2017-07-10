@@ -46,6 +46,10 @@ var indicatorSearch = function() {
     }
   });
 
+  var escapeRegExp = function(str) {
+    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+  };
+
   if($('#main-content').hasClass('search-results')) {
         
     var results = [],
@@ -70,7 +74,7 @@ var indicatorSearch = function() {
       _.each(searchResults, function(result) {
         var goal = _.findWhere(results, { goalId: result.goalId }),
             indicator = {
-              parsedTitle: result.title.replace(new RegExp('(' + searchString + ')', 'gi'), '<span class="match">$1</span>'),
+              parsedTitle: result.title.replace(new RegExp('(' + escapeRegExp(searchString) + ')', 'gi'), '<span class="match">$1</span>'),
               id: result.id,
               title: result.title,
               href: result.href,
