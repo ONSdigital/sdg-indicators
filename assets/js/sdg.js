@@ -7,3 +7,4 @@
 {% include_relative indicatorModel.js %}
 {% include_relative indicatorView.js %}
 {% include_relative indicatorController.js %}
+{% include_relative search.js %}

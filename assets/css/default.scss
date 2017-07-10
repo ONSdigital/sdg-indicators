@@ -48,6 +48,51 @@ header {
   }
 }
 
+#search {
+  float: right;
+  position: relative;
+
+  label {
+    position: absolute;
+    top: 3px;
+    left: 7px;
+    font-size: 20px;
+  }
+
+  input {
+    padding: 5px;
+    padding-left: 29px;
+  }
+}
+
+.match {
+  background-color: yellow;
+}
+
+.loader {
+  svg path,
+  svg rect{
+    fill: #FF6700;
+  }
+}
+
+.results {
+  img {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  p {
+    border-bottom: 1px solid #cdcdcd;
+    padding: 4px 0;
+  }
+
+  h4 {
+    margin-bottom: 1.5rem;
+    margin-top: 3rem;  
+  }
+}
+
 .breadcrumb {
   margin-bottom: 15px;
   &>.active {
