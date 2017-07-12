@@ -45,7 +45,8 @@ $(function() {
         geographicalArea: $('#indicatorData').data('geographicalarea')
       }),
       view  = new indicatorView(model, {
-        rootElement: '#indicatorData'
+        rootElement: '#indicatorData',
+        maxChartHeight: 750
       }),
       controller = new indicatorController(model, view);
       controller.initialise();

@@ -197,9 +197,21 @@ ul {
   }
 }
 
-.download-csv {
+.btn-download {
   margin-top: 1.5rem;
-  text-transform: uppercase;
+  background: #0F8243;
+
+  &:hover, &:active {
+    background: #0b5d30;
+  }
+}
+
+h5.download {
+  font-weight: bold;
+}
+
+h5 + .btn-download {
+  margin-top: 0.5rem;
 }
 
 @for $i from 1 through length($goal-colors) {
@@ -304,19 +316,60 @@ ul {
   h4 {
     margin-bottom: 1.5rem;
   }
-  #fields {
-    @include noselect;
-    label {
-      background-color: #efefef;
-      padding: 3px;
-      margin-right: 7px;
-      font-weight: normal;
+
+  #toolbar {
+    button {
+      width: 160px;
+      background-color: #fff;
+      position: relative;
       border: 1px solid #ccc;
+      text-align: left;
+      padding: 10px 7px;
+      font-size: 14px;
+      font-family: 'Open Sans', sans-serif;
+
+      i {
+        position: absolute;
+        top: 11px;
+        right: 6px;
+        font-size: 17px;
+      }
+
+      &.disabled {
+        color: #777;
+        background: #ccc;
+      }
+    }
+  }
+
+  #fields {
+
+    //padding-left: 10px;
+
+    @include noselect;
+
+    padding-top: 14px;
+    padding-bottom: 14px;
+
+    label {
+      background-color: #fff;
+      padding: 7px;
+      display: block;
+      font-weight: normal;
+      margin-bottom: 1px;
+      cursor: pointer;
+
+      //border: 1px solid #ccc;
+
+      position: relative;
+
       input {
-        margin-left: 5px;
+        position: absolute;
+        top: 7px;
+        right: 6px;
       }
       &:hover {
-        border-color: #555;
+        border-color: #acacac;
       }
       &.disabled {
         color: #888;
@@ -325,11 +378,89 @@ ul {
           border-color: #ccc;
         }
       }
+
+      &.possible {
+        background-color: #dedede;
+      }
+
+      &.excluded {
+        background-color: #666;
+        color: white;
+
+        & input {
+          display: none;
+        }
+      }
     }
+
+    h5 {
+      padding-left: 7px;
+      position: relative;
+      padding-right: 25px;
+
+      i {
+        font-size: 14px;
+        position: absolute;
+        top: 2px;
+        right: 6px;
+      }
+    }
+
+    .bar {
+      height: 7px;
+      border: 1px solid #dedede;
+      margin: 2px;
+      padding: 0;
+      position: relative;
+
+      > div {
+        height: 5px;
+        float: left;
+      }
+
+      .default {
+        background-color: white;
+      }
+
+      .possible {
+        background-color: #dedede;
+      }
+
+      .excluded {
+        background-color: #666;
+      }
+    }
+
+    .variable-selector {
+      position: relative;
+      cursor: pointer;
+      min-width: 160px;
+      border: 1px solid #ccc;
+      display: inline-block;
+      margin-right: 8px;
+      margin-bottom: 10px;
+
+      .variable-options {
+        background-color: white;
+        display: none;
+        position: absolute;
+        z-index: 100;
+        border: 1px solid #ccc;
+        border-top: 0;
+        right: -1px;
+        left: -1px;
+        padding-top: 7px;
+
+        label {
+          padding-left: 7px;
+        }
+      }
+    }
+
   }
   .plot-container {
-    height: 350px;
     margin-bottom: 4.5rem;
+    padding: 10px;
   }
   canvas {
     @include noselect;

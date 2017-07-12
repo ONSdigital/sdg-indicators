@@ -1,5 +1,9 @@
-{% include head.html %} {% include header.html %} {% assign goal = site.data.sdg_goals | where: "goal", page.sdg_goal | first
-%} {% capture goal_uri %}{{ site.baseurl }}/{{ goal.short | slugify }}{% endcapture %}
+{% include head.html %} 
+{% include header.html %} 
+{% assign goal = site.data.sdg_goals | where: "goal", page.sdg_goal | first %} 
+{% capture goal_uri %}{{ site.baseurl }}/{{ goal.short | slugify }}{% endcapture %}
+
+{% include components/fields-template.html %}
 
 <div class="heading goal-{{page.sdg_goal}}">
   <div class="container">
@@ -66,8 +70,8 @@
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="data">
         <h3>{{ page.graph_title }}</h3>
+        <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary btn-download">Download source CSV</a>
         <div id="datatables"></div>
-        <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary download-csv">Download source CSV</a>
       </div>
       <div role="tabpanel" class="tab-pane" id="metadata">
         <!-- National Metadata -->
