@@ -225,7 +225,7 @@ var indicatorModel = function (options) {
         return matched;
       });
     //}
-
+/*
     console.table(matchedData);
 
     // update statuses:
@@ -255,7 +255,8 @@ var indicatorModel = function (options) {
                // fieldItemValue.state = 'excluded';
               // }  
 
-              fieldItemValue.state = /*isSingleValueSelected() &&*/ that.selectedFields[0].field == fieldItemState.field ? 'possible' : 'excluded';
+              // isSingleValueSelected() &&
+              fieldItemValue.state = that.selectedFields[0].field == fieldItemState.field ? 'possible' : 'excluded';
               //fieldItemValue.state = 'excluded';
             }
           }
@@ -276,6 +277,9 @@ var indicatorModel = function (options) {
         }
       };      
     });
+*/
+
+    var fieldSelectionInfo = [];
 
     this.onFieldsStatusUpdated.notify({
       data: this.fieldItemStates,
