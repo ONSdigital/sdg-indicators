@@ -4,6 +4,9 @@ layout: default
 <div id="main-content" class="container">
   <div class="row">
     <div class="col-md-9 push-md-3">
+      
+      {{content}}
+
       <table>
         {% for post in site.posts %}
         <tr>
@@ -13,10 +16,9 @@ layout: default
         </tr>
         {% endfor %}
       </table>
-      
     </div>
     <div class="col-md-3 pull-md-9">
-      * Sidebar TODO *
+      {% include components/post-categories.html %}
     </div>
   </div>
 </div>
