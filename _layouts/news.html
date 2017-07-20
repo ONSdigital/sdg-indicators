@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<div id="main-content" class="container">
+  <div class="row">
+    <div class="col-md-9 push-md-3">
+      <table>
+        {% for post in site.posts %}
+        <tr>
+          <td><i class="icon-clock"></i><time datetime="{{post.date|date:"%F"}}">{{post.date|date:"%b %d, %Y"}}</time></td>  
+          <td><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></td>
+          <td><span class="category"><i class="icon-tag"></i> {{post.categories | category_links}}</span></td>
+        </tr>
+        {% endfor %}
+      </table>
+      
+    </div>
+    <div class="col-md-3 pull-md-9">
+      * Sidebar TODO *
+    </div>
+  </div>
+</div>
