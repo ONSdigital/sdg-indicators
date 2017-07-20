@@ -43,6 +43,10 @@ var indicatorView = function (model, options) {
   this._model.onFieldsCleared.attach(function(sender, args) {
     $(view_obj._rootElement).find(':checkbox').prop('checked', false);
     $(view_obj._rootElement).find('#clear').addClass('disabled');
+
+    // #246
+    $(view_obj._rootElement).find('.selected').css('width', '0');
+    // end of #246
   });
 
   this._model.onSelectionUpdate.attach(function(sender, selectedFields) {
