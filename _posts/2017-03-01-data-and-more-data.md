@@ -2,7 +2,7 @@
 layout: post
 title: Data and more data
 author: Chester Roman
-category: data
+category: ["Data", "Wrangling"]
 excerpt: Hello World! Vestibulum imperdiet adipiscing arcu, quis aliquam dolor condimentum dapibus. Aliquam fermentum leo aliquet quam volutpat et molestie mauris mattis. Suspendisse semper consequat velit in suscipit.
 ---
 Hella quinoa ut vape 8-bit stumptown wayfarers. Exercitation anim tumeric small batch hexagon commodo sunt sed pop-up pabst cupidatat quis cillum. Tousled asymmetrical salvia edison bulb tumeric. Food truck put a bird on it echo park normcore chicharrones hashtag chartreuse plaid glossier lo-fi direct trade lyft. Pop-up magna nulla, unicorn ullamco green juice coloring book mollit edison bulb hexagon aesthetic hoodie. Heirloom dolor cillum mlkshk dolore. Excepteur pork belly skateboard eiusmod, keffiyeh aliqua sartorial cronut man braid brunch gluten-free. Humblebrag air plant edison bulb banjo flannel. Air plant adipisicing live-edge microdosing drinking vinegar. Fingerstache ea bitters ennui non man bun heirloom labore literally vexillologist wolf normcore tattooed. Austin voluptate organic nulla hoodie elit roof party before they sold out eiusmod tumblr vaporware meggings subway tile laboris.

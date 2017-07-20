@@ -2,7 +2,7 @@
 layout: post
 title: How to write a blog
 author: Ann Other
-category: howto
+category: "How to"
 excerpt: Hello World! Vestibulum imperdiet adipiscing arcu, quis aliquam dolor condimentum dapibus. Aliquam fermentum leo aliquet quam volutpat et molestie mauris mattis. Suspendisse semper consequat velit in suscipit.
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum lacus ante. In quam quam, commodo ac mollis at, cursus a elit. Cras euismod consequat nunc non aliquet. Vivamus eget tristique tellus. Sed rutrum tristique nisi, sed iaculis quam mollis ut. Sed nulla odio, convallis in commodo eu, ultrices id purus. Nullam gravida sit amet ipsum porttitor pellentesque.

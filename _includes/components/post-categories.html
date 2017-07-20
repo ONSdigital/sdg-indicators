@@ -1,9 +1,11 @@
-{% assign categories_array = "" | split:"|" %}
-{% for post in site.posts %}
-    {% for category in post.categories %}
-        {% assign categories_array = categories_array | push: category | uniq %}
+<div id="sidebar">
+  <h4>Posts by Category</h4>
+  <ul>
+    {% for category in site.categories %}
+      {% capture category_name %}{{ category | first }}{% endcapture %}
+      <li>
+        <a href="{{site.baseurl}}/categories/#{{category_name|slugize}}" title="View all posts in the {{category_name}} category">{{category_name}}</a>
+      </li>
     {% endfor %}
-{% endfor %}
-{% for category in categories_array %}
-    {{ category }}
-{% endfor %}
+  </ul>
+</div>

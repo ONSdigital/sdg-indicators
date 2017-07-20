@@ -2,7 +2,7 @@
 layout: post
 title: Focus on a goal
 author: Data Wrangler
-category: data
+category: "Data"
 excerpt: Hello World! Vestibulum imperdiet adipiscing arcu, quis aliquam dolor condimentum dapibus. Aliquam fermentum leo aliquet quam volutpat et molestie mauris mattis. Suspendisse semper consequat velit in suscipit.
 ---
 Viral authentic fixie, mollit gluten-free labore PBR&B cliche paleo wolf bitters. Vice yuccie helvetica anim dolor before they sold out normcore distillery organic street art in cardigan tumeric wolf tote bag. PBR&B copper mug microdosing ad. Occupy iPhone keytar deserunt hot chicken retro commodo single-origin coffee tattooed schlitz sartorial hammock kinfolk laboris. Culpa freegan PBR&B non. Celiac artisan typewriter etsy, wolf farm-to-table heirloom lorem officia migas. Pork belly succulents offal, keytar organic sint migas coloring book authentic wayfarers raw denim fixie ethical. Fashion axe next level hexagon, cardigan raclette bitters kickstarter. Heirloom disrupt asymmetrical dolor raw denim. Lorem hashtag in occupy chia. Locavore synth yr labore dolor viral ut dolore gastropub. Gochujang aute succulents, fixie celiac activated charcoal disrupt pariatur tote bag four loko esse. Tumeric fam blog +1 deserunt, gluten-free raw denim cold-pressed humblebrag austin next level qui live-edge.
