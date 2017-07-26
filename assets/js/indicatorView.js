@@ -214,6 +214,39 @@ var indicatorView = function (model, options) {
         });
        }
     });
+
+    $(this._rootElement).find('button').click(function() {
+      console.log(that._chartInstance);
+      that._chartInstance.options.showLines = false;
+
+      //that._chartInstance.scale.xLabels = ["label1", "label2", "label3"];
+
+      //that._chartInstance.scales['x-axis-0'].min = '2014';
+      //that._chartInstance.config.data.labels = that._chartInstance.config.data.labels.slice(4, 4 + 7);
+      //that._chartInstance.options.scales.xAxes[0].ticks.min = '2008';
+
+      /*
+        that._chartInstance.config.data.datasets[0].data = 
+          that._chartInstance.config.data.datasets[0].data.slice(5, 5 + 8);
+*/
+
+      //that._chartInstance.data.datasets[0].data[2] = 101;
+
+      // if(that._chartInstance.options.scales.xAxes[0].ticks.min == '2008') {
+      //         that._chartInstance.options.scales.xAxes[0].ticks.min = '2004';
+
+      // }
+
+      //  that._chartInstance.options.scales.yAxes = [{
+      //               ticks : {
+      //                   max : 6,    
+      //                   min : 4
+      //               }
+      //           }];   
+
+
+        that._chartInstance.update();
+    });
   };
 
   this.toCsv = function (tableData) {
