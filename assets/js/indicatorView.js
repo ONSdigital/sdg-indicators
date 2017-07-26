@@ -210,7 +210,8 @@ var indicatorView = function (model, options) {
 
         var textOutputs = [
           'Source: ' + (that._model.dataSource ? that._model.dataSource : ''),
-          'Geographical Area: ' + (that._model.geographicalArea ? that._model.geographicalArea : '')
+          'Geographical Area: ' + (that._model.geographicalArea ? that._model.geographicalArea : ''),
+          'Unit of Measurement: ' + (that._model.measurementUnit ? that._model.measurementUnit : '')
         ];
 
         var textRowHeight = 20;
@@ -222,7 +223,7 @@ var indicatorView = function (model, options) {
 
         ctx.textAlign = 'left';
         ctx.textBaseline = 'middle';
-        ctx.font = '14px Arial';
+        ctx.font = '12px Arial';
         ctx.fillStyle = '#6e6e6e';
 
         _.each(textOutputs, function(textOutput) {
