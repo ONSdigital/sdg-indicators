@@ -43,10 +43,24 @@ var indicatorView = function (model, options) {
   this._model.onFieldsCleared.attach(function(sender, args) {
     $(view_obj._rootElement).find(':checkbox').prop('checked', false);
     $(view_obj._rootElement).find('#clear').addClass('disabled');
+
+    // #246
+    $(view_obj._rootElement).find('.selected').css('width', '0');
+    // end of #246
   });
 
-  this._model.onSelectionUpdate.attach(function(sender, fieldSelectedCount) {
-    $(view_obj._rootElement).find('#clear')[fieldSelectedCount ? 'removeClass' : 'addClass']('disabled');
+  this._model.onSelectionUpdate.attach(function(sender, selectedFields) {
+    console.log('new: ', selectedFields);
+    $(view_obj._rootElement).find('#clear')[selectedFields.length ? 'removeClass' : 'addClass']('disabled');
+
+    // to #246:
+    // how many inputs:
+    // find the appropriate 'bar'
+    _.each(selectedFields, function(sf) {
+      var element = $(view_obj._rootElement).find('.variable-selector[data-field="' + sf.field + '"]');
+      element.find('.bar .selected').css('width', (Number(sf.values.length / element.find('.variable-options label').length) * 100) + '%');
+    });
+    // end #246
   });
 
   this._model.onFieldsStatusUpdated.attach(function (sender, args) {
