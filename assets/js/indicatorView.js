@@ -183,6 +183,9 @@ var indicatorView = function (model, options) {
           display: this._model.chartTitle,
           text: this._model.chartTitle,
           padding: 20
+        },
+        plugins: {
+          scaler: {}
         }
       }
     });

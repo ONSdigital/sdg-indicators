@@ -36,7 +36,7 @@ Chart.plugins.register({
     } : undefined;
 
     if (dataRange) {
-      chart.data.labels = config.data.allLabels.slice(dataRange.min, dataRange.max + 1);
+      chart.data.labels = chart.data.allLabels.slice(dataRange.min, dataRange.max + 1);
 
       chart.data.datasets.forEach(function (dataset) {
         dataset.data = dataset.allData.slice(dataRange.min, dataRange.max + 1);
