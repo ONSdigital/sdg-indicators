@@ -113,7 +113,7 @@ var indicatorModel = function (options) {
     this.selectedFields = fields;
     this.userInteraction = userInteraction;
     this.getData();
-    this.onSelectionUpdate.notify(fields.length);
+    this.onSelectionUpdate.notify(fields);
   };
   
   this.getCombinationData = function(obj) {

@@ -264,6 +264,24 @@ h5 + .btn-download {
       font-size: 13px;
     }
   }
+
+  &.indicator {
+    h2 {
+      font-size: 24px;
+
+      @media only screen and (max-width: 480px) {
+        font-size: 13px;
+      }
+    }
+    h3 {
+      font-size: 30px;
+
+      @media only screen and (max-width: 480px) {
+        font-size: 15px;
+      }
+    }
+  }
+
   img {
     max-width: 100%;
     margin-top: 10px;
@@ -417,6 +435,12 @@ h5 + .btn-download {
         height: 5px;
         float: left;
       }
+
+      // #246
+      .selected {
+        background-color: #555;
+      }
+      //
 
       .default {
         background-color: white;
@@ -621,6 +645,10 @@ h5 + .btn-download {
     color: inherit;
     padding: 0;
   }
+
+  h2:first-child {
+    margin-top: 0;
+  }
 }
 
 footer {
@@ -655,5 +683,36 @@ footer {
       margin-left: 16px;
       padding-top: 3px;
     }
+  }
+}
+
+.post-categories {
+  margin: 3px 0;
+}
+
+.post-title {
+  margin-top: 0;
+}
+
+.newslist{
+  article {
+    p {
+      margin: 0;
+
+      &:first { 
+        font-size: 90%;
+      }
+    }
+
+    h5 {
+      margin: 3px 0;
+      font-size: 120%;
+    }
+
+    time {
+      margin: 0;
+    }
+
+    margin-bottom: 20px;
   }
 }

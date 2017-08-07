@@ -11,6 +11,7 @@ description: Data Platform Prototype
 baseurl: "/sdg-indicators" # the subpath of your site, e.g. /blog
 url: ""
 data_dir: data
+# permalink: /news/:year/:month/:day/:title.html
 
 ###################################################################################################
 email_contacts:
@@ -41,6 +42,9 @@ collections:
   pages:
     output: true
     permalink: /:path/
+  posts:
+    output: true
+    permalink: /news/:year/:month/:day/:title.html
   indicators:
     output: true
   goals:
