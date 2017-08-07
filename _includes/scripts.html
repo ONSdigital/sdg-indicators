@@ -1,10 +1,10 @@
 <script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 <script src="//cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
 <script src='{{ site.baseurl }}/assets/js/sdg.js?v={{ cache_bust }}'></script>
 <script>
 $(function() {
@@ -52,57 +52,6 @@ $(function() {
       controller.initialise();
     }
 
-    ////////////////////////////////////////////////////////////////////////
-    // temporary code, relating to random generation of 'reporting status' 
-    ////////////////////////////////////////////////////////////////////////
-    function randomSum(sum, nrOfNumbers) {
-      var a = new Array(nrOfNumbers);
-      var i = 0;
-      var remainingSum = sum;
-      while(i < nrOfNumbers) {
-        if(i == (nrOfNumbers -1)) {
-          a[i] = remainingSum;
-        }
-        else {
-          // get a random number in range [0, remainingSum]
-          a[i] = Math.floor(Math.random() * (remainingSum + 1));
-          remainingSum -= a[i];
-        }
-        ++i;
-      }
-      return a;
-    }
-
-    var selector, percentage, types = ['Exploring data sources', 'Statistics in progress', 'Reported online'];
-    $('.goal-stats').each(function(index, el) {
-      var randoms = randomSum(100, 3);
-      for(var loop = 0; loop < 3; loop++) {
-        percentage = randoms[loop] + '%';
-        $(el).find('span:eq(' + loop + ')').attr({
-          'style': 'width:' + percentage,
-          'title': types[loop] + ': ' + percentage
-        });
-        $(el).prev().find('span.value:eq(' + loop + ')').text(percentage);
-      }
-    });
-
-    if($('#main-content').hasClass('reportingstatus')) {
-      setTimeout(function() {
-
-        var width = $('.reportingstatus').width();
-
-        $('#main-content').find('.statuses, .divider, h3').slideDown(function() {
-          $('.frame').animate({ 'width' : '110px', duration: 1500, queue: false }, function() {
-            $('.goal img').fadeIn(1500, function() {
-              $('.goal').animate({ borderTopColor: '#ddd', borderLeftColor: '#ddd', borderRightColor: '#ddd', borderBottomColor: '#ddd' }, 500);
-            });
-          });
-
-          $('.details').animate({ 'width' : width - 130 + 'px', duration: 1500, queue: false });
-        });
-
-      }, 1200);
-    }
-    ////////////////////////////////////////////////////////////////////////
+    
 });
 </script>

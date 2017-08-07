@@ -1,12 +1,12 @@
 {% include head.html %}
 {% include header.html %}
-<div id="main-content" class="container reportingstatus">
+<div id="main-content" class="container reportingstatus" data-url="{{ site.baseurl }}/indicators.json">
 
   {% assign sdg_goals = site.data.sdg_goals %}
     <!--<ul style="list-style-type: decimal; margin-left: 50px;margin-bottom: 30px;margin-top:30px;">-->
       {% for goal in sdg_goals %}
         <!--<li>-->
-        <div class="goal">
+        <div class="goal" data-goalid="{{ goal.goal }}">
           <div class="frame">
             <img src="{{ site.baseurl }}/assets/img/goals/{{ goal.goal }}.png" alt="icon for Goal {{ goal.goal }} - {{ goal.title }}" width="100" height="100" />
           </div>
