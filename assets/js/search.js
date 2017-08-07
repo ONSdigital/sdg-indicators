@@ -1,7 +1,8 @@
-var indicatorSearch = function() {
+var indicatorSearch = function(inputElement, indicatorDataStore) {
   that = this;
-  this.inputElement = $('#indicator_search');
-  this.dataUrl = this.inputElement.data('url');
+  this.inputElement = inputElement; //$('#indicator_search');
+  //this.dataUrl = this.inputElement.data('url');
+  this.indicatorDataStore = indicatorDataStore;
   this.indicatorData = [];
   this.hasErrored = false;
 
@@ -16,28 +17,24 @@ var indicatorSearch = function() {
     }
   };
 
-  this.doSearch = function(searchText) {
-    console.log('searching on ', searchText);
-  };
+  // this.getData = function() {
 
-  this.getData = function() {
+  //   return new Promise(function(resolve, reject) {
 
-    return new Promise(function(resolve, reject) {
+  //     // if(Modernizr.localStorage &&) {
 
-      // if(Modernizr.localStorage &&) {
+  //     // }
 
-      // }
-
-      $.getJSON(that.dataUrl, function(data) {
-        that.processData(data);
-        resolve();
-      }).fail(function(err) {
-        that.hasErrored = true;
-        console.error(err);
-        reject(Error(err));
-      });      
-    });
-  };
+  //     $.getJSON(that.dataUrl, function(data) {
+  //       that.processData(data);
+  //       resolve();
+  //     }).fail(function(err) {
+  //       that.hasErrored = true;
+  //       console.error(err);
+  //       reject(Error(err));
+  //     });      
+  //   });
+  // };
 
   this.inputElement.keyup(function(e) {
     var searchValue = that.inputElement.val();
@@ -53,6 +50,7 @@ var indicatorSearch = function() {
   if($('#main-content').hasClass('search-results')) {
         
     var results = [],
+        that = this,
         searchString = unescape(location.search.substring(1));
 
     // we got here because of a redirect, so reinstate:
@@ -61,7 +59,11 @@ var indicatorSearch = function() {
     $('#main-content h1 span').text(searchString);
     $('#main-content h1').show();
   
-    this.getData().then(function() {
+    //this.getData().then(function() {
+    this.indicatorDataStore.getData().then(function(data) {
+
+      that.processData(data);
+
       var searchResults = _.filter(that.indicatorData, function(indicator) {
         return indicator.title.indexOf(searchString) != -1; 
       });
@@ -111,6 +113,7 @@ indicatorSearch.prototype = {
 };
 
 $(function() {
-  new indicatorSearch();
+  var $el = $('#indicator_search');
+  new indicatorSearch($el, new indicatorDataStore($el.data('url')));
 });
 

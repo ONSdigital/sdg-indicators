@@ -20,13 +20,13 @@
     </div>
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="nav navbar-nav navbar-right">
-        <li {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" %}class="nav-link"{% else %}class="nav-link active"{% endif %}>
+        <li {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" or page.layout == "post" %}class="nav-link"{% else %}class="nav-link active"{% endif %}>
             <a href="{{ site.baseurl }}/">Goals</a>
           </li>
           <li {% if page.permalink == "/reporting-status/" %}class="nav-link active"{% else %}class="nav-link"{% endif %}>
             <a href="{{ site.baseurl }}/reporting-status">Reporting Status</a>
           </li>
-          <li {% if page.permalink == "/news/" %}class="nav-link active"{% else %}class="nav-link"{% endif %}>
+          <li {% if page.permalink contains "/news" or page.layout == "post" %}class="nav-link active"{% else %}class="nav-link"{% endif %}>
             <a href="{{ site.baseurl }}/news">News &amp; Events</a>
           </li>
       </ul>

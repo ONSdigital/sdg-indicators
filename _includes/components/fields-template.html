@@ -7,6 +7,12 @@
         <div class="default"></div><div class="possible"></div><div class="excluded"></div>
       </div>
       -->
+
+      <div class="bar">
+        <div class="selected"></div>
+      </div>
+
+
       <div class="variable-options">
         <% _.each(seriesItem.values, function(item) { %>
           <label><input type="checkbox" value="<%=item.value%>" data-field="<%=seriesItem.field%>" /><%=item.value%></label>
