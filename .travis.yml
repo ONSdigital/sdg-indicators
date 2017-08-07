@@ -9,9 +9,8 @@ addons:
     - python3-yaml
 
 before_script:
- - chmod +x ./scripts/csvcheck.rb
- - chmod +x ./scripts/cibuild # or do this locally and commit
- - pip3 install yaml
+ - chmod +x ./scripts/build/csvcheck.rb
+ - chmod +x ./scripts/build/cibuild # or do this locally and commit
 
 # Assume bundler is being used, therefore
 # the `install` step will run `bundle install` by default.
