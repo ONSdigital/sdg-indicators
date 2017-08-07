@@ -8,28 +8,54 @@ Created on Thu May  4 13:53:01 2017
 #%% setup
 
 import yaml
+import glob
 
-status = True
 
 #%% Checkinga single item 
-def check_meta(meta):
+def check_meta(meta, fname):
     """Check an individual metadata and return logical status"""
-    print(meta["sdg_goal"])
-    return True
-
-#%% Find all items
-
-import glob
-metas = glob.glob("_indicators/*.md")
     
-#%% Get the yaml from the front matter
+    # As the number of checks increase you may want to think of a more scalable way to do this
 
-for met in metas:
-    print(met)
-    with open(met) as stream:
-        meta = next(yaml.load_all(stream))
-    status = status & check_meta(meta)
+    status = True
+    
+    if("reporting_status" not in meta):
+        print("reporting_status missing in " + fname)
+        status = False
+    else:
+        valid_statuses = ['notstarted', 'inprogress', 'complete']
+        
+        if(meta["reporting_status"] not in valid_statuses):
+            err_str = "invalid reporting_status in " + fname + ": " \
+                      + meta["reporting_status"] + " must be one of " \
+                      + str(valid_statuses)
+            print(err_str)
+            status = False
+        
+    return status
 
-#%%
+    
+#%% Read each yaml and run the checks
 
-print(status)
+def main():
+
+    status = True
+    
+    metas = glob.glob("_indicators/*.md")
+    
+    print("Checking " + str(len(metas)) + " metadata files...")
+    
+    for met in metas:
+        with open(met, encoding = "UTF-8") as stream:
+            meta = next(yaml.load_all(stream))
+        status = status & check_meta(meta, fname = met)
+    
+  
+    return(status)
+
+if __name__ == '__main__':
+    status = main()
+    if(not status):
+        raise RuntimeError("Failed metadata checks")
+    else:
+        print("Success")
