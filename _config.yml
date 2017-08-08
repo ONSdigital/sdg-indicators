@@ -58,6 +58,27 @@ prose:
   ignore: ['/assets', '/_includes', '/_layouts', '/scripts', '/sass' ]
   metadata:
     _indicators:
+    ############ Page Data ############
+      - name: "title"
+        field:
+            element: text
+            label: "Page Title"
+            scope: page
+      - name: "sdg_goal"
+        field:
+            element: hidden
+            label: "SDG Goal"
+            scope: page
+      - name: "permalink"
+        field:
+            element: hidden
+            label: "Permalink"
+            scope: page
+      - name: "layout"
+        field:
+            element: hidden
+            label: "Layout"
+            scope: page
     ######### Global Metadata #########
       - name: "indicator_name"
         field:
@@ -418,7 +439,7 @@ prose:
               - name: 'Longitudinal'
                 value: 'Longitudinal'
               - name: 'Bar'
-                value: 'Bar'      
+                value: 'Bar'     
       - name: "graph_title"
         field: 
             element: text
