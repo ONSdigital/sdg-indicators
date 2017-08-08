@@ -1,7 +1,7 @@
 # Script to remove all non-specified fields
 
-
 library(purrr)
+library(magrittr)
 
 prose <- yaml::yaml.load_file("_config.yml")
 prose <- prose$prose$metadata$`_indicators`
@@ -45,11 +45,12 @@ write_yaml <- function(x) {
   out
 }
 
-library(magrittr)
 
-f <- Sys.glob("_indicators/*.md")[1]
+md_files <- Sys.glob("_indicators/*.md")
 
-f %>% read_yaml() %>%
-  keep_allowed(allowed_names) %>%
-  write_yaml() %>%
-  writeLines(con = "something.md")
+for (f in md_files) {
+  f %>% read_yaml() %>%
+    keep_allowed(allowed_names) %>%
+    write_yaml() %>%
+    writeLines(con = f)
+}
