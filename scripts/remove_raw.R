@@ -49,6 +49,7 @@ write_yaml <- function(x) {
 md_files <- Sys.glob("_indicators/*.md")
 
 for (f in md_files) {
+  cat(f, fill = TRUE)
   f %>% read_yaml() %>%
     keep_allowed(allowed_names) %>%
     write_yaml() %>%
