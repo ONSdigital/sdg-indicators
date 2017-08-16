@@ -14,15 +14,15 @@
 
     <% _.each(searchResults, function(goal){ %>
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col col-xs-12">
           <h4>Goal <%= goal.goalId %> - <%= goal.goalTitle %></h4>
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-2">
+        <div class="col col-xs-3 col-md-2">
           <img src="<%= imgPath%><%= goal.goalId%>.png" />
         </div>
-        <div class="col-sm-10">
+        <div class="col col-xs-9 col-md-10">
           <ul>
             <% _.each(goal.indicators, function(indicator){ %>
               <li>
