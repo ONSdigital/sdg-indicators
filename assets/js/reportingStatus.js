@@ -23,8 +23,6 @@ var reportingStatus = function(indicatorDataStore) {
           };
         });    
 
-        console.log('info: ', mappedData);
-
         resolve(mappedData);
       });     
     });
@@ -48,7 +46,7 @@ $(function() {
         
         var el = $('.goal[data-goalid="' + goal.goal_id + '"]');
 
-        console.log(el);
+        //console.log(el);
         
         var total = goal.notStartedCount + goal.inProgressCount + goal.completeCount;
         var counts = [goal.notStartedCount, goal.inProgressCount, goal.completeCount];
