@@ -1,41 +1,39 @@
-<a class="sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
-<header role="banner">
-<nav class="navbar navbar-default navbar-fixed-top" id="main-nav">
-  <div id="disclaimer">
+<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+<div id="disclaimer">
   {% include components/dev-disclaimer.html %}
-  </div>
-<div class="container">
-  <div>
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="{{ site.baseurl }}/" id="home">
-        <img src="{{ site.baseurl }}/assets/img/SDG_logo.png" alt="Sustainable Development Goals Logo" />
-      </a>
-    </div>
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" or page.layout == "post" %}class="nav-link"{% else %}class="nav-link active"{% endif %}>
-            <a href="{{ site.baseurl }}/">Goals</a>
-          </li>
-          <li {% if page.permalink == "/reporting-status/" %}class="nav-link active"{% else %}class="nav-link"{% endif %}>
-            <a href="{{ site.baseurl }}/reporting-status">Reporting Status</a>
-          </li>
-          <li {% if page.permalink contains "/news" or page.layout == "post" %}class="nav-link active"{% else %}class="nav-link"{% endif %}>
-            <a href="{{ site.baseurl }}/news">News &amp; Events</a>
-          </li>
+</div>
+
+<header role="banner">
+  <div class="container">
+
+    <a class="navbar-brand" href="{{ site.baseurl }}/" id="home">
+      <img src="{{ site.baseurl }}/assets/img/SDG_logo.png" alt="Sustainable Development Goals Logo" />
+    </a>
+
+    <nav class="navbar navbar-default" id="main-nav">
+
+      <ul class="top-level">
+        <li><a href="javascript:void(0)" data-target="menu">Menu</a></li>
+        <li><a href="javascript:void(0)" data-target="search">Search</a></li>
       </ul>
-    </div>
 
-    {% include search.html %}
+      <ul class="nav navbar-nav menu-target" id="menu">
+        <li {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" or page.layout=="post" %}class="nav-link"
+          {% else %}class="nav-link active" {% endif %}>
+          <a href="{{ site.baseurl }}/">Goals</a>
+        </li>
+        <li {% if page.permalink=="/reporting-status/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
+          <a href="{{ site.baseurl }}/reporting-status">Reporting Status</a>
+        </li>
+        <li {% if page.permalink contains "/news" or page.layout=="post" %}class="nav-link active" {% else %}class="nav-link" {%
+          endif %}>
+          <a href="{{ site.baseurl }}/news">News &amp; Events</a>
+        </li>
+      </ul>
 
+      {% include search.html %} 
+
+    </nav>
   </div>
 
-  </div>
-</nav>
 </header>
