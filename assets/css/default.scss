@@ -685,6 +685,8 @@ h5 + .btn-download {
       }
     }
   }
+
+  
   .danger {
     background-color: #d9534f;
   }
@@ -695,23 +697,23 @@ h5 + .btn-download {
     background-color: #5cb85c;
   }
   .statuses {
-    line-height: 30px;
-    height: 30px;
-    padding-left: 5px;
-    display: none;
-  }
-  .status {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 3px;
-    &:not(:first-child) {
-      margin-left: 10px;
+
+    strong {
+      font-weight: normal;
     }
-  }
-  .status-goal {
-    display: none;
+    > div {
+      display: inline-block;
+
+      margin-right: 10px;
+
+      .status {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 3px;
+      }
+    }
   }
   .value {
     color: #777;
@@ -728,28 +730,32 @@ h5 + .btn-download {
   }
   .divider {
     height: 15px;
-    display: none;
   }
   .goal {
     clear: left;
-    border: 1px solid #efefef;
     margin-bottom: 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #ccc;
   }
   .frame {
-    width: 0;
+    width: 115px;
     float: left;
     min-height: 1px;
   }
   .details {
-    width: 100%;
+    width: calc(100% - 125px);
     float: left;
     h3 {
       margin-top: 10px;
+      @media only screen and (max-width: 720px) {
+        margin-top: 3px;
+      }
+      @media only screen and (max-width: 520px) {
+        margin-bottom: 3px;
+      }
     }
   }
-  .frame img {
-    display: none;
-  }
+
   #back-to-top {
     cursor: pointer;
     position: fixed;

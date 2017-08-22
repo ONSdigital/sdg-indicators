@@ -79,24 +79,24 @@ $(function() {
         });        
       });
 
-      // animation:
-      if($('#main-content').hasClass('reportingstatus')) {
-        setTimeout(function() {
+      // // animation:
+      // if($('#main-content').hasClass('reportingstatus')) {
+      //   setTimeout(function() {
 
-          var width = $('.reportingstatus').width();
+      //     var width = $('.reportingstatus').width();
 
-          $('#main-content').find('.statuses, .divider, h3').slideDown(function() {
-            $('.frame').animate({ 'width' : '110px', duration: 1500, queue: false }, function() {
-              $('.goal img').fadeIn(1500, function() {
-                $('.goal').animate({ borderTopColor: '#ddd', borderLeftColor: '#ddd', borderRightColor: '#ddd', borderBottomColor: '#ddd' }, 500);
-              });
-            });
+      //     $('#main-content').find('.statuses, .divider, h3').slideDown(function() {
+      //       $('.frame').animate({ 'width' : '110px', duration: 1500, queue: false }, function() {
+      //         $('.goal img').fadeIn(1500, function() {
+      //           $('.goal').animate({ borderTopColor: '#ddd', borderLeftColor: '#ddd', borderRightColor: '#ddd', borderBottomColor: '#ddd' }, 500);
+      //         });
+      //       });
 
-            $('.details').animate({ 'width' : width - 130 + 'px', duration: 1500, queue: false });
-          });
+      //       $('.details').animate({ 'width' : width - 130 + 'px', duration: 1500, queue: false });
+      //     });
 
-        }, 1200);
-      }
+      //   }, 1200);
+      // }
     });
 
   }
