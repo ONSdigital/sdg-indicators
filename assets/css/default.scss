@@ -35,7 +35,7 @@ $collapsed-navbar-height: $navbar-height - 30;
 }
 
 body {
-  background: $main-background-color; // url('../img/SDG Wheel_Transparent-01.png') bottom 50px right -300px no-repeat;
+  background: $main-background-color; 
   padding: $disclaimer-height + unquote("px") 0 0 0;
   margin: 0;
 }
@@ -112,22 +112,18 @@ header {
       a {
         text-decoration: underline;
       }
-      /* Extra Small Devices, Phones */
       @media only screen and (max-width: 680px) {
         font-size: 12px;
       }
     }
   }
 
-//  background: white url(../img/sdgbg.png) bottom left repeat-x;
 .navbar-brand {
   display: block;
   img {
     width: 300px;
   }
 }
-
-
 
 .navbar {
 
@@ -143,24 +139,13 @@ header {
       a {
         padding: 2px;
         margin: 2px 15px;
-        //color: #E5E6E7;
-        //background: #414042;
-
-        &:hover {
-          //background: #414042;
-          //color: #E5E6E7;
-        }
       }
 
       &.active a {
-        //color: #E5E6E7;
-        //background: #58595B;
         border-bottom: 2px solid #333;
         background: transparent;
 
         &:hover {
-          //background: #58595B;
-          //color: #E5E6E7;
           background: transparent;
         }
       }
@@ -353,7 +338,7 @@ h5 + .btn-download {
   $dark-c: darken($c, 20%);
   .goal-#{$i} {
     &.heading {
-      background-color: $c; //border-top: 2px solid darken($c, 15%);
+      background-color: $c;
       border-bottom: 5px solid $dark-c;
     }
     &.goal-indicators {
@@ -403,13 +388,11 @@ h5 + .btn-download {
   }
   h2 {
     margin-top: 12px;
-    /* Extra Small Devices, Phones */
     @media only screen and (max-width: 480px) {
       font-size: 15px;
     }
   }
   h3 {
-    /* Extra Small Devices, Phones */
     @media only screen and (max-width: 480px) {
       font-size: 13px;
     }
@@ -512,8 +495,6 @@ h5 + .btn-download {
 
   #fields {
 
-    //padding-left: 10px;
-
     @include noselect;
 
     padding-top: 14px;
@@ -526,9 +507,6 @@ h5 + .btn-download {
       font-weight: normal;
       margin-bottom: 1px;
       cursor: pointer;
-
-      //border: 1px solid #ccc;
-
       position: relative;
 
       input {
@@ -546,11 +524,9 @@ h5 + .btn-download {
           border-color: #ccc;
         }
       }
-
       &.possible {
         background-color: #dedede;
       }
-
       &.excluded {
         background-color: #666;
         color: white;
@@ -585,12 +561,9 @@ h5 + .btn-download {
         height: 5px;
         float: left;
       }
-
-      // #246
       .selected {
         background-color: #555;
       }
-      //
 
       .default {
         background-color: white;
@@ -640,20 +613,16 @@ h5 + .btn-download {
     @include noselect;
   }
   .no-gutters img {
-    //width: 170px;
-    //width: percentage(1/6);
     width: 100%;
     border: 1px solid transparent;
     padding: 2px;
-    margin: 2px 2px 0 0; // &:hover {
-    //   border-color: #333;
-    // }
+    margin: 2px 2px 0 0;
   }
   &.goal-indicators {
     .indicator-cards {
       a {
         color: black;
-        padding: 1rem; //background: darken(white, 5%);
+        padding: 1rem;
         display: inline-block;
         -webkit-transition: background 0.3s;
         transition: background 0.3s;
@@ -743,7 +712,6 @@ h5 + .btn-download {
   }
   .goal-stats {
     height: 10px;
-    //      margin-bottom: 15px;
     & span {
       display: inline-block;
       height: 10px;
