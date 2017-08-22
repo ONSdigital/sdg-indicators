@@ -2,16 +2,19 @@
 {% include header.html %}
 <div id="main-content" class="container reportingstatus" data-url="{{ site.baseurl }}/indicators.json">
 
+  <h2>Reporting Status</h2>
   {% assign sdg_goals = site.data.sdg_goals %}
     <!--<ul style="list-style-type: decimal; margin-left: 50px;margin-bottom: 30px;margin-top:30px;">-->
       {% for goal in sdg_goals %}
         <!--<li>-->
         <div class="goal" data-goalid="{{ goal.goal }}">
           <div class="frame">
-            <img src="{{ site.baseurl }}/assets/img/goals/{{ goal.goal }}.png" alt="icon for Goal {{ goal.goal }} - {{ goal.title }}" width="100" height="100" />
+            <a href="{{ site.baseurl }}/{{ goal.short | slugify }}/">
+              <img src="{{ site.baseurl }}/assets/img/goals/{{ goal.goal }}.png" alt="icon for Goal {{ goal.goal }} - {{ goal.title }}" width="100" height="100" />
+            </a>
           </div>
           <div class="details">
-            <h3 class="status-goal">{{ goal.short }}</h3>
+            <h3 class="status-goal"><a href="{{ site.baseurl }}/{{ goal.short | slugify }}/">{{ goal.short }}</a></h3>
             <div class="summary">
               <div class="statuses">
                 <span class="status danger"></span><strong>Exploring data sources</strong><span class="value"></span>

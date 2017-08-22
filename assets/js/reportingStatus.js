@@ -11,24 +11,38 @@ var reportingStatus = function(indicatorDataStore) {
 
       // }
 
+      getPercentages = function(values) {
+
+        var percentageTotal = 100;
+        var total = _.reduce(values, function(memo, num) { return memo + num; });
+        var percentages = _.map(values, function(v) { return (v / total) * percentageTotal; });
+
+        var off = percentageTotal - _.reduce(percentages, function(acc, x) { return acc + Math.round(x) }, 0);
+          return _.chain(percentages).
+                  map(function(x, i) { return Math.round(x) + (off > i) - (i >= (percentages.length + off)) }).
+                  value();
+      }
+
       that.indicatorDataStore.getData().then(function(data) {
         // for each goal, get a percentage of indicators in the various states:
         // notstarted, inprogress, complete
         var mappedData = _.map(data, function(dataItem) {
-          return {
+
+          var returnItem = {
             goal_id: dataItem.goal.id,
             notStartedCount: _.where(dataItem.goal.indicators, { status: 'notstarted' }).length,
             inProgressCount: _.where(dataItem.goal.indicators, { status: 'inprogress' }).length,
             completeCount: _.where(dataItem.goal.indicators, { status: 'complete' }).length
           };
-        });    
 
-        console.log('info: ', mappedData);
+          returnItem.percentages = getPercentages([returnItem.notStartedCount, returnItem.inProgressCount, returnItem.completeCount]);          
+          
+          return returnItem;
+        });    
 
         resolve(mappedData);
       });     
     });
-
   };
 };
 
@@ -48,22 +62,19 @@ $(function() {
         
         var el = $('.goal[data-goalid="' + goal.goal_id + '"]');
 
-        console.log(el);
-        
         var total = goal.notStartedCount + goal.inProgressCount + goal.completeCount;
         var counts = [goal.notStartedCount, goal.inProgressCount, goal.completeCount];
 
         $(el).find('.goal-stats span').each(function(index, statEl) {
 
           var percentage = Math.round(Number(((counts[index] / total) * 100))) + '%'
-          //console.log(percentage);
           
           $(statEl).attr({
-            'style': 'width:' + percentage,
-            'title': types[index] + ': ' + percentage
+            'style': 'width:' + goal.percentages[index] + '%',
+            'title': types[index] + ': ' + goal.percentages[index] + '%'
           });
 
-          $(el).find('span.value:eq(' + index + ')').text(percentage);
+          $(el).find('span.value:eq(' + index + ')').text(goal.percentages[index] + '%');
 
         });        
       });
