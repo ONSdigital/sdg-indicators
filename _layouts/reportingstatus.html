@@ -3,6 +3,7 @@
 <div id="main-content" class="container reportingstatus" data-url="{{ site.baseurl }}/indicators.json">
 
   <h2>Reporting Status</h2>
+  
   {% assign sdg_goals = site.data.sdg_goals %}
     <!--<ul style="list-style-type: decimal; margin-left: 50px;margin-bottom: 30px;margin-top:30px;">-->
       {% for goal in sdg_goals %}
@@ -17,9 +18,16 @@
             <h3 class="status-goal"><a href="{{ site.baseurl }}/{{ goal.short | slugify }}/">{{ goal.short }}</a></h3>
             <div class="summary">
               <div class="statuses">
-                <span class="status danger"></span><strong>Exploring data sources</strong><span class="value"></span>
-                <span class="status warning"></span><strong>Statistics in progress</strong><span class="value"></span>
-                <span class="status success"></span><strong>Reported online</strong><span class="value"></span>
+                <div>
+                  <span class="status danger"></span><strong>Exploring data sources</strong><span class="value"></span>
+                </div>
+                <div>
+                  <span class="status warning"></span><strong>Statistics in progress</strong><span class="value"></span>
+                </div>
+                <div>
+                  <span class="status success"></span><strong>Reported online</strong><span class="value"></span>
+                </div>
+                <br style="clear:both;" />
               </div>
             </div>
             <div class="goal-stats">
