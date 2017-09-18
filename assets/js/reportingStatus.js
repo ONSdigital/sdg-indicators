@@ -42,7 +42,25 @@ var reportingStatus = function(indicatorDataStore) {
           return returnItem;
         });    
 
-        resolve(mappedData);
+        var getTotalByStatus = function(statusType) {
+          return _.chain(mappedData).pluck(statusType).reduce(function(sum, n) { return sum + n; }).value();          
+        };
+
+        var overall = {
+          totalCount: _.chain(mappedData).pluck('totalCount').reduce(function(sum, n) { return sum + n; }).value(),
+          counts: [
+            getTotalByStatus('notStartedCount'),
+            getTotalByStatus('inProgressCount'),
+            getTotalByStatus('completeCount')
+          ]
+        };
+
+        overall.percentages = getPercentages([overall.counts[0], overall.counts[1], overall.counts[2]]);          
+        
+        resolve({
+          goals: mappedData,
+          overall: overall
+        });
       });     
     });
   };
@@ -52,31 +70,28 @@ $(function() {
 
   if($('.container').hasClass('reportingstatus')) {
     var url = $('.container.reportingstatus').attr('data-url'),
-        status = new reportingStatus(new indicatorDataStore(url));
+        status = new reportingStatus(new indicatorDataStore(url)),
+        types = ['Exploring data sources', 'Statistics in progress', 'Reported online'],
+        bindData = function(el, data) {
+          $(el).find('.goal-stats span').each(function(index, statEl) {
+            var percentage = Math.round(Number(((data.counts[index] / data.totalCount) * 100))) + '%';
+            
+            $(statEl).attr({
+              'style': 'width:' + data.percentages[index] + '%',
+              'title': types[index] + ': ' + data.percentages[index] + '%'
+            });
+  
+            $(el).find('span.value:eq(' + index + ')').text(data.percentages[index] + '%');
+            $(el).find('span.status:eq(' + index + ')').text(data.counts[index]);
+            $(el).find('h3.status-goal span.total span').text(data.totalCount);
+          }); 
+        };
 
     status.getReportingStatus().then(function(data) {
-      // loop through each data item, using its goal_id property:
-
-      var selector, percentage, types = ['Exploring data sources', 'Statistics in progress', 'Reported online'];
-
-      _.each(data, function(goal) {
-        
+      bindData($('.goal-overall'), data.overall);
+      _.each(data.goals, function(goal) {
         var el = $('.goal[data-goalid="' + goal.goal_id + '"]');
-
-        $(el).find('.goal-stats span').each(function(index, statEl) {
-
-          var percentage = Math.round(Number(((goal.counts[index] / goal.totalCount) * 100))) + '%';
-          
-          $(statEl).attr({
-            'style': 'width:' + goal.percentages[index] + '%',
-            'title': types[index] + ': ' + goal.percentages[index] + '%'
-          });
-
-          $(el).find('span.value:eq(' + index + ')').text(goal.percentages[index] + '%');
-          $(el).find('span.status:eq(' + index + ')').text(goal.counts[index]);
-          $(el).find('h3.status-goal span.total span').text(goal.totalCount);
-
-        });        
+        bindData(el, goal);       
       });
     });
   }
