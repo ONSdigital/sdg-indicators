@@ -35,6 +35,8 @@ var reportingStatus = function(indicatorDataStore) {
             completeCount: _.where(dataItem.goal.indicators, { status: 'complete' }).length
           };
 
+          returnItem.totalCount = returnItem.notStartedCount + returnItem.inProgressCount + returnItem.completeCount;
+          returnItem.counts = [returnItem.notStartedCount, returnItem.inProgressCount, returnItem.completeCount];
           returnItem.percentages = getPercentages([returnItem.notStartedCount, returnItem.inProgressCount, returnItem.completeCount]);          
           
           return returnItem;
@@ -57,17 +59,13 @@ $(function() {
 
       var selector, percentage, types = ['Exploring data sources', 'Statistics in progress', 'Reported online'];
 
-      // 
       _.each(data, function(goal) {
         
         var el = $('.goal[data-goalid="' + goal.goal_id + '"]');
 
-        var total = goal.notStartedCount + goal.inProgressCount + goal.completeCount;
-        var counts = [goal.notStartedCount, goal.inProgressCount, goal.completeCount];
-
         $(el).find('.goal-stats span').each(function(index, statEl) {
 
-          var percentage = Math.round(Number(((counts[index] / total) * 100))) + '%'
+          var percentage = Math.round(Number(((goal.counts[index] / goal.totalCount) * 100))) + '%';
           
           $(statEl).attr({
             'style': 'width:' + goal.percentages[index] + '%',
@@ -75,6 +73,8 @@ $(function() {
           });
 
           $(el).find('span.value:eq(' + index + ')').text(goal.percentages[index] + '%');
+          $(el).find('span.status:eq(' + index + ')').text(goal.counts[index]);
+          $(el).find('h3.status-goal span.total span').text(goal.totalCount);
 
         });        
       });
