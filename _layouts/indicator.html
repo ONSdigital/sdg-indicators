@@ -65,11 +65,13 @@
         </li>
       {% endif %}
     </ul>
-
+    
     <!-- Tab panes -->
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="data">
-        <h3>{{ page.graph_title }}</h3>
+        {% if page.graph_title.size > 0 %}
+          <h3>{{ page.graph_title }}</h3>
+        {% endif %}        
         <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary btn-download">Download source CSV</a>
         <div id="datatables"></div>
       </div>
