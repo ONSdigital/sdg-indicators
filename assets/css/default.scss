@@ -83,8 +83,13 @@ header {
 
 .breadcrumb {
   margin-bottom: 15px;
+  a {
+    color: darken(#337ab7, 10%);
+    // text-decoration: underline;
+  }
   &>.active {
     display: inline;
+    color: black;
   }
 }
 
@@ -103,8 +108,12 @@ header {
       padding: 2px 5px 0;
     }
     .alert {
+      color: #3D3D3D;
       margin-bottom: 0;
       padding: 10px;
+      a {
+        color: #3D3D3D;
+      }
     }
     .alert-danger {
       border: none;
@@ -147,11 +156,13 @@ header {
       a {
         padding: 2px;
         margin: 2px 15px;
+        color: #595959;
       }
 
       &.active a {
         border-bottom: 2px solid #333;
         background: transparent;
+        color: #333;
 
         &:hover {
           background: transparent;
@@ -237,7 +248,7 @@ header {
         padding: 15px;
 
         &.active {
-          background: #58595B;
+          background: #3D3D3D;
         }
 
         a {
@@ -698,7 +709,7 @@ h5 + .btn-download {
 
   
   .danger {
-    background-color: #d9534f;
+    background-color: #E27874;
   }
   .warning {
     background-color: #f0ad4e;
@@ -721,15 +732,14 @@ h5 + .btn-download {
         margin-right: 3px;
         padding: 2px 5px;
         border-radius: 4px;
-        color: white;
-        font-weight: bold;
+        color: black;
         width: 40px;
         text-align: center;
       }
     }
   }
   .value {
-    color: #777;
+    color: #333;
     font-weight: bold;
     margin-left: 3px;
   }
@@ -805,6 +815,9 @@ h5 + .btn-download {
   }
   .fa-info {
     margin-right: 5px;
+  }
+  .alert {
+    color: black;
   }
   .alert a {
     display: inline;
