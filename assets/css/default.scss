@@ -241,19 +241,25 @@ header {
     .top-level {
       display: block;
       font-size: 16px;
+      @include noselect;      
       
       li {
         float: left;
         width: 50%;
-        padding: 15px;
-
+        cursor: pointer;
+        
         &.active {
           background: #3D3D3D;
         }
 
-        a {
+        span {
           color: #E5E6E7;
           display: block;
+          padding: 15px;
+        }
+
+        &:nth-child(2) {
+          border-left: 1px solid white;
         }
       }
     }
