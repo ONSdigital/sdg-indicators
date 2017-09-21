@@ -71,7 +71,8 @@
       <div role="tabpanel" class="tab-pane active" id="data">
         {% if page.graph_title.size > 0 %}
           <h3>{{ page.graph_title }}</h3>
-        {% endif %}        
+        {% endif %}
+        <p>Unit of Measurement: {{ page.computation_units }}</p>     
         <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary btn-download">Download source CSV</a>
         <div id="datatables"></div>
       </div>
