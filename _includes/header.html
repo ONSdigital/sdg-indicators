@@ -18,17 +18,20 @@
       </ul>
 
       <ul class="nav navbar-nav menu-target" id="menu">
-        <li {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" or page.layout=="post" %}class="nav-link"
+        <li {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" or page.permalink contains "/about" or page.layout=="post" %}class="nav-link"
           {% else %}class="nav-link active" {% endif %}>
           <a href="{{ site.baseurl }}/">Goals</a>
         </li>
         <li {% if page.permalink=="/reporting-status/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
           <a href="{{ site.baseurl }}/reporting-status">Reporting Status</a>
         </li>
-        <li {% if page.permalink contains "/news" or page.layout=="post" %}class="nav-link active" {% else %}class="nav-link" {%
+        <li {% if page.permalink=="/about/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
+          <a href="{{ site.baseurl }}/about">About</a>
+        </li>
+<!--        <li {% if page.permalink contains "/news" or page.layout=="post" %}class="nav-link active" {% else %}class="nav-link" {%
           endif %}>
           <a href="{{ site.baseurl }}/news">News &amp; Events</a>
-        </li>
+        </li> -->
       </ul>
 
       {% include search.html %} 
