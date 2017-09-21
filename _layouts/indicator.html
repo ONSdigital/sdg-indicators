@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2">
         <a href="{{ goal_uri }}" title="View this goal's indicator list">
-          <img src="{{ site.baseurl }}/assets/img/goals/{{ page.sdg_goal }}.png" alt="icon for Goal {{ page.sdg_goal }} - {{ page.title }}" />
+          <img src="{{ site.baseurl }}/assets/img/goals/{{ page.sdg_goal }}.png" alt="icon for Goal {{ page.sdg_goal }}" />
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
@@ -65,11 +65,13 @@
         </li>
       {% endif %}
     </ul>
-
+    
     <!-- Tab panes -->
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="data">
-        <h3>{{ page.graph_title }}</h3>
+        {% if page.graph_title.size > 0 %}
+          <h3>{{ page.graph_title }}</h3>
+        {% endif %}        
         <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary btn-download">Download source CSV</a>
         <div id="datatables"></div>
       </div>
