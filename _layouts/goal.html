@@ -35,9 +35,29 @@
 
   {% assign indicators = site.data.sdg_indicator_metadata | where:'goal', page.sdg_goal %}
   {% for indicator in indicators %}
+
+    {% for page in site['indicators'] %}
+      {% if page.indicator == indicator.indicator_id %}
+        {% assign indicator_status = page.reporting_status %}
+
+        {% if page.reporting_status == 'notstarted' %}
+          {% assign indicator_status_desc = 'Exploring data sources' %}
+          {% assign indicator_status_css = 'danger' %}          
+        {% endif %}
+        {% if page.reporting_status == 'inprogress' %}
+          {% assign indicator_status_desc = 'Statistics in progress' %}     
+          {% assign indicator_status_css = 'warning' %}          
+        {% endif %}
+        {% if page.reporting_status == 'complete' %}
+          {% assign indicator_status_desc = 'Reported online' %} 
+          {% assign indicator_status_css = 'success' %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
     {% cycle 'add row' : '<div class="indicator-cards row no-gutters">', '', '', '' %}
         <div class="col-md-6 col-lg-3">
-            <a href="{{ site.baseurl }}/{{ indicator.indicator_id | replace: '.', '-' }}"><span>{{ indicator.indicator_id }}</span> {{ indicator.indicator }}</a>
+          <a href="{{ site.baseurl }}/{{ indicator.indicator_id | replace: '.', '-' }}"><span>{{ indicator.indicator_id }}</span><span class="status {{ indicator_status_css }}">{{ indicator_status_desc }}</span> {{ indicator.indicator }}</a>
         </div>
     {% cycle 'end row' : '', '', '', '</div>' %}
     {% endfor %}
