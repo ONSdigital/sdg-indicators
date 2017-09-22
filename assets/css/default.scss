@@ -676,15 +676,20 @@ h5 + .btn-download {
         display: block;
         margin-bottom: 0.5rem;
         font-weight: bold;
-        padding-bottom: 0.2rem;
         border-bottom-width: 2px;
         border-bottom-style: solid;
+        position: relative;
+        padding: 5px 0;
 
         &.status {
           color: black;
           font-weight: normal;
           border: none;
-          padding: 4px 2px;
+          padding: 4px;
+          position: absolute;
+          top: -1px;
+          right: 0;
+          display: inline;
         }
       }
     }

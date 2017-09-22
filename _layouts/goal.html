@@ -57,7 +57,7 @@
 
     {% cycle 'add row' : '<div class="indicator-cards row no-gutters">', '', '', '' %}
         <div class="col-md-6 col-lg-3">
-          <a href="{{ site.baseurl }}/{{ indicator.indicator_id | replace: '.', '-' }}"><span>{{ indicator.indicator_id }}</span><span class="status {{ indicator_status_css }}">{{ indicator_status_desc }}</span> {{ indicator.indicator }}</a>
+          <a href="{{ site.baseurl }}/{{ indicator.indicator_id | replace: '.', '-' }}"><span>{{ indicator.indicator_id }}<span class="status {{ indicator_status_css }}">{{ indicator_status_desc }}</span></span> {{ indicator.indicator }}</a>
         </div>
     {% cycle 'end row' : '', '', '', '</div>' %}
     {% endfor %}
