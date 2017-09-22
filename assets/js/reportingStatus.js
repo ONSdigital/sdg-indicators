@@ -82,8 +82,6 @@ $(function() {
             });
   
             $(el).find('span.value:eq(' + index + ')').text(data.percentages[index] + '%');
-            $(el).find('span.status:eq(' + index + ')').text(data.counts[index]);
-            $(el).find('h3.status-goal span.total span').text(data.totalCount);
           }); 
         };
 
