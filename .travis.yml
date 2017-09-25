@@ -17,6 +17,9 @@ script:
 - ruby ./scripts/build/csvcheck.rb
 - python3 ./scripts/build/metadatacheck.py
 - "./scripts/build/cibuild"
+after_success:
+- chmod +x ./scripts/deploy.sh
+- scripts/deploy.sh
 branches:
   only:
   - gh-pages
