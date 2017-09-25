@@ -19,6 +19,11 @@ SHA=`git rev-parse --verify HEAD`
 
 # Clone the existing gh-pages for this repo into out/
 # Create a new empty branch if gh-pages doesn't exist yet (should only happen on first deply)
+
+chmod 600 ../deploy_key
+eval `ssh-agent -s`
+ssh-add deploy_key
+
 git clone $TARGET_REPO out
 cd out
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
@@ -50,11 +55,6 @@ fi
 # The delta will show diffs between new and old versions.
 git add -A .
 git commit -m "Deploy to Target Repo: ${SHA}"
-
-
-chmod 600 ../deploy_key
-eval `ssh-agent -s`
-ssh-add deploy_key
 
 # Now that we're all set up, we can push.
 git push $TARGET_REPO $TARGET_BRANCH
