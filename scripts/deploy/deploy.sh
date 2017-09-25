@@ -50,7 +50,7 @@ fi
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
 git add -A .
-git commit -m "Deploy to Target Repo: ${SHA}"
+git commit -m "Deploy ${SHA} from branch ${TRAVIS_BRANCH}"
 
 # Now that we're all set up, we can push.
 git push $TARGET_REPO $TARGET_BRANCH
