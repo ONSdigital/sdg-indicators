@@ -3,7 +3,7 @@ set -e # Exit with nonzero exit code if anything fails
 
 SOURCE_BRANCH="deploy"
 TARGET_BRANCH="master"
-TARGET_REPO="secretvar"
+TARGET_REPO="secret"
 
 
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
