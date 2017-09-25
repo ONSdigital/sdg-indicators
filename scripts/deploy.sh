@@ -3,8 +3,6 @@ set -e # Exit with nonzero exit code if anything fails
 
 SOURCE_BRANCH="deploy"
 TARGET_BRANCH="master"
-TARGET_REPO="secret"
-
 
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
 if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]; then
@@ -12,11 +10,7 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]
     exit 0
 fi
 
-echo "Got to the deploy step. Stopping before you do any damage."
 echo "TRAVIS_TAG = " $TRAVIS_TAG
-exit 0
-## HERE ##
-
 
 # Save some useful information
 REPO=`git config remote.origin.url`
@@ -25,13 +19,18 @@ SHA=`git rev-parse --verify HEAD`
 
 # Clone the existing gh-pages for this repo into out/
 # Create a new empty branch if gh-pages doesn't exist yet (should only happen on first deply)
-git clone $REPO out
+git clone $TARGET_REPO out
 cd out
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 cd ..
 
 # Clean out existing contents
 rm -rf out/**/* || exit 0
+
+echo "managed to clone the other repo. Bailing out now"
+exit 0
+## HERE ##
+
 
 # Run our compile script
 doCompile
@@ -50,7 +49,7 @@ fi
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
 git add -A .
-git commit -m "Deploy to GitHub Pages: ${SHA}"
+git commit -m "Deploy to Target Repo: ${SHA}"
 
 
 chmod 600 ../deploy_key
