@@ -20,7 +20,7 @@ SHA=`git rev-parse --verify HEAD`
 # Clone the existing gh-pages for this repo into out/
 # Create a new empty branch if gh-pages doesn't exist yet (should only happen on first deply)
 
-chmod 600 ../deploy_key
+chmod 600 deploy_key
 eval `ssh-agent -s`
 ssh-add deploy_key
 
