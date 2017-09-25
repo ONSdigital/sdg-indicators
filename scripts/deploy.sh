@@ -29,16 +29,9 @@ cd out
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 cd ..
 
-# Clean out existing contents
-rm -rf out/**/* || exit 0
-
-echo "managed to clone the other repo. Bailing out now"
-exit 0
-## HERE ##
-
-
-# Run our compile script
-doCompile
+# Overwrite contents with _site
+#rm -rf out/**/* || exit 0
+cp -r _site/* out/
 
 # Now let's go have some fun with the cloned repo
 cd out
