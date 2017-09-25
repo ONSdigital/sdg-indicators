@@ -1,0 +1,16 @@
+{% if page.graph_type == 'bar' or page.graph_type == 'line' %}
+    {% assign graph_type = page.graph_type %}
+    {% if page.graph_type == 'longitudinal' %}
+        {% assign graph_type = 'line' %}
+    {% endif %}
+
+    {% assign graph_template = 'components/charts/' | append: graph_type | append: '.html' %}
+    <div id="toolbar">
+      <button id="clear" class="disabled">Clear selections <i class="fa fa-remove"></i></button>
+    </div>
+    <div id="fields"></div>
+    <div class="plot-container">
+        {% include {{graph_template}} data=include.data %}
+    </div>
+    
+{% endif %}

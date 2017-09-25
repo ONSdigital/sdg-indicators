@@ -1,64 +1,22 @@
 {% include head.html %}
-
 {% include header.html %}
+<div id="main-content" class="container goal-tiles" role="main">
 
-        <div id="main" class="main-content" role="main">
+    <h1>UK data for Sustainable Development Goal indicators</h1>
 
-            <section class="usa-banner">
-                <div class="usa-grid">
+    <p>Click on each goal for UK national statistics for Sustainable Development Goal global indicators.</p>
+    {% assign sdg_goals = site.data.sdg_goals %}
 
-                    <div class="usa-banner-content">
-                        <h1>
-                            U.S. National Statistics for the UN Sustainable Development Goals
-                        </h1>
-
-                    </div>
-
-                </div>
-            </section>
-
-            <section class="usa-section">
-
-                <div class="usa-grid">
-                      <h2>
-                          Goals
-                      </h2>
-                            <h3 class="usa-font-lead">
-                               Click on each goal to access US national statistics for Sustainable Development Goal global indicators.
-                            </h3>
-                    
-
-                    <section class="goals-list">
-                    {% assign sdg_goals = site.data.sdg_goals %}
-
-                    {% for goals in sdg_goals %}
-
-                    {% assign img_path = goals.goal | plus:0 %}
-
-                    {% if img_path < 10 %}
-                        {% assign img_path = 0  %}
-                    {% else %}
-                        {% assign img_path = ''  %}
-                    {% endif %}
-
-
-                    <a class="usa-width-one-fourth" href="./{{ goals.short | slugify }}/">
-                    <img class="goal-icon" src="{{ site.baseurl }}/assets/img/TGG_Icon_Color_{{ img_path }}{{ goals.goal }}.png" alt="icon for Goal {{ goals.goal }} - {{ goals.title }}" />
-                    </a>                    
-
-                    {% endfor %}
-
-                    <div class="usa-width-one-fourth">
-                        <img class="goal-icon" src="{{ site.baseurl }}/assets/img/TGG_Icon_Color_18.png" alt="icon for Global Goals" />
-                    </div>                    
-
-                    </section>
-
-                </div>
-
-            </section>
-
-
+    {% for goal in sdg_goals %}
+        {% cycle 'add row' : '<div class="row no-gutters">', '', '', '', '', '' %}
+            <div class="col-xs-4 col-md-2">
+                <a href="./{{ goal.short | slugify }}/"><img src="{{ site.baseurl }}/assets/img/goals/{{ goal.goal }}.png" id="goal-{{ goal.goal }}" alt="icon for Goal {{ goal.goal }}" /></a>
+            </div>
+        {% cycle 'end row' : '', '', '', '', '', '</div>' %}
+    {% endfor %}
+        <div class="col-xs-4 col-md-2">
+            <img src="{{ site.baseurl }}/assets/img/goals/18.png" id="goal-18" alt="The Global Goals for Sustainable Development" />
         </div>
-
+    </div>
+</div>
 {% include footer.html %}

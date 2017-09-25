@@ -1,0 +1,32 @@
+---
+---
+{% assign sdg_goals = site.data.sdg_goals %}
+[
+  {% for goal in sdg_goals %}
+  {
+    "goal": {
+      "id": "{{goal.goal}}",
+      "title": "{{goal.title}}",
+      "indicators": [
+        {% assign indicators = site.data.sdg_indicator_metadata | where:'goal', goal.goal %}
+        {% for indicator in indicators %}
+
+        {% for page in site['indicators'] %}
+          {% if page.indicator == indicator.indicator_id %}
+            {% assign indicator_status = page.reporting_status %}
+          {% endif %}
+        {% endfor %}
+        {
+          "id": "{{indicator.indicator_id}}",
+          "title": "{{indicator.indicator}}",
+          "href": "{{ site.baseurl }}/{{ indicator.indicator_id | replace: '.', '-' }}",
+          "status": "{{indicator_status}}"
+        }
+        {% if forloop.last %}{% else %},{% endif %}
+        {% endfor %}
+      ]
+    }
+  }
+  {% if forloop.last %}{% else %},{% endif %}
+  {% endfor %}
+]

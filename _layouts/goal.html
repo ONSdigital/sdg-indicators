@@ -1,85 +1,67 @@
-<!DOCTYPE html>
-<html>
+{% include head.html %}
+{% include header.html %}
 
-  {% include head.html %}
-
-  <body>
-    
-
-      {% include header.html %}
-
-
-
-      <div id="main" class="main-content initiative-content">
-
-
-        <section class="usa-banner">
-            <div class="usa-grid">
-                <div class="usa-banner-content">
-                  <h2 class="goal-heading">
-                    {% assign sdg_goals = site.data.sdg_goals %}
-                    {% for goals in sdg_goals %}
-
-                      {% assign page_goal_num = page.sdg_goal | plus:0 %}
-                      {% assign goals_goal_num = goals.goal | plus:0 %}
-
-                      {% if page_goal_num == goals_goal_num %}
-
-                        <a href="{{ site.baseurl }}/{{ goals.short | slugify }}/">
-                        Goal {{ goals.goal }} - {{ goals.title }}
-                        </a>
-
-                      {% endif %}
-
-                    {% endfor %}
-                  </h2>
-                </div>
-            </div>
-        </section>
-
-        <div class="usa-grid initiative-description">
-      {{ content }}
-
-{% assign sdg_goals = site.data.sdg_goals %}
-{% assign sdg_indicators = site.data.sdg_indicator_metadata %}
-{% assign sdg_indicator_pages = site.indicators %}
-
-
-{% for indicators in sdg_indicators %}
-
-{% assign goal = indicators.goal | plus:0 %}
-{% assign slug = indicators.indicator_id | replace: '.', '-' %}
-
-{% if goal == page.sdg_goal %}
-
-{% for sdg_indicator_page in sdg_indicator_pages %}
-
-  {% if sdg_indicator_page.indicator == indicators.indicator_id %}
-
-    {% if sdg_indicator_page.graph == 'longitudinal' %}
-      {% assign graph_type = sdg_indicator_page.graph %}
-      {% assign graph_set = 'graph ' %}
-    {% else %}
-      {% assign graph_type = '' %}
-      {% assign graph_set = 'no-graph' %}
-    {% endif %}
-
-  {% endif %}
-
-{% endfor %}
-
-  <h5 class="{{ graph_set }}{{ graph_type }}"><a href="{{ site.baseurl }}/{{ slug }}">{{ indicators.indicator_id }} {{ indicators.indicator }}</a></h5>
-
-{% endif %}
-
-{% endfor %}
-
+<div class="heading goal-{{page.sdg_goal}}">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-md-3 col-lg-2">
+        <img src="{{ site.baseurl }}/assets/img/goals/{{ page.sdg_goal }}.png" alt="icon for Goal {{ page.sdg_goal }}" />
       </div>
-      
-    </div>
-    
-    {% include scripts.html %}
-    
-  </body>
+      <div class="col-xs-8 col-md-9 col-lg-10">
+        <h2>
+        {% assign sdg_goals = site.data.sdg_goals %}
+        {% for goals in sdg_goals %}
+          {% assign page_goal_num = page.sdg_goal | plus:0 %}
+          {% assign goals_goal_num = goals.goal | plus:0 %}
+        {% if page_goal_num == goals_goal_num %}
+          {% assign found_goal = goals %}
 
-</html>
+          <span class="hidden-sm hidden-md hidden-lg">Goal {{page_goal_num}}: </span>{{ goals.title }}
+          {% endif %}
+        {% endfor %}
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="main-content" class="container goal-indicators goal-{{page.sdg_goal}}">
+
+  {{ content }}
+
+  {% capture goal_title %}{{ found_goal.title }}{% endcapture %}
+  {% capture goal_number %}{{ found_goal.goal }}{% endcapture %}
+  {% include components/breadcrumb.html %}
+
+  {% assign indicators = site.data.sdg_indicator_metadata | where:'goal', page.sdg_goal %}
+  {% for indicator in indicators %}
+
+    {% for page in site['indicators'] %}
+      {% if page.indicator == indicator.indicator_id %}
+        {% assign indicator_status = page.reporting_status %}
+
+        {% if page.reporting_status == 'notstarted' %}
+          {% assign indicator_status_desc = 'Exploring data sources' %}
+          {% assign indicator_status_css = 'danger' %}          
+        {% endif %}
+        {% if page.reporting_status == 'inprogress' %}
+          {% assign indicator_status_desc = 'Statistics in progress' %}     
+          {% assign indicator_status_css = 'warning' %}          
+        {% endif %}
+        {% if page.reporting_status == 'complete' %}
+          {% assign indicator_status_desc = 'Reported online' %} 
+          {% assign indicator_status_css = 'success' %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    {% cycle 'add row' : '<div class="indicator-cards row no-gutters">', '', '', '' %}
+        <div class="col-md-6 col-lg-3">
+          <a href="{{ site.baseurl }}/{{ indicator.indicator_id | replace: '.', '-' }}"><span>{{ indicator.indicator_id }}<span class="status {{ indicator_status_css }}">{{ indicator_status_desc }}</span></span> {{ indicator.indicator }}</a>
+        </div>
+    {% cycle 'end row' : '', '', '', '</div>' %}
+    {% endfor %}
+  </div>
+</div>
+
+{% include footer.html %}
