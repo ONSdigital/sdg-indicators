@@ -20,9 +20,9 @@ SHA=`git rev-parse --verify HEAD`
 # Clone the existing gh-pages for this repo into out/
 # Create a new empty branch if gh-pages doesn't exist yet (should only happen on first deply)
 
-chmod 600 ./scripts/deploy_key
+chmod 600 ./scripts/deploy/deploy_key
 eval `ssh-agent -s`
-ssh-add scripts/deploy_key
+ssh-add scripts/deploy/deploy_key
 
 git clone $TARGET_REPO out
 cd out
@@ -38,8 +38,8 @@ cd out
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
 # Be careful with that key!
-cat "deploy_key*" >> .gitignore
-cat "scripts/deploy_key*" >> .gitignore
+cat "*deploy_key*" >> .gitignore
+cat "scripts/*" >> .gitignore
 
 # If there are no changes to the compiled out (e.g. this is a README update) then just bail.
 if git diff --quiet; then
