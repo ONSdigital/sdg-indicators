@@ -9,7 +9,7 @@ addons:
     - python3-yaml
 before_install:
 - openssl aes-256-cbc -K $encrypted_22f1d25dd78b_key -iv $encrypted_22f1d25dd78b_iv
-  -in deploy_key.enc -out deploy_key -d
+  -in scripts/deploy_key.enc -out scripts/deploy_key -d
 before_script:
 - chmod +x ./scripts/build/csvcheck.rb
 - chmod +x ./scripts/build/cibuild
