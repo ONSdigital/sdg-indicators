@@ -40,7 +40,7 @@ git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
 # Be careful with that key!
 echo "*deploy_key*" >> .gitignore
-echo "scripts/*" >> .gitignore
+echo "scripts/" >> .gitignore
 
 # If there are no changes to the compiled out (e.g. this is a README update) then just bail.
 if git diff --quiet; then
@@ -51,6 +51,7 @@ fi
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
 git add -A .
+git reset .gitignore
 git commit -m "Deploy ${SHA} from branch ${TRAVIS_BRANCH}"
 
 # Now that we're all set up, we can push.
