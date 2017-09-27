@@ -4,11 +4,14 @@ set -e # Exit with nonzero exit code if anything fails
 SOURCE_BRANCH="master"
 TARGET_BRANCH="master"
 
+
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
 if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]; then
     echo "Skipping deploy; just doing a build."
     exit 0
 fi
+
+openssl aes-256-cbc -K $encrypted_22f1d25dd78b_key -iv $encrypted_22f1d25dd78b_iv -in scripts/deploy/deploy_key.enc -out scripts/deploy/deploy_key -d
 
 echo "TRAVIS_TAG = " $TRAVIS_TAG
 

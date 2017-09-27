@@ -47,7 +47,7 @@ def main():
     
     for met in metas:
         with open(met, encoding = "UTF-8") as stream:
-            meta = next(yaml.load_all(stream))
+            meta = next(yaml.safe_load_all(stream))
         status = status & check_meta(meta, fname = met)
     
   
