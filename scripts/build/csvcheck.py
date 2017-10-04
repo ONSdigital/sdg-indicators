@@ -9,7 +9,21 @@ Created on Wed October 4
 
 import glob
 import pandas as pd
-from pandas.api.types import is_numeric_dtype, is_string_dtype
+import numpy as np
+
+# %% Utility
+
+
+def is_numeric(col):
+    """Guess whether a column is numeric"""
+    dt = col.dtype
+    return dt == np.dtype('float64') or dt == np.dtype('int64')
+
+
+def is_string(col):
+    """Guess whether a column is a string"""
+    dt = col.dtype
+    return dt == np.dtype('str') or dt == np.dtype('O')
 
 # %% Checking a single item
 
@@ -55,10 +69,10 @@ def check_data_types(df, csv):
     """Year and Value must be numeric"""
     status = True
     try:
-        if not is_numeric_dtype(df['Value']):
+        if not is_numeric(df['Value']):
             status = False
             print(csv, ': Value column must be a numeric data type')
-        if not is_numeric_dtype(df['Year']):
+        if not is_numeric(df['Year']):
             status = False
             print(csv, ': Year column must be a numeric data type')
     except Exception as e:
@@ -74,7 +88,7 @@ def check_trailing_whitespace(df, csv):
     """Loop over string columns and check for any trailing whitespace"""
     status = True
     for column in df:
-        if is_string_dtype(df[column]):
+        if is_string(df[column]):
             has_trailing_ws = df[column].str.endswith(' ', na=False).any()
             if has_trailing_ws:
                 status = False
