@@ -21,7 +21,7 @@ def check_csv(csv):
     try:
         df = pd.read_csv(csv)
     except Exception as e:
-        print(e)
+        print(csv, e)
         return False
 
     # Run through the check functions
