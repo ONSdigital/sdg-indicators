@@ -10,6 +10,7 @@ Created on Wed October 4
 import glob
 import pandas as pd
 from pandas.api.types import is_numeric_dtype, is_string_dtype
+
 # %% Checking a single item
 
 
