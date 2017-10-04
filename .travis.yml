@@ -9,10 +9,10 @@ addons:
     - python3-yaml
     - python3-pandas
 before_script:
-- chmod +x ./scripts/build/csvcheck.rb
+- chmod +x ./scripts/build/csvcheck.py
 - chmod +x ./scripts/build/cibuild.sh
 script:
-- ruby ./scripts/build/csvcheck.rb
+- python3 ./scripts/build/csvcheck.py
 - python3 ./scripts/build/metadatacheck.py
 - scripts/build/cibuild.sh
 after_success:
