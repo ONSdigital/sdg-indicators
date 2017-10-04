@@ -38,7 +38,13 @@
   {% assign json_data = sdg_indicator_data | jsonify %} 
   
   {% include components/breadcrumb.html %}
+
+  <div id="page-content">
   {{ page.content }}
+  {% if page.content.size > 5 %}
+    <hr/>
+  {% endif %}
+  </div>
 
   <section id="indicatorData" data-indicatordata='{{json_data}}' data-indicatorid='{{dataset_name}}' data-country="{{ site.country.name }}"
     data-charttitle="{{ page.graph_title }}" data-measurementunit="{{ page.computation_units }}" data-datasource="{{ page.source_organisation_1 }}" data-geographicalarea="{{ page.national_geographical_coverage }}">
