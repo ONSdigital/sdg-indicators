@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed October 4
+Created on 2017-10-04
 
 @author: dougashton
 """
