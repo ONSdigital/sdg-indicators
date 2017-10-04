@@ -9,7 +9,7 @@
 {%   assign show_data = true %}
 {% endif %}
 
-{%   include components/fields-template.html %}
+{% include components/fields-template.html %}
 
 <div class="heading indicator goal-{{page.sdg_goal}}">
   <div class="container">
@@ -50,7 +50,7 @@
     data-charttitle="{{ page.graph_title }}" data-measurementunit="{{ page.computation_units }}" data-datasource="{{ page.source_organisation_1 }}" data-geographicalarea="{{ page.national_geographical_coverage }}" data-showdata="{{ show_data }}">
 
     {% if show_data %}
-    {% include components/charts/chart.html graph_type=page.graph_type data=json_data %}
+      {% include components/charts/chart.html graph_type=page.graph_type data=json_data %}
     {% endif %}
     
     <div class="alert alert-warning" role="alert">

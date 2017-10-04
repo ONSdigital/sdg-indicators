@@ -27,6 +27,7 @@ var indicatorModel = function (options) {
   this.measurementUnit = options.measurementUnit;
   this.dataSource = options.dataSource;
   this.geographicalArea = options.geographicalArea;
+  this.showData = options.showData;
   this.selectedFields = [];
   this.fieldValueStatuses = [];
   this.userInteraction = {};
