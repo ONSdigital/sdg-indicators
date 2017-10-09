@@ -145,6 +145,8 @@ var indicatorView = function (model, options) {
   this.initialiseSeries = function (args) {
     var template = _.template($("#item_template").html());
 
+    $('#toolbar').html('<button id="clear" class="disabled">Clear selections <i class="fa fa-remove"></i></button>');
+
     $('#fields').html(template({
         series: args.series
     }));
