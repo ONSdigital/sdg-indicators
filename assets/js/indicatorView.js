@@ -10,14 +10,19 @@ var indicatorView = function (model, options) {
   this._chartInstance = undefined;
   this._rootElement = options.rootElement;
   
+  var chartHeight = screen.height < options.maxChartHeight ? screen.height : options.maxChartHeight;
+
   $('.plot-container', this._rootElement) 
-    .css('height', Math.min(options.maxChartHeight, (screen.height - 450 /* 450px magic number, considering other design elements */)) + 'px'); 
+    .css('height', chartHeight + 'px'); 
 
   this._model.onDataComplete.attach(function (sender, args) {
-    if(!view_obj._chartInstance) {
-      view_obj.createPlot(args);
-    } else {
-      view_obj.updatePlot(args);
+
+    if(view_obj._model.showData) {
+      if(!view_obj._chartInstance) {
+        view_obj.createPlot(args);
+      } else {
+        view_obj.updatePlot(args);
+      }
     }
     
     view_obj.createTables(args);
@@ -141,6 +146,8 @@ var indicatorView = function (model, options) {
 
   this.initialiseSeries = function (args) {
     var template = _.template($("#item_template").html());
+
+    $('#toolbar').html('<button id="clear" class="disabled">Clear selections <i class="fa fa-remove"></i></button>');
 
     $('#fields').html(template({
         series: args.series

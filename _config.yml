@@ -115,6 +115,21 @@ prose:
             element: text
             label: "UN Custodian Agency"
             scope: global
+      - name: "un_partner_agency"
+        field: 
+            element: text
+            label: "UN Partner Agency"
+            scope: global
+      - name: "un_sd_indicator_code"
+        field: 
+            element: text
+            label: "UNSD Indicator Code"
+            scope: global
+      - name: "un_notes"
+        field: 
+            element: text
+            label: "UN Indicator Notes"
+            scope: global
       - name: "goal_meta_link"
         field:
             element: text
@@ -430,6 +445,12 @@ prose:
                 value: 'inprogress'
               - name: 'complete'
                 value: 'complete'
+      - name: data_non_statistical
+        field:
+            element: checkbox
+            label: Non-statistical Indicator
+            help: Check this box if this indicator does not have numeric data associated with it
+            value: false
       ######### Chart Info #########
       - name: "graph_type"
         field: 
