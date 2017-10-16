@@ -24,7 +24,7 @@ var indicatorSearch = function(inputElement, indicatorDataStore) {
   });
 
   var escapeRegExp = function(str) {
-    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/gi, "\\$&");
   };
 
   if($('#main-content').hasClass('search-results')) {
@@ -45,7 +45,7 @@ var indicatorSearch = function(inputElement, indicatorDataStore) {
       that.processData(data);
 
       var searchResults = _.filter(that.indicatorData, function(indicator) {
-        return indicator.title.indexOf(searchString) != -1; 
+        return indicator.title.toLowerCase().indexOf(searchString.toLowerCase()) != -1; 
       });
 
       // goal
