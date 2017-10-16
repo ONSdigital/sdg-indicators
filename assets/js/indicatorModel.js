@@ -35,7 +35,7 @@ var indicatorModel = function (options) {
   // initialise the field information, unique fields and unique values for each field:
   (function initialise() {
     that.fieldItemStates = _.map(_.filter(Object.keys(that.data[0]), function (key) {
-        return ['Year', 'Value'].indexOf(key) === -1;
+        return ['Year', 'Value', 'Units'].indexOf(key) === -1;
       }), function(field) {
       return {
         field: field,
