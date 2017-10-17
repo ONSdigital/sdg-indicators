@@ -8,6 +8,8 @@ var indicatorModel = function (options) {
   this.onDataComplete = new event(this);
   this.onSeriesComplete = new event(this);
   this.onSeriesSelectedChanged = new event(this);
+  this.onUnitsComplete = new event(this);
+  this.onUnitsSelectedChanged = new event(this);
   this.onFieldsStatusUpdated = new event(this);
   this.onFieldsCleared = new event(this);
   this.onSelectionUpdate = new event(this);
@@ -29,13 +31,15 @@ var indicatorModel = function (options) {
   this.geographicalArea = options.geographicalArea;
   this.showData = options.showData;
   this.selectedFields = [];
+  this.selectedUnit = undefined;
   this.fieldValueStatuses = [];
   this.userInteraction = {};
 
   // initialise the field information, unique fields and unique values for each field:
   (function initialise() {
     that.fieldItemStates = _.map(_.filter(Object.keys(that.data[0]), function (key) {
-        return ['Year', 'Value'].indexOf(key) === -1;
+        // 'Value' may not be present, but 'Year' and '
+        return ['Year', 'Value', 'Units'].indexOf(key) === -1;
       }), function(field) {
       return {
         field: field,
@@ -48,9 +52,18 @@ var indicatorModel = function (options) {
       };
     });
 
-    that.years = _.chain(that.data).pluck('Year').uniq().sortBy(function (year) {
-      return year;
-    }).value();
+    var extractUnique = function(prop) {
+      return _.chain(that.data).pluck(prop).uniq().sortBy(function(year) {
+        return year;
+      }).value();
+    };
+
+    that.years = extractUnique('Year');
+
+    if(that.data[0].hasOwnProperty('Units')) {
+      that.units = extractUnique('Units');
+      that.selectedUnit = that.units[0];
+    }
 
     that.selectableFields = _.pluck(that.fieldItemStates, 'field');
 
@@ -94,7 +107,7 @@ var indicatorModel = function (options) {
         return allUndefined(i);
       })
       .sortBy(function (i) {
-        return i.Year;
+        return that.selectedUnit ? i.Units : i.Year;
       })
       .map(function (d) {
         return _.pick(d, _.identity);
@@ -115,6 +128,12 @@ var indicatorModel = function (options) {
     this.userInteraction = userInteraction;
     this.getData();
     this.onSelectionUpdate.notify(fields);
+  };
+
+  this.updateSelectedUnit = function(selectedUnit) {
+    this.selectedUnit = selectedUnit;
+    this.getData();
+    this.onUnitsSelectedChanged.notify(selectedUnit);
   };
   
   this.getCombinationData = function(obj) {
@@ -185,7 +204,6 @@ var indicatorModel = function (options) {
         //   }) : undefined,
         var fieldIndex,
           ds = _.extend({
-            //label: field && fieldValue ? field + ' ' + fieldValue : that.country,
             label: combinationDescription ? combinationDescription : that.country,
             borderColor: '#' + colors[datasetIndex],
             backgroundColor: '#' + colors[datasetIndex],
@@ -196,16 +214,12 @@ var indicatorModel = function (options) {
               });
               return found ? found.Value : null;
             }),
-            borderWidth: /*field*/ combinationDescription ? 2 : 4,
-            // apply dash to secondary fields:
-            //borderDash: fieldIndex > 0 ? [((fieldIndex + 1) * 2), ((fieldIndex + 1) * 2)] : []
+            borderWidth: combinationDescription ? 2 : 4
           }, that.datasetObject);
         datasetIndex++;
         return ds;
       };
     
-    //console.log('Selected field types', this.selectedFields);
-
     if (fields && !_.isArray(fields)) {
       fields = [].concat(fields);
     }
@@ -215,16 +229,23 @@ var indicatorModel = function (options) {
 
     // filter the data:
     //if(!isSingleValueSelected()) {
-      matchedData =_.filter(that.data, function(rowItem) {
-        var matched = false;
-        for(var fieldLoop = 0; fieldLoop < that.selectedFields.length; fieldLoop++) {
-          if(that.selectedFields[fieldLoop].values.containsValue(rowItem[that.selectedFields[fieldLoop].field])) {
-            matched = true;
-            break;
-          }
-        }
-        return matched;
+    if(that.selectedUnit) {
+      matchedData = _.filter(matchedData, function(rowItem) {
+        return rowItem.Units == that.selectedUnit;
       });
+    }
+
+    matchedData = _.filter(matchedData, function(rowItem) {
+      var matched = false;
+      for(var fieldLoop = 0; fieldLoop < that.selectedFields.length; fieldLoop++) {
+        if(that.selectedFields[fieldLoop].values.containsValue(rowItem[that.selectedFields[fieldLoop].field])) {
+          matched = true;
+          break;
+        }
+      }
+      return matched;
+    });
+    
     //}
 /*
     console.table(matchedData);
@@ -289,21 +310,22 @@ var indicatorModel = function (options) {
 
     // headline:
     var headline = this.getHeadline();
-    datasets.push(convertToDataset(headline));
+
+    // headline plot should use the specific unit, if any
+    datasets.push(convertToDataset(that.selectedUnit ? _.filter(headline, function(item) { 
+      return item.Units === that.selectedUnit; }) : headline));
+    
+    // all units for headline data
     tableData.push({
       title: 'Headline for ' + this.country,
-      headings: ['Year', 'Value'],
+      headings: that.selectedUnit ? ['Year', 'Units', 'Value'] : ['Year', 'Value'],
       data: _.map(headline, function (d) {
-        return [d.Year, d.Value];
+        return that.selectedUnit ? [d.Year, d.Units, d.Value] : [d.Year, d.Value];
       })
     });
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     // extract the possible combinations for the selected field values:
-
-    // console.log('this.selectedFields', this.selectedFields);
-    // console.log('this.fieldItemStates', this.fieldItemStates);
-    
     var combinations = this.getCombinationData(this.selectedFields);
     var filteredDatasets = [];
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -337,12 +359,16 @@ var indicatorModel = function (options) {
       datasets: datasets,
       labels: this.years,
       tables: tableData,
-      indicatorId: this.indicatorId
+      indicatorId: this.indicatorId,
+      selectedUnit: this.selectedUnit
     });
 
     if (initial) {
       this.onSeriesComplete.notify({
         series: this.fieldItemStates
+      });
+      this.onUnitsComplete.notify({
+        units: this.units
       });
     } else {
       this.onSeriesSelectedChanged.notify({

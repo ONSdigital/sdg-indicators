@@ -515,9 +515,11 @@ h5 + .btn-download {
       position: relative;
       border: 1px solid #ccc;
       text-align: left;
-      padding: 10px 7px;
+      padding: 10px 7px 14px 7px;
       font-size: 14px;
       font-family: 'Open Sans', sans-serif;
+      float: left;
+      margin-right: 8px;
 
       i {
         position: absolute;
@@ -536,8 +538,8 @@ h5 + .btn-download {
   #fields {
 
     @include noselect;
+    float: left;
 
-    padding-top: 14px;
     padding-bottom: 14px;
 
     label {
@@ -643,8 +645,23 @@ h5 + .btn-download {
         }
       }
     }
-
   }
+  #units {
+    clear: left;
+
+    label {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: normal;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-right: 8px;
+    }
+
+    input {
+
+    }
+  }
+
   .plot-container {
     margin-bottom: 4.5rem;
     padding: 10px;
