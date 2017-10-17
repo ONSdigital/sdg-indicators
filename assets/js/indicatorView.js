@@ -45,6 +45,14 @@ var indicatorView = function (model, options) {
     // }
   });
 
+  this._model.onUnitsComplete.attach(function(sender, args) {
+    view_obj.initialiseUnits(args);
+  });
+
+  this._model.onUnitsSelectedChanged.attach(function(sender, args) {
+    console.log('selected units changed');
+  });
+
   this._model.onFieldsCleared.attach(function(sender, args) {
     $(view_obj._rootElement).find(':checkbox').prop('checked', false);
     $(view_obj._rootElement).find('#clear').addClass('disabled');
@@ -151,6 +159,14 @@ var indicatorView = function (model, options) {
 
     $('#fields').html(template({
         series: args.series
+    }));
+  };
+
+  this.initialiseUnits = function(args) {
+    var template = _.template($('#units_template').html());
+
+    $('#units').html(template({
+      units: args.units
     }));
   };
 

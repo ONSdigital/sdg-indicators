@@ -8,6 +8,8 @@ var indicatorModel = function (options) {
   this.onDataComplete = new event(this);
   this.onSeriesComplete = new event(this);
   this.onSeriesSelectedChanged = new event(this);
+  this.onUnitsComplete = new event(this);
+  this.onUnitsSelectedChanged = new event(this);
   this.onFieldsStatusUpdated = new event(this);
   this.onFieldsCleared = new event(this);
   this.onSelectionUpdate = new event(this);
@@ -35,6 +37,7 @@ var indicatorModel = function (options) {
   // initialise the field information, unique fields and unique values for each field:
   (function initialise() {
     that.fieldItemStates = _.map(_.filter(Object.keys(that.data[0]), function (key) {
+        // 'Value' may not be present, but 'Year' and '
         return ['Year', 'Value', 'Units'].indexOf(key) === -1;
       }), function(field) {
       return {
@@ -48,9 +51,14 @@ var indicatorModel = function (options) {
       };
     });
 
-    that.years = _.chain(that.data).pluck('Year').uniq().sortBy(function (year) {
-      return year;
-    }).value();
+    var extractUnique = function(prop) {
+      return _.chain(that.data).pluck(prop).uniq().sortBy(function(year) {
+        return year;
+      }).value();
+    };
+
+    that.years = extractUnique('Year');
+    that.units = extractUnique('Units');
 
     that.selectableFields = _.pluck(that.fieldItemStates, 'field');
 
@@ -185,7 +193,6 @@ var indicatorModel = function (options) {
         //   }) : undefined,
         var fieldIndex,
           ds = _.extend({
-            //label: field && fieldValue ? field + ' ' + fieldValue : that.country,
             label: combinationDescription ? combinationDescription : that.country,
             borderColor: '#' + colors[datasetIndex],
             backgroundColor: '#' + colors[datasetIndex],
@@ -196,16 +203,12 @@ var indicatorModel = function (options) {
               });
               return found ? found.Value : null;
             }),
-            borderWidth: /*field*/ combinationDescription ? 2 : 4,
-            // apply dash to secondary fields:
-            //borderDash: fieldIndex > 0 ? [((fieldIndex + 1) * 2), ((fieldIndex + 1) * 2)] : []
+            borderWidth: combinationDescription ? 2 : 4
           }, that.datasetObject);
         datasetIndex++;
         return ds;
       };
     
-    //console.log('Selected field types', this.selectedFields);
-
     if (fields && !_.isArray(fields)) {
       fields = [].concat(fields);
     }
@@ -343,6 +346,9 @@ var indicatorModel = function (options) {
     if (initial) {
       this.onSeriesComplete.notify({
         series: this.fieldItemStates
+      });
+      this.onUnitsComplete.notify({
+        units: this.units
       });
     } else {
       this.onSeriesSelectedChanged.notify({
