@@ -66,14 +66,17 @@ var indicatorView = function (model, options) {
   this._model.onSelectionUpdate.attach(function(sender, selectedFields) {
     $(view_obj._rootElement).find('#clear')[selectedFields.length ? 'removeClass' : 'addClass']('disabled');
 
-    // to #246:
-    // how many inputs:
-    // find the appropriate 'bar'
-    _.each(selectedFields, function(sf) {
-      var element = $(view_obj._rootElement).find('.variable-selector[data-field="' + sf.field + '"]');
-      element.find('.bar .selected').css('width', (Number(sf.values.length / element.find('.variable-options label').length) * 100) + '%');
+    // loop through the available fields:
+    $('.variable-selector').each(function(index, element) {
+      var currentField = $(element).data('field');
+
+      // any info?
+      var match = _.findWhere(selectedFields, { field : currentField });
+      var element = $(view_obj._rootElement).find('.variable-selector[data-field="' + currentField + '"]');
+      var width = match ? (Number(match.values.length / element.find('.variable-options label').length) * 100) + '%' : '0';
+
+      $(element).find('.bar .selected').css('width', width);
     });
-    // end #246
   });
 
   this._model.onFieldsStatusUpdated.attach(function (sender, args) {
@@ -115,14 +118,9 @@ var indicatorView = function (model, options) {
   $(this._rootElement).on('change', '#units input', function() {
     view_obj._model.updateSelectedUnit($(this).val());
   });
-  
-  $(this._rootElement).on('click', ':checkbox', function(e) {
 
-    // don't permit excluded selections:
-    if($(this).parent().hasClass('excluded')) {
-      return;
-    }
-
+  // generic helper function, used by clear all/select all and individual checkbox changes:
+  var updateWithSelectedFields = function() {
     view_obj._model.updateSelectedFields(_.chain(_.map($('#fields input:checked'), function (fieldValue) {
       return {
         value: $(fieldValue).val(),
@@ -138,6 +136,27 @@ var indicatorView = function (model, options) {
       value: $(this).val(),
       selected: $(this).is(':checked')
     });
+  }
+
+  $(this._rootElement).on('click', '.variable-options button', function(e) {
+    var type = $(this).data('type');
+    var $options = $(this).closest('.variable-options').find(':checkbox');
+
+    $options.prop('checked', type == 'select');
+
+    updateWithSelectedFields();
+
+    e.stopPropagation();
+  });
+  
+  $(this._rootElement).on('click', ':checkbox', function(e) {
+
+    // don't permit excluded selections:
+    if($(this).parent().hasClass('excluded')) {
+      return;
+    }
+
+    updateWithSelectedFields();
 
     e.stopPropagation();
   });
