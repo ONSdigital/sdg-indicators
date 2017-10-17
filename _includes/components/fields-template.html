@@ -6,6 +6,10 @@
         <div class="selected"></div>
       </div>
       <div class="variable-options">
+        <div>
+          <button>Select all</button>
+          <button>Clear all</button>
+        </div>
         <% _.each(seriesItem.values, function(item) { %>
           <label><input type="checkbox" value="<%=item.value%>" data-field="<%=seriesItem.field%>" /><%=item.value%></label>
         <% }); %>

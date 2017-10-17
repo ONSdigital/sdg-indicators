@@ -541,6 +541,7 @@ h5 + .btn-download {
     float: left;
 
     padding-bottom: 14px;
+    font-size: 12px;
 
     label {
       background-color: #fff;
@@ -582,12 +583,12 @@ h5 + .btn-download {
     h5 {
       padding-left: 7px;
       position: relative;
-      padding-right: 25px;
+      padding-right: 33px;
 
       i {
         font-size: 14px;
         position: absolute;
-        top: 2px;
+        top: 0;
         right: 6px;
       }
     }
@@ -640,6 +641,30 @@ h5 + .btn-download {
         left: -1px;
         max-height: 300px;
         overflow: auto;
+
+        > div {
+          text-align: left;
+          padding: 4px;
+        }
+
+        button {
+          width: auto;
+          background-color: #fff;
+          border: 1px solid #555;
+          color: #000;
+          float: none;
+          position: static;
+          text-align: center;
+          width: 40%;
+          margin: 0;
+          font-size: 12px;
+          padding: inherit;
+          border-radius: 2px;
+
+          &:hover {
+            background: #f5f3f3;
+          }
+        }
 
         label {
           padding-left: 7px;
