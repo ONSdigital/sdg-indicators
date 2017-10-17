@@ -50,7 +50,8 @@ var indicatorView = function (model, options) {
   });
 
   this._model.onUnitsSelectedChanged.attach(function(sender, args) {
-    console.log('selected units changed');
+    // update the plot's y axis label
+    // update the data
   });
 
   this._model.onFieldsCleared.attach(function(sender, args) {
@@ -361,6 +362,8 @@ var indicatorView = function (model, options) {
             sWidth: (100 / tableData.headings.length) + '%'
           };
         });
+        datatables_options.aaSorting = [];
+
         currentTable.DataTable(datatables_options);
 
       } else {

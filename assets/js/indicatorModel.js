@@ -59,7 +59,11 @@ var indicatorModel = function (options) {
     };
 
     that.years = extractUnique('Year');
-    that.units = extractUnique('Units');
+
+    if(that.data[0].hasOwnProperty('Units')) {
+      that.units = extractUnique('Units');
+      that.selectedUnit = that.units[0];
+    }
 
     that.selectableFields = _.pluck(that.fieldItemStates, 'field');
 
@@ -103,7 +107,7 @@ var indicatorModel = function (options) {
         return allUndefined(i);
       })
       .sortBy(function (i) {
-        return i.Year;
+        return that.selectedUnit ? i.Units : i.Year;
       })
       .map(function (d) {
         return _.pick(d, _.identity);
@@ -128,7 +132,7 @@ var indicatorModel = function (options) {
 
   this.updateSelectedUnit = function(selectedUnit) {
     this.selectedUnit = selectedUnit;
-    console.log(selectedUnit);
+    this.onUnitsSelectedChanged.notify(selectedUnit);
   };
   
   this.getCombinationData = function(obj) {
@@ -224,7 +228,7 @@ var indicatorModel = function (options) {
 
     // filter the data:
     //if(!isSingleValueSelected()) {
-      matchedData =_.filter(that.data, function(rowItem) {
+      matchedData = _.filter(that.data, function(rowItem) {
         var matched = false;
         for(var fieldLoop = 0; fieldLoop < that.selectedFields.length; fieldLoop++) {
           if(that.selectedFields[fieldLoop].values.containsValue(rowItem[that.selectedFields[fieldLoop].field])) {
@@ -234,6 +238,12 @@ var indicatorModel = function (options) {
         }
         return matched;
       });
+
+      if(that.selectedUnit) {
+        matchedData = _.filter(that.data, function(rowItem) {
+          return rowItem.Units == that.selectedUnit;
+        });
+      }
     //}
 /*
     console.table(matchedData);
@@ -301,18 +311,14 @@ var indicatorModel = function (options) {
     datasets.push(convertToDataset(headline));
     tableData.push({
       title: 'Headline for ' + this.country,
-      headings: ['Year', 'Value'],
+      headings: that.selectedUnit ? ['Year', 'Units', 'Value'] : ['Year', 'Value'],
       data: _.map(headline, function (d) {
-        return [d.Year, d.Value];
+        return that.selectedUnit ? [d.Year, d.Units, d.Value] : [d.Year, d.Value];
       })
     });
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     // extract the possible combinations for the selected field values:
-
-    // console.log('this.selectedFields', this.selectedFields);
-    // console.log('this.fieldItemStates', this.fieldItemStates);
-    
     var combinations = this.getCombinationData(this.selectedFields);
     var filteredDatasets = [];
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
