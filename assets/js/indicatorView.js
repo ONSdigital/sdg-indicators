@@ -66,19 +66,17 @@ var indicatorView = function (model, options) {
   this._model.onSelectionUpdate.attach(function(sender, selectedFields) {
     $(view_obj._rootElement).find('#clear')[selectedFields.length ? 'removeClass' : 'addClass']('disabled');
 
-    // to #246:
-    // how many inputs:
-    // find the appropriate 'bar'
-    if(!selectedFields.length) {
-      // clear everything:
-      $(view_obj._rootElement).find('.variable-selector .bar .selected').css('width', '0');
-    } else {
-      _.each(selectedFields, function(sf) {
-        var element = $(view_obj._rootElement).find('.variable-selector[data-field="' + sf.field + '"]');
-        element.find('.bar .selected').css('width', (Number(sf.values.length / element.find('.variable-options label').length) * 100) + '%');
-      });
-    }
-    // end #246
+    // loop through the available fields:
+    $('.variable-selector').each(function(index, element) {
+      var currentField = $(element).data('field');
+
+      // any info?
+      var match = _.findWhere(selectedFields, { field : currentField });
+      var element = $(view_obj._rootElement).find('.variable-selector[data-field="' + currentField + '"]');
+      var width = match ? (Number(match.values.length / element.find('.variable-options label').length) * 100) + '%' : '0';
+
+      $(element).find('.bar .selected').css('width', width);
+    });
   });
 
   this._model.onFieldsStatusUpdated.attach(function (sender, args) {
@@ -144,11 +142,7 @@ var indicatorView = function (model, options) {
     var type = $(this).data('type');
     var $options = $(this).closest('.variable-options').find(':checkbox');
 
-    if(type == 'select') {
-      $options.attr('checked', 'checked');
-    } else if(type == 'clear') {
-      $options.removeAttr('checked');
-    }
+    $options.prop('checked', type == 'select');
 
     updateWithSelectedFields();
 
