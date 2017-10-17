@@ -7,8 +7,8 @@
       </div>
       <div class="variable-options">
         <div>
-          <button>Select all</button>
-          <button>Clear all</button>
+          <button data-type="select">Select all</button>
+          <button data-type="clear">Clear all</button>
         </div>
         <% _.each(seriesItem.values, function(item) { %>
           <label><input type="checkbox" value="<%=item.value%>" data-field="<%=seriesItem.field%>" /><%=item.value%></label>

@@ -69,10 +69,15 @@ var indicatorView = function (model, options) {
     // to #246:
     // how many inputs:
     // find the appropriate 'bar'
-    _.each(selectedFields, function(sf) {
-      var element = $(view_obj._rootElement).find('.variable-selector[data-field="' + sf.field + '"]');
-      element.find('.bar .selected').css('width', (Number(sf.values.length / element.find('.variable-options label').length) * 100) + '%');
-    });
+    if(!selectedFields.length) {
+      // clear everything:
+      $(view_obj._rootElement).find('.variable-selector .bar .selected').css('width', '0');
+    } else {
+      _.each(selectedFields, function(sf) {
+        var element = $(view_obj._rootElement).find('.variable-selector[data-field="' + sf.field + '"]');
+        element.find('.bar .selected').css('width', (Number(sf.values.length / element.find('.variable-options label').length) * 100) + '%');
+      });
+    }
     // end #246
   });
 
@@ -115,14 +120,9 @@ var indicatorView = function (model, options) {
   $(this._rootElement).on('change', '#units input', function() {
     view_obj._model.updateSelectedUnit($(this).val());
   });
-  
-  $(this._rootElement).on('click', ':checkbox', function(e) {
 
-    // don't permit excluded selections:
-    if($(this).parent().hasClass('excluded')) {
-      return;
-    }
-
+  // generic helper function, used by clear all/select all and individual checkbox changes:
+  var updateWithSelectedFields = function() {
     view_obj._model.updateSelectedFields(_.chain(_.map($('#fields input:checked'), function (fieldValue) {
       return {
         value: $(fieldValue).val(),
@@ -138,6 +138,31 @@ var indicatorView = function (model, options) {
       value: $(this).val(),
       selected: $(this).is(':checked')
     });
+  }
+
+  $(this._rootElement).on('click', '.variable-options button', function(e) {
+    var type = $(this).data('type');
+    var $options = $(this).closest('.variable-options').find(':checkbox');
+
+    if(type == 'select') {
+      $options.attr('checked', 'checked');
+    } else if(type == 'clear') {
+      $options.removeAttr('checked');
+    }
+
+    updateWithSelectedFields();
+
+    e.stopPropagation();
+  });
+  
+  $(this._rootElement).on('click', ':checkbox', function(e) {
+
+    // don't permit excluded selections:
+    if($(this).parent().hasClass('excluded')) {
+      return;
+    }
+
+    updateWithSelectedFields();
 
     e.stopPropagation();
   });
