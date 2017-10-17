@@ -64,7 +64,6 @@ var indicatorView = function (model, options) {
   });
 
   this._model.onSelectionUpdate.attach(function(sender, selectedFields) {
-    console.log('new: ', selectedFields);
     $(view_obj._rootElement).find('#clear')[selectedFields.length ? 'removeClass' : 'addClass']('disabled');
 
     // to #246:
@@ -160,7 +159,7 @@ var indicatorView = function (model, options) {
   this.initialiseSeries = function (args) {
     var template = _.template($("#item_template").html());
 
-    $('#toolbar').html('<button id="clear" class="disabled">Clear selections <i class="fa fa-remove"></i></button>');
+    $('<button id="clear" class="disabled">Clear selections <i class="fa fa-remove"></i></button>').insertBefore('#fields');
 
     $('#fields').html(template({
         series: args.series
@@ -177,6 +176,11 @@ var indicatorView = function (model, options) {
 
   this.updatePlot = function(chartInfo) {
     view_obj._chartInstance.data.datasets = chartInfo.datasets;
+
+    if(chartInfo.selectedUnit) {
+      view_obj._chartInstance.options.scales.yAxes[0].scaleLabel.labelString = chartInfo.selectedUnit;
+    }
+
     view_obj._chartInstance.update(1000, true);
   };
 
@@ -201,8 +205,8 @@ var indicatorView = function (model, options) {
               suggestedMin: 0
             },
             scaleLabel: {
-              display: this._model.measurementUnit,
-              labelString: this._model.measurementUnit
+              display: this._model.selectedUnit ? this._model.selectedUnit : this._model.measurementUnit,
+              labelString: this._model.selectedUnit ? this._model.selectedUnit : this._model.measurementUnit
             }
           }]
         },

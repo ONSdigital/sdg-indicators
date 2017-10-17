@@ -132,6 +132,7 @@ var indicatorModel = function (options) {
 
   this.updateSelectedUnit = function(selectedUnit) {
     this.selectedUnit = selectedUnit;
+    this.getData();
     this.onUnitsSelectedChanged.notify(selectedUnit);
   };
   
@@ -228,22 +229,23 @@ var indicatorModel = function (options) {
 
     // filter the data:
     //if(!isSingleValueSelected()) {
-      matchedData = _.filter(that.data, function(rowItem) {
-        var matched = false;
-        for(var fieldLoop = 0; fieldLoop < that.selectedFields.length; fieldLoop++) {
-          if(that.selectedFields[fieldLoop].values.containsValue(rowItem[that.selectedFields[fieldLoop].field])) {
-            matched = true;
-            break;
-          }
-        }
-        return matched;
+    if(that.selectedUnit) {
+      matchedData = _.filter(matchedData, function(rowItem) {
+        return rowItem.Units == that.selectedUnit;
       });
+    }
 
-      if(that.selectedUnit) {
-        matchedData = _.filter(that.data, function(rowItem) {
-          return rowItem.Units == that.selectedUnit;
-        });
+    matchedData = _.filter(matchedData, function(rowItem) {
+      var matched = false;
+      for(var fieldLoop = 0; fieldLoop < that.selectedFields.length; fieldLoop++) {
+        if(that.selectedFields[fieldLoop].values.containsValue(rowItem[that.selectedFields[fieldLoop].field])) {
+          matched = true;
+          break;
+        }
       }
+      return matched;
+    });
+    
     //}
 /*
     console.table(matchedData);
@@ -308,7 +310,12 @@ var indicatorModel = function (options) {
 
     // headline:
     var headline = this.getHeadline();
-    datasets.push(convertToDataset(headline));
+
+    // headline plot should use the specific unit, if any
+    datasets.push(convertToDataset(that.selectedUnit ? _.filter(headline, function(item) { 
+      return item.Units === that.selectedUnit; }) : headline));
+    
+    // all units for headline data
     tableData.push({
       title: 'Headline for ' + this.country,
       headings: that.selectedUnit ? ['Year', 'Units', 'Value'] : ['Year', 'Value'],
@@ -352,7 +359,8 @@ var indicatorModel = function (options) {
       datasets: datasets,
       labels: this.years,
       tables: tableData,
-      indicatorId: this.indicatorId
+      indicatorId: this.indicatorId,
+      selectedUnit: this.selectedUnit
     });
 
     if (initial) {
