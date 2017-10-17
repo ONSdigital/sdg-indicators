@@ -638,10 +638,27 @@ h5 + .btn-download {
         border-top: 0;
         right: -1px;
         left: -1px;
-        padding-top: 7px;
+        max-height: 300px;
+        overflow: auto;
 
         label {
           padding-left: 7px;
+          padding-right: 25px;
+          position: relative;
+
+          &:not(:first-child) {
+            border-top: 1px solid #cdcdcd;
+          }
+
+          input {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+          }
+
+          &:hover {
+            background: #f5f3f3;
+          }
         }
       }
     }
