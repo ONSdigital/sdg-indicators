@@ -31,6 +31,7 @@ var indicatorModel = function (options) {
   this.geographicalArea = options.geographicalArea;
   this.showData = options.showData;
   this.selectedFields = [];
+  this.selectedUnit = undefined;
   this.fieldValueStatuses = [];
   this.userInteraction = {};
 
@@ -123,6 +124,11 @@ var indicatorModel = function (options) {
     this.userInteraction = userInteraction;
     this.getData();
     this.onSelectionUpdate.notify(fields);
+  };
+
+  this.updateSelectedUnit = function(selectedUnit) {
+    this.selectedUnit = selectedUnit;
+    console.log(selectedUnit);
   };
   
   this.getCombinationData = function(obj) {

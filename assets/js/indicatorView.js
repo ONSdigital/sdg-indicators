@@ -106,10 +106,14 @@ var indicatorView = function (model, options) {
     view_obj._model.clearSelectedFields();
   });
 
-  $(this._rootElement).on('click', 'label', function (e) {
+  $(this._rootElement).on('click', '#fields label', function (e) {
     $(this).find(':checkbox').trigger('click');
     e.preventDefault();
     e.stopPropagation();
+  });
+
+  $(this._rootElement).on('change', '#units input', function() {
+    view_obj._model.updateSelectedUnit($(this).val());
   });
   
   $(this._rootElement).on('click', ':checkbox', function(e) {
