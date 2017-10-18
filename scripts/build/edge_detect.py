@@ -175,6 +175,9 @@ def run_edge_detection(csv):
 def main():
     """Run csv checks on all indicator csvs in the data directory"""
     status = True
+    # Create the place to put the files
+    os.makedirs("data/edges", exist_ok=True)
+    
     csvs = glob.glob("data/indicator*.csv")
     print("Running edge detection for " + str(len(csvs)) + " csv files...")
 
