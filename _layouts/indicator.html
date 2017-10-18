@@ -39,15 +39,18 @@
   {% capture goal_title %}{{ goal.title }}{% endcapture %} 
   {% capture indicator_title %}{{ page.title }}{% endcapture %} 
 
-  {% capture dataset_name %}indicator_{{page.indicator | slugify }}{% endcapture %} 
+  {% capture dataset_name %}indicator_{{page.indicator | slugify }}{% endcapture %}
+  {% capture edges_name %}edges_{{page.indicator | slugify }}{% endcapture %}
+  
   {% assign sdg_indicator_data = site.data[dataset_name] %} 
   {% assign indicator_metadata = sdg_indicators | where: "indicator_id", page.indicator | first %} 
   {% assign json_data = sdg_indicator_data | jsonify %} 
+  {% assign json_edges_data = site.data.edges[edges_name] | jsonify %}
   
   {% include components/breadcrumb.html %}
 
   <div class="row" id="indicatorData" data-indicatordata='{{json_data}}' data-indicatorid='{{dataset_name}}' data-country="{{ site.country.name }}"
-  data-charttitle="{{ page.graph_title }}" data-measurementunit="{{ page.computation_units }}" data-datasource="{{ page.source_organisation_1 }}" data-geographicalarea="{{ page.national_geographical_coverage }}" data-showdata="{{ show_data }}">
+  data-edgesdata='{{ json_edges_data }}' data-charttitle="{{ page.graph_title }}" data-measurementunit="{{ page.computation_units }}" data-datasource="{{ page.source_organisation_1 }}" data-geographicalarea="{{ page.national_geographical_coverage }}" data-showdata="{{ show_data }}">
     <div class="col-md-3">
       <div id="toolbar">
         <h5>Sub-categories</h5>
