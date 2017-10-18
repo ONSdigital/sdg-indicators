@@ -45,6 +45,15 @@ var indicatorView = function (model, options) {
     // }
   });
 
+  this._model.onUnitsComplete.attach(function(sender, args) {
+    view_obj.initialiseUnits(args);
+  });
+
+  this._model.onUnitsSelectedChanged.attach(function(sender, args) {
+    // update the plot's y axis label
+    // update the data
+  });
+
   this._model.onFieldsCleared.attach(function(sender, args) {
     $(view_obj._rootElement).find(':checkbox').prop('checked', false);
     $(view_obj._rootElement).find('#clear').addClass('disabled');
@@ -55,17 +64,19 @@ var indicatorView = function (model, options) {
   });
 
   this._model.onSelectionUpdate.attach(function(sender, selectedFields) {
-    console.log('new: ', selectedFields);
     $(view_obj._rootElement).find('#clear')[selectedFields.length ? 'removeClass' : 'addClass']('disabled');
 
-    // to #246:
-    // how many inputs:
-    // find the appropriate 'bar'
-    _.each(selectedFields, function(sf) {
-      var element = $(view_obj._rootElement).find('.variable-selector[data-field="' + sf.field + '"]');
-      element.find('.bar .selected').css('width', (Number(sf.values.length / element.find('.variable-options label').length) * 100) + '%');
+    // loop through the available fields:
+    $('.variable-selector').each(function(index, element) {
+      var currentField = $(element).data('field');
+
+      // any info?
+      var match = _.findWhere(selectedFields, { field : currentField });
+      var element = $(view_obj._rootElement).find('.variable-selector[data-field="' + currentField + '"]');
+      var width = match ? (Number(match.values.length / element.find('.variable-options label').length) * 100) + '%' : '0';
+
+      $(element).find('.bar .selected').css('width', width);
     });
-    // end #246
   });
 
   this._model.onFieldsStatusUpdated.attach(function (sender, args) {
@@ -98,19 +109,18 @@ var indicatorView = function (model, options) {
     view_obj._model.clearSelectedFields();
   });
 
-  $(this._rootElement).on('click', 'label', function (e) {
+  $(this._rootElement).on('click', '#fields label', function (e) {
     $(this).find(':checkbox').trigger('click');
     e.preventDefault();
     e.stopPropagation();
   });
-  
-  $(this._rootElement).on('click', ':checkbox', function(e) {
 
-    // don't permit excluded selections:
-    if($(this).parent().hasClass('excluded')) {
-      return;
-    }
+  $(this._rootElement).on('change', '#units input', function() {
+    view_obj._model.updateSelectedUnit($(this).val());
+  });
 
+  // generic helper function, used by clear all/select all and individual checkbox changes:
+  var updateWithSelectedFields = function() {
     view_obj._model.updateSelectedFields(_.chain(_.map($('#fields input:checked'), function (fieldValue) {
       return {
         value: $(fieldValue).val(),
@@ -126,6 +136,27 @@ var indicatorView = function (model, options) {
       value: $(this).val(),
       selected: $(this).is(':checked')
     });
+  }
+
+  $(this._rootElement).on('click', '.variable-options button', function(e) {
+    var type = $(this).data('type');
+    var $options = $(this).closest('.variable-options').find(':checkbox');
+
+    $options.prop('checked', type == 'select');
+
+    updateWithSelectedFields();
+
+    e.stopPropagation();
+  });
+  
+  $(this._rootElement).on('click', ':checkbox', function(e) {
+
+    // don't permit excluded selections:
+    if($(this).parent().hasClass('excluded')) {
+      return;
+    }
+
+    updateWithSelectedFields();
 
     e.stopPropagation();
   });
@@ -147,15 +178,28 @@ var indicatorView = function (model, options) {
   this.initialiseSeries = function (args) {
     var template = _.template($("#item_template").html());
 
-    $('#toolbar').html('<button id="clear" class="disabled">Clear selections <i class="fa fa-remove"></i></button>');
+    $('<button id="clear" class="disabled">Clear selections <i class="fa fa-remove"></i></button>').insertBefore('#fields');
 
     $('#fields').html(template({
         series: args.series
     }));
   };
 
+  this.initialiseUnits = function(args) {
+    var template = _.template($('#units_template').html());
+
+    $('#units').html(template({
+      units: args.units
+    }));
+  };
+
   this.updatePlot = function(chartInfo) {
     view_obj._chartInstance.data.datasets = chartInfo.datasets;
+
+    if(chartInfo.selectedUnit) {
+      view_obj._chartInstance.options.scales.yAxes[0].scaleLabel.labelString = chartInfo.selectedUnit;
+    }
+
     view_obj._chartInstance.update(1000, true);
   };
 
@@ -180,8 +224,8 @@ var indicatorView = function (model, options) {
               suggestedMin: 0
             },
             scaleLabel: {
-              display: this._model.measurementUnit,
-              labelString: this._model.measurementUnit
+              display: this._model.selectedUnit ? this._model.selectedUnit : this._model.measurementUnit,
+              labelString: this._model.selectedUnit ? this._model.selectedUnit : this._model.measurementUnit
             }
           }]
         },
@@ -341,6 +385,8 @@ var indicatorView = function (model, options) {
             sWidth: (100 / tableData.headings.length) + '%'
           };
         });
+        datatables_options.aaSorting = [];
+
         currentTable.DataTable(datatables_options);
 
       } else {

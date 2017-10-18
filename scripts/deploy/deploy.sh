@@ -11,7 +11,10 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]
     exit 0
 fi
 
+# prod
 openssl aes-256-cbc -K $encrypted_22f1d25dd78b_key -iv $encrypted_22f1d25dd78b_iv -in scripts/deploy/deploy_key.enc -out scripts/deploy/deploy_key -d
+# staging
+openssl aes-256-cbc -K $encrypted_22f1d25dd78b_key -iv $encrypted_22f1d25dd78b_iv -in scripts/deploy/deploy_key_ds.enc -out scripts/deploy/deploy_key_ds -d
 
 echo "TRAVIS_TAG = " $TRAVIS_TAG
 
