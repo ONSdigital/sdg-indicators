@@ -631,17 +631,14 @@ h5 + .btn-download {
       margin-right: 8px;
       margin-bottom: 10px;
 
+      &:hover {
+        border-color: #555;
+      }
+
       .variable-options {
         background-color: white;
         display: none;
-
-        @media (max-width: 1001px) { 
-          position: static;
-          border: none;
-        }
-        
-        position: absolute;
-        border: 1px solid #ccc;
+        position: static;        
         z-index: 100;
         border-top: 0;
         right: -1px;
