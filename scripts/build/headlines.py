@@ -19,10 +19,15 @@ def filter_headline(df):
 
     In the case of multiple units it will keep all headline for each unit.
     """
-    special_cols = ['Year', 'Units', 'Value']
+    
+    # The pandas version on trusty doesn't support 'errors' argument so:
+    if 'Units' in df.columns:
+      special_cols = ['Year', 'Units', 'Value']
+    else:
+      special_cols = ['Year', 'Value']
 
     # Select the non-data rows and filter rows that are all missing (nan)
-    disag = df.drop(special_cols, axis=1, errors='ignore')
+    disag = df.drop(special_cols, axis=1)
     headline_rows = disag.apply(lambda x: x.isnull()).all(axis=1)
 
     headline = df.filter(special_cols, axis=1)[headline_rows]
