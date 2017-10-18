@@ -188,7 +188,7 @@ var indicatorView = function (model, options) {
     var template = _.template($('#units_template').html());
 
     $('#units').html(template({
-      units: args.units
+      units: args.units || []
     }));
   };
 

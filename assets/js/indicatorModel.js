@@ -23,6 +23,7 @@ var indicatorModel = function (options) {
   // general members:
   var that = this;
   this.data = options.data;
+  this.edgesData = options.edgesData;
   this.country = options.country;
   this.indicatorId = options.indicatorId;
   this.chartTitle = options.chartTitle;
@@ -51,6 +52,9 @@ var indicatorModel = function (options) {
         })
       };
     });
+
+    //console.info(that.edgesData);
+    
 
     var extractUnique = function(prop) {
       return _.chain(that.data).pluck(prop).uniq().sortBy(function(year) {
