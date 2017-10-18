@@ -508,9 +508,11 @@ h5 + .btn-download {
     margin-bottom: 1.5rem;
   }
 
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
   #toolbar {
     button {
-      width: 160px;
+      width: 100%;
       background-color: #fff;
       position: relative;
       border: 1px solid #ccc;
@@ -518,7 +520,6 @@ h5 + .btn-download {
       padding: 10px 7px 14px 7px;
       font-size: 14px;
       font-family: 'Open Sans', sans-serif;
-      float: left;
       margin-right: 8px;
 
       i {
@@ -538,10 +539,10 @@ h5 + .btn-download {
   #fields {
 
     @include noselect;
-    float: left;
 
     padding-bottom: 14px;
     font-size: 12px;
+    margin-top: 10px;
 
     label {
       background-color: #fff;
@@ -624,7 +625,7 @@ h5 + .btn-download {
     .variable-selector {
       position: relative;
       cursor: pointer;
-      min-width: 160px;
+      width: 100%;
       border: 1px solid #ccc;
       display: inline-block;
       margin-right: 8px;
@@ -633,13 +634,18 @@ h5 + .btn-download {
       .variable-options {
         background-color: white;
         display: none;
+
+        @media (max-width: 1001px) { 
+          position: static;
+          border: none;
+        }
+        
         position: absolute;
-        z-index: 100;
         border: 1px solid #ccc;
+        z-index: 100;
         border-top: 0;
         right: -1px;
         left: -1px;
-        max-height: 300px;
         overflow: auto;
 
         > div {
@@ -659,7 +665,7 @@ h5 + .btn-download {
           margin: 0;
           font-size: 12px;
           padding: inherit;
-          border-radius: 2px;
+          border-radius: 4px;
 
           &:hover {
             background: #f5f3f3;
@@ -698,8 +704,11 @@ h5 + .btn-download {
       padding: 10px;
       margin-right: 8px;
       cursor: pointer;
+      width: 100%;
     }
   }
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   .plot-container {
     margin-bottom: 4.5rem;

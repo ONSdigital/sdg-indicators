@@ -12,8 +12,7 @@ var indicatorView = function (model, options) {
   
   var chartHeight = screen.height < options.maxChartHeight ? screen.height : options.maxChartHeight;
 
-  $('.plot-container', this._rootElement) 
-    .css('height', chartHeight + 'px'); 
+  $('.plot-container', this._rootElement).css('height', chartHeight + 'px'); 
 
   this._model.onDataComplete.attach(function (sender, args) {
 

@@ -1,4 +1,5 @@
 <script type="text/template" id="units_template">
+  <h5>Units type</h5>
   <% _.each(units, function(unitsItem, index) { %>
     <label><input type="radio" name="unit" value="<%=unitsItem%>" <% if(!index) { %>checked="checked"<% } %> /> <%=unitsItem%></label>
   <% }); %>
