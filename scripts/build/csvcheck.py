@@ -58,7 +58,20 @@ def check_headers(df, csv):
         print(csv, ': First column not called "Year"')
     if cols[-1] != 'Value':
         status = False
-        print(csv, ': Last column not called "Value"')
+        print(csv, ': Last column not called "Value", instead got ', cols[-1])
+    # Check for whitespace in column names
+    # series conversion seems necessary in pandas 0.13
+    scol = pd.Series(df.columns)
+    ends_white = scol.str.endswith(' ')
+    if ends_white.any():
+        status = False
+        print(csv, ': Column names have trailing whitespace',
+              str(df.columns[ends_white]))
+    starts_white = scol.str.startswith(' ')
+    if starts_white.any():
+        status = False
+        print(csv, ': Column names have leading whitespace',
+              str(df.columns[starts_white]))
 
     return status
 
@@ -105,7 +118,11 @@ def main():
     print("Checking " + str(len(csvs)) + " csv files...")
 
     for csv in csvs:
-        status = status & check_csv(csv)
+        try:
+            status = status & check_csv(csv)
+        except Exception as e:
+            status = False
+            print(csv, e)
     return(status)
 
 if __name__ == '__main__':
