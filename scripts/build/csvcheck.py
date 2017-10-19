@@ -59,6 +59,19 @@ def check_headers(df, csv):
     if cols[-1] != 'Value':
         status = False
         print(csv, ': Last column not called "Value"')
+    # Check for whitespace in column names
+    # series conversion seems necessary in pandas 0.13
+    scol = pd.Series(df.columns)
+    ends_white = scol.str.endswith(' ')
+    if ends_white.any():
+        status = False
+        print(csv, ': Column names have trailing whitespace',
+              str(df.columns[ends_white]))
+    starts_white = scol.str.startswith(' ')
+    if starts_white.any():
+        status = False
+        print(csv, ': Column names have leading whitespace',
+              str(df.columns[starts_white]))
 
     return status
 
