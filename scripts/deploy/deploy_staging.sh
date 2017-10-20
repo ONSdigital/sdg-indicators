@@ -31,6 +31,9 @@ chmod 600 ./scripts/deploy/deploy_key_ds
 eval `ssh-agent -s`
 ssh-add scripts/deploy/deploy_key_ds
 
+
+echo ${STAGING_REPO}
+
 git clone $STAGING_REPO out
 cd out
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
