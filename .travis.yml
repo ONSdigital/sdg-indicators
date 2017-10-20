@@ -24,9 +24,9 @@ after_success:
 - test $TRAVIS_BRANCH = "master" && scripts/deploy/deploy.sh
 branches:
   only:
-  - gh-pages
   - "/pages-(.*)/"
   - master
+  - develop
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
