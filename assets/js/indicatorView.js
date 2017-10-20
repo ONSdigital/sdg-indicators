@@ -363,7 +363,7 @@ var indicatorView = function (model, options) {
         $(el).append(currentTable);
 
         if(window.Modernizr && window.Modernizr.blobconstructor) {
-          $(el).append($('<h5 />').text('Download all indicator data')
+          $(el).append($('<h5 />').text('Download Headline Data')
             .attr({
               'class': 'download'
             }));
