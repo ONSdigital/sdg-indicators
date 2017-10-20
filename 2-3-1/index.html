@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Title and meta description
+        ================================================== -->
+        <title>Volume of production per labour unit by classes of farming/pastoral/forestry enterprise size - U.K. Indicators For The Sustainable Development Goals</title>
+        <meta property="og:title" content="U.S. Data Federation">
+        <meta name="description" content="">
+        <meta property="og:description" content="">
+        <link rel="canonical" href="/">
+
+        
+
+        <!-- Favicons ================================================== -->
+        <!-- 128x128 -->
+        <link rel="shortcut icon" type="image/ico" href="/sdg-indicators/assets/img/favicons/favicon.ico">
+        <link rel="icon" type="image/png" href="/sdg-indicators/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
+        http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+        -->
+
+        
+
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20171020235413">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    </head>
+<body>
+<!-- <div class="container"> -->
+ 
+<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+<div id="disclaimer">
+  <div class="container">
+  <div class="alert alert-danger" role="alert">
+    <strong class="phase-tag">Alpha</strong> This is a development website and data may be test data. We welcome your
+    <a href="mailto:sustainabledevelopment@ons.gov.uk">feedback</a>.
+  </div>
+</div>
+</div>
+
+<header role="banner">
+  <div class="container">
+
+    <a class="navbar-brand" href="/sdg-indicators/" id="home">
+      <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+    </a>
+
+    <nav class="navbar navbar-default" id="main-nav">
+
+      <ul class="top-level">
+        <li><span data-target="menu">Menu</span></li>
+        <li><span data-target="search">Search</span></li>
+      </ul>
+
+      <ul class="nav navbar-nav menu-target" id="menu">
+        <li class="nav-link active" >
+          <a href="/sdg-indicators/">Goals</a>
+        </li>
+        <li class="nav-link" >
+          <a href="/sdg-indicators/reporting-status">Reporting Status</a>
+        </li>
+        <li class="nav-link" >
+          <a href="/sdg-indicators/about">About</a>
+        </li>
+<!--        <li class="nav-link" >
+          <a href="/sdg-indicators/news">News &amp; Events</a>
+        </li> -->
+      </ul>
+
+
+    </nav>
+  </div>
+
+</header> 
+ 
+
+
+
+
+<script type="text/template" id="item_template">
+  <% _.each(series, function(seriesItem) { %>
+    <div class="variable-selector" data-field="<%=seriesItem.field%>">
+      <h5><%=seriesItem.field%><i class="fa fa-chevron-down"></i></h5>
+      <div class="bar">
+        <div class="selected"></div>
+      </div>
+      <div class="variable-options">
+        <div>
+          <button data-type="select">Select all</button>
+          <button data-type="clear">Clear all</button>
+        </div>
+        <% _.each(seriesItem.values, function(item) { %>
+          <label><input type="checkbox" value="<%=item.value%>" data-field="<%=seriesItem.field%>" /><%=item.value%></label>
+        <% }); %>
+      </div>
+    </div>
+  <% }); %>
+</script>
+
+<script type="text/template" id="units_template">
+  <% _.each(units, function(unitsItem, index) { %>
+    <label><input type="radio" name="unit" value="<%=unitsItem%>" <% if(!index) { %>checked="checked"<% } %> /> <%=unitsItem%></label>
+  <% }); %>
+</script>
+
+
+<div class="heading indicator goal-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-md-3 col-lg-2">
+        <a href="/sdg-indicators/zero-hunger" title="View this goal's indicator list">
+          <img src="/sdg-indicators/assets/img/goals/2.png" alt="icon for Goal 2" />
+        </a>
+      </div>
+      <div class="col-xs-8 col-md-9 col-lg-10">
+        <h2>
+          <a href="/sdg-indicators/zero-hunger">
+            <span class="hidden-sm hidden-md hidden-lg">Goal 2: </span>End hunger, achieve food security and improved nutrition and promote sustainable agriculture
+          </a>
+        </h2>
+        <h3>Indicator 2.3.1: Volume of production per labour unit by classes of farming/pastoral/forestry enterprise size</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="main-content" class="container goal-2">
+
+   
+   
+   
+   
+
+   
+   
+   
+   
+  
+  <ol class="breadcrumb">
+  <li><a href="/sdg-indicators/">Home</a></li>
+  
+      <li><a href="/sdg-indicators/zero-hunger" title="End hunger, achieve food security and improved nutrition and promote sustainable agriculture">Goal 2</a></li>
+      <li class="active">Volume of production per labour unit by classes of farming/pastoral/forestry enterprise size</li>
+  
+</ol>
+
+  <div id="page-content">
+  
+
+  
+  </div>
+
+  <section id="indicatorData" data-indicatordata='[{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"4436913.203"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Wheat","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1775337.11"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Barley","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1142982.472"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Oats","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"129106.5123"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Rye, mixed corn & triticale","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"28301.4691"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Oilseed rape","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"569921.4295"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Linseed","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"27782.4704"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Potatoes","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"144438.393"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Sugar beet (not for stockfeeding)","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"114251.8771"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Peas for harvesting dry and field beans","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"228106.7084"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Maize","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"163101.5016"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"170016.3906"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Vegetables grown outdoors","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"124874.9575"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Orchard fruit","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"22253.6191"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Soft fruit & wine grapes","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"9880.2256"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Outdoor plants and flowers","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"11242.9401"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Glasshouse crops","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1764.6483"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Temporary grass under 5 years old","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1241030.512"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"9995830.028"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":"Grass over 5 years old","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"5864572.563"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":"Sole right rough grazing","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"4131257.466"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Common rough grazing","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1236532.2"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"971868.788"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"Woodland","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"725670.0423"},{"Year":"2009","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"All other non-agricultural land","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"246198.7457"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"4441442.26"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Wheat","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1938578"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Barley","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"921162"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Oats","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"124460"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Rye, mixed corn & triticale","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"29030.1"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Oilseed rape","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"641562"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Linseed","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"43838"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Potatoes","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"138310"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Sugar beet (not for stockfeeding)","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"118493"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Peas for harvesting dry and field beans","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"210053"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Maize","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"163928"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"168934.9072"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Vegetables grown outdoors","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"121141.9"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Orchard fruit","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"23959.5"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Soft fruit & wine grapes","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"10365.1"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Outdoor plants and flowers","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"11717.71"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Glasshouse crops","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1750.6972"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Temporary grass under 5 years old","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1231501"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"9979795"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":"Grass over 5 years old","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"5925203"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":"Sole right rough grazing","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"4054592"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Common rough grazing","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1228359.5"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1058844"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"Woodland","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"773963"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"Land used for outdoor pigs","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"10470"},{"Year":"2010","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"All other non-agricultural land","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"274411"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"4497317.6"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Wheat","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1969383.4"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Barley","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"969755.7"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Oats","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"108603.6"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Rye, mixed corn & triticale","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"27497.1"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Oilseed rape","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"704559.4"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Linseed","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"36453"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Potatoes","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"146122.6"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Sugar beet (not for stockfeeding)","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"112715"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Peas for harvesting dry and field beans","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"155317.8"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Maize","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"164430.2"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"175309.0706"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Vegetables grown outdoors","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"128678.9"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Orchard fruit","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"23664.8"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Soft fruit & wine grapes","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"9729.5"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Outdoor plants and flowers","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"11258.4"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Glasshouse crops","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1977.4706"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Temporary grass under 5 years old","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1277840.1"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"9858274.4"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":"Grass over 5 years old","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"5876952.9"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":"Sole right rough grazing","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"3981321.5"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Common rough grazing","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1199020.7"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1099829.1"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"Woodland","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"785927.6"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"Land used for outdoor pigs","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"8652"},{"Year":"2011","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"All other non-agricultural land","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"305249.5"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"4575702.1"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Wheat","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1991874.8"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Barley","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1002183.2"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Oats","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"121923.3"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Rye, mixed corn & triticale","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"25990"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Oilseed rape","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"755684.9"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Linseed","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"29281.4"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Potatoes","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"148771"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Sugar beet (not for stockfeeding)","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"120081"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Peas for harvesting dry and field beans","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"120066"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Maize","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"157717.7"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"171872.7654"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Vegetables grown outdoors","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"123459.9"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Orchard fruit","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"24185"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Soft fruit & wine grapes","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"9333.7"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Outdoor plants and flowers","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"12308.2"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Glasshouse crops","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"2585.9654"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Temporary grass under 5 years old","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1356614"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"9724882.4"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":"Grass over 5 years old","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"5799215.2"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":"Sole right rough grazing","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"3925667.2"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Common rough grazing","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1199782.607"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1166412"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"Woodland","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"827459.4"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"Land used for outdoor pigs","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"7268"},{"Year":"2012","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"All other non-agricultural land","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"331684.6"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"4501776.32"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Wheat","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1614511.4"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Barley","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1212996.7"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Oats","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"176540.6"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Rye, mixed corn & triticale","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"24214"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Oilseed rape","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"715218.5"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Linseed","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"34498"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Potatoes","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"139292.8"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Sugar beet (not for stockfeeding)","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"116973"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Peas for harvesting dry and field beans","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"147299.2"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Maize","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"194476.7"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"163354.6475"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Vegetables grown outdoors","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"115929.98"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Orchard fruit","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"23397.99"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Soft fruit & wine grapes","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"9579.98"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Outdoor plants and flowers","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"11891.2"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Glasshouse crops","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"2555.49751"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Temporary grass under 5 years old","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1389665.13"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"9741601.75"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":"Grass over 5 years old","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"5801747.02"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":"Sole right rough grazing","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"3939854.73"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Common rough grazing","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1198387.8"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1198455.68"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"Woodland","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"865397.36"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"Land used for outdoor pigs","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"8941"},{"Year":"2013","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"All other non-agricultural land","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"324117.32"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"4558700.011"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Wheat","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1935736.72"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Barley","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1079825.52"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Oats","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"137233.2"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Rye, mixed corn & triticale","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"26226.82"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Oilseed rape","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"674647.32"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Linseed","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"14538"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Potatoes","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"140529.22"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Sugar beet (not for stockfeeding)","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"116293"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Peas for harvesting dry and field beans","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"138681.98"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Maize","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"183453.01"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"163514.6854"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Vegetables grown outdoors","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"116112.41"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Orchard fruit","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"23437.04"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Soft fruit & wine grapes","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"9375.54"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Outdoor plants and flowers","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"11995.5"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Glasshouse crops","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"2594.1954"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Temporary grass under 5 years old","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1395893.44"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"9754555.11"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":"Grass over 5 years old","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"5824287.24"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":"Sole right rough grazing","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"3930267.87"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Common rough grazing","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1199144.853"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1224176.66"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"Woodland","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"897469.02"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"Land used for outdoor pigs","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"8304"},{"Year":"2014","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"All other non-agricultural land","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"318403.64"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"4504671.99"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Wheat","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1832311.8"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Barley","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1100919.7"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Oats","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"131127"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Rye, mixed corn & triticale","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"35216.6"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Oilseed rape","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"652315.1"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Linseed","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"15023"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Potatoes","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"128522.2"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Sugar beet (not for stockfeeding)","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"90317"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Peas for harvesting dry and field beans","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"213262.81"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Maize","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"186879.6"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"174120.0166"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Vegetables grown outdoors","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"122885.4"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Orchard fruit","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"25887.2"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Soft fruit & wine grapes","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"9951.4"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Outdoor plants and flowers","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"12729.5"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Glasshouse crops","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"2666.5166"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Temporary grass under 5 years old","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1166741.3"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"9879701.2"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":"Grass over 5 years old","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"6078421.9"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":"Sole right rough grazing","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"3801279.3"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Common rough grazing","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1198985"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1289507.5"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"Woodland","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"960607.4"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"Land used for outdoor pigs","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"9156"},{"Year":"2015","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"All other non-agricultural land","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"319744.1"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"4505458.025"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Wheat","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1823336.13"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Barley","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1122408.63"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Oats","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"140896.59"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Rye, mixed corn & triticale","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"45298.33"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Oilseed rape","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"579169.81"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Linseed","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"27281"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Potatoes","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"138502.41"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Sugar beet (not for stockfeeding)","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"85947"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Peas for harvesting dry and field beans","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"227920.42"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Arable crops","Crop":"Maize","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"193794.22"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"161945.0284"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Vegetables grown outdoors","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"112554.23"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Orchard fruit","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"25143.6"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Soft fruit & wine grapes","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"9990.73"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Outdoor plants and flowers","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"11507.98"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Horticultural crops","Crop":"Glasshouse crops","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"2748.4884"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Temporary grass under 5 years old","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1143509.57"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"10078527.21"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":"Grass over 5 years old","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"6117744.17"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Permanent grassland","Crop":"Sole right rough grazing","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"3960783.04"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Common rough grazing","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1198801.8"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":null,"Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"1311914.56"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"Woodland","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"978198.8"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"Land used for outdoor pigs","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"10301"},{"Year":"2016","Units":"Land use (000s hectares)","Crop Category":"Other land on agricultural holdings","Crop":"All other non-agricultural land","Livestock":null,"Geography":null,"Timber Category":null,"Ownership":null,"Value":"323414.76"},{"Year":"2009","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Pigs","Geography":null,"Timber Category":null,"Ownership":null,"Value":"4540438.399"},{"Year":"2009","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Sheep and lambs","Geography":null,"Timber Category":null,"Ownership":null,"Value":"31445398.13"},{"Year":"2009","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Poultry","Geography":null,"Timber Category":null,"Ownership":null,"Value":"152752533.5"},{"Year":"2009","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Goats","Geography":null,"Timber Category":null,"Ownership":null,"Value":"81854.071"},{"Year":"2009","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Farmed Deer","Geography":null,"Timber Category":null,"Ownership":null,"Value":"31492.8926"},{"Year":"2009","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Horses","Geography":null,"Timber Category":null,"Ownership":null,"Value":"298074.7878"},{"Year":"2010","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Cattle and calves","Geography":null,"Timber Category":null,"Ownership":null,"Value":"10169828"},{"Year":"2010","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Pigs","Geography":null,"Timber Category":null,"Ownership":null,"Value":"4460317"},{"Year":"2010","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Sheep and lambs","Geography":null,"Timber Category":null,"Ownership":null,"Value":"31084338"},{"Year":"2010","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Poultry","Geography":null,"Timber Category":null,"Ownership":null,"Value":"163867173"},{"Year":"2010","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Goats","Geography":null,"Timber Category":null,"Ownership":null,"Value":"92951"},{"Year":"2010","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Farmed Deer","Geography":null,"Timber Category":null,"Ownership":null,"Value":"30913"},{"Year":"2010","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Horses","Geography":null,"Timber Category":null,"Ownership":null,"Value":"311314"},{"Year":"2011","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Cattle and calves","Geography":null,"Timber Category":null,"Ownership":null,"Value":"9988302"},{"Year":"2011","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Pigs","Geography":null,"Timber Category":null,"Ownership":null,"Value":"4440631"},{"Year":"2011","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Sheep and lambs","Geography":null,"Timber Category":null,"Ownership":null,"Value":"31633968"},{"Year":"2011","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Poultry","Geography":null,"Timber Category":null,"Ownership":null,"Value":"162551155"},{"Year":"2011","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Goats","Geography":null,"Timber Category":null,"Ownership":null,"Value":"94245"},{"Year":"2011","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Farmed Deer","Geography":null,"Timber Category":null,"Ownership":null,"Value":"32618"},{"Year":"2011","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Horses","Geography":null,"Timber Category":null,"Ownership":null,"Value":"312915"},{"Year":"2012","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Cattle and calves","Geography":null,"Timber Category":null,"Ownership":null,"Value":"9951824"},{"Year":"2012","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Pigs","Geography":null,"Timber Category":null,"Ownership":null,"Value":"4480904"},{"Year":"2012","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Sheep and lambs","Geography":null,"Timber Category":null,"Ownership":null,"Value":"32214916"},{"Year":"2012","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Poultry","Geography":null,"Timber Category":null,"Ownership":null,"Value":"160061200"},{"Year":"2012","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Goats","Geography":null,"Timber Category":null,"Ownership":null,"Value":"97801"},{"Year":"2012","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Farmed Deer","Geography":null,"Timber Category":null,"Ownership":null,"Value":"31152"},{"Year":"2012","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Horses","Geography":null,"Timber Category":null,"Ownership":null,"Value":"315092"},{"Year":"2013","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Cattle and calves","Geography":null,"Timber Category":null,"Ownership":null,"Value":"9843542"},{"Year":"2013","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Pigs","Geography":null,"Timber Category":null,"Ownership":null,"Value":"4884971"},{"Year":"2013","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Sheep and lambs","Geography":null,"Timber Category":null,"Ownership":null,"Value":"32856476"},{"Year":"2013","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Poultry","Geography":null,"Timber Category":null,"Ownership":null,"Value":"162608882"},{"Year":"2013","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Goats","Geography":null,"Timber Category":null,"Ownership":null,"Value":"97643"},{"Year":"2013","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Farmed Deer","Geography":null,"Timber Category":null,"Ownership":null,"Value":"31803"},{"Year":"2013","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Horses","Geography":null,"Timber Category":null,"Ownership":null,"Value":"293379"},{"Year":"2014","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Cattle and calves","Geography":null,"Timber Category":null,"Ownership":null,"Value":"9837142"},{"Year":"2014","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Pigs","Geography":null,"Timber Category":null,"Ownership":null,"Value":"4815397"},{"Year":"2014","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Sheep and lambs","Geography":null,"Timber Category":null,"Ownership":null,"Value":"33743346"},{"Year":"2014","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Poultry","Geography":null,"Timber Category":null,"Ownership":null,"Value":"169684401"},{"Year":"2014","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Goats","Geography":null,"Timber Category":null,"Ownership":null,"Value":"100081"},{"Year":"2014","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Farmed Deer","Geography":null,"Timber Category":null,"Ownership":null,"Value":"31960"},{"Year":"2014","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Horses","Geography":null,"Timber Category":null,"Ownership":null,"Value":"303316"},{"Year":"2015","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Cattle and calves","Geography":null,"Timber Category":null,"Ownership":null,"Value":"9918569"},{"Year":"2015","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Pigs","Geography":null,"Timber Category":null,"Ownership":null,"Value":"4739123"},{"Year":"2015","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Sheep and lambs","Geography":null,"Timber Category":null,"Ownership":null,"Value":"33336589.5"},{"Year":"2015","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Poultry","Geography":null,"Timber Category":null,"Ownership":null,"Value":"167578935"},{"Year":"2015","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Goats","Geography":null,"Timber Category":null,"Ownership":null,"Value":"100700"},{"Year":"2015","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Farmed Deer","Geography":null,"Timber Category":null,"Ownership":null,"Value":"30687"},{"Year":"2015","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Horses","Geography":null,"Timber Category":null,"Ownership":null,"Value":"282786"},{"Year":"2016","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Cattle and calves","Geography":null,"Timber Category":null,"Ownership":null,"Value":"10032569"},{"Year":"2016","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Pigs","Geography":null,"Timber Category":null,"Ownership":null,"Value":"4865593"},{"Year":"2016","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Sheep and lambs","Geography":null,"Timber Category":null,"Ownership":null,"Value":"33942509"},{"Year":"2016","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Poultry","Geography":null,"Timber Category":null,"Ownership":null,"Value":"172606695"},{"Year":"2016","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Goats","Geography":null,"Timber Category":null,"Ownership":null,"Value":"103617"},{"Year":"2016","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Farmed Deer","Geography":null,"Timber Category":null,"Ownership":null,"Value":"30981"},{"Year":"2016","Units":"Livestock (000s)","Crop Category":null,"Crop":null,"Livestock":"Horses","Geography":null,"Timber Category":null,"Ownership":null,"Value":"268069"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":null,"Value":"7422"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":null,"Value":"7494"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":null,"Value":"7443"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":null,"Value":"7907"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":null,"Value":"8141"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":null,"Value":"8077"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":null,"Value":"8243"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":null,"Value":"8736"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":null,"Value":"8238"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":null,"Value":"8392"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":null,"Value":"9258"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":null,"Value":"10056"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":null,"Value":"10118"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":null,"Value":"10965"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":null,"Value":"11528"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":null,"Value":"10659"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":null,"Value":"10727"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"4850"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"4604"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"4650"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"4817"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"4894"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"4579"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"4582"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"4653"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"4415"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"5126"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"4625"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"4870"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"4836"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"5084"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"4900"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"4691"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"5011"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Private","Value":"2572"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Private","Value":"2891"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Private","Value":"2793"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Private","Value":"3091"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Private","Value":"3246"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Private","Value":"3499"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Private","Value":"3661"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Private","Value":"4083"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Private","Value":"3823"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Private","Value":"3266"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Private","Value":"4633"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Private","Value":"5186"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Private","Value":"5282"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Private","Value":"5881"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Private","Value":"6628"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Private","Value":"5968"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Softwood","Ownership":"Private","Value":"5716"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":null,"Value":"654"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":null,"Value":"632"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":null,"Value":"620"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":null,"Value":"562"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":null,"Value":"513"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":null,"Value":"593"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":null,"Value":"438"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":null,"Value":"440"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":null,"Value":"431"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":null,"Value":"536"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":null,"Value":"535"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":null,"Value":"541"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":null,"Value":"534"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":null,"Value":"532"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":null,"Value":"537"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":null,"Value":"564"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":null,"Value":"597"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"130"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"145"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"118"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"117"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"113"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"101"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"45"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"40"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"43"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"87"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"70"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"75"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"55"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"78"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"71"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"73"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"68"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Private","Value":"524"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Private","Value":"486"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Private","Value":"502"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Private","Value":"445"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Private","Value":"399"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Private","Value":"492"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Private","Value":"392"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Private","Value":"400"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Private","Value":"388"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Private","Value":"449"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Private","Value":"465"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Private","Value":"465"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Private","Value":"479"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Private","Value":"454"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Private","Value":"466"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Private","Value":"490"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":null,"Timber Category":"Hardwood","Ownership":"Private","Value":"529"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":null,"Value":"1658"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":null,"Value":"1619"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":null,"Value":"1463"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":null,"Value":"1568"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":null,"Value":"1650"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":null,"Value":"1682"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":null,"Value":"1720"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":null,"Value":"1823"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":null,"Value":"1738"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":null,"Value":"1746"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":null,"Value":"1820"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":null,"Value":"1923"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":null,"Value":"2001"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":null,"Value":"2116"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":null,"Value":"2229"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":null,"Value":"2074"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":null,"Value":"2138"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"1156"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"1075"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"1103"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"1107"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"1204"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"1165"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"1152"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"1211"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"1100"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"1213"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"1142"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"1185"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"1154"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"1188"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"1064"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"1023"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"1146"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Private","Value":"503"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Private","Value":"544"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Private","Value":"360"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Private","Value":"461"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Private","Value":"446"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Private","Value":"517"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Private","Value":"568"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Private","Value":"612"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Private","Value":"638"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Private","Value":"533"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Private","Value":"678"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Private","Value":"738"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Private","Value":"847"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Private","Value":"929"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Private","Value":"1165"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Private","Value":"1052"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Softwood","Ownership":"Private","Value":"992"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":null,"Value":"574"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":null,"Value":"554"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":null,"Value":"544"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":null,"Value":"493"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":null,"Value":"450"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":null,"Value":"521"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":null,"Value":"384"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":null,"Value":"386"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":null,"Value":"378"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":null,"Value":"470"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":null,"Value":"470"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":null,"Value":"475"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":null,"Value":"469"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":null,"Value":"467"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":null,"Value":"471"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":null,"Value":"495"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":null,"Value":"524"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"114"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"130"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"108"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"107"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"104"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"90"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"42"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"37"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"40"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"78"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"65"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"68"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"50"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"73"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"69"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"67"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"63"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Private","Value":"459"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Private","Value":"425"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Private","Value":"436"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Private","Value":"386"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Private","Value":"346"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Private","Value":"431"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Private","Value":"342"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Private","Value":"349"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Private","Value":"338"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Private","Value":"392"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Private","Value":"405"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Private","Value":"406"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Private","Value":"418"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Private","Value":"394"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Private","Value":"402"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Private","Value":"428"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"England","Timber Category":"Hardwood","Ownership":"Private","Value":"461"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":null,"Value":"1074"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":null,"Value":"1154"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":null,"Value":"1219"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":null,"Value":"1163"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":null,"Value":"1072"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":null,"Value":"931"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":null,"Value":"927"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":null,"Value":"966"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":null,"Value":"889"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":null,"Value":"1038"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":null,"Value":"1071"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":null,"Value":"1190"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":null,"Value":"1275"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":null,"Value":"1388"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":null,"Value":"1460"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":null,"Value":"1378"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":null,"Value":"1421"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"752"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"779"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"894"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"880"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"783"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"673"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"612"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"584"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"556"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"717"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"644"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"689"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"663"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"693"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"722"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"692"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"778"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Private","Value":"322"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Private","Value":"375"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Private","Value":"325"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Private","Value":"283"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Private","Value":"289"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Private","Value":"257"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Private","Value":"315"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Private","Value":"382"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Private","Value":"333"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Private","Value":"321"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Private","Value":"427"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Private","Value":"501"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Private","Value":"611"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Private","Value":"695"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Private","Value":"739"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Private","Value":"686"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Softwood","Ownership":"Private","Value":"643"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":null,"Value":"29"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":null,"Value":"28"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":null,"Value":"28"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":null,"Value":"25"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":null,"Value":"23"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":null,"Value":"26"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":null,"Value":"19"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":null,"Value":"20"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":null,"Value":"19"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":null,"Value":"24"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":null,"Value":"24"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":null,"Value":"24"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":null,"Value":"24"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":null,"Value":"24"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":null,"Value":"24"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":null,"Value":"25"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":null,"Value":"27"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"11"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"15"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"10"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"9"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"9"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"11"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"3"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"2"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"2"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"8"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"4"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"6"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"4"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"3"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"1"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"5"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"3"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Private","Value":"18"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Private","Value":"13"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Private","Value":"18"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Private","Value":"16"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Private","Value":"14"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Private","Value":"16"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Private","Value":"16"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Private","Value":"17"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Private","Value":"17"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Private","Value":"16"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Private","Value":"20"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Private","Value":"18"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Private","Value":"20"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Private","Value":"20"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Private","Value":"23"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Private","Value":"20"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Wales","Timber Category":"Hardwood","Ownership":"Private","Value":"24"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":null,"Value":"4334"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":null,"Value":"4296"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":null,"Value":"4346"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":null,"Value":"4722"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":null,"Value":"5008"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":null,"Value":"5065"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":null,"Value":"5209"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":null,"Value":"5555"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":null,"Value":"5189"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":null,"Value":"5161"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":null,"Value":"5905"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":null,"Value":"6460"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":null,"Value":"6411"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":null,"Value":"7053"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":null,"Value":"7441"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":null,"Value":"6846"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":null,"Value":"6791"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"2616"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"2354"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"2268"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"2405"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"2527"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"2388"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"2454"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"2496"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"2362"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"2773"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"2434"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"2566"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"2627"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"2819"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"2749"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"2644"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"2745"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Private","Value":"1718"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Private","Value":"1942"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Private","Value":"2078"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Private","Value":"2317"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Private","Value":"2481"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Private","Value":"2677"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Private","Value":"2755"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Private","Value":"3059"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Private","Value":"2827"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Private","Value":"2388"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Private","Value":"3471"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Private","Value":"3894"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Private","Value":"3784"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Private","Value":"4234"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Private","Value":"4691"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Private","Value":"4203"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Softwood","Ownership":"Private","Value":"4046"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":null,"Value":"51"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":null,"Value":"49"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":null,"Value":"48"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":null,"Value":"44"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":null,"Value":"40"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":null,"Value":"46"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":null,"Value":"34"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":null,"Value":"34"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":null,"Value":"34"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":null,"Value":"42"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":null,"Value":"42"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":null,"Value":"42"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":null,"Value":"42"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":null,"Value":"41"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":null,"Value":"42"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":null,"Value":"44"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":null,"Value":"46"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"4"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"1"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"1"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"1"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"1"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"2"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"1"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"1"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"1"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"1"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"2"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Private","Value":"47"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Private","Value":"49"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Private","Value":"48"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Private","Value":"43"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Private","Value":"39"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Private","Value":"46"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Private","Value":"34"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Private","Value":"34"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Private","Value":"33"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Private","Value":"41"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Private","Value":"40"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Private","Value":"41"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Private","Value":"41"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Private","Value":"40"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Private","Value":"41"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Private","Value":"43"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Scotland","Timber Category":"Hardwood","Ownership":"Private","Value":"45"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":null,"Value":"356"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":null,"Value":"425"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":null,"Value":"415"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":null,"Value":"454"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":null,"Value":"410"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":null,"Value":"400"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":null,"Value":"387"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":null,"Value":"393"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":null,"Value":"423"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":null,"Value":"447"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":null,"Value":"463"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":null,"Value":"483"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":null,"Value":"432"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":null,"Value":"407"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":null,"Value":"398"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":null,"Value":"393"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":null,"Value":"399"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"326"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"396"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"385"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"424"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"380"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"353"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"364"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"363"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"398"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"423"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"405"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"430"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"392"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"384"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"365"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"365"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Forestry Commission","Value":"365"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Private","Value":"29"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Private","Value":"29"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Private","Value":"29"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Private","Value":"29"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Private","Value":"30"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Private","Value":"47"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Private","Value":"23"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Private","Value":"29"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Private","Value":"25"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Private","Value":"24"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Private","Value":"57"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Private","Value":"53"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Private","Value":"40"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Private","Value":"23"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Private","Value":"33"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Private","Value":"28"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Softwood","Ownership":"Private","Value":"34"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":null,"Value":"0"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":null,"Value":"0"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":null,"Value":"0"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":null,"Value":"0"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":null,"Value":"0"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":null,"Value":"0"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":null,"Value":"0"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":null,"Value":"0"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":null,"Value":"0"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":null,"Value":"0"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":null,"Value":"0"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":null,"Value":"0"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":null,"Value":"0"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":null,"Value":"0"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":null,"Value":"0"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":null,"Value":"0"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":null,"Value":"0"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Forestry Commission","Value":"0"},{"Year":"2000","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Private","Value":"0"},{"Year":"2001","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Private","Value":"0"},{"Year":"2002","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Private","Value":"0"},{"Year":"2003","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Private","Value":"0"},{"Year":"2004","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Private","Value":"0"},{"Year":"2005","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Private","Value":"0"},{"Year":"2006","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Private","Value":"0"},{"Year":"2007","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Private","Value":"0"},{"Year":"2008","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Private","Value":"0"},{"Year":"2009","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Private","Value":"0"},{"Year":"2010","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Private","Value":"0"},{"Year":"2011","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Private","Value":"0"},{"Year":"2012","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Private","Value":"0"},{"Year":"2013","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Private","Value":"0"},{"Year":"2014","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Private","Value":"0"},{"Year":"2015","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Private","Value":"0"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Private","Value":"0"},{"Year":"2016","Units":"Timber (000s green tonnes)","Crop Category":null,"Crop":null,"Livestock":null,"Geography":"Northern Ireland","Timber Category":"Hardwood","Ownership":"Private","Value":"0"}]' data-indicatorid='indicator_2-3-1' data-country="UK"
+    data-charttitle="Volume of production in agriculture and forestry" data-measurementunit="Land use (000s hectares) / Livestock (000s) / Timber (000s green tonnes)" data-datasource="Department for Environment and Rural Affairs (DEFRA)" data-geographicalarea="UK" data-showdata="true">
+
+    
+      
+    
+    
+
+    
+    <div id="toolbar">
+      <div id="fields"></div>
+    </div>
+    
+    <div id="units"></div>
+    <div class="plot-container">
+        
+<canvas></canvas>
+    </div>
+    
+
+
+    
+    
+    <div class="alert alert-warning" role="alert">
+      <i class="fa fa-info" aria-hidden="true"></i> See metadata tab for sources, definitions, and methodology information
+    </div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      
+        <li role="presentation" class="nav-item active">
+          <a class="nav-link" data-toggle="tab" href="#data" aria-controls="data" role="tab">Data</a>
+        </li>
+      
+      <li role="presentation" class="nav-item  ">
+        <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab">Metadata</a>
+      </li>
+      <li role="presentation" class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab">Sources</a>
+      </li>
+      
+    </ul>
+    
+    <!-- Tab panes -->
+    <div class="tab-content">
+      
+        <div role="tabpanel" class="tab-pane active" id="data">
+          
+            <h3>Volume of production in agriculture and forestry</h3>
+          
+          <p>Unit of Measurement: Land use (000s hectares) / Livestock (000s) / Timber (000s green tonnes)</p>     
+          <a href="/sdg-indicators/data/indicator_2-3-1.csv" class="btn btn-primary btn-download" download='indicator_2-3-1.csv'>Download source CSV</a>
+          <div id="datatables"></div>
+        </div>
+      
+      <div role="tabpanel" class="tab-pane " id="metadata">
+        <!-- National Metadata -->
+        <div class="collapsible expanded">
+          <h3>National Metadata<span> (Collapse)</span></h3>
+          <article>
+            <p>This table provides metadata for the actual indicator available from UK statistics closest to the corresponding global
+                SDG indicator. Please note that even when the global SDG indicator is fully available from UK statistics, this table
+                should be consulted for information on national methodology and other UK-specific metadata information.</p>
+              <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Actual Indicator Available </th>
+        <td>
+          
+            Livestock numbers / Land use for crop production / Timber production
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Actual Indicator Description </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Periodicity </th>
+        <td>
+          
+            Annually
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Earliest Available Data </th>
+        <td>
+          
+            Livestock numbers 2009 / Land use for crop production 2009 / Timber production 2000
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Geographic Coverage </th>
+        <td>
+          
+            UK
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Release Date </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Next Release </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Statistical Classification </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Disaggregation </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Comments and Limitations </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Contact Details </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+        <!-- Method of Computation -->
+        <div class="collapsible collapsed">
+          <h3>How the UK Indicator is Calculated<span> (Expand)</span></h3>
+          <article>
+            <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Units of Measure </th>
+        <td>
+          
+            Land use (000s hectares) / Livestock (000s) / Timber (000s green tonnes)
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Calculations </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Numerator </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Denominator </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Definitions </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+        <!-- Global Metadata -->
+        <div class="collapsible collapsed">
+          <h3>Global Metadata<span> (Expand)</span></h3>
+          <article>
+            <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. Complete global <a href="https://unstats.un.org/sdgs/files/metadata-compilation/Metadata-Goal-2.pdf">metadata</a> is provided by the UN Statistics Division.</p>
+            <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Name </th>
+        <td>
+          
+            Volume of production per labour unit by classes of farming/pastoral/ forestry enterprise size
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Number </th>
+        <td>
+          
+            2.3.1
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Target Name </th>
+        <td>
+          
+            By 2030, double the agricultural productivity and incomes of small-scale food producers, in particular women, indigenous peoples, family farmers, pastoralists and fishers, including through secure and equal access to land, other productive resources and inputs, knowledge, financial services, markets and opportunities for value addition and nonfarm employment.
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Target Number </th>
+        <td>
+          
+            2.3
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Global Indicator Description </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Designated Tier </th>
+        <td>
+          
+            3
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Custodian Agency </th>
+        <td>
+          
+            Food and Agricultural Organization (FAO)
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Partner Agency </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UNSD Indicator Code </th>
+        <td>
+          
+            C020301
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Indicator Notes </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Link to UN Metadata </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://unstats.un.org/sdgs/files/metadata-compilation/Metadata-Goal-2.pdf">
+                United Nations Sustainable Development Goals Metadata Goal 02 
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="sources">
+        <!-- Count the non-empty sources (up to 5) -->
+
+
+
+
+  <h3>UK Data Sources Metadata</h3>
+  <div class="row no-gutters">
+  
+   
+    
+    <div class="col-md-6">
+      <h4>Source 1</h4>
+      <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            Department for Environment and Rural Affairs (DEFRA)
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            Annually
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Earliest Available Data </th>
+        <td>
+          
+            1983
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Geographical Coverage </th>
+        <td>
+          
+            UK
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Link to Data Source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://www.gov.uk/government/collections/structure-of-the-agricultural-industry">
+                Structure of the agricultural industry
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Release Date </th>
+        <td>
+          
+            17/10/2017
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Next Release </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Statistical Classification </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Contact Details </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Other Information </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+    </div>
+    
+   
+    
+    <div class="col-md-6">
+      <h4>Source 2</h4>
+      <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            Forestry Commission
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            Annually
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Earliest Available Data </th>
+        <td>
+          
+            1976
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Geographical Coverage </th>
+        <td>
+          
+            UK
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Link to Data Source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://www.forestry.gov.uk/forestry/infd-7aqdgc">
+                Forestry Statistics
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Release Date </th>
+        <td>
+          
+            28/09/2017
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Next Release </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Statistical Classification </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Contact Details </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Other Information </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+    </div>
+    
+  </div>
+
+
+      </div>
+      
+    </div>
+  </section>
+</div>
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
+<!-- Google Analytics -->
+
+<!-- /.container </div> -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20171020235413'></script>
+<script>
+$(function() {
+    $(window).scroll(function() {
+        if ($(".navbar").offset().top > 50) {
+            $("#main-nav").addClass("collapsed");
+        } else {
+            $("#main-nav").removeClass("collapsed");
+        }
+    });
+
+    $('#metadata .collapsible h3').click(function() {
+      var $container = $(this).closest('div'),
+          $article = $(this).next('article'),
+          $span = $(this).find('span');
+
+      $article.slideToggle(function() {
+        if($container.hasClass('expanded')) {
+          $container.removeClass('expanded');
+          $container.addClass('collapsed');
+          $span.html(' (Expand)');
+        } else {
+          $container.removeClass('collapsed');
+          $container.addClass('expanded');
+          $span.html(' (Collapse)');
+        }
+      });
+    });
+
+    if($('#indicatorData').length) {
+      var model = new indicatorModel({
+        data: $('#indicatorData').data('indicatordata'),
+        country: $('#indicatorData').data('country'),
+        indicatorId: $('#indicatorData').data('indicatorid'),
+        chartTitle: $('#indicatorData').data('charttitle'),
+        measurementUnit: $('#indicatorData').data('measurementunit'),
+        dataSource: $('#indicatorData').data('datasource'),
+        geographicalArea: $('#indicatorData').data('geographicalarea'),
+        showData: $('#indicatorData').data('showdata')
+      }),
+      view  = new indicatorView(model, {
+        rootElement: '#indicatorData',
+        maxChartHeight: 600
+      }),
+      controller = new indicatorController(model, view);
+      controller.initialise();
+    }
+
+    
+});
+</script>
+
+</body>
+</html>
+

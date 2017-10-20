@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Title and meta description
+        ================================================== -->
+        <title>Proportion of people living below 50 per cent of median income, by sex, age and persons with disabilities - U.K. Indicators For The Sustainable Development Goals</title>
+        <meta property="og:title" content="U.S. Data Federation">
+        <meta name="description" content="">
+        <meta property="og:description" content="">
+        <link rel="canonical" href="/">
+
+        
+
+        <!-- Favicons ================================================== -->
+        <!-- 128x128 -->
+        <link rel="shortcut icon" type="image/ico" href="/sdg-indicators/assets/img/favicons/favicon.ico">
+        <link rel="icon" type="image/png" href="/sdg-indicators/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
+        http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+        -->
+
+        
+
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20171020235413">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    </head>
+<body>
+<!-- <div class="container"> -->
+ 
+<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+<div id="disclaimer">
+  <div class="container">
+  <div class="alert alert-danger" role="alert">
+    <strong class="phase-tag">Alpha</strong> This is a development website and data may be test data. We welcome your
+    <a href="mailto:sustainabledevelopment@ons.gov.uk">feedback</a>.
+  </div>
+</div>
+</div>
+
+<header role="banner">
+  <div class="container">
+
+    <a class="navbar-brand" href="/sdg-indicators/" id="home">
+      <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+    </a>
+
+    <nav class="navbar navbar-default" id="main-nav">
+
+      <ul class="top-level">
+        <li><span data-target="menu">Menu</span></li>
+        <li><span data-target="search">Search</span></li>
+      </ul>
+
+      <ul class="nav navbar-nav menu-target" id="menu">
+        <li class="nav-link active" >
+          <a href="/sdg-indicators/">Goals</a>
+        </li>
+        <li class="nav-link" >
+          <a href="/sdg-indicators/reporting-status">Reporting Status</a>
+        </li>
+        <li class="nav-link" >
+          <a href="/sdg-indicators/about">About</a>
+        </li>
+<!--        <li class="nav-link" >
+          <a href="/sdg-indicators/news">News &amp; Events</a>
+        </li> -->
+      </ul>
+
+
+    </nav>
+  </div>
+
+</header> 
+ 
+
+
+
+
+<script type="text/template" id="item_template">
+  <% _.each(series, function(seriesItem) { %>
+    <div class="variable-selector" data-field="<%=seriesItem.field%>">
+      <h5><%=seriesItem.field%><i class="fa fa-chevron-down"></i></h5>
+      <div class="bar">
+        <div class="selected"></div>
+      </div>
+      <div class="variable-options">
+        <div>
+          <button data-type="select">Select all</button>
+          <button data-type="clear">Clear all</button>
+        </div>
+        <% _.each(seriesItem.values, function(item) { %>
+          <label><input type="checkbox" value="<%=item.value%>" data-field="<%=seriesItem.field%>" /><%=item.value%></label>
+        <% }); %>
+      </div>
+    </div>
+  <% }); %>
+</script>
+
+<script type="text/template" id="units_template">
+  <% _.each(units, function(unitsItem, index) { %>
+    <label><input type="radio" name="unit" value="<%=unitsItem%>" <% if(!index) { %>checked="checked"<% } %> /> <%=unitsItem%></label>
+  <% }); %>
+</script>
+
+
+<div class="heading indicator goal-10">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-md-3 col-lg-2">
+        <a href="/sdg-indicators/reduced-inequalities" title="View this goal's indicator list">
+          <img src="/sdg-indicators/assets/img/goals/10.png" alt="icon for Goal 10" />
+        </a>
+      </div>
+      <div class="col-xs-8 col-md-9 col-lg-10">
+        <h2>
+          <a href="/sdg-indicators/reduced-inequalities">
+            <span class="hidden-sm hidden-md hidden-lg">Goal 10: </span>Reduce inequality within and among countries
+          </a>
+        </h2>
+        <h3>Indicator 10.2.1: Proportion of people living below 50 per cent of median income, by sex, age and persons with disabilities</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="main-content" class="container goal-10">
+
+   
+   
+   
+   
+
+   
+   
+   
+   
+  
+  <ol class="breadcrumb">
+  <li><a href="/sdg-indicators/">Home</a></li>
+  
+      <li><a href="/sdg-indicators/reduced-inequalities" title="Reduce inequality within and among countries">Goal 10</a></li>
+      <li class="active">Proportion of people living below 50 per cent of median income, by sex, age and persons with disabilities</li>
+  
+</ol>
+
+  <div id="page-content">
+  
+
+  
+  </div>
+
+  <section id="indicatorData" data-indicatordata='[{"Year":"2005","Age":null,"Sex":null,"Value":"11.8"},{"Year":"2006","Age":null,"Sex":null,"Value":"11.8"},{"Year":"2007","Age":null,"Sex":null,"Value":"11.2"},{"Year":"2008","Age":null,"Sex":null,"Value":"11.3"},{"Year":"2009","Age":null,"Sex":null,"Value":"10.2"},{"Year":"2010","Age":null,"Sex":null,"Value":"9.9"},{"Year":"2011","Age":null,"Sex":null,"Value":"9.4"},{"Year":"2012","Age":null,"Sex":null,"Value":"9.2"},{"Year":"2013","Age":null,"Sex":null,"Value":"9"},{"Year":"2014","Age":null,"Sex":null,"Value":"9.5"},{"Year":"2015","Age":null,"Sex":null,"Value":"9.7"},{"Year":"2016","Age":null,"Sex":null,"Value":"9.9"},{"Year":"2005","Age":"16 and under","Sex":null,"Value":"13.6"},{"Year":"2006","Age":"16 and under","Sex":null,"Value":"14.5"},{"Year":"2007","Age":"16 and under","Sex":null,"Value":"13.3"},{"Year":"2008","Age":"16 and under","Sex":null,"Value":"13.7"},{"Year":"2009","Age":"16 and under","Sex":null,"Value":"12.2"},{"Year":"2010","Age":"16 and under","Sex":null,"Value":"9.9"},{"Year":"2011","Age":"16 and under","Sex":null,"Value":"9.5"},{"Year":"2012","Age":"16 and under","Sex":null,"Value":"8.2"},{"Year":"2013","Age":"16 and under","Sex":null,"Value":"8.8"},{"Year":"2014","Age":"16 and under","Sex":null,"Value":"9.7"},{"Year":"2015","Age":"16 and under","Sex":null,"Value":"9.2"},{"Year":"2016","Age":"16 and under","Sex":null,"Value":"9.9"},{"Year":"2005","Age":"16 to 24","Sex":null,"Value":"17.3"},{"Year":"2006","Age":"16 to 24","Sex":null,"Value":"14.2"},{"Year":"2007","Age":"16 to 24","Sex":null,"Value":"13.2"},{"Year":"2008","Age":"16 to 24","Sex":null,"Value":"12.5"},{"Year":"2009","Age":"16 to 24","Sex":null,"Value":"13"},{"Year":"2010","Age":"16 to 24","Sex":null,"Value":"11.9"},{"Year":"2011","Age":"16 to 24","Sex":null,"Value":"11.2"},{"Year":"2012","Age":"16 to 24","Sex":null,"Value":"15.1"},{"Year":"2013","Age":"16 to 24","Sex":null,"Value":"13.3"},{"Year":"2014","Age":"16 to 24","Sex":null,"Value":"14.1"},{"Year":"2015","Age":"16 to 24","Sex":null,"Value":"14.7"},{"Year":"2016","Age":"16 to 24","Sex":null,"Value":"13.6"},{"Year":"2005","Age":"25-49","Sex":null,"Value":"8.9"},{"Year":"2006","Age":"25-49","Sex":null,"Value":"8.8"},{"Year":"2007","Age":"25-49","Sex":null,"Value":"8.3"},{"Year":"2008","Age":"25-49","Sex":null,"Value":"8.4"},{"Year":"2009","Age":"25-49","Sex":null,"Value":"8.3"},{"Year":"2010","Age":"25-49","Sex":null,"Value":"8.1"},{"Year":"2011","Age":"25-49","Sex":null,"Value":"7.4"},{"Year":"2012","Age":"25-49","Sex":null,"Value":"7.2"},{"Year":"2013","Age":"25-49","Sex":null,"Value":"7.3"},{"Year":"2014","Age":"25-49","Sex":null,"Value":"7.7"},{"Year":"2015","Age":"25-49","Sex":null,"Value":"8.2"},{"Year":"2016","Age":"25-49","Sex":null,"Value":"8.3"},{"Year":"2005","Age":"50 to 64","Sex":null,"Value":"10.4"},{"Year":"2006","Age":"50 to 64","Sex":null,"Value":"11.1"},{"Year":"2007","Age":"50 to 64","Sex":null,"Value":"9.8"},{"Year":"2008","Age":"50 to 64","Sex":null,"Value":"10"},{"Year":"2009","Age":"50 to 64","Sex":null,"Value":"8.8"},{"Year":"2010","Age":"50 to 64","Sex":null,"Value":"9.8"},{"Year":"2011","Age":"50 to 64","Sex":null,"Value":"9.1"},{"Year":"2012","Age":"50 to 64","Sex":null,"Value":"9.8"},{"Year":"2013","Age":"50 to 64","Sex":null,"Value":"9.8"},{"Year":"2014","Age":"50 to 64","Sex":null,"Value":"9.6"},{"Year":"2015","Age":"50 to 64","Sex":null,"Value":"10"},{"Year":"2016","Age":"50 to 64","Sex":null,"Value":"10.2"},{"Year":"2005","Age":"65 to 74","Sex":null,"Value":"11.4"},{"Year":"2006","Age":"65 to 74","Sex":null,"Value":"11.1"},{"Year":"2007","Age":"65 to 74","Sex":null,"Value":"11.9"},{"Year":"2008","Age":"65 to 74","Sex":null,"Value":"12.4"},{"Year":"2009","Age":"65 to 74","Sex":null,"Value":"9.9"},{"Year":"2010","Age":"65 to 74","Sex":null,"Value":"9.8"},{"Year":"2011","Age":"65 to 74","Sex":null,"Value":"9.4"},{"Year":"2012","Age":"65 to 74","Sex":null,"Value":"8.5"},{"Year":"2013","Age":"65 to 74","Sex":null,"Value":"6.6"},{"Year":"2014","Age":"65 to 74","Sex":null,"Value":"7"},{"Year":"2015","Age":"65 to 74","Sex":null,"Value":"8"},{"Year":"2016","Age":"65 to 74","Sex":null,"Value":"8.3"},{"Year":"2005","Age":"75 and over","Sex":null,"Value":"16.2"},{"Year":"2006","Age":"75 and over","Sex":null,"Value":"17.2"},{"Year":"2007","Age":"75 and over","Sex":null,"Value":"18.4"},{"Year":"2008","Age":"75 and over","Sex":null,"Value":"18.6"},{"Year":"2009","Age":"75 and over","Sex":null,"Value":"13.8"},{"Year":"2010","Age":"75 and over","Sex":null,"Value":"14.7"},{"Year":"2011","Age":"75 and over","Sex":null,"Value":"15.9"},{"Year":"2012","Age":"75 and over","Sex":null,"Value":"10.3"},{"Year":"2013","Age":"75 and over","Sex":null,"Value":"11.8"},{"Year":"2014","Age":"75 and over","Sex":null,"Value":"13.2"},{"Year":"2015","Age":"75 and over","Sex":null,"Value":"12"},{"Year":"2016","Age":"75 and over","Sex":null,"Value":"12.3"},{"Year":"2005","Age":null,"Sex":"Male","Value":"11.9"},{"Year":"2006","Age":null,"Sex":"Male","Value":"11.1"},{"Year":"2007","Age":null,"Sex":"Male","Value":"10.6"},{"Year":"2008","Age":null,"Sex":"Male","Value":"10.5"},{"Year":"2009","Age":null,"Sex":"Male","Value":"9.8"},{"Year":"2010","Age":null,"Sex":"Male","Value":"9.8"},{"Year":"2011","Age":null,"Sex":"Male","Value":"8.6"},{"Year":"2012","Age":null,"Sex":"Male","Value":"9.4"},{"Year":"2013","Age":null,"Sex":"Male","Value":"8.8"},{"Year":"2014","Age":null,"Sex":"Male","Value":"9"},{"Year":"2015","Age":null,"Sex":"Male","Value":"9.6"},{"Year":"2016","Age":null,"Sex":"Male","Value":"9.6"},{"Year":"2005","Age":"16 and under","Sex":"Male","Value":"14.4"},{"Year":"2006","Age":"16 and under","Sex":"Male","Value":"14.2"},{"Year":"2007","Age":"16 and under","Sex":"Male","Value":"13.4"},{"Year":"2008","Age":"16 and under","Sex":"Male","Value":"13"},{"Year":"2009","Age":"16 and under","Sex":"Male","Value":"11.1"},{"Year":"2010","Age":"16 and under","Sex":"Male","Value":"10.3"},{"Year":"2011","Age":"16 and under","Sex":"Male","Value":"9.5"},{"Year":"2012","Age":"16 and under","Sex":"Male","Value":"8"},{"Year":"2013","Age":"16 and under","Sex":"Male","Value":"8.7"},{"Year":"2014","Age":"16 and under","Sex":"Male","Value":"9.6"},{"Year":"2015","Age":"16 and under","Sex":"Male","Value":"8.6"},{"Year":"2016","Age":"16 and under","Sex":"Male","Value":"9.9"},{"Year":"2005","Age":"16 to 24","Sex":"Male","Value":"19.5"},{"Year":"2006","Age":"16 to 24","Sex":"Male","Value":"13.2"},{"Year":"2007","Age":"16 to 24","Sex":"Male","Value":"12"},{"Year":"2008","Age":"16 to 24","Sex":"Male","Value":"11.5"},{"Year":"2009","Age":"16 to 24","Sex":"Male","Value":"12.9"},{"Year":"2010","Age":"16 to 24","Sex":"Male","Value":"13.9"},{"Year":"2011","Age":"16 to 24","Sex":"Male","Value":"9.2"},{"Year":"2012","Age":"16 to 24","Sex":"Male","Value":"17.7"},{"Year":"2013","Age":"16 to 24","Sex":"Male","Value":"13.1"},{"Year":"2014","Age":"16 to 24","Sex":"Male","Value":"12.2"},{"Year":"2015","Age":"16 to 24","Sex":"Male","Value":"15.3"},{"Year":"2016","Age":"16 to 24","Sex":"Male","Value":"12.5"},{"Year":"2005","Age":"25-49","Sex":"Male","Value":"8.5"},{"Year":"2006","Age":"25-49","Sex":"Male","Value":"8.4"},{"Year":"2007","Age":"25-49","Sex":"Male","Value":"8.3"},{"Year":"2008","Age":"25-49","Sex":"Male","Value":"8.2"},{"Year":"2009","Age":"25-49","Sex":"Male","Value":"8.4"},{"Year":"2010","Age":"25-49","Sex":"Male","Value":"7.8"},{"Year":"2011","Age":"25-49","Sex":"Male","Value":"7.2"},{"Year":"2012","Age":"25-49","Sex":"Male","Value":"7.4"},{"Year":"2013","Age":"25-49","Sex":"Male","Value":"7.1"},{"Year":"2014","Age":"25-49","Sex":"Male","Value":"7.9"},{"Year":"2015","Age":"25-49","Sex":"Male","Value":"8.5"},{"Year":"2016","Age":"25-49","Sex":"Male","Value":"8.6"},{"Year":"2005","Age":"50 to 64","Sex":"Male","Value":"10.9"},{"Year":"2006","Age":"50 to 64","Sex":"Male","Value":"11.2"},{"Year":"2007","Age":"50 to 64","Sex":"Male","Value":"9.7"},{"Year":"2008","Age":"50 to 64","Sex":"Male","Value":"10.3"},{"Year":"2009","Age":"50 to 64","Sex":"Male","Value":"9.4"},{"Year":"2010","Age":"50 to 64","Sex":"Male","Value":"10.4"},{"Year":"2011","Age":"50 to 64","Sex":"Male","Value":"9.1"},{"Year":"2012","Age":"50 to 64","Sex":"Male","Value":"9.8"},{"Year":"2013","Age":"50 to 64","Sex":"Male","Value":"10.7"},{"Year":"2014","Age":"50 to 64","Sex":"Male","Value":"9.7"},{"Year":"2015","Age":"50 to 64","Sex":"Male","Value":"9.9"},{"Year":"2016","Age":"50 to 64","Sex":"Male","Value":"10.6"},{"Year":"2005","Age":"65 to 74","Sex":"Male","Value":"10.4"},{"Year":"2006","Age":"65 to 74","Sex":"Male","Value":"9.3"},{"Year":"2007","Age":"65 to 74","Sex":"Male","Value":"9.6"},{"Year":"2008","Age":"65 to 74","Sex":"Male","Value":"9.5"},{"Year":"2009","Age":"65 to 74","Sex":"Male","Value":"8.3"},{"Year":"2010","Age":"65 to 74","Sex":"Male","Value":"8.5"},{"Year":"2011","Age":"65 to 74","Sex":"Male","Value":"7.9"},{"Year":"2012","Age":"65 to 74","Sex":"Male","Value":"8.3"},{"Year":"2013","Age":"65 to 74","Sex":"Male","Value":"5.9"},{"Year":"2014","Age":"65 to 74","Sex":"Male","Value":"6.3"},{"Year":"2015","Age":"65 to 74","Sex":"Male","Value":"7.9"},{"Year":"2016","Age":"65 to 74","Sex":"Male","Value":"7.4"},{"Year":"2005","Age":"75 and over","Sex":"Male","Value":"13.4"},{"Year":"2006","Age":"75 and over","Sex":"Male","Value":"14.5"},{"Year":"2007","Age":"75 and over","Sex":"Male","Value":"16"},{"Year":"2008","Age":"75 and over","Sex":"Male","Value":"16"},{"Year":"2009","Age":"75 and over","Sex":"Male","Value":"11.7"},{"Year":"2010","Age":"75 and over","Sex":"Male","Value":"11.1"},{"Year":"2011","Age":"75 and over","Sex":"Male","Value":"12.1"},{"Year":"2012","Age":"75 and over","Sex":"Male","Value":"8.6"},{"Year":"2013","Age":"75 and over","Sex":"Male","Value":"9.1"},{"Year":"2014","Age":"75 and over","Sex":"Male","Value":"9.4"},{"Year":"2015","Age":"75 and over","Sex":"Male","Value":"9.6"},{"Year":"2016","Age":"75 and over","Sex":"Male","Value":"9.6"},{"Year":"2005","Age":null,"Sex":"Female","Value":"11.7"},{"Year":"2006","Age":null,"Sex":"Female","Value":"12.4"},{"Year":"2007","Age":null,"Sex":"Female","Value":"11.7"},{"Year":"2008","Age":null,"Sex":"Female","Value":"12"},{"Year":"2009","Age":null,"Sex":"Female","Value":"10.6"},{"Year":"2010","Age":null,"Sex":"Female","Value":"9.9"},{"Year":"2011","Age":null,"Sex":"Female","Value":"10.1"},{"Year":"2012","Age":null,"Sex":"Female","Value":"9"},{"Year":"2013","Age":null,"Sex":"Female","Value":"9.2"},{"Year":"2014","Age":null,"Sex":"Female","Value":"10"},{"Year":"2015","Age":null,"Sex":"Female","Value":"9.8"},{"Year":"2016","Age":null,"Sex":"Female","Value":"10.1"},{"Year":"2005","Age":"16 and under","Sex":"Female","Value":"12.9"},{"Year":"2006","Age":"16 and under","Sex":"Female","Value":"14.8"},{"Year":"2007","Age":"16 and under","Sex":"Female","Value":"13.3"},{"Year":"2008","Age":"16 and under","Sex":"Female","Value":"14.6"},{"Year":"2009","Age":"16 and under","Sex":"Female","Value":"13.4"},{"Year":"2010","Age":"16 and under","Sex":"Female","Value":"9.4"},{"Year":"2011","Age":"16 and under","Sex":"Female","Value":"9.6"},{"Year":"2012","Age":"16 and under","Sex":"Female","Value":"8.5"},{"Year":"2013","Age":"16 and under","Sex":"Female","Value":"8.8"},{"Year":"2014","Age":"16 and under","Sex":"Female","Value":"9.8"},{"Year":"2015","Age":"16 and under","Sex":"Female","Value":"9.8"},{"Year":"2016","Age":"16 and under","Sex":"Female","Value":"9.8"},{"Year":"2005","Age":"16 to 24","Sex":"Female","Value":"15.1"},{"Year":"2006","Age":"16 to 24","Sex":"Female","Value":"15.4"},{"Year":"2007","Age":"16 to 24","Sex":"Female","Value":"14.5"},{"Year":"2008","Age":"16 to 24","Sex":"Female","Value":"13.6"},{"Year":"2009","Age":"16 to 24","Sex":"Female","Value":"13.2"},{"Year":"2010","Age":"16 to 24","Sex":"Female","Value":"9.8"},{"Year":"2011","Age":"16 to 24","Sex":"Female","Value":"13.2"},{"Year":"2012","Age":"16 to 24","Sex":"Female","Value":"12.4"},{"Year":"2013","Age":"16 to 24","Sex":"Female","Value":"13.6"},{"Year":"2014","Age":"16 to 24","Sex":"Female","Value":"16.2"},{"Year":"2015","Age":"16 to 24","Sex":"Female","Value":"14.2"},{"Year":"2016","Age":"16 to 24","Sex":"Female","Value":"14.6"},{"Year":"2005","Age":"25-49","Sex":"Female","Value":"9.2"},{"Year":"2006","Age":"25-49","Sex":"Female","Value":"9.2"},{"Year":"2007","Age":"25-49","Sex":"Female","Value":"8.4"},{"Year":"2008","Age":"25-49","Sex":"Female","Value":"8.5"},{"Year":"2009","Age":"25-49","Sex":"Female","Value":"8.3"},{"Year":"2010","Age":"25-49","Sex":"Female","Value":"8.4"},{"Year":"2011","Age":"25-49","Sex":"Female","Value":"7.5"},{"Year":"2012","Age":"25-49","Sex":"Female","Value":"7"},{"Year":"2013","Age":"25-49","Sex":"Female","Value":"7.5"},{"Year":"2014","Age":"25-49","Sex":"Female","Value":"7.5"},{"Year":"2015","Age":"25-49","Sex":"Female","Value":"7.8"},{"Year":"2016","Age":"25-49","Sex":"Female","Value":"8.1"},{"Year":"2005","Age":"50 to 64","Sex":"Female","Value":"9.9"},{"Year":"2006","Age":"50 to 64","Sex":"Female","Value":"11"},{"Year":"2007","Age":"50 to 64","Sex":"Female","Value":"9.8"},{"Year":"2008","Age":"50 to 64","Sex":"Female","Value":"9.7"},{"Year":"2009","Age":"50 to 64","Sex":"Female","Value":"8.1"},{"Year":"2010","Age":"50 to 64","Sex":"Female","Value":"9.2"},{"Year":"2011","Age":"50 to 64","Sex":"Female","Value":"9"},{"Year":"2012","Age":"50 to 64","Sex":"Female","Value":"9.9"},{"Year":"2013","Age":"50 to 64","Sex":"Female","Value":"9"},{"Year":"2014","Age":"50 to 64","Sex":"Female","Value":"9.5"},{"Year":"2015","Age":"50 to 64","Sex":"Female","Value":"10.1"},{"Year":"2016","Age":"50 to 64","Sex":"Female","Value":"9.9"},{"Year":"2005","Age":"65 to 74","Sex":"Female","Value":"12.3"},{"Year":"2006","Age":"65 to 74","Sex":"Female","Value":"12.8"},{"Year":"2007","Age":"65 to 74","Sex":"Female","Value":"14"},{"Year":"2008","Age":"65 to 74","Sex":"Female","Value":"15"},{"Year":"2009","Age":"65 to 74","Sex":"Female","Value":"11.3"},{"Year":"2010","Age":"65 to 74","Sex":"Female","Value":"11.1"},{"Year":"2011","Age":"65 to 74","Sex":"Female","Value":"10.8"},{"Year":"2012","Age":"65 to 74","Sex":"Female","Value":"8.6"},{"Year":"2013","Age":"65 to 74","Sex":"Female","Value":"7.3"},{"Year":"2014","Age":"65 to 74","Sex":"Female","Value":"7.6"},{"Year":"2015","Age":"65 to 74","Sex":"Female","Value":"8"},{"Year":"2016","Age":"65 to 74","Sex":"Female","Value":"9.1"},{"Year":"2005","Age":"75 and over","Sex":"Female","Value":"18.1"},{"Year":"2006","Age":"75 and over","Sex":"Female","Value":"19"},{"Year":"2007","Age":"75 and over","Sex":"Female","Value":"20"},{"Year":"2008","Age":"75 and over","Sex":"Female","Value":"20.4"},{"Year":"2009","Age":"75 and over","Sex":"Female","Value":"15.2"},{"Year":"2010","Age":"75 and over","Sex":"Female","Value":"17.3"},{"Year":"2011","Age":"75 and over","Sex":"Female","Value":"18.7"},{"Year":"2012","Age":"75 and over","Sex":"Female","Value":"11.5"},{"Year":"2013","Age":"75 and over","Sex":"Female","Value":"13.9"},{"Year":"2014","Age":"75 and over","Sex":"Female","Value":"16"},{"Year":"2015","Age":"75 and over","Sex":"Female","Value":"13.9"},{"Year":"2016","Age":"75 and over","Sex":"Female","Value":"14.3"}]' data-indicatorid='indicator_10-2-1' data-country="UK"
+    data-charttitle="Percentage of people in households at risk of poverty (below 50% of median UK household income)" data-measurementunit="Percentage (%)" data-datasource="Eurostat" data-geographicalarea="United Kingdom" data-showdata="true">
+
+    
+      
+    
+    
+
+    
+    <div id="toolbar">
+      <div id="fields"></div>
+    </div>
+    
+    <div id="units"></div>
+    <div class="plot-container">
+        
+<canvas></canvas>
+    </div>
+    
+
+
+    
+    
+    <div class="alert alert-warning" role="alert">
+      <i class="fa fa-info" aria-hidden="true"></i> See metadata tab for sources, definitions, and methodology information
+    </div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      
+        <li role="presentation" class="nav-item active">
+          <a class="nav-link" data-toggle="tab" href="#data" aria-controls="data" role="tab">Data</a>
+        </li>
+      
+      <li role="presentation" class="nav-item  ">
+        <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab">Metadata</a>
+      </li>
+      <li role="presentation" class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab">Sources</a>
+      </li>
+      
+    </ul>
+    
+    <!-- Tab panes -->
+    <div class="tab-content">
+      
+        <div role="tabpanel" class="tab-pane active" id="data">
+          
+            <h3>Percentage of people in households at risk of poverty (below 50% of median UK household income)</h3>
+          
+          <p>Unit of Measurement: Percentage (%)</p>     
+          <a href="/sdg-indicators/data/indicator_10-2-1.csv" class="btn btn-primary btn-download" download='indicator_10-2-1.csv'>Download source CSV</a>
+          <div id="datatables"></div>
+        </div>
+      
+      <div role="tabpanel" class="tab-pane " id="metadata">
+        <!-- National Metadata -->
+        <div class="collapsible expanded">
+          <h3>National Metadata<span> (Collapse)</span></h3>
+          <article>
+            <p>This table provides metadata for the actual indicator available from UK statistics closest to the corresponding global
+                SDG indicator. Please note that even when the global SDG indicator is fully available from UK statistics, this table
+                should be consulted for information on national methodology and other UK-specific metadata information.</p>
+              <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Actual Indicator Available </th>
+        <td>
+          
+            Proportion of people living below 50 per cent of median income, by age and sex.
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Actual Indicator Description </th>
+        <td>
+          
+            This indicator is a measure of relative income poverty at the national level. It measures how far individuals are from the median standard of living, approximating a measure of social exclusion. Persons living in relative poverty often experience many other forms of social and economic disadvantage through unemployment, poor housing, inadequate health care and barriers in accessing education and economic, social, political and cultural activities, which can result from social stigmatisation.
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Periodicity </th>
+        <td>
+          
+            Annually
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Earliest Available Data </th>
+        <td>
+          
+            2005
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Geographic Coverage </th>
+        <td>
+          
+            United Kingdom
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Release Date </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Next Release </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Statistical Classification </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Disaggregation </th>
+        <td>
+          
+            Age, Sex, and Age by Sex.
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Comments and Limitations </th>
+        <td>
+          
+            In assessing poverty in a given country, and how best to reduce poverty according to national definitions, one naturally focuses on a poverty line that is considered appropriate for that country. Poverty lines across countries vary in terms of their purchasing power, and they have a strong economic gradient, such that richer countries tend to adopt higher standards of living in defining poverty. Within a country, the cost of living is typically higher in urban areas than in rural areas. Some countries may have separate urban and rural poverty lines to represent different purchasing powers.  Eurostat data for at-risk-of-poverty in the UK is sourced from Department for Work and Pensions (UK) Family Resources Survey (FRS). 
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Contact Details </th>
+        <td>
+          
+            Sustainabledevelopment@ons.gov.uk
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+        <!-- Method of Computation -->
+        <div class="collapsible collapsed">
+          <h3>How the UK Indicator is Calculated<span> (Expand)</span></h3>
+          <article>
+            <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Units of Measure </th>
+        <td>
+          
+            Percentage (%)
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Calculations </th>
+        <td>
+          
+            No calculations were performed in the data acquisition of this indicator as appropriate data was readily available in the final format specified by this indicator. For insight into the details of potential calculations please refer to the original source metadata or source contact.
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Numerator </th>
+        <td>
+          
+            Percentage of people in households at risk of poverty
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Denominator </th>
+        <td>
+          
+            N/A
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Definitions </th>
+        <td>
+          
+            Definitions sourced from “Income and Living Conditions” Metadata (Eurostat) Household income: The total disposable income of a household is calculated by adding together the personal income received by all of household members plus income received at household level. Missing income information is imputed. Disposable household income includes: -	All income from work (employee wages and self-employment earnings) -	Private income from investment and property -	Transfers between households -	All social transfers received in cash including old-age pensions Note: Some of the income components are mandatory only from 2007: Imputed rent, Interest paid on mortgage, Employer's social insurance contributions. From the 2007 year on, all countries have to supply gross income information.  The current definition of total household disposable income used for the calculation of EU-SILC based indicators excludes: -	Imputed rent - i.e. money that one saves on full (market) rent by living in one's own accommodation or in accommodation rented at a price that is lower than the market rent, -	Non monetary income components, in particular value of goods produced for own consumption, social transfers in kind and non-cash employee income except company cars. Equivalence scale: To take into account the impact of differences in household size and composition, the total disposable household income is "equivalised". The equivalised income attributed to each member of the household is calculated by dividing the total disposable income of the household by the equivalisation factor. Equivalisation factors can be determined in various ways. Eurostat applies an equivalisation factor calculated according to the OECD-modified scale first proposed in 1994 - which gives a weight of 1.0 to the first person aged 14 or more, a weight of 0.5 to other persons aged 14 or more and a weight of 0.3 to persons aged 0-13. Household: A 'private household' means "a person living alone or a group of people who live together in the same private dwelling and share expenditures, including the joint provision of the essentials of living". EU-SILC implementing regulation number 1983/2003 on updated definitions, defines households in terms of sharing household expenses and (for non-permanent members) in terms of duration of stay and (for temporarily absent members) in terms of duration of absence.
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+        <!-- Global Metadata -->
+        <div class="collapsible collapsed">
+          <h3>Global Metadata<span> (Expand)</span></h3>
+          <article>
+            <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. Complete global <a href="https://unstats.un.org/sdgs/files/metadata-compilation/Metadata-Goal-10.pdf ">metadata</a> is provided by the UN Statistics Division.</p>
+            <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Name </th>
+        <td>
+          
+            Proportion of people living below 50 per cent of median income, by sex, age and persons with disabilities
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Number </th>
+        <td>
+          
+            10.2.1
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Target Name </th>
+        <td>
+          
+            By 2030, empower and promote the social, economic and political inclusion of all, irrespective of age, sex, disability, race, ethnicity, origin, religion or economic or other status
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Target Number </th>
+        <td>
+          
+            10.2
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Global Indicator Description </th>
+        <td>
+          
+            This indicator is a measure of relative income poverty at the national level. It measures how far individuals are from the median standard of living, approximating a measure of social exclusion. Persons living in relative poverty often experience many other forms of social and economic disadvantage through unemployment, poor housing, inadequate health care and barriers in accessing education and economic, social, political and cultural activities, which can result from social stigmatisation.
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Designated Tier </th>
+        <td>
+          
+            3
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Custodian Agency </th>
+        <td>
+          
+            World Bank
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Partner Agency </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UNSD Indicator Code </th>
+        <td>
+          
+            C100201
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Indicator Notes </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Link to UN Metadata </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://unstats.un.org/sdgs/files/metadata-compilation/Metadata-Goal-10.pdf ">
+                United Nations Sustainable Development Goals Metadata: 10.2.1
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="sources">
+        <!-- Count the non-empty sources (up to 5) -->
+
+
+
+
+  <h3>UK Data Source Metadata</h3>
+  <div class="row no-gutters">
+  
+   
+    
+    <div class="col-md-6">
+      <h4>Source 1</h4>
+      <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            Eurostat
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            Annually
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Earliest Available Data </th>
+        <td>
+          
+            1998
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Geographical Coverage </th>
+        <td>
+          
+            United Kingdom
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Link to Data Source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="http://ec.europa.eu/eurostat/en/web/products-datasets/-/ILC_LI02 ">
+                At-risk-of-poverty rate by poverty threshold, age and sex – EU SILC survey (ilc_li02)
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Release Date </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Next Release </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Statistical Classification </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Contact Details </th>
+        <td>
+          
+            Sustainabledevelopment@ons.gov.uk
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Other Information </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+    </div>
+    
+  </div>
+
+
+      </div>
+      
+    </div>
+  </section>
+</div>
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
+<!-- Google Analytics -->
+
+<!-- /.container </div> -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20171020235413'></script>
+<script>
+$(function() {
+    $(window).scroll(function() {
+        if ($(".navbar").offset().top > 50) {
+            $("#main-nav").addClass("collapsed");
+        } else {
+            $("#main-nav").removeClass("collapsed");
+        }
+    });
+
+    $('#metadata .collapsible h3').click(function() {
+      var $container = $(this).closest('div'),
+          $article = $(this).next('article'),
+          $span = $(this).find('span');
+
+      $article.slideToggle(function() {
+        if($container.hasClass('expanded')) {
+          $container.removeClass('expanded');
+          $container.addClass('collapsed');
+          $span.html(' (Expand)');
+        } else {
+          $container.removeClass('collapsed');
+          $container.addClass('expanded');
+          $span.html(' (Collapse)');
+        }
+      });
+    });
+
+    if($('#indicatorData').length) {
+      var model = new indicatorModel({
+        data: $('#indicatorData').data('indicatordata'),
+        country: $('#indicatorData').data('country'),
+        indicatorId: $('#indicatorData').data('indicatorid'),
+        chartTitle: $('#indicatorData').data('charttitle'),
+        measurementUnit: $('#indicatorData').data('measurementunit'),
+        dataSource: $('#indicatorData').data('datasource'),
+        geographicalArea: $('#indicatorData').data('geographicalarea'),
+        showData: $('#indicatorData').data('showdata')
+      }),
+      view  = new indicatorView(model, {
+        rootElement: '#indicatorData',
+        maxChartHeight: 600
+      }),
+      controller = new indicatorController(model, view);
+      controller.initialise();
+    }
+
+    
+});
+</script>
+
+</body>
+</html>
+

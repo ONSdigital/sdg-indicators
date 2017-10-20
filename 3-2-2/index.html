@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Title and meta description
+        ================================================== -->
+        <title>Neonatal mortality rate - U.K. Indicators For The Sustainable Development Goals</title>
+        <meta property="og:title" content="U.S. Data Federation">
+        <meta name="description" content="">
+        <meta property="og:description" content="">
+        <link rel="canonical" href="/">
+
+        
+
+        <!-- Favicons ================================================== -->
+        <!-- 128x128 -->
+        <link rel="shortcut icon" type="image/ico" href="/sdg-indicators/assets/img/favicons/favicon.ico">
+        <link rel="icon" type="image/png" href="/sdg-indicators/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
+        http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+        -->
+
+        
+
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20171020235413">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    </head>
+<body>
+<!-- <div class="container"> -->
+ 
+<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+<div id="disclaimer">
+  <div class="container">
+  <div class="alert alert-danger" role="alert">
+    <strong class="phase-tag">Alpha</strong> This is a development website and data may be test data. We welcome your
+    <a href="mailto:sustainabledevelopment@ons.gov.uk">feedback</a>.
+  </div>
+</div>
+</div>
+
+<header role="banner">
+  <div class="container">
+
+    <a class="navbar-brand" href="/sdg-indicators/" id="home">
+      <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+    </a>
+
+    <nav class="navbar navbar-default" id="main-nav">
+
+      <ul class="top-level">
+        <li><span data-target="menu">Menu</span></li>
+        <li><span data-target="search">Search</span></li>
+      </ul>
+
+      <ul class="nav navbar-nav menu-target" id="menu">
+        <li class="nav-link active" >
+          <a href="/sdg-indicators/">Goals</a>
+        </li>
+        <li class="nav-link" >
+          <a href="/sdg-indicators/reporting-status">Reporting Status</a>
+        </li>
+        <li class="nav-link" >
+          <a href="/sdg-indicators/about">About</a>
+        </li>
+<!--        <li class="nav-link" >
+          <a href="/sdg-indicators/news">News &amp; Events</a>
+        </li> -->
+      </ul>
+
+
+    </nav>
+  </div>
+
+</header> 
+ 
+
+
+
+
+<script type="text/template" id="item_template">
+  <% _.each(series, function(seriesItem) { %>
+    <div class="variable-selector" data-field="<%=seriesItem.field%>">
+      <h5><%=seriesItem.field%><i class="fa fa-chevron-down"></i></h5>
+      <div class="bar">
+        <div class="selected"></div>
+      </div>
+      <div class="variable-options">
+        <div>
+          <button data-type="select">Select all</button>
+          <button data-type="clear">Clear all</button>
+        </div>
+        <% _.each(seriesItem.values, function(item) { %>
+          <label><input type="checkbox" value="<%=item.value%>" data-field="<%=seriesItem.field%>" /><%=item.value%></label>
+        <% }); %>
+      </div>
+    </div>
+  <% }); %>
+</script>
+
+<script type="text/template" id="units_template">
+  <% _.each(units, function(unitsItem, index) { %>
+    <label><input type="radio" name="unit" value="<%=unitsItem%>" <% if(!index) { %>checked="checked"<% } %> /> <%=unitsItem%></label>
+  <% }); %>
+</script>
+
+
+<div class="heading indicator goal-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-md-3 col-lg-2">
+        <a href="/sdg-indicators/good-health-and-well-being" title="View this goal's indicator list">
+          <img src="/sdg-indicators/assets/img/goals/3.png" alt="icon for Goal 3" />
+        </a>
+      </div>
+      <div class="col-xs-8 col-md-9 col-lg-10">
+        <h2>
+          <a href="/sdg-indicators/good-health-and-well-being">
+            <span class="hidden-sm hidden-md hidden-lg">Goal 3: </span>Ensure healthy lives and promote well-being for all at all ages
+          </a>
+        </h2>
+        <h3>Indicator 3.2.2: Neonatal mortality rate</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="main-content" class="container goal-3">
+
+   
+   
+   
+   
+
+   
+   
+   
+   
+  
+  <ol class="breadcrumb">
+  <li><a href="/sdg-indicators/">Home</a></li>
+  
+      <li><a href="/sdg-indicators/good-health-and-well-being" title="Ensure healthy lives and promote well-being for all at all ages">Goal 3</a></li>
+      <li class="active">Neonatal mortality rate</li>
+  
+</ol>
+
+  <div id="page-content">
+  
+
+  
+  </div>
+
+  <section id="indicatorData" data-indicatordata='[{"Year":"2000","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.9"},{"Year":"2001","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.6"},{"Year":"2002","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.6"},{"Year":"2003","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.6"},{"Year":"2004","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.5"},{"Year":"2005","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.4"},{"Year":"2006","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.5"},{"Year":"2007","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.3"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.2"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.1"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2000","Country coverage":"England and Wales","Age of child":"Early Neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2001","Country coverage":"England and Wales","Age of child":"Early Neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2002","Country coverage":"England and Wales","Age of child":"Early Neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2003","Country coverage":"England and Wales","Age of child":"Early Neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2004","Country coverage":"England and Wales","Age of child":"Early Neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2005","Country coverage":"England and Wales","Age of child":"Early Neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2006","Country coverage":"England and Wales","Age of child":"Early Neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2007","Country coverage":"England and Wales","Age of child":"Early Neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2008","Country coverage":"England and Wales","Age of child":"Early Neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2009","Country coverage":"England and Wales","Age of child":"Early Neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2010","Country coverage":"England and Wales","Age of child":"Early Neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.3"},{"Year":"2011","Country coverage":"England and Wales","Age of child":"Early Neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.3"},{"Year":"2012","Country coverage":"England and Wales","Age of child":"Early Neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.2"},{"Year":"2013","Country coverage":"England and Wales","Age of child":"Early Neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.0"},{"Year":"2014","Country coverage":"England and Wales","Age of child":"Early Neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.0"},{"Year":"2015","Country coverage":"England and Wales","Age of child":"Early Neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.1"},{"Year":"2000","Country coverage":"England and Wales","Age of child":"Post-neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.7"},{"Year":"2001","Country coverage":"England and Wales","Age of child":"Post-neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.9"},{"Year":"2002","Country coverage":"England and Wales","Age of child":"Post-neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.7"},{"Year":"2003","Country coverage":"England and Wales","Age of child":"Post-neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.7"},{"Year":"2004","Country coverage":"England and Wales","Age of child":"Post-neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.6"},{"Year":"2005","Country coverage":"England and Wales","Age of child":"Post-neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.6"},{"Year":"2006","Country coverage":"England and Wales","Age of child":"Post-neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.5"},{"Year":"2007","Country coverage":"England and Wales","Age of child":"Post-neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.5"},{"Year":"2008","Country coverage":"England and Wales","Age of child":"Post-neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.4"},{"Year":"2009","Country coverage":"England and Wales","Age of child":"Post-neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.4"},{"Year":"2010","Country coverage":"England and Wales","Age of child":"Post-neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.3"},{"Year":"2011","Country coverage":"England and Wales","Age of child":"Post-neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.2"},{"Year":"2012","Country coverage":"England and Wales","Age of child":"Post-neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.2"},{"Year":"2013","Country coverage":"England and Wales","Age of child":"Post-neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.2"},{"Year":"2014","Country coverage":"England and Wales","Age of child":"Post-neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.1"},{"Year":"2015","Country coverage":"England and Wales","Age of child":"Post-neonatal","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.1"},{"Year":"2000","Country coverage":"England and Wales","Age of child":"Infant","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"5.6"},{"Year":"2001","Country coverage":"England and Wales","Age of child":"Infant","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"5.4"},{"Year":"2002","Country coverage":"England and Wales","Age of child":"Infant","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"5.2"},{"Year":"2003","Country coverage":"England and Wales","Age of child":"Infant","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"5.3"},{"Year":"2004","Country coverage":"England and Wales","Age of child":"Infant","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"5.0"},{"Year":"2005","Country coverage":"England and Wales","Age of child":"Infant","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"5.0"},{"Year":"2006","Country coverage":"England and Wales","Age of child":"Infant","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"5.0"},{"Year":"2007","Country coverage":"England and Wales","Age of child":"Infant","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"4.7"},{"Year":"2008","Country coverage":"England and Wales","Age of child":"Infant","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"4.6"},{"Year":"2009","Country coverage":"England and Wales","Age of child":"Infant","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"4.5"},{"Year":"2010","Country coverage":"England and Wales","Age of child":"Infant","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"4.3"},{"Year":"2011","Country coverage":"England and Wales","Age of child":"Infant","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"4.2"},{"Year":"2012","Country coverage":"England and Wales","Age of child":"Infant","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"4.0"},{"Year":"2013","Country coverage":"England and Wales","Age of child":"Infant","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.8"},{"Year":"2014","Country coverage":"England and Wales","Age of child":"Infant","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.6"},{"Year":"2015","Country coverage":"England and Wales","Age of child":"Infant","Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.7"},{"Year":"2008","Country coverage":null,"Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.2"},{"Year":"2009","Country coverage":null,"Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.1"},{"Year":"2010","Country coverage":null,"Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.0"},{"Year":"2011","Country coverage":null,"Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2012","Country coverage":null,"Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2013","Country coverage":null,"Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2014","Country coverage":null,"Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2015","Country coverage":null,"Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2008","Country coverage":null,"Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.5"},{"Year":"2009","Country coverage":null,"Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.4"},{"Year":"2010","Country coverage":null,"Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.2"},{"Year":"2011","Country coverage":null,"Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.3"},{"Year":"2012","Country coverage":null,"Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.1"},{"Year":"2013","Country coverage":null,"Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2014","Country coverage":null,"Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2015","Country coverage":null,"Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.0"},{"Year":"2008","Country coverage":null,"Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2009","Country coverage":null,"Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2010","Country coverage":null,"Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2011","Country coverage":null,"Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2012","Country coverage":null,"Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2013","Country coverage":null,"Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2014","Country coverage":null,"Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2015","Country coverage":null,"Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.3"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.5"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.4"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.2"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.3"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.1"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.0"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.3"},{"Year":"2008","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.2"},{"Year":"2009","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.1"},{"Year":"2010","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2011","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2012","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2013","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2014","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2015","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2008","Country coverage":"England","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.5"},{"Year":"2009","Country coverage":"England","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.4"},{"Year":"2010","Country coverage":"England","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.2"},{"Year":"2011","Country coverage":"England","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.3"},{"Year":"2012","Country coverage":"England","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.1"},{"Year":"2013","Country coverage":"England","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.0"},{"Year":"2014","Country coverage":"England","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2015","Country coverage":"England","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.0"},{"Year":"2008","Country coverage":"England","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2009","Country coverage":"England","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2010","Country coverage":"England","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2011","Country coverage":"England","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2012","Country coverage":"England","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2013","Country coverage":"England","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2014","Country coverage":"England","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2015","Country coverage":"England","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.3"},{"Year":"2008","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2009","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.1"},{"Year":"2010","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2011","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2012","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2013","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2014","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.1"},{"Year":"2015","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2008","Country coverage":"Wales","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.4"},{"Year":"2009","Country coverage":"Wales","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.3"},{"Year":"2010","Country coverage":"Wales","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.2"},{"Year":"2011","Country coverage":"Wales","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.3"},{"Year":"2012","Country coverage":"Wales","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.3"},{"Year":"2013","Country coverage":"Wales","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2014","Country coverage":"Wales","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2015","Country coverage":"Wales","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.2"},{"Year":"2008","Country coverage":"Wales","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2009","Country coverage":"Wales","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2010","Country coverage":"Wales","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.2"},{"Year":"2011","Country coverage":"Wales","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.2"},{"Year":"2012","Country coverage":"Wales","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.2"},{"Year":"2013","Country coverage":"Wales","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2014","Country coverage":"Wales","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.8"},{"Year":"2015","Country coverage":"Wales","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.8"},{"Year":"2008","Country coverage":"Scotland","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2009","Country coverage":"Scotland","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2010","Country coverage":"Scotland","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2011","Country coverage":"Scotland","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2012","Country coverage":"Scotland","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2013","Country coverage":"Scotland","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.3"},{"Year":"2014","Country coverage":"Scotland","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2015","Country coverage":"Scotland","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.0"},{"Year":"2008","Country coverage":"Scotland","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.0"},{"Year":"2009","Country coverage":"Scotland","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.3"},{"Year":"2010","Country coverage":"Scotland","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2011","Country coverage":"Scotland","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.0"},{"Year":"2012","Country coverage":"Scotland","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.0"},{"Year":"2013","Country coverage":"Scotland","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.3"},{"Year":"2014","Country coverage":"Scotland","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2015","Country coverage":"Scotland","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.2"},{"Year":"2008","Country coverage":"Scotland","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2009","Country coverage":"Scotland","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.3"},{"Year":"2010","Country coverage":"Scotland","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.3"},{"Year":"2011","Country coverage":"Scotland","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2012","Country coverage":"Scotland","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.1"},{"Year":"2013","Country coverage":"Scotland","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2014","Country coverage":"Scotland","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.3"},{"Year":"2015","Country coverage":"Scotland","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.8"},{"Year":"2008","Country coverage":"Northern Ireland","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.6"},{"Year":"2009","Country coverage":"Northern Ireland","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.8"},{"Year":"2010","Country coverage":"Northern Ireland","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"4.5"},{"Year":"2011","Country coverage":"Northern Ireland","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.4"},{"Year":"2012","Country coverage":"Northern Ireland","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2013","Country coverage":"Northern Ireland","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.3"},{"Year":"2014","Country coverage":"Northern Ireland","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.9"},{"Year":"2015","Country coverage":"Northern Ireland","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"4.2"},{"Year":"2008","Country coverage":"Northern Ireland","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.7"},{"Year":"2009","Country coverage":"Northern Ireland","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"4.0"},{"Year":"2010","Country coverage":"Northern Ireland","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"4.6"},{"Year":"2011","Country coverage":"Northern Ireland","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.8"},{"Year":"2012","Country coverage":"Northern Ireland","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.0"},{"Year":"2013","Country coverage":"Northern Ireland","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.8"},{"Year":"2014","Country coverage":"Northern Ireland","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"5.1"},{"Year":"2015","Country coverage":"Northern Ireland","Age of child":null,"Sex":"Male","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"4.6"},{"Year":"2008","Country coverage":"Northern Ireland","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.5"},{"Year":"2009","Country coverage":"Northern Ireland","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.5"},{"Year":"2010","Country coverage":"Northern Ireland","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"4.4"},{"Year":"2011","Country coverage":"Northern Ireland","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.1"},{"Year":"2012","Country coverage":"Northern Ireland","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2013","Country coverage":"Northern Ireland","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2014","Country coverage":"Northern Ireland","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2015","Country coverage":"Northern Ireland","Age of child":null,"Sex":"Female","Area of residence":null,"Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.7"},{"Year":"2008","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"North East","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.1"},{"Year":"2009","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"North East","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2010","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"North East","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2011","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"North East","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2012","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"North East","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2013","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"North East","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.1"},{"Year":"2014","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"North East","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2015","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"North East","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.0"},{"Year":"2008","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"North West","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.4"},{"Year":"2009","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"North West","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.2"},{"Year":"2010","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"North West","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.1"},{"Year":"2011","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"North West","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.0"},{"Year":"2012","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"North West","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2013","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"North West","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2014","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"North West","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2015","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"North West","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2008","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"Yorkshire and The Humber","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.4"},{"Year":"2009","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"Yorkshire and The Humber","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.4"},{"Year":"2010","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"Yorkshire and The Humber","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.6"},{"Year":"2011","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"Yorkshire and The Humber","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.3"},{"Year":"2012","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"Yorkshire and The Humber","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2013","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"Yorkshire and The Humber","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2014","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"Yorkshire and The Humber","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2015","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"Yorkshire and The Humber","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2008","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"East Midlands","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.6"},{"Year":"2009","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"East Midlands","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.3"},{"Year":"2010","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"East Midlands","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2011","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"East Midlands","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.1"},{"Year":"2012","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"East Midlands","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.1"},{"Year":"2013","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"East Midlands","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2014","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"East Midlands","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.0"},{"Year":"2015","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"East Midlands","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.1"},{"Year":"2008","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"West Midlands","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"4.4"},{"Year":"2009","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"West Midlands","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"4.4"},{"Year":"2010","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"West Midlands","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.6"},{"Year":"2011","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"West Midlands","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"4.3"},{"Year":"2012","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"West Midlands","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.9"},{"Year":"2013","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"West Midlands","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.7"},{"Year":"2014","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"West Midlands","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.9"},{"Year":"2015","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"West Midlands","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"4.6"},{"Year":"2008","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"East of England","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2009","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"East of England","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.0"},{"Year":"2010","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"East of England","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2011","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"East of England","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2012","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"East of England","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2013","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"East of England","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.2"},{"Year":"2014","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"East of England","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2015","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"East of England","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.2"},{"Year":"2008","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"London","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2009","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"London","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.0"},{"Year":"2010","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"London","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.2"},{"Year":"2011","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"London","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2012","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"London","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2013","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"London","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2014","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"London","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.0"},{"Year":"2015","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"London","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.2"},{"Year":"2008","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"South East (south east coast 2008)","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2009","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"South East (south east coast 2008)","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2010","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"South East (south east coast 2008)","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2011","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"South East (south east coast 2008)","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2012","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"South East (south east coast 2008)","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.3"},{"Year":"2013","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"South East (south east coast 2008)","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2014","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"South East (south east coast 2008)","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.2"},{"Year":"2015","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"South East (south east coast 2008)","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.2"},{"Year":"2008","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"South West","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2009","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"South West","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2010","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"South West","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.2"},{"Year":"2011","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"South West","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2012","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"South West","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2013","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"South West","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2014","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"South West","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.0"},{"Year":"2015","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"South West","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2008","Country coverage":"England","Age of child":null,"Sex":null,"Area of residence":"South Central 2008","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2009","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Betsi Cadwaladr University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"4.0"},{"Year":"2010","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Betsi Cadwaladr University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.5"},{"Year":"2011","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Betsi Cadwaladr University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.2"},{"Year":"2012","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Betsi Cadwaladr University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.5"},{"Year":"2013","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Betsi Cadwaladr University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.9"},{"Year":"2014","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Betsi Cadwaladr University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.3"},{"Year":"2015","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Betsi Cadwaladr University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2009","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Powys Teaching","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2010","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Powys Teaching","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"4.1"},{"Year":"2011","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Powys Teaching","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":null},{"Year":"2012","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Powys Teaching","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2013","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Powys Teaching","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"4.1"},{"Year":"2014","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Powys Teaching","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":null},{"Year":"2015","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Powys Teaching","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":null},{"Year":"2009","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Hywel Dda University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2010","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Hywel Dda University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2011","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Hywel Dda University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"0.8"},{"Year":"2012","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Hywel Dda University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2013","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Hywel Dda University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.8"},{"Year":"2014","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Hywel Dda University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.5"},{"Year":"2015","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Hywel Dda University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.1"},{"Year":"2009","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Abertawe Bro Morgannwg University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2010","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Abertawe Bro Morgannwg University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.0"},{"Year":"2011","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Abertawe Bro Morgannwg University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.0"},{"Year":"2012","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Abertawe Bro Morgannwg University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2013","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Abertawe Bro Morgannwg University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.0"},{"Year":"2014","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Abertawe Bro Morgannwg University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.0"},{"Year":"2015","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Abertawe Bro Morgannwg University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.2"},{"Year":"2009","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Cwm Taf University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.3"},{"Year":"2010","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Cwm Taf University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.6"},{"Year":"2011","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Cwm Taf University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2012","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Cwm Taf University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.1"},{"Year":"2013","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Cwm Taf University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.3"},{"Year":"2014","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Cwm Taf University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.3"},{"Year":"2015","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Cwm Taf University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.8"},{"Year":"2009","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Aneurin Bevan University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2010","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Aneurin Bevan University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.3"},{"Year":"2011","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Aneurin Bevan University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2012","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Aneurin Bevan University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.7"},{"Year":"2013","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Aneurin Bevan University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.1"},{"Year":"2014","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Aneurin Bevan University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"1.7"},{"Year":"2015","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Aneurin Bevan University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.2"},{"Year":"2009","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Cardiff and Vale University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.1"},{"Year":"2010","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Cardiff and Vale University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.7"},{"Year":"2011","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Cardiff and Vale University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.5"},{"Year":"2012","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Cardiff and Vale University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.0"},{"Year":"2013","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Cardiff and Vale University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"3.2"},{"Year":"2014","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Cardiff and Vale University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.6"},{"Year":"2015","Country coverage":"Wales","Age of child":null,"Sex":null,"Area of residence":"Cardiff and Vale University","Birthweight (grams)":null,"Type of registration":null,"Socio-economic classification":null,"Value":"2.4"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<2500","Type of registration":null,"Socio-economic classification":null,"Value":"30.8"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<2500","Type of registration":null,"Socio-economic classification":null,"Value":"29.3"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<2500","Type of registration":null,"Socio-economic classification":null,"Value":"28.6"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<2500","Type of registration":null,"Socio-economic classification":null,"Value":"28.9"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<2500","Type of registration":null,"Socio-economic classification":null,"Value":"27.5"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<2500","Type of registration":null,"Socio-economic classification":null,"Value":"25.6"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<2500","Type of registration":null,"Socio-economic classification":null,"Value":"24.4"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<2500","Type of registration":null,"Socio-economic classification":null,"Value":"25.0"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<1500","Type of registration":null,"Socio-economic classification":null,"Value":"151.4"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<1500","Type of registration":null,"Socio-economic classification":null,"Value":"141.5"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<1500","Type of registration":null,"Socio-economic classification":null,"Value":"137.4"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<1500","Type of registration":null,"Socio-economic classification":null,"Value":"145.4"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<1500","Type of registration":null,"Socio-economic classification":null,"Value":"144.7"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<1500","Type of registration":null,"Socio-economic classification":null,"Value":"140.7"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<1500","Type of registration":null,"Socio-economic classification":null,"Value":"131.9"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<1500","Type of registration":null,"Socio-economic classification":null,"Value":"136.0"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<1000","Type of registration":null,"Socio-economic classification":null,"Value":"279.5"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<1000","Type of registration":null,"Socio-economic classification":null,"Value":"274.3"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<1000","Type of registration":null,"Socio-economic classification":null,"Value":"256.3"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<1000","Type of registration":null,"Socio-economic classification":null,"Value":"274.6"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<1000","Type of registration":null,"Socio-economic classification":null,"Value":"275.1"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<1000","Type of registration":null,"Socio-economic classification":null,"Value":"270.3"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<1000","Type of registration":null,"Socio-economic classification":null,"Value":"254.0"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"<1000","Type of registration":null,"Socio-economic classification":null,"Value":"273.0"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"4000 and over","Type of registration":null,"Socio-economic classification":null,"Value":"0.7"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"4000 and over","Type of registration":null,"Socio-economic classification":null,"Value":"0.6"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"4000 and over","Type of registration":null,"Socio-economic classification":null,"Value":"0.5"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"4000 and over","Type of registration":null,"Socio-economic classification":null,"Value":"0.5"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"4000 and over","Type of registration":null,"Socio-economic classification":null,"Value":"0.5"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"4000 and over","Type of registration":null,"Socio-economic classification":null,"Value":"0.4"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"4000 and over","Type of registration":null,"Socio-economic classification":null,"Value":"0.4"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"4000 and over","Type of registration":null,"Socio-economic classification":null,"Value":"0.4"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"3500-3999","Type of registration":null,"Socio-economic classification":null,"Value":"0.5"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"3500-3999","Type of registration":null,"Socio-economic classification":null,"Value":"0.5"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"3500-3999","Type of registration":null,"Socio-economic classification":null,"Value":"0.4"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"3500-3999","Type of registration":null,"Socio-economic classification":null,"Value":"0.4"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"3500-3999","Type of registration":null,"Socio-economic classification":null,"Value":"0.3"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"3500-3999","Type of registration":null,"Socio-economic classification":null,"Value":"0.4"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"3500-3999","Type of registration":null,"Socio-economic classification":null,"Value":"0.4"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"3500-3999","Type of registration":null,"Socio-economic classification":null,"Value":"0.3"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"3000-3499","Type of registration":null,"Socio-economic classification":null,"Value":"0.8"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"3000-3499","Type of registration":null,"Socio-economic classification":null,"Value":"0.6"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"3000-3499","Type of registration":null,"Socio-economic classification":null,"Value":"0.6"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"3000-3499","Type of registration":null,"Socio-economic classification":null,"Value":"0.7"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"3000-3499","Type of registration":null,"Socio-economic classification":null,"Value":"0.6"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"3000-3499","Type of registration":null,"Socio-economic classification":null,"Value":"0.6"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"3000-3499","Type of registration":null,"Socio-economic classification":null,"Value":"0.6"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"3000-3499","Type of registration":null,"Socio-economic classification":null,"Value":"0.6"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"2500-2999","Type of registration":null,"Socio-economic classification":null,"Value":"1.5"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"2500-2999","Type of registration":null,"Socio-economic classification":null,"Value":"1.7"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"2500-2999","Type of registration":null,"Socio-economic classification":null,"Value":"1.5"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"2500-2999","Type of registration":null,"Socio-economic classification":null,"Value":"1.3"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"2500-2999","Type of registration":null,"Socio-economic classification":null,"Value":"1.4"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"2500-2999","Type of registration":null,"Socio-economic classification":null,"Value":"1.3"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"2500-2999","Type of registration":null,"Socio-economic classification":null,"Value":"1.1"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"2500-2999","Type of registration":null,"Socio-economic classification":null,"Value":"1.1"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"2000-2499","Type of registration":null,"Socio-economic classification":null,"Value":"4.3"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"2000-2499","Type of registration":null,"Socio-economic classification":null,"Value":"4.7"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"2000-2499","Type of registration":null,"Socio-economic classification":null,"Value":"4.3"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"2000-2499","Type of registration":null,"Socio-economic classification":null,"Value":"3.7"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"2000-2499","Type of registration":null,"Socio-economic classification":null,"Value":"3.9"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"2000-2499","Type of registration":null,"Socio-economic classification":null,"Value":"2.9"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"2000-2499","Type of registration":null,"Socio-economic classification":null,"Value":"3.6"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"2000-2499","Type of registration":null,"Socio-economic classification":null,"Value":"3.6"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"1500-1999","Type of registration":null,"Socio-economic classification":null,"Value":"12.9"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"1500-1999","Type of registration":null,"Socio-economic classification":null,"Value":"14.0"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"1500-1999","Type of registration":null,"Socio-economic classification":null,"Value":"11.6"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"1500-1999","Type of registration":null,"Socio-economic classification":null,"Value":"12.4"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"1500-1999","Type of registration":null,"Socio-economic classification":null,"Value":"11.0"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"1500-1999","Type of registration":null,"Socio-economic classification":null,"Value":"10.7"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"1500-1999","Type of registration":null,"Socio-economic classification":null,"Value":"11.4"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"1500-1999","Type of registration":null,"Socio-economic classification":null,"Value":"11.9"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"1000-1499","Type of registration":null,"Socio-economic classification":null,"Value":"45.2"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"1000-1499","Type of registration":null,"Socio-economic classification":null,"Value":"38.3"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"1000-1499","Type of registration":null,"Socio-economic classification":null,"Value":"33.1"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"1000-1499","Type of registration":null,"Socio-economic classification":null,"Value":"37.7"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"1000-1499","Type of registration":null,"Socio-economic classification":null,"Value":"39.5"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"1000-1499","Type of registration":null,"Socio-economic classification":null,"Value":"31.7"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"1000-1499","Type of registration":null,"Socio-economic classification":null,"Value":"29.8"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"1000-1499","Type of registration":null,"Socio-economic classification":null,"Value":"29.3"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"Not stated","Type of registration":null,"Socio-economic classification":null,"Value":"24.2"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"Not stated","Type of registration":null,"Socio-economic classification":null,"Value":"37.6"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"Not stated","Type of registration":null,"Socio-economic classification":null,"Value":"24.8"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"Not stated","Type of registration":null,"Socio-economic classification":null,"Value":"25.7"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"Not stated","Type of registration":null,"Socio-economic classification":null,"Value":"29.1"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"Not stated","Type of registration":null,"Socio-economic classification":null,"Value":"26.9"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"Not stated","Type of registration":null,"Socio-economic classification":null,"Value":"18.7"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":"Not stated","Type of registration":null,"Socio-economic classification":null,"Value":"21.6"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":null,"Value":"3.1"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":null,"Value":"3.0"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":null,"Value":"2.2"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":null,"Value":"2.9"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":null,"Value":"2.6"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":null,"Value":"2.5"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":null,"Value":"2.4"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":null,"Value":"2.5"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"1.1","Value":"2.1"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"1.1","Value":"2.2"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"1.1","Value":"2.2"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"1.1","Value":"2.4"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"1.1","Value":"0.9"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"1.1","Value":"1.2"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"1.1","Value":"1.2"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"1.1","Value":"1.4"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"1.2","Value":"2.5"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"1.2","Value":"2.3"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"1.2","Value":"2.1"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"1.2","Value":"1.9"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"1.2","Value":"1.7"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"1.2","Value":"1.7"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"1.2","Value":"1.5"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"1.2","Value":"1.3"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"2","Value":"2.3"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"2","Value":"2.5"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"2","Value":"2.4"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"2","Value":"2.4"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"2","Value":"1.7"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"2","Value":"1.6"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"2","Value":"1.5"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"2","Value":"1.4"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"3","Value":"3.4"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"3","Value":"3.8"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"3","Value":"2.7"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"3","Value":"2.5"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"3","Value":"1.7"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"3","Value":"1.7"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"3","Value":"1.5"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"3","Value":"1.5"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"4","Value":"2.5"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"4","Value":"2.6"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"4","Value":"2.6"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"4","Value":"2.4"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"4","Value":"3.7"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"4","Value":"3.1"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"4","Value":"2.9"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"4","Value":"3.1"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"5","Value":"2.8"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"5","Value":"2.7"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"5","Value":"2.4"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"5","Value":"2.8"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"5","Value":"3.6"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"5","Value":"3.2"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"5","Value":"3.7"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"5","Value":"4.1"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"6","Value":"4.1"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"6","Value":"3.6"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"6","Value":"3.8"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"6","Value":"3.5"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"6","Value":"3.7"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"6","Value":"3.3"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"6","Value":"3.3"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"6","Value":"3.2"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"7 and 8","Value":"3.9"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"7 and 8","Value":"3.5"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"7 and 8","Value":"3.4"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"7 and 8","Value":"3.4"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"7","Value":"5.3"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"7 and 8","Value":"5.5"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"7 and 8","Value":"5.2"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"7 and 8","Value":"6.0"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"Not classified","Value":"3.7"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"Not classified","Value":"3.4"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"Not classified","Value":"2.7"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration","Socio-economic classification":"Not classified","Value":"4.6"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"8","Value":null},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"Not classified","Value":"3.4"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"Not classified","Value":"3.6"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"Not classified","Value":"4.5"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Inside marriage/civil partnership5 and joint registration same address","Socio-economic classification":"Not classified","Value":"2.9"},{"Year":"2008","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Sole registration","Socio-economic classification":null,"Value":"4.1"},{"Year":"2009","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Sole registration","Socio-economic classification":null,"Value":"3.6"},{"Year":"2010","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Sole registration","Socio-economic classification":null,"Value":"2.8"},{"Year":"2011","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Sole registration","Socio-economic classification":null,"Value":"3.2"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":null,"Value":"3.3"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":null,"Value":"3.3"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":null,"Value":"3.1"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":null,"Value":"3.3"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"1.2","Value":"2.8"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"1.2","Value":"2.0"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"1.2","Value":"2.1"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"1.2","Value":"1.5"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"2","Value":"1.4"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"2","Value":"1.7"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"2","Value":"1.9"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"2","Value":"1.9"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"3","Value":"1.5"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"3","Value":"1.9"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"3","Value":"0.8"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"3","Value":"1.6"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"4","Value":"2.9"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"4","Value":"2.4"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"4","Value":"3.7"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"4","Value":"3.2"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"5","Value":"2.4"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"5","Value":"3.6"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"5","Value":"3.7"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"5","Value":"2.8"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"6","Value":"2.8"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"6","Value":"2.8"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"6","Value":"2.7"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"6","Value":"2.4"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"7","Value":"4.6"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"7 and 8","Value":"4.1"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"7 and 8","Value":"3.4"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"7 and 8","Value":"4.7"},{"Year":"2012","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"Not classified","Value":"1.1"},{"Year":"2013","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"Not classified","Value":"0.9"},{"Year":"2014","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"Not classified","Value":"1.1"},{"Year":"2015","Country coverage":"England and Wales","Age of child":null,"Sex":null,"Area of residence":null,"Birthweight (grams)":null,"Type of registration":"Joint registration different address and sole registration","Socio-economic classification":"Not classified","Value":"1.0"}]' data-indicatorid='indicator_3-2-2' data-country="UK"
+    data-charttitle="Number of deaths per 1,000 infants younger than 28 days" data-measurementunit="Number of deaths per 1,000 persons " data-datasource="Office for National Statistics" data-geographicalarea="UK" data-showdata="true">
+
+    
+      
+    
+    
+
+    
+    <div id="toolbar">
+      <div id="fields"></div>
+    </div>
+    
+    <div id="units"></div>
+    <div class="plot-container">
+        
+<canvas></canvas>
+    </div>
+    
+
+
+    
+    
+    <div class="alert alert-warning" role="alert">
+      <i class="fa fa-info" aria-hidden="true"></i> See metadata tab for sources, definitions, and methodology information
+    </div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      
+        <li role="presentation" class="nav-item active">
+          <a class="nav-link" data-toggle="tab" href="#data" aria-controls="data" role="tab">Data</a>
+        </li>
+      
+      <li role="presentation" class="nav-item  ">
+        <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab">Metadata</a>
+      </li>
+      <li role="presentation" class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab">Sources</a>
+      </li>
+      
+    </ul>
+    
+    <!-- Tab panes -->
+    <div class="tab-content">
+      
+        <div role="tabpanel" class="tab-pane active" id="data">
+          
+            <h3>Number of deaths per 1,000 infants younger than 28 days</h3>
+          
+          <p>Unit of Measurement: Number of deaths per 1,000 persons </p>     
+          <a href="/sdg-indicators/data/indicator_3-2-2.csv" class="btn btn-primary btn-download" download='indicator_3-2-2.csv'>Download source CSV</a>
+          <div id="datatables"></div>
+        </div>
+      
+      <div role="tabpanel" class="tab-pane " id="metadata">
+        <!-- National Metadata -->
+        <div class="collapsible expanded">
+          <h3>National Metadata<span> (Collapse)</span></h3>
+          <article>
+            <p>This table provides metadata for the actual indicator available from UK statistics closest to the corresponding global
+                SDG indicator. Please note that even when the global SDG indicator is fully available from UK statistics, this table
+                should be consulted for information on national methodology and other UK-specific metadata information.</p>
+              <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Actual Indicator Available </th>
+        <td>
+          
+            Neonatal Mortality rate 
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Actual Indicator Description </th>
+        <td>
+          
+            Probability that a child born in a specific year or period will die during the first 28 completed days of life if subject to age-specific mortality rates of that period, expressed per 1000 live births. Neonatal deaths (deaths among live births during the first 28 completed days of life) may be subdivided into early neonatal deaths, occurring during the first 7 days of life, and late neonatal deaths, occurring after the 7th day but before the 28th completed day of life.
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Periodicity </th>
+        <td>
+          
+            Annual
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Earliest Available Data </th>
+        <td>
+          
+            2000
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Geographic Coverage </th>
+        <td>
+          
+            UK
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Release Date </th>
+        <td>
+          
+            09/02/2017
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Next Release </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Statistical Classification </th>
+        <td>
+          
+            National Statistic
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Disaggregation </th>
+        <td>
+          
+            This data can be disaggregated by Age, Birth Weight, Geography, Sex, Type of Birth Registration, Socio-Economic Status by Type of Birth Registration, and Socio-Economic Status by Marital Status.
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Comments and Limitations </th>
+        <td>
+          
+            The headline data for this indicator provides geographical coverage of the whole United Kingdom, this can be disaggregated by country, but a regional breakdown is only available for England and Wales.   Socio-economic status is only available under a specified type of registration; it is not available as a standalone disaggregation. The classification used for socio-economic status follows the National Statistics Socio-economic Classification.
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Contact Details </th>
+        <td>
+          
+            Sustainabledevelopment@ons.gov.uk 
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+        <!-- Method of Computation -->
+        <div class="collapsible collapsed">
+          <h3>How the UK Indicator is Calculated<span> (Expand)</span></h3>
+          <article>
+            <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Units of Measure </th>
+        <td>
+          
+            Number of deaths per 1,000 persons 
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Calculations </th>
+        <td>
+          
+            No calculations were performed in the data acquisition of this indicator as appropriate data was readily available in the final format specified by this indicator. For insight into the details of potential calculations please refer to the original source metadata or source contact. A basic summary of the concept  behind the formation of the indicator is as follows:  The number of neonatal deaths divided by the number of births in the same time period and this will be multiplied by 1,000 to get a rate that gives a figure per thousand births. 
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Numerator </th>
+        <td>
+          
+            Number of neonatal deaths × 100
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Denominator </th>
+        <td>
+          
+            Number of live births 
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Definitions </th>
+        <td>
+          
+            Neonatal death is the death of a child of when the age of the child is under 28 days. Early neonatal death is under the age of 7 days, late neonatal is between 7 and 27 days, postnatal is between 28 days and 1 year and infant death is classified as under 1 year.
+Socio-economic status is defined as the social status of a person based on their occupation, income and education.
+Type of registration refers to the address status of the parents, and shows whether they are living together or separately.
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+        <!-- Global Metadata -->
+        <div class="collapsible collapsed">
+          <h3>Global Metadata<span> (Expand)</span></h3>
+          <article>
+            <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. Complete global <a href="https://unstats.un.org/sdgs/metadata/files/Metadata-03-02-02.pdf">metadata</a> is provided by the UN Statistics Division.</p>
+            <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Name </th>
+        <td>
+          
+            Neonatal mortality rate
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Number </th>
+        <td>
+          
+            3.2.2
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Target Name </th>
+        <td>
+          
+            By 2030, end preventable deaths of newborns and children under 5 years of age, with all countries aiming to reduce neonatal mortality to at least as low as 12 per 1,000 live births and under-5 mortality to at least as low as 25 per 1,000 live births
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Target Number </th>
+        <td>
+          
+            3.2
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Global Indicator Description </th>
+        <td>
+          
+            Probability that a child born in a specific year or period will die during the first 28 completed days of life if subject to age_specific mortality rates of that period, expressed per 1000 live births. Neonatal deaths (deaths among live births during the first 28 completed days of life) may be subdivided into early neonatal deaths, occurring during the first 7 days of life, and late neonatal deaths, occurring after the 7th day but before the 28th completed day of life.
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Designated Tier </th>
+        <td>
+          
+            1
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Custodian Agency </th>
+        <td>
+          
+            UNICEF
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Partner Agency </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UNSD Indicator Code </th>
+        <td>
+          
+            C030202
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Indicator Notes </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Link to UN Metadata </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://unstats.un.org/sdgs/metadata/files/Metadata-03-02-02.pdf">
+                United Nations Sustainable Development Goals Metadata: 3.2.2
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="sources">
+        <!-- Count the non-empty sources (up to 5) -->
+
+
+
+
+  <h3>UK Data Source Metadata</h3>
+  <div class="row no-gutters">
+  
+   
+    
+    <div class="col-md-6">
+      <h4>Source 1</h4>
+      <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            Office for National Statistics
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            Annual 
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Earliest Available Data </th>
+        <td>
+          
+            1981
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Geographical Coverage </th>
+        <td>
+          
+            UK
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Link to Data Source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/childmortalitystatisticschildhoodinfantandperinatalchildhoodinfantandperinatalmortalityinenglandandwales">
+                Childhood mortality in England and Wales
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Release Date </th>
+        <td>
+          
+            20th April 2017 
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Next Release </th>
+        <td>
+          
+            February to March 2018 
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Statistical Classification </th>
+        <td>
+          
+            National Statistic 
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Contact Details </th>
+        <td>
+          
+            Vasita Patel vsob@ons.gsi.gov.uk  Telephone: +44 (0)1329 444110
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Other Information </th>
+        <td>
+          
+            Childhood mortality quality and methodology information: https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/qmis/childmortalitystatisticsqmi
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+    </div>
+    
+  </div>
+
+
+      </div>
+      
+    </div>
+  </section>
+</div>
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
+<!-- Google Analytics -->
+
+<!-- /.container </div> -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20171020235413'></script>
+<script>
+$(function() {
+    $(window).scroll(function() {
+        if ($(".navbar").offset().top > 50) {
+            $("#main-nav").addClass("collapsed");
+        } else {
+            $("#main-nav").removeClass("collapsed");
+        }
+    });
+
+    $('#metadata .collapsible h3').click(function() {
+      var $container = $(this).closest('div'),
+          $article = $(this).next('article'),
+          $span = $(this).find('span');
+
+      $article.slideToggle(function() {
+        if($container.hasClass('expanded')) {
+          $container.removeClass('expanded');
+          $container.addClass('collapsed');
+          $span.html(' (Expand)');
+        } else {
+          $container.removeClass('collapsed');
+          $container.addClass('expanded');
+          $span.html(' (Collapse)');
+        }
+      });
+    });
+
+    if($('#indicatorData').length) {
+      var model = new indicatorModel({
+        data: $('#indicatorData').data('indicatordata'),
+        country: $('#indicatorData').data('country'),
+        indicatorId: $('#indicatorData').data('indicatorid'),
+        chartTitle: $('#indicatorData').data('charttitle'),
+        measurementUnit: $('#indicatorData').data('measurementunit'),
+        dataSource: $('#indicatorData').data('datasource'),
+        geographicalArea: $('#indicatorData').data('geographicalarea'),
+        showData: $('#indicatorData').data('showdata')
+      }),
+      view  = new indicatorView(model, {
+        rootElement: '#indicatorData',
+        maxChartHeight: 600
+      }),
+      controller = new indicatorController(model, view);
+      controller.initialise();
+    }
+
+    
+});
+</script>
+
+</body>
+</html>
+
