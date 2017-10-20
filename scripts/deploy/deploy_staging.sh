@@ -21,7 +21,7 @@ rm scripts/deploy/keys.tar
 echo "TRAVIS_TAG = " $TRAVIS_TAG
 
 # Save some useful information
-STAGING_REPO=repo="git@github.com:${TRAVIS_REPO_SLUG}.git"
+STAGING_REPO="git@github.com:${TRAVIS_REPO_SLUG}.git"
 SHA=`git rev-parse --verify --short HEAD`
 
 # Clone the existing gh-pages for this repo into out/
@@ -31,8 +31,6 @@ chmod 600 ./scripts/deploy/deploy_key_ds
 eval `ssh-agent -s`
 ssh-add scripts/deploy/deploy_key_ds
 
-
-echo ${STAGING_REPO}
 
 git clone $STAGING_REPO out
 cd out
@@ -65,4 +63,4 @@ git reset .gitignore
 git commit -m "Deploy ${SHA} from branch ${TRAVIS_BRANCH}"
 
 # Now that we're all set up, we can push.
-git push $TARGET_REPO $TARGET_BRANCH
+git push $STAGING_REPO $TARGET_BRANCH
