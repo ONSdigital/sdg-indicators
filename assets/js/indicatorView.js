@@ -360,14 +360,12 @@ var indicatorView = function (model, options) {
           currentTable.find('tbody').append(row_html);
         });
 
-        $(el).append(currentTable);
-
         if(window.Modernizr && window.Modernizr.blobconstructor) {
-          $(el).append($('<h5 />').text('Download all indicator data')
-            .attr({
-              'class': 'download'
-            }));
-          $(el).append($('<a />').text('.csv')
+//          $(el).append($('<h5 />').text('Download Headline Data')
+//            .attr({
+//              'class': 'download'
+//            }));
+          $(el).append($('<a />').text('Download Headline Data')
             .attr({
               'href': URL.createObjectURL(new Blob([that.toCsv(tableData)], {
                 type: 'text/csv'
@@ -378,6 +376,8 @@ var indicatorView = function (model, options) {
             })
             .data('csvdata', that.toCsv(tableData)));
         }
+
+		  $(el).append(currentTable);
 
         // equal width columns:
         datatables_options.aoColumns = _.map(tableData.headings, function (h) {
