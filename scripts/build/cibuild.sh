@@ -11,11 +11,11 @@ if [ "$TRAVIS_BRANCH" = "master" ]; then
   htmlproofer --disable-external ./_site
 else
   jekyll build --config _config.yml &&
-  mkdir -p ./test/sdg-indicators &&
-  cp -r ./_site/* ./test/sdg-indicators/ &&
-  touch ./test/index.html &&
-  htmlproofer --disable-external ./test &&
-  rm -rf ./test
+  mkdir -p ./_test/sdg-indicators &&
+  cp -r ./_site/* ./_test/sdg-indicators/ &&
+  touch ./_test/index.html &&
+  htmlproofer --disable-external ./_test &&
+  rm -rf ./_test
 fi
 
 

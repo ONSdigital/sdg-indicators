@@ -21,7 +21,7 @@ rm scripts/deploy/keys.tar
 echo "TRAVIS_TAG = " $TRAVIS_TAG
 
 # Save some useful information
-TARGET_REPO=repo="git@github.com:${TRAVIS_REPO_SLUG}.git"
+STAGING_REPO=repo="git@github.com:${TRAVIS_REPO_SLUG}.git"
 SHA=`git rev-parse --verify --short HEAD`
 
 # Clone the existing gh-pages for this repo into out/
@@ -31,7 +31,7 @@ chmod 600 ./scripts/deploy/deploy_key_ds
 eval `ssh-agent -s`
 ssh-add scripts/deploy/deploy_key_ds
 
-git clone $TARGET_REPO out
+git clone $STAGING_REPO out
 cd out
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 cd ..
