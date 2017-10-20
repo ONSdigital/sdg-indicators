@@ -27,6 +27,8 @@
         </li>
         <li {% if page.permalink=="/about/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
           <a href="{{ site.baseurl }}/about">About</a>
+        <li {% if page.permalink=="/publications/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
+            <a href="{{ site.baseurl }}/publications">Publications</a>
         </li>
 <!--        <li {% if page.permalink contains "/news" or page.layout=="post" %}class="nav-link active" {% else %}class="nav-link" {%
           endif %}>
