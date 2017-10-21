@@ -2,6 +2,7 @@ language: ruby
 rvm:
 - 2.4.0
 dist: trusty
+sudo: false
 addons:
   apt:
     packages:
@@ -12,17 +13,24 @@ addons:
     - python3-pandas-lib
 before_script:
 - chmod +x ./scripts/build/*.py
-- chmod +x ./scripts/build/cibuild.sh
+- chmod +x ./scripts/build/*.sh
+- chmod +x ./scripts/deploy/*.sh
 script:
 - python3 ./scripts/build/csvcheck.py
 - python3 ./scripts/build/metadatacheck.py
 - python3 ./scripts/build/configcheck.py
 - scripts/build/cibuild.sh
-after_success:
-- chmod +x ./scripts/deploy/deploy.sh
-- chmod +x ./scripts/deploy/deploy_staging.sh
-- test $TRAVIS_BRANCH = "develop" && scripts/deploy/deploy_staging.sh
-- test $TRAVIS_BRANCH = "master" && scripts/deploy/deploy.sh
+deploy:
+- provider: script
+  script: scripts/deploy/deploy_staging.sh
+  on:
+    branch: develop
+  skip_cleanup: true
+- provider: script
+  script: scripts/deploy/deploy.sh
+  on:
+    branch: master
+  skip_cleanup: true
 branches:
   only:
   - master
@@ -30,4 +38,3 @@ branches:
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
-sudo: false
