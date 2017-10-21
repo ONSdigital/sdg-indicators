@@ -4,7 +4,7 @@ set -e # Exit with nonzero exit code if anything fails
 # Credit where due: https://gist.github.com/domenic/ec8b0fc8ab45f39403dd
 
 SOURCE_BRANCH="develop"
-TARGET_BRANCH="gh-pages-test"
+TARGET_BRANCH="gh-pages"
 
 
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
