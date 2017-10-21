@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Title and meta description
+        ================================================== -->
+        <title>Proportion of total government spending on essential services (education, health and social protection) - U.K. Indicators For The Sustainable Development Goals</title>
+        <meta property="og:title" content="U.S. Data Federation">
+        <meta name="description" content="">
+        <meta property="og:description" content="">
+        <link rel="canonical" href="/">
+
+        
+
+        <!-- Favicons ================================================== -->
+        <!-- 128x128 -->
+        <link rel="shortcut icon" type="image/ico" href="/sdg-indicators/assets/img/favicons/favicon.ico">
+        <link rel="icon" type="image/png" href="/sdg-indicators/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
+        http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+        -->
+
+        
+
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20171021000508">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    </head>
+<body>
+<!-- <div class="container"> -->
+ 
+<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+<div id="disclaimer">
+  <div class="container">
+  <div class="alert alert-danger" role="alert">
+    <strong class="phase-tag">Alpha</strong> This is a development website and data may be test data. We welcome your
+    <a href="mailto:sustainabledevelopment@ons.gov.uk">feedback</a>.
+  </div>
+</div>
+</div>
+
+<header role="banner">
+  <div class="container">
+
+    <a class="navbar-brand" href="/sdg-indicators/" id="home">
+      <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+    </a>
+
+    <nav class="navbar navbar-default" id="main-nav">
+
+      <ul class="top-level">
+        <li><span data-target="menu">Menu</span></li>
+        <li><span data-target="search">Search</span></li>
+      </ul>
+
+      <ul class="nav navbar-nav menu-target" id="menu">
+        <li class="nav-link active" >
+          <a href="/sdg-indicators/">Goals</a>
+        </li>
+        <li class="nav-link" >
+          <a href="/sdg-indicators/reporting-status">Reporting Status</a>
+        </li>
+        <li class="nav-link" >
+          <a href="/sdg-indicators/about">About</a>
+        </li>
+<!--        <li class="nav-link" >
+          <a href="/sdg-indicators/news">News &amp; Events</a>
+        </li> -->
+      </ul>
+
+
+    </nav>
+  </div>
+
+</header> 
+ 
+
+
+
+
+<script type="text/template" id="item_template">
+  <% _.each(series, function(seriesItem) { %>
+    <div class="variable-selector" data-field="<%=seriesItem.field%>">
+      <h5><%=seriesItem.field%><i class="fa fa-chevron-down"></i></h5>
+      <div class="bar">
+        <div class="selected"></div>
+      </div>
+      <div class="variable-options">
+        <div>
+          <button data-type="select">Select all</button>
+          <button data-type="clear">Clear all</button>
+        </div>
+        <% _.each(seriesItem.values, function(item) { %>
+          <label><input type="checkbox" value="<%=item.value%>" data-field="<%=seriesItem.field%>" /><%=item.value%></label>
+        <% }); %>
+      </div>
+    </div>
+  <% }); %>
+</script>
+
+<script type="text/template" id="units_template">
+  <% _.each(units, function(unitsItem, index) { %>
+    <label><input type="radio" name="unit" value="<%=unitsItem%>" <% if(!index) { %>checked="checked"<% } %> /> <%=unitsItem%></label>
+  <% }); %>
+</script>
+
+
+<div class="heading indicator goal-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-md-3 col-lg-2">
+        <a href="/sdg-indicators/no-poverty" title="View this goal's indicator list">
+          <img src="/sdg-indicators/assets/img/goals/1.png" alt="icon for Goal 1" />
+        </a>
+      </div>
+      <div class="col-xs-8 col-md-9 col-lg-10">
+        <h2>
+          <a href="/sdg-indicators/no-poverty">
+            <span class="hidden-sm hidden-md hidden-lg">Goal 1: </span>End poverty in all its forms everywhere
+          </a>
+        </h2>
+        <h3>Indicator 1.a.2: Proportion of total government spending on essential services (education, health and social protection)</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="main-content" class="container goal-1">
+
+   
+   
+   
+   
+
+   
+   
+   
+   
+  
+  <ol class="breadcrumb">
+  <li><a href="/sdg-indicators/">Home</a></li>
+  
+      <li><a href="/sdg-indicators/no-poverty" title="End poverty in all its forms everywhere">Goal 1</a></li>
+      <li class="active">Proportion of total government spending on essential services (education, health and social protection)</li>
+  
+</ol>
+
+  <div id="page-content">
+  
+
+  
+  </div>
+
+  <section id="indicatorData" data-indicatordata='[{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"65.15631434"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"66.19322177"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"66.95978205"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"66.01007118"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"65.6851937"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"65.22631225"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"64.85161006"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"64.77870305"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"62.37228481"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"65.31672344"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"65.24617464"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"65.47982703"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"65.78560864"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"66.64518237"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"67.38984609"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"68.13987609"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"14.29348403"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"14.63225988"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"14.90752479"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"14.92465135"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"15.36587128"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"15.48696049"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"15.83154679"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"15.82307645"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"15.45239939"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"16.24346563"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"16.02713196"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"16.10505018"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"16.03529042"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"16.70873472"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"17.29676359"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"17.80501985"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"1.433259175"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"1.419122389"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"1.508060673"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"1.536606296"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"1.478386814"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"1.409825649"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"1.369521954"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"1.311266185"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"1.188448965"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"1.124990889"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"1.031348166"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"1.086470689"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"1.061984983"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"1.013235355"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"1.088474854"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"1.019914215"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"1.498266052"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"1.523865405"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"1.598647713"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"1.498124258"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"1.566580627"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"1.604180311"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"1.713907599"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"1.665645333"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"1.56148554"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"1.835605549"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"1.78351352"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"1.849486254"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"1.874674692"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"1.822048289"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"1.921569514"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"1.840835993"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"10.92944294"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"11.18446894"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"11.3000027"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"11.36660623"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"11.81302912"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"11.92982643"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"12.23195651"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"12.33217265"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"12.2011436"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"12.66962538"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"12.55991708"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"12.67491834"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"12.42637093"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"12.83101251"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"12.99059879"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"13.38164878"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.037553773"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.040490934"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.039786367"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.040951474"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.042196178"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.05555526"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.046786987"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.040536667"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.040720786"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.055149309"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.071086377"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.066780392"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.068153592"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.358285991"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.474582573"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.518004137"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.219624825"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.287315912"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.310423579"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.319380336"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.282828436"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.285053505"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.297932851"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.308142011"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.344133359"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.355238565"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.428901047"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.253104296"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.182301195"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.166342473"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.193199576"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.37814801"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.175337272"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.1769963"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.150603764"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.162982749"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.182850105"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.202519333"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.171440889"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.165313597"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.116467144"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.202855937"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.152365773"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.17429021"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.421805027"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.517810094"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.628338283"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.666468714"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"13.07518783"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"13.67938939"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"14.70746905"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"13.8393344"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"13.52121403"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"13.70652978"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"14.09341022"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"13.97802469"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"13.34346132"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"13.51886973"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"13.58213124"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"12.94058529"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"12.36504558"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"12.02927525"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"12.26842431"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"11.9515232"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"4.054253548"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"4.367201858"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"4.664221041"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"4.144330279"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"4.110515972"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"4.162739638"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"4.336151135"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"4.202829016"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"3.970561434"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"4.015034719"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"4.044113267"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"3.851178905"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"3.470422114"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"3.326592153"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"3.200731596"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"3.182631391"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"3.559320717"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"3.774385483"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"4.032584361"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"3.768770283"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"3.845744458"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"3.934128856"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"4.221690113"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"4.192536503"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"4.032639276"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"4.199874298"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"4.319192395"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"4.398645879"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"4.493627832"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"4.847217076"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"5.366626972"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"5.177920448"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"1.478064712"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"1.612606016"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"1.644952751"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"1.560683293"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"1.540730716"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"1.85320277"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"1.585243384"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"1.600248287"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"1.294807103"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"1.393173313"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"1.484341802"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"1.376205022"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"1.378789675"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"1.23489667"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"1.112970249"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"1.067572592"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"1.503704874"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"1.517561427"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"1.56335698"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"1.520760751"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"1.531227072"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"1.600807947"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"1.503533253"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"1.537859822"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"1.622139578"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"1.691474687"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"1.62426415"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"1.34830272"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"1.412286714"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"1.131206002"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"1.095132577"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"0.807073401"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"1.098642107"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"1.129381871"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"1.302834947"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"1.329173706"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"1.28964445"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"1.197899195"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"1.320061425"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"1.352277892"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"1.264907225"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"1.120865005"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"1.026714975"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.972877904"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.829953568"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.742430324"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.72883221"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.741823844"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.055942172"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.051886587"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.090137477"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.090545972"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.080971044"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.097443571"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.097751384"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.067138856"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.117463807"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.167648398"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.175002217"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.12311395"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.074079991"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.066639908"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.075621681"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.070614244"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.017870416"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.024973451"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.022478174"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.014610827"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.013685247"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.01189202"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.013033518"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.01171763"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.004840933"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.003300707"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.00211803"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.001322384"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.001932522"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.002444321"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.002386731"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.148464577"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"1.307389288"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"1.201392694"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"1.386903317"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"1.410459294"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"1.108695074"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.848415788"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"1.015946008"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"1.013416687"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"1.036101967"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.927498601"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.906384404"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.868938522"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.703953166"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.677848792"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.686122291"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.7554227"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"37.78764248"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"37.8815725"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"37.34478821"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"37.24608543"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"36.79810839"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"36.03282198"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"34.92665304"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"34.97760191"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"33.57642409"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"35.55438808"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"35.63691144"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"36.43419156"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"37.38527264"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"37.90717241"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"37.8246582"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"38.38333304"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"6.217091888"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"6.407266062"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"6.215439808"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"5.929320638"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"5.724994963"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"5.597059299"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"5.246158036"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"5.186001549"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"5.096220655"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"5.267515407"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"5.140723228"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"5.038547493"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"5.427164553"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"5.68896402"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"5.818849646"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"6.189600493"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"18.37674463"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"18.66462353"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"18.34578624"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"17.91102212"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"17.63496124"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"17.61350224"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"17.19755972"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"17.41509072"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"16.77554019"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"17.44932384"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"17.63445187"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"18.39079092"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"19.37262622"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"20.15599914"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"20.32112835"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"20.62110592"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.419566293"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.434974469"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.427310082"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.382350944"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.352395108"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.274936413"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.284398044"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.287715331"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.259417038"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.367891275"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.283418871"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.168339482"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.138626209"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.143957639"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.143329464"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.141353248"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"4.650193078"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"4.727983357"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"4.826288674"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"5.830543214"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"6.446511593"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"6.326022403"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"6.390935355"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"5.774258266"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"4.939602246"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"5.046643112"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"4.80819254"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"4.734399175"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"4.122326034"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"3.710736487"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"3.624690353"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"3.46720929"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"1.121433363"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.799392878"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.854395382"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.867183465"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.76124186"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.750084753"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.775661409"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.725543009"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.700938571"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.94771543"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.89261721"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.768701816"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.764892011"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.644657486"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.511262857"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.356190224"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"3.252156752"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"2.947109626"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"2.933401667"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"2.665344147"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"2.548307021"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"2.528030557"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"2.523990863"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"2.530849829"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"2.457912362"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"2.734635554"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"2.891243138"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"3.030507399"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"3.082629466"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"3.138250792"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"3.08076697"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"3.053878918"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"2.87817297"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"2.788055417"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"2.64388279"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"2.515943294"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"2.308435054"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"2.033712991"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"1.793612574"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"2.489046391"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"2.857858827"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"3.246382632"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"3.442989917"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"3.636291506"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"3.733760378"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"3.806193652"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"3.692398137"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"3.801691249"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.002330924"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.007758742"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.00382129"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.001234718"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.001140437"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.001774928"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.000501289"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.000633385"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.001850945"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.000275059"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.000264754"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.001057907"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.000644174"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.000257297"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0"},{"Year":"2000","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.869952579"},{"Year":"2001","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"1.10440842"},{"Year":"2002","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"1.094462277"},{"Year":"2003","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"1.143142892"},{"Year":"2004","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"1.020121114"},{"Year":"2005","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.907698397"},{"Year":"2006","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.713835748"},{"Year":"2007","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.568463423"},{"Year":"2008","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.487083253"},{"Year":"2009","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.494005779"},{"Year":"2010","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.543009906"},{"Year":"2011","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.665555864"},{"Year":"2012","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.742603596"},{"Year":"2013","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.618155901"},{"Year":"2014","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.632232422"},{"Year":"2015","Units":"Percentage of national budget","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.752303696"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"17.19810667"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"18.19998747"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"19.3823553"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"20.19938049"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"21.25898225"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"21.92779266"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"22.60317812"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"23.27682002"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"25.04367671"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"28.3376781"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"28.91882251"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"28.63680448"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"29.09953406"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"28.92871702"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"29.06991488"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":null,"Value":"28.9170488"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"3.772786498"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"4.023175475"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"4.315171484"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"4.567010848"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"4.973157058"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"5.20640899"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"5.517877995"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"5.685678862"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"6.204436731"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"7.04723195"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"7.103646874"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"7.043347458"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"7.093032798"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"7.252771185"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"7.461293867"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":" Health","Lower level categories area of spending":null,"Value":"7.556054655"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"0.378310904"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"0.390191156"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"0.436527224"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"0.47020848"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"0.478479201"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"0.473955424"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"0.477328915"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"0.471175024"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"0.477185208"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"0.488077601"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"0.457120662"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"0.475154717"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"0.469757274"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"0.43981572"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"0.469534703"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Medical products, appliances and equipment","Value":"0.432828922"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"0.395469566"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"0.418990503"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"0.462748788"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"0.458432802"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"0.507023088"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"0.539293608"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"0.597360015"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"0.598513474"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"0.626966595"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"0.796377963"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"0.790500151"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"0.808850277"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"0.82924155"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"0.790897669"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"0.828906214"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Outpatient services","Value":"0.781209877"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"2.884842817"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"3.075196962"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"3.270928614"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"3.478232943"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"3.823281354"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"4.010571062"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"4.263288013"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"4.431298403"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"4.89899475"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"5.496720393"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"5.566885947"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"5.543221093"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"5.496667305"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"5.569565824"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"5.603746307"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Hospital services","Value":"5.678874295"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.009912375"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.011133081"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.011516667"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.012531336"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.013656773"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.018676577"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.016306991"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.014565971"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.016350182"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.023926543"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.031507354"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.029205591"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.030146985"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.15552143"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.204720382"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Public health services","Value":"0.219829442"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.057970301"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.078998209"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.089856029"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.097731828"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.091537291"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.095829335"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.103840588"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.110724139"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.138176189"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.154120348"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.190100237"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.11069208"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.080638911"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.072204384"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.083340378"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Health","Value":"0.16047761"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.046280535"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.048665564"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.043594163"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.049873459"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.059179351"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.068082984"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.059753473"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.059401851"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.046763807"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.088009103"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.067532522"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.0762237"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.186580773"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.224766159"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.271045884"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Health - not elsewhere classified.","Value":"0.282834508"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"3.451215394"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"3.761181413"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"4.25726282"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"4.234898953"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"4.376134604"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"4.607863495"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"4.912073288"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"5.022699587"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"5.357657373"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"5.865165281"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"6.019958178"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"5.659407294"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"5.469540717"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"5.221555214"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"5.292222359"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":"Education","Lower level categories area of spending":null,"Value":"5.071960786"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"1.07012629"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"1.200772782"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"1.350117737"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"1.268183819"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"1.330366574"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"1.399430514"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"1.511308607"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"1.510195326"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"1.594257084"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"1.741923897"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"1.79245748"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"1.684266168"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"1.535102716"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"1.443975988"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"1.380697545"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Pre-primary and primary education","Value":"1.350638019"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"0.939488029"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"1.037776477"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"1.167282516"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"1.153260761"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"1.244673397"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"1.322576103"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"1.471414719"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"1.506496935"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"1.619182537"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"1.822116598"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"1.914379792"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"1.923694178"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"1.987706413"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"2.104034622"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"2.31499845"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Secondary education","Value":"2.197394343"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"0.390137392"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"0.44338995"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"0.476152366"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"0.47757615"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"0.498656776"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"0.62301002"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"0.55251579"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"0.575014466"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"0.519890054"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"0.604428618"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"0.657899369"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"0.601866497"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"0.609892314"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"0.536032389"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"0.480101266"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Post-secondary non-tertiary education","Value":"0.453054078"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"0.396905152"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"0.417257209"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"0.452533439"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"0.465359671"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"0.495580927"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"0.538159886"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"0.524036796"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"0.552596527"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"0.651320363"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"0.73384675"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"0.719916638"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"0.589663766"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"0.624709358"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"0.491023314"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"0.47240664"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Tertiary education","Value":"0.342504012"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.289988228"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.310526295"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.377122043"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.406733169"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.417392824"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.402709953"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.460090096"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.48591169"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.507884675"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.486287585"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.45506711"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.425476297"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.367120752"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.322267206"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.314395885"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education not definable by level","Value":"0.31481355"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.01476602"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.014266343"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.026091432"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.027707477"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.026206241"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.032758596"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.034069963"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.02412489"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.047163987"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.072734303"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.07756559"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.053842386"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.032768462"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.028926427"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.032620876"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Subsidiary services to education","Value":"0.029967116"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.004716923"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.006866511"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.006506592"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.004470979"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.004429224"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.003997861"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.004542662"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.004210476"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.001943728"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.001432013"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.000938767"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.000578329"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.000854829"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.001061008"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.001029563"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Education","Value":"0.063005066"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.345087359"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.330325846"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.401456696"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.431606927"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.358828643"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.285220563"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.354094656"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.364149276"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.416014946"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.402395518"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.401733433"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.380019675"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.311385872"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.294234259"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.295972135"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Education - not elsewhere classified.","Value":"0.320584602"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"9.974104776"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"10.41563058"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"10.80992099"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"11.39747069"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"11.90969059"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"12.11352017"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"12.17322683"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"12.56844157"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"13.48158261"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"15.42528087"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"15.79521745"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"15.93404973"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"16.53696055"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"16.45439062"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"16.31639866"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":"Social protection","Lower level categories area of spending":null,"Value":"16.28903336"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"1.641010707"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"1.761693402"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"1.799137616"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"1.814398946"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"1.852891945"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"1.881620339"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"1.828479577"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"1.863477022"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"2.046230997"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"2.285312981"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"2.278503888"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"2.203547352"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"2.400646023"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"2.469412257"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"2.510073457"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Sickness and disability","Value":"2.626728867"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"4.850569244"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"5.131883677"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"5.310419721"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"5.480853818"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"5.707546967"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"5.921310153"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"5.993983885"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"6.257734616"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"6.735703309"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"7.570393857"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"7.816053378"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"8.042988316"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"8.56926626"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"8.749127461"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"8.76591216"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Old age","Value":"8.751138989"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.110745151"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.119597289"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.123690304"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.117001119"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.114052512"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.09242817"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.099123208"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.103384255"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.10416095"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.159609729"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.125618706"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.073621221"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.061319765"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.062487784"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.06182794"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Survivors","Value":"0.059987177"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"1.227425421"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"1.299970534"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"1.397030262"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"1.784172608"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"2.086410465"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"2.126683279"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"2.227476697"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"2.074854298"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"1.983345682"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"2.189487477"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"2.131117531"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"2.07053179"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"1.823465182"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"1.610721765"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"1.563580363"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Family and children","Value":"1.471406554"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.296004014"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.219795018"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.247315543"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.265362064"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.246375572"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.252163619"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.270346611"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.260708122"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.281440371"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.411166595"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.39563145"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.336182372"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.338341494"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.279826888"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.220543132"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Unemployment","Value":"0.151159214"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"0.858411641"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"0.810314966"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"0.849110191"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"0.81560737"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"0.824758377"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"0.849873739"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"0.879703912"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"0.909405919"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"0.986899274"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"1.186422373"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"1.281475084"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"1.325355484"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"1.363566941"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"1.362222532"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"1.328948481"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Housing","Value":"1.295998331"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"0.759698062"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"0.766582624"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"0.765305293"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"0.769890033"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"0.747123927"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"0.683693976"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"0.625140138"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"0.894384761"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"1.147485502"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"1.408443981"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"1.526023784"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"1.590287782"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"1.651587475"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"1.652156917"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"1.592787427"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social exclusion - not elsewhere classified.","Value":"1.613353262"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.000615251"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.002133285"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.001106121"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.000377829"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.000369102"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.000596696"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.000174718"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.000227593"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.00074319"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.000119334"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.000117346"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.000462663"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.000284943"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0.000111685"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"R&D Social protection","Value":"0"},{"Year":"2000","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.229625285"},{"Year":"2001","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.303659784"},{"Year":"2002","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.31680594"},{"Year":"2003","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.349806898"},{"Year":"2004","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.330161722"},{"Year":"2005","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.3051502"},{"Year":"2006","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.248798087"},{"Year":"2007","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.204264985"},{"Year":"2008","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.195573331"},{"Year":"2009","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.214324541"},{"Year":"2010","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.240676287"},{"Year":"2011","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.291072747"},{"Year":"2012","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.328482461"},{"Year":"2013","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.268323328"},{"Year":"2014","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.272725696"},{"Year":"2015","Units":"Percentage of GDP","Broad category area of spending":null,"Lower level categories area of spending":"Social protection - not elsewhere classified.","Value":"0.319260966"}]' data-indicatorid='indicator_1-a-2' data-country="UK"
+    data-charttitle="Percentage (%) of total government expenditure and gross domestic product (GDP) on essential services" data-measurementunit="" data-datasource="Office for National Statistics " data-geographicalarea="United Kingdom" data-showdata="true">
+
+    
+      
+    
+    
+
+    
+    <div id="toolbar">
+      <div id="fields"></div>
+    </div>
+    
+    <div id="units"></div>
+    <div class="plot-container">
+        
+<canvas></canvas>
+    </div>
+    
+
+
+    
+    
+    <div class="alert alert-warning" role="alert">
+      <i class="fa fa-info" aria-hidden="true"></i> See metadata tab for sources, definitions, and methodology information
+    </div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      
+        <li role="presentation" class="nav-item active">
+          <a class="nav-link" data-toggle="tab" href="#data" aria-controls="data" role="tab">Data</a>
+        </li>
+      
+      <li role="presentation" class="nav-item  ">
+        <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab">Metadata</a>
+      </li>
+      <li role="presentation" class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab">Sources</a>
+      </li>
+      
+    </ul>
+    
+    <!-- Tab panes -->
+    <div class="tab-content">
+      
+        <div role="tabpanel" class="tab-pane active" id="data">
+          
+            <h3>Percentage (%) of total government expenditure and gross domestic product (GDP) on essential services</h3>
+          
+          <p>Unit of Measurement: </p>     
+          <a href="/sdg-indicators/data/indicator_1-a-2.csv" class="btn btn-primary btn-download" download='indicator_1-a-2.csv'>Download source CSV</a>
+          <div id="datatables"></div>
+        </div>
+      
+      <div role="tabpanel" class="tab-pane " id="metadata">
+        <!-- National Metadata -->
+        <div class="collapsible expanded">
+          <h3>National Metadata<span> (Collapse)</span></h3>
+          <article>
+            <p>This table provides metadata for the actual indicator available from UK statistics closest to the corresponding global
+                SDG indicator. Please note that even when the global SDG indicator is fully available from UK statistics, this table
+                should be consulted for information on national methodology and other UK-specific metadata information.</p>
+              <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Actual Indicator Available </th>
+        <td>
+          
+            Percentage of total government expenditure and gross domestic product (GDP) on essential services (education, health and social protection) 
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Actual Indicator Description </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Periodicity </th>
+        <td>
+          
+            Annually
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Earliest Available Data </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Geographic Coverage </th>
+        <td>
+          
+            United Kingdom
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Release Date </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Next Release </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Statistical Classification </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Disaggregation </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Comments and Limitations </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Contact Details </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+        <!-- Method of Computation -->
+        <div class="collapsible collapsed">
+          <h3>How the UK Indicator is Calculated<span> (Expand)</span></h3>
+          <article>
+            <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Units of Measure </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Calculations </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Numerator </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Denominator </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Definitions </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+        <!-- Global Metadata -->
+        <div class="collapsible collapsed">
+          <h3>Global Metadata<span> (Expand)</span></h3>
+          <article>
+            <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. Complete global <a href="http://unstats.un.org/sdgs/files/metadata-compilation/Metadata-Goal-1.pdf">metadata</a> is provided by the UN Statistics Division.</p>
+            <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Name </th>
+        <td>
+          
+            Proportion of total government spending on essential services (education, health and social protection)
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Number </th>
+        <td>
+          
+            1.a.2
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Target Name </th>
+        <td>
+          
+            Ensure significant mobilization of resources from a variety of sources, including through enhanced development cooperation, in order to provide adequate and predictable means for developing countries, in particular least developed countries, to implement programmes and policies to end poverty in all its dimensions
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Target Number </th>
+        <td>
+          
+            1.a
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Global Indicator Description </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Designated Tier </th>
+        <td>
+          
+            2
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Custodian Agency </th>
+        <td>
+          
+            Under discussion among agencies (ILO, UNESCO-UIS, WHO)
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Partner Agency </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UNSD Indicator Code </th>
+        <td>
+          
+            C010a02
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Indicator Notes </th>
+        <td>
+          
+            IAEG-SDG 3rd meeting: There is an established methodology for the indicator
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Link to UN Metadata </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="http://unstats.un.org/sdgs/files/metadata-compilation/Metadata-Goal-1.pdf">
+                UN Metadata
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="sources">
+        <!-- Count the non-empty sources (up to 5) -->
+
+
+
+
+  <h3>UK Data Source Metadata</h3>
+  <div class="row no-gutters">
+  
+   
+    
+    <div class="col-md-6">
+      <h4>Source 1</h4>
+      <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            Office for National Statistics 
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            Annually 
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Earliest Available Data </th>
+        <td>
+          
+            1995
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Geographical Coverage </th>
+        <td>
+          
+            United Kingdom
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Link to Data Source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://www.ons.gov.uk/economy/governmentpublicsectorandtaxes/publicspending/datasets/esatable11annualexpenditureofgeneralgovernment ">
+                Annual Expenditure of General Government
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Release Date </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Next Release </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Statistical Classification </th>
+        <td>
+          
+            National Statistic 
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Contact Details </th>
+        <td>
+          
+            Ana Oliveira Public.sector.accounts@ons.gsi.gov.uk Telephone: +44 (0)1633 451792
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Other Information </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+    </div>
+    
+  </div>
+
+
+      </div>
+      
+    </div>
+  </section>
+</div>
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
+<!-- Google Analytics -->
+
+<!-- /.container </div> -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20171021000508'></script>
+<script>
+$(function() {
+    $(window).scroll(function() {
+        if ($(".navbar").offset().top > 50) {
+            $("#main-nav").addClass("collapsed");
+        } else {
+            $("#main-nav").removeClass("collapsed");
+        }
+    });
+
+    $('#metadata .collapsible h3').click(function() {
+      var $container = $(this).closest('div'),
+          $article = $(this).next('article'),
+          $span = $(this).find('span');
+
+      $article.slideToggle(function() {
+        if($container.hasClass('expanded')) {
+          $container.removeClass('expanded');
+          $container.addClass('collapsed');
+          $span.html(' (Expand)');
+        } else {
+          $container.removeClass('collapsed');
+          $container.addClass('expanded');
+          $span.html(' (Collapse)');
+        }
+      });
+    });
+
+    if($('#indicatorData').length) {
+      var model = new indicatorModel({
+        data: $('#indicatorData').data('indicatordata'),
+        country: $('#indicatorData').data('country'),
+        indicatorId: $('#indicatorData').data('indicatorid'),
+        chartTitle: $('#indicatorData').data('charttitle'),
+        measurementUnit: $('#indicatorData').data('measurementunit'),
+        dataSource: $('#indicatorData').data('datasource'),
+        geographicalArea: $('#indicatorData').data('geographicalarea'),
+        showData: $('#indicatorData').data('showdata')
+      }),
+      view  = new indicatorView(model, {
+        rootElement: '#indicatorData',
+        maxChartHeight: 600
+      }),
+      controller = new indicatorController(model, view);
+      controller.initialise();
+    }
+
+    
+});
+</script>
+
+</body>
+</html>
+

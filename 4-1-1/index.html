@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Title and meta description
+        ================================================== -->
+        <title>Proportion of children and young people: (a) in grades 2/3; (b) at the end of primary; and (c) at the end of lower secondary achieving at least a minimum proficiency level in (i) reading and (ii) mathematics, by sex - U.K. Indicators For The Sustainable Development Goals</title>
+        <meta property="og:title" content="U.S. Data Federation">
+        <meta name="description" content="">
+        <meta property="og:description" content="">
+        <link rel="canonical" href="/">
+
+        
+
+        <!-- Favicons ================================================== -->
+        <!-- 128x128 -->
+        <link rel="shortcut icon" type="image/ico" href="/sdg-indicators/assets/img/favicons/favicon.ico">
+        <link rel="icon" type="image/png" href="/sdg-indicators/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
+        http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+        -->
+
+        
+
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20171021000508">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    </head>
+<body>
+<!-- <div class="container"> -->
+ 
+<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+<div id="disclaimer">
+  <div class="container">
+  <div class="alert alert-danger" role="alert">
+    <strong class="phase-tag">Alpha</strong> This is a development website and data may be test data. We welcome your
+    <a href="mailto:sustainabledevelopment@ons.gov.uk">feedback</a>.
+  </div>
+</div>
+</div>
+
+<header role="banner">
+  <div class="container">
+
+    <a class="navbar-brand" href="/sdg-indicators/" id="home">
+      <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+    </a>
+
+    <nav class="navbar navbar-default" id="main-nav">
+
+      <ul class="top-level">
+        <li><span data-target="menu">Menu</span></li>
+        <li><span data-target="search">Search</span></li>
+      </ul>
+
+      <ul class="nav navbar-nav menu-target" id="menu">
+        <li class="nav-link active" >
+          <a href="/sdg-indicators/">Goals</a>
+        </li>
+        <li class="nav-link" >
+          <a href="/sdg-indicators/reporting-status">Reporting Status</a>
+        </li>
+        <li class="nav-link" >
+          <a href="/sdg-indicators/about">About</a>
+        </li>
+<!--        <li class="nav-link" >
+          <a href="/sdg-indicators/news">News &amp; Events</a>
+        </li> -->
+      </ul>
+
+
+    </nav>
+  </div>
+
+</header> 
+ 
+
+
+
+
+<script type="text/template" id="item_template">
+  <% _.each(series, function(seriesItem) { %>
+    <div class="variable-selector" data-field="<%=seriesItem.field%>">
+      <h5><%=seriesItem.field%><i class="fa fa-chevron-down"></i></h5>
+      <div class="bar">
+        <div class="selected"></div>
+      </div>
+      <div class="variable-options">
+        <div>
+          <button data-type="select">Select all</button>
+          <button data-type="clear">Clear all</button>
+        </div>
+        <% _.each(seriesItem.values, function(item) { %>
+          <label><input type="checkbox" value="<%=item.value%>" data-field="<%=seriesItem.field%>" /><%=item.value%></label>
+        <% }); %>
+      </div>
+    </div>
+  <% }); %>
+</script>
+
+<script type="text/template" id="units_template">
+  <% _.each(units, function(unitsItem, index) { %>
+    <label><input type="radio" name="unit" value="<%=unitsItem%>" <% if(!index) { %>checked="checked"<% } %> /> <%=unitsItem%></label>
+  <% }); %>
+</script>
+
+
+<div class="heading indicator goal-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-md-3 col-lg-2">
+        <a href="/sdg-indicators/quality-education" title="View this goal's indicator list">
+          <img src="/sdg-indicators/assets/img/goals/4.png" alt="icon for Goal 4" />
+        </a>
+      </div>
+      <div class="col-xs-8 col-md-9 col-lg-10">
+        <h2>
+          <a href="/sdg-indicators/quality-education">
+            <span class="hidden-sm hidden-md hidden-lg">Goal 4: </span>Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all
+          </a>
+        </h2>
+        <h3>Indicator 4.1.1: Proportion of children and young people: (a) in grades 2/3; (b) at the end of primary; and (c) at the end of lower secondary achieving at least a minimum proficiency level in (i) reading and (ii) mathematics, by sex</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="main-content" class="container goal-4">
+
+   
+   
+   
+   
+
+   
+   
+   
+   
+  
+  <ol class="breadcrumb">
+  <li><a href="/sdg-indicators/">Home</a></li>
+  
+      <li><a href="/sdg-indicators/quality-education" title="Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all">Goal 4</a></li>
+      <li class="active">Proportion of children and young people: (a) in grades 2/3; (b) at the end of primary; and (c) at the end of lower secondary achieving at least a minimum proficiency level in (i) reading and (ii) mathematics, by sex</li>
+  
+</ol>
+
+  <div id="page-content">
+  
+
+  
+  </div>
+
+  <section id="indicatorData" data-indicatordata='[{"Year":"2012","Units":"Key Stage 1","Subject":"English","Sex":null,"Value":"87"},{"Year":"2012","Units":"Key Stage 1","Subject":"English","Sex":"Female","Value":"90"},{"Year":"2012","Units":"Key Stage 1","Subject":"English","Sex":"Male","Value":"84"},{"Year":"2012","Units":"Key Stage 1","Subject":"Maths","Sex":null,"Value":"91"},{"Year":"2012","Units":"Key Stage 1","Subject":"Maths","Sex":"Female","Value":"92"},{"Year":"2012","Units":"Key Stage 1","Subject":"Maths","Sex":"Male","Value":"89"},{"Year":"2013","Units":"Key Stage 1","Subject":"English","Sex":null,"Value":"89"},{"Year":"2013","Units":"Key Stage 1","Subject":"English","Sex":"Female","Value":"92"},{"Year":"2013","Units":"Key Stage 1","Subject":"English","Sex":"Male","Value":"86"},{"Year":"2013","Units":"Key Stage 1","Subject":"Maths","Sex":null,"Value":"91"},{"Year":"2013","Units":"Key Stage 1","Subject":"Maths","Sex":"Female","Value":"93"},{"Year":"2013","Units":"Key Stage 1","Subject":"Maths","Sex":"Male","Value":"90"},{"Year":"2014","Units":"Key Stage 1","Subject":"English","Sex":null,"Value":"90"},{"Year":"2014","Units":"Key Stage 1","Subject":"English","Sex":"Female","Value":"93"},{"Year":"2014","Units":"Key Stage 1","Subject":"English","Sex":"Male","Value":"87"},{"Year":"2014","Units":"Key Stage 1","Subject":"Maths","Sex":null,"Value":"92"},{"Year":"2014","Units":"Key Stage 1","Subject":"Maths","Sex":"Female","Value":"93"},{"Year":"2014","Units":"Key Stage 1","Subject":"Maths","Sex":"Male","Value":"91"},{"Year":"2015","Units":"Key Stage 1","Subject":"English","Sex":null,"Value":"90"},{"Year":"2015","Units":"Key Stage 1","Subject":"English","Sex":"Female","Value":"93"},{"Year":"2015","Units":"Key Stage 1","Subject":"English","Sex":"Male","Value":"88"},{"Year":"2015","Units":"Key Stage 1","Subject":"Maths","Sex":null,"Value":"93"},{"Year":"2015","Units":"Key Stage 1","Subject":"Maths","Sex":"Female","Value":"94"},{"Year":"2015","Units":"Key Stage 1","Subject":"Maths","Sex":"Male","Value":"91"},{"Year":"2016","Units":"Key Stage 1","Subject":"English","Sex":null,"Value":"74"},{"Year":"2016","Units":"Key Stage 1","Subject":"English","Sex":"Female","Value":"78"},{"Year":"2016","Units":"Key Stage 1","Subject":"English","Sex":"Male","Value":"70"},{"Year":"2016","Units":"Key Stage 1","Subject":"Maths","Sex":null,"Value":"73"},{"Year":"2016","Units":"Key Stage 1","Subject":"Maths","Sex":"Female","Value":"74"},{"Year":"2016","Units":"Key Stage 1","Subject":"Maths","Sex":"Male","Value":"72"},{"Year":"2000","Units":"Key Stage 2","Subject":"English","Sex":null,"Value":"83"},{"Year":"2001","Units":"Key Stage 2","Subject":"English","Sex":null,"Value":"82"},{"Year":"2002","Units":"Key Stage 2","Subject":"English","Sex":null,"Value":"80"},{"Year":"2003","Units":"Key Stage 2","Subject":"English","Sex":null,"Value":"81"},{"Year":"2004","Units":"Key Stage 2","Subject":"English","Sex":null,"Value":"83"},{"Year":"2005","Units":"Key Stage 2","Subject":"English","Sex":null,"Value":"84"},{"Year":"2006","Units":"Key Stage 2","Subject":"English","Sex":null,"Value":"83"},{"Year":"2007","Units":"Key Stage 2","Subject":"English","Sex":null,"Value":"84"},{"Year":"2008","Units":"Key Stage 2","Subject":"English","Sex":null,"Value":"87"},{"Year":"2009","Units":"Key Stage 2","Subject":"English","Sex":null,"Value":"86"},{"Year":"2010","Units":"Key Stage 2","Subject":"English","Sex":null,"Value":"83"},{"Year":"2011","Units":"Key Stage 2","Subject":"English","Sex":null,"Value":"84"},{"Year":"2012","Units":"Key Stage 2","Subject":"English","Sex":null,"Value":"87"},{"Year":"2013","Units":"Key Stage 2","Subject":"English","Sex":null,"Value":"86"},{"Year":"2014","Units":"Key Stage 2","Subject":"English","Sex":null,"Value":"89"},{"Year":"2015","Units":"Key Stage 2","Subject":"English","Sex":null,"Value":"89"},{"Year":"2016","Units":"Key Stage 2","Subject":"English","Sex":null,"Value":"66"},{"Year":"2000","Units":"Key Stage 2","Subject":"Maths","Sex":null,"Value":"72"},{"Year":"2001","Units":"Key Stage 2","Subject":"Maths","Sex":null,"Value":"71"},{"Year":"2002","Units":"Key Stage 2","Subject":"Maths","Sex":null,"Value":"73"},{"Year":"2003","Units":"Key Stage 2","Subject":"Maths","Sex":null,"Value":"73"},{"Year":"2004","Units":"Key Stage 2","Subject":"Maths","Sex":null,"Value":"74"},{"Year":"2005","Units":"Key Stage 2","Subject":"Maths","Sex":null,"Value":"75"},{"Year":"2006","Units":"Key Stage 2","Subject":"Maths","Sex":null,"Value":"76"},{"Year":"2007","Units":"Key Stage 2","Subject":"Maths","Sex":null,"Value":"77"},{"Year":"2008","Units":"Key Stage 2","Subject":"Maths","Sex":null,"Value":"79"},{"Year":"2009","Units":"Key Stage 2","Subject":"Maths","Sex":null,"Value":"79"},{"Year":"2010","Units":"Key Stage 2","Subject":"Maths","Sex":null,"Value":"79"},{"Year":"2011","Units":"Key Stage 2","Subject":"Maths","Sex":null,"Value":"80"},{"Year":"2012","Units":"Key Stage 2","Subject":"Maths","Sex":null,"Value":"84"},{"Year":"2013","Units":"Key Stage 2","Subject":"Maths","Sex":null,"Value":"85"},{"Year":"2014","Units":"Key Stage 2","Subject":"Maths","Sex":null,"Value":"86"},{"Year":"2015","Units":"Key Stage 2","Subject":"Maths","Sex":null,"Value":"87"},{"Year":"2016","Units":"Key Stage 2","Subject":"Maths","Sex":null,"Value":"70"},{"Year":"2007","Units":"Key Stage 2","Subject":"English","Sex":"Male","Value":"81"},{"Year":"2008","Units":"Key Stage 2","Subject":"English","Sex":"Male","Value":"83"},{"Year":"2009","Units":"Key Stage 2","Subject":"English","Sex":"Male","Value":"82"},{"Year":"2010","Units":"Key Stage 2","Subject":"English","Sex":"Male","Value":"80"},{"Year":"2011","Units":"Key Stage 2","Subject":"English","Sex":"Male","Value":"80"},{"Year":"2012","Units":"Key Stage 2","Subject":"English","Sex":"Male","Value":"84"},{"Year":"2013","Units":"Key Stage 2","Subject":"English","Sex":"Male","Value":"83"},{"Year":"2014","Units":"Key Stage 2","Subject":"English","Sex":"Male","Value":"87"},{"Year":"2015","Units":"Key Stage 2","Subject":"English","Sex":"Male","Value":"87"},{"Year":"2016","Units":"Key Stage 2","Subject":"English","Sex":"Male","Value":"62"},{"Year":"2007","Units":"Key Stage 2","Subject":"English","Sex":"Female","Value":"87"},{"Year":"2008","Units":"Key Stage 2","Subject":"English","Sex":"Female","Value":"90"},{"Year":"2009","Units":"Key Stage 2","Subject":"English","Sex":"Female","Value":"89"},{"Year":"2010","Units":"Key Stage 2","Subject":"English","Sex":"Female","Value":"87"},{"Year":"2011","Units":"Key Stage 2","Subject":"English","Sex":"Female","Value":"88"},{"Year":"2012","Units":"Key Stage 2","Subject":"English","Sex":"Female","Value":"90"},{"Year":"2013","Units":"Key Stage 2","Subject":"English","Sex":"Female","Value":"88"},{"Year":"2014","Units":"Key Stage 2","Subject":"English","Sex":"Female","Value":"91"},{"Year":"2015","Units":"Key Stage 2","Subject":"English","Sex":"Female","Value":"91"},{"Year":"2016","Units":"Key Stage 2","Subject":"English","Sex":"Female","Value":"70"},{"Year":"2007","Units":"Key Stage 2","Subject":"Maths","Sex":"Male","Value":"78"},{"Year":"2008","Units":"Key Stage 2","Subject":"Maths","Sex":"Male","Value":"79"},{"Year":"2009","Units":"Key Stage 2","Subject":"Maths","Sex":"Male","Value":"79"},{"Year":"2010","Units":"Key Stage 2","Subject":"Maths","Sex":"Male","Value":"79"},{"Year":"2011","Units":"Key Stage 2","Subject":"Maths","Sex":"Male","Value":"80"},{"Year":"2012","Units":"Key Stage 2","Subject":"Maths","Sex":"Male","Value":"84"},{"Year":"2013","Units":"Key Stage 2","Subject":"Maths","Sex":"Male","Value":"84"},{"Year":"2014","Units":"Key Stage 2","Subject":"Maths","Sex":"Male","Value":"86"},{"Year":"2015","Units":"Key Stage 2","Subject":"Maths","Sex":"Male","Value":"87"},{"Year":"2016","Units":"Key Stage 2","Subject":"Maths","Sex":"Male","Value":"70"},{"Year":"2007","Units":"Key Stage 2","Subject":"Maths","Sex":"Female","Value":"76"},{"Year":"2008","Units":"Key Stage 2","Subject":"Maths","Sex":"Female","Value":"78"},{"Year":"2009","Units":"Key Stage 2","Subject":"Maths","Sex":"Female","Value":"78"},{"Year":"2010","Units":"Key Stage 2","Subject":"Maths","Sex":"Female","Value":"79"},{"Year":"2011","Units":"Key Stage 2","Subject":"Maths","Sex":"Female","Value":"80"},{"Year":"2012","Units":"Key Stage 2","Subject":"Maths","Sex":"Female","Value":"84"},{"Year":"2013","Units":"Key Stage 2","Subject":"Maths","Sex":"Female","Value":"85"},{"Year":"2014","Units":"Key Stage 2","Subject":"Maths","Sex":"Female","Value":"86"},{"Year":"2015","Units":"Key Stage 2","Subject":"Maths","Sex":"Female","Value":"87"},{"Year":"2016","Units":"Key Stage 2","Subject":"Maths","Sex":"Female","Value":"70"},{"Year":"2000","Units":"Key Stage 3","Subject":"English","Sex":null,"Value":"64"},{"Year":"2001","Units":"Key Stage 3","Subject":"English","Sex":null,"Value":"65"},{"Year":"2002","Units":"Key Stage 3","Subject":"English","Sex":null,"Value":"67"},{"Year":"2003","Units":"Key Stage 3","Subject":"English","Sex":null,"Value":"69"},{"Year":"2004","Units":"Key Stage 3","Subject":"English","Sex":null,"Value":"71"},{"Year":"2005","Units":"Key Stage 3","Subject":"English","Sex":null,"Value":"74"},{"Year":"2006","Units":"Key Stage 3","Subject":"English","Sex":null,"Value":"73"},{"Year":"2007","Units":"Key Stage 3","Subject":"English","Sex":null,"Value":"74"},{"Year":"2008","Units":"Key Stage 3","Subject":"English","Sex":null,"Value":"74"},{"Year":"2000","Units":"Key Stage 3","Subject":"Maths","Sex":null,"Value":"65"},{"Year":"2001","Units":"Key Stage 3","Subject":"Maths","Sex":null,"Value":"66"},{"Year":"2002","Units":"Key Stage 3","Subject":"Maths","Sex":null,"Value":"67"},{"Year":"2003","Units":"Key Stage 3","Subject":"Maths","Sex":null,"Value":"71"},{"Year":"2004","Units":"Key Stage 3","Subject":"Maths","Sex":null,"Value":"73"},{"Year":"2005","Units":"Key Stage 3","Subject":"Maths","Sex":null,"Value":"74"},{"Year":"2006","Units":"Key Stage 3","Subject":"Maths","Sex":null,"Value":"77"},{"Year":"2007","Units":"Key Stage 3","Subject":"Maths","Sex":null,"Value":"76"},{"Year":"2008","Units":"Key Stage 3","Subject":"Maths","Sex":null,"Value":"77"},{"Year":"2004","Units":"Key Stage 3","Subject":"English","Sex":"Male","Value":"64"},{"Year":"2005","Units":"Key Stage 3","Subject":"English","Sex":"Male","Value":"67"},{"Year":"2006","Units":"Key Stage 3","Subject":"English","Sex":"Male","Value":"59"},{"Year":"2007","Units":"Key Stage 3","Subject":"English","Sex":"Male","Value":"65"},{"Year":"2008","Units":"Key Stage 3","Subject":"English","Sex":"Male","Value":"62"},{"Year":"2004","Units":"Key Stage 3","Subject":"English","Sex":"Female","Value":"78"},{"Year":"2005","Units":"Key Stage 3","Subject":"English","Sex":"Female","Value":"81"},{"Year":"2006","Units":"Key Stage 3","Subject":"English","Sex":"Female","Value":"74"},{"Year":"2007","Units":"Key Stage 3","Subject":"English","Sex":"Female","Value":"78"},{"Year":"2008","Units":"Key Stage 3","Subject":"English","Sex":"Female","Value":"76"},{"Year":"2004","Units":"Key Stage 3","Subject":"Maths","Sex":"Male","Value":"72"},{"Year":"2005","Units":"Key Stage 3","Subject":"Maths","Sex":"Male","Value":"73"},{"Year":"2006","Units":"Key Stage 3","Subject":"Maths","Sex":"Male","Value":"76"},{"Year":"2007","Units":"Key Stage 3","Subject":"Maths","Sex":"Male","Value":"75"},{"Year":"2008","Units":"Key Stage 3","Subject":"Maths","Sex":"Male","Value":"76"},{"Year":"2004","Units":"Key Stage 3","Subject":"Maths","Sex":"Female","Value":"74"},{"Year":"2005","Units":"Key Stage 3","Subject":"Maths","Sex":"Female","Value":"74"},{"Year":"2006","Units":"Key Stage 3","Subject":"Maths","Sex":"Female","Value":"77"},{"Year":"2007","Units":"Key Stage 3","Subject":"Maths","Sex":"Female","Value":"76"},{"Year":"2008","Units":"Key Stage 3","Subject":"Maths","Sex":"Female","Value":"77"},{"Year":"2009","Units":"Key Stage 4","Subject":"English","Sex":null,"Value":"99"},{"Year":"2009","Units":"Key Stage 4","Subject":"English","Sex":"Female","Value":"99.2"},{"Year":"2009","Units":"Key Stage 4","Subject":"English","Sex":"Male","Value":"98.7"},{"Year":"2009","Units":"Key Stage 4","Subject":"Maths","Sex":null,"Value":"98.2"},{"Year":"2009","Units":"Key Stage 4","Subject":"Maths","Sex":"Female","Value":"98.3"},{"Year":"2009","Units":"Key Stage 4","Subject":"Maths","Sex":"Male","Value":"98.2"},{"Year":"2010","Units":"Key Stage 4","Subject":"English","Sex":null,"Value":"99.1"},{"Year":"2010","Units":"Key Stage 4","Subject":"English","Sex":"Female","Value":"99.3"},{"Year":"2010","Units":"Key Stage 4","Subject":"English","Sex":"Male","Value":"98.9"},{"Year":"2010","Units":"Key Stage 4","Subject":"Maths","Sex":null,"Value":"98.3"},{"Year":"2010","Units":"Key Stage 4","Subject":"Maths","Sex":"Female","Value":"98.4"},{"Year":"2010","Units":"Key Stage 4","Subject":"Maths","Sex":"Male","Value":"98.3"},{"Year":"2011","Units":"Key Stage 4","Subject":"English","Sex":null,"Value":"99.4"},{"Year":"2011","Units":"Key Stage 4","Subject":"English","Sex":"Female","Value":"99.5"},{"Year":"2011","Units":"Key Stage 4","Subject":"English","Sex":"Male","Value":"99.2"},{"Year":"2011","Units":"Key Stage 4","Subject":"Maths","Sex":null,"Value":"98.5"},{"Year":"2011","Units":"Key Stage 4","Subject":"Maths","Sex":"Female","Value":"98.6"},{"Year":"2011","Units":"Key Stage 4","Subject":"Maths","Sex":"Male","Value":"98.4"},{"Year":"2012","Units":"Key Stage 4","Subject":"English","Sex":null,"Value":"99.4"},{"Year":"2012","Units":"Key Stage 4","Subject":"English","Sex":"Female","Value":"99.6"},{"Year":"2012","Units":"Key Stage 4","Subject":"English","Sex":"Male","Value":"99.2"},{"Year":"2012","Units":"Key Stage 4","Subject":"Maths","Sex":null,"Value":"98.2"},{"Year":"2012","Units":"Key Stage 4","Subject":"Maths","Sex":"Female","Value":"98.3"},{"Year":"2012","Units":"Key Stage 4","Subject":"Maths","Sex":"Male","Value":"98.1"},{"Year":"2013","Units":"Key Stage 4","Subject":"English","Sex":null,"Value":"99.1"},{"Year":"2013","Units":"Key Stage 4","Subject":"English","Sex":"Female","Value":"99.3"},{"Year":"2013","Units":"Key Stage 4","Subject":"English","Sex":"Male","Value":"98.8"},{"Year":"2013","Units":"Key Stage 4","Subject":"Maths","Sex":null,"Value":"94.8"},{"Year":"2013","Units":"Key Stage 4","Subject":"Maths","Sex":"Female","Value":"95.1"},{"Year":"2013","Units":"Key Stage 4","Subject":"Maths","Sex":"Male","Value":"94.5"},{"Year":"2014","Units":"Key Stage 4","Subject":"English","Sex":null,"Value":"99.3"},{"Year":"2014","Units":"Key Stage 4","Subject":"English","Sex":"Female","Value":"99.6"},{"Year":"2014","Units":"Key Stage 4","Subject":"English","Sex":"Male","Value":"99.1"},{"Year":"2014","Units":"Key Stage 4","Subject":"Maths","Sex":null,"Value":"95.9"},{"Year":"2014","Units":"Key Stage 4","Subject":"Maths","Sex":"Female","Value":"96.1"},{"Year":"2014","Units":"Key Stage 4","Subject":"Maths","Sex":"Male","Value":"95.6"},{"Year":"2015","Units":"Key Stage 4","Subject":"English","Sex":null,"Value":"99.3"},{"Year":"2015","Units":"Key Stage 4","Subject":"English","Sex":"Female","Value":"99.6"},{"Year":"2015","Units":"Key Stage 4","Subject":"English","Sex":"Male","Value":"99.1"},{"Year":"2015","Units":"Key Stage 4","Subject":"Maths","Sex":null,"Value":"96.4"},{"Year":"2015","Units":"Key Stage 4","Subject":"Maths","Sex":"Female","Value":"96.8"},{"Year":"2015","Units":"Key Stage 4","Subject":"Maths","Sex":"Male","Value":"96"},{"Year":"2015","Units":"Key Stage 4","Subject":null,"Sex":null,"Value":"96.26431387"},{"Year":"2015","Units":"Key Stage 4","Subject":null,"Sex":"Female","Value":"96.74365771"},{"Year":"2015","Units":"Key Stage 4","Subject":null,"Sex":"Male","Value":"95.79456643"},{"Year":"2016","Units":"Key Stage 4","Subject":"English","Sex":null,"Value":"98.4"},{"Year":"2016","Units":"Key Stage 4","Subject":"Maths","Sex":null,"Value":"97.6"},{"Year":"2016","Units":"Key Stage 4","Subject":"English","Sex":"Male","Value":"97.7"},{"Year":"2016","Units":"Key Stage 4","Subject":"Maths","Sex":"Male","Value":"97.3"},{"Year":"2016","Units":"Key Stage 4","Subject":"English","Sex":"Female","Value":"99.1"},{"Year":"2016","Units":"Key Stage 4","Subject":"Maths","Sex":"Female","Value":"97.9"}]' data-indicatorid='indicator_4-1-1' data-country="UK"
+    data-charttitle="" data-measurementunit="" data-datasource="Department for Education" data-geographicalarea="England" data-showdata="true">
+
+    
+      
+    
+    
+
+    
+    <div id="toolbar">
+      <div id="fields"></div>
+    </div>
+    
+    <div id="units"></div>
+    <div class="plot-container">
+        
+<canvas></canvas>
+    </div>
+    
+
+
+    
+    
+    <div class="alert alert-warning" role="alert">
+      <i class="fa fa-info" aria-hidden="true"></i> See metadata tab for sources, definitions, and methodology information
+    </div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      
+        <li role="presentation" class="nav-item active">
+          <a class="nav-link" data-toggle="tab" href="#data" aria-controls="data" role="tab">Data</a>
+        </li>
+      
+      <li role="presentation" class="nav-item  ">
+        <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab">Metadata</a>
+      </li>
+      <li role="presentation" class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab">Sources</a>
+      </li>
+      
+    </ul>
+    
+    <!-- Tab panes -->
+    <div class="tab-content">
+      
+        <div role="tabpanel" class="tab-pane active" id="data">
+          
+          <p>Unit of Measurement: </p>     
+          <a href="/sdg-indicators/data/indicator_4-1-1.csv" class="btn btn-primary btn-download" download='indicator_4-1-1.csv'>Download source CSV</a>
+          <div id="datatables"></div>
+        </div>
+      
+      <div role="tabpanel" class="tab-pane " id="metadata">
+        <!-- National Metadata -->
+        <div class="collapsible expanded">
+          <h3>National Metadata<span> (Collapse)</span></h3>
+          <article>
+            <p>This table provides metadata for the actual indicator available from UK statistics closest to the corresponding global
+                SDG indicator. Please note that even when the global SDG indicator is fully available from UK statistics, this table
+                should be consulted for information on national methodology and other UK-specific metadata information.</p>
+              <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Actual Indicator Available </th>
+        <td>
+          
+            Proportion of children and young people: (a) in Key Stage 1; (b)  in Key Stage 2; (c)  in Key Stage 3; and (d)  in Key Stage 4 achieving at least a minimum proficiency level in (i) reading or English and (ii) mathematics, by sex
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Actual Indicator Description </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Periodicity </th>
+        <td>
+          
+            Annual
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Earliest Available Data </th>
+        <td>
+          
+            2000
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Geographic Coverage </th>
+        <td>
+          
+            England
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Release Date </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Next Release </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Statistical Classification </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Disaggregation </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Comments and Limitations </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Contact Details </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+        <!-- Method of Computation -->
+        <div class="collapsible collapsed">
+          <h3>How the UK Indicator is Calculated<span> (Expand)</span></h3>
+          <article>
+            <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Units of Measure </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Calculations </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Numerator </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Denominator </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Definitions </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+        <!-- Global Metadata -->
+        <div class="collapsible collapsed">
+          <h3>Global Metadata<span> (Expand)</span></h3>
+          <article>
+            <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. Complete global <a href="http://unstats.un.org/sdgs/files/metadata-compilation/Metadata-Goal-4.pdf">metadata</a> is provided by the UN Statistics Division.</p>
+            <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Name </th>
+        <td>
+          
+            Proportion of children and young people: (a) in grades 2/3; (b) at the end of primary; and (c) at the end of lower secondary achieving at least a minimum proficiency level in (i) reading and (ii) mathematics, by sex
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Number </th>
+        <td>
+          
+            4.1.1
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Target Name </th>
+        <td>
+          
+            By 2030, ensure that all girls and boys complete free, equitable and quality primary and secondary education leading to relevant and effective learning outcomes
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Target Number </th>
+        <td>
+          
+            4.1
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Global Indicator Description </th>
+        <td>
+          
+            Percentage of children and young people at the end of primary and lower secondary levels of education achieving at least a minimum proficiency level in (a) reading and (b) mathematics. The minimum proficiency level will be measured relative to new common reading and numeracy scales currently in development. The indicator is calculated as the number of children and young people at the end of primary or lower secondary education achieving or exceeding the minimum proficiency level in the given subject, expressed as a percentage of all children and young people at the end of primary or lower secondary education.
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Designated Tier </th>
+        <td>
+          
+            3/2
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Custodian Agency </th>
+        <td>
+          
+            UNESCO-UIS
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Partner Agency </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UNSD Indicator Code </th>
+        <td>
+          
+            C040101
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Indicator Notes </th>
+        <td>
+          
+            IAEG-SDG 4th meeting: Multi-tier classification due to concerns regarding the methodology for part (a)
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Link to UN Metadata </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="http://unstats.un.org/sdgs/files/metadata-compilation/Metadata-Goal-4.pdf">
+                UN Metadata
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="sources">
+        <!-- Count the non-empty sources (up to 5) -->
+
+
+
+
+  <h3>UK Data Sources Metadata</h3>
+  <div class="row no-gutters">
+  
+   
+    
+    <div class="col-md-6">
+      <h4>Source 1</h4>
+      <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            Department for Education
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            Annual
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Earliest Available Data </th>
+        <td>
+          
+            2012
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Geographical Coverage </th>
+        <td>
+          
+            England
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Link to Data Source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://www.gov.uk/government/statistics/phonics-screening-check-and-key-stage-1-assessments-england-2016 ">
+                Link to Source - Key Stage 1
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Release Date </th>
+        <td>
+          
+            19 December 2016
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Next Release </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Statistical Classification </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Contact Details </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Other Information </th>
+        <td>
+          
+            Other data source links for Key Stage 1 are:  https://www.gov.uk/government/statistics/phonics-screening-check-and-key-stage-1-assessments-england-2015
+https://www.gov.uk/government/statistics/phonics-screening-check-and-key-stage-1-assessments-england-2014
+https://www.gov.uk/government/statistics/phonics-screening-check-and-national-curriculum-assessments-at-key-stage-1-in-england-2013
+https://www.gov.uk/government/statistics/phonics-screening-check-and-national-curriculum-assessments-at-key-stage-1-in-england-2012
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+    </div>
+    
+   
+    
+    <div class="col-md-6">
+      <h4>Source 2</h4>
+      <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            Department for Education
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            Annual
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Earliest Available Data </th>
+        <td>
+          
+            2000
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Geographical Coverage </th>
+        <td>
+          
+            England
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Link to Data Source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://www.gov.uk/government/statistics/national-curriculum-assessments-key-stage-2-2016-revised">
+                Link to Source - Key Stage 2
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Release Date </th>
+        <td>
+          
+            22 June 2017
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Next Release </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Statistical Classification </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Contact Details </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Other Information </th>
+        <td>
+          
+            Other data sources for Key Stage 2 are: https://www.gov.uk/government/statistics/national-curriculum-assessments-at-key-stage-2-2015-revised
+https://www.gov.uk/government/statistics/national-curriculum-assessments-at-key-stage-2-2014-revised
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+    </div>
+    
+   
+    
+    <div class="col-md-6">
+      <h4>Source 3</h4>
+      <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            Department for Education
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            Annual
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Earliest Available Data </th>
+        <td>
+          
+            2000
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Geographical Coverage </th>
+        <td>
+          
+            England
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Link to Data Source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="http://webarchive.nationalarchives.gov.uk/20101008173623/http://www.dcsf.gov.uk/rsgateway/DB/SFR/s000847/index.shtml">
+                Link to Source - Key Stage 3
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Release Date </th>
+        <td>
+          
+            16th June 2009
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Next Release </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Statistical Classification </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Contact Details </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Other Information </th>
+        <td>
+          
+            Other data sources for Key Stage 3 are: http://webarchive.nationalarchives.gov.uk/20130325074736/https://www.education.gov.uk/researchandstatistics/statistics/allstatistics/a00195434/national-curriculum-assessments-at-key-stage-3-in-
+Data sources for Key Stage 4 (GCSE) are: https://www.gov.uk/government/statistics/gcse-and-equivalent-results-2016-to-2017-provisional
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+    </div>
+    
+  </div>
+
+
+      </div>
+      
+    </div>
+  </section>
+</div>
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
+<!-- Google Analytics -->
+
+<!-- /.container </div> -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20171021000508'></script>
+<script>
+$(function() {
+    $(window).scroll(function() {
+        if ($(".navbar").offset().top > 50) {
+            $("#main-nav").addClass("collapsed");
+        } else {
+            $("#main-nav").removeClass("collapsed");
+        }
+    });
+
+    $('#metadata .collapsible h3').click(function() {
+      var $container = $(this).closest('div'),
+          $article = $(this).next('article'),
+          $span = $(this).find('span');
+
+      $article.slideToggle(function() {
+        if($container.hasClass('expanded')) {
+          $container.removeClass('expanded');
+          $container.addClass('collapsed');
+          $span.html(' (Expand)');
+        } else {
+          $container.removeClass('collapsed');
+          $container.addClass('expanded');
+          $span.html(' (Collapse)');
+        }
+      });
+    });
+
+    if($('#indicatorData').length) {
+      var model = new indicatorModel({
+        data: $('#indicatorData').data('indicatordata'),
+        country: $('#indicatorData').data('country'),
+        indicatorId: $('#indicatorData').data('indicatorid'),
+        chartTitle: $('#indicatorData').data('charttitle'),
+        measurementUnit: $('#indicatorData').data('measurementunit'),
+        dataSource: $('#indicatorData').data('datasource'),
+        geographicalArea: $('#indicatorData').data('geographicalarea'),
+        showData: $('#indicatorData').data('showdata')
+      }),
+      view  = new indicatorView(model, {
+        rootElement: '#indicatorData',
+        maxChartHeight: 600
+      }),
+      controller = new indicatorController(model, view);
+      controller.initialise();
+    }
+
+    
+});
+</script>
+
+</body>
+</html>
+

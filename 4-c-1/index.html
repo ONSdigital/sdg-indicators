@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Title and meta description
+        ================================================== -->
+        <title>Proportion of teachers in: (a) pre-primary; (b) primary; (c) lower secondary; and (d) upper secondary education who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country - U.K. Indicators For The Sustainable Development Goals</title>
+        <meta property="og:title" content="U.S. Data Federation">
+        <meta name="description" content="">
+        <meta property="og:description" content="">
+        <link rel="canonical" href="/">
+
+        
+
+        <!-- Favicons ================================================== -->
+        <!-- 128x128 -->
+        <link rel="shortcut icon" type="image/ico" href="/sdg-indicators/assets/img/favicons/favicon.ico">
+        <link rel="icon" type="image/png" href="/sdg-indicators/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
+        http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+        -->
+
+        
+
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20171021000508">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    </head>
+<body>
+<!-- <div class="container"> -->
+ 
+<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+<div id="disclaimer">
+  <div class="container">
+  <div class="alert alert-danger" role="alert">
+    <strong class="phase-tag">Alpha</strong> This is a development website and data may be test data. We welcome your
+    <a href="mailto:sustainabledevelopment@ons.gov.uk">feedback</a>.
+  </div>
+</div>
+</div>
+
+<header role="banner">
+  <div class="container">
+
+    <a class="navbar-brand" href="/sdg-indicators/" id="home">
+      <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+    </a>
+
+    <nav class="navbar navbar-default" id="main-nav">
+
+      <ul class="top-level">
+        <li><span data-target="menu">Menu</span></li>
+        <li><span data-target="search">Search</span></li>
+      </ul>
+
+      <ul class="nav navbar-nav menu-target" id="menu">
+        <li class="nav-link active" >
+          <a href="/sdg-indicators/">Goals</a>
+        </li>
+        <li class="nav-link" >
+          <a href="/sdg-indicators/reporting-status">Reporting Status</a>
+        </li>
+        <li class="nav-link" >
+          <a href="/sdg-indicators/about">About</a>
+        </li>
+<!--        <li class="nav-link" >
+          <a href="/sdg-indicators/news">News &amp; Events</a>
+        </li> -->
+      </ul>
+
+
+    </nav>
+  </div>
+
+</header> 
+ 
+
+
+
+
+<script type="text/template" id="item_template">
+  <% _.each(series, function(seriesItem) { %>
+    <div class="variable-selector" data-field="<%=seriesItem.field%>">
+      <h5><%=seriesItem.field%><i class="fa fa-chevron-down"></i></h5>
+      <div class="bar">
+        <div class="selected"></div>
+      </div>
+      <div class="variable-options">
+        <div>
+          <button data-type="select">Select all</button>
+          <button data-type="clear">Clear all</button>
+        </div>
+        <% _.each(seriesItem.values, function(item) { %>
+          <label><input type="checkbox" value="<%=item.value%>" data-field="<%=seriesItem.field%>" /><%=item.value%></label>
+        <% }); %>
+      </div>
+    </div>
+  <% }); %>
+</script>
+
+<script type="text/template" id="units_template">
+  <% _.each(units, function(unitsItem, index) { %>
+    <label><input type="radio" name="unit" value="<%=unitsItem%>" <% if(!index) { %>checked="checked"<% } %> /> <%=unitsItem%></label>
+  <% }); %>
+</script>
+
+
+<div class="heading indicator goal-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-md-3 col-lg-2">
+        <a href="/sdg-indicators/quality-education" title="View this goal's indicator list">
+          <img src="/sdg-indicators/assets/img/goals/4.png" alt="icon for Goal 4" />
+        </a>
+      </div>
+      <div class="col-xs-8 col-md-9 col-lg-10">
+        <h2>
+          <a href="/sdg-indicators/quality-education">
+            <span class="hidden-sm hidden-md hidden-lg">Goal 4: </span>Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all
+          </a>
+        </h2>
+        <h3>Indicator 4.c.1: Proportion of teachers in: (a) pre-primary; (b) primary; (c) lower secondary; and (d) upper secondary education who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="main-content" class="container goal-4">
+
+   
+   
+   
+   
+
+   
+   
+   
+   
+  
+  <ol class="breadcrumb">
+  <li><a href="/sdg-indicators/">Home</a></li>
+  
+      <li><a href="/sdg-indicators/quality-education" title="Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all">Goal 4</a></li>
+      <li class="active">Proportion of teachers in: (a) pre-primary; (b) primary; (c) lower secondary; and (d) upper secondary education who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country</li>
+  
+</ol>
+
+  <div id="page-content">
+  
+
+  
+  </div>
+
+  <section id="indicatorData" data-indicatordata='[{"Year":"2016","Sex":"Male","Teaching level":"Nursery","Qualified teachers":null,"Value":"100"},{"Year":"2016","Sex":"Male","Teaching level":"Nursery","Qualified teachers":"Full-time","Value":"100"},{"Year":"2016","Sex":"Male","Teaching level":"Nursery","Qualified teachers":"Total regular FTE","Value":"100"},{"Year":"2016","Sex":"Female","Teaching level":"Nursery","Qualified teachers":null,"Value":"92.86"},{"Year":"2016","Sex":"Female","Teaching level":"Nursery","Qualified teachers":"Full-time","Value":"100"},{"Year":"2016","Sex":"Female","Teaching level":"Nursery","Qualified teachers":"Part-time","Value":"75"},{"Year":"2016","Sex":"Female","Teaching level":"Nursery","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2016","Sex":"Female","Teaching level":"Nursery","Qualified teachers":"Total regular FTE","Value":"100"},{"Year":"2016","Sex":null,"Teaching level":"Nursery","Qualified teachers":null,"Value":"100"},{"Year":"2016","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Full-time","Value":"90.91"},{"Year":"2016","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Part-time","Value":"100"},{"Year":"2016","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2016","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Total regular FTE","Value":"92.31"},{"Year":"2016","Sex":"Male","Teaching level":"Primary","Qualified teachers":null,"Value":"95.13"},{"Year":"2016","Sex":"Male","Teaching level":"Primary","Qualified teachers":"Full-time","Value":"95.88"},{"Year":"2016","Sex":"Male","Teaching level":"Primary","Qualified teachers":"Part-time","Value":"87.5"},{"Year":"2016","Sex":"Male","Teaching level":"Primary","Qualified teachers":"Part-time FTE","Value":"86.67"},{"Year":"2016","Sex":"Male","Teaching level":"Primary","Qualified teachers":"Total regular FTE","Value":"95.35"},{"Year":"2016","Sex":"Female","Teaching level":"Primary","Qualified teachers":null,"Value":"97.26"},{"Year":"2016","Sex":"Female","Teaching level":"Primary","Qualified teachers":"Full-time","Value":"97.12"},{"Year":"2016","Sex":"Female","Teaching level":"Primary","Qualified teachers":"Part-time","Value":"97.19"},{"Year":"2016","Sex":"Female","Teaching level":"Primary","Qualified teachers":"Part-time FTE","Value":"97.91"},{"Year":"2016","Sex":"Female","Teaching level":"Primary","Qualified teachers":"Total regular FTE","Value":"97.28"},{"Year":"2016","Sex":null,"Teaching level":"Primary","Qualified teachers":null,"Value":"96.91"},{"Year":"2016","Sex":null,"Teaching level":"Primary","Qualified teachers":"Full-time","Value":"97.04"},{"Year":"2016","Sex":null,"Teaching level":"Primary","Qualified teachers":"Part-time","Value":"96.74"},{"Year":"2016","Sex":null,"Teaching level":"Primary","Qualified teachers":"Part-time FTE","Value":"97.35"},{"Year":"2016","Sex":null,"Teaching level":"Primary","Qualified teachers":"Total regular FTE","Value":"97.04"},{"Year":"2016","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":null,"Value":"94.92"},{"Year":"2016","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":"Full-time","Value":"96.3"},{"Year":"2016","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":"Part-time","Value":"80"},{"Year":"2016","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":"Part-time FTE","Value":"66.67"},{"Year":"2016","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":"Total regular FTE","Value":"94.74"},{"Year":"2016","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":null,"Value":"96.21"},{"Year":"2016","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":"Full-time","Value":"95.51"},{"Year":"2016","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":"Part-time","Value":"95.96"},{"Year":"2016","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":"Part-time FTE","Value":"98.21"},{"Year":"2016","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":"Total regular FTE","Value":"96.01"},{"Year":"2016","Sex":null,"Teaching level":"Converter academy","Qualified teachers":null,"Value":"95.78"},{"Year":"2016","Sex":null,"Teaching level":"Converter academy","Qualified teachers":"Full-time","Value":"95.65"},{"Year":"2016","Sex":null,"Teaching level":"Converter academy","Qualified teachers":"Part-time","Value":"96.12"},{"Year":"2016","Sex":null,"Teaching level":"Converter academy","Qualified teachers":"Part-time FTE","Value":"96.61"},{"Year":"2016","Sex":null,"Teaching level":"Converter academy","Qualified teachers":"Total regular FTE","Value":"95.82"},{"Year":"2016","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":null,"Value":"92.31"},{"Year":"2016","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":"Full-time","Value":"91.67"},{"Year":"2016","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":"Part-time","Value":"100"},{"Year":"2016","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2016","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":"Total regular FTE","Value":"92"},{"Year":"2016","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":null,"Value":"94.16"},{"Year":"2016","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":"Full-time","Value":"94.44"},{"Year":"2016","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":"Part-time","Value":"96.43"},{"Year":"2016","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2016","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":"Total regular FTE","Value":"94.4"},{"Year":"2016","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":null,"Value":"94.44"},{"Year":"2016","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":"Full-time","Value":"93.94"},{"Year":"2016","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":"Part-time","Value":"96.67"},{"Year":"2016","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":"Part-time FTE","Value":"94.44"},{"Year":"2016","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":"Total regular FTE","Value":"94.04"},{"Year":"2016","Sex":"Male","Teaching level":"Free schools","Qualified teachers":null,"Value":"50"},{"Year":"2016","Sex":"Male","Teaching level":"Free schools","Qualified teachers":"Full-time","Value":"50"},{"Year":"2016","Sex":"Male","Teaching level":"Free schools","Qualified teachers":"Total regular FTE","Value":"50"},{"Year":"2016","Sex":"Female","Teaching level":"Free schools","Qualified teachers":null,"Value":"90.91"},{"Year":"2016","Sex":"Female","Teaching level":"Free schools","Qualified teachers":"Full-time","Value":"88.89"},{"Year":"2016","Sex":"Female","Teaching level":"Free schools","Qualified teachers":"Part-time","Value":"50"},{"Year":"2016","Sex":"Female","Teaching level":"Free schools","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2016","Sex":"Female","Teaching level":"Free schools","Qualified teachers":"Total regular FTE","Value":"90"},{"Year":"2016","Sex":null,"Teaching level":"Free schools","Qualified teachers":null,"Value":"84.62"},{"Year":"2016","Sex":null,"Teaching level":"Free schools","Qualified teachers":"Full-time","Value":"81.82"},{"Year":"2016","Sex":null,"Teaching level":"Free schools","Qualified teachers":"Part-time","Value":"100"},{"Year":"2016","Sex":null,"Teaching level":"Free schools","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2016","Sex":null,"Teaching level":"Free schools","Qualified teachers":"Total regular FTE","Value":"83.33"},{"Year":"2016","Sex":"Male","Teaching level":null,"Qualified teachers":null,"Value":"93.02"},{"Year":"2016","Sex":"Male","Teaching level":null,"Qualified teachers":"Full-time","Value":"93.75"},{"Year":"2016","Sex":"Male","Teaching level":null,"Qualified teachers":"Part-time","Value":"85.71"},{"Year":"2016","Sex":"Male","Teaching level":null,"Qualified teachers":"Part-time FTE","Value":"75"},{"Year":"2016","Sex":"Male","Teaching level":null,"Qualified teachers":"Total regular FTE","Value":"93.98"},{"Year":"2016","Sex":"Female","Teaching level":null,"Qualified teachers":null,"Value":"95.52"},{"Year":"2016","Sex":"Female","Teaching level":null,"Qualified teachers":"Full-time","Value":"95.03"},{"Year":"2016","Sex":"Female","Teaching level":null,"Qualified teachers":"Part-time","Value":"96.12"},{"Year":"2016","Sex":"Female","Teaching level":null,"Qualified teachers":"Part-time FTE","Value":"97.3"},{"Year":"2016","Sex":"Female","Teaching level":null,"Qualified teachers":"Total regular FTE","Value":"95.42"},{"Year":"2016","Sex":null,"Teaching level":null,"Qualified teachers":null,"Value":"95.16"},{"Year":"2016","Sex":null,"Teaching level":null,"Qualified teachers":"Full-time","Value":"94.8"},{"Year":"2016","Sex":null,"Teaching level":null,"Qualified teachers":"Part-time","Value":"95.59"},{"Year":"2016","Sex":null,"Teaching level":null,"Qualified teachers":"Part-time FTE","Value":"96.15"},{"Year":"2016","Sex":null,"Teaching level":null,"Qualified teachers":"Total regular FTE","Value":"95.01"},{"Year":"2016","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":null,"Value":"94.63"},{"Year":"2016","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":"Full-time","Value":"95.67"},{"Year":"2016","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":"Part-time","Value":"87.1"},{"Year":"2016","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":"Part-time FTE","Value":"84.21"},{"Year":"2016","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":"Total regular FTE","Value":"95.03"},{"Year":"2016","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":null,"Value":"96.83"},{"Year":"2016","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":"Full-time","Value":"96.7"},{"Year":"2016","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":"Part-time","Value":"97.14"},{"Year":"2016","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":"Part-time FTE","Value":"97.8"},{"Year":"2016","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":"Total regular FTE","Value":"96.81"},{"Year":"2016","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":null,"Value":"96.48"},{"Year":"2016","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Full-time","Value":"96.52"},{"Year":"2016","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Part-time","Value":"96.67"},{"Year":"2016","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Part-time FTE","Value":"97.12"},{"Year":"2016","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Total regular FTE","Value":"96.58"},{"Year":"2016","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":null,"Value":"94.84"},{"Year":"2016","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":"Full-time","Value":"95.67"},{"Year":"2016","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":"Part-time","Value":"85.71"},{"Year":"2016","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":"Part-time FTE","Value":"92.31"},{"Year":"2016","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":"Total regular FTE","Value":"95.49"},{"Year":"2016","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":null,"Value":"94.47"},{"Year":"2016","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":"Full-time","Value":"94.96"},{"Year":"2016","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":"Part-time","Value":"92.98"},{"Year":"2016","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":"Part-time FTE","Value":"94.52"},{"Year":"2016","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":"Total regular FTE","Value":"94.89"},{"Year":"2016","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":null,"Value":"94.6"},{"Year":"2016","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Full-time","Value":"95.08"},{"Year":"2016","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Part-time","Value":"91.85"},{"Year":"2016","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Part-time FTE","Value":"95.29"},{"Year":"2016","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Total regular FTE","Value":"95.11"},{"Year":"2016","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":null,"Value":"94.43"},{"Year":"2016","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":"Full-time","Value":"95.29"},{"Year":"2016","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":"Part-time","Value":"82.86"},{"Year":"2016","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":"Part-time FTE","Value":"85.71"},{"Year":"2016","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":"Total regular FTE","Value":"95.28"},{"Year":"2016","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":null,"Value":"93.79"},{"Year":"2016","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":"Full-time","Value":"94.38"},{"Year":"2016","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":"Part-time","Value":"92.23"},{"Year":"2016","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":"Part-time FTE","Value":"94.17"},{"Year":"2016","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":"Total regular FTE","Value":"94.35"},{"Year":"2016","Sex":null,"Teaching level":"Converter academy","Qualified teachers":null,"Value":"94.03"},{"Year":"2016","Sex":null,"Teaching level":"Converter academy","Qualified teachers":"Full-time","Value":"94.87"},{"Year":"2016","Sex":null,"Teaching level":"Converter academy","Qualified teachers":"Part-time","Value":"90.79"},{"Year":"2016","Sex":null,"Teaching level":"Converter academy","Qualified teachers":"Part-time FTE","Value":"93.62"},{"Year":"2016","Sex":null,"Teaching level":"Converter academy","Qualified teachers":"Total regular FTE","Value":"94.6"},{"Year":"2016","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":null,"Value":"90.51"},{"Year":"2016","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":"Full-time","Value":"91.47"},{"Year":"2016","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":"Part-time","Value":"87.5"},{"Year":"2016","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":"Part-time FTE","Value":"80"},{"Year":"2016","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":"Total regular FTE","Value":"91.04"},{"Year":"2016","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":null,"Value":"89.96"},{"Year":"2016","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":"Full-time","Value":"89.85"},{"Year":"2016","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":"Part-time","Value":"90.48"},{"Year":"2016","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":"Part-time FTE","Value":"92.59"},{"Year":"2016","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":"Total regular FTE","Value":"90.18"},{"Year":"2016","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":null,"Value":"90.19"},{"Year":"2016","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":"Full-time","Value":"90.21"},{"Year":"2016","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":"Part-time","Value":"90"},{"Year":"2016","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":"Part-time FTE","Value":"90.63"},{"Year":"2016","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":"Total regular FTE","Value":"90.53"},{"Year":"2016","Sex":"Male","Teaching level":"Free schools","Qualified teachers":null,"Value":"86.67"},{"Year":"2016","Sex":"Male","Teaching level":"Free schools","Qualified teachers":"Full-time","Value":"85.71"},{"Year":"2016","Sex":"Male","Teaching level":"Free schools","Qualified teachers":"Part-time","Value":"100"},{"Year":"2016","Sex":"Male","Teaching level":"Free schools","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2016","Sex":"Male","Teaching level":"Free schools","Qualified teachers":"Total regular FTE","Value":"86.67"},{"Year":"2016","Sex":"Female","Teaching level":"Free schools","Qualified teachers":null,"Value":"88"},{"Year":"2016","Sex":"Female","Teaching level":"Free schools","Qualified teachers":"Full-time","Value":"90"},{"Year":"2016","Sex":"Female","Teaching level":"Free schools","Qualified teachers":"Part-time","Value":"80"},{"Year":"2016","Sex":"Female","Teaching level":"Free schools","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2016","Sex":"Female","Teaching level":"Free schools","Qualified teachers":"Total regular FTE","Value":"91.3"},{"Year":"2016","Sex":null,"Teaching level":"Free schools","Qualified teachers":null,"Value":"87.5"},{"Year":"2016","Sex":null,"Teaching level":"Free schools","Qualified teachers":"Full-time","Value":"88.24"},{"Year":"2016","Sex":null,"Teaching level":"Free schools","Qualified teachers":"Part-time","Value":"83.33"},{"Year":"2016","Sex":null,"Teaching level":"Free schools","Qualified teachers":"Part-time FTE","Value":"75"},{"Year":"2016","Sex":null,"Teaching level":"Free schools","Qualified teachers":"Total regular FTE","Value":"89.47"},{"Year":"2016","Sex":"Male","Teaching level":"UTC/studios","Qualified teachers":null,"Value":"83.33"},{"Year":"2016","Sex":"Male","Teaching level":"UTC/studios","Qualified teachers":"Full-time","Value":"80"},{"Year":"2016","Sex":"Male","Teaching level":"UTC/studios","Qualified teachers":"Total regular FTE","Value":"66.67"},{"Year":"2016","Sex":"Female","Teaching level":"UTC/studios","Qualified teachers":null,"Value":"83.33"},{"Year":"2016","Sex":"Female","Teaching level":"UTC/studios","Qualified teachers":"Full-time","Value":"80"},{"Year":"2016","Sex":"Female","Teaching level":"UTC/studios","Qualified teachers":"Part-time","Value":"100"},{"Year":"2016","Sex":"Female","Teaching level":"UTC/studios","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2016","Sex":"Female","Teaching level":"UTC/studios","Qualified teachers":"Total regular FTE","Value":"80"},{"Year":"2016","Sex":null,"Teaching level":"UTC/studios","Qualified teachers":null,"Value":"75"},{"Year":"2016","Sex":null,"Teaching level":"UTC/studios","Qualified teachers":"Full-time","Value":"80"},{"Year":"2016","Sex":null,"Teaching level":"UTC/studios","Qualified teachers":"Part-time","Value":"50"},{"Year":"2016","Sex":null,"Teaching level":"UTC/studios","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2016","Sex":null,"Teaching level":"UTC/studios","Qualified teachers":"Total regular FTE","Value":"81.82"},{"Year":"2016","Sex":"Male","Teaching level":null,"Qualified teachers":null,"Value":"92.96"},{"Year":"2016","Sex":"Male","Teaching level":null,"Qualified teachers":"Full-time","Value":"94.11"},{"Year":"2016","Sex":"Male","Teaching level":null,"Qualified teachers":"Part-time","Value":"82.22"},{"Year":"2016","Sex":"Male","Teaching level":null,"Qualified teachers":"Part-time FTE","Value":"85.19"},{"Year":"2016","Sex":"Male","Teaching level":null,"Qualified teachers":"Total regular FTE","Value":"93.66"},{"Year":"2016","Sex":"Female","Teaching level":null,"Qualified teachers":null,"Value":"92.55"},{"Year":"2016","Sex":"Female","Teaching level":null,"Qualified teachers":"Full-time","Value":"92.95"},{"Year":"2016","Sex":"Female","Teaching level":null,"Qualified teachers":"Part-time","Value":"91.7"},{"Year":"2016","Sex":"Female","Teaching level":null,"Qualified teachers":"Part-time FTE","Value":"93.38"},{"Year":"2016","Sex":"Female","Teaching level":null,"Qualified teachers":"Total regular FTE","Value":"93.03"},{"Year":"2016","Sex":null,"Teaching level":null,"Qualified teachers":null,"Value":"92.83"},{"Year":"2016","Sex":null,"Teaching level":null,"Qualified teachers":"Full-time","Value":"93.35"},{"Year":"2016","Sex":null,"Teaching level":null,"Qualified teachers":"Part-time","Value":"90.56"},{"Year":"2016","Sex":null,"Teaching level":null,"Qualified teachers":"Part-time FTE","Value":"92.7"},{"Year":"2016","Sex":null,"Teaching level":null,"Qualified teachers":"Total regular FTE","Value":"93.27"},{"Year":"2016","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":null,"Value":"93.66"},{"Year":"2016","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":"Full-time","Value":"94.46"},{"Year":"2016","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":"Part-time","Value":"84.62"},{"Year":"2016","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":"Part-time FTE","Value":"89.74"},{"Year":"2016","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":"Total regular FTE","Value":"94.23"},{"Year":"2016","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":null,"Value":"93.22"},{"Year":"2016","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":"Full-time","Value":"93.49"},{"Year":"2016","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":"Part-time","Value":"92.13"},{"Year":"2016","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":"Part-time FTE","Value":"93.75"},{"Year":"2016","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":"Total regular FTE","Value":"93.62"},{"Year":"2016","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":null,"Value":"93.34"},{"Year":"2016","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Full-time","Value":"93.89"},{"Year":"2016","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Part-time","Value":"90.97"},{"Year":"2016","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Part-time FTE","Value":"93.54"},{"Year":"2016","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Total regular FTE","Value":"93.85"},{"Year":"2016","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":null,"Value":"85.11"},{"Year":"2016","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":"Full-time","Value":"87.8"},{"Year":"2016","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time","Value":"80"},{"Year":"2016","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2016","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":"Total regular FTE","Value":"84.44"},{"Year":"2016","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":null,"Value":"89.78"},{"Year":"2016","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":"Full-time","Value":"89.22"},{"Year":"2016","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time","Value":"88.89"},{"Year":"2016","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time FTE","Value":"90.91"},{"Year":"2016","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":"Total regular FTE","Value":"90.24"},{"Year":"2016","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":null,"Value":"88.59"},{"Year":"2016","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Full-time","Value":"88.81"},{"Year":"2016","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time","Value":"87.8"},{"Year":"2016","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time FTE","Value":"92"},{"Year":"2016","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Total regular FTE","Value":"89.29"},{"Year":"2016","Sex":"Male","Teaching level":"Special academies/alternative provision","Qualified teachers":null,"Value":"77.78"},{"Year":"2016","Sex":"Male","Teaching level":"Special academies/alternative provision","Qualified teachers":"Full-time","Value":"76.47"},{"Year":"2016","Sex":"Male","Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time","Value":"50"},{"Year":"2016","Sex":"Male","Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2016","Sex":"Male","Teaching level":"Special academies/alternative provision","Qualified teachers":"Total regular FTE","Value":"77.78"},{"Year":"2016","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":null,"Value":"85.37"},{"Year":"2016","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":"Full-time","Value":"84.38"},{"Year":"2016","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time","Value":"88.89"},{"Year":"2016","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2016","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":"Total regular FTE","Value":"84.21"},{"Year":"2016","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":null,"Value":"83.05"},{"Year":"2016","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Full-time","Value":"81.63"},{"Year":"2016","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time","Value":"81.82"},{"Year":"2016","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time FTE","Value":"83.33"},{"Year":"2016","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Total regular FTE","Value":"81.82"},{"Year":"2016","Sex":"Male","Teaching level":"State funded special","Qualified teachers":null,"Value":"83.08"},{"Year":"2016","Sex":"Male","Teaching level":"State funded special","Qualified teachers":"Full-time","Value":"84.48"},{"Year":"2016","Sex":"Male","Teaching level":"State funded special","Qualified teachers":"Part-time","Value":"85.71"},{"Year":"2016","Sex":"Male","Teaching level":"State funded special","Qualified teachers":"Part-time FTE","Value":"75"},{"Year":"2016","Sex":"Male","Teaching level":"State funded special","Qualified teachers":"Total regular FTE","Value":"83.87"},{"Year":"2016","Sex":"Female","Teaching level":"State funded special","Qualified teachers":null,"Value":"88.76"},{"Year":"2016","Sex":"Female","Teaching level":"State funded special","Qualified teachers":"Full-time","Value":"88.06"},{"Year":"2016","Sex":"Female","Teaching level":"State funded special","Qualified teachers":"Part-time","Value":"90.91"},{"Year":"2016","Sex":"Female","Teaching level":"State funded special","Qualified teachers":"Part-time FTE","Value":"88.89"},{"Year":"2016","Sex":"Female","Teaching level":"State funded special","Qualified teachers":"Total regular FTE","Value":"88.82"},{"Year":"2016","Sex":null,"Teaching level":"State funded special","Qualified teachers":null,"Value":"87.24"},{"Year":"2016","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Full-time","Value":"86.98"},{"Year":"2016","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Part-time","Value":"86.54"},{"Year":"2016","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Part-time FTE","Value":"90.32"},{"Year":"2016","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Total regular FTE","Value":"87.44"},{"Year":"2016","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":null,"Value":"53.85"},{"Year":"2016","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":"Full-time","Value":"66.67"},{"Year":"2016","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":"Part-time","Value":"42.86"},{"Year":"2016","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":"Part-time FTE","Value":"50"},{"Year":"2016","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":"Total regular FTE","Value":"66.67"},{"Year":"2016","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":null,"Value":"86.36"},{"Year":"2016","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":"Full-time","Value":"88.89"},{"Year":"2016","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":"Part-time","Value":"81.48"},{"Year":"2016","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":"Part-time FTE","Value":"87.5"},{"Year":"2016","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":"Total regular FTE","Value":"88.24"},{"Year":"2016","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":null,"Value":"77.19"},{"Year":"2016","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Full-time","Value":"86.96"},{"Year":"2016","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Part-time","Value":"73.53"},{"Year":"2016","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Part-time FTE","Value":"75"},{"Year":"2016","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Total regular FTE","Value":"83.72"},{"Year":"2016","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":null,"Value":"93.05"},{"Year":"2016","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":"Full-time","Value":"94.14"},{"Year":"2016","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":"Part-time","Value":"81.08"},{"Year":"2016","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":"Part-time FTE","Value":"84.85"},{"Year":"2016","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":"Total regular FTE","Value":"93.71"},{"Year":"2016","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":null,"Value":"94.92"},{"Year":"2016","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":"Full-time","Value":"94.97"},{"Year":"2016","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":"Part-time","Value":"94.7"},{"Year":"2016","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":"Part-time FTE","Value":"95.71"},{"Year":"2016","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":"Total regular FTE","Value":"95.14"},{"Year":"2016","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":null,"Value":"94.44"},{"Year":"2016","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Full-time","Value":"94.76"},{"Year":"2016","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Part-time","Value":"93.49"},{"Year":"2016","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Part-time FTE","Value":"94.83"},{"Year":"2016","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Total regular FTE","Value":"94.73"},{"Year":"2015","Sex":"Male","Teaching level":"Nursery","Qualified teachers":null,"Value":"100"},{"Year":"2015","Sex":"Male","Teaching level":"Nursery","Qualified teachers":"Full-time","Value":"100"},{"Year":"2015","Sex":"Male","Teaching level":"Nursery","Qualified teachers":"Total regular FTE","Value":"100"},{"Year":"2015","Sex":"Female","Teaching level":"Nursery","Qualified teachers":null,"Value":"100"},{"Year":"2015","Sex":"Female","Teaching level":"Nursery","Qualified teachers":"Full-time","Value":"100"},{"Year":"2015","Sex":"Female","Teaching level":"Nursery","Qualified teachers":"Part-time","Value":"100"},{"Year":"2015","Sex":"Female","Teaching level":"Nursery","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2015","Sex":"Female","Teaching level":"Nursery","Qualified teachers":"Total regular FTE","Value":"92.31"},{"Year":"2015","Sex":null,"Teaching level":"Nursery","Qualified teachers":null,"Value":"93.33"},{"Year":"2015","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Full-time","Value":"90.91"},{"Year":"2015","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Part-time","Value":"100"},{"Year":"2015","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2015","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Total regular FTE","Value":"100"},{"Year":"2015","Sex":"Male","Teaching level":"Primary","Qualified teachers":null,"Value":"95.29"},{"Year":"2015","Sex":"Male","Teaching level":"Primary","Qualified teachers":"Full-time","Value":"96.41"},{"Year":"2015","Sex":"Male","Teaching level":"Primary","Qualified teachers":"Part-time","Value":"88"},{"Year":"2015","Sex":"Male","Teaching level":"Primary","Qualified teachers":"Part-time FTE","Value":"86.67"},{"Year":"2015","Sex":"Male","Teaching level":"Primary","Qualified teachers":"Total regular FTE","Value":"95.86"},{"Year":"2015","Sex":"Female","Teaching level":"Primary","Qualified teachers":null,"Value":"97.38"},{"Year":"2015","Sex":"Female","Teaching level":"Primary","Qualified teachers":"Full-time","Value":"97.43"},{"Year":"2015","Sex":"Female","Teaching level":"Primary","Qualified teachers":"Part-time","Value":"97.05"},{"Year":"2015","Sex":"Female","Teaching level":"Primary","Qualified teachers":"Part-time FTE","Value":"97.61"},{"Year":"2015","Sex":"Female","Teaching level":"Primary","Qualified teachers":"Total regular FTE","Value":"97.47"},{"Year":"2015","Sex":null,"Teaching level":"Primary","Qualified teachers":null,"Value":"97.09"},{"Year":"2015","Sex":null,"Teaching level":"Primary","Qualified teachers":"Full-time","Value":"97.19"},{"Year":"2015","Sex":null,"Teaching level":"Primary","Qualified teachers":"Part-time","Value":"96.63"},{"Year":"2015","Sex":null,"Teaching level":"Primary","Qualified teachers":"Part-time FTE","Value":"97.4"},{"Year":"2015","Sex":null,"Teaching level":"Primary","Qualified teachers":"Total regular FTE","Value":"97.23"},{"Year":"2015","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":null,"Value":"95.65"},{"Year":"2015","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":"Full-time","Value":"95.35"},{"Year":"2015","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":"Part-time","Value":"75"},{"Year":"2015","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2015","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":"Total regular FTE","Value":"93.33"},{"Year":"2015","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":null,"Value":"96.62"},{"Year":"2015","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":"Full-time","Value":"96.35"},{"Year":"2015","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":"Part-time","Value":"97.3"},{"Year":"2015","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":"Part-time FTE","Value":"97.62"},{"Year":"2015","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":"Total regular FTE","Value":"96.58"},{"Year":"2015","Sex":null,"Teaching level":"Converter academy","Qualified teachers":null,"Value":"96.17"},{"Year":"2015","Sex":null,"Teaching level":"Converter academy","Qualified teachers":"Full-time","Value":"96.17"},{"Year":"2015","Sex":null,"Teaching level":"Converter academy","Qualified teachers":"Part-time","Value":"96.15"},{"Year":"2015","Sex":null,"Teaching level":"Converter academy","Qualified teachers":"Part-time FTE","Value":"95.56"},{"Year":"2015","Sex":null,"Teaching level":"Converter academy","Qualified teachers":"Total regular FTE","Value":"96.42"},{"Year":"2015","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":null,"Value":"90.91"},{"Year":"2015","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":"Full-time","Value":"95"},{"Year":"2015","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":"Part-time","Value":"50"},{"Year":"2015","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2015","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":"Total regular FTE","Value":"90.91"},{"Year":"2015","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":null,"Value":"95"},{"Year":"2015","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":"Full-time","Value":"94.68"},{"Year":"2015","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":"Part-time","Value":"96"},{"Year":"2015","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2015","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":"Total regular FTE","Value":"94.55"},{"Year":"2015","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":null,"Value":"94.37"},{"Year":"2015","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":"Full-time","Value":"93.91"},{"Year":"2015","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":"Part-time","Value":"96.3"},{"Year":"2015","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2015","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":"Total regular FTE","Value":"94.66"},{"Year":"2015","Sex":"Male","Teaching level":"Free schools","Qualified teachers":null,"Value":"100"},{"Year":"2015","Sex":"Male","Teaching level":"Free schools","Qualified teachers":"Full-time","Value":"100"},{"Year":"2015","Sex":"Male","Teaching level":"Free schools","Qualified teachers":"Total regular FTE","Value":"100"},{"Year":"2015","Sex":"Female","Teaching level":"Free schools","Qualified teachers":null,"Value":"87.5"},{"Year":"2015","Sex":"Female","Teaching level":"Free schools","Qualified teachers":"Full-time","Value":"100"},{"Year":"2015","Sex":"Female","Teaching level":"Free schools","Qualified teachers":"Part-time","Value":"100"},{"Year":"2015","Sex":"Female","Teaching level":"Free schools","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2015","Sex":"Female","Teaching level":"Free schools","Qualified teachers":"Total regular FTE","Value":"100"},{"Year":"2015","Sex":null,"Teaching level":"Free schools","Qualified teachers":null,"Value":"88.89"},{"Year":"2015","Sex":null,"Teaching level":"Free schools","Qualified teachers":"Full-time","Value":"87.5"},{"Year":"2015","Sex":null,"Teaching level":"Free schools","Qualified teachers":"Part-time","Value":"100"},{"Year":"2015","Sex":null,"Teaching level":"Free schools","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2015","Sex":null,"Teaching level":"Free schools","Qualified teachers":"Total regular FTE","Value":"87.5"},{"Year":"2015","Sex":"Male","Teaching level":null,"Qualified teachers":null,"Value":"92.86"},{"Year":"2015","Sex":"Male","Teaching level":null,"Qualified teachers":"Full-time","Value":"93.75"},{"Year":"2015","Sex":"Male","Teaching level":null,"Qualified teachers":"Part-time","Value":"83.33"},{"Year":"2015","Sex":"Male","Teaching level":null,"Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2015","Sex":"Male","Teaching level":null,"Qualified teachers":"Total regular FTE","Value":"92.65"},{"Year":"2015","Sex":"Female","Teaching level":null,"Qualified teachers":null,"Value":"95.94"},{"Year":"2015","Sex":"Female","Teaching level":null,"Qualified teachers":"Full-time","Value":"95.56"},{"Year":"2015","Sex":"Female","Teaching level":null,"Qualified teachers":"Part-time","Value":"96.04"},{"Year":"2015","Sex":"Female","Teaching level":null,"Qualified teachers":"Part-time FTE","Value":"98.28"},{"Year":"2015","Sex":"Female","Teaching level":null,"Qualified teachers":"Total regular FTE","Value":"96.01"},{"Year":"2015","Sex":null,"Teaching level":null,"Qualified teachers":null,"Value":"95.47"},{"Year":"2015","Sex":null,"Teaching level":null,"Qualified teachers":"Full-time","Value":"95.52"},{"Year":"2015","Sex":null,"Teaching level":null,"Qualified teachers":"Part-time","Value":"95.33"},{"Year":"2015","Sex":null,"Teaching level":null,"Qualified teachers":"Part-time FTE","Value":"95.16"},{"Year":"2015","Sex":null,"Teaching level":null,"Qualified teachers":"Total regular FTE","Value":"95.47"},{"Year":"2015","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":null,"Value":"94.81"},{"Year":"2015","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":"Full-time","Value":"95.89"},{"Year":"2015","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":"Part-time","Value":"83.87"},{"Year":"2015","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":"Part-time FTE","Value":"88.89"},{"Year":"2015","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":"Total regular FTE","Value":"95.51"},{"Year":"2015","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":null,"Value":"97.08"},{"Year":"2015","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":"Full-time","Value":"97.02"},{"Year":"2015","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":"Part-time","Value":"97.23"},{"Year":"2015","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":"Part-time FTE","Value":"97.46"},{"Year":"2015","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":"Total regular FTE","Value":"97.21"},{"Year":"2015","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":null,"Value":"96.76"},{"Year":"2015","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Full-time","Value":"96.83"},{"Year":"2015","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Part-time","Value":"96.58"},{"Year":"2015","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Part-time FTE","Value":"97.04"},{"Year":"2015","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Total regular FTE","Value":"96.91"},{"Year":"2015","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":null,"Value":"95"},{"Year":"2015","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":"Full-time","Value":"96.09"},{"Year":"2015","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":"Part-time","Value":"83.33"},{"Year":"2015","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":"Part-time FTE","Value":"92.86"},{"Year":"2015","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":"Total regular FTE","Value":"95.57"},{"Year":"2015","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":null,"Value":"94.59"},{"Year":"2015","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":"Full-time","Value":"94.96"},{"Year":"2015","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":"Part-time","Value":"92.62"},{"Year":"2015","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":"Part-time FTE","Value":"94.81"},{"Year":"2015","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":"Total regular FTE","Value":"94.95"},{"Year":"2015","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":null,"Value":"94.74"},{"Year":"2015","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Full-time","Value":"95.43"},{"Year":"2015","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Part-time","Value":"91.72"},{"Year":"2015","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Part-time FTE","Value":"94.57"},{"Year":"2015","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Total regular FTE","Value":"95.18"},{"Year":"2015","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":null,"Value":"94.36"},{"Year":"2015","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":"Full-time","Value":"95.51"},{"Year":"2015","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":"Part-time","Value":"82.35"},{"Year":"2015","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":"Part-time FTE","Value":"85"},{"Year":"2015","Sex":"Male","Teaching level":"Converter academy","Qualified teachers":"Total regular FTE","Value":"95.21"},{"Year":"2015","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":null,"Value":"93.94"},{"Year":"2015","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":"Full-time","Value":"94.51"},{"Year":"2015","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":"Part-time","Value":"91.8"},{"Year":"2015","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":"Part-time FTE","Value":"93.81"},{"Year":"2015","Sex":"Female","Teaching level":"Converter academy","Qualified teachers":"Total regular FTE","Value":"94.54"},{"Year":"2015","Sex":null,"Teaching level":"Converter academy","Qualified teachers":null,"Value":"94.1"},{"Year":"2015","Sex":null,"Teaching level":"Converter academy","Qualified teachers":"Full-time","Value":"94.93"},{"Year":"2015","Sex":null,"Teaching level":"Converter academy","Qualified teachers":"Part-time","Value":"90.32"},{"Year":"2015","Sex":null,"Teaching level":"Converter academy","Qualified teachers":"Part-time FTE","Value":"93.23"},{"Year":"2015","Sex":null,"Teaching level":"Converter academy","Qualified teachers":"Total regular FTE","Value":"94.7"},{"Year":"2015","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":null,"Value":"90.15"},{"Year":"2015","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":"Full-time","Value":"91.13"},{"Year":"2015","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":"Part-time","Value":"75"},{"Year":"2015","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":"Part-time FTE","Value":"80"},{"Year":"2015","Sex":"Male","Teaching level":"Sponsor led academy","Qualified teachers":"Total regular FTE","Value":"91.47"},{"Year":"2015","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":null,"Value":"89.96"},{"Year":"2015","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":"Full-time","Value":"90.05"},{"Year":"2015","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":"Part-time","Value":"89.47"},{"Year":"2015","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":"Part-time FTE","Value":"92"},{"Year":"2015","Sex":"Female","Teaching level":"Sponsor led academy","Qualified teachers":"Total regular FTE","Value":"90.7"},{"Year":"2015","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":null,"Value":"90.3"},{"Year":"2015","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":"Full-time","Value":"90.51"},{"Year":"2015","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":"Part-time","Value":"88.89"},{"Year":"2015","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":"Part-time FTE","Value":"90"},{"Year":"2015","Sex":null,"Teaching level":"Sponsor led academy","Qualified teachers":"Total regular FTE","Value":"90.72"},{"Year":"2015","Sex":"Male","Teaching level":"Free schools","Qualified teachers":null,"Value":"83.33"},{"Year":"2015","Sex":"Male","Teaching level":"Free schools","Qualified teachers":"Full-time","Value":"90.91"},{"Year":"2015","Sex":"Male","Teaching level":"Free schools","Qualified teachers":"Part-time","Value":"100"},{"Year":"2015","Sex":"Male","Teaching level":"Free schools","Qualified teachers":"Total regular FTE","Value":"90.91"},{"Year":"2015","Sex":"Female","Teaching level":"Free schools","Qualified teachers":null,"Value":"89.47"},{"Year":"2015","Sex":"Female","Teaching level":"Free schools","Qualified teachers":"Full-time","Value":"93.33"},{"Year":"2015","Sex":"Female","Teaching level":"Free schools","Qualified teachers":"Part-time","Value":"75"},{"Year":"2015","Sex":"Female","Teaching level":"Free schools","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2015","Sex":"Female","Teaching level":"Free schools","Qualified teachers":"Total regular FTE","Value":"94.12"},{"Year":"2015","Sex":null,"Teaching level":"Free schools","Qualified teachers":null,"Value":"90"},{"Year":"2015","Sex":null,"Teaching level":"Free schools","Qualified teachers":"Full-time","Value":"88.46"},{"Year":"2015","Sex":null,"Teaching level":"Free schools","Qualified teachers":"Part-time","Value":"80"},{"Year":"2015","Sex":null,"Teaching level":"Free schools","Qualified teachers":"Part-time FTE","Value":"66.67"},{"Year":"2015","Sex":null,"Teaching level":"Free schools","Qualified teachers":"Total regular FTE","Value":"89.66"},{"Year":"2015","Sex":"Male","Teaching level":"UTC/studios","Qualified teachers":null,"Value":"80"},{"Year":"2015","Sex":"Male","Teaching level":"UTC/studios","Qualified teachers":"Full-time","Value":"80"},{"Year":"2015","Sex":"Male","Teaching level":"UTC/studios","Qualified teachers":"Total regular FTE","Value":"80"},{"Year":"2015","Sex":"Female","Teaching level":"UTC/studios","Qualified teachers":null,"Value":"80"},{"Year":"2015","Sex":"Female","Teaching level":"UTC/studios","Qualified teachers":"Full-time","Value":"75"},{"Year":"2015","Sex":"Female","Teaching level":"UTC/studios","Qualified teachers":"Part-time","Value":"100"},{"Year":"2015","Sex":"Female","Teaching level":"UTC/studios","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2015","Sex":"Female","Teaching level":"UTC/studios","Qualified teachers":"Total regular FTE","Value":"80"},{"Year":"2015","Sex":null,"Teaching level":"UTC/studios","Qualified teachers":null,"Value":"81.82"},{"Year":"2015","Sex":null,"Teaching level":"UTC/studios","Qualified teachers":"Full-time","Value":"77.78"},{"Year":"2015","Sex":null,"Teaching level":"UTC/studios","Qualified teachers":"Part-time","Value":"50"},{"Year":"2015","Sex":null,"Teaching level":"UTC/studios","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2015","Sex":null,"Teaching level":"UTC/studios","Qualified teachers":"Total regular FTE","Value":"80"},{"Year":"2015","Sex":"Male","Teaching level":null,"Qualified teachers":null,"Value":"93.31"},{"Year":"2015","Sex":"Male","Teaching level":null,"Qualified teachers":"Full-time","Value":"94.15"},{"Year":"2015","Sex":"Male","Teaching level":null,"Qualified teachers":"Part-time","Value":"79.07"},{"Year":"2015","Sex":"Male","Teaching level":null,"Qualified teachers":"Part-time FTE","Value":"84.62"},{"Year":"2015","Sex":"Male","Teaching level":null,"Qualified teachers":"Total regular FTE","Value":"93.86"},{"Year":"2015","Sex":"Female","Teaching level":null,"Qualified teachers":null,"Value":"92.81"},{"Year":"2015","Sex":"Female","Teaching level":null,"Qualified teachers":"Full-time","Value":"93.07"},{"Year":"2015","Sex":"Female","Teaching level":null,"Qualified teachers":"Part-time","Value":"92"},{"Year":"2015","Sex":"Female","Teaching level":null,"Qualified teachers":"Part-time FTE","Value":"94.29"},{"Year":"2015","Sex":"Female","Teaching level":null,"Qualified teachers":"Total regular FTE","Value":"93.26"},{"Year":"2015","Sex":null,"Teaching level":null,"Qualified teachers":null,"Value":"92.93"},{"Year":"2015","Sex":null,"Teaching level":null,"Qualified teachers":"Full-time","Value":"93.51"},{"Year":"2015","Sex":null,"Teaching level":null,"Qualified teachers":"Part-time","Value":"90.3"},{"Year":"2015","Sex":null,"Teaching level":null,"Qualified teachers":"Part-time FTE","Value":"92.77"},{"Year":"2015","Sex":null,"Teaching level":null,"Qualified teachers":"Total regular FTE","Value":"93.5"},{"Year":"2015","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":null,"Value":"93.89"},{"Year":"2015","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":"Full-time","Value":"94.81"},{"Year":"2015","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":"Part-time","Value":"81.82"},{"Year":"2015","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":"Part-time FTE","Value":"87.5"},{"Year":"2015","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":"Total regular FTE","Value":"94.44"},{"Year":"2015","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":null,"Value":"93.43"},{"Year":"2015","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":"Full-time","Value":"93.81"},{"Year":"2015","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":"Part-time","Value":"92.22"},{"Year":"2015","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":"Part-time FTE","Value":"94.47"},{"Year":"2015","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":"Total regular FTE","Value":"93.84"},{"Year":"2015","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":null,"Value":"93.55"},{"Year":"2015","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Full-time","Value":"94.22"},{"Year":"2015","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Part-time","Value":"90.8"},{"Year":"2015","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Part-time FTE","Value":"93.41"},{"Year":"2015","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Total regular FTE","Value":"94.12"},{"Year":"2015","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":null,"Value":"87.5"},{"Year":"2015","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":"Full-time","Value":"88.1"},{"Year":"2015","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time","Value":"83.33"},{"Year":"2015","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time FTE","Value":"75"},{"Year":"2015","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":"Total regular FTE","Value":"86.96"},{"Year":"2015","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":null,"Value":"90.71"},{"Year":"2015","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":"Full-time","Value":"91.35"},{"Year":"2015","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time","Value":"88.89"},{"Year":"2015","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time FTE","Value":"90.91"},{"Year":"2015","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":"Total regular FTE","Value":"91.27"},{"Year":"2015","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":null,"Value":"89.89"},{"Year":"2015","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Full-time","Value":"90.41"},{"Year":"2015","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time","Value":"88.1"},{"Year":"2015","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time FTE","Value":"88.46"},{"Year":"2015","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Total regular FTE","Value":"90.12"},{"Year":"2015","Sex":"Male","Teaching level":"Special academies/alternative provision","Qualified teachers":null,"Value":"73.33"},{"Year":"2015","Sex":"Male","Teaching level":"Special academies/alternative provision","Qualified teachers":"Full-time","Value":"76.92"},{"Year":"2015","Sex":"Male","Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time","Value":"50"},{"Year":"2015","Sex":"Male","Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2015","Sex":"Male","Teaching level":"Special academies/alternative provision","Qualified teachers":"Total regular FTE","Value":"78.57"},{"Year":"2015","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":null,"Value":"84.38"},{"Year":"2015","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":"Full-time","Value":"84"},{"Year":"2015","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time","Value":"85.71"},{"Year":"2015","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2015","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":"Total regular FTE","Value":"83.33"},{"Year":"2015","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":null,"Value":"82.98"},{"Year":"2015","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Full-time","Value":"84.21"},{"Year":"2015","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time","Value":"77.78"},{"Year":"2015","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time FTE","Value":"80"},{"Year":"2015","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Total regular FTE","Value":"83.72"},{"Year":"2015","Sex":"Male","Teaching level":"State funded special","Qualified teachers":null,"Value":"84.13"},{"Year":"2015","Sex":"Male","Teaching level":"State funded special","Qualified teachers":"Full-time","Value":"85.45"},{"Year":"2015","Sex":"Male","Teaching level":"State funded special","Qualified teachers":"Part-time","Value":"75"},{"Year":"2015","Sex":"Male","Teaching level":"State funded special","Qualified teachers":"Part-time FTE","Value":"80"},{"Year":"2015","Sex":"Male","Teaching level":"State funded special","Qualified teachers":"Total regular FTE","Value":"85"},{"Year":"2015","Sex":"Female","Teaching level":"State funded special","Qualified teachers":null,"Value":"89.53"},{"Year":"2015","Sex":"Female","Teaching level":"State funded special","Qualified teachers":"Full-time","Value":"89.92"},{"Year":"2015","Sex":"Female","Teaching level":"State funded special","Qualified teachers":"Part-time","Value":"88.37"},{"Year":"2015","Sex":"Female","Teaching level":"State funded special","Qualified teachers":"Part-time FTE","Value":"92.31"},{"Year":"2015","Sex":"Female","Teaching level":"State funded special","Qualified teachers":"Total regular FTE","Value":"89.74"},{"Year":"2015","Sex":null,"Teaching level":"State funded special","Qualified teachers":null,"Value":"88.51"},{"Year":"2015","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Full-time","Value":"88.11"},{"Year":"2015","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Part-time","Value":"88"},{"Year":"2015","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Part-time FTE","Value":"90.32"},{"Year":"2015","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Total regular FTE","Value":"88.84"},{"Year":"2015","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":null,"Value":"53.85"},{"Year":"2015","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":"Full-time","Value":"66.67"},{"Year":"2015","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":"Part-time","Value":"37.5"},{"Year":"2015","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":"Part-time FTE","Value":"50"},{"Year":"2015","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":"Total regular FTE","Value":"60"},{"Year":"2015","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":null,"Value":"84.44"},{"Year":"2015","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":"Full-time","Value":"94.12"},{"Year":"2015","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":"Part-time","Value":"81.48"},{"Year":"2015","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":"Part-time FTE","Value":"82.35"},{"Year":"2015","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":"Total regular FTE","Value":"88.24"},{"Year":"2015","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":null,"Value":"79.31"},{"Year":"2015","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Full-time","Value":"86.96"},{"Year":"2015","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Part-time","Value":"71.43"},{"Year":"2015","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Part-time FTE","Value":"76.19"},{"Year":"2015","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Total regular FTE","Value":"81.82"},{"Year":"2015","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":null,"Value":"93.23"},{"Year":"2015","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":"Full-time","Value":"94.51"},{"Year":"2015","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":"Part-time","Value":"80.36"},{"Year":"2015","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":"Part-time FTE","Value":"85.07"},{"Year":"2015","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":"Total regular FTE","Value":"94.06"},{"Year":"2015","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":null,"Value":"95.19"},{"Year":"2015","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":"Full-time","Value":"95.36"},{"Year":"2015","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":"Part-time","Value":"94.76"},{"Year":"2015","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":"Part-time FTE","Value":"95.77"},{"Year":"2015","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":"Total regular FTE","Value":"95.46"},{"Year":"2015","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":null,"Value":"94.71"},{"Year":"2015","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Full-time","Value":"95.14"},{"Year":"2015","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Part-time","Value":"93.26"},{"Year":"2015","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Part-time FTE","Value":"94.86"},{"Year":"2015","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Total regular FTE","Value":"95.08"},{"Year":"2014","Sex":null,"Teaching level":"Nursery","Qualified teachers":null,"Value":"100"},{"Year":"2014","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Full-time","Value":"100"},{"Year":"2014","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Total regular FTE","Value":"100"},{"Year":"2014","Sex":null,"Teaching level":"Nursery","Qualified teachers":null,"Value":"93.33"},{"Year":"2014","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Full-time","Value":"90.91"},{"Year":"2014","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Part-time","Value":"100"},{"Year":"2014","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2014","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Total regular FTE","Value":"92.31"},{"Year":"2014","Sex":null,"Teaching level":"Nursery","Qualified teachers":null,"Value":"100"},{"Year":"2014","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Full-time","Value":"100"},{"Year":"2014","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Part-time","Value":"100"},{"Year":"2014","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2014","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Total regular FTE","Value":"92.86"},{"Year":"2014","Sex":null,"Teaching level":"Primary","Qualified teachers":null,"Value":"95.68"},{"Year":"2014","Sex":null,"Teaching level":"Primary","Qualified teachers":"Full-time","Value":"96.47"},{"Year":"2014","Sex":null,"Teaching level":"Primary","Qualified teachers":"Part-time","Value":"86.96"},{"Year":"2014","Sex":null,"Teaching level":"Primary","Qualified teachers":"Part-time FTE","Value":"91.67"},{"Year":"2014","Sex":null,"Teaching level":"Primary","Qualified teachers":"Total regular FTE","Value":"96.27"},{"Year":"2014","Sex":null,"Teaching level":"Primary","Qualified teachers":null,"Value":"97.56"},{"Year":"2014","Sex":null,"Teaching level":"Primary","Qualified teachers":"Full-time","Value":"97.69"},{"Year":"2014","Sex":null,"Teaching level":"Primary","Qualified teachers":"Part-time","Value":"97.22"},{"Year":"2014","Sex":null,"Teaching level":"Primary","Qualified teachers":"Part-time FTE","Value":"97.86"},{"Year":"2014","Sex":null,"Teaching level":"Primary","Qualified teachers":"Total regular FTE","Value":"97.73"},{"Year":"2014","Sex":null,"Teaching level":"Primary","Qualified teachers":null,"Value":"97.35"},{"Year":"2014","Sex":null,"Teaching level":"Primary","Qualified teachers":"Full-time","Value":"97.55"},{"Year":"2014","Sex":null,"Teaching level":"Primary","Qualified teachers":"Part-time","Value":"96.77"},{"Year":"2014","Sex":null,"Teaching level":"Primary","Qualified teachers":"Part-time FTE","Value":"97.28"},{"Year":"2014","Sex":null,"Teaching level":"Primary","Qualified teachers":"Total regular FTE","Value":"97.51"},{"Year":"2014","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":null,"Value":"95.5"},{"Year":"2014","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Full-time","Value":"96.08"},{"Year":"2014","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Part-time","Value":"85.19"},{"Year":"2014","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Part-time FTE","Value":"86.67"},{"Year":"2014","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Total regular FTE","Value":"95.95"},{"Year":"2014","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":null,"Value":"97.37"},{"Year":"2014","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Full-time","Value":"97.41"},{"Year":"2014","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Part-time","Value":"97.11"},{"Year":"2014","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Part-time FTE","Value":"97.87"},{"Year":"2014","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Total regular FTE","Value":"97.44"},{"Year":"2014","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":null,"Value":"97.07"},{"Year":"2014","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Full-time","Value":"97.18"},{"Year":"2014","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Part-time","Value":"96.75"},{"Year":"2014","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Part-time FTE","Value":"97.38"},{"Year":"2014","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Total regular FTE","Value":"97.26"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":null,"Value":"95.48"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Full-time","Value":"96.17"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Part-time","Value":"86.96"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Part-time FTE","Value":"92.31"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Total regular FTE","Value":"96"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":null,"Value":"94.92"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Full-time","Value":"95.29"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Part-time","Value":"92.86"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Part-time FTE","Value":"94.87"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Total regular FTE","Value":"95.43"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":null,"Value":"95.01"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Full-time","Value":"95.79"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Part-time","Value":"91.33"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Part-time FTE","Value":"93.48"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Total regular FTE","Value":"95.65"},{"Year":"2014","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":null,"Value":"94.33"},{"Year":"2014","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Full-time","Value":"95.43"},{"Year":"2014","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Part-time","Value":"83.87"},{"Year":"2014","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Part-time FTE","Value":"88.57"},{"Year":"2014","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Total regular FTE","Value":"95.14"},{"Year":"2014","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":null,"Value":"93.89"},{"Year":"2014","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Full-time","Value":"94.3"},{"Year":"2014","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Part-time","Value":"92.24"},{"Year":"2014","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Part-time FTE","Value":"94.17"},{"Year":"2014","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Total regular FTE","Value":"94.36"},{"Year":"2014","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":null,"Value":"94.06"},{"Year":"2014","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Full-time","Value":"94.71"},{"Year":"2014","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Part-time","Value":"90.7"},{"Year":"2014","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Part-time FTE","Value":"93.36"},{"Year":"2014","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Total regular FTE","Value":"94.61"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":null,"Value":"88"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Full-time","Value":"88.64"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time","Value":"83.33"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Total regular FTE","Value":"87.5"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":null,"Value":"91.61"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Full-time","Value":"91.51"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time","Value":"91.89"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time FTE","Value":"90.91"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Total regular FTE","Value":"92.19"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":null,"Value":"90.67"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Full-time","Value":"91.33"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time","Value":"90.7"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time FTE","Value":"92"},{"Year":"2014","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Total regular FTE","Value":"90.91"},{"Year":"2014","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":null,"Value":"76.92"},{"Year":"2014","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Full-time","Value":"81.82"},{"Year":"2014","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time","Value":"50"},{"Year":"2014","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2014","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Total regular FTE","Value":"83.33"},{"Year":"2014","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":null,"Value":"85.19"},{"Year":"2014","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Full-time","Value":"85.71"},{"Year":"2014","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time","Value":"83.33"},{"Year":"2014","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time FTE","Value":"75"},{"Year":"2014","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Total regular FTE","Value":"88"},{"Year":"2014","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":null,"Value":"85"},{"Year":"2014","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Full-time","Value":"84.38"},{"Year":"2014","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time","Value":"75"},{"Year":"2014","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time FTE","Value":"80"},{"Year":"2014","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Total regular FTE","Value":"83.78"},{"Year":"2014","Sex":null,"Teaching level":"State funded special","Qualified teachers":null,"Value":"85.71"},{"Year":"2014","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Full-time","Value":"87.27"},{"Year":"2014","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Part-time","Value":"75"},{"Year":"2014","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2014","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Total regular FTE","Value":"86.67"},{"Year":"2014","Sex":null,"Teaching level":"State funded special","Qualified teachers":null,"Value":"90.59"},{"Year":"2014","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Full-time","Value":"91.34"},{"Year":"2014","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Part-time","Value":"90.7"},{"Year":"2014","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Part-time FTE","Value":"88.46"},{"Year":"2014","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Total regular FTE","Value":"90.85"},{"Year":"2014","Sex":null,"Teaching level":"State funded special","Qualified teachers":null,"Value":"89.7"},{"Year":"2014","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Full-time","Value":"90.11"},{"Year":"2014","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Part-time","Value":"88.24"},{"Year":"2014","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Part-time FTE","Value":"90"},{"Year":"2014","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Total regular FTE","Value":"89.67"},{"Year":"2014","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":null,"Value":"60"},{"Year":"2014","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Full-time","Value":"71.43"},{"Year":"2014","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Part-time","Value":"37.5"},{"Year":"2014","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Part-time FTE","Value":"50"},{"Year":"2014","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Total regular FTE","Value":"63.64"},{"Year":"2014","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":null,"Value":"87.5"},{"Year":"2014","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Full-time","Value":"95"},{"Year":"2014","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Part-time","Value":"82.14"},{"Year":"2014","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Part-time FTE","Value":"87.5"},{"Year":"2014","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Total regular FTE","Value":"89.19"},{"Year":"2014","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":null,"Value":"79.37"},{"Year":"2014","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Full-time","Value":"88.89"},{"Year":"2014","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Part-time","Value":"72.22"},{"Year":"2014","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Part-time FTE","Value":"80"},{"Year":"2014","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Total regular FTE","Value":"85.11"},{"Year":"2014","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":null,"Value":"93.87"},{"Year":"2014","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Full-time","Value":"95.15"},{"Year":"2014","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Part-time","Value":"79.25"},{"Year":"2014","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Part-time FTE","Value":"86.21"},{"Year":"2014","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Total regular FTE","Value":"94.64"},{"Year":"2014","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":null,"Value":"95.59"},{"Year":"2014","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Full-time","Value":"95.85"},{"Year":"2014","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Part-time","Value":"94.77"},{"Year":"2014","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Part-time FTE","Value":"95.83"},{"Year":"2014","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Total regular FTE","Value":"95.88"},{"Year":"2014","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":null,"Value":"95.17"},{"Year":"2014","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Full-time","Value":"95.65"},{"Year":"2014","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Part-time","Value":"93.36"},{"Year":"2014","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Part-time FTE","Value":"94.8"},{"Year":"2014","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Total regular FTE","Value":"95.56"},{"Year":"2013","Sex":"Male","Teaching level":"Nursery","Qualified teachers":null,"Value":"100"},{"Year":"2013","Sex":"Male","Teaching level":"Nursery","Qualified teachers":"Full-time","Value":"100"},{"Year":"2013","Sex":"Male","Teaching level":"Nursery","Qualified teachers":"Total regular FTE","Value":"100"},{"Year":"2013","Sex":"Female","Teaching level":"Nursery","Qualified teachers":null,"Value":"100"},{"Year":"2013","Sex":"Female","Teaching level":"Nursery","Qualified teachers":"Full-time","Value":"100"},{"Year":"2013","Sex":"Female","Teaching level":"Nursery","Qualified teachers":"Part-time","Value":"100"},{"Year":"2013","Sex":"Female","Teaching level":"Nursery","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2013","Sex":"Female","Teaching level":"Nursery","Qualified teachers":"Total regular FTE","Value":"100"},{"Year":"2013","Sex":null,"Teaching level":"Nursery","Qualified teachers":null,"Value":"100"},{"Year":"2013","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Full-time","Value":"100"},{"Year":"2013","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Part-time","Value":"80"},{"Year":"2013","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2013","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Total regular FTE","Value":"92.86"},{"Year":"2013","Sex":"Male","Teaching level":"Primary","Qualified teachers":null,"Value":"96.5"},{"Year":"2013","Sex":"Male","Teaching level":"Primary","Qualified teachers":"Full-time","Value":"97.25"},{"Year":"2013","Sex":"Male","Teaching level":"Primary","Qualified teachers":"Part-time","Value":"90.32"},{"Year":"2013","Sex":"Male","Teaching level":"Primary","Qualified teachers":"Part-time FTE","Value":"93.33"},{"Year":"2013","Sex":"Male","Teaching level":"Primary","Qualified teachers":"Total regular FTE","Value":"97.4"},{"Year":"2013","Sex":"Female","Teaching level":"Primary","Qualified teachers":null,"Value":"97.95"},{"Year":"2013","Sex":"Female","Teaching level":"Primary","Qualified teachers":"Full-time","Value":"98.21"},{"Year":"2013","Sex":"Female","Teaching level":"Primary","Qualified teachers":"Part-time","Value":"97.38"},{"Year":"2013","Sex":"Female","Teaching level":"Primary","Qualified teachers":"Part-time FTE","Value":"97.66"},{"Year":"2013","Sex":"Female","Teaching level":"Primary","Qualified teachers":"Total regular FTE","Value":"98.17"},{"Year":"2013","Sex":null,"Teaching level":"Primary","Qualified teachers":null,"Value":"97.76"},{"Year":"2013","Sex":null,"Teaching level":"Primary","Qualified teachers":"Full-time","Value":"98.05"},{"Year":"2013","Sex":null,"Teaching level":"Primary","Qualified teachers":"Part-time","Value":"97.01"},{"Year":"2013","Sex":null,"Teaching level":"Primary","Qualified teachers":"Part-time FTE","Value":"97.45"},{"Year":"2013","Sex":null,"Teaching level":"Primary","Qualified teachers":"Total regular FTE","Value":"98"},{"Year":"2013","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":null,"Value":"96.6"},{"Year":"2013","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":"Full-time","Value":"97.23"},{"Year":"2013","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":"Part-time","Value":"88.57"},{"Year":"2013","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":"Part-time FTE","Value":"88.24"},{"Year":"2013","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":"Total regular FTE","Value":"97.06"},{"Year":"2013","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":null,"Value":"97.81"},{"Year":"2013","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":"Full-time","Value":"98.08"},{"Year":"2013","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":"Part-time","Value":"97.19"},{"Year":"2013","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":"Part-time FTE","Value":"97.6"},{"Year":"2013","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":"Total regular FTE","Value":"98.05"},{"Year":"2013","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":null,"Value":"97.65"},{"Year":"2013","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Full-time","Value":"97.94"},{"Year":"2013","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Part-time","Value":"96.89"},{"Year":"2013","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Part-time FTE","Value":"97.71"},{"Year":"2013","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Total regular FTE","Value":"97.86"},{"Year":"2013","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":null,"Value":"95.76"},{"Year":"2013","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":"Full-time","Value":"96.89"},{"Year":"2013","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":"Part-time","Value":"87.5"},{"Year":"2013","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":"Part-time FTE","Value":"94.12"},{"Year":"2013","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":"Total regular FTE","Value":"96.46"},{"Year":"2013","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":null,"Value":"95.66"},{"Year":"2013","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":"Full-time","Value":"96.19"},{"Year":"2013","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":"Part-time","Value":"93.33"},{"Year":"2013","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":"Part-time FTE","Value":"95.45"},{"Year":"2013","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":"Total regular FTE","Value":"96.25"},{"Year":"2013","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":null,"Value":"95.7"},{"Year":"2013","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Full-time","Value":"96.47"},{"Year":"2013","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Part-time","Value":"92.31"},{"Year":"2013","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Part-time FTE","Value":"95.24"},{"Year":"2013","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Total regular FTE","Value":"96.33"},{"Year":"2013","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":null,"Value":"94.92"},{"Year":"2013","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":"Full-time","Value":"95.84"},{"Year":"2013","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":"Part-time","Value":"84.42"},{"Year":"2013","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":"Part-time FTE","Value":"90.24"},{"Year":"2013","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":"Total regular FTE","Value":"95.56"},{"Year":"2013","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":null,"Value":"94.63"},{"Year":"2013","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":"Full-time","Value":"95.33"},{"Year":"2013","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":"Part-time","Value":"92.46"},{"Year":"2013","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":"Part-time FTE","Value":"94.74"},{"Year":"2013","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":"Total regular FTE","Value":"95.23"},{"Year":"2013","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":null,"Value":"94.7"},{"Year":"2013","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Full-time","Value":"95.54"},{"Year":"2013","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Part-time","Value":"91.26"},{"Year":"2013","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Part-time FTE","Value":"94"},{"Year":"2013","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Total regular FTE","Value":"95.36"},{"Year":"2013","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":null,"Value":"90.57"},{"Year":"2013","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":"Full-time","Value":"91.11"},{"Year":"2013","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time","Value":"87.5"},{"Year":"2013","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time FTE","Value":"75"},{"Year":"2013","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":"Total regular FTE","Value":"91.84"},{"Year":"2013","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":null,"Value":"93.29"},{"Year":"2013","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":"Full-time","Value":"94.34"},{"Year":"2013","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time","Value":"92.86"},{"Year":"2013","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time FTE","Value":"91.67"},{"Year":"2013","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":"Total regular FTE","Value":"93.85"},{"Year":"2013","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":null,"Value":"92.57"},{"Year":"2013","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Full-time","Value":"93.38"},{"Year":"2013","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time","Value":"92"},{"Year":"2013","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time FTE","Value":"92.86"},{"Year":"2013","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Total regular FTE","Value":"92.74"},{"Year":"2013","Sex":"Male","Teaching level":"Special academies/alternative provision","Qualified teachers":null,"Value":"87.5"},{"Year":"2013","Sex":"Male","Teaching level":"Special academies/alternative provision","Qualified teachers":"Full-time","Value":"85.71"},{"Year":"2013","Sex":"Male","Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time","Value":"100"},{"Year":"2013","Sex":"Male","Teaching level":"Special academies/alternative provision","Qualified teachers":"Total regular FTE","Value":"75"},{"Year":"2013","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":null,"Value":"78.95"},{"Year":"2013","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":"Full-time","Value":"78.57"},{"Year":"2013","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time","Value":"80"},{"Year":"2013","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time FTE","Value":"66.67"},{"Year":"2013","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":"Total regular FTE","Value":"82.35"},{"Year":"2013","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":null,"Value":"81.48"},{"Year":"2013","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Full-time","Value":"80.95"},{"Year":"2013","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time","Value":"83.33"},{"Year":"2013","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2013","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Total regular FTE","Value":"83.33"},{"Year":"2013","Sex":"Male","Teaching level":"State funded special","Qualified teachers":null,"Value":"88.52"},{"Year":"2013","Sex":"Male","Teaching level":"State funded special","Qualified teachers":"Full-time","Value":"90.38"},{"Year":"2013","Sex":"Male","Teaching level":"State funded special","Qualified teachers":"Part-time","Value":"77.78"},{"Year":"2013","Sex":"Male","Teaching level":"State funded special","Qualified teachers":"Part-time FTE","Value":"100"},{"Year":"2013","Sex":"Male","Teaching level":"State funded special","Qualified teachers":"Total regular FTE","Value":"89.47"},{"Year":"2013","Sex":"Female","Teaching level":"State funded special","Qualified teachers":null,"Value":"92.22"},{"Year":"2013","Sex":"Female","Teaching level":"State funded special","Qualified teachers":"Full-time","Value":"92.5"},{"Year":"2013","Sex":"Female","Teaching level":"State funded special","Qualified teachers":"Part-time","Value":"91.49"},{"Year":"2013","Sex":"Female","Teaching level":"State funded special","Qualified teachers":"Part-time FTE","Value":"92.31"},{"Year":"2013","Sex":"Female","Teaching level":"State funded special","Qualified teachers":"Total regular FTE","Value":"91.84"},{"Year":"2013","Sex":null,"Teaching level":"State funded special","Qualified teachers":null,"Value":"90.83"},{"Year":"2013","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Full-time","Value":"91.33"},{"Year":"2013","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Part-time","Value":"89.29"},{"Year":"2013","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Part-time FTE","Value":"90.32"},{"Year":"2013","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Total regular FTE","Value":"91.63"},{"Year":"2013","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":null,"Value":"72.41"},{"Year":"2013","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":"Full-time","Value":"75"},{"Year":"2013","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":"Part-time","Value":"64.71"},{"Year":"2013","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":"Part-time FTE","Value":"60"},{"Year":"2013","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":"Total regular FTE","Value":"75"},{"Year":"2013","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":null,"Value":"90.76"},{"Year":"2013","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":"Full-time","Value":"92.31"},{"Year":"2013","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":"Part-time","Value":"90"},{"Year":"2013","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":"Part-time FTE","Value":"89.47"},{"Year":"2013","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":"Total regular FTE","Value":"89.66"},{"Year":"2013","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":null,"Value":"86.49"},{"Year":"2013","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Full-time","Value":"90"},{"Year":"2013","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Part-time","Value":"86.6"},{"Year":"2013","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Part-time FTE","Value":"83.33"},{"Year":"2013","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Total regular FTE","Value":"85.33"},{"Year":"2013","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":null,"Value":"94.45"},{"Year":"2013","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":"Full-time","Value":"95.81"},{"Year":"2013","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":"Part-time","Value":"83.33"},{"Year":"2013","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":"Part-time FTE","Value":"88.06"},{"Year":"2013","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":"Total regular FTE","Value":"95.29"},{"Year":"2013","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":null,"Value":"96.16"},{"Year":"2013","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":"Full-time","Value":"96.59"},{"Year":"2013","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":"Part-time","Value":"95.02"},{"Year":"2013","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":"Part-time FTE","Value":"96.26"},{"Year":"2013","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":"Total regular FTE","Value":"96.54"},{"Year":"2013","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":null,"Value":"95.72"},{"Year":"2013","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Full-time","Value":"96.34"},{"Year":"2013","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Part-time","Value":"93.82"},{"Year":"2013","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Part-time FTE","Value":"95.42"},{"Year":"2013","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Total regular FTE","Value":"96.21"},{"Year":"2012","Sex":"Male","Teaching level":"Nursery","Qualified teachers":null,"Value":"98.46"},{"Year":"2012","Sex":"Male","Teaching level":"Nursery","Qualified teachers":"Total regular FTE","Value":"98.44"},{"Year":"2012","Sex":"Female","Teaching level":"Nursery","Qualified teachers":null,"Value":"97.08"},{"Year":"2012","Sex":"Female","Teaching level":"Nursery","Qualified teachers":"Full-time","Value":"96.92"},{"Year":"2012","Sex":"Female","Teaching level":"Nursery","Qualified teachers":"Part-time","Value":"97.44"},{"Year":"2012","Sex":"Female","Teaching level":"Nursery","Qualified teachers":"Part-time FTE","Value":"97.44"},{"Year":"2012","Sex":"Female","Teaching level":"Nursery","Qualified teachers":"Total regular FTE","Value":"97.01"},{"Year":"2012","Sex":null,"Teaching level":"Nursery","Qualified teachers":null,"Value":"97.14"},{"Year":"2012","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Full-time","Value":"97.06"},{"Year":"2012","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Part-time","Value":"97.33"},{"Year":"2012","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Part-time FTE","Value":"97.19"},{"Year":"2012","Sex":null,"Teaching level":"Nursery","Qualified teachers":"Total regular FTE","Value":"97.09"},{"Year":"2012","Sex":"Male","Teaching level":"Primary","Qualified teachers":null,"Value":"96.56"},{"Year":"2012","Sex":"Male","Teaching level":"Primary","Qualified teachers":"Full-time","Value":"97.38"},{"Year":"2012","Sex":"Male","Teaching level":"Primary","Qualified teachers":"Part-time","Value":"90.03"},{"Year":"2012","Sex":"Male","Teaching level":"Primary","Qualified teachers":"Part-time FTE","Value":"93.77"},{"Year":"2012","Sex":"Male","Teaching level":"Primary","Qualified teachers":"Total regular FTE","Value":"97.18"},{"Year":"2012","Sex":"Female","Teaching level":"Primary","Qualified teachers":null,"Value":"97.95"},{"Year":"2012","Sex":"Female","Teaching level":"Primary","Qualified teachers":"Full-time","Value":"98.18"},{"Year":"2012","Sex":"Female","Teaching level":"Primary","Qualified teachers":"Part-time","Value":"97.44"},{"Year":"2012","Sex":"Female","Teaching level":"Primary","Qualified teachers":"Part-time FTE","Value":"98.28"},{"Year":"2012","Sex":"Female","Teaching level":"Primary","Qualified teachers":"Total regular FTE","Value":"98.2"},{"Year":"2012","Sex":null,"Teaching level":"Primary","Qualified teachers":null,"Value":"97.77"},{"Year":"2012","Sex":null,"Teaching level":"Primary","Qualified teachers":"Full-time","Value":"98.05"},{"Year":"2012","Sex":null,"Teaching level":"Primary","Qualified teachers":"Part-time","Value":"97.05"},{"Year":"2012","Sex":null,"Teaching level":"Primary","Qualified teachers":"Part-time FTE","Value":"98.07"},{"Year":"2012","Sex":null,"Teaching level":"Primary","Qualified teachers":"Total regular FTE","Value":"98.05"},{"Year":"2012","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":null,"Value":"96.4"},{"Year":"2012","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":"Full-time","Value":"97.23"},{"Year":"2012","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":"Part-time","Value":"89.75"},{"Year":"2012","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":"Part-time FTE","Value":"93.44"},{"Year":"2012","Sex":"Male","Teaching level":"State funded Primary","Qualified teachers":"Total regular FTE","Value":"97.03"},{"Year":"2012","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":null,"Value":"98"},{"Year":"2012","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":"Full-time","Value":"98"},{"Year":"2012","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":"Part-time","Value":"97.4"},{"Year":"2012","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":"Part-time FTE","Value":"98.25"},{"Year":"2012","Sex":"Female","Teaching level":"State funded Primary","Qualified teachers":"Total regular FTE","Value":"98.1"},{"Year":"2012","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":null,"Value":"97.66"},{"Year":"2012","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Full-time","Value":"97.92"},{"Year":"2012","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Part-time","Value":"97"},{"Year":"2012","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Part-time FTE","Value":"98.02"},{"Year":"2012","Sex":null,"Teaching level":"State funded Primary","Qualified teachers":"Total regular FTE","Value":"98"},{"Year":"2012","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":null,"Value":"96.35"},{"Year":"2012","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":"Full-time","Value":"97.33"},{"Year":"2012","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":"Part-time","Value":"86.72"},{"Year":"2012","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":"Part-time FTE","Value":"91.52"},{"Year":"2012","Sex":"Male","Teaching level":"LA maintained secondary","Qualified teachers":"Total regular FTE","Value":"97.04"},{"Year":"2012","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":null,"Value":"95.93"},{"Year":"2012","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":"Full-time","Value":"96.7"},{"Year":"2012","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":"Part-time","Value":"93.45"},{"Year":"2012","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":"Part-time FTE","Value":"95.85"},{"Year":"2012","Sex":"Female","Teaching level":"LA maintained secondary","Qualified teachers":"Total regular FTE","Value":"96.57"},{"Year":"2012","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":null,"Value":"96.07"},{"Year":"2012","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Full-time","Value":"96.94"},{"Year":"2012","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Part-time","Value":"92.2"},{"Year":"2012","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Part-time FTE","Value":"95.12"},{"Year":"2012","Sex":null,"Teaching level":"LA maintained secondary","Qualified teachers":"Total regular FTE","Value":"96.74"},{"Year":"2012","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":null,"Value":"95.73"},{"Year":"2012","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":"Full-time","Value":"96.77"},{"Year":"2012","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":"Part-time","Value":"85.72"},{"Year":"2012","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":"Part-time FTE","Value":"90.8"},{"Year":"2012","Sex":"Male","Teaching level":"State funded secondary","Qualified teachers":"Total regular FTE","Value":"96.47"},{"Year":"2012","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":null,"Value":"95.39"},{"Year":"2012","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":"Full-time","Value":"96.18"},{"Year":"2012","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":"Part-time","Value":"92.88"},{"Year":"2012","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":"Part-time FTE","Value":"95.31"},{"Year":"2012","Sex":"Female","Teaching level":"State funded secondary","Qualified teachers":"Total regular FTE","Value":"96.05"},{"Year":"2012","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":null,"Value":"95.5"},{"Year":"2012","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Full-time","Value":"96.4"},{"Year":"2012","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Part-time","Value":"91.54"},{"Year":"2012","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Part-time FTE","Value":"94.55"},{"Year":"2012","Sex":null,"Teaching level":"State funded secondary","Qualified teachers":"Total regular FTE","Value":"96.19"},{"Year":"2012","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":null,"Value":"91.61"},{"Year":"2012","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":"Full-time","Value":"93.19"},{"Year":"2012","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time","Value":"80.99"},{"Year":"2012","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time FTE","Value":"83.57"},{"Year":"2012","Sex":"Male","Teaching level":"LA maintained special/PRU","Qualified teachers":"Total regular FTE","Value":"92.52"},{"Year":"2012","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":null,"Value":"93.97"},{"Year":"2012","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":"Full-time","Value":"94.48"},{"Year":"2012","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time","Value":"92.57"},{"Year":"2012","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time FTE","Value":"93.91"},{"Year":"2012","Sex":"Female","Teaching level":"LA maintained special/PRU","Qualified teachers":"Total regular FTE","Value":"94.39"},{"Year":"2012","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":null,"Value":"93.39"},{"Year":"2012","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Full-time","Value":"94.12"},{"Year":"2012","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time","Value":"90.96"},{"Year":"2012","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Part-time FTE","Value":"92.6"},{"Year":"2012","Sex":null,"Teaching level":"LA maintained special/PRU","Qualified teachers":"Total regular FTE","Value":"93.91"},{"Year":"2012","Sex":"Male","Teaching level":"Special academies/alternative provision","Qualified teachers":null,"Value":"86.21"},{"Year":"2012","Sex":"Male","Teaching level":"Special academies/alternative provision","Qualified teachers":"Full-time","Value":"87.96"},{"Year":"2012","Sex":"Male","Teaching level":"Special academies/alternative provision","Qualified teachers":"Total regular FTE","Value":"87.24"},{"Year":"2012","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":null,"Value":"84.66"},{"Year":"2012","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":"Full-time","Value":"85.28"},{"Year":"2012","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time","Value":"82.95"},{"Year":"2012","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time FTE","Value":"87.11"},{"Year":"2012","Sex":"Female","Teaching level":"Special academies/alternative provision","Qualified teachers":"Total regular FTE","Value":"85.57"},{"Year":"2012","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":null,"Value":"85.1"},{"Year":"2012","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Full-time","Value":"86.12"},{"Year":"2012","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time","Value":"81.68"},{"Year":"2012","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Part-time FTE","Value":"85.68"},{"Year":"2012","Sex":null,"Teaching level":"Special academies/alternative provision","Qualified teachers":"Total regular FTE","Value":"86.06"},{"Year":"2012","Sex":"Male","Teaching level":"State funded special","Qualified teachers":null,"Value":"91.21"},{"Year":"2012","Sex":"Male","Teaching level":"State funded special","Qualified teachers":"Full-time","Value":"92.82"},{"Year":"2012","Sex":"Male","Teaching level":"State funded special","Qualified teachers":"Part-time","Value":"80.56"},{"Year":"2012","Sex":"Male","Teaching level":"State funded special","Qualified teachers":"Part-time FTE","Value":"83.21"},{"Year":"2012","Sex":"Male","Teaching level":"State funded special","Qualified teachers":"Total regular FTE","Value":"92.14"},{"Year":"2012","Sex":"Female","Teaching level":"State funded special","Qualified teachers":null,"Value":"93.39"},{"Year":"2012","Sex":"Female","Teaching level":"State funded special","Qualified teachers":"Full-time","Value":"93.91"},{"Year":"2012","Sex":"Female","Teaching level":"State funded special","Qualified teachers":"Part-time","Value":"91.97"},{"Year":"2012","Sex":"Female","Teaching level":"State funded special","Qualified teachers":"Part-time FTE","Value":"93.53"},{"Year":"2012","Sex":"Female","Teaching level":"State funded special","Qualified teachers":"Total regular FTE","Value":"93.84"},{"Year":"2012","Sex":null,"Teaching level":"State funded special","Qualified teachers":null,"Value":"92.85"},{"Year":"2012","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Full-time","Value":"93.6"},{"Year":"2012","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Part-time","Value":"90.36"},{"Year":"2012","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Part-time FTE","Value":"92.19"},{"Year":"2012","Sex":null,"Teaching level":"State funded special","Qualified teachers":"Total regular FTE","Value":"93.4"},{"Year":"2012","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":null,"Value":"75.23"},{"Year":"2012","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":"Full-time","Value":"78.59"},{"Year":"2012","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":"Part-time","Value":"71.54"},{"Year":"2012","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":"Part-time FTE","Value":"68.97"},{"Year":"2012","Sex":"Male","Teaching level":"Centrally employed","Qualified teachers":"Total regular FTE","Value":"76.34"},{"Year":"2012","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":null,"Value":"88.32"},{"Year":"2012","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":"Full-time","Value":"86.95"},{"Year":"2012","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":"Part-time","Value":"89.16"},{"Year":"2012","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":"Part-time FTE","Value":"89.33"},{"Year":"2012","Sex":"Female","Teaching level":"Centrally employed","Qualified teachers":"Total regular FTE","Value":"87.83"},{"Year":"2012","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":null,"Value":"84.9"},{"Year":"2012","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Full-time","Value":"84.23"},{"Year":"2012","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Part-time","Value":"85.38"},{"Year":"2012","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Part-time FTE","Value":"85.25"},{"Year":"2012","Sex":null,"Teaching level":"Centrally employed","Qualified teachers":"Total regular FTE","Value":"84.57"},{"Year":"2012","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":null,"Value":"95.1"},{"Year":"2012","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":"Full-time","Value":"96.42"},{"Year":"2012","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":"Part-time","Value":"84.64"},{"Year":"2012","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":"Part-time FTE","Value":"89.02"},{"Year":"2012","Sex":"Male","Teaching level":"Total state funded schools","Qualified teachers":"Total regular FTE","Value":"96.01"},{"Year":"2012","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":null,"Value":"96.47"},{"Year":"2012","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":"Full-time","Value":"96.96"},{"Year":"2012","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":"Part-time","Value":"95.24"},{"Year":"2012","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":"Part-time FTE","Value":"96.66"},{"Year":"2012","Sex":"Female","Teaching level":"Total state funded schools","Qualified teachers":"Total regular FTE","Value":"96.91"},{"Year":"2012","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":null,"Value":"96.12"},{"Year":"2012","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Full-time","Value":"96.79"},{"Year":"2012","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Part-time","Value":"94.03"},{"Year":"2012","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Part-time FTE","Value":"95.87"},{"Year":"2012","Sex":null,"Teaching level":"Total state funded schools","Qualified teachers":"Total regular FTE","Value":"96.66"}]' data-indicatorid='indicator_4-c-1' data-country="UK"
+    data-charttitle="Proportion of teachers with certification" data-measurementunit="Proportion of teachers." data-datasource="Ministries of Education and/or National Statistical Offices." data-geographicalarea="United Kingdom" data-showdata="true">
+
+    
+      
+    
+    
+
+    
+    <div id="toolbar">
+      <div id="fields"></div>
+    </div>
+    
+    <div id="units"></div>
+    <div class="plot-container">
+        
+<canvas></canvas>
+    </div>
+    
+
+
+    
+    
+    <div class="alert alert-warning" role="alert">
+      <i class="fa fa-info" aria-hidden="true"></i> See metadata tab for sources, definitions, and methodology information
+    </div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      
+        <li role="presentation" class="nav-item active">
+          <a class="nav-link" data-toggle="tab" href="#data" aria-controls="data" role="tab">Data</a>
+        </li>
+      
+      <li role="presentation" class="nav-item  ">
+        <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab">Metadata</a>
+      </li>
+      <li role="presentation" class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab">Sources</a>
+      </li>
+      
+    </ul>
+    
+    <!-- Tab panes -->
+    <div class="tab-content">
+      
+        <div role="tabpanel" class="tab-pane active" id="data">
+          
+            <h3>Proportion of teachers with certification</h3>
+          
+          <p>Unit of Measurement: Proportion of teachers.</p>     
+          <a href="/sdg-indicators/data/indicator_4-c-1.csv" class="btn btn-primary btn-download" download='indicator_4-c-1.csv'>Download source CSV</a>
+          <div id="datatables"></div>
+        </div>
+      
+      <div role="tabpanel" class="tab-pane " id="metadata">
+        <!-- National Metadata -->
+        <div class="collapsible expanded">
+          <h3>National Metadata<span> (Collapse)</span></h3>
+          <article>
+            <p>This table provides metadata for the actual indicator available from UK statistics closest to the corresponding global
+                SDG indicator. Please note that even when the global SDG indicator is fully available from UK statistics, this table
+                should be consulted for information on national methodology and other UK-specific metadata information.</p>
+              <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Actual Indicator Available </th>
+        <td>
+          
+            Proportion of teachers who have received at least the minimum teacher training required for teaching at the relevant level in the United Kingdom.
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Actual Indicator Description </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Periodicity </th>
+        <td>
+          
+            Annually
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Earliest Available Data </th>
+        <td>
+          
+            2012
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Geographic Coverage </th>
+        <td>
+          
+            United Kingdom
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Release Date </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Next Release </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Statistical Classification </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Disaggregation </th>
+        <td>
+          
+            Sex, Teaching Level and Qualified teachers
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Comments and Limitations </th>
+        <td>
+          
+            It is important to note that national minimum training requirements can vary widely from one country to the next. This variability between countries lessens the usefulness of global tracking because the indicator would only show the percent reaching national standards, not whether teachers in different countries have similar levels of training. Further work would be required if a common standard for teacher training is to be applied across countries.
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Contact Details </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+        <!-- Method of Computation -->
+        <div class="collapsible collapsed">
+          <h3>How the UK Indicator is Calculated<span> (Expand)</span></h3>
+          <article>
+            <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Units of Measure </th>
+        <td>
+          
+            Proportion of teachers.
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Calculations </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Numerator </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Denominator </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Definitions </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+        <!-- Global Metadata -->
+        <div class="collapsible collapsed">
+          <h3>Global Metadata<span> (Expand)</span></h3>
+          <article>
+            <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. Complete global <a href="https://unstats.un.org/sdgs/metadata/files/Metadata-04-0C-01.pdf">metadata</a> is provided by the UN Statistics Division.</p>
+            <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Name </th>
+        <td>
+          
+            Proportion of teachers in: (a) pre-primary; (b) primary; (c) lower secondary; and (d) upper secondary education who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country.
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Number </th>
+        <td>
+          
+            4.c.1
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Target Name </th>
+        <td>
+          
+            By 2030, substantially increase the supply of qualified teachers, including through international cooperation for teacher training in developing countries, especially least developed countries and small island developing States
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Target Number </th>
+        <td>
+          
+            4.c
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Global Indicator Description </th>
+        <td>
+          
+            From UNESCO:  The percentage of teachers by level of education taught (pre-primary, primary, lower secondary and upper secondary) who have received at least the minimum organized pedagogical teacher training pre-service and in-service required for teaching at the relevant level in a given country. The indicator should be calculated separately for public and private institutions. From OECD: Teachers (ISCED 2 level) were asked to indicate whether they had participated in any of the following activities 12 months prior to the survey: 	Courses/workshops (on subject matter or methods and/or other education-related topics). 	Education conferences or seminars (where teachers and/or researchers present their research results and discuss education problems). 	Observation visits to other schools. 	Observation visits to business premises, public organisations, or non-governmental organisations. 	In-service training courses in business premises, public organisations or non-governmental organisations. 	Qualification programmes (e.g. a degree programme). 	Participation in a network of teachers formed specifically for the professional development of teachers. 	Individual or collaborative research on a topic of professional interest. 	Mentoring and/or peer observation and coaching as part of a formal school arrangement
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Designated Tier </th>
+        <td>
+          
+            1
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Custodian Agency </th>
+        <td>
+          
+            UNESCO Institute for Statistics (UNESCO-UIS)
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Partner Agency </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UNSD Indicator Code </th>
+        <td>
+          
+            C040c01
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Indicator Notes </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Link to UN Metadata </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://unstats.un.org/sdgs/metadata/files/Metadata-04-0C-01.pdf">
+                United Nations Sustainable Development Goals Metadata: 4.c.1
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="sources">
+        <!-- Count the non-empty sources (up to 5) -->
+
+
+
+
+  <h3>UK Data Source Metadata</h3>
+  <div class="row no-gutters">
+  
+   
+    
+    <div class="col-md-6">
+      <h4>Source 1</h4>
+      <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            Ministries of Education and/or National Statistical Offices.
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            Annually
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Earliest Available Data </th>
+        <td>
+          
+            2012
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Geographical Coverage </th>
+        <td>
+          
+            United Kingdom
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Link to Data Source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="http://sdg4monitoring.uis.unesco.org/sdg44c1">
+                UNESCO – Targets and Indicators: 4.c.1
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Release Date </th>
+        <td>
+          
+            2017-12-01
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Next Release </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Statistical Classification </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Contact Details </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Other Information </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+    </div>
+    
+  </div>
+
+
+      </div>
+      
+    </div>
+  </section>
+</div>
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
+<!-- Google Analytics -->
+
+<!-- /.container </div> -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20171021000508'></script>
+<script>
+$(function() {
+    $(window).scroll(function() {
+        if ($(".navbar").offset().top > 50) {
+            $("#main-nav").addClass("collapsed");
+        } else {
+            $("#main-nav").removeClass("collapsed");
+        }
+    });
+
+    $('#metadata .collapsible h3').click(function() {
+      var $container = $(this).closest('div'),
+          $article = $(this).next('article'),
+          $span = $(this).find('span');
+
+      $article.slideToggle(function() {
+        if($container.hasClass('expanded')) {
+          $container.removeClass('expanded');
+          $container.addClass('collapsed');
+          $span.html(' (Expand)');
+        } else {
+          $container.removeClass('collapsed');
+          $container.addClass('expanded');
+          $span.html(' (Collapse)');
+        }
+      });
+    });
+
+    if($('#indicatorData').length) {
+      var model = new indicatorModel({
+        data: $('#indicatorData').data('indicatordata'),
+        country: $('#indicatorData').data('country'),
+        indicatorId: $('#indicatorData').data('indicatorid'),
+        chartTitle: $('#indicatorData').data('charttitle'),
+        measurementUnit: $('#indicatorData').data('measurementunit'),
+        dataSource: $('#indicatorData').data('datasource'),
+        geographicalArea: $('#indicatorData').data('geographicalarea'),
+        showData: $('#indicatorData').data('showdata')
+      }),
+      view  = new indicatorView(model, {
+        rootElement: '#indicatorData',
+        maxChartHeight: 600
+      }),
+      controller = new indicatorController(model, view);
+      controller.initialise();
+    }
+
+    
+});
+</script>
+
+</body>
+</html>
+

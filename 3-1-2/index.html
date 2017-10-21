@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Title and meta description
+        ================================================== -->
+        <title>Proportion of births attended by skilled health personnel - U.K. Indicators For The Sustainable Development Goals</title>
+        <meta property="og:title" content="U.S. Data Federation">
+        <meta name="description" content="">
+        <meta property="og:description" content="">
+        <link rel="canonical" href="/">
+
+        
+
+        <!-- Favicons ================================================== -->
+        <!-- 128x128 -->
+        <link rel="shortcut icon" type="image/ico" href="/sdg-indicators/assets/img/favicons/favicon.ico">
+        <link rel="icon" type="image/png" href="/sdg-indicators/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
+        http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+        -->
+
+        
+
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20171021000508">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    </head>
+<body>
+<!-- <div class="container"> -->
+ 
+<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+<div id="disclaimer">
+  <div class="container">
+  <div class="alert alert-danger" role="alert">
+    <strong class="phase-tag">Alpha</strong> This is a development website and data may be test data. We welcome your
+    <a href="mailto:sustainabledevelopment@ons.gov.uk">feedback</a>.
+  </div>
+</div>
+</div>
+
+<header role="banner">
+  <div class="container">
+
+    <a class="navbar-brand" href="/sdg-indicators/" id="home">
+      <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+    </a>
+
+    <nav class="navbar navbar-default" id="main-nav">
+
+      <ul class="top-level">
+        <li><span data-target="menu">Menu</span></li>
+        <li><span data-target="search">Search</span></li>
+      </ul>
+
+      <ul class="nav navbar-nav menu-target" id="menu">
+        <li class="nav-link active" >
+          <a href="/sdg-indicators/">Goals</a>
+        </li>
+        <li class="nav-link" >
+          <a href="/sdg-indicators/reporting-status">Reporting Status</a>
+        </li>
+        <li class="nav-link" >
+          <a href="/sdg-indicators/about">About</a>
+        </li>
+<!--        <li class="nav-link" >
+          <a href="/sdg-indicators/news">News &amp; Events</a>
+        </li> -->
+      </ul>
+
+
+    </nav>
+  </div>
+
+</header> 
+ 
+
+
+
+
+<script type="text/template" id="item_template">
+  <% _.each(series, function(seriesItem) { %>
+    <div class="variable-selector" data-field="<%=seriesItem.field%>">
+      <h5><%=seriesItem.field%><i class="fa fa-chevron-down"></i></h5>
+      <div class="bar">
+        <div class="selected"></div>
+      </div>
+      <div class="variable-options">
+        <div>
+          <button data-type="select">Select all</button>
+          <button data-type="clear">Clear all</button>
+        </div>
+        <% _.each(seriesItem.values, function(item) { %>
+          <label><input type="checkbox" value="<%=item.value%>" data-field="<%=seriesItem.field%>" /><%=item.value%></label>
+        <% }); %>
+      </div>
+    </div>
+  <% }); %>
+</script>
+
+<script type="text/template" id="units_template">
+  <% _.each(units, function(unitsItem, index) { %>
+    <label><input type="radio" name="unit" value="<%=unitsItem%>" <% if(!index) { %>checked="checked"<% } %> /> <%=unitsItem%></label>
+  <% }); %>
+</script>
+
+
+<div class="heading indicator goal-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-md-3 col-lg-2">
+        <a href="/sdg-indicators/good-health-and-well-being" title="View this goal's indicator list">
+          <img src="/sdg-indicators/assets/img/goals/3.png" alt="icon for Goal 3" />
+        </a>
+      </div>
+      <div class="col-xs-8 col-md-9 col-lg-10">
+        <h2>
+          <a href="/sdg-indicators/good-health-and-well-being">
+            <span class="hidden-sm hidden-md hidden-lg">Goal 3: </span>Ensure healthy lives and promote well-being for all at all ages
+          </a>
+        </h2>
+        <h3>Indicator 3.1.2: Proportion of births attended by skilled health personnel</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="main-content" class="container goal-3">
+
+   
+   
+   
+   
+
+   
+   
+   
+   
+  
+  <ol class="breadcrumb">
+  <li><a href="/sdg-indicators/">Home</a></li>
+  
+      <li><a href="/sdg-indicators/good-health-and-well-being" title="Ensure healthy lives and promote well-being for all at all ages">Goal 3</a></li>
+      <li class="active">Proportion of births attended by skilled health personnel</li>
+  
+</ol>
+
+  <div id="page-content">
+  
+
+  
+  </div>
+
+  <section id="indicatorData" data-indicatordata='[{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"97.5"},{"Year":"2014","Age range":"Under 20","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"98.48"},{"Year":"2014","Age range":"20 to 24","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"98.03"},{"Year":"2014","Age range":"25 to 29","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"97.68"},{"Year":"2014","Age range":"30 to 34","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"97.28"},{"Year":"2014","Age range":"35 to 39","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"96.8"},{"Year":"2014","Age range":"40 to 44","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"97.61"},{"Year":"2014","Age range":"45 and over","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"98.84"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"97.54"},{"Year":"2015","Age range":"Under 20","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"98.8"},{"Year":"2015","Age range":"20 to 24","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"98.15"},{"Year":"2015","Age range":"25 to 29","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"97.72"},{"Year":"2015","Age range":"30 to 34","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"97.23"},{"Year":"2015","Age range":"35 to 39","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"96.89"},{"Year":"2015","Age range":"40 to 44","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"97.96"},{"Year":"2015","Age range":"45 and over","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"98.9"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"97.66"},{"Year":"2016","Age range":"Under 20","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"98.70"},{"Year":"2016","Age range":"20 to 24","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"98.19"},{"Year":"2016","Age range":"25 to 29","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"97.86"},{"Year":"2016","Age range":"30 to 34","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"97.47"},{"Year":"2016","Age range":"35 to 39","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"96.98"},{"Year":"2016","Age range":"40 to 44","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"97.98"},{"Year":"2016","Age range":"45 and over","Number of previous births":null,"Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"98.62"},{"Year":"2014","Age range":null,"Number of previous births":"0","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"37.76"},{"Year":"2014","Age range":null,"Number of previous births":"0","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"74.64"},{"Year":"2014","Age range":null,"Number of previous births":"0","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"50.14"},{"Year":"2014","Age range":null,"Number of previous births":"0","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"39.31"},{"Year":"2014","Age range":null,"Number of previous births":"0","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"33.55"},{"Year":"2014","Age range":null,"Number of previous births":"0","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"25.56"},{"Year":"2014","Age range":null,"Number of previous births":"0","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"24.19"},{"Year":"2014","Age range":null,"Number of previous births":"0","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"32.52"},{"Year":"2014","Age range":null,"Number of previous births":"1","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"35"},{"Year":"2014","Age range":null,"Number of previous births":"1","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"20.96"},{"Year":"2014","Age range":null,"Number of previous births":"1","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"34.31"},{"Year":"2014","Age range":null,"Number of previous births":"1","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"35.04"},{"Year":"2014","Age range":null,"Number of previous births":"1","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"36.62"},{"Year":"2014","Age range":null,"Number of previous births":"1","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"36.63"},{"Year":"2014","Age range":null,"Number of previous births":"1","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"31.91"},{"Year":"2014","Age range":null,"Number of previous births":"1","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"25.46"},{"Year":"2014","Age range":null,"Number of previous births":"2","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"15"},{"Year":"2014","Age range":null,"Number of previous births":"2","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"2.17"},{"Year":"2014","Age range":null,"Number of previous births":"2","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"10.25"},{"Year":"2014","Age range":null,"Number of previous births":"2","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"15.15"},{"Year":"2014","Age range":null,"Number of previous births":"2","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"16.1"},{"Year":"2014","Age range":null,"Number of previous births":"2","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"19.2"},{"Year":"2014","Age range":null,"Number of previous births":"2","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"19.75"},{"Year":"2014","Age range":null,"Number of previous births":"2","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"15.18"},{"Year":"2014","Age range":null,"Number of previous births":"3","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"5.56"},{"Year":"2014","Age range":null,"Number of previous births":"3","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"0.22"},{"Year":"2014","Age range":null,"Number of previous births":"3","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"2.25"},{"Year":"2014","Age range":null,"Number of previous births":"3","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"5.26"},{"Year":"2014","Age range":null,"Number of previous births":"3","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"6.25"},{"Year":"2014","Age range":null,"Number of previous births":"3","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"8.13"},{"Year":"2014","Age range":null,"Number of previous births":"3","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"10.08"},{"Year":"2014","Age range":null,"Number of previous births":"3","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"10.38"},{"Year":"2014","Age range":null,"Number of previous births":"4","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"2.06"},{"Year":"2014","Age range":null,"Number of previous births":"4","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"0.02"},{"Year":"2014","Age range":null,"Number of previous births":"4","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"0.4"},{"Year":"2014","Age range":null,"Number of previous births":"4","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"1.61"},{"Year":"2014","Age range":null,"Number of previous births":"4","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"2.44"},{"Year":"2014","Age range":null,"Number of previous births":"4","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"3.46"},{"Year":"2014","Age range":null,"Number of previous births":"4","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"5.21"},{"Year":"2014","Age range":null,"Number of previous births":"4","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"5.47"},{"Year":"2014","Age range":null,"Number of previous births":"4 and over","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"3.5"},{"Year":"2014","Age range":null,"Number of previous births":"4 and over","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"0.03"},{"Year":"2014","Age range":null,"Number of previous births":"4 and over","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"0.49"},{"Year":"2014","Age range":null,"Number of previous births":"4 and over","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"2.24"},{"Year":"2014","Age range":null,"Number of previous births":"4 and over","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"4.06"},{"Year":"2014","Age range":null,"Number of previous births":"4 and over","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"6.53"},{"Year":"2014","Age range":null,"Number of previous births":"4 and over","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"10.9"},{"Year":"2014","Age range":null,"Number of previous births":"4 and over","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"13.86"},{"Year":"2014","Age range":null,"Number of previous births":"5 to 9","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"1.41"},{"Year":"2014","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"0.01"},{"Year":"2014","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"0.09"},{"Year":"2014","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"0.63"},{"Year":"2014","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"1.61"},{"Year":"2014","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"2.99"},{"Year":"2014","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"5.34"},{"Year":"2014","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"7.68"},{"Year":"2014","Age range":null,"Number of previous births":"10 and over","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"0.03"},{"Year":"2014","Age range":null,"Number of previous births":"10 and over","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"0"},{"Year":"2014","Age range":null,"Number of previous births":"10 and over","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"0"},{"Year":"2014","Age range":null,"Number of previous births":"10 and over","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"0"},{"Year":"2014","Age range":null,"Number of previous births":"10 and over","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"0.02"},{"Year":"2014","Age range":null,"Number of previous births":"10 and over","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"0.08"},{"Year":"2014","Age range":null,"Number of previous births":"10 and over","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"0.35"},{"Year":"2014","Age range":null,"Number of previous births":"10 and over","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"0.72"},{"Year":"2014","Age range":null,"Number of previous births":"Not stated","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"0.68"},{"Year":"2014","Age range":null,"Number of previous births":"Not stated","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"0.46"},{"Year":"2014","Age range":null,"Number of previous births":"Not stated","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"0.59"},{"Year":"2014","Age range":null,"Number of previous births":"Not stated","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"0.68"},{"Year":"2014","Age range":null,"Number of previous births":"Not stated","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"0.7"},{"Year":"2014","Age range":null,"Number of previous births":"Not stated","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"0.75"},{"Year":"2014","Age range":null,"Number of previous births":"Not stated","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"0.78"},{"Year":"2014","Age range":null,"Number of previous births":"Not stated","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"1.44"},{"Year":"2015","Age range":null,"Number of previous births":"0","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"38.5"},{"Year":"2015","Age range":null,"Number of previous births":"0","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"77.67"},{"Year":"2015","Age range":null,"Number of previous births":"0","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"51.85"},{"Year":"2015","Age range":null,"Number of previous births":"0","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"40.59"},{"Year":"2015","Age range":null,"Number of previous births":"0","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"34.37"},{"Year":"2015","Age range":null,"Number of previous births":"0","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"25.77"},{"Year":"2015","Age range":null,"Number of previous births":"0","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"24.12"},{"Year":"2015","Age range":null,"Number of previous births":"0","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"34.59"},{"Year":"2015","Age range":null,"Number of previous births":"1","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"34.9"},{"Year":"2015","Age range":null,"Number of previous births":"1","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"18.72"},{"Year":"2015","Age range":null,"Number of previous births":"1","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"33.78"},{"Year":"2015","Age range":null,"Number of previous births":"1","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"34.62"},{"Year":"2015","Age range":null,"Number of previous births":"1","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"36.58"},{"Year":"2015","Age range":null,"Number of previous births":"1","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"37.22"},{"Year":"2015","Age range":null,"Number of previous births":"1","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"32.74"},{"Year":"2015","Age range":null,"Number of previous births":"1","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"25.75"},{"Year":"2015","Age range":null,"Number of previous births":"2","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"14.71"},{"Year":"2015","Age range":null,"Number of previous births":"2","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"1.86"},{"Year":"2015","Age range":null,"Number of previous births":"2","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"9.52"},{"Year":"2015","Age range":null,"Number of previous births":"2","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"14.7"},{"Year":"2015","Age range":null,"Number of previous births":"2","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"15.82"},{"Year":"2015","Age range":null,"Number of previous births":"2","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"19"},{"Year":"2015","Age range":null,"Number of previous births":"2","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"19.23"},{"Year":"2015","Age range":null,"Number of previous births":"2","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"14.71"},{"Year":"2015","Age range":null,"Number of previous births":"3","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"5.49"},{"Year":"2015","Age range":null,"Number of previous births":"3","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"0.16"},{"Year":"2015","Age range":null,"Number of previous births":"3","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"2.13"},{"Year":"2015","Age range":null,"Number of previous births":"3","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"5.11"},{"Year":"2015","Age range":null,"Number of previous births":"3","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"6.09"},{"Year":"2015","Age range":null,"Number of previous births":"3","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"8.03"},{"Year":"2015","Age range":null,"Number of previous births":"3","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"10.14"},{"Year":"2015","Age range":null,"Number of previous births":"3","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"9.84"},{"Year":"2015","Age range":null,"Number of previous births":"4","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"2.04"},{"Year":"2015","Age range":null,"Number of previous births":"4","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"0.03"},{"Year":"2015","Age range":null,"Number of previous births":"4","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"0.39"},{"Year":"2015","Age range":null,"Number of previous births":"4","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"1.58"},{"Year":"2015","Age range":null,"Number of previous births":"4","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"2.37"},{"Year":"2015","Age range":null,"Number of previous births":"4","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"3.35"},{"Year":"2015","Age range":null,"Number of previous births":"4","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"5.23"},{"Year":"2015","Age range":null,"Number of previous births":"4","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"4.82"},{"Year":"2015","Age range":null,"Number of previous births":"4 and over","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"3.48"},{"Year":"2015","Age range":null,"Number of previous births":"4 and over","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"0.04"},{"Year":"2015","Age range":null,"Number of previous births":"4 and over","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"0.48"},{"Year":"2015","Age range":null,"Number of previous births":"4 and over","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"2.21"},{"Year":"2015","Age range":null,"Number of previous births":"4 and over","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"3.9"},{"Year":"2015","Age range":null,"Number of previous births":"4 and over","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"6.37"},{"Year":"2015","Age range":null,"Number of previous births":"4 and over","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"11.15"},{"Year":"2015","Age range":null,"Number of previous births":"4 and over","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"13.25"},{"Year":"2015","Age range":null,"Number of previous births":"5 to 9","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"1.4"},{"Year":"2015","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"0.02"},{"Year":"2015","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"0.09"},{"Year":"2015","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"0.63"},{"Year":"2015","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"1.51"},{"Year":"2015","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"2.91"},{"Year":"2015","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"5.59"},{"Year":"2015","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"7.93"},{"Year":"2015","Age range":null,"Number of previous births":"10 and over","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"0.04"},{"Year":"2015","Age range":null,"Number of previous births":"10 and over","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"0"},{"Year":"2015","Age range":null,"Number of previous births":"10 and over","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"0"},{"Year":"2015","Age range":null,"Number of previous births":"10 and over","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"0"},{"Year":"2015","Age range":null,"Number of previous births":"10 and over","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"0.01"},{"Year":"2015","Age range":null,"Number of previous births":"10 and over","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"0.1"},{"Year":"2015","Age range":null,"Number of previous births":"10 and over","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"0.34"},{"Year":"2015","Age range":null,"Number of previous births":"10 and over","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"0.5"},{"Year":"2015","Age range":null,"Number of previous births":"Not stated","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"0.47"},{"Year":"2015","Age range":null,"Number of previous births":"Not stated","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"0.36"},{"Year":"2015","Age range":null,"Number of previous births":"Not stated","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"0.39"},{"Year":"2015","Age range":null,"Number of previous births":"Not stated","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"0.49"},{"Year":"2015","Age range":null,"Number of previous births":"Not stated","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"0.47"},{"Year":"2015","Age range":null,"Number of previous births":"Not stated","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"0.5"},{"Year":"2015","Age range":null,"Number of previous births":"Not stated","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"0.57"},{"Year":"2015","Age range":null,"Number of previous births":"Not stated","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"0.75"},{"Year":"2016","Age range":null,"Number of previous births":"0","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"40.50"},{"Year":"2016","Age range":null,"Number of previous births":"0","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"80.58"},{"Year":"2016","Age range":null,"Number of previous births":"0","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"54.80"},{"Year":"2016","Age range":null,"Number of previous births":"0","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"43.18"},{"Year":"2016","Age range":null,"Number of previous births":"0","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"36.71"},{"Year":"2016","Age range":null,"Number of previous births":"0","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"27.12"},{"Year":"2016","Age range":null,"Number of previous births":"0","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"25.79"},{"Year":"2016","Age range":null,"Number of previous births":"0","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"35.99"},{"Year":"2016","Age range":null,"Number of previous births":"1","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"34.16"},{"Year":"2016","Age range":null,"Number of previous births":"1","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"16.01"},{"Year":"2016","Age range":null,"Number of previous births":"1","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"31.93"},{"Year":"2016","Age range":null,"Number of previous births":"1","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"33.60"},{"Year":"2016","Age range":null,"Number of previous births":"1","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"35.91"},{"Year":"2016","Age range":null,"Number of previous births":"1","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"37.52"},{"Year":"2016","Age range":null,"Number of previous births":"1","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"32.90"},{"Year":"2016","Age range":null,"Number of previous births":"1","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"26.60"},{"Year":"2016","Age range":null,"Number of previous births":"2","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"13.85"},{"Year":"2016","Age range":null,"Number of previous births":"2","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"1.46"},{"Year":"2016","Age range":null,"Number of previous births":"2","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"8.72"},{"Year":"2016","Age range":null,"Number of previous births":"2","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"13.71"},{"Year":"2016","Age range":null,"Number of previous births":"2","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"14.81"},{"Year":"2016","Age range":null,"Number of previous births":"2","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"17.95"},{"Year":"2016","Age range":null,"Number of previous births":"2","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"18.23"},{"Year":"2016","Age range":null,"Number of previous births":"2","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"13.56"},{"Year":"2016","Age range":null,"Number of previous births":"3","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"5.18"},{"Year":"2016","Age range":null,"Number of previous births":"3","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"0.12"},{"Year":"2016","Age range":null,"Number of previous births":"3","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"1.68"},{"Year":"2016","Age range":null,"Number of previous births":"3","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"4.74"},{"Year":"2016","Age range":null,"Number of previous births":"3","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"5.78"},{"Year":"2016","Age range":null,"Number of previous births":"3","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"7.67"},{"Year":"2016","Age range":null,"Number of previous births":"3","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"9.54"},{"Year":"2016","Age range":null,"Number of previous births":"3","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"8.16"},{"Year":"2016","Age range":null,"Number of previous births":"4","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"1.91"},{"Year":"2016","Age range":null,"Number of previous births":"4","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"0.02"},{"Year":"2016","Age range":null,"Number of previous births":"4","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"0.35"},{"Year":"2016","Age range":null,"Number of previous births":"4","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"1.41"},{"Year":"2016","Age range":null,"Number of previous births":"4","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"2.17"},{"Year":"2016","Age range":null,"Number of previous births":"4","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"3.15"},{"Year":"2016","Age range":null,"Number of previous births":"4","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"5.02"},{"Year":"2016","Age range":null,"Number of previous births":"4","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"5.36"},{"Year":"2016","Age range":null,"Number of previous births":"4 and over","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"3.32"},{"Year":"2016","Age range":null,"Number of previous births":"4 and over","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"0.03"},{"Year":"2016","Age range":null,"Number of previous births":"4 and over","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"0.42"},{"Year":"2016","Age range":null,"Number of previous births":"4 and over","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"1.99"},{"Year":"2016","Age range":null,"Number of previous births":"4 and over","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"3.63"},{"Year":"2016","Age range":null,"Number of previous births":"4 and over","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"6.05"},{"Year":"2016","Age range":null,"Number of previous births":"4 and over","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"10.81"},{"Year":"2016","Age range":null,"Number of previous births":"4 and over","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"13.23"},{"Year":"2016","Age range":null,"Number of previous births":"5 to 9","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"1.37"},{"Year":"2016","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"0.01"},{"Year":"2016","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"0.07"},{"Year":"2016","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"0.58"},{"Year":"2016","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"1.44"},{"Year":"2016","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"2.82"},{"Year":"2016","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"5.47"},{"Year":"2016","Age range":null,"Number of previous births":"5 to 9","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"7.11"},{"Year":"2016","Age range":null,"Number of previous births":"10 and over","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"0.04"},{"Year":"2016","Age range":null,"Number of previous births":"10 and over","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"0.00"},{"Year":"2016","Age range":null,"Number of previous births":"10 and over","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"0.00"},{"Year":"2016","Age range":null,"Number of previous births":"10 and over","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"0.00"},{"Year":"2016","Age range":null,"Number of previous births":"10 and over","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"0.02"},{"Year":"2016","Age range":null,"Number of previous births":"10 and over","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"0.08"},{"Year":"2016","Age range":null,"Number of previous births":"10 and over","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"0.32"},{"Year":"2016","Age range":null,"Number of previous births":"10 and over","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"0.76"},{"Year":"2016","Age range":null,"Number of previous births":"Not stated","Age range previous births":null,"Country":null,"Region":null,"Health board":null,"Value":"0.64"},{"Year":"2016","Age range":null,"Number of previous births":"Not stated","Age range previous births":"Under 20","Country":null,"Region":null,"Health board":null,"Value":"0.51"},{"Year":"2016","Age range":null,"Number of previous births":"Not stated","Age range previous births":"20 to 24","Country":null,"Region":null,"Health board":null,"Value":"0.62"},{"Year":"2016","Age range":null,"Number of previous births":"Not stated","Age range previous births":"25 to 29","Country":null,"Region":null,"Health board":null,"Value":"0.64"},{"Year":"2016","Age range":null,"Number of previous births":"Not stated","Age range previous births":"30 to 34","Country":null,"Region":null,"Health board":null,"Value":"0.63"},{"Year":"2016","Age range":null,"Number of previous births":"Not stated","Age range previous births":"35 to 39","Country":null,"Region":null,"Health board":null,"Value":"0.68"},{"Year":"2016","Age range":null,"Number of previous births":"Not stated","Age range previous births":"40 to 44","Country":null,"Region":null,"Health board":null,"Value":"0.71"},{"Year":"2016","Age range":null,"Number of previous births":"Not stated","Age range previous births":"45 and over","Country":null,"Region":null,"Health board":null,"Value":"1.09"},{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":null,"Health board":null,"Value":"97.54"},{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"North East","Health board":null,"Value":"98.72"},{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"North West","Health board":null,"Value":"97.58"},{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"Yorkshire and the Humber","Health board":null,"Value":"97.5"},{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"East Midlands","Health board":null,"Value":"97.2"},{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"West Midlands","Health board":null,"Value":"98.25"},{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"East","Health board":null,"Value":"97.29"},{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"London","Health board":null,"Value":"98.09"},{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"South East","Health board":null,"Value":"96.92"},{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"South West","Health board":null,"Value":"96.61"},{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":null,"Value":"96.64"},{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Betsi Cadwaladr University","Value":"97.53"},{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Powys Teaching","Value":"91.84"},{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Hywel Dda","Value":"95.05"},{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Abertawe Bro Morgannwg University","Value":"95.79"},{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Cwm Taf","Value":"97.87"},{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Aneurin Bevan","Value":"97.1"},{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Cardiff and Vale University","Value":"97"},{"Year":"2014","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Elsewhere","Region":null,"Health board":null,"Value":"99.52"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":null,"Health board":null,"Value":"97.57"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"North East","Health board":null,"Value":"98.67"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"North West","Health board":null,"Value":"97.69"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"Yorkshire and the Humber","Health board":null,"Value":"97.61"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"East Midlands","Health board":null,"Value":"97.33"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"West Midlands","Health board":null,"Value":"98.32"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"East","Health board":null,"Value":"97.2"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"London","Health board":null,"Value":"98.05"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"South East","Health board":null,"Value":"96.67"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"South West","Health board":null,"Value":"96.6"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":null,"Value":"96.91"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Betsi Cadwaladr University","Value":"97.6"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Powys Teaching","Value":"89.78"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Hywel Dda","Value":"95.48"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Abertawe Bro Morgannwg University","Value":"96.05"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Cwm Taf","Value":"98.11"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Aneurin Bevan","Value":"97.99"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Cardiff and Vale University","Value":"97.21"},{"Year":"2015","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Elsewhere","Region":null,"Health board":null,"Value":"98.49"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":null,"Health board":null,"Value":"97.69"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"North East","Health board":null,"Value":"98.74"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"North West","Health board":null,"Value":"97.87"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"Yorkshire and the Humber","Health board":null,"Value":"97.87"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"East Midlands","Health board":null,"Value":"97.38"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"West Midlands","Health board":null,"Value":"98.33"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"East","Health board":null,"Value":"97.41"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"London","Health board":null,"Value":"98.06"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"South East","Health board":null,"Value":"97.09"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"England","Region":"South West","Health board":null,"Value":"96.82"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":null,"Value":"97.02"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Betsi Cadwaladr University","Value":"97.71"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Powys Teaching","Value":"91.87"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Hywel Dda","Value":"95.24"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Abertawe Bro Morgannwg University","Value":"96.50"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Cwm Taf","Value":"98.33"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Aneurin Bevan","Value":"97.84"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Wales","Region":null,"Health board":"Cardiff and Vale University","Value":"97.13"},{"Year":"2016","Age range":null,"Number of previous births":null,"Age range previous births":null,"Country":"Elsewhere","Region":null,"Health board":null,"Value":"99.10"}]' data-indicatorid='indicator_3-1-2' data-country="UK"
+    data-charttitle="Percentage of births in England and Wales in NHS or non NHS hospitals" data-measurementunit="" data-datasource="Office for National Statistics" data-geographicalarea="England and Wales" data-showdata="true">
+
+    
+      
+    
+    
+
+    
+    <div id="toolbar">
+      <div id="fields"></div>
+    </div>
+    
+    <div id="units"></div>
+    <div class="plot-container">
+        
+<canvas></canvas>
+    </div>
+    
+
+
+    
+    
+    <div class="alert alert-warning" role="alert">
+      <i class="fa fa-info" aria-hidden="true"></i> See metadata tab for sources, definitions, and methodology information
+    </div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      
+        <li role="presentation" class="nav-item active">
+          <a class="nav-link" data-toggle="tab" href="#data" aria-controls="data" role="tab">Data</a>
+        </li>
+      
+      <li role="presentation" class="nav-item  ">
+        <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab">Metadata</a>
+      </li>
+      <li role="presentation" class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab">Sources</a>
+      </li>
+      
+    </ul>
+    
+    <!-- Tab panes -->
+    <div class="tab-content">
+      
+        <div role="tabpanel" class="tab-pane active" id="data">
+          
+            <h3>Percentage of births in England and Wales in NHS or non NHS hospitals</h3>
+          
+          <p>Unit of Measurement: </p>     
+          <a href="/sdg-indicators/data/indicator_3-1-2.csv" class="btn btn-primary btn-download" download='indicator_3-1-2.csv'>Download source CSV</a>
+          <div id="datatables"></div>
+        </div>
+      
+      <div role="tabpanel" class="tab-pane " id="metadata">
+        <!-- National Metadata -->
+        <div class="collapsible expanded">
+          <h3>National Metadata<span> (Collapse)</span></h3>
+          <article>
+            <p>This table provides metadata for the actual indicator available from UK statistics closest to the corresponding global
+                SDG indicator. Please note that even when the global SDG indicator is fully available from UK statistics, this table
+                should be consulted for information on national methodology and other UK-specific metadata information.</p>
+              <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Actual Indicator Available </th>
+        <td>
+          
+            Births in different locations according to age and residential geography
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Actual Indicator Description </th>
+        <td>
+          
+            Percentage of births in NHS or non NHS hospitals
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Periodicity </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Earliest Available Data </th>
+        <td>
+          
+            2014
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Geographic Coverage </th>
+        <td>
+          
+            England and Wales
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Release Date </th>
+        <td>
+          
+            2017-10-16
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Next Release </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Statistical Classification </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Disaggregation </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Comments and Limitations </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Contact Details </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+        <!-- Method of Computation -->
+        <div class="collapsible collapsed">
+          <h3>How the UK Indicator is Calculated<span> (Expand)</span></h3>
+          <article>
+            <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Units of Measure </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Calculations </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Numerator </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Denominator </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Definitions </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+        <!-- Global Metadata -->
+        <div class="collapsible collapsed">
+          <h3>Global Metadata<span> (Expand)</span></h3>
+          <article>
+            <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. Complete global <a href="http://unstats.un.org/sdgs/files/metadata-compilation/Metadata-Goal-3.pdf">metadata</a> is provided by the UN Statistics Division.</p>
+            <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Name </th>
+        <td>
+          
+            Proportion of births attended by skilled health personnel
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator Number </th>
+        <td>
+          
+            3.1.2
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Target Name </th>
+        <td>
+          
+            By 2030, reduce the global maternal mortality ratio to less than 70 per 100,000 live births
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Target Number </th>
+        <td>
+          
+            3.1
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Global Indicator Description </th>
+        <td>
+          
+            Percentage of live births attended by skilled health personnel during a specified time period.
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Designated Tier </th>
+        <td>
+          
+            1
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Custodian Agency </th>
+        <td>
+          
+            UNICEF
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Partner Agency </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UNSD Indicator Code </th>
+        <td>
+          
+            C030102
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN Indicator Notes </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Link to UN Metadata </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="http://unstats.un.org/sdgs/files/metadata-compilation/Metadata-Goal-3.pdf">
+                UN Metadata
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+          </article>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="sources">
+        <!-- Count the non-empty sources (up to 5) -->
+
+
+
+
+  <h3>UK Data Source Metadata</h3>
+  <div class="row no-gutters">
+  
+   
+    
+    <div class="col-md-6">
+      <h4>Source 1</h4>
+      <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            Office for National Statistics
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            Annually
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Earliest Available Data </th>
+        <td>
+          
+            2014
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Geographical Coverage </th>
+        <td>
+          
+            England and Wales
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Link to Data Source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthcharacteristicsinenglandandwales">
+                Link to Source Birth characteristics (ONS)
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Release Date </th>
+        <td>
+          
+            2017-10-16
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Next Release </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Statistical Classification </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Contact Details </th>
+        <td>
+          
+            vsob@ons.gsi.gov.uk
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Other Information </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+    </div>
+    
+  </div>
+
+
+      </div>
+      
+    </div>
+  </section>
+</div>
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
+<!-- Google Analytics -->
+
+<!-- /.container </div> -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20171021000508'></script>
+<script>
+$(function() {
+    $(window).scroll(function() {
+        if ($(".navbar").offset().top > 50) {
+            $("#main-nav").addClass("collapsed");
+        } else {
+            $("#main-nav").removeClass("collapsed");
+        }
+    });
+
+    $('#metadata .collapsible h3').click(function() {
+      var $container = $(this).closest('div'),
+          $article = $(this).next('article'),
+          $span = $(this).find('span');
+
+      $article.slideToggle(function() {
+        if($container.hasClass('expanded')) {
+          $container.removeClass('expanded');
+          $container.addClass('collapsed');
+          $span.html(' (Expand)');
+        } else {
+          $container.removeClass('collapsed');
+          $container.addClass('expanded');
+          $span.html(' (Collapse)');
+        }
+      });
+    });
+
+    if($('#indicatorData').length) {
+      var model = new indicatorModel({
+        data: $('#indicatorData').data('indicatordata'),
+        country: $('#indicatorData').data('country'),
+        indicatorId: $('#indicatorData').data('indicatorid'),
+        chartTitle: $('#indicatorData').data('charttitle'),
+        measurementUnit: $('#indicatorData').data('measurementunit'),
+        dataSource: $('#indicatorData').data('datasource'),
+        geographicalArea: $('#indicatorData').data('geographicalarea'),
+        showData: $('#indicatorData').data('showdata')
+      }),
+      view  = new indicatorView(model, {
+        rootElement: '#indicatorData',
+        maxChartHeight: 600
+      }),
+      controller = new indicatorController(model, view);
+      controller.initialise();
+    }
+
+    
+});
+</script>
+
+</body>
+</html>
+
