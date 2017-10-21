@@ -126,7 +126,7 @@
       <div role="tabpanel" class="tab-pane" id="sources">
         {% include components/sources.html %}
       </div>
-      {% if site.github.environment == 'dotcom' %}
+      {% if site.environment == 'staging' %}
       <div role="tabpanel" class="tab-pane" id="edit">
         <div class="edit-container">
           <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/data/indicator_{{ page.indicator | slugify }}.csv">Edit Data</a>
