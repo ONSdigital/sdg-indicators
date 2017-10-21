@@ -5,7 +5,8 @@ set -e # Exit with nonzero exit code if anything fails
 
 SOURCE_BRANCH="develop"
 TARGET_BRANCH="gh-pages"
-
+STAGING_REPO="git@github.com:${TRAVIS_REPO_SLUG}.git"
+SHA=`git rev-parse --verify --short HEAD`
 
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
 if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]; then
@@ -19,10 +20,6 @@ tar xvf scripts/deploy/keys.tar -C scripts/deploy/
 rm scripts/deploy/keys.tar
 
 echo "TRAVIS_TAG = " $TRAVIS_TAG
-
-# Save some useful information
-STAGING_REPO="git@github.com:${TRAVIS_REPO_SLUG}.git"
-SHA=`git rev-parse --verify --short HEAD`
 
 # Clone the existing gh-pages for this repo into out/
 # Create a new empty branch if gh-pages doesn't exist yet (should only happen on first deply)
