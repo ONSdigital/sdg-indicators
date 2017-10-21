@@ -77,7 +77,7 @@
       <li role="presentation" class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab">Sources</a>
       </li>
-      {% if site.github.environment == 'dotcom' %}
+      {% if site.environment == 'staging' %}
         <li role="presentation" class="nav-item">
           <a class="nav-link" data-toggle="tab" href="#edit" aria-controls="edit" role="tab">Edit</a>
         </li>
@@ -92,7 +92,7 @@
             <h3>{{ page.graph_title }}</h3>
           {% endif %}
           <p>Unit of Measurement: {{ page.computation_units }}</p>     
-          <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary btn-download">Download source CSV</a>
+          <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary btn-download" download='{{ dataset_name }}.csv'>Download source CSV</a>
           <div id="datatables"></div>
         </div>
       {% endif %}
@@ -126,7 +126,7 @@
       <div role="tabpanel" class="tab-pane" id="sources">
         {% include components/sources.html %}
       </div>
-      {% if site.github.environment == 'dotcom' %}
+      {% if site.environment == 'staging' %}
       <div role="tabpanel" class="tab-pane" id="edit">
         <div class="edit-container">
           <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/data/indicator_{{ page.indicator | slugify }}.csv">Edit Data</a>

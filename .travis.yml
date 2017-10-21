@@ -11,20 +11,22 @@ addons:
     - python3-pandas
     - python3-pandas-lib
 before_script:
-- chmod +x ./scripts/build/csvcheck.py
+- chmod +x ./scripts/build/*.py
 - chmod +x ./scripts/build/cibuild.sh
 script:
 - python3 ./scripts/build/csvcheck.py
 - python3 ./scripts/build/metadatacheck.py
+- python3 ./scripts/build/configcheck.py
 - scripts/build/cibuild.sh
 after_success:
 - chmod +x ./scripts/deploy/deploy.sh
-- scripts/deploy/deploy.sh
+- chmod +x ./scripts/deploy/deploy_staging.sh
+- test $TRAVIS_BRANCH = "develop" && scripts/deploy/deploy_staging.sh
+- test $TRAVIS_BRANCH = "master" && scripts/deploy/deploy.sh
 branches:
   only:
-  - gh-pages
-  - "/pages-(.*)/"
   - master
+  - develop
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true

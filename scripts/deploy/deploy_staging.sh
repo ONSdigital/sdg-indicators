@@ -1,8 +1,11 @@
 #!/bin/bash
 set -e # Exit with nonzero exit code if anything fails
 
-SOURCE_BRANCH="master"
-TARGET_BRANCH="master"
+# Credit where due: https://gist.github.com/domenic/ec8b0fc8ab45f39403dd
+
+SOURCE_BRANCH="develop"
+TARGET_BRANCH="gh-pages"
+STAGING_REPO="git@github.com:${TRAVIS_REPO_SLUG}.git"
 SHA=`git rev-parse --verify --short HEAD`
 
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
@@ -18,17 +21,15 @@ rm scripts/deploy/keys.tar
 
 echo "TRAVIS_TAG = " $TRAVIS_TAG
 
-
 # Clone the existing gh-pages for this repo into out/
 # Create a new empty branch if gh-pages doesn't exist yet (should only happen on first deply)
 
-chmod 600 ./scripts/deploy/deploy_key
 chmod 600 ./scripts/deploy/deploy_key_ds
 eval `ssh-agent -s`
-ssh-add scripts/deploy/deploy_key
 ssh-add scripts/deploy/deploy_key_ds
 
-git clone $TARGET_REPO out
+
+git clone $STAGING_REPO out
 cd out
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 cd ..
@@ -59,4 +60,4 @@ git reset .gitignore
 git commit -m "Deploy ${SHA} from branch ${TRAVIS_BRANCH}"
 
 # Now that we're all set up, we can push.
-git push $TARGET_REPO $TARGET_BRANCH
+git push $STAGING_REPO $TARGET_BRANCH
