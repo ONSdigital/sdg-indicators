@@ -19,12 +19,14 @@ script:
 - scripts/build/cibuild.sh
 after_success:
 - chmod +x ./scripts/deploy/deploy.sh
-- scripts/deploy/deploy.sh
+- chmod +x ./scripts/deploy/deploy_staging.sh
+- test $TRAVIS_BRANCH = "develop" && scripts/deploy/deploy_staging.sh
+- test $TRAVIS_BRANCH = "master" && scripts/deploy/deploy.sh
 branches:
   only:
-  - gh-pages
   - "/pages-(.*)/"
   - master
+  - develop
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
