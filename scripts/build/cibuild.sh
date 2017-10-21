@@ -11,6 +11,7 @@ if [ "$TRAVIS_BRANCH" = "master" ]; then
   htmlproofer --disable-external ./_site
 else
   jekyll build --config _config.yml &&
+  # The following is because htmlproofer doesn't like the /sdg-indicators baseurl
   mkdir -p ./_test/sdg-indicators &&
   cp -r ./_site/* ./_test/sdg-indicators/ &&
   touch ./_test/index.html &&
