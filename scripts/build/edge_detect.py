@@ -51,10 +51,7 @@ def x_without_y(x, y):
         x (pandas Series): Left hand column
         y (pandas Series): Right hand column
     """
-    return np.any(np.logical_and(
-                y.isnull(),
-                np.logical_not(x.isnull())
-               ))
+    return np.any(y.isnull() & x.notnull())
 
 
 def detect_all_edges(df, csv):
@@ -109,12 +106,7 @@ def prune_grand_parents(edges):
                     grand_parents = grand_parents + parents
                 parents0 = parents
 
-        keep = np.logical_not(
-                np.logical_and(
-                        edges['From'].isin(grand_parents),
-                        edges['To'] == group
-                        )
-                )
+        keep = ~(edges['From'].isin(grand_parents) & (edges['To'] == group))
 
         edges = edges[keep]
     return edges
