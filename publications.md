@@ -1,10 +1,9 @@
 ---
-title: Publications
+title: Putting the numbers into context
 permalink: /publications/
 layout: page
 ---
 
-# Putting the numbers into context
 As well as collecting and reporting UK data for the global Sustainable Development Goals indicators, ONS will be releasing various publications putting the numbers into context. We will make these publications available on this page.
 
 Between July and September, we ran a public consultation asking for feedback on our approach to reporting and prioritising data development for SDGs. We plan to publish our response to the consultation in December, which will include details of our plans for future reporting.
