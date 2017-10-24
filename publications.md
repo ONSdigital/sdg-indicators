@@ -14,6 +14,6 @@ If you have any feedback on our publications please contact us at <a href="mailt
 
 #### Goal 3
 
-* **[UK drops in European child mortality rankings, 13 October 2017](https://visual.ons.gov.uk/uk-drops-in-european-child-mortality-rankings/)** 
+* **[UK drops in European child mortality rankings, 13 October 2017](https://visual.ons.gov.uk/uk-drops-in-european-child-mortality-rankings/)**  
 This short story looks at the two indicators (under five and neonatal mortality) under Target 3.2, showing that although the UK has seen improvements over the last forty years, the rate of improvement has slowed compared with some other EU countries.
 
