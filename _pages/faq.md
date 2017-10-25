@@ -6,7 +6,7 @@ layout: page
 
 ### How do I suggest new or different data sources?
 
-If you have feedback on the data sources we have used or have suggestions for new data sources then please email us at <a href="SustainableDevelopment@ons.gov.uk">SustainableDevelopment@ons.gov.uk</a>.
+If you have feedback on the data sources we have used or have suggestions for new data sources then please email us at <a href="mailto:SustainableDevelopment@ons.gov.uk">SustainableDevelopment@ons.gov.uk</a>.
 
 ### What do the different reporting status mean?
 
