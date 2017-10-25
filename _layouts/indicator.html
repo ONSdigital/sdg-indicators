@@ -54,7 +54,7 @@
   </div>
 
   <section id="indicatorData" data-indicatordata='{{json_data}}' data-indicatorid='{{dataset_name}}' data-country="{{ site.country.name }}"
-    data-charttitle="{{ page.graph_title }}" data-measurementunit="{{ page.computation_units }}" data-datasource="{{ page.source_organisation_1 }}" data-geographicalarea="{{ page.national_geographical_coverage }}" data-showdata="{{ show_data }}">
+    data-charttitle="{{ page.graph_title }}" data-measurementunit="{{ page.computation_units }}"  data-footnote="{{ page.data_footnote }}" data-datasource="{{ page.source_organisation_1 }}" data-geographicalarea="{{ page.national_geographical_coverage }}" data-showdata="{{ show_data }}">
 
     {% if show_data %}
       {% include components/charts/chart.html graph_type=page.graph_type data=json_data %}
@@ -91,9 +91,10 @@
           {% if page.graph_title.size > 0 %}
             <h3>{{ page.graph_title }}</h3>
           {% endif %}
-          <p>Unit of Measurement: {{ page.computation_units }}</p>     
+          <p>Unit of Measurement: {{ page.computation_units }}</p>
           <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary btn-download" download='{{ dataset_name }}.csv'>Download source CSV</a>
           <div id="datatables"></div>
+          <p>{{ page.data_footnote }}</p>
         </div>
       {% endif %}
       <div role="tabpanel" class="tab-pane {% if show_data != true %}active{% endif %}" id="metadata">
