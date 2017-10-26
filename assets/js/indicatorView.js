@@ -281,14 +281,14 @@ var indicatorView = function (model, options) {
         var textOutputsLeft = [
           'Source: ' + (that._model.dataSource ? that._model.dataSource : ''),
           'Geographical Area: ' + (that._model.geographicalArea ? that._model.geographicalArea : ''),
-          'Unit of Measurement: ' + (that._model.measurementUnit ? that._model.measurementUnit : '')
+          'Unit of Measurement: ' + (that._model.measurementUnit ? that._model.measurementUnit : ''),
+          (that._model.footnote ? 'Footnote: ' + that._model.footnote : '')
         ];
         putTextOutputs(textOutputsLeft, 0, 'left');
 
-        var textOutputsRight = [
-          (that._model.footnote ? 'Footnote: ' + that._model.footnote : '')
-        ];
-        putTextOutputs(textOutputsRight, $canvas.width(), 'right');
+        //var textOutputsRight = [
+        //];
+        //putTextOutputs(textOutputsRight, $canvas.width(), 'right');
       }
     });
   };
