@@ -509,9 +509,11 @@ h5 + .btn-download {
     margin-bottom: 1.5rem;
   }
 
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
   #toolbar {
     button {
-      width: 160px;
+      width: 100%;
       background-color: #fff;
       position: relative;
       border: 1px solid #ccc;
@@ -519,7 +521,6 @@ h5 + .btn-download {
       padding: 10px 7px 14px 7px;
       font-size: 0.875em;
       font-family: 'Open Sans', sans-serif;
-      float: left;
       margin-right: 8px;
 
       i {
@@ -539,10 +540,10 @@ h5 + .btn-download {
   #fields {
 
     @include noselect;
-    float: left;
 
     padding-bottom: 14px;
     font-size: 0.75em;
+    margin-top: 10px;
 
     label {
       background-color: #fff;
@@ -625,22 +626,28 @@ h5 + .btn-download {
     .variable-selector {
       position: relative;
       cursor: pointer;
-      min-width: 160px;
+      width: 100%;
       border: 1px solid #ccc;
       display: inline-block;
       margin-right: 8px;
       margin-bottom: 10px;
 
+      &.disallowed {
+        display: none;
+      }
+
+      &:hover {
+        border-color: #555;
+      }
+
       .variable-options {
         background-color: white;
         display: none;
-        position: absolute;
+        position: static;        
         z-index: 100;
-        border: 1px solid #ccc;
         border-top: 0;
         right: -1px;
         left: -1px;
-        max-height: 300px;
         overflow: auto;
 
         > div {
@@ -658,9 +665,9 @@ h5 + .btn-download {
           text-align: center;
           width: 40%;
           margin: 0;
-          font-size: 0.75em;
+          font-size: 1.2em;
           padding: inherit;
-          border-radius: 2px;
+          border-radius: 4px;
 
           &:hover {
             background: #f5f3f3;
@@ -671,6 +678,7 @@ h5 + .btn-download {
           padding-left: 7px;
           padding-right: 25px;
           position: relative;
+          font-size: 1.3em;
 
           &:not(:first-child) {
             border-top: 1px solid #cdcdcd;
@@ -699,8 +707,11 @@ h5 + .btn-download {
       padding: 10px;
       margin-right: 8px;
       cursor: pointer;
+      width: 100%;
     }
   }
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   .plot-container {
     margin-bottom: 4.5rem;

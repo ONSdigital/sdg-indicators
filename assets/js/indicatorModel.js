@@ -23,6 +23,7 @@ var indicatorModel = function (options) {
   // general members:
   var that = this;
   this.data = options.data;
+  this.edgesData = options.edgesData;
   this.country = options.country;
   this.indicatorId = options.indicatorId;
   this.chartTitle = options.chartTitle;
@@ -32,6 +33,7 @@ var indicatorModel = function (options) {
   this.footnote = options.footnote;
   this.showData = options.showData;
   this.selectedFields = [];
+  this.allowedFields = [];
   this.selectedUnit = undefined;
   this.fieldValueStatuses = [];
   this.userInteraction = {};
@@ -51,7 +53,7 @@ var indicatorModel = function (options) {
           };
         })
       };
-    });
+    });    
 
     var extractUnique = function(prop) {
       return _.chain(that.data).pluck(prop).uniq().sortBy(function(year) {
@@ -67,6 +69,10 @@ var indicatorModel = function (options) {
     }
 
     that.selectableFields = _.pluck(that.fieldItemStates, 'field');
+
+    // determine if there are any 'child' fields: those that can
+    // only be selected if their parent has one or more selections:
+    that.allowedFields = _.difference(that.selectableFields, _.pluck(that.edgesData, 'To'));
 
     // prepare the data according to the rounding function:
     that.data = _.map(that.data, function(item) {
@@ -124,11 +130,42 @@ var indicatorModel = function (options) {
   };
 
   this.updateSelectedFields = function (fields, userInteraction) {
-    //console.log('Selected fields: ', fields);
     this.selectedFields = fields;
+
+    // update parent/child statuses:
+    var selectedFields = _.pluck(this.selectedFields, 'field');
+    _.each(this.edgesData, function(edge) {
+      if(!_.contains(selectedFields, edge.From)) {
+        // don't allow any child fields of this association:
+        this.selectedFields = _.without(this.selectedFields, _.findWhere(this.selectedFields, {
+          field: edge.From
+        }));
+      }
+    });
+
+    // reset the allowedFields:
+    this.allowedFields = _.difference(this.selectableFields, _.pluck(this.edgesData, 'To'));
+
+    // and reinstate based on selectedFields:
+    var parentFields = _.pluck(this.edgesData, 'From');
+    _.each(parentFields, function(parentField) {
+      if(_.contains(selectedFields, parentField)) {
+        // resinstate
+        that.allowedFields = that.allowedFields.concat(
+          _.chain(that.edgesData).where({ 'From' : parentField }).pluck('To').value()
+        );
+      }
+    });
+
+    // remove duplicates:
+    that.allowedFields = _.uniq(that.allowedFields);
+
     this.userInteraction = userInteraction;
     this.getData();
-    this.onSelectionUpdate.notify(fields);
+    this.onSelectionUpdate.notify({
+      selectedFields: fields,
+      allowedFields: that.allowedFields
+    });
   };
 
   this.updateSelectedUnit = function(selectedUnit) {
@@ -366,7 +403,8 @@ var indicatorModel = function (options) {
 
     if (initial) {
       this.onSeriesComplete.notify({
-        series: this.fieldItemStates
+        series: this.fieldItemStates,
+        allowedFields: this.allowedFields
       });
       this.onUnitsComplete.notify({
         units: this.units

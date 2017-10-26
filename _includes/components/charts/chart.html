@@ -5,11 +5,6 @@
     {% endif %}
 
     {% assign graph_template = 'components/charts/' | append: graph_type | append: '.html' %}
-    <div id="toolbar">
-      <div id="fields"></div>
-    </div>
-    
-    <div id="units"></div>
     <div class="plot-container">
         {% include {{graph_template}} data=include.data %}
     </div>
