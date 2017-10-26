@@ -1,0 +1,24 @@
+{% capture headline_name %}headlines_{{page.indicator | slugify }}{% endcapture %} 
+{% assign sdg_headline_data = site.data.headlines[headline_name] %} 
+
+<h3>Headline data</h3>
+
+<a href="{{ site.baseurl }}/data/headlines/{{ headline_name }}.csv" class="btn btn-primary btn-download" download='{{ dataset_name }}.csv'>Download headline CSV</a>
+
+<table class="table-responsive table table-hover dataTable no-footer" role="grid">
+  <!-- <caption>Headline data</caption> -->
+  <thead>
+  {% for column in sdg_headline_data[0] %}
+      <th scope="col">{{ column[0] }}</th>
+  {% endfor %}
+  </thead>
+  <tbody>
+  {% for row in sdg_headline_data %}
+      <tr>
+      {% for cell in row %}
+          <td>{{ cell[1] }}</td>
+      {% endfor %}
+      </tr>
+  {% endfor %}
+  </tbody>
+</table>

@@ -35,15 +35,19 @@ $(function() {
     });
 
     if($('#indicatorData').length) {
+      var domData = $('#indicatorData').data();
+
       var model = new indicatorModel({
-        data: $('#indicatorData').data('indicatordata'),
-        country: $('#indicatorData').data('country'),
-        indicatorId: $('#indicatorData').data('indicatorid'),
-        chartTitle: $('#indicatorData').data('charttitle'),
-        measurementUnit: $('#indicatorData').data('measurementunit'),
-        dataSource: $('#indicatorData').data('datasource'),
-        geographicalArea: $('#indicatorData').data('geographicalarea'),
-        showData: $('#indicatorData').data('showdata')
+        data: domData.indicatordata,
+        country: domData.country,
+        indicatorId: domData.indicatorid,
+        chartTitle: domData.charttitle,
+        edgesData: domData.edgesdata,
+        measurementUnit: domData.measurementunit,
+        dataSource: domData.datasource,
+        geographicalArea: domData.geographicalarea,
+        showData: domData.showdata,
+        footnote: domData.footnote,
       }),
       view  = new indicatorView(model, {
         rootElement: '#indicatorData',
