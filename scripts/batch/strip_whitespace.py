@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Remove trailing whitespace from csv files
+Remove leading and trailing whitespace from csv files
 
 @author: dashton
 """
@@ -13,15 +13,18 @@ from pandas.api.types import is_string_dtype
 # %% Strip trailing whitespace
 
 
-def strip_trailing_whitespace(df, csv):
-    """Loop over string columns and check for any trailing whitespace"""
+def strip_outisde_whitespace(df, csv):
+    """Loop over string columns and check for any trailing or leading
+    whitespace"""
     changed = False
     for column in df:
         if is_string_dtype(df[column]):
-            has_trailing_ws = df[column].str.endswith(' ', na=False).any()
-            if has_trailing_ws:
+            has_trailing_ws = df[column].str.endswith(' ', na=False)
+            has_leading_ws = df[column].str.startswith(' ', na=False)
+            has_ws = (has_trailing_ws | has_leading_ws).any()
+            if has_ws:
                 changed = True
-                df[column] = df[column].str.rstrip()
+                df[column] = df[column].str.strip()
     if changed:
         df.to_csv(csv, index=False, encoding='utf-8')
         print(csv, "changing")
@@ -35,7 +38,7 @@ def main():
     for csv in csvs:
         try:
             df = pd.read_csv(csv)
-            strip_trailing_whitespace(df, csv)
+            strip_outisde_whitespace(df, csv)
         except Exception as e:
             print(csv, e)
 
