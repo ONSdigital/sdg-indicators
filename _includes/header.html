@@ -18,7 +18,7 @@
       </ul>
 
       <ul class="nav navbar-nav menu-target" id="menu">
-        <li {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" or page.permalink contains "/about" or page.layout=="post" %}class="nav-link"
+        <li {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" or page.permalink contains "/about" or page.layout=="post"  or page.permalink contains "/faq"  or page.permalink contains "/publications" %}class="nav-link"
           {% else %}class="nav-link active" {% endif %}>
           <a href="{{ site.baseurl }}/">Goals</a>
         </li>
