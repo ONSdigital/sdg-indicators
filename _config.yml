@@ -11,7 +11,11 @@ description: Data Platform Prototype
 baseurl: "/sdg-indicators" # the subpath of your site, e.g. /blog
 url: ""
 data_dir: data
+environment: staging
 # permalink: /news/:year/:month/:day/:title.html
+
+analytics:
+  ga_prod: ''
 
 ###################################################################################################
 email_contacts:
@@ -22,14 +26,14 @@ email_contacts:
 
 #Github Repo
 repo_name: sdg-indicators
-branch: gh-pages
+branch: develop
 org_name: datasciencecampus
 
 # Build settings
 markdown: kramdown
 
 # Travis Support
-exclude: [vendor]
+exclude: [vendor, scripts]
 
 # International Support
 # Eg name: Australia and adjective: Australian
@@ -49,9 +53,6 @@ collections:
     output: true
   goals:
     output: true
-
-analytics:
-  ga_prod: 'UA-42145528-4'
 
 # Prose configuration
 prose:
