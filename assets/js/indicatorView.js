@@ -62,19 +62,22 @@ var indicatorView = function (model, options) {
     // end of #246
   });
 
-  this._model.onSelectionUpdate.attach(function(sender, selectedFields) {
-    $(view_obj._rootElement).find('#clear')[selectedFields.length ? 'removeClass' : 'addClass']('disabled');
+  this._model.onSelectionUpdate.attach(function(sender, args) {
+    $(view_obj._rootElement).find('#clear')[args.selectedFields.length ? 'removeClass' : 'addClass']('disabled');
 
     // loop through the available fields:
     $('.variable-selector').each(function(index, element) {
       var currentField = $(element).data('field');
 
       // any info?
-      var match = _.findWhere(selectedFields, { field : currentField });
+      var match = _.findWhere(args.selectedFields, { field : currentField });
       var element = $(view_obj._rootElement).find('.variable-selector[data-field="' + currentField + '"]');
       var width = match ? (Number(match.values.length / element.find('.variable-options label').length) * 100) + '%' : '0';
 
       $(element).find('.bar .selected').css('width', width);
+
+      // is this an allowed field:
+      $(element)[_.contains(args.allowedFields, currentField) ? 'removeClass' : 'addClass']('disallowed');
     });
   });
 
@@ -180,7 +183,8 @@ var indicatorView = function (model, options) {
     $('<button id="clear" class="disabled">Clear selections <i class="fa fa-remove"></i></button>').insertBefore('#fields');
 
     $('#fields').html(template({
-        series: args.series
+        series: args.series,
+        allowedFields: args.allowedFields
     }));
   };
 
