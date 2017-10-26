@@ -30,6 +30,7 @@ var indicatorModel = function (options) {
   this.measurementUnit = options.measurementUnit;
   this.dataSource = options.dataSource;
   this.geographicalArea = options.geographicalArea;
+  this.footnote = options.footnote;
   this.showData = options.showData;
   this.selectedFields = [];
   this.allowedFields = [];
