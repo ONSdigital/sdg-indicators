@@ -317,7 +317,7 @@ var indicatorModel = function (options) {
     
     // all units for headline data
     tableData.push({
-      title: 'Headline for ' + this.country,
+      title: 'Headline data',
       headings: that.selectedUnit ? ['Year', 'Units', 'Value'] : ['Year', 'Value'],
       data: _.map(headline, function (d) {
         return that.selectedUnit ? [d.Year, d.Units, d.Value] : [d.Year, d.Value];
