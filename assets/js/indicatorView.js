@@ -178,14 +178,18 @@ var indicatorView = function (model, options) {
   });
 
   this.initialiseSeries = function (args) {
-    var template = _.template($("#item_template").html());
-
-    $('<button id="clear" class="disabled">Clear selections <i class="fa fa-remove"></i></button>').insertBefore('#fields');
-
-    $('#fields').html(template({
-        series: args.series,
-        allowedFields: args.allowedFields
-    }));
+    if(args.series.length) {
+      var template = _.template($("#item_template").html());
+      
+        $('<button id="clear" class="disabled">Clear selections <i class="fa fa-remove"></i></button>').insertBefore('#fields');
+    
+        $('#fields').html(template({
+            series: args.series,
+            allowedFields: args.allowedFields
+        }));
+    } else {
+      $(this._rootElement).addClass('no-series');
+    }
   };
 
   this.initialiseUnits = function(args) {
