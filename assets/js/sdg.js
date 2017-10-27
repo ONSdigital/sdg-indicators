@@ -2,7 +2,6 @@
 # Don't delete this line.
 ---
 
-{% include_relative lib/modernizr-custom.js %}
 {% include_relative chartjs/rescaler.js %}
 {% include_relative event.js %}
 {% include_relative indicatorDataStore.js %}
