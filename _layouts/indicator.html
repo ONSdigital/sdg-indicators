@@ -104,7 +104,7 @@
                 <h3>{{ page.graph_title }}</h3>
               {% endif %}
               <p>Unit of Measurement: {{ page.computation_units }}</p>     
-              <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary btn-download" download='{{ dataset_name }}.csv'>Download source CSV</a>
+              <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='{{ dataset_name }}.csv'>Download source CSV</a>
               <div id="datatables">{% include components/headline.html %}</div>
             </div>
           {% endif %}
