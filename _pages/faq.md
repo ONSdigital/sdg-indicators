@@ -34,3 +34,6 @@ Yes. We have deliberately developed an open source solution to reporting UK SDGs
 		}).nextUntil('h3').hide();
 	})
 </script>
+<style>
+	h3.collapsible { cursor: pointer }
+</style>
