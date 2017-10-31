@@ -347,7 +347,7 @@ var indicatorView = function (model, options) {
     chartInfo.tables.forEach(function (tableData, index) {
 
 //        if(window.Modernizr && window.Modernizr.blobconstructor) {
-          $(el).append($('<a />').text('Download Headline Data')
+          $(el).append($('<a />').text('Download headline CSV')
           .attr({
             'href': URL.createObjectURL(new Blob([that.toCsv(tableData)], {
               type: 'text/csv'
