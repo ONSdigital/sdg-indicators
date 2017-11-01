@@ -402,6 +402,23 @@ var indicatorModel = function (options) {
     });
 
     if (initial) {
+
+      // order the fields based on the edge data, if any:
+      if(this.edgesData.length) {
+        var orderedEdges = _.chain(this.edgesData)
+          .groupBy('From')
+          .map(function(value, key) { return [key].concat(_.pluck(value, 'To')); })
+          .flatten()
+          .value();
+
+        var customOrder = orderedEdges.concat(_.difference(_.pluck(this.fieldItemStates, 'field'), orderedEdges))
+
+        // now order the fields:
+        this.fieldItemStates = _.sortBy(this.fieldItemStates, function(item) {
+          return customOrder.indexOf(item.field);
+        });
+      }
+
       this.onSeriesComplete.notify({
         series: this.fieldItemStates,
         allowedFields: this.allowedFields
