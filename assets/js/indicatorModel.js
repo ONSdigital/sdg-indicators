@@ -421,7 +421,8 @@ var indicatorModel = function (options) {
 
       this.onSeriesComplete.notify({
         series: this.fieldItemStates,
-        allowedFields: this.allowedFields
+        allowedFields: this.allowedFields,
+        edges: this.edgesData
       });
       this.onUnitsComplete.notify({
         units: this.units
