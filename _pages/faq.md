@@ -24,3 +24,16 @@ We are developing and testing our site in line with the Government Digital Servi
 
 ### Can other countries copy this website?
 Yes. We have deliberately developed an open source solution to reporting UK SDGs data and so other countries can freely reuse our code. Technical guidance on copying our site is available in our [wiki](https://github.com/datasciencecampus/sdg-indicators/wiki). Countries exploring how to report their own SDGs national data can also get support from the [Center for Open Data Enterprise (CODE)](http://www.opendataenterprise.org/) through their [SDG National Reporting Initiative](https://www.sdgreporting.org/).
+
+<!-- DO NOT EDIT ANYTHING BELOW THIS LINE -->
+<script>
+	document.addEventListener("DOMContentLoaded", function(){
+  	$('#main-content h3').addClass('collapsible');
+		$('.collapsible').click(function(){
+			$(this).nextUntil('h3').stop(true, true).slideToggle();
+		}).nextUntil('h3').hide();
+	})
+</script>
+<style>
+	h3.collapsible { cursor: pointer }
+</style>
