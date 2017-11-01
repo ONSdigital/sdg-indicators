@@ -178,14 +178,18 @@ var indicatorView = function (model, options) {
   });
 
   this.initialiseSeries = function (args) {
-    var template = _.template($("#item_template").html());
-
-    $('<button id="clear" class="disabled">Clear selections <i class="fa fa-remove"></i></button>').insertBefore('#fields');
-
-    $('#fields').html(template({
-        series: args.series,
-        allowedFields: args.allowedFields
-    }));
+    if(args.series.length) {
+      var template = _.template($("#item_template").html());
+      
+        $('<button id="clear" class="disabled">Clear selections <i class="fa fa-remove"></i></button>').insertBefore('#fields');
+    
+        $('#fields').html(template({
+            series: args.series,
+            allowedFields: args.allowedFields
+        }));
+    } else {
+      $(this._rootElement).addClass('no-series');
+    }
   };
 
   this.initialiseUnits = function(args) {
@@ -342,6 +346,19 @@ var indicatorView = function (model, options) {
     // loop through chartInfo.
     chartInfo.tables.forEach(function (tableData, index) {
 
+//        if(window.Modernizr && window.Modernizr.blobconstructor) {
+          $(el).append($('<a />').text('Download headline CSV')
+          .attr({
+            'href': URL.createObjectURL(new Blob([that.toCsv(tableData)], {
+              type: 'text/csv'
+            })),
+            'download': chartInfo.indicatorId + tableData.title + '.csv',
+            'title': 'Download as CSV',
+            'class': 'btn btn-primary btn-download'
+          })
+          .data('csvdata', that.toCsv(tableData)));
+//        }
+
       $(el).append($('<h3 />').text(tableData.title));
 
       if (tableData.data.length) {
@@ -370,23 +387,6 @@ var indicatorView = function (model, options) {
           row_html += '</tr>';
           currentTable.find('tbody').append(row_html);
         });
-
-        if(window.Modernizr && window.Modernizr.blobconstructor) {
-          //          $(el).append($('<h5 />').text('Download Headline Data')
-          //            .attr({
-          //              'class': 'download'
-          //            }));
-          $(el).append($('<a />').text('Download Headline Data')
-          .attr({
-            'href': URL.createObjectURL(new Blob([that.toCsv(tableData)], {
-              type: 'text/csv'
-            })),
-            'download': chartInfo.indicatorId + tableData.title + '.csv',
-            'title': 'Download as CSV',
-            'class': 'btn btn-primary btn-download'
-          })
-          .data('csvdata', that.toCsv(tableData)));
-        }
 
         $(el).append(currentTable);
 
