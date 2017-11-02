@@ -61,7 +61,10 @@
         </div>
     {% cycle 'end row' : '', '', '', '</div>' %}
     {% endfor %}
-  </div>
+  	{% assign last_row = indicators.size | modulo:4 %}
+		{% if last_row != 0 %}
+			</div>
+		{% endif %}
 </div>
 
 {% include footer.html %}
