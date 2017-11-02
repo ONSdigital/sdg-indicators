@@ -643,12 +643,15 @@ h5 + .btn-download {
       margin-right: 8px;
       margin-bottom: 10px;
 
-      &.disallowed {
-        display: none;
-      }
-
       &:hover {
         border-color: #555;
+      }
+
+      .variable-hint {
+        display: none;
+        padding-left: 7px;
+        margin-top: -7px;
+        color: #666;
       }
 
       .variable-options {
@@ -705,6 +708,40 @@ h5 + .btn-download {
             background: #f5f3f3;
           }
         }
+      }
+
+      &.child {
+        margin-left: 20px;
+        width: calc(100% - 20px);
+      }
+
+      &.disallowed {
+        .bar {
+          display: none;
+        }
+
+        .variable-hint {
+          display: block;
+        }
+
+        .variable-options {
+          > div { 
+            display: none;
+          }
+
+          input {
+            display: none;
+          }
+
+          label {
+            cursor: default;
+            &:hover {
+              background: white;
+            }
+          }
+        }
+
+        padding-bottom: 5px;
       }
     }
   }
