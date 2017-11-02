@@ -28,10 +28,10 @@ Yes. We have deliberately developed an open source solution to reporting UK SDGs
 <!-- DO NOT EDIT ANYTHING BELOW THIS LINE -->
 <script>
 	document.addEventListener("DOMContentLoaded", function(){
-  	$('#main-content h3').addClass('collapsible');
+  	$('#main-content h2').addClass('collapsible');
 		$('.collapsible').click(function(){
-			$(this).nextUntil('h3').stop(true, true).slideToggle();
-		}).nextUntil('h3').hide();
+			$(this).nextUntil('h2').stop(true, true).slideToggle();
+		}).nextUntil('h2').hide();
 	})
 </script>
 <style>
