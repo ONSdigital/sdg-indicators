@@ -8,7 +8,7 @@
         <img src="{{ site.baseurl }}/assets/img/goals/{{ page.sdg_goal }}.png" alt="{{ goal.short }} - Goal {{ goal.goal }}" />
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
-        <h2>
+        <h1>
         {% assign sdg_goals = site.data.sdg_goals %}
         {% for goals in sdg_goals %}
           {% assign page_goal_num = page.sdg_goal | plus:0 %}
@@ -19,7 +19,7 @@
           <span class="hidden-sm hidden-md hidden-lg">Goal {{page_goal_num}}: </span>{{ goals.title }}
           {% endif %}
         {% endfor %}
-        </h2>
+        </h1>
       </div>
     </div>
   </div>
