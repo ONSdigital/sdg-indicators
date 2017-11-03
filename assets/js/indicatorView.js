@@ -112,7 +112,11 @@ var indicatorView = function (model, options) {
   });
 
   $(this._rootElement).on('click', '#fields label', function (e) {
-    $(this).find(':checkbox').trigger('click');
+
+    if(!$(this).closest('.variable-options').hasClass('disallowed')) {
+      $(this).find(':checkbox').trigger('click');      
+    }
+
     e.preventDefault();
     e.stopPropagation();
   });
@@ -154,10 +158,10 @@ var indicatorView = function (model, options) {
   $(this._rootElement).on('click', ':checkbox', function(e) {
 
     // don't permit excluded selections:
-    if($(this).parent().hasClass('excluded')) {
+    if($(this).parent().hasClass('excluded') || $(this).closest('.variable-selector').hasClass('disallowed')) {
       return;
     }
-
+    
     updateWithSelectedFields();
 
     e.stopPropagation();
@@ -178,14 +182,19 @@ var indicatorView = function (model, options) {
   });
 
   this.initialiseSeries = function (args) {
-    var template = _.template($("#item_template").html());
-
-    $('<button id="clear" class="disabled">Clear selections <i class="fa fa-remove"></i></button>').insertBefore('#fields');
-
-    $('#fields').html(template({
-        series: args.series,
-        allowedFields: args.allowedFields
-    }));
+    if(args.series.length) {
+      var template = _.template($("#item_template").html());
+      
+        $('<button id="clear" class="disabled">Clear selections <i class="fa fa-remove"></i></button>').insertBefore('#fields');
+    
+        $('#fields').html(template({
+            series: args.series,
+            allowedFields: args.allowedFields,
+            edges: args.edges
+        }));
+    } else {
+      $(this._rootElement).addClass('no-series');
+    }
   };
 
   this.initialiseUnits = function(args) {
@@ -342,6 +351,19 @@ var indicatorView = function (model, options) {
     // loop through chartInfo.
     chartInfo.tables.forEach(function (tableData, index) {
 
+//        if(window.Modernizr && window.Modernizr.blobconstructor) {
+          $(el).append($('<a />').text('Download headline CSV')
+          .attr({
+            'href': URL.createObjectURL(new Blob([that.toCsv(tableData)], {
+              type: 'text/csv'
+            })),
+            'download': chartInfo.indicatorId + tableData.title + '.csv',
+            'title': 'Download as CSV',
+            'class': 'btn btn-primary btn-download'
+          })
+          .data('csvdata', that.toCsv(tableData)));
+//        }
+
       $(el).append($('<h3 />').text(tableData.title));
 
       if (tableData.data.length) {
@@ -370,23 +392,6 @@ var indicatorView = function (model, options) {
           row_html += '</tr>';
           currentTable.find('tbody').append(row_html);
         });
-
-        if(window.Modernizr && window.Modernizr.blobconstructor) {
-          //          $(el).append($('<h5 />').text('Download Headline Data')
-          //            .attr({
-          //              'class': 'download'
-          //            }));
-          $(el).append($('<a />').text('Download Headline Data')
-          .attr({
-            'href': URL.createObjectURL(new Blob([that.toCsv(tableData)], {
-              type: 'text/csv'
-            })),
-            'download': chartInfo.indicatorId + tableData.title + '.csv',
-            'title': 'Download as CSV',
-            'class': 'btn btn-primary btn-download'
-          })
-          .data('csvdata', that.toCsv(tableData)));
-        }
 
         $(el).append(currentTable);
 

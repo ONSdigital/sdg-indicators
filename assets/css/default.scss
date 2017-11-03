@@ -413,12 +413,14 @@ h5 + .btn-download {
       text-decoration: none;
     }
   }
-  h2,
+  h1,
+	h2,
   h3 {
     color: white;
   }
-  h2 {
+  h1 {
     margin-top: 12px;
+		font-size: 2.2em;
     @media only screen and (max-width: 480px) {
       font-size: 0.938em;
     }
@@ -430,7 +432,7 @@ h5 + .btn-download {
   }
 
   &.indicator {
-    h2 {
+    h1 {
       font-size: 24px;
 
       @media only screen and (max-width: 480px) {
@@ -511,6 +513,17 @@ h5 + .btn-download {
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+  #indicatorData {
+    &.no-series {
+      > .col-md-3 {
+        display: none;
+      }
+      > .col-md-9 {
+        width: 100%;
+      }
+    }
+  }
+
   #toolbar {
     button {
       width: 100%;
@@ -582,7 +595,7 @@ h5 + .btn-download {
       }
     }
 
-    h5 {
+    h4 {
       padding-left: 7px;
       position: relative;
       padding-right: 33px;
@@ -632,12 +645,15 @@ h5 + .btn-download {
       margin-right: 8px;
       margin-bottom: 10px;
 
-      &.disallowed {
-        display: none;
-      }
-
       &:hover {
         border-color: #555;
+      }
+
+      .variable-hint {
+        display: none;
+        padding-left: 7px;
+        margin-top: -7px;
+        color: #666;
       }
 
       .variable-options {
@@ -694,6 +710,40 @@ h5 + .btn-download {
             background: #f5f3f3;
           }
         }
+      }
+
+      &.child {
+        margin-left: 20px;
+        width: calc(100% - 20px);
+      }
+
+      &.disallowed {
+        .bar {
+          display: none;
+        }
+
+        .variable-hint {
+          display: block;
+        }
+
+        .variable-options {
+          > div { 
+            display: none;
+          }
+
+          input {
+            display: none;
+          }
+
+          label {
+            cursor: default;
+            &:hover {
+              background: white;
+            }
+          }
+        }
+
+        padding-bottom: 5px;
       }
     }
   }
@@ -840,6 +890,9 @@ h5 + .btn-download {
     margin-bottom: 4px;
     padding-bottom: 4px;
     border-bottom: 1px solid #ccc;
+		h2 {
+			font-size: 1.6em;
+		}
   }
   .frame {
     width: 115px;
@@ -981,5 +1034,42 @@ footer {
   thead {
     padding-bottom: 10px;
     border-bottom: 1pt solid $footer-color;
+  }
+}
+
+.no-js {
+  #indicatorData {
+    > .col-md-3 {
+      display: none;
+    }  
+    > .col-md-9 {
+      width: 100%;
+    }   
+  } 
+  .plot-container {
+    display: none;
+  }   
+  .tab-pane {
+    display: block!important;
+  }   
+  #main-content {
+    .collapsible {
+      border: 0;
+      &:first-child {
+        border: none;
+      }
+      article {
+        display: block;
+        padding: 8px 0;
+      }
+      h3 {
+        padding: 0;
+        cursor: default;
+
+      }
+      h3 span {
+        display: none;
+      }
+    } 
   }
 }
