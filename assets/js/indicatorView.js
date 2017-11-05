@@ -90,7 +90,7 @@ var indicatorView = function (model, options) {
     _.each(args.data, function(fieldGroup) {
       _.each(fieldGroup.values, function(fieldItem) {
         var element = $(view_obj._rootElement).find(':checkbox[value="' + fieldItem.value + '"][data-field="' + fieldGroup.field + '"]');
-        element.parent().addClass(fieldItem.state);
+        element.parent().addClass(fieldItem.state).attr('data-has-data', fieldItem.hasData);
       });
     });
 
