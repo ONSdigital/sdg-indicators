@@ -57,7 +57,7 @@ var indicatorModel = function (options) {
       };
     });    
 
-    // Set up the parentValuesByChildValue object, which lists the parent field
+    // Set up the validParentsByChild object, which lists the parent field
     // values that should be associated with each child field value.
     var parentFields = _.pluck(that.edgesData, 'From');
     var childFields = _.pluck(that.edgesData, 'To');
