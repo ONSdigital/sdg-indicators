@@ -359,7 +359,8 @@ var indicatorView = function (model, options) {
             })),
             'download': chartInfo.indicatorId + tableData.title + '.csv',
             'title': 'Download as CSV',
-            'class': 'btn btn-primary btn-download'
+            'class': 'btn btn-primary btn-download',
+						'tabindex': 0
           })
           .data('csvdata', that.toCsv(tableData)));
 //        }

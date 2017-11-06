@@ -29,6 +29,7 @@ Yes. We have deliberately developed an open source solution to reporting UK SDGs
 <script>
 	document.addEventListener("DOMContentLoaded", function(){
   	$('#main-content h3').addClass('collapsible');
+		$('#main-content h3').attr({ 'tabindex': 0, 'role': 'button' });
 		$('.collapsible').click(function(){
 			$(this).nextUntil('h3').stop(true, true).slideToggle();
 		}).nextUntil('h3').hide();
