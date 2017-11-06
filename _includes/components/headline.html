@@ -6,7 +6,7 @@
 <h3>Headline data</h3>
 
 <table class='table-responsive table table-hover dataTable no-footer' role='grid'>
-  <!-- <caption>Headline data</caption> -->
+   <caption>{{ page.graph_title }}</caption>
   <thead>
   {% for column in sdg_headline_data[0] %}
       <th scope="col">{{ column[0] }}</th>
