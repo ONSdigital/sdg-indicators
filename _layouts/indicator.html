@@ -60,7 +60,7 @@
     </div>
   </div>
 
-  <div class="row" id="indicatorData" data-indicatordata='{{json_data}}' data-indicatorid='{{dataset_name}}' data-country="{{ site.country.name }}"
+  <div class="row" id="indicatorData" data-indicatordata='{{json_data}}' data-indicatorid='{{dataset_name}}' data-country="{{ page.national_geographical_coverage }}"
   data-edgesdata='{{ json_edges_data }}' data-charttitle="{{ page.graph_title }}" data-measurementunit="{{ page.computation_units }}" data-datasource="{{ page.source_organisation_1 }}" data-geographicalarea="{{ page.national_geographical_coverage }}" data-footnote="{{ page.data_footnote }}" data-showdata="{{ show_data }}">
   {% if show_data %}
     <div class="col-md-3">
