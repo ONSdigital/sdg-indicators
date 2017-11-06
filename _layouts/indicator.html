@@ -111,8 +111,8 @@
             <div role="tabpanel" class="tab-pane active" id="data">
               {% if page.graph_title.size > 0 %}
                 <h3>{{ page.graph_title }}</h3>
-              {% endif %}
-              <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='{{ dataset_name }}.csv'>Download source CSV</a>
+              {% endif %}  
+              <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='{{ dataset_name }}.csv' tabindex='0' role='button'>Download source CSV</a>
               <div id="datatables">{% include components/headline.html %}</div>
               <div id="datatableFooter">
                 <p>Source: {{ page.source_organisation_1 }}</p>

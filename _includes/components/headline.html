@@ -1,7 +1,7 @@
 {% capture headline_name %}headlines_{{page.indicator | slugify }}{% endcapture %} 
 {% assign sdg_headline_data = site.data.headlines[headline_name] %} 
 
-<a href='{{ site.baseurl }}/data/headlines/{{ headline_name }}.csv' class='btn btn-primary btn-download' download='{{ dataset_name }}.csv'>Download headline CSV</a>
+<a href='{{ site.baseurl }}/data/headlines/{{ headline_name }}.csv' class='btn btn-primary btn-download' download='{{ dataset_name }}.csv' tabindex='0' role='button'>Download headline CSV</a>
 
 <h3>Headline data</h3>
 
