@@ -17,16 +17,16 @@
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2">
         <a href="{{ goal_uri }}" title="View this goal's indicator list">
-          <img src="{{ site.baseurl }}/assets/img/goals/{{ page.sdg_goal }}.png" alt="icon for Goal {{ page.sdg_goal }}" />
+          <img src="{{ site.baseurl }}/assets/img/goals/{{ page.sdg_goal }}.png" alt="{{ goal.short }} - Goal {{ goal.goal }}" />
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
-        <h2>
+        <h1>
           <a href="{{ goal_uri }}">
             <span class="hidden-sm hidden-md hidden-lg">Goal {{page.sdg_goal}}: </span>{{ goal.title }}
           </a>
-        </h2>
-        <h3>Indicator {{ page.indicator }}: {{ page.title }}</h3>
+        </h1>
+        <h2>Indicator {{ page.indicator }}: {{ page.title }}</h2>
       </div>
     </div>
   </div>
@@ -49,23 +49,32 @@
   
   {% include components/breadcrumb.html %}
 
+  <div class="row" id="page-content-row">
+    <div class="col-md-12">
+      <div id="page-content">
+          {{ page.content }}
+          {% if page.content.size > 5 %}
+          <hr/>
+          {% endif %}
+        </div>
+    </div>
+  </div>
+
   <div class="row" id="indicatorData" data-indicatordata='{{json_data}}' data-indicatorid='{{dataset_name}}' data-country="{{ site.country.name }}"
   data-edgesdata='{{ json_edges_data }}' data-charttitle="{{ page.graph_title }}" data-measurementunit="{{ page.computation_units }}" data-datasource="{{ page.source_organisation_1 }}" data-geographicalarea="{{ page.national_geographical_coverage }}" data-footnote="{{ page.data_footnote }}" data-showdata="{{ show_data }}">
+  {% if show_data %}
     <div class="col-md-3">
       <div id="toolbar">
-        <h5>Sub-categories</h5>
+        <h3>Sub-categories</h3>
+        <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
         <div id="fields"></div>
       </div>
       <div id="units"></div>
     </div>
     <div class="col-md-9">
-      <div id="page-content">
-        {{ page.content }}
-        {% if page.content.size > 5 %}
-        <hr/>
-        {% endif %}
-      </div>
-    
+  {% else %}
+    <div class="col-md-12">
+  {% endif %}
       <section>
     
         {% if show_data %}
@@ -111,7 +120,7 @@
           {% endif %}
           <div role="tabpanel" class="tab-pane {% if show_data != true %}active{% endif %}" id="metadata">
             <!-- National Metadata -->
-            <div class="collapsible expanded">
+            <div class="collapsible expanded" tabindex='0'>
               <h3>National Metadata<span> (Collapse)</span></h3>
               <article>
                 <p>This table provides metadata for the actual indicator available from {{ site.country.name }} statistics closest to the corresponding global
@@ -131,7 +140,7 @@
             <div class="collapsible collapsed">
               <h3>Global Metadata<span> (Expand)</span></h3>
               <article>
-                <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. Complete global <a href="{{ page['goal_meta_link'] }}">metadata</a> is provided by the UN Statistics Division.</p>
+                <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href="https://unstats.un.org/sdgs/metadata/">Complete global metadata</a> is provided by the UN Statistics Division.</p>
                 {% include components/metadata.html scope='global' %}
               </article>
             </div>

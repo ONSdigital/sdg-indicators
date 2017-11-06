@@ -9,11 +9,11 @@
 
     {% for goal in sdg_goals %}
         {% cycle 'add row' : '<div class="row no-gutters">', '', '', '', '', '' %}
-  			<div class="col-xs-4 col-md-2">
-					<a href="./{{ goal.short | slugify }}/" tabindex='0'>
-            <img src="{{ site.baseurl }}/assets/img/goals/{{ goal.goal }}.png" id="goal-{{ goal.goal }}" alt="icon for Goal {{ goal.goal }}" />
-					</a>
-				</div>
+            <div class="col-xs-4 col-md-2">
+                <a href="./{{ goal.short | slugify }}/">
+                  <img src="{{ site.baseurl }}/assets/img/goals/{{ goal.goal }}.png" id="goal-{{ goal.goal }}" alt="{{ goal.short }} - Goal {{ goal.goal }}" />
+              </a>
+            </div>
         {% cycle 'end row' : '', '', '', '', '', '</div>' %}
     {% endfor %}
         <div class="col-xs-4 col-md-2">
