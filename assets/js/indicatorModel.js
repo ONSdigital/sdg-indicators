@@ -268,9 +268,7 @@ var indicatorModel = function (options) {
     // filter the data:
     //if(!isSingleValueSelected()) {
     if(that.selectedUnit) {
-      matchedData = _.filter(matchedData, function(rowItem) {
-        return rowItem.Units == that.selectedUnit;
-      });
+      matchedData = _.where(matchedData, { Units: that.selectedUnit});
     }
 
     matchedData = _.filter(matchedData, function(rowItem) {
@@ -368,7 +366,7 @@ var indicatorModel = function (options) {
     var filteredDatasets = [];
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     _.each(combinations, function(combination) {
-      var filtered = _.filter(that.data, function(dataItem) {
+      var filtered = _.filter(matchedData, function(dataItem) {
         var matched = true;
         for (var loop = 0; loop < that.selectableFields.length; loop++) {
           if (dataItem[that.selectableFields[loop]] !== combination[that.selectableFields[loop]])
