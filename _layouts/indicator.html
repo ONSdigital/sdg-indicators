@@ -49,8 +49,20 @@
   
   {% include components/breadcrumb.html %}
 
+  <div class="row" id="page-content-row">
+    <div class="col-md-12">
+      <div id="page-content">
+          {{ page.content }}
+          {% if page.content.size > 5 %}
+          <hr/>
+          {% endif %}
+        </div>
+    </div>
+  </div>
+
   <div class="row" id="indicatorData" data-indicatordata='{{json_data}}' data-indicatorid='{{dataset_name}}' data-country="{{ site.country.name }}"
   data-edgesdata='{{ json_edges_data }}' data-charttitle="{{ page.graph_title }}" data-measurementunit="{{ page.computation_units }}" data-datasource="{{ page.source_organisation_1 }}" data-geographicalarea="{{ page.national_geographical_coverage }}" data-footnote="{{ page.data_footnote }}" data-showdata="{{ show_data }}">
+  {% if show_data %}
     <div class="col-md-3">
       <div id="toolbar">
         <h3>Sub-categories</h3>
@@ -59,13 +71,9 @@
       <div id="units"></div>
     </div>
     <div class="col-md-9">
-      <div id="page-content">
-        {{ page.content }}
-        {% if page.content.size > 5 %}
-        <hr/>
-        {% endif %}
-      </div>
-    
+  {% else %}
+    <div class="col-md-12">
+  {% endif %}
       <section>
     
         {% if show_data %}
