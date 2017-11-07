@@ -4,12 +4,10 @@ permalink: /faq/
 layout: page
 ---
 
-## How do I suggest new or different data sources?
-
+### How do I suggest new or different data sources?
 If you have feedback on the data sources we have used or have suggestions for new data sources then please email us at <a href="mailto:SustainableDevelopment@ons.gov.uk">SustainableDevelopment@ons.gov.uk</a>.
 
-## What does the reporting status mean?
-
+### What does the reporting status mean?
 There are currently three different types of reporting status for an indicator:
 
 * Reported online – this means as a minimum the headline national data for this indicator is available on this website. For some indicators not all disaggregated data will be available yet.
@@ -25,15 +23,21 @@ We are developing and testing our site in line with the Government Digital Servi
 ## Can other countries copy this website?
 Yes. We have deliberately developed an open source solution to reporting UK SDGs data and so other countries can freely reuse our code. Technical guidance on copying our site is available in our [wiki](https://github.com/datasciencecampus/sdg-indicators/wiki). Countries exploring how to report their own SDGs national data can also get support from the [Center for Open Data Enterprise (CODE)](http://www.opendataenterprise.org/) through their [SDG National Reporting Initiative](https://www.sdgreporting.org/).
 
-<!-- DO NOT EDIT ANYTHING BELOW THIS LINE -->
-<script>
-	document.addEventListener("DOMContentLoaded", function(){
-  	$('#main-content h2').addClass('collapsible');
-		$('.collapsible').click(function(){
-			$(this).nextUntil('h2').stop(true, true).slideToggle();
-		}).nextUntil('h2').hide();
-	})
-</script>
-<style>
-	h3.collapsible { cursor: pointer }
-</style>
+<!-- DO NOT REMOVE ANYTHING BELOW THIS LINE -->
+<script type='text/javascript'>
+document.addEventListener("DOMContentLoaded", function () {
+  $('#main-content h3').addClass('roleHeader');
+ 	$('#main-content h3').attr({
+ 	  'tabindex': 0,
+ 	  'role': 'button'
+ 	});
+ 	$('.roleHeader').click(function () {
+ 	  $(this).nextUntil('h3').stop(true, true).slideToggle();
+	 }).nextUntil('h3').hide();
+	 $('.roleHeader').keypress(function (e) {
+ 	  if (e.which == 13 || e.which == 32) { //Enter or space key pressed
+			   $(this).trigger('click');
+		  }
+	 });
+})
+ </script>
