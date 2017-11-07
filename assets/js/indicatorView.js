@@ -378,6 +378,8 @@ var indicatorView = function (model, options) {
           'id': currentId
         });
 
+				currentTable.append('<caption>' + that._model.chartTitle + '</caption>');
+
         var table_head = '<thead><tr>';
 
         tableData.headings.forEach(function (heading) {
