@@ -368,7 +368,7 @@ var indicatorView = function (model, options) {
           .data('csvdata', that.toCsv(tableData)));
 //        }
 
-      $(el).append($('<h3 />').text(tableData.title));
+      $(el).append($('<h4 />').text(tableData.title));
 
       if (tableData.data.length) {
         var currentId = 'indicatortable' + index;

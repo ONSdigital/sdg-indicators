@@ -4,10 +4,10 @@ permalink: /faq/
 layout: page
 ---
 
-### How do I suggest new or different data sources?
+## How do I suggest new or different data sources?
 If you have feedback on the data sources we have used or have suggestions for new data sources then please email us at <a href="mailto:SustainableDevelopment@ons.gov.uk">SustainableDevelopment@ons.gov.uk</a>.
 
-### What does the reporting status mean?
+## What does the reporting status mean?
 There are currently three different types of reporting status for an indicator:
 
 * Reported online – this means as a minimum the headline national data for this indicator is available on this website. For some indicators not all disaggregated data will be available yet.
@@ -26,14 +26,14 @@ Yes. We have deliberately developed an open source solution to reporting UK SDGs
 <!-- DO NOT REMOVE ANYTHING BELOW THIS LINE -->
 <script type='text/javascript'>
 document.addEventListener("DOMContentLoaded", function () {
-  $('#main-content h3').addClass('roleHeader');
- 	$('#main-content h3').attr({
+  $('#main-content h2').addClass('roleHeader');
+ 	$('#main-content h2').attr({
  	  'tabindex': 0,
  	  'role': 'button'
  	});
  	$('.roleHeader').click(function () {
- 	  $(this).nextUntil('h3').stop(true, true).slideToggle();
-	 }).nextUntil('h3').hide();
+ 	  $(this).nextUntil('h2').stop(true, true).slideToggle();
+	 }).nextUntil('h2').hide();
 	 $('.roleHeader').keypress(function (e) {
  	  if (e.which == 13 || e.which == 32) { //Enter or space key pressed
 			   $(this).trigger('click');
