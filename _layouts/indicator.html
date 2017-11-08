@@ -50,13 +50,10 @@
   {% include components/breadcrumb.html %}
 
   <div class="row" id="page-content-row">
-    <div class="col-md-12">
+    <div class="col-xs-12">
       <div id="page-content">
-          {{ page.content }}
-          {% if page.content.size > 5 %}
-          <hr/>
-          {% endif %}
-        </div>
+        {{ page.content }}
+      </div>
     </div>
   </div>
 
@@ -118,10 +115,18 @@
               <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='{{ dataset_name }}.csv' tabindex='0' role='button'>Download source CSV</a>
               <div id="datatables">{% include components/headline.html %}</div>
               <div id="datatableFooter">
-                <p>Source: {{ page.source_organisation_1 }}</p>
+                {% if page.source_organisation_1.size %}
+                <p>Source: {{ page.source_organisation_1 }}</p>                
+                {% endif %}
+                {% if page.national_geographical_coverage.size %}
                 <p>Geographical Area: {{ page.national_geographical_coverage }}</p>
-                <p>Units of Measure: {{ page.computation_units }}</p>
-                <p>{{ page.data_footnote }}</p>
+                {% endif %}
+                {% if page.computation_units.size %}
+                <p>Units of Measure: {{ page.computation_units }}</p>                
+                {% endif %}
+                {% if page.data_footnote.size %}
+                <p>{{ page.data_footnote }}XYZ</p>
+                {% endif %} 
               </div>
             </div>
           {% endif %}
