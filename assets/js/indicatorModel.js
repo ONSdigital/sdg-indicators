@@ -450,7 +450,7 @@ var indicatorModel = function (options) {
           .flatten()
           .value();
 
-        var customOrder = orderedEdges.concat(_.difference(_.pluck(this.fieldItemStates, 'field'), orderedEdges))
+        var customOrder = orderedEdges.concat(_.difference(_.pluck(this.fieldItemStates, 'field'), orderedEdges));
 
         // now order the fields:
         this.fieldItemStates = _.sortBy(this.fieldItemStates, function(item) {
