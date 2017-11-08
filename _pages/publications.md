@@ -12,6 +12,11 @@ If you have any feedback on our publications please contact us at <a href="mailt
 
 ## Publications
 
+### All goals
+
+* **Sustainable Development Goals: progress and possibilities** Publishes 9 November 2017
+This is our first report on the progress we’ve made towards measuring the global Sustainable Development Goal (SDG) indicators in the UK. It looks at the work we have been doing to be able to measure our progress and explains how we are already sharing the data we have.
+
 ### Goal 3
 
 * **[UK drops in European child mortality rankings, 13 October 2017](https://visual.ons.gov.uk/uk-drops-in-european-child-mortality-rankings/)**  
