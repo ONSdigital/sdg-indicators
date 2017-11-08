@@ -13,6 +13,7 @@ var indicatorModel = function (options) {
   this.onFieldsStatusUpdated = new event(this);
   this.onFieldsCleared = new event(this);
   this.onSelectionUpdate = new event(this);
+  this.onNoHeadlineData = new event(this);
   
   // data rounding:
   this.roundingFunc = options.roundingFunc || function(value) {
@@ -24,6 +25,7 @@ var indicatorModel = function (options) {
   var that = this;
   this.data = options.data;
   this.edgesData = options.edgesData;
+  this.hasHeadline = true;
   this.country = options.country;
   this.indicatorId = options.indicatorId;
   this.chartTitle = options.chartTitle;
@@ -241,6 +243,12 @@ var indicatorModel = function (options) {
         }).join(', ');
       },
       getColor = function(datasetIndex) {
+        
+        // offset if there is no headline data:
+        if(!this.hasHeadline) {
+          datasetIndex += 1;
+        }
+
         if(datasetIndex === 0) {
           return headlineColor;
         } else {
@@ -254,6 +262,12 @@ var indicatorModel = function (options) {
         return datasetIndex === 0 ? headlineColor : colors[datasetIndex];
       },
       getBorderDash = function(datasetIndex) {
+
+        // offset if there is no headline data:
+        if(!this.hasHeadline) {
+          datasetIndex += 1;
+        }
+
         // 0 - 
         // the first dataset is the headline:
         return datasetIndex > colors.length ? [5, 5] : undefined;
@@ -367,23 +381,34 @@ var indicatorModel = function (options) {
       selectionStates: fieldSelectionInfo
     });
 
-    // headline:
+    // get the headline data:
     var headline = this.getHeadline();
 
-    // headline plot should use the specific unit, if any
-    datasets.push(convertToDataset(that.selectedUnit ? _.filter(headline, function(item) { 
-      return item.Units === that.selectedUnit; }) : headline));
-    
-    // all units for headline data
-    tableData.push({
-      title: 'Headline data',
-      headings: that.selectedUnit ? ['Year', 'Units', 'Value'] : ['Year', 'Value'],
-      data: _.map(headline, function (d) {
-        return that.selectedUnit ? [d.Year, d.Units, d.Value] : [d.Year, d.Value];
-      })
-    });
+    // all units for headline data:
+    if(headline.length) {
+      tableData.push({
+        title: 'Headline data',
+        headings: that.selectedUnit ? ['Year', 'Units', 'Value'] : ['Year', 'Value'],
+        data: _.map(headline, function (d) {
+          return that.selectedUnit ? [d.Year, d.Units, d.Value] : [d.Year, d.Value];
+        })
+      });
+    }
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // headline plot should use the specific unit, if any,
+    // but there may not be any headline data at all, or for the 
+    // specific unit:
+    if(that.selectedUnit) {
+      headline = _.where(headline, { Units : that.selectedUnit });
+    }
+
+    // only add to the datasets if there is any headline data:
+    if(headline.length) {
+      datasets.push(convertToDataset(headline));      
+    } else {
+      this.hasHeadline = false;
+    }
+
     // extract the possible combinations for the selected field values
     var combinations = this.getCombinationData(this.selectedFields);
 
@@ -440,7 +465,7 @@ var indicatorModel = function (options) {
           .flatten()
           .value();
 
-        var customOrder = orderedEdges.concat(_.difference(_.pluck(this.fieldItemStates, 'field'), orderedEdges))
+        var customOrder = orderedEdges.concat(_.difference(_.pluck(this.fieldItemStates, 'field'), orderedEdges));
 
         // now order the fields:
         this.fieldItemStates = _.sortBy(this.fieldItemStates, function(item) {
@@ -460,6 +485,12 @@ var indicatorModel = function (options) {
       this.onSeriesSelectedChanged.notify({
         series: this.selectedFields
       });
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    if(initial && !this.hasHeadline) {
+      // if there is no initial data, select some:
+      this.onNoHeadlineData.notify();
     }
   };
 };
