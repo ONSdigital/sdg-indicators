@@ -24,6 +24,7 @@ var indicatorModel = function (options) {
   var that = this;
   this.data = options.data;
   this.edgesData = options.edgesData;
+  this.hasHeadline = true;
   this.country = options.country;
   this.indicatorId = options.indicatorId;
   this.chartTitle = options.chartTitle;
@@ -241,6 +242,12 @@ var indicatorModel = function (options) {
         }).join(', ');
       },
       getColor = function(datasetIndex) {
+        
+        // offset if there is no headline data:
+        if(!this.hasHeadline) {
+          datasetIndex += 1;
+        }
+
         if(datasetIndex === 0) {
           return headlineColor;
         } else {
@@ -254,6 +261,12 @@ var indicatorModel = function (options) {
         return datasetIndex === 0 ? headlineColor : colors[datasetIndex];
       },
       getBorderDash = function(datasetIndex) {
+
+        // offset if there is no headline data:
+        if(!this.hasHeadline) {
+          datasetIndex += 1;
+        }
+
         // 0 - 
         // the first dataset is the headline:
         return datasetIndex > colors.length ? [5, 5] : undefined;
@@ -391,6 +404,8 @@ var indicatorModel = function (options) {
     // only add to the datasets if there is any headline data:
     if(headline.length) {
       datasets.push(convertToDataset(headline));      
+    } else {
+      this.hasHeadline = false;
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
