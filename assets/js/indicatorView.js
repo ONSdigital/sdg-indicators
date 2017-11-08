@@ -30,6 +30,10 @@ var indicatorView = function (model, options) {
     view_obj.createTables(args);
   });
 
+  this._model.onNoHeadlineData.attach(function() {
+    $('#fields .variable-options :checkbox:eq(0)').trigger('click');
+  });
+
   this._model.onSeriesComplete.attach(function (sender, args) {
     view_obj.initialiseSeries(args);
   });
@@ -228,6 +232,7 @@ var indicatorView = function (model, options) {
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        spanGaps: true,
         scales: {
           xAxes: [{
             gridLines: {

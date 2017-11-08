@@ -13,6 +13,7 @@ var indicatorModel = function (options) {
   this.onFieldsStatusUpdated = new event(this);
   this.onFieldsCleared = new event(this);
   this.onSelectionUpdate = new event(this);
+  this.onNoHeadlineData = new event(this);
   
   // data rounding:
   this.roundingFunc = options.roundingFunc || function(value) {
@@ -408,7 +409,6 @@ var indicatorModel = function (options) {
       this.hasHeadline = false;
     }
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
     // extract the possible combinations for the selected field values
     var combinations = this.getCombinationData(this.selectedFields);
 
@@ -485,6 +485,12 @@ var indicatorModel = function (options) {
       this.onSeriesSelectedChanged.notify({
         series: this.selectedFields
       });
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    if(initial && !this.hasHeadline) {
+      // if there is no initial data, select some:
+      this.onNoHeadlineData.notify();
     }
   };
 };
