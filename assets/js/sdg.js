@@ -11,3 +11,4 @@
 {% include_relative search.js %}
 {% include_relative reportingStatus.js %}
 {% include_relative menu.js %}
+{% include_relative footerFix.js %}
