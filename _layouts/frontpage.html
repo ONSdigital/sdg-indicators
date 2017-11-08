@@ -4,13 +4,15 @@
 
     <h1>UK data for Sustainable Development Goal indicators</h1>
 
-    <p>Click on each goal for UK national statistics for Sustainable Development Goal global indicators.</p>
+    <p>Click on each goal for UK statistics for Sustainable Development Goal global indicators.</p>
     {% assign sdg_goals = site.data.sdg_goals %}
 
     {% for goal in sdg_goals %}
         {% cycle 'add row' : '<div class="row no-gutters">', '', '', '', '', '' %}
             <div class="col-xs-4 col-md-2">
-                <a href="./{{ goal.short | slugify }}/"><img src="{{ site.baseurl }}/assets/img/goals/{{ goal.goal }}.png" id="goal-{{ goal.goal }}" alt="{{ goal.short }} - Goal {{ goal.goal }}" /></a>
+                <a href="./{{ goal.short | slugify }}/">
+                  <img src="{{ site.baseurl }}/assets/img/goals/{{ goal.goal }}.png" id="goal-{{ goal.goal }}" alt="{{ goal.short }} - Goal {{ goal.goal }}" />
+              </a>
             </div>
         {% cycle 'end row' : '', '', '', '', '', '</div>' %}
     {% endfor %}

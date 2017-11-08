@@ -17,6 +17,9 @@ var indicatorView = function (model, options) {
   this._model.onDataComplete.attach(function (sender, args) {
 
     if(view_obj._model.showData) {
+
+      $('#dataset-size-warning')[args.datasetCountExceedsMax ? 'show' : 'hide']();
+
       if(!view_obj._chartInstance) {
         view_obj.createPlot(args);
       } else {
@@ -359,12 +362,13 @@ var indicatorView = function (model, options) {
             })),
             'download': chartInfo.indicatorId + tableData.title + '.csv',
             'title': 'Download as CSV',
-            'class': 'btn btn-primary btn-download'
+            'class': 'btn btn-primary btn-download',
+						'tabindex': 0
           })
           .data('csvdata', that.toCsv(tableData)));
 //        }
 
-      $(el).append($('<h3 />').text(tableData.title));
+      $(el).append($('<h4 />').text(tableData.title));
 
       if (tableData.data.length) {
         var currentId = 'indicatortable' + index;
@@ -373,6 +377,8 @@ var indicatorView = function (model, options) {
           'class': 'table-responsive ' + table_class,
           'id': currentId
         });
+
+				currentTable.append('<caption>' + that._model.chartTitle + '</caption>');
 
         var table_head = '<thead><tr>';
 

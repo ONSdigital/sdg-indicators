@@ -74,11 +74,13 @@ header {
   p {
     border-bottom: 1px solid #cdcdcd;
     padding: 4px 0;
+    padding: 4px 0;
   }
 
-  h4 {
+  h2 {
+		font-size: 2rem;
     margin-bottom: 1.5rem;
-    margin-top: 1rem;  
+    margin-top: 1.5rem !important;
   }
 }
 
@@ -547,7 +549,14 @@ h5 + .btn-download {
         color: #777;
         background: #ccc;
       }
+
     }
+
+		.accessBtn {
+			padding: 0px !important;
+			border: none;
+		}
+
   }
 
   #fields {
@@ -595,7 +604,7 @@ h5 + .btn-download {
       }
     }
 
-    h4 {
+    h5 {
       padding-left: 7px;
       position: relative;
       padding-right: 33px;
@@ -652,7 +661,6 @@ h5 + .btn-download {
       .variable-hint {
         display: none;
         padding-left: 7px;
-        margin-top: -7px;
         color: #666;
       }
 
@@ -763,6 +771,20 @@ h5 + .btn-download {
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+  #dataset-size-warning {
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    vertical-align: middle;
+    background: #FFCC0B;
+    border-radius: 4px;
+    padding: 5px;
+
+    i {
+      font-size: 1.2em; 
+    }
+  }
+
   .plot-container {
     margin-bottom: 4.5rem;
     padding: 10px;
@@ -846,6 +868,9 @@ h5 + .btn-download {
         overflow-x: auto;
       }
     }
+		h4 {
+			margin-top: 2rem !important;
+		}
   }
 
   .statuses {
@@ -943,7 +968,7 @@ h5 + .btn-download {
     background: lighten($dark-highlight, 10%);
     font-size: 3rem;
     padding: 0.5rem 1.0rem;
-    &:hover {
+    &:hover, &:focus {
       background: $dark-highlight;
     }
   }
@@ -979,7 +1004,7 @@ footer {
   a {
     color: $footer-color;
     text-decoration: underline;
-    &:hover {
+    &:hover, &:focus {
       color: lighten($footer-color, 20%);
     }
   }
@@ -1072,4 +1097,19 @@ footer {
       }
     } 
   }
+}
+
+.roleHeader {
+	cursor: pointer;
+}
+
+.visuallyhidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
 }

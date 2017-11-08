@@ -49,23 +49,35 @@
   
   {% include components/breadcrumb.html %}
 
-  <div class="row" id="indicatorData" data-indicatordata='{{json_data}}' data-indicatorid='{{dataset_name}}' data-country="{{ site.country.name }}"
+  <div class="row" id="page-content-row">
+    <div class="col-md-12">
+      <div id="page-content">
+          {{ page.content }}
+          {% if page.content.size > 5 %}
+          <hr/>
+          {% endif %}
+        </div>
+    </div>
+  </div>
+
+  <div class="row" id="indicatorData" data-indicatordata='{{json_data}}' data-indicatorid='{{dataset_name}}' data-country="{{ page.national_geographical_coverage }}"
   data-edgesdata='{{ json_edges_data }}' data-charttitle="{{ page.graph_title }}" data-measurementunit="{{ page.computation_units }}" data-datasource="{{ page.source_organisation_1 }}" data-geographicalarea="{{ page.national_geographical_coverage }}" data-footnote="{{ page.data_footnote }}" data-showdata="{{ show_data }}">
+  {% if show_data %}
+		<div class='col-xs-12'>
+			<h3>{{ page.graph_title }}<a role='button' class='btn btn-primary btn-download' href='#data' style='float:right;margin-top:0'>Accessible version</a></h3>
+		</div>
     <div class="col-md-3">
       <div id="toolbar">
-        <h3>Sub-categories</h3>
+        <h4>Sub-categories</h4>
+        <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
         <div id="fields"></div>
       </div>
       <div id="units"></div>
     </div>
     <div class="col-md-9">
-      <div id="page-content">
-        {{ page.content }}
-        {% if page.content.size > 5 %}
-        <hr/>
-        {% endif %}
-      </div>
-    
+  {% else %}
+    <div class="col-md-12">
+  {% endif %}
       <section>
     
         {% if show_data %}
@@ -102,11 +114,15 @@
             <div role="tabpanel" class="tab-pane active" id="data">
               {% if page.graph_title.size > 0 %}
                 <h3>{{ page.graph_title }}</h3>
-              {% endif %}
-              <p>Unit of Measurement: {{ page.computation_units }}</p>     
-              <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='{{ dataset_name }}.csv'>Download source CSV</a>
+              {% endif %}  
+              <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='{{ dataset_name }}.csv' tabindex='0' role='button'>Download source CSV</a>
               <div id="datatables">{% include components/headline.html %}</div>
-              <p>{{ page.data_footnote }}</p>
+              <div id="datatableFooter">
+                <p>Source: {{ page.source_organisation_1 }}</p>
+                <p>Geographical Area: {{ page.national_geographical_coverage }}</p>
+                <p>Units of Measure: {{ page.computation_units }}</p>
+                <p>{{ page.data_footnote }}</p>
+              </div>
             </div>
           {% endif %}
           <div role="tabpanel" class="tab-pane {% if show_data != true %}active{% endif %}" id="metadata">
