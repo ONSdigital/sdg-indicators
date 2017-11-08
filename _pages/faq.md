@@ -20,7 +20,11 @@ Where there is additional information about the status of indicator data collect
 We will be adding data to the website regularly, including new indicator data as well as updateing to the latest data for indicators that we have already published. We will continue to collect data from existing sources where possible, in cooperation with topic experts.
 
 ## What are you doing to fill data gaps?
-Data developments will be necessary for many of the SDG indicators, for example to include data disaggregations required by the UN (where relevant). We intend to work with topic experts, stakeholders and data scientists to ensure as much UK data as possible are available and can be broken down.  
+Data developments will be necessary for many of the SDG indicators. For some indicators, we may have data at the national level but our existing data sources (many of which are survey based) don’t always allow us to disaggregate by all main groups. 
+
+This means looking for new data sources, linking existing ones, or modelling data and we are working with colleagues across the Government Statistical Service to do this, including the Data Science Campus.
+
+We asked for feedback on how we should prioritise data development for gaps in our [consultation on measuring and reporting SDGs in the UK](https://consultations.ons.gov.uk/sustainable-development-goals/ons-approach-to-measuring-reporting-sdgs-in-the-uk/). We are currently analysing consultation responses and will publish our response in December 2017. 
 
 ## How accessible is this website?
 Our aim is to make this website as accessible and usable as possible for every user. We are working towards meeting AA level of the [Web Content Accessibility Guidelines (WCAG 2.0)](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag-20). We have recently undertaken an accessibility audit by the [Digital Accessibility Centre](http://digitalaccessibilitycentre.org/) and are using the recommendations from this review to help us improve our website.
