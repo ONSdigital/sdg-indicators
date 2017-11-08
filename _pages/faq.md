@@ -26,18 +26,19 @@ Yes. We have deliberately developed an open source solution to reporting UK SDGs
 <!-- DO NOT REMOVE ANYTHING BELOW THIS LINE -->
 <script type='text/javascript'>
 document.addEventListener("DOMContentLoaded", function () {
-  $('#main-content h2').addClass('roleHeader');
- 	$('#main-content h2').attr({
- 	  'tabindex': 0,
- 	  'role': 'button'
- 	});
- 	$('.roleHeader').click(function () {
- 	  $(this).nextUntil('h2').stop(true, true).slideToggle();
-	 }).nextUntil('h2').hide();
-	 $('.roleHeader').keypress(function (e) {
- 	  if (e.which == 13 || e.which == 32) { //Enter or space key pressed
-			   $(this).trigger('click');
-		  }
-	 });
+	$('#main-content h2').addClass('roleHeader');
+	$('#main-content h2').attr({
+		'tabindex': 0,
+		'role': 'button'
+	})
+	$('.roleHeader').click(function () {
+		$(this).nextUntil('h2').stop(true, true).toggle()
+			$(window).trigger('resize')
+	}).nextUntil('h2').hide();
+	$('.roleHeader').keypress(function (e) {
+		if (e.which == 13 || e.which == 32) { //Enter or space key pressed
+			$(this).trigger('click');
+		}
+	})
 })
  </script>
