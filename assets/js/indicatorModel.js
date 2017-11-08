@@ -367,21 +367,31 @@ var indicatorModel = function (options) {
       selectionStates: fieldSelectionInfo
     });
 
-    // headline:
+    // get the headline data:
     var headline = this.getHeadline();
 
-    // headline plot should use the specific unit, if any
-    datasets.push(convertToDataset(that.selectedUnit ? _.filter(headline, function(item) { 
-      return item.Units === that.selectedUnit; }) : headline));
-    
-    // all units for headline data
-    tableData.push({
-      title: 'Headline data',
-      headings: that.selectedUnit ? ['Year', 'Units', 'Value'] : ['Year', 'Value'],
-      data: _.map(headline, function (d) {
-        return that.selectedUnit ? [d.Year, d.Units, d.Value] : [d.Year, d.Value];
-      })
-    });
+    // all units for headline data:
+    if(headline.length) {
+      tableData.push({
+        title: 'Headline data',
+        headings: that.selectedUnit ? ['Year', 'Units', 'Value'] : ['Year', 'Value'],
+        data: _.map(headline, function (d) {
+          return that.selectedUnit ? [d.Year, d.Units, d.Value] : [d.Year, d.Value];
+        })
+      });
+    }
+
+    // headline plot should use the specific unit, if any,
+    // but there may not be any headline data at all, or for the 
+    // specific unit:
+    if(that.selectedUnit) {
+      headline = _.where(headline, { Units : that.selectedUnit });
+    }
+
+    // only add to the datasets if there is any headline data:
+    if(headline.length) {
+      datasets.push(convertToDataset(headline));      
+    }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     // extract the possible combinations for the selected field values
