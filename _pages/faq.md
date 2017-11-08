@@ -13,6 +13,7 @@ There are currently three different types of reporting status for an indicator, 
 * Reported online (green) – this means as a minimum the headline national data for this indicator is available on this website. For some indicators not all disaggregated data will be available yet.
 * Statistics in progress (amber) – we have found a suitable source of data for this indicator or relevant proxy at national level. We are currently quality assuring the data and preparing it for publication.
 * Exploring data sources (red) – we are still looking for a suitable data source for this indicator.
+
 Where there is additional information about the status of indicator data collection and reporting, this will be displayed at the top of the indicator page.
 
 ## How often will new data be added to this site?
