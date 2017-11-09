@@ -78,7 +78,11 @@ var indicatorModel = function (options) {
 
     // prepare the data according to the rounding function:
     that.data = _.map(that.data, function(item) {
-      item.Value = that.roundingFunc(item.Value);
+
+      // only apply a rounding function for non-zero values:
+      if(item.Value != 0) {
+        item.Value = that.roundingFunc(item.Value);        
+      }
 
       // remove any undefined/null values:
       _.each(Object.keys(item), function(key) {
