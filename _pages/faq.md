@@ -22,7 +22,7 @@ We will add data as soon as it has been sourced and checked. This includes new d
 ## What are you doing to fill data gaps?
 For some indicators, although we may have data at the national level, our existing data sources don’t always allow us to disaggregate by all main groups. 
 
-This means we need to look for new data sources, linking existing ones, or model data. We are working with colleagues across the Government Statistical Service to do this, including the Data Science Campus.
+This means we need to look for new data sources, link existing ones, or model data. We are working with colleagues across the Government Statistical Service to do this, including the Data Science Campus.
 
 We asked for feedback on how we should prioritise data development for gaps in our [consultation on measuring and reporting SDGs in the UK](https://consultations.ons.gov.uk/sustainable-development-goals/ons-approach-to-measuring-reporting-sdgs-in-the-uk/). We are currently analysing consultation responses and will publish our findings in December 2017. 
 
