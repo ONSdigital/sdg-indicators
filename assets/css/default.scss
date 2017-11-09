@@ -34,10 +34,15 @@ $collapsed-navbar-height: $navbar-height - 30;
   padding-right: 0;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   background: $main-background-color; 
   padding: $disclaimer-height + unquote("px") 0 0 0;
-  margin: 0;
+  margin: 0 0 50px 0;
 }
 
 header {
@@ -326,6 +331,19 @@ header {
   }
 }
 
+@media only screen and (min-width: 769px) and (max-width: 991px)  {
+  .navbar {
+    width: 100%;
+    ul.navbar-nav {
+      float: none;
+      margin-top: 40px;
+    }
+  }
+
+  #search { 
+    margin-top: -100px;
+  }
+}
 
 h1,
 h2,
@@ -1000,6 +1018,11 @@ footer {
   clear: left;
   background-color: #414042;
   color: $footer-color;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px; /* Set the fixed height of the footer here */
+
   img { 
     float: left;
     margin-right: 12px;
@@ -1007,6 +1030,10 @@ footer {
   }
   .row {
     padding: 15px 0;
+
+    @media only screen and (max-width: 767px) {
+      padding: 5px 0;
+    } 
   }
   a {
     color: $footer-color;
@@ -1124,3 +1151,11 @@ footer {
   clip: rect(0,0,0,0);
   border: 0;
 }
+
+
+
+
+
+
+
+
