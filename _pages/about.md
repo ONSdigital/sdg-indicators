@@ -4,9 +4,9 @@ permalink: /about/
 layout: page
 ---
 
-ONS is responsible for the development and collection of UK data for the Sustainable Development Goals (SDG) global indicators and for reporting UK progress towards them.
+ONS is responsible for the development and collection of UK data for the [Sustainable Development Goals](http://www.un.org/sustainabledevelopment/sustainable-development-goals/) (SDG) global indicators and for reporting UK progress towards them.
 
-This is a development website for disseminating UK SDG indicator data. Some data may not yet have been fully quality assured – this will be clearly noted on each indicator page.
+This website is for disseminating UK SDG indicator data. We are at an Alpha stage in development, so the site is still 'work in progress'.
 
 We initially based this website on the [US SDG reporting platform](https://gsa.github.io/sdg-indicators/) and continue to collaborate with the US on further developing our websites. 
 
