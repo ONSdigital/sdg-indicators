@@ -47,6 +47,7 @@ var indicatorModel = function (options) {
       }), function(field) {
       return {
         field: field,
+        hasData: true,
         values: _.map(_.chain(that.data).pluck(field).uniq().filter(function(f) { return f; }).value(),
           function(f) { return {
             value: f,
@@ -185,15 +186,18 @@ var indicatorModel = function (options) {
         _.each(that.fieldItemStates, function(fieldItem) {
           // We only care about child fields.
           if (_.contains(childFields, fieldItem.field)) {
+            var fieldHasData = false;
             _.each(fieldItem.values, function(childValue) {
-              var hasData = false;
+              var valueHasData = false;
               _.each(selectedParent.values, function(parentValue) {
                 if (_.contains(that.validParentsByChild[fieldItem.field][childValue.value], parentValue)) {
-                  hasData = true;
+                  valueHasData = true;
+                  fieldHasData = true;
                 }
               });
-              childValue.hasData = hasData;
+              childValue.hasData = valueHasData;
             });
+            fieldItem.hasData = fieldHasData;
           }
         });
       }

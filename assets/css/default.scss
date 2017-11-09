@@ -649,6 +649,7 @@ h5 + .btn-download {
         border-color: #555;
       }
 
+      .no-data-hint,
       .variable-hint {
         display: none;
         padding-left: 7px;
@@ -709,10 +710,6 @@ h5 + .btn-download {
           &:hover {
             background: #f5f3f3;
           }
-
-          &[data-has-data="false"] {
-            display: none;
-          }
         }
       }
 
@@ -721,13 +718,10 @@ h5 + .btn-download {
         width: calc(100% - 20px);
       }
 
+      &[data-has-data="false"],
       &.disallowed {
         .bar {
           display: none;
-        }
-
-        .variable-hint {
-          display: block;
         }
 
         .variable-options {
@@ -748,6 +742,17 @@ h5 + .btn-download {
         }
 
         padding-bottom: 5px;
+      }
+
+      &[data-has-data="false"] {
+        .no-data-hint {
+          display: block;
+        }
+      }
+      &.disallowed {
+        .variable-hint {
+          display: block;
+        }
       }
     }
   }

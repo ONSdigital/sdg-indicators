@@ -92,6 +92,9 @@ var indicatorView = function (model, options) {
         var element = $(view_obj._rootElement).find(':checkbox[value="' + fieldItem.value + '"][data-field="' + fieldGroup.field + '"]');
         element.parent().addClass(fieldItem.state).attr('data-has-data', fieldItem.hasData);
       });
+      // Indicate whether the fieldGroup had any data.
+      var region = $(view_obj._rootElement).find('.variable-selector[data-field="' + fieldGroup.field + '"]');
+      region.attr('data-has-data', fieldGroup.hasData);
     });
 
     _.each(args.selectionStates, function(ss) {
