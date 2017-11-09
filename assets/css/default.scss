@@ -138,8 +138,10 @@ header {
 .navbar-brand {
   display: block;
   padding-right: 0;
+	width: 37%;
   img {
-    width: 300px;
+		width: 100%;
+    max-width: 300px;
   }
 }
 
@@ -1042,6 +1044,12 @@ footer {
       color: lighten($footer-color, 20%);
     }
   }
+}
+
+footer.fixed {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 }
 
 .post-categories {
