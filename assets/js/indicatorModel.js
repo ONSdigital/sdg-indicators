@@ -48,7 +48,7 @@ var indicatorModel = function (options) {
       return {
         field: field,
         hasData: true,
-        values: _.map(_.chain(that.data).pluck(field).uniq().filter(function(f) { return f; }).value(),
+        values: _.map(_.chain(that.data).pluck(field).uniq().filter(function(f) { return f; }).sort().value(),
           function(f) { return {
             value: f,
             state: 'default',

@@ -93,8 +93,11 @@ var indicatorView = function (model, options) {
         element.parent().addClass(fieldItem.state).attr('data-has-data', fieldItem.hasData);
       });
       // Indicate whether the fieldGroup had any data.
-      var region = $(view_obj._rootElement).find('.variable-selector[data-field="' + fieldGroup.field + '"]');
-      region.attr('data-has-data', fieldGroup.hasData);
+      var fieldGroupElement = $(view_obj._rootElement).find('.variable-selector[data-field="' + fieldGroup.field + '"]');
+      fieldGroupElement.attr('data-has-data', fieldGroup.hasData);
+
+      // Re-sort the items.
+      view_obj.sortFieldGroup(fieldGroupElement);
     });
 
     _.each(args.selectionStates, function(ss) {
@@ -415,4 +418,18 @@ var indicatorView = function (model, options) {
       $(el).append('<hr />');
     });
   };
+
+  this.sortFieldGroup = function(fieldGroupElement) {
+    var sortLabels = function(a, b) {
+      var aObj = { hasData: $(a).attr('data-has-data'), text: $(a).text() };
+      var bObj = { hasData: $(b).attr('data-has-data'), text: $(b).text() };
+      if (aObj.hasData == bObj.hasData) {
+        return (aObj.text > bObj.text) ? 1 : -1;
+      }
+      return (aObj.hasData < bObj.hasData) ? 1 : -1;
+    };
+    fieldGroupElement.find('label')
+      .sort(sortLabels)
+      .appendTo(fieldGroupElement.find('.variable-options'));
+  }
 };
