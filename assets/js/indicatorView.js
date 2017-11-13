@@ -252,12 +252,13 @@ var indicatorView = function (model, options) {
         layout: {
           padding: {
             top: 20,
-            bottom: 70
+            // default of 85, but do a rough line count based on 150 characters per line * 20 pixels per
+            // row
+            bottom: that._model.footnote ? (20 * (that._model.footnote.length / 150)) + 85 : 85
           }
         },
         legend: {
           display: true,
-          //usePointStyle: true,
           usePointStyle: false,
           position: 'bottom',
           padding: 20
@@ -276,21 +277,48 @@ var indicatorView = function (model, options) {
     });
 
     Chart.pluginService.register({
-      afterDraw: function(chart) {
-        var $canvas = $(that._rootElement).find('canvas');
+      afterDraw: function(chart) {        
+        var $canvas = $(that._rootElement).find('canvas'),
+            font = '12px Arial',
+            canvas = $canvas.get(0),
+            textRowHeight = 20,            
+            ctx = canvas.getContext("2d");
 
-        function putTextOutputs(textOutputs, x0, textAlign) {
-          var textRowHeight = 20;
-          var x = x0;
+            ctx.font = font;
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = '#6e6e6e';
+
+            var getLinesFromText = function(text) {
+              var width = parseInt($canvas.css('width')), //width(),
+                  lines = [],
+                  line = '',
+                  lineTest = '',
+                  words = text.split(' ');
+                
+              for (var i = 0, len = words.length; i < len; i++) {
+                lineTest = line + words[i] + ' ';
+                
+                // Check total width of line or last word
+                if (ctx.measureText(lineTest).width > width) {
+                  // Record and reset the current line
+                  lines.push(line);
+                  line = words[i] + ' ';
+                } else {
+                  line = lineTest;
+                }
+              }
+
+              // catch left overs:
+              if (line.length > 0) {
+                lines.push(line.trim());
+              }
+
+              return lines;
+            };
+
+        function putTextOutputs(textOutputs, x) {
           var y = $canvas.height() - 10 - ((textOutputs.length - 1) * textRowHeight);
-
-          var canvas = $canvas.get(0);
-          var ctx = canvas.getContext("2d");
-
-          ctx.textAlign = textAlign;
-          ctx.textBaseline = 'middle';
-          ctx.font = '12px Arial';
-          ctx.fillStyle = '#6e6e6e';
 
           _.each(textOutputs, function(textOutput) {
             ctx.fillText(textOutput, x, y);
@@ -298,17 +326,24 @@ var indicatorView = function (model, options) {
           });
         }
 
-        var textOutputsLeft = [
+        var graphFooterItems = [
           'Source: ' + (that._model.dataSource ? that._model.dataSource : ''),
           'Geographical Area: ' + (that._model.geographicalArea ? that._model.geographicalArea : ''),
-          'Unit of Measurement: ' + (that._model.measurementUnit ? that._model.measurementUnit : ''),
-          (that._model.footnote ? 'Footnote: ' + that._model.footnote : '')
+          'Unit of Measurement: ' + (that._model.measurementUnit ? that._model.measurementUnit : '')
         ];
-        putTextOutputs(textOutputsLeft, 0, 'left');
 
-        //var textOutputsRight = [
-        //];
-        //putTextOutputs(textOutputsRight, $canvas.width(), 'right');
+        if(that._model.footnote) {
+          var footnoteRows = getLinesFromText('Footnote: ' + that._model.footnote);
+          graphFooterItems = graphFooterItems.concat(footnoteRows);
+
+          if(footnoteRows.length > 1) {
+            //that._chartInstance.options.layout.padding.bottom += textRowHeight * footnoteRows.length;
+            that._chartInstance.resize(parseInt($canvas.css('width')), parseInt($canvas.css('height')) + textRowHeight * footnoteRows.length);
+            that._chartInstance.resize();
+          }
+        }
+
+        putTextOutputs(graphFooterItems, 0);
       }
     });
   };
