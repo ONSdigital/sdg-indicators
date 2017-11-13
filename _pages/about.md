@@ -8,7 +8,7 @@ ONS is responsible for the development and collection of UK data for the [Sustai
 
 This website is for disseminating UK SDG indicator data. We are at an Alpha stage in development, so the site is still 'work in progress'.
 
-We initially based this website on the [US SDG reporting platform](https://gsa.github.io/sdg-indicators/) and continue to collaborate with the US on further developing our websites. 
+We initially based the UK website on the [US SDG reporting platform](https://gsa.github.io/sdg-indicators/) and continue to collaborate with the US on further developing our websites. The UK site has been developed by the [Data Science Campus](https://datasciencecampus.ons.gov.uk/).  
 
 Other countries wishing to reuse the UK or US SDG reporting platforms are welcome to do so for free. We have developed a [wiki](https://github.com/datasciencecampus/sdg-indicators/wiki/Development-installation-instructions) which includes technical guidance on how to do this. The US have also produced various [training materials](https://gsa.github.io/sdg-indicators/training/). Guidance and support is also available from the  [Center for Open Data Enterprise (CODE)](http://www.opendataenterprise.org/) through their [SDG National Reporting Initiative](https://www.sdgreporting.org/).
 
