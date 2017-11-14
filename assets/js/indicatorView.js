@@ -12,7 +12,7 @@ var indicatorView = function (model, options) {
 
   var chartHeight = screen.height < options.maxChartHeight ? screen.height : options.maxChartHeight;
 
-  $('.plot-container', this._rootElement).css('height', chartHeight + 'px'); 
+  $('.plot-container', this._rootElement).css('height', chartHeight + 'px');
 
   this._model.onDataComplete.attach(function (sender, args) {
 
@@ -121,7 +121,7 @@ var indicatorView = function (model, options) {
   $(this._rootElement).on('click', '#fields label', function (e) {
 
     if(!$(this).closest('.variable-options').hasClass('disallowed')) {
-      $(this).find(':checkbox').trigger('click');      
+      $(this).find(':checkbox').trigger('click');
     }
 
     e.preventDefault();
@@ -168,7 +168,7 @@ var indicatorView = function (model, options) {
     if($(this).parent().hasClass('excluded') || $(this).closest('.variable-selector').hasClass('disallowed')) {
       return;
     }
-    
+
     updateWithSelectedFields();
 
     e.stopPropagation();
@@ -191,9 +191,9 @@ var indicatorView = function (model, options) {
   this.initialiseSeries = function (args) {
     if(args.series.length) {
       var template = _.template($("#item_template").html());
-      
+
         $('<button id="clear" class="disabled">Clear selections <i class="fa fa-remove"></i></button>').insertBefore('#fields');
-    
+
         $('#fields').html(template({
             series: args.series,
             allowedFields: args.allowedFields,
@@ -227,7 +227,7 @@ var indicatorView = function (model, options) {
     var that = this;
 
     this._chartInstance = new Chart($(this._rootElement).find('canvas'), {
-      type: 'line',
+      type: this._model.graphType,
       data: chartInfo,
       options: {
         responsive: true,
@@ -277,11 +277,11 @@ var indicatorView = function (model, options) {
     });
 
     Chart.pluginService.register({
-      afterDraw: function(chart) {        
+      afterDraw: function(chart) {
         var $canvas = $(that._rootElement).find('canvas'),
             font = '12px Arial',
             canvas = $canvas.get(0),
-            textRowHeight = 20,            
+            textRowHeight = 20,
             ctx = canvas.getContext("2d");
 
             ctx.font = font;
@@ -295,10 +295,10 @@ var indicatorView = function (model, options) {
                   line = '',
                   lineTest = '',
                   words = text.split(' ');
-                
+
               for (var i = 0, len = words.length; i < len; i++) {
                 lineTest = line + words[i] + ' ';
-                
+
                 // Check total width of line or last word
                 if (ctx.measureText(lineTest).width > width) {
                   // Record and reset the current line
