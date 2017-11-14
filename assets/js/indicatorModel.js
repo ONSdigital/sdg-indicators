@@ -449,13 +449,23 @@ var indicatorModel = function (options) {
       .sortBy(function(ds) { return ds.combinationDescription; })
       .each(function(ds) { datasets.push(convertToDataset(ds.data, ds.combinationDescription)); });
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    // convert datasets to tables:
+    var selectionsTable = {
+      data: []
+    };
+    selectionsTable.headings = ['Year'].concat(_.pluck(datasets, 'label'));
+    _.each(this.years, function(year, yearIndex) {
+      selectionsTable.data.push([year].concat(_.map(datasets, function(ds) {
+        return ds.data[yearIndex]
+      })));
+    });
+      
     this.onDataComplete.notify({
       datasetCountExceedsMax: datasetCountExceedsMax,
       datasets: datasets,
       labels: this.years,
       headlineTable: headlineTable,
+      selectionsTable: selectionsTable,
       indicatorId: this.indicatorId,
       selectedUnit: this.selectedUnit
     });

@@ -381,10 +381,7 @@ var indicatorView = function (model, options) {
     datatables_options = options.datatables_options || {
       paging: false,
       bInfo: false,
-      searching: false/*,
-      scrollX: true,
-      sScrollXInner: '100%',
-      sScrollX: '100%'*/
+      searching: false
     },
     table_class = options.table_class || 'table table-hover';
 
@@ -406,6 +403,9 @@ var indicatorView = function (model, options) {
     $(el).append($('<h4 />').text(chartInfo.headlineTable.title));
 
     if (chartInfo.headlineTable.data.length) {
+
+      console.log(chartInfo.headlineTable);
+
       var currentId = 'indicatortable-headline';
 
       var currentTable = $('<table />').attr({
