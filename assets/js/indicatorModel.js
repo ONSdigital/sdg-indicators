@@ -239,7 +239,7 @@ var indicatorModel = function (options) {
       datasets = [],
       that = this,
       seriesData = [],
-      tableData = [],
+      headlineTable = undefined,
       datasetIndex = 0,
       getCombinationDescription = function(combination) {
         return _.map(Object.keys(combination), function(key) {
@@ -391,13 +391,13 @@ var indicatorModel = function (options) {
 
     // all units for headline data:
     if(headline.length) {
-      tableData.push({
+      headlineTable = {
         title: 'Headline data',
         headings: that.selectedUnit ? ['Year', 'Units', 'Value'] : ['Year', 'Value'],
         data: _.map(headline, function (d) {
           return that.selectedUnit ? [d.Year, d.Units, d.Value] : [d.Year, d.Value];
         })
-      });
+      };
     }
 
     // headline plot should use the specific unit, if any,
@@ -455,7 +455,7 @@ var indicatorModel = function (options) {
       datasetCountExceedsMax: datasetCountExceedsMax,
       datasets: datasets,
       labels: this.years,
-      tables: tableData,
+      headlineTable: headlineTable,
       indicatorId: this.indicatorId,
       selectedUnit: this.selectedUnit
     });

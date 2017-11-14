@@ -391,71 +391,65 @@ var indicatorView = function (model, options) {
     // clear:
     $(el).html('');
 
-    // loop through chartInfo.
-    chartInfo.tables.forEach(function (tableData, index) {
+    $(el).append($('<a />').text('Download headline CSV')
+      .attr({
+        'href': URL.createObjectURL(new Blob([that.toCsv(chartInfo.headlineTable)], {
+          type: 'text/csv'
+        })),
+        'download': chartInfo.indicatorId + chartInfo.headlineTable.title + '.csv',
+        'title': 'Download as CSV',
+        'class': 'btn btn-primary btn-download',
+        'tabindex': 0
+      })
+      .data('csvdata', that.toCsv(chartInfo.headlineTable)));
 
-//        if(window.Modernizr && window.Modernizr.blobconstructor) {
-          $(el).append($('<a />').text('Download headline CSV')
-          .attr({
-            'href': URL.createObjectURL(new Blob([that.toCsv(tableData)], {
-              type: 'text/csv'
-            })),
-            'download': chartInfo.indicatorId + tableData.title + '.csv',
-            'title': 'Download as CSV',
-            'class': 'btn btn-primary btn-download',
-						'tabindex': 0
-          })
-          .data('csvdata', that.toCsv(tableData)));
-//        }
+    $(el).append($('<h4 />').text(chartInfo.headlineTable.title));
 
-      $(el).append($('<h4 />').text(tableData.title));
+    if (chartInfo.headlineTable.data.length) {
+      var currentId = 'indicatortable-headline';
 
-      if (tableData.data.length) {
-        var currentId = 'indicatortable' + index;
+      var currentTable = $('<table />').attr({
+        'class': 'table-responsive ' + table_class,
+        'id': currentId
+      });
 
-        var currentTable = $('<table />').attr({
-          'class': 'table-responsive ' + table_class,
-          'id': currentId
+      currentTable.append('<caption>' + that._model.chartTitle + '</caption>');
+
+      var table_head = '<thead><tr>';
+
+      chartInfo.headlineTable.headings.forEach(function (heading) {
+        table_head += '<th>' + heading + '</th>';
+      });
+
+      table_head += '</tr></thead>';
+      currentTable.append(table_head);
+      currentTable.append('<tbody></tbody>');
+
+      chartInfo.headlineTable.data.forEach(function (data) {
+        var row_html = '<tr>';
+        chartInfo.headlineTable.headings.forEach(function (heading, index) {
+          row_html += '<td>' + (data[index] ? data[index] : '-') + '</td>';
         });
+        row_html += '</tr>';
+        currentTable.find('tbody').append(row_html);
+      });
 
-				currentTable.append('<caption>' + that._model.chartTitle + '</caption>');
+      $(el).append(currentTable);
 
-        var table_head = '<thead><tr>';
+      // equal width columns:
+      datatables_options.aoColumns = _.map(chartInfo.headlineTable.headings, function (h) {
+        return {
+          sWidth: (100 / chartInfo.headlineTable.headings.length) + '%'
+        };
+      });
+      datatables_options.aaSorting = [];
 
-        tableData.headings.forEach(function (heading) {
-          table_head += '<th>' + heading + '</th>';
-        });
+      currentTable.DataTable(datatables_options);
 
-        table_head += '</tr></thead>';
-        currentTable.append(table_head);
-        currentTable.append('<tbody></tbody>');
+    } else {
+      $(el).append($('<p />').text('There is no data for this breakdown.'));
+    }
 
-        tableData.data.forEach(function (data) {
-          var row_html = '<tr>';
-          tableData.headings.forEach(function (heading, index) {
-            row_html += '<td>' + (data[index] ? data[index] : '-') + '</td>';
-          });
-          row_html += '</tr>';
-          currentTable.find('tbody').append(row_html);
-        });
-
-        $(el).append(currentTable);
-
-        // equal width columns:
-        datatables_options.aoColumns = _.map(tableData.headings, function (h) {
-          return {
-            sWidth: (100 / tableData.headings.length) + '%'
-          };
-        });
-        datatables_options.aaSorting = [];
-
-        currentTable.DataTable(datatables_options);
-
-      } else {
-        $(el).append($('<p />').text('There is no data for this breakdown.'));
-      }
-
-      $(el).append('<hr />');
-    });
+    $(el).append('<hr />');
   };
 };
