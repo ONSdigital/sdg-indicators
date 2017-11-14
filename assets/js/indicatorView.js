@@ -27,7 +27,8 @@ var indicatorView = function (model, options) {
       }
     }
 
-    view_obj.createTables(args);
+    view_obj.createHeadlineTable(args);
+    view_obj.createSelectionsTable(args);
   });
 
   this._model.onNoHeadlineData.attach(function() {
@@ -367,12 +368,19 @@ var indicatorView = function (model, options) {
     return lines.join('\n');
   };
 
-  this.createTables = function (chartInfo) {
+  this.createHeadlineTable = function(chartInfo) {
+    this.createTable(chartInfo.headlineTable, chartInfo.indicatorId, '#datatables');
+  };
+
+  this.createSelectionsTable = function(chartInfo) {
+    this.createTable(chartInfo.selectionsTable, chartInfo.indicatorId, '#selectionsTable');
+  };
+
+  this.createTable = function(table, indicatorId, el) {
 
     options = options || {};
     var that = this,
     csv_path = options.csv_path,
-    el = options.element || '#datatables',
     allow_download = options.allow_download || false,
     csv_options = options.csv_options || {
       separator: ',',
@@ -390,21 +398,21 @@ var indicatorView = function (model, options) {
 
     $(el).append($('<a />').text('Download headline CSV')
       .attr({
-        'href': URL.createObjectURL(new Blob([that.toCsv(chartInfo.headlineTable)], {
+        'href': URL.createObjectURL(new Blob([that.toCsv(table)], {
           type: 'text/csv'
         })),
-        'download': chartInfo.indicatorId + chartInfo.headlineTable.title + '.csv',
+        'download': indicatorId + table.title + '.csv',
         'title': 'Download as CSV',
         'class': 'btn btn-primary btn-download',
         'tabindex': 0
       })
-      .data('csvdata', that.toCsv(chartInfo.headlineTable)));
+      .data('csvdata', that.toCsv(table)));
 
-    $(el).append($('<h4 />').text(chartInfo.headlineTable.title));
+    $(el).append($('<h4 />').text(table.title));
 
-    if (chartInfo.headlineTable.data.length) {
+    if(table.data.length) {
 
-      console.log(chartInfo.headlineTable);
+      console.log(table);
 
       var currentId = 'indicatortable-headline';
 
@@ -417,7 +425,7 @@ var indicatorView = function (model, options) {
 
       var table_head = '<thead><tr>';
 
-      chartInfo.headlineTable.headings.forEach(function (heading) {
+      table.headings.forEach(function (heading) {
         table_head += '<th>' + heading + '</th>';
       });
 
@@ -425,9 +433,9 @@ var indicatorView = function (model, options) {
       currentTable.append(table_head);
       currentTable.append('<tbody></tbody>');
 
-      chartInfo.headlineTable.data.forEach(function (data) {
+      table.data.forEach(function (data) {
         var row_html = '<tr>';
-        chartInfo.headlineTable.headings.forEach(function (heading, index) {
+        table.headings.forEach(function (heading, index) {
           row_html += '<td>' + (data[index] ? data[index] : '-') + '</td>';
         });
         row_html += '</tr>';
@@ -437,9 +445,9 @@ var indicatorView = function (model, options) {
       $(el).append(currentTable);
 
       // equal width columns:
-      datatables_options.aoColumns = _.map(chartInfo.headlineTable.headings, function (h) {
+      datatables_options.aoColumns = _.map(table.headings, function (h) {
         return {
-          sWidth: (100 / chartInfo.headlineTable.headings.length) + '%'
+          sWidth: (100 / table.headings.length) + '%'
         };
       });
       datatables_options.aaSorting = [];
