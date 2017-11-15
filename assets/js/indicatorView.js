@@ -27,7 +27,7 @@ var indicatorView = function (model, options) {
       }
     }
 
-    view_obj.createHeadlineTable(args);
+    view_obj.initialiseHeadlineTable('#datatables');
     view_obj.createSelectionsTable(args);
   });
 
@@ -368,8 +368,28 @@ var indicatorView = function (model, options) {
     return lines.join('\n');
   };
 
-  this.createHeadlineTable = function(chartInfo) {
-    this.createTable(chartInfo.headlineTable, chartInfo.indicatorId, '#datatables');
+  var initialiseDataTable = function(el) {
+    if(!$.fn.dataTable.isDataTable($(el).find('table'))) {
+      var datatables_options = options.datatables_options || {
+        paging: false,
+        bInfo: false,
+        searching: false
+      }, table = $(el).find('table');
+  
+      // equal width columns:
+      datatables_options.aoColumns = _.map(table.find('th'), function () {
+        return {
+          sWidth: (100 / table.find('th').length) + '%'
+        };
+      });
+      datatables_options.aaSorting = [];
+  
+      $(el).find('table').DataTable(datatables_options);
+    }
+  };
+
+  this.initialiseHeadlineTable = function(el) {
+    initialiseDataTable(el);
   };
 
   this.createSelectionsTable = function(chartInfo) {
@@ -385,11 +405,6 @@ var indicatorView = function (model, options) {
     csv_options = options.csv_options || {
       separator: ',',
       delimiter: '"'
-    },
-    datatables_options = options.datatables_options || {
-      paging: false,
-      bInfo: false,
-      searching: false
     },
     table_class = options.table_class || 'table table-hover';
 
@@ -412,13 +427,12 @@ var indicatorView = function (model, options) {
 
     if(table.data.length) {
 
-      console.log(table);
 
-      var currentId = 'indicatortable-headline';
+      //var currentId = 'indicatortable-headline';
 
       var currentTable = $('<table />').attr({
         'class': 'table-responsive ' + table_class,
-        'id': currentId
+        //'id': currentId
       });
 
       currentTable.append('<caption>' + that._model.chartTitle + '</caption>');
@@ -444,16 +458,9 @@ var indicatorView = function (model, options) {
 
       $(el).append(currentTable);
 
-      // equal width columns:
-      datatables_options.aoColumns = _.map(table.headings, function (h) {
-        return {
-          sWidth: (100 / table.headings.length) + '%'
-        };
-      });
-      datatables_options.aaSorting = [];
-
-      currentTable.DataTable(datatables_options);
-
+      // initialise data table
+      initialiseDataTable(el);
+      
     } else {
       $(el).append($('<p />').text('There is no data for this breakdown.'));
     }
