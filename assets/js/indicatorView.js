@@ -56,6 +56,9 @@ var indicatorView = function (model, options) {
   this._model.onFieldsCleared.attach(function(sender, args) {
     $(view_obj._rootElement).find(':checkbox').prop('checked', false);
     $(view_obj._rootElement).find('#clear').addClass('disabled');
+    
+    // reset available/unavailable fields
+    updateWithSelectedFields();
 
     // #246
     $(view_obj._rootElement).find('.selected').css('width', '0');
