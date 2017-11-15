@@ -160,7 +160,7 @@ var indicatorView = function (model, options) {
     }
     // The select button must only select checkboxes that have data.
     if (type == 'select') {
-      $options.not('[data-has-data=false]').prop('checked', true);
+      $options.parent().not('[data-has-data=false]').find(':checkbox').prop('checked', true)
     }
 
     updateWithSelectedFields();
