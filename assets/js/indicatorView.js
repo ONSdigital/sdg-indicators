@@ -363,7 +363,7 @@ var indicatorView = function (model, options) {
 
   this.toCsv = function (tableData) {
     var lines = [],
-    headings = tableData.headings;
+    headings = _.map(tableData.headings, function(heading) { return '"' + heading + '"'; });
 
     lines.push(headings.join(','));
 
