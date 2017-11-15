@@ -85,7 +85,7 @@
       <section>
 
         {% if show_data %}
-        <ul class="nav nav-tabs" role="tablist">
+        <ul class="nav nav-tabs data-view" role="tablist">
           <li role="presentation" class="nav-item active">
             <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab">Chart</a>
           </li>
@@ -95,7 +95,7 @@
         </ul>
 
         <!-- Tab panes -->
-        <div class="tab-content">
+        <div class="tab-content data-view">
           <div role="tabpanel" class="tab-pane active" id="chartview">
             {% include components/charts/chart.html graph_type=page.graph_type data=json_data %}      
           </div>

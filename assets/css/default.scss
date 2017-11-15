@@ -889,16 +889,28 @@ h5 + .btn-download {
       th {
         width: 35%;
       }
-      #datatable, #tableview {
+      #datatable {
         overflow-x: auto;
-      }
-      .table {
-        width: 100%!important;
       }
     }
 		h4 {
 			margin-top: 2rem !important;
 		}
+  }
+
+  
+  #selectionsTable {
+    div.dataTables_wrapper { 
+      overflow-x: auto;
+
+      .row {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+    table {
+      th, td { white-space: nowrap; }          
+    }
   }
 
   .statuses {
@@ -1112,6 +1124,9 @@ footer {
       width: 100%;
     }   
   } 
+  .data-view {
+    display: none;
+  }
   .plot-container {
     display: none;
   }   

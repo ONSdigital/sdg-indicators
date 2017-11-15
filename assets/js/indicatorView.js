@@ -14,6 +14,15 @@ var indicatorView = function (model, options) {
 
   $('.plot-container', this._rootElement).css('height', chartHeight + 'px');
 
+  $(document).ready(function() {
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+      // var target = $(e.target).attr("href"); // activated tab
+      // alert (target);
+      $($.fn.dataTable.tables(true)).css('width', '100%');
+      $($.fn.dataTable.tables(true)).DataTable().columns.adjust().draw();
+    }); 
+  });
+
   this._model.onDataComplete.attach(function (sender, args) {
 
     if(view_obj._model.showData) {
@@ -234,6 +243,9 @@ var indicatorView = function (model, options) {
         responsive: true,
         maintainAspectRatio: false,
         spanGaps: true,
+        scrollX: true,
+        scrollCollapse: true,
+        sScrollXInner: '150%',
         scales: {
           xAxes: [{
             gridLines: {
@@ -377,7 +389,8 @@ var indicatorView = function (model, options) {
       var datatables_options = options.datatables_options || {
         paging: false,
         bInfo: false,
-        searching: false
+        searching: false,
+        responsive: false
       }, table = $(el).find('table');
   
       // equal width columns:
@@ -389,7 +402,6 @@ var indicatorView = function (model, options) {
       datatables_options.aaSorting = [];
   
       $(el).find('table').DataTable(datatables_options);
-    //}
   };
 
   this.createHeadlineTable = function(chartInfo) {
@@ -397,7 +409,7 @@ var indicatorView = function (model, options) {
   };
 
   this.createSelectionsTable = function(chartInfo) {
-    this.createTable(chartInfo.selectionsTable, chartInfo.indicatorId, '#selectionsTable');
+    this.createTable(chartInfo.selectionsTable, chartInfo.indicatorId, '#selectionsTable', true);
   };
 
   this.createTable = function(table, indicatorId, el) {
@@ -433,7 +445,8 @@ var indicatorView = function (model, options) {
 
     if(table.data.length) {
       var currentTable = $('<table />').attr({
-        'class': 'table-responsive ' + table_class,
+        'class': /*'table-responsive ' +*/ table_class,
+        'width': '100%'
         //'id': currentId
       });
 
