@@ -14,7 +14,7 @@ var indicatorModel = function (options) {
   this.onFieldsCleared = new event(this);
   this.onSelectionUpdate = new event(this);
   this.onNoHeadlineData = new event(this);
-  
+
   // data rounding:
   this.roundingFunc = options.roundingFunc || function(value) {
     var to = 3, mult = Math.pow(10, to - Math.floor(Math.log(Math.abs(value)) / Math.LN10) - 1);
@@ -29,6 +29,7 @@ var indicatorModel = function (options) {
   this.country = options.country;
   this.indicatorId = options.indicatorId;
   this.chartTitle = options.chartTitle;
+  this.graphType = options.graphType;
   this.measurementUnit = options.measurementUnit;
   this.dataSource = options.dataSource;
   this.geographicalArea = options.geographicalArea;
@@ -55,7 +56,7 @@ var indicatorModel = function (options) {
           };
         })
       };
-    });    
+    });
 
     var extractUnique = function(prop) {
       return _.chain(that.data).pluck(prop).uniq().sortBy(function(year) {
@@ -81,7 +82,7 @@ var indicatorModel = function (options) {
 
       // only apply a rounding function for non-zero values:
       if(item.Value != 0) {
-        item.Value = that.roundingFunc(item.Value);        
+        item.Value = that.roundingFunc(item.Value);
       }
 
       // remove any undefined/null values:
@@ -183,7 +184,7 @@ var indicatorModel = function (options) {
     this.getData();
     this.onUnitsSelectedChanged.notify(selectedUnit);
   };
-  
+
   this.getCombinationData = function(obj) {
     var getCombinations = function(fields, arr, n) {
       var index = 0, ret = [];
@@ -203,7 +204,7 @@ var indicatorModel = function (options) {
                 value: elem[j],
                 field: field
               }].concat(childperm[k]));
-            }            
+            }
           }
         }
       }
@@ -213,8 +214,8 @@ var indicatorModel = function (options) {
     var	loop = 1,
         res = [],
         src = JSON.parse(JSON.stringify(obj));
-    
-    for(; loop <= src.length; loop++) { 
+
+    for(; loop <= src.length; loop++) {
       obj = JSON.parse(JSON.stringify(src));
       res = res.concat(getCombinations(_.pluck(obj, 'field'), _.pluck(obj, 'values'), loop));
     }
@@ -247,7 +248,7 @@ var indicatorModel = function (options) {
         }).join(', ');
       },
       getColor = function(datasetIndex) {
-        
+
         // offset if there is no headline data:
         if(!this.hasHeadline) {
           datasetIndex += 1;
@@ -272,7 +273,7 @@ var indicatorModel = function (options) {
           datasetIndex += 1;
         }
 
-        // 0 - 
+        // 0 -
         // the first dataset is the headline:
         return datasetIndex > colors.length ? [5, 5] : undefined;
       },
@@ -286,7 +287,7 @@ var indicatorModel = function (options) {
             borderColor: '#' + getColor(datasetIndex),
             backgroundColor: '#' + getColor(datasetIndex),
             pointBorderColor: '#' + getColor(datasetIndex),
-            borderDash: getBorderDash(datasetIndex),            
+            borderDash: getBorderDash(datasetIndex),
             data: _.map(that.years, function (year) {
               var found = _.findWhere(data, {
                 Year: year
@@ -298,7 +299,7 @@ var indicatorModel = function (options) {
         datasetIndex++;
         return ds;
       };
-    
+
     if (fields && !_.isArray(fields)) {
       fields = [].concat(fields);
     }
@@ -322,7 +323,7 @@ var indicatorModel = function (options) {
       }
       return matched;
     });
-    
+
     //}
 /*
     console.table(matchedData);
@@ -352,7 +353,7 @@ var indicatorModel = function (options) {
               //   fieldItemState.state = 'possible';
               // } else {
                // fieldItemValue.state = 'excluded';
-              // }  
+              // }
 
               // isSingleValueSelected() &&
               fieldItemValue.state = that.selectedFields[0].field == fieldItemState.field ? 'possible' : 'excluded';
@@ -374,7 +375,7 @@ var indicatorModel = function (options) {
           defaultState: (_.filter(fieldStates, function(fv) { return fv === 'default' || fv === 'selected'; }).length / maxFieldValueCount) * 100,
           excludedState: (_.filter(fieldStates, function(fv) { return fv === 'excluded'; }).length / maxFieldValueCount) * 100
         }
-      };      
+      };
     });
 */
 
@@ -400,7 +401,7 @@ var indicatorModel = function (options) {
     }
 
     // headline plot should use the specific unit, if any,
-    // but there may not be any headline data at all, or for the 
+    // but there may not be any headline data at all, or for the
     // specific unit:
     if(that.selectedUnit) {
       headline = _.where(headline, { Units : that.selectedUnit });
@@ -408,7 +409,7 @@ var indicatorModel = function (options) {
 
     // only add to the datasets if there is any headline data:
     if(headline.length) {
-      datasets.push(convertToDataset(headline));      
+      datasets.push(convertToDataset(headline));
     } else {
       this.hasHeadline = false;
     }
@@ -443,7 +444,7 @@ var indicatorModel = function (options) {
       datasetCountExceedsMax = true;
       filteredDatasets = filteredDatasets.slice(0, maxDatasetCount);
     }
-    
+
     _.chain(filteredDatasets)
       .sortBy(function(ds) { return ds.combinationDescription; })
       .each(function(ds) { datasets.push(convertToDataset(ds.data, ds.combinationDescription)); });
