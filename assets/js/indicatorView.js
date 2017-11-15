@@ -410,7 +410,23 @@ var indicatorView = function (model, options) {
 
   this.createSelectionsTable = function(chartInfo) {
     this.createTable(chartInfo.selectionsTable, chartInfo.indicatorId, '#selectionsTable', true);
+    this.createDownloadButton(chartInfo.selectionsTable, chartInfo.indicatorId, '#selectionsTable');
   };
+
+  this.createDownloadButton = function(table, indicatorId, el) {
+    $(el).append($('<h4 />').text('Download this data'));
+    $(el).append($('<a />').text('Download CSV')
+    .attr({
+      'href': URL.createObjectURL(new Blob([this.toCsv(table)], {
+        type: 'text/csv'
+      })),
+      'download': indicatorId + table.title + '.csv',
+      'title': 'Download as CSV',
+      'class': 'btn btn-primary btn-download',
+      'tabindex': 0
+    })
+    .data('csvdata', this.toCsv(table)));
+  }
 
   this.createTable = function(table, indicatorId, el) {
 
@@ -426,22 +442,6 @@ var indicatorView = function (model, options) {
 
     // clear:
     $(el).html('');
-
-    /*
-    $(el).append($('<a />').text('Download CSV')
-      .attr({
-        'href': URL.createObjectURL(new Blob([that.toCsv(table)], {
-          type: 'text/csv'
-        })),
-        'download': indicatorId + table.title + '.csv',
-        'title': 'Download as CSV',
-        'class': 'btn btn-primary btn-download',
-        'tabindex': 0
-      })
-      .data('csvdata', that.toCsv(table)));
-      */
-
-    //$(el).append($('<h4 />').text(table.title));
 
     if(table.data.length) {
       var currentTable = $('<table />').attr({
