@@ -154,7 +154,14 @@ var indicatorView = function (model, options) {
     var type = $(this).data('type');
     var $options = $(this).closest('.variable-options').find(':checkbox');
 
-    $options.prop('checked', type == 'select');
+    // The clear button can clear all checkboxes.
+    if (type == 'clear') {
+      $options.prop('checked', false);
+    }
+    // The select button must only select checkboxes that have data.
+    if (type == 'select') {
+      $options.not('[data-has-data=false]').prop('checked', true);
+    }
 
     updateWithSelectedFields();
 
