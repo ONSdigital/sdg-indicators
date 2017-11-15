@@ -63,6 +63,9 @@ var indicatorView = function (model, options) {
   this._model.onFieldsCleared.attach(function(sender, args) {
     $(view_obj._rootElement).find(':checkbox').prop('checked', false);
     $(view_obj._rootElement).find('#clear').addClass('disabled');
+    
+    // reset available/unavailable fields
+    updateWithSelectedFields();
 
     // #246
     $(view_obj._rootElement).find('.selected').css('width', '0');
@@ -97,8 +100,14 @@ var indicatorView = function (model, options) {
     _.each(args.data, function(fieldGroup) {
       _.each(fieldGroup.values, function(fieldItem) {
         var element = $(view_obj._rootElement).find(':checkbox[value="' + fieldItem.value + '"][data-field="' + fieldGroup.field + '"]');
-        element.parent().addClass(fieldItem.state);
+        element.parent().addClass(fieldItem.state).attr('data-has-data', fieldItem.hasData);
       });
+      // Indicate whether the fieldGroup had any data.
+      var fieldGroupElement = $(view_obj._rootElement).find('.variable-selector[data-field="' + fieldGroup.field + '"]');
+      fieldGroupElement.attr('data-has-data', fieldGroup.hasData);
+
+      // Re-sort the items.
+      view_obj.sortFieldGroup(fieldGroupElement);
     });
 
     _.each(args.selectionStates, function(ss) {
@@ -155,7 +164,14 @@ var indicatorView = function (model, options) {
     var type = $(this).data('type');
     var $options = $(this).closest('.variable-options').find(':checkbox');
 
-    $options.prop('checked', type == 'select');
+    // The clear button can clear all checkboxes.
+    if (type == 'clear') {
+      $options.prop('checked', false);
+    }
+    // The select button must only select checkboxes that have data.
+    if (type == 'select') {
+      $options.parent().not('[data-has-data=false]').find(':checkbox').prop('checked', true)
+    }
 
     updateWithSelectedFields();
 
@@ -458,4 +474,18 @@ var indicatorView = function (model, options) {
       $(el).append('<hr />');
     });
   };
+
+  this.sortFieldGroup = function(fieldGroupElement) {
+    var sortLabels = function(a, b) {
+      var aObj = { hasData: $(a).attr('data-has-data'), text: $(a).text() };
+      var bObj = { hasData: $(b).attr('data-has-data'), text: $(b).text() };
+      if (aObj.hasData == bObj.hasData) {
+        return (aObj.text > bObj.text) ? 1 : -1;
+      }
+      return (aObj.hasData < bObj.hasData) ? 1 : -1;
+    };
+    fieldGroupElement.find('label')
+      .sort(sortLabels)
+      .appendTo(fieldGroupElement.find('.variable-options'));
+  }
 };

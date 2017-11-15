@@ -40,6 +40,7 @@ var indicatorModel = function (options) {
   this.selectedUnit = undefined;
   this.fieldValueStatuses = [];
   this.userInteraction = {};
+  this.validParentsByChild = {};
 
   // initialise the field information, unique fields and unique values for each field:
   (function initialise() {
@@ -49,13 +50,37 @@ var indicatorModel = function (options) {
       }), function(field) {
       return {
         field: field,
-        values: _.map(_.chain(that.data).pluck(field).uniq().filter(function(f) { return f; }).value(),
+        hasData: true,
+        values: _.map(_.chain(that.data).pluck(field).uniq().filter(function(f) { return f; }).sort().value(),
           function(f) { return {
             value: f,
-            state: 'default'
+            state: 'default',
+            hasData: true
           };
         })
       };
+    });
+
+    // Set up the validParentsByChild object, which lists the parent field
+    // values that should be associated with each child field value.
+    var parentFields = _.pluck(that.edgesData, 'From');
+    var childFields = _.pluck(that.edgesData, 'To');
+    that.validParentsByChild = {};
+    _.each(childFields, function(childField, fieldIndex) {
+      var fieldItemState = _.findWhere(that.fieldItemStates, {field: childField});
+      var childValues = _.pluck(fieldItemState.values, 'value');
+      var parentField = parentFields[fieldIndex];
+      that.validParentsByChild[childField] = {};
+      _.each(childValues, function(childValue) {
+        var rowsWithParentValues = _.filter(that.data, function(row) {
+          var childMatch = row[childField] == childValue;
+          var parentNotEmpty = row[parentField];
+          return childMatch && parentNotEmpty;
+        });
+        var parentValues = _.pluck(rowsWithParentValues, parentField);
+        parentValues = _.uniq(parentValues);
+        that.validParentsByChild[childField][childValue] = parentValues;
+      });
     });
 
     var extractUnique = function(prop) {
@@ -162,9 +187,30 @@ var indicatorModel = function (options) {
     _.each(parentFields, function(parentField) {
       if(_.contains(selectedFields, parentField)) {
         // resinstate
-        that.allowedFields = that.allowedFields.concat(
-          _.chain(that.edgesData).where({ 'From' : parentField }).pluck('To').value()
-        );
+        var childFields = _.chain(that.edgesData).where({ 'From' : parentField }).pluck('To').value();
+        that.allowedFields = that.allowedFields.concat(childFields);
+        // check each value in the child fields to see if it has data in common
+        // with the selected parent value.
+        var selectedParent = _.find(that.selectedFields, function(selectedField) {
+          return selectedField.field == parentField;
+        });
+        _.each(that.fieldItemStates, function(fieldItem) {
+          // We only care about child fields.
+          if (_.contains(childFields, fieldItem.field)) {
+            var fieldHasData = false;
+            _.each(fieldItem.values, function(childValue) {
+              var valueHasData = false;
+              _.each(selectedParent.values, function(parentValue) {
+                if (_.contains(that.validParentsByChild[fieldItem.field][childValue.value], parentValue)) {
+                  valueHasData = true;
+                  fieldHasData = true;
+                }
+              });
+              childValue.hasData = valueHasData;
+            });
+            fieldItem.hasData = fieldHasData;
+          }
+        });
       }
     });
 
