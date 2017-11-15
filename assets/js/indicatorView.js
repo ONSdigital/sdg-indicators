@@ -27,7 +27,7 @@ var indicatorView = function (model, options) {
       }
     }
 
-    view_obj.initialiseHeadlineTable('#datatables');
+    view_obj.createHeadlineTable(args);
     view_obj.createSelectionsTable(args);
   });
 
@@ -368,8 +368,12 @@ var indicatorView = function (model, options) {
     return lines.join('\n');
   };
 
+  // this.createHeadlineTable = function(chartInfo) {
+  //   //this.createTable(chartInfo.headlineTable, chartInfo.indicatorId, '#datatables');
+  // };
+
   var initialiseDataTable = function(el) {
-    if(!$.fn.dataTable.isDataTable($(el).find('table'))) {
+    //if(!$.fn.dataTable.isDataTable($(el).find('table'))) {
       var datatables_options = options.datatables_options || {
         paging: false,
         bInfo: false,
@@ -385,11 +389,11 @@ var indicatorView = function (model, options) {
       datatables_options.aaSorting = [];
   
       $(el).find('table').DataTable(datatables_options);
-    }
+    //}
   };
 
-  this.initialiseHeadlineTable = function(el) {
-    initialiseDataTable(el);
+  this.createHeadlineTable = function(chartInfo) {
+    this.createTable(chartInfo.headlineTable, chartInfo.indicatorId, '#datatables table');
   };
 
   this.createSelectionsTable = function(chartInfo) {
@@ -411,7 +415,8 @@ var indicatorView = function (model, options) {
     // clear:
     $(el).html('');
 
-    $(el).append($('<a />').text('Download headline CSV')
+    /*
+    $(el).append($('<a />').text('Download CSV')
       .attr({
         'href': URL.createObjectURL(new Blob([that.toCsv(table)], {
           type: 'text/csv'
@@ -422,14 +427,11 @@ var indicatorView = function (model, options) {
         'tabindex': 0
       })
       .data('csvdata', that.toCsv(table)));
+      */
 
-    $(el).append($('<h4 />').text(table.title));
+    //$(el).append($('<h4 />').text(table.title));
 
     if(table.data.length) {
-
-
-      //var currentId = 'indicatortable-headline';
-
       var currentTable = $('<table />').attr({
         'class': 'table-responsive ' + table_class,
         //'id': currentId
