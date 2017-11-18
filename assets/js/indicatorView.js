@@ -430,7 +430,7 @@ var indicatorView = function (model, options) {
   };
 
   this.createDownloadButton = function(table, indicatorId, el) {
-    $(el).append($('<h4 />').text('Download this data'));
+    // $(el).append($('<h4 />').text('Download this data'));
     $(el).append($('<a />').text('Download CSV')
     .attr({
       'href': URL.createObjectURL(new Blob([this.toCsv(table)], {
@@ -495,8 +495,6 @@ var indicatorView = function (model, options) {
     } else {
       $(el).append($('<p />').text('There is no data for this breakdown.'));
     }
-
-    $(el).append('<hr />');
   };
 
   this.sortFieldGroup = function(fieldGroupElement) {
