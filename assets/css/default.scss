@@ -917,6 +917,23 @@ h5 + .btn-download {
 		}
   }
 
+  
+  #selectionsTable {
+    div.dataTables_wrapper { 
+      overflow-x: auto;
+      
+      .row {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+    table {
+      th, td { white-space: nowrap; }          
+    }
+
+    padding-bottom: 20px;    
+  }
+
   .statuses {
 
     strong {
@@ -1029,7 +1046,8 @@ h5 + .btn-download {
   }
 
   h2:first-child {
-    margin-top: 0;
+    // margin-top: 0;
+    margin-bottom: 14px;
   }
 }
 
@@ -1128,6 +1146,9 @@ footer {
       width: 100%;
     }   
   } 
+  .data-view {
+    display: none;
+  }
   .plot-container {
     display: none;
   }   

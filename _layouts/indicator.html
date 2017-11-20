@@ -57,19 +57,18 @@
     </div>
   </div>
 
+
+
+
+  <div class="row">
+    <div class="col-xs-12">
+        <h2>{{ page.graph_title }}</h2>
+    </div>
+  </div>
+
   <div class="row" id="indicatorData" data-indicatordata='{{json_data}}' data-indicatorid='{{dataset_name}}' data-country="{{ page.national_geographical_coverage }}"
   data-edgesdata='{{ json_edges_data }}' data-charttitle="{{ page.graph_title }}" data-measurementunit="{{ page.computation_units }}" data-datasource="{{ page.source_organisation_1 }}" data-geographicalarea="{{ page.national_geographical_coverage }}" data-footnote="{{ page.data_footnote }}" data-showdata="{{ show_data }}" data-graphtype="{{ page.graph_type }}">
   {% if show_data %}
-<div class='row'>
-  <div class='col-xs-12'>
-    <div class='col-sm-8 col-md-9'>
-      <h3>{{ page.graph_title }}</h3>
-    </div>
-    <div class='col-sm-4 col-md-3'>
-      <a role='button' class='btn btn-primary btn-download' href='#data'>Accessible graph alternative</a>
-    </div>
-  </div>
-</div>
     <div class="col-md-3">
       <div id="toolbar">
         <h4>Sub-categories</h4>
@@ -85,7 +84,24 @@
       <section>
 
         {% if show_data %}
-          {% include components/charts/chart.html graph_type=page.graph_type data=json_data %}
+        <ul class="nav nav-tabs data-view" role="tablist">
+          <li role="presentation" class="nav-item active">
+            <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab">Chart</a>
+          </li>
+          <li role="presentation" class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab">Table</a>
+          </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content data-view">
+          <div role="tabpanel" class="tab-pane active" id="chartview">
+            {% include components/charts/chart.html graph_type=page.graph_type data=json_data %}      
+          </div>
+          <div role="tabpanel" class="tab-pane" id="tableview">
+            <div id="selectionsTable"></div>
+          </div>
+        </div>
         {% endif %}
 
         <div class="alert alert-warning" role="alert">
