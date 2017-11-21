@@ -20,7 +20,7 @@ var indicatorView = function (model, options) {
       // alert (target);
       $($.fn.dataTable.tables(true)).css('width', '100%');
       $($.fn.dataTable.tables(true)).DataTable().columns.adjust().draw();
-    }); 
+    });
   });
 
   this._model.onDataComplete.attach(function (sender, args) {
@@ -73,7 +73,7 @@ var indicatorView = function (model, options) {
   this._model.onFieldsCleared.attach(function(sender, args) {
     $(view_obj._rootElement).find(':checkbox').prop('checked', false);
     $(view_obj._rootElement).find('#clear').addClass('disabled');
-    
+
     // reset available/unavailable fields
     updateWithSelectedFields();
 
@@ -264,6 +264,7 @@ var indicatorView = function (model, options) {
         sScrollXInner: '150%',
         scales: {
           xAxes: [{
+            maxBarThickness: 150,
             gridLines: {
               color: '#ddd',
             }
@@ -408,7 +409,7 @@ var indicatorView = function (model, options) {
         searching: false,
         responsive: false
       }, table = $(el).find('table');
-  
+
       // equal width columns:
       datatables_options.aoColumns = _.map(table.find('th'), function () {
         return {
@@ -416,7 +417,7 @@ var indicatorView = function (model, options) {
         };
       });
       datatables_options.aaSorting = [];
-  
+
       $(el).find('table').DataTable(datatables_options);
   };
 
@@ -491,7 +492,7 @@ var indicatorView = function (model, options) {
 
       // initialise data table
       initialiseDataTable(el);
-      
+
     } else {
       $(el).append($('<p />').text('There is no data for this breakdown.'));
     }
