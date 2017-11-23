@@ -25,4 +25,4 @@ This short story looks at the two indicators (under five and neonatal mortality)
 ### Goal 7
 
 **[Renewable Energy in the UK, 22 November 2017](https://www.slideshare.net/statisticsONS/renewable-energy-in-the-uk)**  
-This SlideShare takes a look at renewable energy consumption in the UK which is under Target 7.2. It highlights that while renewable energy consumption has gone down renewable sources have risen. It shows that not all renewables are emission free and some can create pollutants, burning wood is used as an example. The UK is setting out plans to meet international commitments to reducing emissions of air pollutants. 
+This SlideShare takes a look at renewable energy consumption in the UK which is under Target 7.2. It highlights that while overall energy consumption has gone down, the proportion of energy from renewable sources has risen. It shows that not all renewables are emission free and some can create pollutants, burning wood is used as an example. The UK is setting out plans to meet international commitments to reducing emissions of air pollutants. 
