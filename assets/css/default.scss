@@ -1,6 +1,6 @@
---- 
-# site styles 
---- 
+---
+# site styles
+---
 
 $main-background-color: #eaeaea;
 $dark-highlight : #0275d8;
@@ -40,7 +40,7 @@ html {
 }
 
 body {
-  background: $main-background-color; 
+  background: $main-background-color;
   padding: $disclaimer-height + unquote("px") 0 0 0;
   margin: 0 0 50px 0;
 }
@@ -179,6 +179,7 @@ header {
       &.contrast {
         font-size: 1.3em;
         font-weight: bold;
+        border-radius: 50%;
       }
 
       &.contrast-default {
@@ -189,7 +190,7 @@ header {
       &.contrast-high {
         background: black;
         a {
-          color: yellow;          
+          color: yellow;
           margin-left: 5px;
         }
       }
@@ -216,7 +217,7 @@ header {
       top: 8px;
       left: 7px;
       font-size: 1.25em;
-      
+
       span {
         display: none;
       }
@@ -248,7 +249,7 @@ header {
   }
 
   .navbar {
-    clear: left; 
+    clear: left;
 
     &.navbar-default {
       color: #E5E6E7;
@@ -261,13 +262,13 @@ header {
     .top-level {
       display: block;
       font-size: 1em;
-      @include noselect;      
-      
+      @include noselect;
+
       li {
         float: left;
         width: 50%;
         cursor: pointer;
-        
+
         &.active {
           background: #3D3D3D;
         }
@@ -336,7 +337,7 @@ header {
         color: black;
       }
 
-      input { 
+      input {
         width: 100%;
         color: #333;
         margin-top: 0;
@@ -358,7 +359,7 @@ header {
     }
   }
 
-  #search { 
+  #search {
     margin-top: -100px;
   }
 }
@@ -699,7 +700,7 @@ h5 + .btn-download {
       .variable-options {
         background-color: white;
         display: none;
-        position: static;        
+        position: static;
         z-index: 100;
         border-top: 0;
         right: -1px;
@@ -767,7 +768,7 @@ h5 + .btn-download {
         }
 
         .variable-options {
-          > div { 
+          > div {
             display: none;
           }
 
@@ -813,7 +814,7 @@ h5 + .btn-download {
     padding: 5px;
 
     i {
-      font-size: 1.2em; 
+      font-size: 1.2em;
     }
   }
 
@@ -1030,7 +1031,7 @@ footer {
   width: 100%;
   height: 50px; /* Set the fixed height of the footer here */
 
-  img { 
+  img {
     float: left;
     margin-right: 12px;
     margin-top: 3px;
@@ -1040,7 +1041,7 @@ footer {
 
     @media only screen and (max-width: 767px) {
       padding: 5px 0;
-    } 
+    }
   }
   a {
     color: $footer-color;
@@ -1064,7 +1065,7 @@ footer {
     p {
       margin: 0;
 
-      &:first { 
+      &:first {
         font-size: 90%;
       }
     }
@@ -1083,7 +1084,7 @@ footer {
 }
 
 #page-content {
-  
+
   border-top: 1px solid #faebcc;
   border-bottom: 1px solid #faebcc;
   padding-top: 10px;
@@ -1111,17 +1112,17 @@ footer {
   #indicatorData {
     > .col-md-3 {
       display: none;
-    }  
+    }
     > .col-md-9 {
       width: 100%;
-    }   
-  } 
+    }
+  }
   .plot-container {
     display: none;
-  }   
+  }
   .tab-pane {
     display: block!important;
-  }   
+  }
   #main-content {
     .collapsible {
       border: 0;
@@ -1140,7 +1141,7 @@ footer {
       h3 span {
         display: none;
       }
-    } 
+    }
   }
 }
 
@@ -1161,6 +1162,108 @@ footer {
 
 
 /* example stuff */
+nav#accessibility-nav {
+  position: absolute;
+  text-align: right;
+  top: 40px;
+}
+
 body.contrast-high {
   background-color: black;
+
+  .container, #main-content, header, footer, #disclaimer, .heading {
+    background: black;
+    border-color: black;
+   }
+
+  p, h2, h3, h4, span, td, th, a#text {
+    color: white;
+  }
+
+  h1, li, a {
+    color: yellow;
+  }
+
+  li.contrast-default a {
+    color: black !important;
+  }
+
+  .navbar {
+    li {
+      a {
+        color: white;
+        &:hover {
+          color: yellow;
+        }
+      }
+    }
+    li.active {
+      a {
+        color: yellow;
+        border-color: yellow;
+        &:hover {
+          color: yellow;
+        }
+      }
+    }
+  }
+
+  .goal-indicators {
+    div {
+      span {
+        border-color: white !important;
+        color: white !important;
+      }
+    }
+  .indicator-cards {
+    a {
+      color: white !important;
+    }
+  }
+}
+
+  #toolbar {
+    button {
+      background-color: black !important;
+      border-color: white;
+      color: white;
+    }
+  }
+
+  .danger {
+    background-color: red;
+  }
+  .warning {
+    background-color: yellow;
+  }
+  .success {
+    background-color: green;
+  }
+
+
+  .statuses {
+    strong {
+      color: white;
+    }
+    .value {
+      color: white !important;
+    }
+  }
+
+  .variable-options {
+    background: black;
+    color: white;
+    div { background: black; color: white; }
+    button { background: black; color: white !important; border-color: white; }
+  }
+
+  .breadcrumb {
+    a { color: black !important; }
+  }
+
+  label.default {
+    background: black !important;
+    color: white;
+  }
+
 }
