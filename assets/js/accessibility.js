@@ -20,7 +20,7 @@ var accessibilitySwitcher = function() {
 
     return contrast ? contrast : contrastIdentifiers[0];
   }
-    
+
   function createCookie(name,value,days) {
     if (days) {
       var date = new Date();
@@ -30,7 +30,7 @@ var accessibilitySwitcher = function() {
     else expires = "";
     document.cookie = name+"="+value+expires+"; path=/";
   }
-  
+
   function readCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
@@ -41,18 +41,19 @@ var accessibilitySwitcher = function() {
     }
     return null;
   }
-  
+
   window.onload = function(e) {
     var cookie = readCookie("contrast");
     var contrast = cookie ? cookie : contrastIdentifiers[0];
     setActiveContrast(contrast);
+    imageFix(contrast);
   }
-  
+
   window.onunload = function(e) {
     var contrast = getActiveContrast();
     createCookie("contrast", contrast, 365);
   }
-  
+
   var cookie = readCookie("contrast");
   var contrast = cookie ? cookie : contrastIdentifiers[0];
   setActiveContrast(contrast);
@@ -68,10 +69,21 @@ var accessibilitySwitcher = function() {
       'data-contrast': contrast,
     }).text('A').click(function() {
       setActiveContrast($(this).data('contrast'));
+      imageFix(contrast);
     })));
   });
 
-
-
+function imageFix(contrast) {
+  if (contrast == 'high') {
+    _.each($('img:not([src*=high-contrast])'), function(goalImage){
+      $(goalImage).attr('src', $(goalImage).attr('src').replace('img/', 'img/high-contrast/'));
+    })
+  } else {
+    // Remove high-contrast
+    _.each($('img[src*=high-contrast]'), function(goalImage){
+      $(goalImage).attr('src', $(goalImage).attr('src').replace('high-contrast', ''));
+    })
+  }
+};
 
 };
