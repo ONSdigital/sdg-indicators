@@ -22,3 +22,5 @@ This is our first report on the progress we’ve made towards measuring the glob
 **[UK drops in European child mortality rankings, 13 October 2017](https://visual.ons.gov.uk/uk-drops-in-european-child-mortality-rankings/)**  
 This short story looks at the two indicators (under five and neonatal mortality) under Target 3.2, showing that although the UK has seen improvements over the last forty years, the rate of improvement has slowed compared with some other EU countries.
 
+**[Renewable Energy in the UK, 22 November 2017](https://www.slideshare.net/statisticsONS/renewable-energy-in-the-uk)**  
+This SlideShare takes a look at renewable energy consumption in the UK which is under Target 7.2 and it highlights that while renewable energy consumption has gone down renewable sources have risen. It shows that not all renewables are emission free and create pollutants and this includes burning wood. The UK is setting out plans to meet international commitments to reducing emissions of air pollutants.
