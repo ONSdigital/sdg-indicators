@@ -471,8 +471,8 @@ var indicatorView = function (model, options) {
 
       var table_head = '<thead><tr>';
 
-      table.headings.forEach(function (heading) {
-        table_head += '<th>' + heading + '</th>';
+      table.headings.forEach(function (heading, index) {
+        table_head += '<th' + (index ? ' class="table-value"' : '') + ' scope="col">' + heading + '</th>';
       });
 
       table_head += '</tr></thead>';
@@ -482,7 +482,7 @@ var indicatorView = function (model, options) {
       table.data.forEach(function (data) {
         var row_html = '<tr>';
         table.headings.forEach(function (heading, index) {
-          row_html += '<td>' + (data[index] ? data[index] : '-') + '</td>';
+          row_html += '<td' + (index ? ' class="table-value"' : '') + '>' + (data[index] ? data[index] : '-') + '</td>';
         });
         row_html += '</tr>';
         currentTable.find('tbody').append(row_html);
