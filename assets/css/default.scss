@@ -180,6 +180,13 @@ header {
         font-size: 1.3em;
         font-weight: bold;
         border-radius: 50%;
+        width: 25px;
+        max-height: 25px;
+        text-align: center;
+        margin: auto 0 auto 15px;
+        a {
+          margin: auto;
+        }
       }
 
       &.contrast-default {
@@ -191,7 +198,6 @@ header {
         background: black;
         a {
           color: yellow;
-          margin-left: 5px;
         }
       }
     }
@@ -1162,12 +1168,6 @@ footer {
 
 
 /* example stuff */
-nav#accessibility-nav {
-  position: absolute;
-  text-align: right;
-  top: 40px;
-}
-
 body.contrast-high {
   background-color: black;
 
@@ -1225,6 +1225,15 @@ body.contrast-high {
   }
 }
 
+#main-content #fields label {
+  background: black;
+  color: white;
+  &:hover, &:focus {
+    background: white;
+    color: black;
+  }
+}
+
   #toolbar {
     button {
       background-color: black !important;
@@ -1270,11 +1279,6 @@ body.contrast-high {
     a {
       color: black !important;
     }
-  }
-
-  label.default {
-    background: black !important;
-    color: white;
   }
 
 }
