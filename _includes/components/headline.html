@@ -8,10 +8,10 @@
   <caption>{{ page.graph_title }}</caption>
   <thead>
   {% for column in sdg_headline_data[0] %}
-    {% if forloop.first %}
-      <th scope="col">{{ column[0] }}</th>
-    {% else %}
+    {% if forloop.last %}
       <th scope="col" class="table-value">{{ column[0] }}</th>
+    {% else %}
+      <th scope="col">{{ column[0] }}</th>
     {% endif %}
   {% endfor %}
   </thead>
@@ -19,10 +19,10 @@
   {% for row in sdg_headline_data %}
   <tr>
     {% for cell in row %}
-      {% if forloop.first %}
-        <td>{{ cell[1] }}</td>
-      {% else %}
+      {% if forloop.last %}
         <td class="table-value">{{ cell[1] }}</td>
+      {% else %}
+        <td>{{ cell[1] }}</td>    
       {% endif %}
     {% endfor %}
   </tr>
