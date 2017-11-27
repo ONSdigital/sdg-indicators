@@ -13,14 +13,6 @@
 <script src="{{ site.baseurl }}/assets/js/lib/modernizr-custom.js"></script>
 <script>
 $(function() {
-    $(window).scroll(function() {
-        if ($(".navbar").offset().top > 50) {
-            $("#main-nav").addClass("collapsed");
-        } else {
-            $("#main-nav").removeClass("collapsed");
-        }
-    });
-
     $('#metadata .collapsible h3').click(function() {
       var $container = $(this).closest('div'),
           $article = $(this).next('article'),
@@ -62,6 +54,8 @@ $(function() {
       controller = new indicatorController(model, view);
       controller.initialise();
     }
+
+    var switcher = new accessibilitySwitcher();
 
 
 });

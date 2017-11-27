@@ -1,6 +1,6 @@
---- 
-# site styles 
---- 
+---
+# site styles
+---
 
 $main-background-color: #eaeaea;
 $dark-highlight : #0275d8;
@@ -40,7 +40,7 @@ html {
 }
 
 body {
-  background: $main-background-color; 
+  background: $main-background-color;
   padding: $disclaimer-height + unquote("px") 0 0 0;
   margin: 0 0 50px 0;
 }
@@ -198,7 +198,7 @@ header {
       top: 8px;
       left: 7px;
       font-size: 1.25em;
-      
+
       span {
         display: none;
       }
@@ -230,7 +230,7 @@ header {
   }
 
   .navbar {
-    clear: left; 
+    clear: left;
 
     &.navbar-default {
       color: #E5E6E7;
@@ -243,13 +243,13 @@ header {
     .top-level {
       display: block;
       font-size: 1em;
-      @include noselect;      
-      
+      @include noselect;
+
       li {
         float: left;
         width: 50%;
         cursor: pointer;
-        
+
         &.active {
           background: #3D3D3D;
         }
@@ -318,7 +318,7 @@ header {
         color: black;
       }
 
-      input { 
+      input {
         width: 100%;
         color: #333;
         margin-top: 0;
@@ -340,7 +340,7 @@ header {
     }
   }
 
-  #search { 
+  #search {
     margin-top: -100px;
   }
 }
@@ -519,17 +519,6 @@ h5 + .btn-download {
       display: none;
       padding: 8px 12px;
     }
-    &.collapsed span {
-      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAOCAYAAAArMezNAAAB5ElEQVQ4jZWTS2vCUBBGz43VFixFkmLxgaDbbsRgkP58oaiYrNy4UpSCiY9WbUWNmummhoqxj1l+c++Zj3koEQFgu92KiHB9fY1SSvGPCIJAttstsViMRCKhADSA1WolnU6HVqvFfD7/DxMREc/zaDQadLtdfN8XgKuPjw/pdDr0ej1832e9XmNZlui6/ifXnudh2zbT6RTP8zgcDjw+Poq22+2YTCb4vg/AaDSi0Wgwm83kN6jruvL8/Mx0OgVgs9ngeR4AWiqVolwuc3d3F34Yj8c0m80f4a7rSr1eZ7lchpqu61SrVeLxOJpSShUKBVWpVEgmkyfwdrvN29ubyHHCXz0dj8fSbDZZrVZnUMMwlFJKacdEsVhUpmmewEejEbZthwMNgkBc1z0WDN8ZhkG1WiWbzYZzUd/MANDv98VxHN7f30Mtl8thWRbr9RrHcZhMJmdOv0MjwQDD4VBs22axWIRaOp1mv9/z+vp64rRWq5FOp882KBIcBIG8vLzgOM7Fvb6/v+fp6QnDMCLXUosUNU3l83lM0+T29vYsn0qlsCwLXdcji14EH+GFQuFsoIZhYFkWDw8P6qfTv7pY8itKpZISEXEch5ubG0zTJJfL/XqVkT2OisFgIIlEgkwm86dT/wQLtP1TTuwWxwAAAABJRU5ErkJggg==');
-    }
-    &.expanded {
-      article {
-        display: block;
-      }
-      span {
-        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAOCAYAAAArMezNAAAB10lEQVQ4jY2TS4vqQBCFTwWfBMWMJkYQRF1lqwYUwX/vJg8RV+4E0QhBY/ABGh91F3NtdEZHa9fVxddVp04TM+OTWCwWHEURKpUKfVIf+6RoPp+z67o4HA44n89cr9ffwt+Cb9DVagUAcF0XRMS1Wu1P+EswM7Pv+7AsC2EYivx+v4fruojFYlwulyFJ0tMHpFfgIAh+QW+x2+3gui5msxmu1+vTJT0F+77P/X4fy+VS5L6+vqBpmjiHYQjHcTCbzZ42Rj9d4Xke27aNIAhETlVVNJtNpNNpWJaF+Xwu7jKZDJrNJqrV6oMkDxp7nseO4zxANU1Do9FAsViEJElkmiYTkeh0u93Ctm1cr9cHt0j3UNu2xfYBQFEUmKYJXdfFknK5HFqtFkqlkqi7LXQymYjxJWbm1Wr1a3xZltFut6FpGhGR6ISISFEUMk3zQfP9fo/BYIDpdMrMzNLpdMJPaDabRa/Xg67rL72az+fp/8Mit9lsMBwOEYbhtxTFYhGpVAoAUCgU0O12/4TewzudjpAlkUhAVVXE4/FvV0RRxOPxGMvlEoZhQNd13I//LtbrNY9GI8iyDMMwIMsyCbtFUcSXywXJZPLlb3oVzMzH4xFEhGQySQDwD7dp8T14Um6/AAAAAElFTkSuQmCC');
-      }
-    }
   }
   h4 {
     margin-bottom: 1.5rem;
@@ -693,7 +682,7 @@ h5 + .btn-download {
       .variable-options {
         background-color: white;
         display: none;
-        position: static;        
+        position: static;
         z-index: 100;
         border-top: 0;
         right: -1px;
@@ -768,7 +757,7 @@ h5 + .btn-download {
         }
 
         .variable-options {
-          > div { 
+          > div {
             display: none;
           }
 
@@ -825,7 +814,7 @@ h5 + .btn-download {
     padding: 5px;
 
     i {
-      font-size: 1.2em; 
+      font-size: 1.2em;
     }
   }
 
@@ -1060,7 +1049,7 @@ footer {
   width: 100%;
   height: 50px; /* Set the fixed height of the footer here */
 
-  img { 
+  img {
     float: left;
     margin-right: 12px;
     margin-top: 3px;
@@ -1070,7 +1059,7 @@ footer {
 
     @media only screen and (max-width: 767px) {
       padding: 5px 0;
-    } 
+    }
   }
   a {
     color: $footer-color;
@@ -1094,7 +1083,7 @@ footer {
     p {
       margin: 0;
 
-      &:first { 
+      &:first {
         font-size: 90%;
       }
     }
@@ -1113,7 +1102,7 @@ footer {
 }
 
 #page-content {
-  
+
   border-top: 1px solid #faebcc;
   border-bottom: 1px solid #faebcc;
   padding-top: 10px;
@@ -1141,7 +1130,7 @@ footer {
   #indicatorData {
     > .col-md-3 {
       display: none;
-    }  
+    }
     > .col-md-9 {
       width: 100%;
     }   
@@ -1151,10 +1140,10 @@ footer {
   }
   .plot-container {
     display: none;
-  }   
+  }
   .tab-pane {
     display: block!important;
-  }   
+  }
   #main-content {
     .collapsible {
       border: 0;
@@ -1173,7 +1162,7 @@ footer {
       h3 span {
         display: none;
       }
-    } 
+    }
   }
 }
 
@@ -1192,10 +1181,180 @@ footer {
   border: 0;
 }
 
+#accessibility-nav {
+  display: flex;
+  position: relative;
+  padding-top: 10px;
+  li {
+    display: inline-block;
+    list-style: none;
+    &.contrast {
+      font-size: 1.3em;
+      font-weight: bold;
+      border-radius: 50%;
+      width: 25px;
+      max-height: 25px;
+      text-align: center;
+      margin: auto 1.3em auto 0;
+      a {
+        margin: auto;
+        text-decoration: none;
+      }
+    }
+
+    &.contrast-default {
+      background: white;
+      a {
+        color: black;
+      }
+    }
+
+    &.contrast-high {
+      background: black;
+      a {
+        color: yellow;
+      }
+    }
+  }
+}
 
 
+/* example stuff */
+body.contrast-high {
+
+  background-color: black;
+
+  .container, #main-content, header, footer, #disclaimer, .heading {
+    background: black;
+    border-color: black;
+   }
+
+  p, h2, h3, h4, span, td, th, a#text {
+    color: white;
+  }
+
+  h1, li, a {
+    color: yellow;
+  }
+
+  li.contrast-default a {
+    color: black !important;
+  }
+
+  .navbar {
+    li {
+      a {
+        color: white;
+        &:hover {
+          color: yellow;
+        }
+      }
+    }
+    li.active {
+      a {
+        color: yellow;
+        border-color: yellow;
+        &:hover {
+          color: yellow;
+        }
+      }
+    }
+  }
+
+  .goal-indicators {
+    div {
+      span {
+        border-color: white !important;
+        color: white !important;
+      }
+    }
+  .indicator-cards {
+    a {
+      color: white !important;
+    }
+    span.status {
+      color: black !important;
+    }
+  }
+}
+
+#main-content #fields label {
+  background: black;
+  color: white;
+  &:hover, &:focus {
+    background: white;
+    color: black;
+  }
+}
+
+  #toolbar {
+    button {
+      background-color: black !important;
+      border-color: white;
+      color: white;
+    }
+  }
+
+  .danger {
+    background-color: red;
+  }
+  .warning {
+    background-color: yellow;
+  }
+  .success {
+    background-color: green;
+  }
 
 
+  .statuses {
+    strong {
+      color: white;
+    }
+    .value {
+      color: white !important;
+    }
+  }
 
+  .variable-options {
+    background: black;
+    color: white;
+    div {
+      background: black;
+      color: white; }
+    button {
+      background: black;
+      color: white !important;
+      border-color: white; }
+  }
 
+  .breadcrumb {
+    background: white;
+    a {
+      color: black !important;
+    }
+  }
 
+  span.match {
+    color: black !important;
+  }
+
+@media screen and (max-width: 768px) {
+  .navbar.navbar-default {
+    background: black;
+    color: white;
+  }
+  .navbar .top-level li.active {
+    background: white;
+    span {
+      color: black;
+    }
+  }
+  .navbar .menu-target {
+    background: black;
+  }
+  .navbar ul.navbar-nav li a {
+    background: black;
+  }
+}
+
+}
