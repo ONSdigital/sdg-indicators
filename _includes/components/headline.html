@@ -1,24 +1,31 @@
 {% capture headline_name %}headlines_{{page.indicator | slugify }}{% endcapture %} 
 {% assign sdg_headline_data = site.data.headlines[headline_name] %} 
 
-<a href='{{ site.baseurl }}/data/headlines/{{ headline_name }}.csv' class='btn btn-primary btn-download' download='{{ dataset_name }}.csv' tabindex='0' role='button'>Download headline CSV</a>
+<a href="{{ site.baseurl }}/data/headlines/{{ headline_name }}.csv" class="btn btn-primary btn-download" download="{{ dataset_name }}.csv" tabindex="0" role="button">Download headline CSV</a>
 
 <h4>Headline data</h4>
-
-<table class='table-responsive table table-hover dataTable no-footer' role='grid'>
-   <caption>{{ page.graph_title }}</caption>
+<table class="table-responsive table table-hover dataTable no-footer" role="grid">
+  <caption>{{ page.graph_title }}</caption>
   <thead>
   {% for column in sdg_headline_data[0] %}
+    {% if forloop.first %}
       <th scope="col">{{ column[0] }}</th>
+    {% else %}
+      <th scope="col" class="table-value">{{ column[0] }}</th>
+    {% endif %}
   {% endfor %}
   </thead>
   <tbody>
   {% for row in sdg_headline_data %}
-      <tr>
-      {% for cell in row %}
-          <td>{{ cell[1] }}</td>
-      {% endfor %}
-      </tr>
+  <tr>
+    {% for cell in row %}
+      {% if forloop.first %}
+        <td>{{ cell[1] }}</td>
+      {% else %}
+        <td class="table-value">{{ cell[1] }}</td>
+      {% endif %}
+    {% endfor %}
+  </tr>
   {% endfor %}
   </tbody>
 </table>
