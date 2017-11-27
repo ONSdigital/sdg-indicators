@@ -672,6 +672,7 @@ h5 + .btn-download {
         border-color: #555;
       }
 
+      .no-data-hint,
       .variable-hint {
         display: none;
         padding-left: 7px;
@@ -731,6 +732,16 @@ h5 + .btn-download {
           &:hover {
             background: #f5f3f3;
           }
+
+          &[data-has-data="false"] {
+            cursor: default;
+            &:hover {
+              background: white;
+            }
+            input {
+              display: none;
+            }
+          }
         }
       }
 
@@ -739,13 +750,10 @@ h5 + .btn-download {
         width: calc(100% - 20px);
       }
 
+      &[data-has-data="false"],
       &.disallowed {
         .bar {
           display: none;
-        }
-
-        .variable-hint {
-          display: block;
         }
 
         .variable-options {
@@ -766,6 +774,17 @@ h5 + .btn-download {
         }
 
         padding-bottom: 5px;
+      }
+
+      &[data-has-data="false"]:not(.disallowed) {
+        .no-data-hint {
+          display: block;
+        }
+      }
+      &.disallowed {
+        .variable-hint {
+          display: block;
+        }
       }
     }
   }
@@ -887,6 +906,23 @@ h5 + .btn-download {
 		}
   }
 
+  
+  #selectionsTable {
+    div.dataTables_wrapper { 
+      overflow-x: auto;
+      
+      .row {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+    table {
+      th, td { white-space: nowrap; }          
+    }
+
+    padding-bottom: 20px;    
+  }
+
   .statuses {
 
     strong {
@@ -999,7 +1035,8 @@ h5 + .btn-download {
   }
 
   h2:first-child {
-    margin-top: 0;
+    // margin-top: 0;
+    margin-bottom: 14px;
   }
 }
 
@@ -1096,7 +1133,10 @@ footer {
     }
     > .col-md-9 {
       width: 100%;
-    }
+    }   
+  } 
+  .data-view {
+    display: none;
   }
   .plot-container {
     display: none;

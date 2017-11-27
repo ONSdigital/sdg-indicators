@@ -22,7 +22,7 @@
       </ul>
 
       <ul class="nav navbar-nav menu-target" id="menu">
-        <li {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" or page.permalink contains "/about" or page.layout=="post"  or page.permalink contains "/faq"  or page.permalink contains "/publications" %}class="nav-link"
+        <li {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" or page.permalink contains "/about" or page.layout=="post"  or page.permalink contains "/faq"  or page.permalink contains "/publications" or page.permalink contains "/guidance" %}class="nav-link"
           {% else %}class="nav-link active" {% endif %}>
           <a href="{{ site.baseurl }}/">Goals</a>
         </li>
@@ -33,6 +33,9 @@
           <a href="{{ site.baseurl }}/about">About</a>
         <li {% if page.permalink=="/publications/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
             <a href="{{ site.baseurl }}/publications">Publications</a>
+        </li>
+        <li {% if page.permalink=="/guidance/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
+          <a href="{{ site.baseurl }}/guidance">Guidance</a>
         </li>
         <li {% if page.permalink=="/faq/" %}class="nav-link active" {% else %}class="nav-link" {% endif %}>
           <a href="{{ site.baseurl }}/faq">FAQ</a>

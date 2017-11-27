@@ -14,6 +14,15 @@ var indicatorView = function (model, options) {
 
   $('.plot-container', this._rootElement).css('height', chartHeight + 'px');
 
+  $(document).ready(function() {
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+      // var target = $(e.target).attr("href"); // activated tab
+      // alert (target);
+      $($.fn.dataTable.tables(true)).css('width', '100%');
+      $($.fn.dataTable.tables(true)).DataTable().columns.adjust().draw();
+    });
+  });
+
   this._model.onDataComplete.attach(function (sender, args) {
 
     if(view_obj._model.showData) {
@@ -27,7 +36,8 @@ var indicatorView = function (model, options) {
       }
     }
 
-    view_obj.createTables(args);
+    view_obj.createHeadlineTable(args);
+    view_obj.createSelectionsTable(args);
   });
 
   this._model.onNoHeadlineData.attach(function() {
@@ -64,6 +74,9 @@ var indicatorView = function (model, options) {
     $(view_obj._rootElement).find(':checkbox').prop('checked', false);
     $(view_obj._rootElement).find('#clear').addClass('disabled');
 
+    // reset available/unavailable fields
+    updateWithSelectedFields();
+
     // #246
     $(view_obj._rootElement).find('.selected').css('width', '0');
     // end of #246
@@ -97,8 +110,14 @@ var indicatorView = function (model, options) {
     _.each(args.data, function(fieldGroup) {
       _.each(fieldGroup.values, function(fieldItem) {
         var element = $(view_obj._rootElement).find(':checkbox[value="' + fieldItem.value + '"][data-field="' + fieldGroup.field + '"]');
-        element.parent().addClass(fieldItem.state);
+        element.parent().addClass(fieldItem.state).attr('data-has-data', fieldItem.hasData);
       });
+      // Indicate whether the fieldGroup had any data.
+      var fieldGroupElement = $(view_obj._rootElement).find('.variable-selector[data-field="' + fieldGroup.field + '"]');
+      fieldGroupElement.attr('data-has-data', fieldGroup.hasData);
+
+      // Re-sort the items.
+      view_obj.sortFieldGroup(fieldGroupElement);
     });
 
     _.each(args.selectionStates, function(ss) {
@@ -155,7 +174,14 @@ var indicatorView = function (model, options) {
     var type = $(this).data('type');
     var $options = $(this).closest('.variable-options').find(':checkbox');
 
-    $options.prop('checked', type == 'select');
+    // The clear button can clear all checkboxes.
+    if (type == 'clear') {
+      $options.prop('checked', false);
+    }
+    // The select button must only select checkboxes that have data.
+    if (type == 'select') {
+      $options.parent().not('[data-has-data=false]').find(':checkbox').prop('checked', true)
+    }
 
     updateWithSelectedFields();
 
@@ -233,8 +259,12 @@ var indicatorView = function (model, options) {
         responsive: true,
         maintainAspectRatio: false,
         spanGaps: true,
+        scrollX: true,
+        scrollCollapse: true,
+        sScrollXInner: '150%',
         scales: {
           xAxes: [{
+            maxBarThickness: 150,
             gridLines: {
               color: '#ddd',
             }
@@ -350,7 +380,7 @@ var indicatorView = function (model, options) {
 
   this.toCsv = function (tableData) {
     var lines = [],
-    headings = tableData.headings;
+    headings = _.map(tableData.headings, function(heading) { return '"' + heading + '"'; });
 
     lines.push(headings.join(','));
 
@@ -367,95 +397,118 @@ var indicatorView = function (model, options) {
     return lines.join('\n');
   };
 
-  this.createTables = function (chartInfo) {
+  // this.createHeadlineTable = function(chartInfo) {
+  //   //this.createTable(chartInfo.headlineTable, chartInfo.indicatorId, '#datatables');
+  // };
+
+  var initialiseDataTable = function(el) {
+    //if(!$.fn.dataTable.isDataTable($(el).find('table'))) {
+      var datatables_options = options.datatables_options || {
+        paging: false,
+        bInfo: false,
+        searching: false,
+        responsive: false
+      }, table = $(el).find('table');
+
+      // equal width columns:
+      datatables_options.aoColumns = _.map(table.find('th'), function () {
+        return {
+          sWidth: (100 / table.find('th').length) + '%'
+        };
+      });
+      datatables_options.aaSorting = [];
+
+      $(el).find('table').DataTable(datatables_options);
+  };
+
+  this.createHeadlineTable = function(chartInfo) {
+    this.createTable(chartInfo.headlineTable, chartInfo.indicatorId, '#datatables table');
+  };
+
+  this.createSelectionsTable = function(chartInfo) {
+    this.createTable(chartInfo.selectionsTable, chartInfo.indicatorId, '#selectionsTable', true);
+    this.createDownloadButton(chartInfo.selectionsTable, chartInfo.indicatorId, '#selectionsTable');
+  };
+
+  this.createDownloadButton = function(table, indicatorId, el) {
+    // $(el).append($('<h4 />').text('Download this data'));
+    $(el).append($('<a />').text('Download CSV')
+    .attr({
+      'href': URL.createObjectURL(new Blob([this.toCsv(table)], {
+        type: 'text/csv'
+      })),
+      'download': indicatorId + table.title + '.csv',
+      'title': 'Download as CSV',
+      'class': 'btn btn-primary btn-download',
+      'tabindex': 0
+    })
+    .data('csvdata', this.toCsv(table)));
+  }
+
+  this.createTable = function(table, indicatorId, el) {
 
     options = options || {};
     var that = this,
     csv_path = options.csv_path,
-    el = options.element || '#datatables',
     allow_download = options.allow_download || false,
     csv_options = options.csv_options || {
       separator: ',',
       delimiter: '"'
-    },
-    datatables_options = options.datatables_options || {
-      paging: false,
-      bInfo: false,
-      searching: false/*,
-      scrollX: true,
-      sScrollXInner: '100%',
-      sScrollX: '100%'*/
     },
     table_class = options.table_class || 'table table-hover';
 
     // clear:
     $(el).html('');
 
-    // loop through chartInfo.
-    chartInfo.tables.forEach(function (tableData, index) {
+    if(table && table.data.length) {
+      var currentTable = $('<table />').attr({
+        'class': /*'table-responsive ' +*/ table_class,
+        'width': '100%'
+        //'id': currentId
+      });
 
-//        if(window.Modernizr && window.Modernizr.blobconstructor) {
-          $(el).append($('<a />').text('Download headline CSV')
-          .attr({
-            'href': URL.createObjectURL(new Blob([that.toCsv(tableData)], {
-              type: 'text/csv'
-            })),
-            'download': chartInfo.indicatorId + tableData.title + '.csv',
-            'title': 'Download as CSV',
-            'class': 'btn btn-primary btn-download',
-						'tabindex': 0
-          })
-          .data('csvdata', that.toCsv(tableData)));
-//        }
+      currentTable.append('<caption>' + that._model.chartTitle + '</caption>');
 
-      $(el).append($('<h4 />').text(tableData.title));
+      var table_head = '<thead><tr>';
 
-      if (tableData.data.length) {
-        var currentId = 'indicatortable' + index;
+      table.headings.forEach(function (heading) {
+        table_head += '<th>' + heading + '</th>';
+      });
 
-        var currentTable = $('<table />').attr({
-          'class': 'table-responsive ' + table_class,
-          'id': currentId
+      table_head += '</tr></thead>';
+      currentTable.append(table_head);
+      currentTable.append('<tbody></tbody>');
+
+      table.data.forEach(function (data) {
+        var row_html = '<tr>';
+        table.headings.forEach(function (heading, index) {
+          row_html += '<td>' + (data[index] ? data[index] : '-') + '</td>';
         });
+        row_html += '</tr>';
+        currentTable.find('tbody').append(row_html);
+      });
 
-				currentTable.append('<caption>' + that._model.chartTitle + '</caption>');
+      $(el).append(currentTable);
 
-        var table_head = '<thead><tr>';
+      // initialise data table
+      initialiseDataTable(el);
 
-        tableData.headings.forEach(function (heading) {
-          table_head += '<th>' + heading + '</th>';
-        });
-
-        table_head += '</tr></thead>';
-        currentTable.append(table_head);
-        currentTable.append('<tbody></tbody>');
-
-        tableData.data.forEach(function (data) {
-          var row_html = '<tr>';
-          tableData.headings.forEach(function (heading, index) {
-            row_html += '<td>' + (data[index] ? data[index] : '-') + '</td>';
-          });
-          row_html += '</tr>';
-          currentTable.find('tbody').append(row_html);
-        });
-
-        $(el).append(currentTable);
-
-        // equal width columns:
-        datatables_options.aoColumns = _.map(tableData.headings, function (h) {
-          return {
-            sWidth: (100 / tableData.headings.length) + '%'
-          };
-        });
-        datatables_options.aaSorting = [];
-
-        currentTable.DataTable(datatables_options);
-
-      } else {
-        $(el).append($('<p />').text('There is no data for this breakdown.'));
-      }
-
-      $(el).append('<hr />');
-    });
+    } else {
+      $(el).append($('<p />').text('There is no data for this breakdown.'));
+    }
   };
+
+  this.sortFieldGroup = function(fieldGroupElement) {
+    var sortLabels = function(a, b) {
+      var aObj = { hasData: $(a).attr('data-has-data'), text: $(a).text() };
+      var bObj = { hasData: $(b).attr('data-has-data'), text: $(b).text() };
+      if (aObj.hasData == bObj.hasData) {
+        return (aObj.text > bObj.text) ? 1 : -1;
+      }
+      return (aObj.hasData < bObj.hasData) ? 1 : -1;
+    };
+    fieldGroupElement.find('label')
+      .sort(sortLabels)
+      .appendTo(fieldGroupElement.find('.variable-options'));
+  }
 };
