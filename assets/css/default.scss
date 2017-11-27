@@ -175,31 +175,6 @@ header {
       a:last-child {
         margin-right: 0;
       }
-
-      &.contrast {
-        font-size: 1.3em;
-        font-weight: bold;
-        border-radius: 50%;
-        width: 25px;
-        max-height: 25px;
-        text-align: center;
-        margin: auto 0 auto 15px;
-        a {
-          margin: auto;
-        }
-      }
-
-      &.contrast-default {
-        background: white;
-        color: black;
-      }
-
-      &.contrast-high {
-        background: black;
-        a {
-          color: yellow;
-        }
-      }
     }
   }
 
@@ -1166,9 +1141,47 @@ footer {
   border: 0;
 }
 
+#accessibility-nav {
+  display: flex;
+  position: relative;
+  padding-top: 10px;
+  li {
+    display: inline-block;
+    list-style: none;
+    &.contrast {
+      font-size: 1.3em;
+      font-weight: bold;
+      border-radius: 50%;
+      width: 25px;
+      max-height: 25px;
+      text-align: center;
+      margin: auto 1.3em auto 0;
+      a {
+        margin: auto;
+        text-decoration: none;
+      }
+    }
+
+    &.contrast-default {
+      background: white;
+      a {
+        color: black;
+      }
+    }
+
+    &.contrast-high {
+      background: black;
+      a {
+        color: yellow;
+      }
+    }
+  }
+}
+
 
 /* example stuff */
 body.contrast-high {
+
   background-color: black;
 
   .container, #main-content, header, footer, #disclaimer, .heading {
@@ -1284,5 +1297,24 @@ body.contrast-high {
   span.match {
     color: black !important;
   }
+
+@media screen and (max-width: 768px) {
+  .navbar.navbar-default {
+    background: black;
+    color: white;
+  }
+  .navbar .top-level li.active {
+    background: white;
+    span {
+      color: black;
+    }
+  }
+  .navbar .menu-target {
+    background: black;
+  }
+  .navbar ul.navbar-nav li a {
+    background: black;
+  }
+}
 
 }

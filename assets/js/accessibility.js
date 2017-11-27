@@ -61,7 +61,7 @@ var accessibilitySwitcher = function() {
   ////////////////////////////////////////////////////////////////////////////////////
 
   _.each(contrastIdentifiers, function(contrast) {
-    $('#menu.navbar-nav').append($('<li />').attr({
+    $('#accessibility-nav').append($('<li />').attr({
       'class': 'nav-link contrast contrast-' + contrast
     }).html($('<a />').attr({
       'href': 'javascript:void(0)',
