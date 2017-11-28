@@ -16,8 +16,6 @@ var accessibilitySwitcher = function() {
       return $('body').hasClass('contrast-' + id);
     });
 
-    alert(contrast);
-
     return contrast ? contrast : contrastIdentifiers[0];
   }
 
