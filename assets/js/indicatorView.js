@@ -428,11 +428,12 @@ var indicatorView = function (model, options) {
   this.createSelectionsTable = function(chartInfo) {
     this.createTable(chartInfo.selectionsTable, chartInfo.indicatorId, '#selectionsTable', true);
     this.createDownloadButton(chartInfo.selectionsTable, chartInfo.indicatorId, '#selectionsTable');
+    this.createSourceButton(chartInfo.indicatorId, '#selectionsTable');
   };
 
   this.createDownloadButton = function(table, indicatorId, el) {
     // $(el).append($('<h4 />').text('Download this data'));
-    $(el).append($('<a />').text('Download CSV')
+    $(el).append($('<a />').text('Download Table CSV')
     .attr({
       'href': URL.createObjectURL(new Blob([this.toCsv(table)], {
         type: 'text/csv'
@@ -443,6 +444,17 @@ var indicatorView = function (model, options) {
       'tabindex': 0
     })
     .data('csvdata', this.toCsv(table)));
+  }
+
+  this.createSourceButton = function(indicatorId, el) {
+    $(el).append($('<a />').text('Download Source CSV')
+    .attr({
+      'href': '{{ site.baseurl }}/data/' + indicatorId + '.csv',
+      'download': indicatorId + '.csv',
+      'title': 'Download Source as CSV',
+      'class': 'btn btn-primary btn-download',
+      'tabindex': 0
+    }));
   }
 
   this.createTable = function(table, indicatorId, el) {
