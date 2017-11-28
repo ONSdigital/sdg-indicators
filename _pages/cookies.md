@@ -30,16 +30,16 @@ You can manage these small files yourself and learn more about them through [int
 ## Our use of cookies
 Important information about this list of cookies:
 
-incap_ses_*_*
-visid_incap_*_*
-session_*_*
+- incap_ses_*_*
+- visid_incap_*_*
+- session_*_*
 
 This list may not always be complete. It will be regularly updated as further information is gathered from other companies and organisations that we work with.
 
 Cookies for measuring use of services:
 
-_ga
-_gat
+- _ga
+- _gat
 
 By understanding how people use our website, we can improve the information provided. We gather this data using Google Analytics.
 
@@ -52,4 +52,4 @@ ONS is not responsible for the privacy practices or the content of such websites
 This website has security measures in place to protect the loss, misuse, and alteration of the information under our control.
 
 ## Contacting the website
-If you have any questions about this privacy statement, the practices of this site, or your dealings with this website, you can [contact us](https://www.google.com).
+If you have any questions about this privacy statement, the practices of this site, or your dealings with this website, you can [contact us](mailto:SustainableDevelopment@ons.gov.uk).
