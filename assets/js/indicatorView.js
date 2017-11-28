@@ -423,17 +423,19 @@ var indicatorView = function (model, options) {
   };
 
   this.createDownloadButton = function(table, indicatorId, el) {
-    $(el).append($('<a />').text('Download Table CSV')
-    .attr({
-      'href': URL.createObjectURL(new Blob([this.toCsv(table)], {
-        type: 'text/csv'
-      })),
-      'download': indicatorId + '.csv',
-      'title': 'Download as CSV',
-      'class': 'btn btn-primary btn-download',
-      'tabindex': 0
-    })
-    .data('csvdata', this.toCsv(table)));
+    if(window.Modernizr.blobconstructor) {
+      $(el).append($('<a />').text('Download Table CSV')
+      .attr({
+        'href': URL.createObjectURL(new Blob([this.toCsv(table)], {
+          type: 'text/csv'
+        })),
+        'download': indicatorId + '.csv',
+        'title': 'Download as CSV',
+        'class': 'btn btn-primary btn-download',
+        'tabindex': 0
+      })
+      .data('csvdata', this.toCsv(table)));
+    }
   }
 
   this.createSourceButton = function(indicatorId, el) {
