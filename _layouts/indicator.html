@@ -114,8 +114,7 @@
         
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-          
-          <li role="presentation" class="nav-item  {% if show_data != true %}active{% endif %}">
+          <li role="presentation" class="nav-item active">
             <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab">Metadata</a>
           </li>
           <li role="presentation" class="nav-item">
@@ -130,10 +129,9 @@
         
         <!-- Tab panes -->
         <div class="tab-content">
-          
           <div role="tabpanel" class="tab-pane active" id="metadata">
             <!-- National Metadata -->
-            <div class="collapsible expanded" tabindex='0'>
+            <div class="collapsible expanded" tabindex="0">
               <h3>National Metadata<span> (Collapse)</span></h3>
               <article>
                 <p>This table provides metadata for the actual indicator available from {{ site.country.name }} statistics closest to the corresponding global
@@ -173,12 +171,6 @@
         </section>
       </div>
     </div>
-    
-    
-    
-    
-    
-    
   </div>
   {% include footer.html %}
   
