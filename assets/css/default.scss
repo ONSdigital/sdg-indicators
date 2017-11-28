@@ -912,21 +912,21 @@ h5 + .btn-download {
 		}
   }
 
-  
+
   #selectionsTable {
-    div.dataTables_wrapper { 
+    div.dataTables_wrapper {
       overflow-x: auto;
-      
+
       .row {
         margin-left: 0;
         margin-right: 0;
       }
     }
     table {
-      th, td { white-space: nowrap; }          
+      th, td { white-space: nowrap; }
     }
 
-    padding-bottom: 20px;    
+    padding-bottom: 20px;
   }
 
   .statuses {
@@ -1139,8 +1139,8 @@ footer {
     }
     > .col-md-9 {
       width: 100%;
-    }   
-  } 
+    }
+  }
   .data-view {
     display: none;
   }
@@ -1227,8 +1227,48 @@ footer {
 
 /* example stuff */
 body.contrast-high {
+background-color: black;
+  .table {
+    background: black;
+  }
 
-  background-color: black;
+  .btn { background: white !important; color: black !important;
+  &:hover {
+    background: yellow !important;
+  }
+  &:focus {
+    background: yellow !important;
+  }
+}
+
+  div#units {
+    color: white;
+  }
+
+  .nav-tabs { border-color: yellow; }
+
+  #main-content #fields .bar .selected { background-color: white; }
+
+  #main-content #fields .variable-selector .variable-hint { color: white; }
+
+  #main-content .nav-tabs .nav-item.active a { background: yellow; color: black; border-color: yellow; }
+
+  a.nav-link:focus { background: white; color: black; }
+
+  caption {
+    color: white;
+  }
+
+  .table-hover {
+    tbody tr:hover {
+      background: yellow;
+      td {
+        color: black;
+      }
+    }
+  }
+
+
 
   .container, #main-content, header, footer, #disclaimer, .heading {
     background: black;
@@ -1251,7 +1291,7 @@ body.contrast-high {
     li {
       a {
         color: white;
-        &:hover {
+        &:hover, &:focus {
           color: yellow;
         }
       }
@@ -1261,6 +1301,9 @@ body.contrast-high {
         color: yellow;
         border-color: yellow;
         &:hover {
+          color: yellow;
+        }
+        &:focus {
           color: yellow;
         }
       }
@@ -1287,7 +1330,11 @@ body.contrast-high {
 #main-content #fields label {
   background: black;
   color: white;
-  &:hover, &:focus {
+  &:hover {
+    background: white;
+    color: black;
+  }
+  &:focus {
     background: white;
     color: black;
   }
