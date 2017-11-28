@@ -36,7 +36,6 @@ var indicatorView = function (model, options) {
       }
     }
 
-    view_obj.createHeadlineTable(args);
     view_obj.createSelectionsTable(args);
   });
 
@@ -397,10 +396,6 @@ var indicatorView = function (model, options) {
     return lines.join('\n');
   };
 
-  // this.createHeadlineTable = function(chartInfo) {
-  //   //this.createTable(chartInfo.headlineTable, chartInfo.indicatorId, '#datatables');
-  // };
-
   var initialiseDataTable = function(el) {
     //if(!$.fn.dataTable.isDataTable($(el).find('table'))) {
       var datatables_options = options.datatables_options || {
@@ -419,10 +414,6 @@ var indicatorView = function (model, options) {
       datatables_options.aaSorting = [];
 
       $(el).find('table').DataTable(datatables_options);
-  };
-
-  this.createHeadlineTable = function(chartInfo) {
-    this.createTable(chartInfo.headlineTable, chartInfo.indicatorId, '#datatables table');
   };
 
   this.createSelectionsTable = function(chartInfo) {
