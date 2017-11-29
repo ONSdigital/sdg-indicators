@@ -152,8 +152,8 @@
           {% endif %}
           <div role="tabpanel" class="tab-pane {% if show_data != true %}active{% endif %}" id="metadata">
             <!-- National Metadata -->
-            <div class="collapsible expanded" tabindex='0'>
-              <h3>National Metadata<span> (Collapse)</span></h3>
+            <div class="collapsible expanded">
+              <h3 tabindex='0'>National Metadata<span> (Collapse)</span></h3>
               <article>
                 <p>This table provides metadata for the actual indicator available from {{ site.country.name }} statistics closest to the corresponding global
                     SDG indicator. Please note that even when the global SDG indicator is fully available from {{ site.country.adjective }} statistics, this table
@@ -162,15 +162,15 @@
               </article>
             </div>
             <!-- Method of Computation -->
-            <div class="collapsible collapsed" tabindex='0'>
-              <h3>How the {{ site.country.name }} Indicator is Calculated<span> (Expand)</span></h3>
+            <div class="collapsible collapsed">
+              <h3 tabindex='0'>How the {{ site.country.name }} Indicator is Calculated<span> (Expand)</span></h3>
               <article>
                 {% include components/metadata.html scope='computation' %}
               </article>
             </div>
             <!-- Global Metadata -->
-            <div class="collapsible collapsed" tabindex='0'>
-              <h3>Global Metadata<span> (Expand)</span></h3>
+            <div class="collapsible collapsed">
+              <h3 tabindex='0'>Global Metadata<span> (Expand)</span></h3>
               <article>
                 <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href="https://unstats.un.org/sdgs/metadata/">Complete global metadata</a> is provided by the UN Statistics Division.</p>
                 {% include components/metadata.html scope='global' %}
