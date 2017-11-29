@@ -36,7 +36,6 @@ var indicatorView = function (model, options) {
       }
     }
 
-    view_obj.createHeadlineTable(args);
     view_obj.createSelectionsTable(args);
   });
 
@@ -397,10 +396,6 @@ var indicatorView = function (model, options) {
     return lines.join('\n');
   };
 
-  // this.createHeadlineTable = function(chartInfo) {
-  //   //this.createTable(chartInfo.headlineTable, chartInfo.indicatorId, '#datatables');
-  // };
-
   var initialiseDataTable = function(el) {
     //if(!$.fn.dataTable.isDataTable($(el).find('table'))) {
       var datatables_options = options.datatables_options || {
@@ -421,28 +416,50 @@ var indicatorView = function (model, options) {
       $(el).find('table').DataTable(datatables_options);
   };
 
-  this.createHeadlineTable = function(chartInfo) {
-    this.createTable(chartInfo.headlineTable, chartInfo.indicatorId, '#datatables table');
-  };
-
   this.createSelectionsTable = function(chartInfo) {
     this.createTable(chartInfo.selectionsTable, chartInfo.indicatorId, '#selectionsTable', true);
-    this.createDownloadButton(chartInfo.selectionsTable, chartInfo.indicatorId, '#selectionsTable');
+    $('#chartSelectionDownload').empty();
+    this.createDownloadButton(chartInfo.selectionsTable, 'Table', chartInfo.indicatorId, '#selectionsTable');
+    this.createSourceButton(chartInfo.indicatorId, '#selectionsTable');
+    this.createDownloadButton(chartInfo.selectionsTable, 'Chart', chartInfo.indicatorId, '#chartSelectionDownload');
+    this.createSourceButton(chartInfo.indicatorId, '#chartSelectionDownload');
   };
 
-  this.createDownloadButton = function(table, indicatorId, el) {
-    // $(el).append($('<h4 />').text('Download this data'));
-    $(el).append($('<a />').text('Download CSV')
+  this.createDownloadButton = function(table, name, indicatorId, el) {
+    if(window.Modernizr.blobconstructor) {
+      $(el).append($('<a />').text('Download ' + name + ' CSV')
+      .attr({
+        'href': URL.createObjectURL(new Blob([this.toCsv(table)], {
+          type: 'text/csv'
+        })),
+        'download': indicatorId + '.csv',
+        'title': 'Download as CSV',
+        'class': 'btn btn-primary btn-download',
+        'tabindex': 0
+      })
+      .data('csvdata', this.toCsv(table)));
+    } else {
+      var headlineId = indicatorId.replace("indicator", "headlines");
+      $(el).append($('<a />').text('Download Headline CSV')
+      .attr({
+        'href': '{{ site.baseurl }}/data/headlines/' + headlineId + '.csv',
+        'download': headlineId + '.csv',
+        'title': 'Download headline data as CSV',
+        'class': 'btn btn-primary btn-download',
+        'tabindex': 0
+      }));
+    }
+  }
+
+  this.createSourceButton = function(indicatorId, el) {
+    $(el).append($('<a />').text('Download Source CSV')
     .attr({
-      'href': URL.createObjectURL(new Blob([this.toCsv(table)], {
-        type: 'text/csv'
-      })),
-      'download': indicatorId + table.title + '.csv',
-      'title': 'Download as CSV',
+      'href': '{{ site.baseurl }}/data/' + indicatorId + '.csv',
+      'download': indicatorId + '.csv',
+      'title': 'Download source data as CSV',
       'class': 'btn btn-primary btn-download',
       'tabindex': 0
-    })
-    .data('csvdata', this.toCsv(table)));
+    }));
   }
 
   this.createTable = function(table, indicatorId, el) {

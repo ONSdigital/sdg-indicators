@@ -378,6 +378,7 @@ ul {
 
 .btn-download {
   margin-top: 1.5rem;
+  margin-right: 0.8rem;
   border: none !important;
   background: #0F8243 !important;
 
@@ -500,13 +501,13 @@ h5 + .btn-download {
   padding-top: 15px;
   padding-bottom: 15px;
   .collapsible {
-    &:first-child {
-      border-top: 1px solid #e0e0e0;
-    }
+    border-top: 1px solid #e0e0e0;
     border-bottom: 1px solid #e0e0e0;
     border-left: 1px solid #d4d4d4;
-    border-right: 1px solid #d4d4d4; // border-top-color: #efefef;
+    border-right: 1px solid #d4d4d4;
+    margin-bottom: 10px;
     h3 {
+      font-size: 1.8rem;      
       cursor: pointer;
       padding: 8px 12px;
       margin: 0;
@@ -1134,6 +1135,12 @@ footer {
   }
 }
 
+.js {
+  #headlineTable {
+    display: none;
+  }
+}
+
 .no-js {
   #indicatorData {
     > .col-md-3 {
@@ -1319,15 +1326,15 @@ background-color: black;
         color: white !important;
       }
     }
-  .indicator-cards {
-    a {
-      color: white !important;
-    }
-    span.status {
-      color: black !important;
+    .indicator-cards {
+      a {
+        color: white !important;
+      }
+      span.status {
+        color: black !important;
+      }
     }
   }
-}
 
 #main-content #fields label {
   background: black;
@@ -1393,23 +1400,23 @@ background-color: black;
     color: black !important;
   }
 
-@media screen and (max-width: 768px) {
-  .navbar.navbar-default {
-    background: black;
-    color: white;
-  }
-  .navbar .top-level li.active {
-    background: white;
-    span {
-      color: black;
+  @media screen and (max-width: 768px) {
+    .navbar.navbar-default {
+      background: black;
+      color: white;
+    }
+    .navbar .top-level li.active {
+      background: white;
+      span {
+        color: black;
+      }
+    }
+    .navbar .menu-target {
+      background: black;
+    }
+    .navbar ul.navbar-nav li a {
+      background: black;
     }
   }
-  .navbar .menu-target {
-    background: black;
-  }
-  .navbar ul.navbar-nav li a {
-    background: black;
-  }
-}
 
 }

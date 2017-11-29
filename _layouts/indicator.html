@@ -33,22 +33,22 @@
 </div>
 
 <div id="main-content" class="container goal-{{page.sdg_goal}}">
-
+  
   {% capture goal_href %}{{ goal_uri }}{% endcapture %}
   {% capture goal_number %}{{ goal.goal }}{% endcapture %}
   {% capture goal_title %}{{ goal.title }}{% endcapture %}
   {% capture indicator_title %}{{ page.title }}{% endcapture %}
-
+  
   {% capture dataset_name %}indicator_{{page.indicator | slugify }}{% endcapture %}
   {% capture edges_name %}edges_{{page.indicator | slugify }}{% endcapture %}
-
+  
   {% assign sdg_indicator_data = site.data[dataset_name] %}
   {% assign indicator_metadata = sdg_indicators | where: "indicator_id", page.indicator | first %}
   {% assign json_data = sdg_indicator_data | jsonify %}
   {% assign json_edges_data = site.data.edges[edges_name] | jsonify %}
-
+  
   {% include components/breadcrumb.html %}
-
+  
   <div class="row" id="page-content-row">
     <div class="col-xs-12">
       <div id="page-content">
@@ -56,30 +56,35 @@
       </div>
     </div>
   </div>
-
+  
   <div class="row">
     <div class="col-xs-12">
-        <h2>{{ page.graph_title }}</h2>
+      <h2>{{ page.graph_title }}</h2>
     </div>
   </div>
-
+  
   <div class="row" id="indicatorData" data-indicatordata='{{json_data}}' data-indicatorid='{{dataset_name}}' data-country="{{ page.national_geographical_coverage }}"
   data-edgesdata='{{ json_edges_data }}' data-charttitle="{{ page.graph_title }}" data-measurementunit="{{ page.computation_units }}" data-datasource="{{ page.source_organisation_1 }}" data-geographicalarea="{{ page.national_geographical_coverage }}" data-footnote="{{ page.data_footnote }}" data-showdata="{{ show_data }}" data-graphtype="{{ page.graph_type }}">
   {% if show_data %}
-    <div class="col-md-3">
-      <div id="toolbar">
-        <h4>Sub-categories</h4>
-        <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
-        <div id="fields"></div>
-      </div>
-      <div id="units"></div>
+  <div class="col-md-3">
+    <div id="toolbar">
+      <h4>Sub-categories</h4>
+      <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+      <div id="fields"></div>
     </div>
-    <div class="col-md-9">
-  {% else %}
+    <div id="units"></div>
+  </div>
+  <div class="col-md-9">
+    {% else %}
     <div class="col-md-12">
-  {% endif %}
-      <section>
+      {% endif %}
+      
+      {% if show_data %}
+      {% include components/headline.html %}
+      {% endif %}
 
+      <section>
+        
         {% if show_data %}
         <ul class="nav nav-tabs data-view" role="tablist">
           <li role="presentation" class="nav-item active">
@@ -89,7 +94,7 @@
             <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab">Table</a>
           </li>
         </ul>
-
+        
         <!-- Tab panes -->
         <div class="tab-content data-view">
           <div role="tabpanel" class="tab-pane active" id="chartview">
@@ -100,67 +105,39 @@
           </div>
         </div>
         {% endif %}
-
+        
         <div class="alert alert-warning" role="alert">
           <i class="fa fa-info" aria-hidden="true"></i> See metadata tab for definitions and methodology information
         </div>
-
+        
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-          {% if show_data %}
-            <li role="presentation" class="nav-item active">
-              <a class="nav-link" data-toggle="tab" href="#data" aria-controls="data" role="tab">Data</a>
-            </li>
-          {% endif %}
-          <li role="presentation" class="nav-item  {% if show_data != true %}active{% endif %}">
+          <li role="presentation" class="nav-item active">
             <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab">Metadata</a>
           </li>
           <li role="presentation" class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab">Sources</a>
           </li>
           {% if site.environment == 'staging' %}
-            <li role="presentation" class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#edit" aria-controls="edit" role="tab">Edit</a>
-            </li>
+          <li role="presentation" class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#edit" aria-controls="edit" role="tab">Edit</a>
+          </li>
           {% endif %}
         </ul>
-
+        
         <!-- Tab panes -->
         <div class="tab-content">
-          {% if show_data %}
-            <div role="tabpanel" class="tab-pane active" id="data">
-              {% if page.graph_title.size > 0 %}
-                <h3>{{ page.graph_title }}</h3>
-              {% endif %}
-              <a href="{{ site.baseurl }}/data/{{ dataset_name }}.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='{{ dataset_name }}.csv' tabindex='0' role='button'>Download source CSV</a>
-              <div id="datatables">{% include components/headline.html %}</div>
-              <div id="datatableFooter">
-                {% if page.source_organisation_1.size %}
-                <p>Source: {{ page.source_organisation_1 }}</p>
-                {% endif %}
-                {% if page.national_geographical_coverage.size %}
-                <p>Geographical Area: {{ page.national_geographical_coverage }}</p>
-                {% endif %}
-                {% if page.computation_units.size %}
-                <p>Units of Measure: {{ page.computation_units }}</p>
-                {% endif %}
-                {% if page.data_footnote.size %}
-                <p>Footnote: {{ page.data_footnote }}</p>
-                {% endif %}
-              </div>
-            </div>
-          {% endif %}
-          <div role="tabpanel" class="tab-pane {% if show_data != true %}active{% endif %}" id="metadata">
+          <div role="tabpanel" class="tab-pane active" id="metadata">
             <!-- National Metadata -->
             <div class="collapsible expanded">
               <h3 tabindex='0'>National Metadata<span> (Collapse)</span></h3>
               <article>
                 <p>This table provides metadata for the actual indicator available from {{ site.country.name }} statistics closest to the corresponding global
-                    SDG indicator. Please note that even when the global SDG indicator is fully available from {{ site.country.adjective }} statistics, this table
-                    should be consulted for information on national methodology and other {{ site.country.adjective }}-specific metadata information.</p>
+                  SDG indicator. Please note that even when the global SDG indicator is fully available from {{ site.country.adjective }} statistics, this table
+                  should be consulted for information on national methodology and other {{ site.country.adjective }}-specific metadata information.</p>
                   {% include components/metadata.html scope='national' %}
-              </article>
-            </div>
+                </article>
+              </div>
             <!-- Method of Computation -->
             <div class="collapsible collapsed">
               <h3 tabindex='0'>How the {{ site.country.name }} Indicator is Calculated<span> (Expand)</span></h3>
@@ -188,15 +165,9 @@
             </div>
           </div>
           {% endif %}
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   </div>
-
-
-
-
-
-
-</div>
-{% include footer.html %}
+  {% include footer.html %}
+  
