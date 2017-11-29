@@ -418,13 +418,16 @@ var indicatorView = function (model, options) {
 
   this.createSelectionsTable = function(chartInfo) {
     this.createTable(chartInfo.selectionsTable, chartInfo.indicatorId, '#selectionsTable', true);
-    this.createDownloadButton(chartInfo.selectionsTable, chartInfo.indicatorId, '#selectionsTable');
+    $('#chartSelectionDownload').empty();
+    this.createDownloadButton(chartInfo.selectionsTable, 'Table', chartInfo.indicatorId, '#selectionsTable');
     this.createSourceButton(chartInfo.indicatorId, '#selectionsTable');
+    this.createDownloadButton(chartInfo.selectionsTable, 'Chart', chartInfo.indicatorId, '#chartSelectionDownload');
+    this.createSourceButton(chartInfo.indicatorId, '#chartSelectionDownload');
   };
 
-  this.createDownloadButton = function(table, indicatorId, el) {
+  this.createDownloadButton = function(table, name, indicatorId, el) {
     if(window.Modernizr.blobconstructor) {
-      $(el).append($('<a />').text('Download Table CSV')
+      $(el).append($('<a />').text('Download ' + name + ' CSV')
       .attr({
         'href': URL.createObjectURL(new Blob([this.toCsv(table)], {
           type: 'text/csv'
@@ -435,6 +438,16 @@ var indicatorView = function (model, options) {
         'tabindex': 0
       })
       .data('csvdata', this.toCsv(table)));
+    } else {
+      var headlineId = indicatorId.replace("indicator", "headlines");
+      $(el).append($('<a />').text('Download Headline CSV')
+      .attr({
+        'href': '{{ site.baseurl }}/data/headlines/' + headlineId + '.csv',
+        'download': headlineId + '.csv',
+        'title': 'Download headline data as CSV',
+        'class': 'btn btn-primary btn-download',
+        'tabindex': 0
+      }));
     }
   }
 
@@ -443,7 +456,7 @@ var indicatorView = function (model, options) {
     .attr({
       'href': '{{ site.baseurl }}/data/' + indicatorId + '.csv',
       'download': indicatorId + '.csv',
-      'title': 'Download Source as CSV',
+      'title': 'Download source data as CSV',
       'class': 'btn btn-primary btn-download',
       'tabindex': 0
     }));
