@@ -128,6 +128,13 @@ var indicatorModel = function (options) {
       tension: 0,
       spanGaps: false
     };
+
+    that.footerFields = {
+      'Source': that.dataSource,
+      'Geographical Area': that.geographicalArea,
+      'Units of Measure': that.measurementUnit,
+      'Footnote': that.footnote,
+    };
   }());
 
   var headlineColor = '777777';
@@ -513,7 +520,8 @@ var indicatorModel = function (options) {
       headlineTable: headlineTable,
       selectionsTable: selectionsTable,
       indicatorId: this.indicatorId,
-      selectedUnit: this.selectedUnit
+      selectedUnit: this.selectedUnit,
+      footerFields: this.footerFields
     });
 
     if (initial) {
