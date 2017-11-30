@@ -137,8 +137,6 @@ header {
 
 .navbar-brand {
   display: block;
-  padding-right: 0;
-  padding-left: 0;
   img {
     width: 300px;
   }
@@ -175,6 +173,34 @@ header {
 
       a:last-child {
         margin-right: 0;
+      }
+
+      &.contrast {
+        font-size: 1.3em;
+        font-weight: bold;
+        border-radius: 50%;
+        width: 25px;
+        max-height: 25px;
+        text-align: center;
+        margin-left: 0.5em;
+        a {
+          margin: auto;
+          text-decoration: none;
+        }
+      }
+
+      &.contrast-default {
+        background: white;
+        a {
+          color: black;
+        }
+      }
+
+      &.contrast-high {
+        background: black;
+        a {
+          color: yellow;
+        }
       }
     }
   }
@@ -348,7 +374,7 @@ header {
   }
 
   #search {
-    margin-top: -80px;
+    margin-top: -100px;
   }
 }
 
@@ -1054,10 +1080,7 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: auto; /* Set the fixed height of the footer here */
-  div {
-    margin:.25em auto;
-  }
+  height: 50px; /* Set the fixed height of the footer here */
   img {
     float: left;
     margin-right: 12px;
@@ -1191,12 +1214,13 @@ footer {
 }
 
 #accessibility-nav {
-  position: relative;
+  // position: relative;
   padding-top: 10px;
+  padding-right: 20px;
+  float: right;
   li {
     display: inline-block;
     list-style: none;
-    float: right;
     &.contrast {
       font-size: 1.3em;
       font-weight: bold;
@@ -1204,7 +1228,7 @@ footer {
       width: 25px;
       max-height: 25px;
       text-align: center;
-      margin: auto 0.5em;
+      margin: 0.25em;
       a {
         margin: auto;
         text-decoration: none;
