@@ -38,12 +38,51 @@ var indicatorModel = function (options) {
   this.selectedFields = [];
   this.allowedFields = [];
   this.selectedUnit = undefined;
+  this.fieldsByUnit = undefined;
+  this.dataHasUnitSpecificFields = false;
   this.fieldValueStatuses = [];
   this.userInteraction = {};
   this.validParentsByChild = {};
 
   // initialise the field information, unique fields and unique values for each field:
   (function initialise() {
+
+    var extractUnique = function(prop) {
+      return _.chain(that.data).pluck(prop).uniq().sortBy(function(year) {
+        return year;
+      }).value();
+    };
+
+    that.years = extractUnique('Year');
+
+    if(that.data[0].hasOwnProperty('Units')) {
+      that.units = extractUnique('Units');
+      that.selectedUnit = that.units[0];
+
+      // what fields have values for a given unit?
+      that.fieldsByUnit = _.chain(_.map(that.units, function(unit) {
+        return _.map(_.filter(Object.keys(that.data[0]), function (key) {
+              return ['Year', 'Value', 'Units'].indexOf(key) === -1;
+          }), function(field) {
+          return {
+            unit: unit,
+            field: field,
+            fieldData: !!_.find(_.where(that.data, { Units: unit }), function(d) { return d[field]; })
+          };
+        });
+      })).map(function(r) {
+        return {
+          unit: r[0].unit,
+          fields: _.pluck(_.where(r, { fieldData: true }), 'field')
+        };
+      }).value();
+
+      // determine if the fields vary by unit:
+      that.dataHasUnitSpecificFields = !_.every(_.pluck(that.fieldsByUnit, 'fields'), function(fields) {
+        return _.isEqual(_.sortBy(_.pluck(that.fieldsByUnit, 'fields')[0]), _.sortBy(fields));
+      });
+    }
+
     that.fieldItemStates = _.map(_.filter(Object.keys(that.data[0]), function (key) {
         // 'Value' may not be present, but 'Year' and '
         return ['Year', 'Value', 'Units'].indexOf(key) === -1;
@@ -82,19 +121,6 @@ var indicatorModel = function (options) {
         that.validParentsByChild[childField][childValue] = parentValues;
       });
     });
-
-    var extractUnique = function(prop) {
-      return _.chain(that.data).pluck(prop).uniq().sortBy(function(year) {
-        return year;
-      }).value();
-    };
-
-    that.years = extractUnique('Year');
-
-    if(that.data[0].hasOwnProperty('Units')) {
-      that.units = extractUnique('Units');
-      that.selectedUnit = that.units[0];
-    }
 
     that.selectableFields = _.pluck(that.fieldItemStates, 'field');
 
