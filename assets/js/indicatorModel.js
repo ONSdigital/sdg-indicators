@@ -77,8 +77,6 @@ var indicatorModel = function (options) {
         };
       }).value();
 
-      //console.log(that.fieldsByUnit);
-
       // determine if the fields vary by unit:
       that.dataHasUnitSpecificFields = !_.every(_.pluck(that.fieldsByUnit, 'fields'), function(fields) {
         return _.isEqual(_.sortBy(_.pluck(that.fieldsByUnit, 'fields')[0]), _.sortBy(fields));
@@ -264,7 +262,10 @@ var indicatorModel = function (options) {
     this.selectedUnit = selectedUnit;
     
     // if fields are dependent on the unit, reset:
-    this.getData(this.dataHasUnitSpecificFields);
+    this.getData({
+      unitsChangeSeries: this.dataHasUnitSpecificFields
+    });
+    
     this.onUnitsSelectedChanged.notify(selectedUnit);
   };
 
@@ -314,10 +315,14 @@ var indicatorModel = function (options) {
     });
   };
 
-  this.getData = function (initial) {
+  this.getData = function(options) {
     // field: 'Grade'
     // values: ['A', 'B']
-    var fields = this.selectedFields,
+    var options = _.defaults(options, {
+        initial: false,
+        unitsChangeSeries: false
+      }),
+      fields = this.selectedFields,
       selectedFieldTypes = _.pluck(fields, 'field'),
       datasets = [],
       that = this,
@@ -499,23 +504,31 @@ var indicatorModel = function (options) {
       footerFields: this.footerFields
     });
 
-    if(initial) {
-      // order the fields based on the edge data, if any:
-      if(this.edgesData.length) {
-        var orderedEdges = _.chain(this.edgesData)
-          .groupBy('From')
-          .map(function(value, key) { return [key].concat(_.pluck(value, 'To')); })
-          .flatten()
-          .value();
+    if(options.initial || options.unitsChangeSeries) {
 
-        var customOrder = orderedEdges.concat(_.difference(_.pluck(this.fieldItemStates, 'field'), orderedEdges));
+      if(options.initial) {
+        // order the fields based on the edge data, if any:
+        if(this.edgesData.length) {
+          var orderedEdges = _.chain(this.edgesData)
+            .groupBy('From')
+            .map(function(value, key) { return [key].concat(_.pluck(value, 'To')); })
+            .flatten()
+            .value();
 
-        // now order the fields:
-        this.fieldItemStates = _.sortBy(this.fieldItemStates, function(item) {
-          return customOrder.indexOf(item.field);
+          var customOrder = orderedEdges.concat(_.difference(_.pluck(this.fieldItemStates, 'field'), orderedEdges));
+
+          // now order the fields:
+          this.fieldItemStates = _.sortBy(this.fieldItemStates, function(item) {
+            return customOrder.indexOf(item.field);
+          });
+        }
+
+        this.onUnitsComplete.notify({
+          units: this.units
         });
       }
 
+      // update the series:
       this.onSeriesComplete.notify({
         series: that.dataHasUnitSpecificFields ? _.filter(that.fieldItemStates, function(fis) {
           return _.findWhere(that.fieldsByUnit, { unit : that.selectedUnit }).fields.indexOf(fis.field) != -1;
@@ -523,9 +536,8 @@ var indicatorModel = function (options) {
         allowedFields: this.allowedFields,
         edges: this.edgesData
       });
-      this.onUnitsComplete.notify({
-        units: this.units
-      });
+
+
     } else {
       this.onSeriesSelectedChanged.notify({
         series: this.selectedFields
@@ -533,7 +545,7 @@ var indicatorModel = function (options) {
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
-    if(initial && !this.hasHeadline) {
+    if(options.initial && !this.hasHeadline) {
       // if there is no initial data, select some:
       this.onNoHeadlineData.notify();
     }
@@ -542,7 +554,9 @@ var indicatorModel = function (options) {
 
 indicatorModel.prototype = {
   initialise: function () {
-    this.getData(true);
+    this.getData({ 
+      initial: true
+    });
   },
   getData: function () {
     this.getData();
