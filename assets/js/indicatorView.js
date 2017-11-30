@@ -230,11 +230,16 @@ var indicatorView = function (model, options) {
   };
   
   this.initialiseUnits = function(args) {
-    var template = _.template($('#units_template').html());
+    var template = _.template($('#units_template').html()),
+        units = args.units || [];
     
     $('#units').html(template({
-      units: args.units || []
+      units: units
     }));
+
+    if(!units.length) {
+      $(this._rootElement).addClass('no-units');      
+    }
   };
   
   this.updatePlot = function(chartInfo) {

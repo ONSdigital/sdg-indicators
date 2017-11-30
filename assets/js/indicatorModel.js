@@ -77,6 +77,8 @@ var indicatorModel = function (options) {
         };
       }).value();
 
+      //console.log(that.fieldsByUnit);
+
       // determine if the fields vary by unit:
       that.dataHasUnitSpecificFields = !_.every(_.pluck(that.fieldsByUnit, 'fields'), function(fields) {
         return _.isEqual(_.sortBy(_.pluck(that.fieldsByUnit, 'fields')[0]), _.sortBy(fields));
@@ -260,7 +262,9 @@ var indicatorModel = function (options) {
 
   this.updateSelectedUnit = function(selectedUnit) {
     this.selectedUnit = selectedUnit;
-    this.getData();
+    
+    // if fields are dependent on the unit, reset:
+    this.getData(this.dataHasUnitSpecificFields);
     this.onUnitsSelectedChanged.notify(selectedUnit);
   };
 
@@ -495,8 +499,7 @@ var indicatorModel = function (options) {
       footerFields: this.footerFields
     });
 
-    if (initial) {
-
+    if(initial) {
       // order the fields based on the edge data, if any:
       if(this.edgesData.length) {
         var orderedEdges = _.chain(this.edgesData)
@@ -514,7 +517,9 @@ var indicatorModel = function (options) {
       }
 
       this.onSeriesComplete.notify({
-        series: this.fieldItemStates,
+        series: that.dataHasUnitSpecificFields ? _.filter(that.fieldItemStates, function(fis) {
+          return _.findWhere(that.fieldsByUnit, { unit : that.selectedUnit }).fields.indexOf(fis.field) != -1;
+        }) : this.fieldItemStates,
         allowedFields: this.allowedFields,
         edges: this.edgesData
       });

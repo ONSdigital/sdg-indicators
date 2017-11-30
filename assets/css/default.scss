@@ -535,11 +535,19 @@ h5 + .btn-download {
   
   #indicatorData {
     &.no-series {
-      > .col-md-3 {
+
+      #series-help {
         display: none;
       }
-      > .col-md-9 {
-        width: 100%;
+
+      &.no-units {
+        // no units and no series, hide the column:
+        > .col-md-3 {
+          display: none;
+        }
+        > .col-md-9 {
+          width: 100%;
+        }
       }
     }
   }
