@@ -318,7 +318,7 @@ var indicatorModel = function (options) {
   this.getData = function(options) {
     // field: 'Grade'
     // values: ['A', 'B']
-    var options = _.defaults(options, {
+    var options = _.defaults(options || {}, {
         initial: false,
         unitsChangeSeries: false
       }),
