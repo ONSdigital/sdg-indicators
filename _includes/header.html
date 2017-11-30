@@ -6,13 +6,13 @@
 <header role="banner">
   <div class="container">
 
-    <div class='col-xs-12'>
-      <ul id='accessibility-nav'></ul>
-    </div>
-
     <a class="navbar-brand" href="{{ site.baseurl }}/" id="home">
       <img src="{{ site.baseurl }}/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
     </a>
+
+  <div class='hidden visible-xs float-right'>
+    <ul id='accessibility-nav' class='contrast-switcher'></ul>
+  </div>
 
     <nav class="navbar navbar-default" id="main-nav">
 
@@ -21,7 +21,7 @@
         <li><span data-target="search">Search</span></li>
       </ul>
 
-      <ul class="nav navbar-nav menu-target" id="menu">
+      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu">
         <li {% if page.permalink contains "/reporting-status/" or page.permalink contains "/news" or page.permalink contains "/about" or page.layout=="post"  or page.permalink contains "/faq"  or page.permalink contains "/publications" or page.permalink contains "/guidance" %}class="nav-link"
           {% else %}class="nav-link active" {% endif %}>
           <a href="{{ site.baseurl }}/">Goals</a>
