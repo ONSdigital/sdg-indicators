@@ -396,61 +396,6 @@ var indicatorModel = function (options) {
       return matched;
     });
 
-    //}
-/*
-    console.table(matchedData);
-
-    // update statuses:
-    _.each(that.fieldItemStates, function(fieldItemState) {
-      var selectedInfo = _.findWhere(that.selectedFields, { field : fieldItemState.field });
-
-      _.each(fieldItemState.values, function(fieldItemValue) {
-        // nothing selected:
-        if(!that.selectedFields.length) {
-          fieldItemValue.state = 'default';
-        } else {
-          if(selectedInfo && selectedInfo.values.containsValue(fieldItemValue.value)) {
-            fieldItemValue.state = 'selected';
-          } else {
-            // not selected, so is it in the data that we have?
-            var uniqueMatchedFieldValues = _.chain(matchedData).pluck(fieldItemState.field).filter(function(x) { return x; }).uniq().value();
-
-            if(uniqueMatchedFieldValues.containsValue(fieldItemValue.value) && selectedInfo) {
-              fieldItemValue.state = 'possible'; // this field has a selection
-            } else if(uniqueMatchedFieldValues.containsValue(fieldItemValue.value) && !selectedInfo) {
-              fieldItemValue.state = 'default'; // no selections for this field, so set to default
-            } else {
-
-              // if(isSingleValueSelected() && that.selectedFields[0].field === fieldItemState.field) {
-              //   fieldItemState.state = 'possible';
-              // } else {
-               // fieldItemValue.state = 'excluded';
-              // }
-
-              // isSingleValueSelected() &&
-              fieldItemValue.state = that.selectedFields[0].field == fieldItemState.field ? 'possible' : 'excluded';
-              //fieldItemValue.state = 'excluded';
-            }
-          }
-        }
-      });
-    });
-
-    // derive selection state ratios:
-    var fieldSelectionInfo = this.fieldItemStates.map(function(fi) {
-      var maxFieldValueCount = fi.values.length,
-          fieldStates = _.pluck(fi.values, 'state');
-      return {
-        field: fi.field,
-        fieldSelection: {
-          possibleState: (_.filter(fieldStates, function(fv) { return fv === 'possible'; }).length / maxFieldValueCount) * 100,
-          defaultState: (_.filter(fieldStates, function(fv) { return fv === 'default' || fv === 'selected'; }).length / maxFieldValueCount) * 100,
-          excludedState: (_.filter(fieldStates, function(fv) { return fv === 'excluded'; }).length / maxFieldValueCount) * 100
-        }
-      };
-    });
-*/
-
     var fieldSelectionInfo = [];
 
     this.onFieldsStatusUpdated.notify({
