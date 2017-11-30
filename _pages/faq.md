@@ -20,11 +20,11 @@ Where there is additional information about the status of indicator data collect
 We will add data as soon as it has been sourced and checked. This includes new data as well as updates to data we have already published. We will continue to collect data from existing sources where possible, in cooperation with topic experts.
 
 ## What are you doing to fill data gaps?
-For some indicators, although we may have data at the national level, our existing data sources don’t always allow us to disaggregate by all main groups. 
+For some indicators, although we may have data at the national level, our existing data sources don’t always allow us to disaggregate by all main groups.
 
 This means we need to look for new data sources, link existing ones, or model data. We are working with colleagues across the Government Statistical Service to do this, including the Data Science Campus.
 
-We asked for feedback on how we should prioritise data development for gaps in our [consultation on measuring and reporting SDGs in the UK](https://consultations.ons.gov.uk/sustainable-development-goals/ons-approach-to-measuring-reporting-sdgs-in-the-uk/). We are currently analysing consultation responses and will publish our findings in December 2017. 
+We asked for feedback on how we should prioritise data development for gaps in our [consultation on measuring and reporting SDGs in the UK](https://consultations.ons.gov.uk/sustainable-development-goals/ons-approach-to-measuring-reporting-sdgs-in-the-uk/). We are currently analysing consultation responses and will publish our findings in December 2017.
 
 ## How accessible is this website?
 Our aim is to make this website as accessible and usable as possible for every user. We are working towards meeting AA level of the [Web Content Accessibility Guidelines (WCAG 2.0)](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag-20). We have recently undertaken an accessibility audit by the [Digital Accessibility Centre](http://digitalaccessibilitycentre.org/) and are using the recommendations from this review to help us improve our website.
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
  	  $(this).nextUntil('h2').stop(true, true).slideToggle();
 	 }).nextUntil('h2').hide();
 	 $('.roleHeader').keypress(function (e) {
- 	  if (e.which == 13 || e.which == 32) { //Enter or space key pressed
+ 	  if (e.which == 13) { // Enter key pressed
 			   $(this).trigger('click');
 		  }
 	 });
