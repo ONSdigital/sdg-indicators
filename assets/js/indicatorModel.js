@@ -164,7 +164,7 @@ var indicatorModel = function (options) {
   }());
 
   var headlineColor = '777777';
-  var colors = ['0082e5', '79c3fc', '005da7', 'ff9c18', 'f47d00', 'ad8cf3', '683ec9'];
+  var colors = ['7e984f', '8d73ca', 'aaa533', 'c65b8a', '4aac8d', 'c95f44'];
 
   // allow headline + (2 x others)
   var maxDatasetCount = 2 * colors.length;
@@ -338,7 +338,7 @@ var indicatorModel = function (options) {
       getColor = function(datasetIndex) {
 
         // offset if there is no headline data:
-        if(!this.hasHeadline) {
+        if(!that.hasHeadline) {
           datasetIndex += 1;
         }
 
