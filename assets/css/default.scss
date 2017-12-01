@@ -70,18 +70,18 @@ header {
   div.row .col:nth-child(2) {
     padding-left: 0;
   }
-  
+
   img {
     width: 100%;
     max-width: 250px;
   }
-  
+
   p {
     border-bottom: 1px solid #cdcdcd;
     padding: 4px 0;
     padding: 4px 0;
   }
-  
+
   h2 {
 		font-size: 2rem;
     margin-bottom: 1.5rem;
@@ -108,7 +108,7 @@ header {
   right: 0;
   left: 0;
   z-index: 400;
-  
+
   .phase-tag {
     background: #005ea5;
     color: white;
@@ -137,40 +137,42 @@ header {
 
 .navbar-brand {
   display: block;
+  width: 75%;
+  max-width: 300px;
   img {
-    width: 300px;
+    width: 100%;
   }
 }
 
 .navbar {
-  
+
   margin-bottom: 32px;
-  
+
   li {
     text-transform: uppercase;
   }
-  
+
   ul.navbar-nav {
     float: right;
     margin-top: 12px;
-    
+
     li {
       a {
         padding: 2px;
         margin: 2px 15px;
         color: #595959;
       }
-      
+
       &.active a {
         border-bottom: 2px solid #333;
         background: transparent;
         color: #333;
-        
+
         &:hover {
           background: transparent;
         }
       }
-      
+
       a:last-child {
         margin-right: 0;
       }
@@ -207,40 +209,40 @@ header {
       }
     }
   }
-  
+
   &.navbar-default {
     background: transparent;
     border: none;
     float: right;
   }
-  
+
   .top-level {
     display: none;
   }
-  
+
   #search {
     position: relative;
     clear: both;
     float: right;
-    
+
     label {
       position: absolute;
       top: 8px;
       left: 7px;
       font-size: 1.25em;
-      
+
       span {
         display: none;
       }
     }
-    
+
     input {
       padding: 5px;
       padding-left: 29px;
       width: 140px;
       transition: width 0.4s;
       margin-top: 5px;
-      
+
       &:focus {
         width: 350px;
       }
@@ -255,19 +257,19 @@ header {
 }
 
 @media only screen and (max-width: 768px) {
-  
+
   header .container {
     padding-left: 0;
     padding-right: 0;
   }
-  
+
   .navbar-brand {
     height: auto;
   }
-  
+
   .navbar {
     clear: left;
-    
+
     &.navbar-default {
       color: #E5E6E7;
       background: #414042;
@@ -275,90 +277,90 @@ header {
       width: 100%;
       float: none;
     }
-    
+
     .top-level {
       display: block;
       font-size: 1em;
       @include noselect;
-      
+
       li {
         float: left;
         width: 50%;
         cursor: pointer;
-        
+
         &.active {
           background: #3D3D3D;
         }
-        
+
         span {
           color: #E5E6E7;
           display: block;
           padding: 15px;
         }
-        
+
         &:nth-child(2) {
           border-left: 1px solid white;
         }
       }
     }
-    
+
     & .menu-target {
       background: #58595B;
     }
-    
+
     ul.navbar-nav {
       float: none;
       display: none;
       clear: left;
       margin: 0;
-      
+
       font-size: 0.938em;
-      
+
       li {
-        
+
         a {
           display: block;
           background: #58595B;
           padding: 6px 0 6px;
           color: #E5E6E7;
-          
+
           &:hover {
             color: #E5E6E7;
           }
         }
-        
+
         &.active a {
           border: none;
           color: #fff;
           font-weight: bold;
-          
+
           &:hover {
             color: #fff;
           }
         }
-        
+
         &:last-child {
           padding-bottom: 10px;
         }
       }
     }
-    
+
     #search {
       display: none;
       width: 100%;
       padding: 20px;
-      
+
       label {
         top: 23px;
         left: 25px;
         color: black;
       }
-      
+
       input {
         width: 100%;
         color: #333;
         margin-top: 0;
-        
+
         &:focus {
           width: 100%;
         }
@@ -375,7 +377,7 @@ header {
       margin-top: 40px;
     }
   }
-  
+
   #search {
     margin-top: -100px;
   }
@@ -411,7 +413,7 @@ ul {
   margin-right: 0.8rem;
   border: none !important;
   background: #0F8243 !important;
-  
+
   &:hover, &:active, &:focus {
     background: #0b5d30 !important;
   }
@@ -491,24 +493,24 @@ h5 + .btn-download {
       font-size: 0.813em;
     }
   }
-  
+
   &.indicator {
     h1 {
       font-size: 24px;
-      
+
       @media only screen and (max-width: 480px) {
         font-size: 0.813em;
       }
     }
     h3 {
       font-size: 30px;
-      
+
       @media only screen and (max-width: 480px) {
         font-size: 0.938em;
       }
     }
   }
-  
+
   img {
     max-width: 100%;
     margin-top: 10px;
@@ -537,7 +539,7 @@ h5 + .btn-download {
     border-right: 1px solid #d4d4d4;
     margin-bottom: 10px;
     h3 {
-      font-size: 1.8rem;      
+      font-size: 1.8rem;
       cursor: pointer;
       padding: 8px 12px;
       margin: 0;
@@ -560,9 +562,9 @@ h5 + .btn-download {
   h4 {
     margin-bottom: 1.5rem;
   }
-  
+
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  
+
   #indicatorData {
     &.no-series {
 
@@ -581,7 +583,7 @@ h5 + .btn-download {
       }
     }
   }
-  
+
   #toolbar {
     button {
       width: 100%;
@@ -593,39 +595,39 @@ h5 + .btn-download {
       font-size: 0.875em;
       font-family: 'Open Sans', sans-serif;
       margin-right: 8px;
-      
+
       i {
         position: absolute;
         top: 11px;
         right: 6px;
         font-size: 1.063em;
       }
-      
+
       &.disabled {
         color: #777;
         background: #ccc;
       }
-      
+
     }
-    
+
 		.accessBtn {
 			padding: 0px !important;
 			border: none;
 		}
-    
+
     > p {
       font-size: 96%;
     }
   }
-  
+
   #fields {
-    
+
     @include noselect;
-    
+
     padding-bottom: 14px;
     font-size: 0.75em;
     margin-top: 10px;
-    
+
     label {
       background-color: #fff;
       padding: 7px;
@@ -634,7 +636,7 @@ h5 + .btn-download {
       margin-bottom: 1px;
       cursor: pointer;
       position: relative;
-      
+
       input {
         position: absolute;
         top: 7px;
@@ -656,18 +658,18 @@ h5 + .btn-download {
       &.excluded {
         background-color: #666;
         color: white;
-        
+
         & input {
           display: none;
         }
       }
     }
-    
+
     h5 {
       padding-left: 7px;
       position: relative;
       padding-right: 33px;
-      
+
       i {
         font-size: 0.875em;
         position: absolute;
@@ -675,14 +677,14 @@ h5 + .btn-download {
         right: 6px;
       }
     }
-    
+
     .bar {
       height: 7px;
       border: 1px solid #dedede;
       margin: 2px;
       padding: 0;
       position: relative;
-      
+
       > div {
         height: 5px;
         float: left;
@@ -690,20 +692,20 @@ h5 + .btn-download {
       .selected {
         background-color: #555;
       }
-      
+
       .default {
         background-color: white;
       }
-      
+
       .possible {
         background-color: #dedede;
       }
-      
+
       .excluded {
         background-color: #666;
       }
     }
-    
+
     .variable-selector {
       position: relative;
       cursor: pointer;
@@ -712,18 +714,18 @@ h5 + .btn-download {
       display: inline-block;
       margin-right: 8px;
       margin-bottom: 10px;
-      
+
       &:hover {
         border-color: #555;
       }
-      
+
       .no-data-hint,
       .variable-hint {
         display: none;
         padding-left: 7px;
         color: #666;
       }
-      
+
       .variable-options {
         background-color: white;
         display: none;
@@ -733,12 +735,12 @@ h5 + .btn-download {
         right: -1px;
         left: -1px;
         overflow: auto;
-        
+
         > div {
           text-align: left;
           padding: 4px;
         }
-        
+
         button {
           width: auto;
           background-color: #fff;
@@ -752,32 +754,32 @@ h5 + .btn-download {
           font-size: 1.2em;
           padding: inherit;
           border-radius: 4px;
-          
+
           &:hover {
             background: #f5f3f3;
           }
         }
-        
+
         label {
           padding-left: 7px;
           padding-right: 25px;
           position: relative;
           font-size: 1.3em;
-          
+
           &:not(:first-child) {
             border-top: 1px solid #cdcdcd;
           }
-          
+
           input {
             position: absolute;
             top: 4px;
             right: 4px;
           }
-          
+
           &:hover {
             background: #f5f3f3;
           }
-          
+
           &[data-has-data="false"] {
             cursor: default;
             &:hover {
@@ -789,27 +791,27 @@ h5 + .btn-download {
           }
         }
       }
-      
+
       &.child {
         margin-left: 20px;
         width: calc(100% - 20px);
       }
-      
+
       &[data-has-data="false"],
       &.disallowed {
         .bar {
           display: none;
         }
-        
+
         .variable-options {
           > div {
             display: none;
           }
-          
+
           input {
             display: none;
           }
-          
+
           label {
             cursor: default;
             &:hover {
@@ -817,10 +819,10 @@ h5 + .btn-download {
             }
           }
         }
-        
+
         padding-bottom: 5px;
       }
-      
+
       &[data-has-data="false"]:not(.disallowed) {
         .no-data-hint {
           display: block;
@@ -835,7 +837,7 @@ h5 + .btn-download {
   }
   #units {
     clear: left;
-    
+
     label {
       font-family: 'Open Sans', sans-serif;
       font-weight: normal;
@@ -846,9 +848,9 @@ h5 + .btn-download {
       width: 100%;
     }
   }
-  
+
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  
+
   #dataset-size-warning {
     text-align: center;
     font-size: 1.2em;
@@ -857,12 +859,12 @@ h5 + .btn-download {
     background: #FFCC0B;
     border-radius: 4px;
     padding: 5px;
-    
+
     i {
       font-size: 1.2em;
     }
   }
-  
+
   .plot-container {
     margin-bottom: 4.5rem;
     padding: 10px;
@@ -899,7 +901,7 @@ h5 + .btn-download {
         border-bottom-style: solid;
         position: relative;
         padding: 5px 0;
-        
+
         &.status {
           color: black;
           font-weight: normal;
@@ -950,12 +952,12 @@ h5 + .btn-download {
 			margin-top: 2rem !important;
 		}
   }
-  
-  
+
+
   #selectionsTable {
     div.dataTables_wrapper {
       overflow-x: auto;
-      
+
       .row {
         margin-left: 0;
         margin-right: 0;
@@ -964,9 +966,9 @@ h5 + .btn-download {
     table {
       th, td { white-space: nowrap; }
     }
-    
+
     padding-bottom: 20px;
-    
+
     .table-footer-text {
       p {
         font-size: 0.85em;
@@ -974,17 +976,17 @@ h5 + .btn-download {
       }
     }
   }
-  
+
   .statuses {
-    
+
     strong {
       font-weight: normal;
     }
     > div {
       display: inline-block;
-      
+
       margin-right: 10px;
-      
+
       .status {
         display: inline-block;
         margin-right: 3px;
@@ -1038,7 +1040,7 @@ h5 + .btn-download {
         margin-bottom: 3px;
       }
       line-height: 24px;
-      
+
       .total {
         line-height: 24px;
         vertical-align: middle;
@@ -1055,12 +1057,12 @@ h5 + .btn-download {
   }
   .goal-overall {
     margin-bottom: 20px;
-    
+
     .details {
       width: 100%;
     }
   }
-  
+
   #back-to-top {
     cursor: pointer;
     position: fixed;
@@ -1085,7 +1087,7 @@ h5 + .btn-download {
     color: inherit;
     padding: 0;
   }
-  
+
   h2:first-child {
     // margin-top: 0;
     margin-bottom: 14px;
@@ -1107,7 +1109,7 @@ footer {
   }
   .row {
     padding: 15px 0;
-    
+
     @media only screen and (max-width: 767px) {
       padding: 5px 0;
     }
@@ -1133,31 +1135,31 @@ footer {
   article {
     p {
       margin: 0;
-      
+
       &:first {
         font-size: 90%;
       }
     }
-    
+
     h5 {
       margin: 3px 0;
       font-size: 120%;
     }
-    
+
     time {
       margin: 0;
     }
-    
+
     margin-bottom: 20px;
   }
 }
 
 #page-content {
-  
+
   border-top: 1px solid #faebcc;
   border-bottom: 1px solid #faebcc;
   padding-top: 10px;
-  
+
   table {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -1165,12 +1167,12 @@ footer {
     border-color: $footer-color;
     border-width: 1px;
   }
-  
+
   td, th {
     padding-right: 5px;
     padding-left: 5px;
   }
-  
+
   thead {
     padding-bottom: 10px;
     border-bottom: 1pt solid $footer-color;
@@ -1214,7 +1216,7 @@ footer {
       h3 {
         padding: 0;
         cursor: default;
-        
+
       }
       h3 span {
         display: none;
@@ -1239,10 +1241,11 @@ footer {
 }
 
 #accessibility-nav {
-  // position: relative;
+  width: 25%;
   padding-top: 10px;
   padding-right: 20px;
   float: right;
+  text-align: right;
   li {
     display: inline-block;
     list-style: none;
@@ -1260,14 +1263,14 @@ footer {
         text-decoration: none;
       }
     }
-    
+
     &.contrast-default {
       background: white;
       a {
         color: black;
       }
     }
-    
+
     &.contrast-high {
       background: black;
       a {
@@ -1284,7 +1287,7 @@ body.contrast-high {
   .table {
     background: black;
   }
-  
+
   .btn { background: white !important; color: black !important;
     &:hover {
       background: yellow !important;
@@ -1293,25 +1296,25 @@ body.contrast-high {
       background: yellow !important;
     }
   }
-  
+
   div#units {
     color: white;
   }
-  
+
   .nav-tabs { border-color: yellow; }
-  
+
   #main-content #fields .bar .selected { background-color: white; }
-  
+
   #main-content #fields .variable-selector .variable-hint { color: white; }
-  
+
   #main-content .nav-tabs .nav-item.active a { background: yellow; color: black; border-color: yellow; }
-  
+
   a.nav-link:focus { background: white; color: black; }
-  
+
   caption {
     color: white;
   }
-  
+
   .table-hover {
     tbody tr:hover {
       background: yellow;
@@ -1320,26 +1323,26 @@ body.contrast-high {
       }
     }
   }
-  
-  
-  
+
+
+
   .container, #main-content, header, footer, #disclaimer, .heading {
     background: black;
     border-color: black;
   }
-  
+
   p, h2, h3, h4, span, td, th, a#text {
     color: white;
   }
-  
+
   h1, li, a {
     color: yellow;
   }
-  
+
   li.contrast-default a {
     color: black !important;
   }
-  
+
   .navbar {
     li {
       a {
@@ -1362,7 +1365,7 @@ body.contrast-high {
       }
     }
   }
-  
+
   .goal-indicators {
     div {
       span {
@@ -1379,7 +1382,7 @@ body.contrast-high {
       }
     }
   }
-  
+
   #main-content #fields label {
     background: black;
     color: white;
@@ -1392,7 +1395,7 @@ body.contrast-high {
       color: black;
     }
   }
-  
+
   #toolbar {
     button {
       background-color: black !important;
@@ -1400,7 +1403,7 @@ body.contrast-high {
       color: white;
     }
   }
-  
+
   .danger {
     background-color: red;
   }
@@ -1410,8 +1413,8 @@ body.contrast-high {
   .success {
     background-color: green;
   }
-  
-  
+
+
   .statuses {
     strong {
       color: white;
@@ -1420,7 +1423,7 @@ body.contrast-high {
       color: white !important;
     }
   }
-  
+
   .variable-options {
     background: black;
     color: white;
@@ -1432,18 +1435,18 @@ body.contrast-high {
         color: white !important;
         border-color: white; }
       }
-      
+
       .breadcrumb {
         background: white;
         a {
           color: black !important;
         }
       }
-      
+
       span.match {
         color: black !important;
       }
-      
+
       @media screen and (max-width: 768px) {
         .navbar.navbar-default {
           background: black;
@@ -1462,6 +1465,5 @@ body.contrast-high {
           background: black;
         }
       }
-      
+
     }
-    
