@@ -43,11 +43,11 @@ var indicatorView = function (model, options) {
     $('#fields .variable-options :checkbox:eq(0)').trigger('click');
   });
   
-  this._model.onSeriesComplete.attach(function (sender, args) {
+  this._model.onSeriesComplete.attach(function(sender, args) {
     view_obj.initialiseSeries(args);
   });
-  
-  this._model.onSeriesSelectedChanged.attach(function (sender, args) {
+
+  this._model.onSeriesSelectedChanged.attach(function(sender, args) {
     // var selector;
     // if (args.series.length === view_obj._fieldLimit) {
     //   selector = $('#fields input:not(:checked)');
@@ -213,28 +213,38 @@ var indicatorView = function (model, options) {
     e.stopPropagation();
   });
   
-  this.initialiseSeries = function (args) {
+  this.initialiseSeries = function(args) {
     if(args.series.length) {
       var template = _.template($("#item_template").html());
-      
-      $('<button id="clear" class="disabled">Clear selections <i class="fa fa-remove"></i></button>').insertBefore('#fields');
-      
+
+      if(!$('button#clear').length) {
+        $('<button id="clear" class="disabled">Clear selections <i class="fa fa-remove"></i></button>').insertBefore('#fields');
+      }
+
       $('#fields').html(template({
         series: args.series,
         allowedFields: args.allowedFields,
         edges: args.edges
       }));
+
+      $(this._rootElement).removeClass('no-series');
+      
     } else {
       $(this._rootElement).addClass('no-series');
     }
   };
   
   this.initialiseUnits = function(args) {
-    var template = _.template($('#units_template').html());
+    var template = _.template($('#units_template').html()),
+        units = args.units || [];
     
     $('#units').html(template({
-      units: args.units || []
+      units: units
     }));
+
+    if(!units.length) {
+      $(this._rootElement).addClass('no-units');      
+    }
   };
   
   this.updatePlot = function(chartInfo) {
