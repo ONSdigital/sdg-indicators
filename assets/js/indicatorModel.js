@@ -545,7 +545,7 @@ var indicatorModel = function (options) {
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
-    if(options.initial && !this.hasHeadline) {
+    if((options.initial || options.unitsChangeSeries) && !this.hasHeadline) {
       // if there is no initial data, select some:
       this.onNoHeadlineData.notify();
     }
