@@ -93,8 +93,19 @@ indicatorSearch.prototype = {
 };
 
 $(function() {
+
   $('#main-nav').append('<div id="search" class="menu-target"><label for="indicator_search"><i class="fa fa-search" aria-hidden="true"></i><span>Search:</span></label><input id="indicator_search" title="Indicator search" placeholder="Indicator search" data-url="{{ site.baseurl }}/indicators.json" data-pageurl="{{ site.baseurl }}/search/?" /></div>');
   var $el = $('#indicator_search');
   new indicatorSearch($el, new indicatorDataStore($el.data('url')));
+
+  $('#jump-to-search').show();
+  $('#jump-to-search a').click(function() {
+    if($el.is(':hidden')) {
+      $('.navbar span[data-target="search"]').click();
+    }
+    $el.focus();
+  });
+
+
 });
 
