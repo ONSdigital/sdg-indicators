@@ -3,8 +3,6 @@ layout: page
 title: Cookies and privacy
 permalink: /about/cookies-and-privacy/
 ---
-The Office for National Statistics (ONS) has created this privacy statement in order to demonstrate our firm commitment to privacy.
-
 The following is a description of what data is collected when you use this website and what it is used for.
 
 ## User information
@@ -30,21 +28,22 @@ You can manage these small files yourself and learn more about them through [int
 ## Our use of cookies
 Important information about this list of cookies:
 
-- incap_ses_*_*
-- visid_incap_*_*
-- session_*_*
-
 This list may not always be complete. It will be regularly updated as further information is gathered from other companies and organisations that we work with.
+
+Cookies for retaining active state of accessibility services:
+
+- contrast
 
 Cookies for measuring use of services:
 
 - _ga
+- _gid
 - _gat
 
 By understanding how people use our website, we can improve the information provided. We gather this data using Google Analytics.
 
 ## External links
-This site contains links to other sites.
+This site may contain links to other sites.
 
 ONS is not responsible for the privacy practices or the content of such websites.
 
