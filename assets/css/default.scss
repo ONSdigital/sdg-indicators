@@ -18,6 +18,51 @@ $collapsed-navbar-height: $navbar-height - 30;
   -o-user-select: none;
 }
 
+@mixin indicatorcards {
+  .indicator-cards {
+    a {
+      color: black;
+      padding: 1rem;
+      display: inline-block;
+      -webkit-transition: background 0.3s;
+      transition: background 0.3s;
+      height: 100%;
+      width: 100%;
+      text-decoration: none;
+      &:hover {
+        background: transparent;
+      }
+    }
+
+    span {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      border-bottom-width: 2px;
+      border-bottom-style: solid;
+      position: relative;
+      padding: 5px 0;
+
+      &.status {
+        color: black;
+        font-weight: normal;
+        border: none;
+        padding: 4px;
+        position: absolute;
+        top: -1px;
+        right: 0;
+        display: inline;
+      }
+    }
+
+    .match {
+      display: inline;
+      font-weight: normal;
+      border-bottom: none;
+    }
+  }
+}
+
 .row.no-gutters {
   margin-right: 0;
   margin-left: 0;
@@ -86,6 +131,20 @@ header {
 		font-size: 2rem;
     margin-bottom: 1.5rem;
     margin-top: 1.5rem !important;
+  }
+
+  @include indicatorcards;
+
+  .indicator-cards {
+    a { 
+      padding-left: 0;
+      padding-top: 0;
+      padding-bottom: 3.2em;
+    }
+  }
+  
+  .match {
+    display: inline;
   }
 }
 
@@ -879,41 +938,7 @@ h5 + .btn-download {
     margin: 2px 2px 0 0;
   }
   &.goal-indicators {
-    .indicator-cards {
-      a {
-        color: black;
-        padding: 1rem;
-        display: inline-block;
-        -webkit-transition: background 0.3s;
-        transition: background 0.3s;
-        height: 100%;
-        width: 100%;
-        text-decoration: none;
-        &:hover {
-          background: transparent;
-        }
-      }
-      span {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: bold;
-        border-bottom-width: 2px;
-        border-bottom-style: solid;
-        position: relative;
-        padding: 5px 0;
-
-        &.status {
-          color: black;
-          font-weight: normal;
-          border: none;
-          padding: 4px;
-          position: absolute;
-          top: -1px;
-          right: 0;
-          display: inline;
-        }
-      }
-    }
+    @include indicatorcards
   }
   .goal-indicators:after {
     content: "";
@@ -1413,7 +1438,6 @@ body.contrast-high {
   .success {
     background-color: green;
   }
-
 
   .statuses {
     strong {
