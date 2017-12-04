@@ -128,10 +128,6 @@ var indicatorView = function (model, options) {
     });
   });
   
-  $(document).click(function(e) {
-    $('.variable-options').hide();
-  });
-  
   $(this._rootElement).on('click', '#clear', function() {
     view_obj._model.clearSelectedFields();
   });
@@ -203,11 +199,6 @@ var indicatorView = function (model, options) {
     
     var options = $(this).find('.variable-options');
     var optionsVisible = options.is(':visible');
-    
-    // ensure any others are hidden:
-    $('.variable-options').hide();
-    
-    // but reinstate this one:
     $(options)[optionsVisible ? 'hide' : 'show']();
     
     e.stopPropagation();
