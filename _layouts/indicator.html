@@ -65,20 +65,22 @@
   
   <div class="row" id="indicatorData" data-indicatordata='{{json_data}}' data-indicatorid='{{dataset_name}}' data-country="{{ page.national_geographical_coverage }}"
   data-edgesdata='{{ json_edges_data }}' data-charttitle="{{ page.graph_title }}" data-measurementunit="{{ page.computation_units }}" data-datasource="{{ page.source_organisation_1 }}" data-geographicalarea="{{ page.national_geographical_coverage }}" data-footnote="{{ page.data_footnote }}" data-showdata="{{ show_data }}" data-graphtype="{{ page.graph_type }}">
-  {% if show_data %}
-  <div class="col-md-3">
-    <div id="toolbar">
-      <h4>Sub-categories</h4>
-      <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
-      <p>Click on the legend to remove individual lines from the chart.</p>
-      <div id="fields"></div>
+    {% if show_data %}
+    <div class="col-md-3">
+      <div id="toolbar">
+        <span id="series-help">
+          <h4>Sub-categories</h4>
+          <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+        </span>
+        <p>Click on the legend to remove individual lines from the chart.</p>
+        <div id="fields"></div>
+      </div>
+      <div id="units"></div>
     </div>
-    <div id="units"></div>
-  </div>
-  <div class="col-md-9">
+    <div class="col-md-9">
     {% else %}
     <div class="col-md-12">
-      {% endif %}
+    {% endif %}
       
       {% if show_data %}
       {% include components/headline.html %}
@@ -137,8 +139,8 @@
                   SDG indicator. Please note that even when the global SDG indicator is fully available from {{ site.country.adjective }} statistics, this table
                   should be consulted for information on national methodology and other {{ site.country.adjective }}-specific metadata information.</p>
                   {% include components/metadata.html scope='national' %}
-                </article>
-              </div>
+              </article>
+            </div>
             <!-- Method of Computation -->
             <div class="collapsible collapsed">
               <h3 tabindex='0'>How the {{ site.country.name }} Indicator is Calculated<span> (Expand)</span></h3>
@@ -166,9 +168,11 @@
             </div>
           </div>
           {% endif %}
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   </div>
-  {% include footer.html %}
+</div>
+
+{% include footer.html %}
   
