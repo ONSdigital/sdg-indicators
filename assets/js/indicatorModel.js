@@ -157,7 +157,7 @@ var indicatorModel = function (options) {
     that.footerFields = {
       'Source': that.dataSource,
       'Geographical Area': that.geographicalArea,
-      'Units of Measure': that.measurementUnit,
+      'Unit of Measurement': that.measurementUnit,
       'Footnote': that.footnote,
     };
   }());
