@@ -158,11 +158,7 @@ var indicatorView = function (model, options) {
         field: key,
         values: _.pluck(value, 'value')
       };
-    }).value(), {
-      field: $(this).data('field'),
-      value: $(this).val(),
-      selected: $(this).is(':checked')
-    });
+    }).value());
   }
   
   $(this._rootElement).on('click', '.variable-options button', function(e) {
