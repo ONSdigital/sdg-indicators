@@ -11,8 +11,8 @@
     {% assign graph_template = 'components/charts/' | append: graph_type | append: '.html' %}
     <div class="plot-container">
         {% include {{graph_template}} data=include.data %}
-
-        <div id="chartSelectionDownload"></div>
     </div>
-    
+
+    <div id="chartSelectionDownload"></div>    
+
 {% endif %}
