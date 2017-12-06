@@ -3,12 +3,11 @@
 ---
 
 $main-background-color: #eaeaea;
-$dark-highlight: #0275d8;
+$dark-highlight : #0275d8;
 $vanilla: #fff;
-$footer-color: #e5e6e7;
-$goal-colors: #e52b3d #dda63a #4c9f38 #c42130 #ff3e24 #28bce1 #fcc30b #a21942
-  #fd6925 #dc1d67 #fd9c27 #bf8b2e #417d46 #0a96d8 #57be2f #00689c #1f4a6a;
-$navbar-height: 175;
+$footer-color : #E5E6E7;
+$goal-colors : #E52B3D #DDA63A #4C9F38 #C42130 #FF3E24 #28BCE1 #FCC30B #A21942 #FD6925 #DC1D67 #FD9C27 #BF8B2E #417D46 #0A96D8 #57BE2F #00689C #1F4A6A;
+$navbar-height : 175;
 $disclaimer-height: 40;
 $collapsed-navbar-height: $navbar-height - 30;
 @mixin noselect {
@@ -69,8 +68,8 @@ $collapsed-navbar-height: $navbar-height - 30;
   margin-left: 0;
 }
 
-.row.no-gutters > [class^="col-"],
-.row.no-gutters > [class*=" col-"] {
+.row.no-gutters>[class^="col-"],
+.row.no-gutters>[class*=" col-"] {
   padding-right: 0;
   padding-left: 0;
 }
@@ -92,7 +91,7 @@ body {
 }
 
 header {
-  background: $vanilla url("../img/sdgbg.png") bottom left repeat-x;
+  background: $vanilla url('../img/sdgbg.png') bottom left repeat-x;
   .container {
     min-height: 113px;
     .navbar-default {
@@ -107,8 +106,8 @@ header {
 
 .loader {
   svg path,
-  svg rect {
-    fill: #ff6700;
+  svg rect{
+    fill: #FF6700;
   }
 }
 
@@ -129,7 +128,7 @@ header {
   }
 
   h2 {
-    font-size: 2rem;
+		font-size: 2rem;
     margin-bottom: 1.5rem;
     margin-top: 1.5rem !important;
   }
@@ -137,13 +136,13 @@ header {
   @include indicatorcards;
 
   .indicator-cards {
-    a {
+    a { 
       padding-left: 0;
       padding-top: 0;
       padding-bottom: 3.2em;
     }
   }
-
+  
   .match {
     display: inline;
   }
@@ -155,7 +154,7 @@ header {
     color: darken(#337ab7, 10%);
     // text-decoration: underline;
   }
-  & > .active {
+  &>.active {
     display: inline;
     color: black;
   }
@@ -176,11 +175,11 @@ header {
     padding: 2px 5px 0;
   }
   .alert {
-    color: #3d3d3d;
+    color: #3D3D3D;
     margin-bottom: 0;
     padding: 10px;
     a {
-      color: #3d3d3d;
+      color: #3D3D3D;
     }
   }
   .alert-danger {
@@ -205,6 +204,7 @@ header {
 }
 
 .navbar {
+
   margin-bottom: 32px;
 
   li {
@@ -316,6 +316,7 @@ header {
 }
 
 @media only screen and (max-width: 768px) {
+
   header .container {
     padding-left: 0;
     padding-right: 0;
@@ -329,7 +330,7 @@ header {
     clear: left;
 
     &.navbar-default {
-      color: #e5e6e7;
+      color: #E5E6E7;
       background: #414042;
       margin-bottom: 10px;
       width: 100%;
@@ -347,11 +348,11 @@ header {
         cursor: pointer;
 
         &.active {
-          background: #58595b;
+          background: #58595B;
         }
 
         span {
-          color: #e5e6e7;
+          color: #E5E6E7;
           display: block;
           padding: 15px;
         }
@@ -359,7 +360,7 @@ header {
     }
 
     & .menu-target {
-      background: #58595b;
+      background: #58595B;
     }
 
     ul.navbar-nav {
@@ -371,16 +372,17 @@ header {
       font-size: 0.938em;
 
       li {
+
         cursor: pointer;
 
         a {
           display: block;
-          background: #58595b;
+          background: #58595B;
           padding: 6px 0 6px;
-          color: #e5e6e7;
+          color: #E5E6E7;
 
           &:hover {
-            color: #e5e6e7;
+            color: #E5E6E7;
           }
         }
 
@@ -424,7 +426,7 @@ header {
   }
 }
 
-@media only screen and (min-width: 769px) and (max-width: 991px) {
+@media only screen and (min-width: 769px) and (max-width: 991px)  {
   .navbar {
     width: 100%;
     ul.navbar-nav {
@@ -444,7 +446,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 header ul {
@@ -454,7 +456,7 @@ header ul {
 }
 
 ul {
-  padding-left: 2rem;
+	padding-left: 2rem;
 }
 
 .table-hover {
@@ -467,11 +469,9 @@ ul {
   margin-top: 1.5rem;
   margin-right: 0.8rem;
   border: none !important;
-  background: #0f8243 !important;
+  background: #0F8243 !important;
 
-  &:hover,
-  &:active,
-  &:focus {
+  &:hover, &:active, &:focus {
     background: #0b5d30 !important;
   }
 }
@@ -534,13 +534,13 @@ h5 + .btn-download {
     }
   }
   h1,
-  h2,
+	h2,
   h3 {
     color: white;
   }
   h1 {
     margin-top: 12px;
-    font-size: 2.2em;
+		font-size: 2.2em;
     @media only screen and (max-width: 480px) {
       font-size: 0.938em;
     }
@@ -575,7 +575,7 @@ h5 + .btn-download {
 }
 
 .danger {
-  background-color: #e27874;
+  background-color: #E27874;
 }
 .warning {
   background-color: #f0ad4e;
@@ -585,7 +585,7 @@ h5 + .btn-download {
 }
 
 #main-content {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   background: white;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -624,6 +624,7 @@ h5 + .btn-download {
 
   #indicatorData {
     &.no-series {
+
       #series-help {
         display: none;
       }
@@ -649,7 +650,7 @@ h5 + .btn-download {
       text-align: left;
       padding: 10px 7px 14px 7px;
       font-size: 0.875em;
-      font-family: "Open Sans", sans-serif;
+      font-family: 'Open Sans', sans-serif;
       margin-right: 8px;
 
       i {
@@ -663,12 +664,13 @@ h5 + .btn-download {
         color: #777;
         background: #ccc;
       }
+
     }
 
-    .accessBtn {
-      padding: 0px !important;
-      border: none;
-    }
+		.accessBtn {
+			padding: 0px !important;
+			border: none;
+		}
 
     > p {
       font-size: 96%;
@@ -676,6 +678,7 @@ h5 + .btn-download {
   }
 
   #fields {
+
     @include noselect;
 
     padding-bottom: 14px;
@@ -893,7 +896,7 @@ h5 + .btn-download {
     clear: left;
 
     label {
-      font-family: "Open Sans", sans-serif;
+      font-family: 'Open Sans', sans-serif;
       font-weight: normal;
       border: 1px solid #ccc;
       padding: 10px;
@@ -910,7 +913,7 @@ h5 + .btn-download {
     font-size: 1.2em;
     line-height: 1.2em;
     vertical-align: middle;
-    background: #ffcc0b;
+    background: #FFCC0B;
     border-radius: 4px;
     padding: 5px;
 
@@ -933,7 +936,7 @@ h5 + .btn-download {
     margin: 2px 2px 0 0;
   }
   &.goal-indicators {
-    @include indicatorcards;
+    @include indicatorcards
   }
   .goal-indicators:after {
     content: "";
@@ -968,10 +971,11 @@ h5 + .btn-download {
         overflow-x: auto;
       }
     }
-    h4 {
-      margin-top: 2rem !important;
-    }
+		h4 {
+			margin-top: 2rem !important;
+		}
   }
+
 
   #selectionsTable {
     div.dataTables_wrapper {
@@ -983,10 +987,7 @@ h5 + .btn-download {
       }
     }
     table {
-      th,
-      td {
-        white-space: nowrap;
-      }
+      th, td { white-space: nowrap; }
     }
 
     padding-bottom: 20px;
@@ -1000,6 +1001,7 @@ h5 + .btn-download {
   }
 
   .statuses {
+
     strong {
       font-weight: normal;
     }
@@ -1040,9 +1042,9 @@ h5 + .btn-download {
     margin-bottom: 4px;
     padding-bottom: 4px;
     border-bottom: 1px solid #ccc;
-    h2 {
-      font-size: 1.6em;
-    }
+		h2 {
+			font-size: 1.6em;
+		}
   }
   .frame {
     width: 115px;
@@ -1092,9 +1094,8 @@ h5 + .btn-download {
     display: none;
     background: lighten($dark-highlight, 10%);
     font-size: 3rem;
-    padding: 0.5rem 1rem;
-    &:hover,
-    &:focus {
+    padding: 0.5rem 1.0rem;
+    &:hover, &:focus {
       background: $dark-highlight;
     }
   }
@@ -1139,8 +1140,7 @@ footer {
   a {
     color: $footer-color;
     text-decoration: underline;
-    &:hover,
-    &:focus {
+    &:hover, &:focus {
       color: lighten($footer-color, 20%);
     }
   }
@@ -1154,7 +1154,7 @@ footer {
   margin-top: 0;
 }
 
-.newslist {
+.newslist{
   article {
     p {
       margin: 0;
@@ -1178,6 +1178,7 @@ footer {
 }
 
 #page-content {
+
   border-top: 1px solid #faebcc;
   border-bottom: 1px solid #faebcc;
   padding-top: 10px;
@@ -1190,8 +1191,7 @@ footer {
     border-width: 1px;
   }
 
-  td,
-  th {
+  td, th {
     padding-right: 5px;
     padding-left: 5px;
   }
@@ -1224,7 +1224,7 @@ footer {
     display: none;
   }
   .tab-pane {
-    display: block !important;
+    display: block!important;
   }
   #main-content {
     .collapsible {
@@ -1239,6 +1239,7 @@ footer {
       h3 {
         padding: 0;
         cursor: default;
+
       }
       h3 span {
         display: none;
@@ -1248,7 +1249,7 @@ footer {
 }
 
 .roleHeader {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .visuallyhidden {
@@ -1258,7 +1259,7 @@ footer {
   margin: -1px;
   padding: 0;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip: rect(0,0,0,0);
   border: 0;
 }
 
@@ -1302,6 +1303,7 @@ footer {
   }
 }
 
+
 /* example stuff */
 body.contrast-high {
   background-color: black;
@@ -1309,9 +1311,7 @@ body.contrast-high {
     background: black;
   }
 
-  .btn {
-    background: white !important;
-    color: black !important;
+  .btn { background: white !important; color: black !important;
     &:hover {
       background: yellow !important;
     }
@@ -1324,28 +1324,15 @@ body.contrast-high {
     color: white;
   }
 
-  .nav-tabs {
-    border-color: yellow;
-  }
+  .nav-tabs { border-color: yellow; }
 
-  #main-content #fields .bar .selected {
-    background-color: white;
-  }
+  #main-content #fields .bar .selected { background-color: white; }
 
-  #main-content #fields .variable-selector .variable-hint {
-    color: white;
-  }
+  #main-content #fields .variable-selector .variable-hint { color: white; }
 
-  #main-content .nav-tabs .nav-item.active a {
-    background: yellow;
-    color: black;
-    border-color: yellow;
-  }
+  #main-content .nav-tabs .nav-item.active a { background: yellow; color: black; border-color: yellow; }
 
-  a.nav-link:focus {
-    background: white;
-    color: black;
-  }
+  a.nav-link:focus { background: white; color: black; }
 
   caption {
     color: white;
@@ -1360,30 +1347,18 @@ body.contrast-high {
     }
   }
 
-  .container,
-  #main-content,
-  header,
-  footer,
-  #disclaimer,
-  .heading {
+
+
+  .container, #main-content, header, footer, #disclaimer, .heading {
     background: black;
     border-color: black;
   }
 
-  p,
-  h2,
-  h3,
-  h4,
-  span,
-  td,
-  th,
-  a#text {
+  p, h2, h3, h4, span, td, th, a#text {
     color: white;
   }
 
-  h1,
-  li,
-  a {
+  h1, li, a {
     color: yellow;
   }
 
@@ -1395,8 +1370,7 @@ body.contrast-high {
     li {
       a {
         color: white;
-        &:hover,
-        &:focus {
+        &:hover, &:focus {
           color: yellow;
         }
       }
@@ -1477,42 +1451,41 @@ body.contrast-high {
     color: white;
     div {
       background: black;
-      color: white;
-    }
-    button {
-      background: black;
-      color: white !important;
-      border-color: white;
-    }
-  }
-
-  .breadcrumb {
-    background: white;
-    a {
-      color: black !important;
-    }
-  }
-
-  span.match {
-    color: black !important;
-  }
-
-  @media screen and (max-width: 768px) {
-    .navbar.navbar-default {
-      background: black;
-      color: white;
-    }
-    .navbar .top-level li.active {
-      background: white;
-      span {
-        color: black;
+      color: white; }
+      button {
+        background: black;
+        color: white !important;
+        border-color: white; }
       }
+
+      .breadcrumb {
+        background: white;
+        a {
+          color: black !important;
+        }
+      }
+
+      span.match {
+        color: black !important;
+      }
+
+      @media screen and (max-width: 768px) {
+        .navbar.navbar-default {
+          background: black;
+          color: white;
+        }
+        .navbar .top-level li.active {
+          background: white;
+          span {
+            color: black;
+          }
+        }
+        .navbar .menu-target {
+          background: black;
+        }
+        .navbar ul.navbar-nav li a {
+          background: black;
+        }
+      }
+
     }
-    .navbar .menu-target {
-      background: black;
-    }
-    .navbar ul.navbar-nav li a {
-      background: black;
-    }
-  }
-}
