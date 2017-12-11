@@ -348,17 +348,13 @@ header {
         cursor: pointer;
 
         &.active {
-          background: #3D3D3D;
+          background: #58595B;
         }
 
         span {
           color: #E5E6E7;
           display: block;
           padding: 15px;
-        }
-
-        &:nth-child(2) {
-          border-left: 1px solid white;
         }
       }
     }
@@ -376,7 +372,7 @@ header {
       font-size: 0.938em;
 
       li {
-
+        cursor: pointer;
         a {
           display: block;
           background: #58595B;
@@ -545,6 +541,17 @@ h5 + .btn-download {
 		font-size: 2.2em;
     @media only screen and (max-width: 480px) {
       font-size: 0.938em;
+    }
+  }
+  h2 {
+    font-size: 1.5em;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 1.8em;
+    }
+
+    @media only screen and (min-width: 992px) {
+      font-size: 2.2em;
     }
   }
   h3 {
@@ -928,6 +935,12 @@ h5 + .btn-download {
     margin-bottom: 4.5rem;
     padding: 10px;
   }
+
+  #chartSelectionDownload {
+    margin-top: -40px;
+    margin-bottom: 10px;
+  }
+
   canvas {
     @include noselect;
   }
