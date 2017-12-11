@@ -14,6 +14,9 @@ If you have any feedback on our publications please contact us at <a href="mailt
 
 ### All goals
 
+**[Response to our consulation on the approach to measuring and reporting SDGs in the UK, 11 December 2017](https://consultations.ons.gov.uk/sustainable-development-goals/ons-approach-to-measuring-reporting-sdgs-in-the-uk/)**  
+We ran a public consultation between 29 June and 29 September 2017 to look at our approach to reporting and how we prioritise areas for developing data for the SDG indicators. We received 111 responses from a wide variety of sectors. This report is our response to your feedback.
+
 **[Sustainable Development Goals: progress and possibilities, 9 November 2017](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2017)**  
 This is our first report on the progress we’ve made towards measuring the global Sustainable Development Goal (SDG) indicators in the UK. It looks at the work we have been doing to be able to measure our progress and explains how we are already sharing the data we have.
 
