@@ -30,14 +30,14 @@ var reportingStatus = function(indicatorDataStore) {
 
           var returnItem = {
             goal_id: dataItem.goal.id,
-            notStartedCount: _.where(dataItem.goal.indicators, { status: 'notstarted' }).length,
+            completeCount: _.where(dataItem.goal.indicators, { status: 'complete' }).length,
             inProgressCount: _.where(dataItem.goal.indicators, { status: 'inprogress' }).length,
-            completeCount: _.where(dataItem.goal.indicators, { status: 'complete' }).length
+            notStartedCount: _.where(dataItem.goal.indicators, { status: 'notstarted' }).length
           };
 
           returnItem.totalCount = returnItem.notStartedCount + returnItem.inProgressCount + returnItem.completeCount;
-          returnItem.counts = [returnItem.notStartedCount, returnItem.inProgressCount, returnItem.completeCount];
-          returnItem.percentages = getPercentages([returnItem.notStartedCount, returnItem.inProgressCount, returnItem.completeCount]);          
+          returnItem.counts = [returnItem.completeCount, returnItem.inProgressCount, returnItem.notStartedCount];
+          returnItem.percentages = getPercentages([returnItem.completeCount, returnItem.inProgressCount, returnItem.notStartedCount]);
           
           return returnItem;
         });    
@@ -49,9 +49,9 @@ var reportingStatus = function(indicatorDataStore) {
         var overall = {
           totalCount: _.chain(mappedData).pluck('totalCount').reduce(function(sum, n) { return sum + n; }).value(),
           counts: [
-            getTotalByStatus('notStartedCount'),
+            getTotalByStatus('completeCount'),
             getTotalByStatus('inProgressCount'),
-            getTotalByStatus('completeCount')
+            getTotalByStatus('notStartedCount')
           ]
         };
 
@@ -71,7 +71,7 @@ $(function() {
   if($('.container').hasClass('reportingstatus')) {
     var url = $('.container.reportingstatus').attr('data-url'),
         status = new reportingStatus(new indicatorDataStore(url)),
-        types = ['Exploring data sources', 'Statistics in progress', 'Reported online'],
+        types = ['Reported online', 'Statistics in progress', 'Exploring data sources'],
         bindData = function(el, data) {
           $(el).find('.goal-stats span').each(function(index, statEl) {
             var percentage = Math.round(Number(((data.counts[index] / data.totalCount) * 100))) + '%';
