@@ -9,7 +9,9 @@ This page shares information for people using this website and for countries wis
 We have also developed a set of [wiki pages]( https://github.com/datasciencecampus/sdg-indicators/wiki) which include more detailed technical information.
 
 ## Using this website
-Answers to some specific questions about the website are included in our [Frequently Asked Questions](https://datasciencecampus.github.io/sdg-indicators/faq/) page.
+Answers to some specific questions about the website are included in our [Frequently Asked Questions]({{ site.baseurl }}/faq/) page.
+
+View this [presentation (.pps file 5.5Mb)]({{ site.baseurl}}/public/UK-SDG-NRP_hi-res.pps) on the site's main features.
 
 Our wiki pages also include more detailed information for people adding data and metadata:
 - [Raw data format]( https://github.com/datasciencecampus/sdg-indicators/wiki/Raw-data-format)
