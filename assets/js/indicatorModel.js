@@ -70,10 +70,10 @@ var indicatorModel = function (options) {
           };
         });
       })).map(function(r) {
-        return {
+        return r.length ? {
           unit: r[0].unit,
           fields: _.pluck(_.where(r, { fieldData: true }), 'field')
-        };
+        } : {};
       }).value();
 
       // determine if the fields vary by unit:
