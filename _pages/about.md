@@ -13,8 +13,3 @@ We initially based the UK website on the [US SDG reporting platform](https://sdg
 Other countries wishing to reuse the UK or US SDG reporting platforms are welcome to do so for free. Our [Guidance page](https://sustainabledevelopment-uk.github.io/guidance/) highlights key information on how to do this, linking to detailed technical instructions available in our [wiki pages](https://github.com/datasciencecampus/sdg-indicators/wiki). The US have also produced various [training materials](https://sdg.data.gov/training/). The  [Center for Open Data Enterprise (CODE)](http://www.opendataenterprise.org/) can also provide guidance and support through their [SDG National Reporting Initiative](https://www.sdgreporting.org/).
 
 If you have any feedback on this website or UK SDG data then please contact us at <a href="mailto:sustainabledevelopment@ons.gov.uk">sustainabledevelopment@ons.gov.uk</a>. The answers to some frequently asked questions can be found in our [FAQ]({{ site.baseurl }}{% link _pages/faq.md %}).
-
-<a class="twitter-timeline"
-  href="https://twitter.com/https://twitter.com/StatsClaudie">
-Tweets by @StatsClaudie
-</a>
