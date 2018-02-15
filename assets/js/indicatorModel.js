@@ -472,7 +472,6 @@ var indicatorModel = function (options) {
     // restrict count if it exceeds the limit:
     if(filteredDatasets.length > maxDatasetCount) {
       datasetCountExceedsMax = true;
-      filteredDatasets = filteredDatasets.slice(0, maxDatasetCount);
     }
 
     _.chain(filteredDatasets)
@@ -492,7 +491,7 @@ var indicatorModel = function (options) {
       
     this.onDataComplete.notify({
       datasetCountExceedsMax: datasetCountExceedsMax,
-      datasets: datasets,
+      datasets: datasetCountExceedsMax ? datasets.slice(0, maxDatasetCount) : datasets,
       labels: this.years,
       headlineTable: headlineTable,
       selectionsTable: selectionsTable,
