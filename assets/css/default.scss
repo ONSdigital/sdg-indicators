@@ -1003,6 +1003,31 @@ h5 + .btn-download {
     }
     table {
       th, td { white-space: nowrap; }
+
+      th {
+        cursor: pointer;
+
+        span.sort {
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-color: transparent;
+          display: inline-block;
+          width: 24px;
+          height: 19px;
+          margin-bottom: -3px;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &.sorting_asc {
+          span.sort { background-image: url(../img/sort_asc.png); }
+        }
+        &.sorting_desc {
+          span.sort { background-image: url(../img/sort_desc.png); }
+        }
+      }
     }
 
     padding-bottom: 20px;
