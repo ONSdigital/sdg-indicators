@@ -399,16 +399,17 @@ var indicatorView = function (model, options) {
     var datatables_options = options.datatables_options || {
       paging: false,
       bInfo: false,
+      bAutoWidth: false,
       searching: false,
       responsive: false
     }, table = $(el).find('table');
     
     // equal width columns:
-    datatables_options.aoColumns = _.map(table.find('th'), function () {
-      return {
-        sWidth: (100 / table.find('th').length) + '%'
-      };
-    });
+    // datatables_options.aoColumns = _.map(table.find('th'), function () {
+    //   return {
+    //     sWidth: (100 / table.find('th').length) + '%'
+    //   };
+    // });
     datatables_options.aaSorting = [];
     
     $(el).find('table').DataTable(datatables_options);
