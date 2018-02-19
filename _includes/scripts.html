@@ -56,7 +56,12 @@ $(function() {
       }),
       view  = new indicatorView(model, {
         rootElement: '#indicatorData',
-        maxChartHeight: 600
+        maxChartHeight: 600,
+        tableColumnDefs: [
+          { maxCharCount: 25 }, // nowrap
+          { maxCharCount: 35, width: 200 },
+          { maxCharCount: Infinity, width: 250 }
+        ]
       }),
       controller = new indicatorController(model, view);
       controller.initialise();

@@ -9,6 +9,7 @@ var indicatorView = function (model, options) {
   
   this._chartInstance = undefined;
   this._rootElement = options.rootElement;
+  this._tableColumnDefs = options.tableColumnDefs;
   
   var chartHeight = screen.height < options.maxChartHeight ? screen.height : options.maxChartHeight;
   
@@ -395,7 +396,6 @@ var indicatorView = function (model, options) {
   };
   
   var initialiseDataTable = function(el) {
-    //if(!$.fn.dataTable.isDataTable($(el).find('table'))) {
     var datatables_options = options.datatables_options || {
       paging: false,
       bInfo: false,
@@ -403,16 +403,46 @@ var indicatorView = function (model, options) {
       searching: false,
       responsive: false
     }, table = $(el).find('table');
-    
-    // equal width columns:
-    // datatables_options.aoColumns = _.map(table.find('th'), function () {
-    //   return {
-    //     sWidth: (100 / table.find('th').length) + '%'
-    //   };
-    // });
+
     datatables_options.aaSorting = [];
     
     $(el).find('table').DataTable(datatables_options);
+
+    table.find('th').each(function() {
+      var textLength = $(this).text().length;
+      for(var loop = 0; loop < view_obj._tableColumnDefs.length; loop++) {
+        var def = view_obj._tableColumnDefs[loop];
+        if(textLength < def.maxCharCount) {
+          if(!def.width) {
+            $(this).css('white-space', 'nowrap');
+          } else {
+            $(this).css('width', def.width + 'px');
+            $(this).data('width', def.width);
+          }
+          break;
+        }
+      } 
+    });
+
+    $(el).find('table').removeAttr('style width');
+    
+    var totalWidth = 0;
+    table.find('th').each(function() {
+      if($(this).data('width')) {
+        totalWidth += $(this).data('width');
+      } else {
+        totalWidth += $(this).width();
+      }
+    });
+
+    // ascertain whether the table should be width 100% or explicit width:
+    var containerWidth = table.closest('.dataTables_wrapper').width();
+
+    if(totalWidth > containerWidth) {
+      table.css('width', totalWidth + 'px');
+    } else {
+      table.css('width', '100%');
+    }
   };
   
   this.createSelectionsTable = function(chartInfo) {
