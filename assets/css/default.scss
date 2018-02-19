@@ -6,7 +6,7 @@ $main-background-color: #eaeaea;
 $dark-highlight : #0275d8;
 $vanilla: #fff;
 $footer-color : #E5E6E7;
-$goal-colors : #E52B3D #DDA63A #4C9F38 #C42130 #FF3E24 #28BCE1 #FCC30B #A21942 #FD6925 #DC1D67 #FD9C27 #BF8B2E #417D46 #0A96D8 #57BE2F #00689C #1F4A6A;
+$goal-colors : #E52B3D #DDA63A #4C9F38 #C42130 #FF3E24 #28BCE1 #FCC30B #A21942 #FD6925 #DD1367 #FD9C27 #BF8B2E #417D46 #0A96D8 #57BE2F #00689C #1F4A6A;
 $navbar-height : 175;
 $disclaimer-height: 40;
 $collapsed-navbar-height: $navbar-height - 30;
@@ -1002,7 +1002,32 @@ h5 + .btn-download {
       }
     }
     table {
-      width: auto;
+      th, td { white-space: nowrap; }
+
+      th {
+        cursor: pointer;
+
+        span.sort {
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-color: transparent;
+          display: inline-block;
+          width: 24px;
+          height: 19px;
+          margin-bottom: -3px;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &.sorting_asc {
+          span.sort { background-image: url(../img/sort_asc.png); }
+        }
+        &.sorting_desc {
+          span.sort { background-image: url(../img/sort_desc.png); }
+        }
+      }
     }
 
     padding-bottom: 20px;

@@ -401,7 +401,8 @@ var indicatorView = function (model, options) {
       bInfo: false,
       bAutoWidth: false,
       searching: false,
-      responsive: false
+      responsive: false,
+      order: [[0, 'asc']]
     }, table = $(el).find('table');
 
     datatables_options.aaSorting = [];
@@ -518,9 +519,15 @@ var indicatorView = function (model, options) {
       currentTable.append('<caption>' + that._model.chartTitle + '</caption>');
       
       var table_head = '<thead><tr>';
+
+      var getHeading = function(heading, index) {
+        var span = '<span class="sort" />';
+        var span_heading = '<span>' + heading + '</span>';
+        return (!index || heading.toLowerCase() == 'units') ? span_heading + span : span + span_heading;
+      };
       
       table.headings.forEach(function (heading, index) {
-        table_head += '<th' + (!index || heading.toLowerCase() == 'units' ? '': ' class="table-value"') + ' scope="col">' + heading + '</th>';
+        table_head += '<th' + (!index || heading.toLowerCase() == 'units' ? '': ' class="table-value"') + ' scope="col">' + getHeading(heading, index) + '</th>';
       });
       
       table_head += '</tr></thead>';
