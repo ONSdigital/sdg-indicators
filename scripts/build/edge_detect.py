@@ -68,13 +68,17 @@ def detect_all_edges(df, csv):
         a_without_b = x_without_y(df[a], df[b])
         b_without_a = x_without_y(df[b], df[a])
 
-        if a_without_b and not b_without_a:
+        # Check if a and b are not empty.
+        a_not_empty = not df[a].dropna().empty
+        b_not_empty = not df[b].dropna().empty
+
+        if a_without_b and not b_without_a and b_not_empty:
             # A is a parent of B
             edges = edges.append(pd.DataFrame({'From': [a], 'To': [b]}))
-        elif b_without_a and not a_without_b:
+        elif b_without_a and not a_without_b and a_not_empty:
             # B is a parent of A
             edges = edges.append(pd.DataFrame({'From': [b], 'To': [a]}))
-        elif not a_without_b and not b_without_a:
+        elif not a_without_b and not b_without_a and a_not_empty and b_not_empty:
             # Co-Depedent. Choose A as left-most.
             edges = edges.append(pd.DataFrame({'From': [a], 'To': [b]}))
 
