@@ -3,13 +3,12 @@ var indicatorView = function (model, options) {
   "use strict";
   
   var view_obj = this;
-  
-  //this._fieldLimit = 2;
   this._model = model;
   
   this._chartInstance = undefined;
   this._rootElement = options.rootElement;
   this._tableColumnDefs = options.tableColumnDefs;
+  this._legendElement = options.legendElement;
   
   var chartHeight = screen.height < options.maxChartHeight ? screen.height : options.maxChartHeight;
   
@@ -243,6 +242,8 @@ var indicatorView = function (model, options) {
     }
     
     view_obj._chartInstance.update(1000, true);
+
+    $(this._legendElement).html(view_obj._chartInstance.generateLegend());
   };
   
   this.createPlot = function (chartInfo) {
@@ -279,17 +280,34 @@ var indicatorView = function (model, options) {
         layout: {
           padding: {
             top: 20,
-            // default of 85, but do a rough line count based on 150 characters per line * 20 pixels per
-            // row
+            // default of 85, but do a rough line count based on 150 
+            // characters per line * 20 pixels per row
             bottom: that._model.footnote ? (20 * (that._model.footnote.length / 150)) + 85 : 85
           }
         },
-        legend: {
-          display: true,
-          usePointStyle: false,
-          position: 'bottom',
-          padding: 20
+        legendCallback: function(chart) {
+            console.log(chart.data);
+            var text = [];
+            text.push('<ul id="legend">');
+
+            _.each(chart.data.datasets, function(dataset) {
+              text.push('<li>');
+              text.push('<span class="swatch" style="border:2px solid ' + dataset.borderColor + ';background-color:' + dataset.backgroundColor + '"></span><span>' + dataset.label + '</span>');
+              text.push('</li>');
+            });
+            
+            text.push('</ul>');
+            return text.join("");
         },
+        legend: {
+          display: true
+        },
+        // legend: {
+        //   display: true,
+        //   usePointStyle: false,
+        //   position: 'bottom',
+        //   padding: 20,
+        // },
         title: {
           fontSize: 18,
           fontStyle: 'normal',

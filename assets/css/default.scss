@@ -939,6 +939,34 @@ h5 + .btn-download {
   #chartSelectionDownload {
     margin-top: -40px;
     margin-bottom: 10px;
+    clear: left;
+  }
+
+  #legend {
+    padding-left: 0;
+    li {
+      font-size: 13px;
+      list-style-type: none;
+      float: left;
+      margin-right: 10px;
+      color: #666;
+      line-height: 18px;
+    }
+    .swatch {
+      display: inline-block;
+      width: 45px;
+      height: 15px;
+      margin-right: 3px;
+    }
+    span {
+      vertical-align: middle;
+      line-height: 18px;
+    }
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
   }
 
   canvas {
