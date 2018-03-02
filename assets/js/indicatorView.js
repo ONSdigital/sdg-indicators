@@ -21,6 +21,11 @@ var indicatorView = function (model, options) {
       $($.fn.dataTable.tables(true)).css('width', '100%');
       $($.fn.dataTable.tables(true)).DataTable().columns.adjust().draw();
     });
+
+    $(view_obj._legendElement).on('click', 'li', function(e) {
+      $(this).toggleClass('notshown');
+      $(this).data('datasetindex');
+    });
   });
   
   this._model.onDataComplete.attach(function (sender, args) {
@@ -290,8 +295,8 @@ var indicatorView = function (model, options) {
             var text = [];
             text.push('<ul id="legend">');
 
-            _.each(chart.data.datasets, function(dataset) {
-              text.push('<li>');
+            _.each(chart.data.datasets, function(dataset, datasetIndex) {
+              text.push('<li data-datasetindex="' + datasetIndex + '">');
               text.push('<span class="swatch" style="border:2px solid ' + dataset.borderColor + ';background-color:' + dataset.backgroundColor + '"></span><span>' + dataset.label + '</span>');
               text.push('</li>');
             });
