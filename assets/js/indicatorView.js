@@ -24,7 +24,13 @@ var indicatorView = function (model, options) {
 
     $(view_obj._legendElement).on('click', 'li', function(e) {
       $(this).toggleClass('notshown');
-      $(this).data('datasetindex');
+
+      var ci = view_obj._chartInstance,
+          index = $(this).data('datasetindex'),
+          meta = ci.getDatasetMeta(index);
+
+      meta.hidden = meta.hidden === null? !ci.data.datasets[index].hidden : null;
+      ci.update();      
     });
   });
   
