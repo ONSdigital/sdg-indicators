@@ -297,9 +297,7 @@ var indicatorView = function (model, options) {
           }
         },
         legendCallback: function(chart) {
-            console.log(chart.data);
-            var text = [];
-            text.push('<ul id="legend">');
+            var text = ['<ul id="legend">'];
 
             _.each(chart.data.datasets, function(dataset, datasetIndex) {
               text.push('<li data-datasetindex="' + datasetIndex + '">');
@@ -403,6 +401,8 @@ var indicatorView = function (model, options) {
         putTextOutputs(graphFooterItems, 0);
       }
     });
+
+    $(this._legendElement).html(view_obj._chartInstance.generateLegend());
   };
   
   this.toCsv = function (tableData) {
