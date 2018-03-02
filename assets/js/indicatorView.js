@@ -309,14 +309,8 @@ var indicatorView = function (model, options) {
             return text.join("");
         },
         legend: {
-          display: true
+          display: false
         },
-        // legend: {
-        //   display: true,
-        //   usePointStyle: false,
-        //   position: 'bottom',
-        //   padding: 20,
-        // },
         title: {
           fontSize: 18,
           fontStyle: 'normal',
