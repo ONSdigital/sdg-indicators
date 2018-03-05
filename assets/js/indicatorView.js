@@ -301,12 +301,14 @@ var indicatorView = function (model, options) {
 
             _.each(chart.data.datasets, function(dataset, datasetIndex) {
               text.push('<li data-datasetindex="' + datasetIndex + '">');
-              text.push('<span class="swatch" style="border:2px solid ' + dataset.borderColor + ';background-color:' + dataset.backgroundColor + '"></span><span>' + dataset.label + '</span>');
+              text.push('<span class="swatch' + (dataset.borderDash ? ' dashed' : '') + '" style="background-color: ' + dataset.backgroundColor + '">');
+              text.push('</span>');
+              text.push(dataset.label);
               text.push('</li>');
             });
             
             text.push('</ul>');
-            return text.join("");
+            return text.join('');
         },
         legend: {
           display: false
