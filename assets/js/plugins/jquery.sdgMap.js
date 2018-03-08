@@ -62,6 +62,13 @@
         .attr('x', 20)
         .attr('y', 45);
 
+      var tooltip = $('<div />').attr('class', 'tooltip hidden');
+      $(this.element).append(tooltip);
+
+      //for tooltip 
+      // var offsetLeft = $(this.element).offset().left + 10;
+      // var offsetTop = $(this.element).offset().top + 10;
+      
       // Load map data
       d3.json(this.options.serviceUrl, function(error, mapData) {
         var features = mapData.features;
@@ -69,7 +76,7 @@
         // Update color scale domain based on data
         color.domain([0, d3.max(features, nameLength)]);
 
-        projection = d3.geoMercator().fitSize([width - (width / 10), height - (height / 10)], mapData);
+        projection = d3.geoMercator().fitSize([width, height], mapData);
         path = d3.geoPath().projection(projection);
 
         // Draw each geographical area as a path
@@ -82,6 +89,7 @@
           .style('stroke', '#ccc')
           .on('mouseover', mouseover)
           .on('mouseout', mouseout)
+          .on('mousemove', showTooltip)
           .on('click', clicked);
       });
 
@@ -132,6 +140,8 @@
       function mouseover(d){
         // Highlight hovered area
         d3.select(this).style('fill', 'orange');
+
+        console.log(getName(d));
       }
 
       function mouseout(d){
@@ -139,8 +149,21 @@
         mapLayer.selectAll('path')
           .style('fill', function(d){return centered && d===centered ? '#D5708B' : getFill(d);});
 
+        tooltip.addClass("hidden");
+
           // Clear area name
         // bigText.text('');
+      }
+
+      function showTooltip(d) {
+        var mouse = d3.mouse(svg.node())
+          .map( function(d) { return parseInt(d); } );
+
+          console.log(mouse);
+
+        tooltip.removeClass("hidden")
+          .attr("style", "left:"+(mouse[0] + 10)+"px;top:"+(mouse[1] + 10)+"px")
+          .html(d.properties.lad16nm);
       }
     },
   };
