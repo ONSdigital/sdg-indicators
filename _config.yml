@@ -146,88 +146,45 @@ prose:
       - name: "national_indicator_available"
         field:
             element: text
-            label: "Actual Indicator Available"
+            label: "Indicator available"
             scope: national
       - name: "national_indicator_description"
         field:
             element: text
-            label: "Actual Indicator Description"
-            scope: national
-      - name: "national_indicator_periodicity"
-        field:
-            element: text
-            label: "Indicator Periodicity"
-            scope: national
-      - name: "national_earliest_available_data"
-        field:
-            element: text
-            label: "Earliest Available Data"
+            label: "Indicator description"
             scope: national
       - name: "national_geographical_coverage"
         field:
             element: text
-            label: "Geographic Coverage"
+            label: "Geographical coverage"
             scope: national
-      - name: "admin_release_date"
-        field:
-            element: text
-            label: "Release Date"
-            help: "A date in YYYY-MM-DD format"
-            placeholder: "YYYY-MM-DD"
-            scope: national
-      - name: "admin_next_release"
-        field:
-            element: text
-            label: "Next Release"
-            help: "A date in YYYY-MM-DD format"
-            placeholder: "YYYY-MM-DD"
-            scope: national
-      - name: "admin_statistical_classification"
-        field:
-            element: text
-            label: "Statistical Classification"
-            scope: national
-      - name: "computation_disaggregation"
-        field:
-            element: text
-            label: "Disaggregation"
-            scope: national
-      - name: "comments_limitations"
-        field:
-            element: text
-            label: "Comments and Limitations"
-            scope: national
-      - name: "admin_contact_details"
-        field:
-            element: text
-            label: "Contact Details"
-            scope: national
-      ######### Method of Computation #########
       - name: "computation_units"
         field:
             element: text
-            label: "Unit of Measurement"
-            scope: computation
-      - name: "computation_calculations"
-        field:
-            element: text
-            label: "Calculations"
-            scope: computation
-      - name: "computation_numerator"
-        field:
-            element: text
-            label: "Numerator"
-            scope: computation
-      - name: "computation_denominator"
-        field:
-            element: text
-            label: "Denominator"
-            scope: computation
+            label: "Unit of measurement"
+            scope: national
       - name: "computation_definitions"
         field:
             element: textarea
             label: "Definitions"
-            scope: computation
+            scope: national
+      - name: "computation_calculations"
+        field:
+            element: text
+            label: "Calculations"
+            scope: national
+      - name: "comments_limitations"
+        field:
+            element: text
+            label: "Other information"
+            scope: national
+      - name: "admin_release_date"
+        field:
+            element: text
+            label: "Last updated"
+            help: "A date in YYYY-MM-DD format"
+            placeholder: "YYYY-MM-DD"
+            scope: national
       ######### National Sources #########
       ## Source 1
       - name: source_active_1
