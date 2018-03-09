@@ -937,8 +937,53 @@ h5 + .btn-download {
   }
 
   #chartSelectionDownload {
-    margin-top: -40px;
+    // margin-top: -40px;
     margin-bottom: 10px;
+    clear: left;
+  }
+
+  #legend {
+    padding-left: 0;
+    text-align: center;
+    margin-top: -32px;
+    li {
+      font-size: 13px;
+      list-style-type: none;
+      display: inline-block;
+      color: #666;
+      line-height: 18px;
+      cursor: pointer;
+      padding: 5px;
+
+      &:hover {
+        background: #eee;
+      }
+
+      &.notshown {
+        text-decoration: line-through;
+      }
+    }
+    .swatch {
+      display: inline-block;
+      width: 45px;
+      height: 15px;
+      margin-right: 3px;
+
+      &.dashed {
+        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAABCAYAAADn9T9+AAAAFklEQVQImWP8////fwY0wMjIyIguBgCaAgQCms5tJwAAAABJRU5ErkJggg==');
+        background-repeat: repeat;
+        background-position: -5px 0;
+      }
+    }
+    span {
+      vertical-align: middle;
+      line-height: 18px;
+    }
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
   }
 
   canvas {

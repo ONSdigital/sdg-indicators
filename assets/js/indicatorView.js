@@ -3,13 +3,12 @@ var indicatorView = function (model, options) {
   "use strict";
   
   var view_obj = this;
-  
-  //this._fieldLimit = 2;
   this._model = model;
   
   this._chartInstance = undefined;
   this._rootElement = options.rootElement;
   this._tableColumnDefs = options.tableColumnDefs;
+  this._legendElement = options.legendElement;
   
   var chartHeight = screen.height < options.maxChartHeight ? screen.height : options.maxChartHeight;
   
@@ -23,6 +22,17 @@ var indicatorView = function (model, options) {
         $($.fn.dataTable.tables(true)).css('width', '100%');
         $($.fn.dataTable.tables(true)).DataTable().columns.adjust().draw();    
       }
+    });
+
+    $(view_obj._legendElement).on('click', 'li', function(e) {
+      $(this).toggleClass('notshown');
+
+      var ci = view_obj._chartInstance,
+          index = $(this).data('datasetindex'),
+          meta = ci.getDatasetMeta(index);
+
+      meta.hidden = meta.hidden === null? !ci.data.datasets[index].hidden : null;
+      ci.update();      
     });
   });
   
@@ -245,6 +255,8 @@ var indicatorView = function (model, options) {
     }
     
     view_obj._chartInstance.update(1000, true);
+
+    $(this._legendElement).html(view_obj._chartInstance.generateLegend());
   };
   
   this.createPlot = function (chartInfo) {
@@ -281,16 +293,27 @@ var indicatorView = function (model, options) {
         layout: {
           padding: {
             top: 20,
-            // default of 85, but do a rough line count based on 150 characters per line * 20 pixels per
-            // row
+            // default of 85, but do a rough line count based on 150 
+            // characters per line * 20 pixels per row
             bottom: that._model.footnote ? (20 * (that._model.footnote.length / 150)) + 85 : 85
           }
         },
+        legendCallback: function(chart) {
+            var text = ['<ul id="legend">'];
+
+            _.each(chart.data.datasets, function(dataset, datasetIndex) {
+              text.push('<li data-datasetindex="' + datasetIndex + '">');
+              text.push('<span class="swatch' + (dataset.borderDash ? ' dashed' : '') + '" style="background-color: ' + dataset.backgroundColor + '">');
+              text.push('</span>');
+              text.push(dataset.label);
+              text.push('</li>');
+            });
+            
+            text.push('</ul>');
+            return text.join('');
+        },
         legend: {
-          display: true,
-          usePointStyle: false,
-          position: 'bottom',
-          padding: 20
+          display: false
         },
         title: {
           fontSize: 18,
@@ -376,6 +399,8 @@ var indicatorView = function (model, options) {
         putTextOutputs(graphFooterItems, 0);
       }
     });
+
+    $(this._legendElement).html(view_obj._chartInstance.generateLegend());
   };
   
   this.toCsv = function (tableData) {
