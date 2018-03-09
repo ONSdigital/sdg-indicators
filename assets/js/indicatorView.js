@@ -3,23 +3,36 @@ var indicatorView = function (model, options) {
   "use strict";
   
   var view_obj = this;
-  
-  //this._fieldLimit = 2;
   this._model = model;
   
   this._chartInstance = undefined;
   this._rootElement = options.rootElement;
+  this._tableColumnDefs = options.tableColumnDefs;
+  this._legendElement = options.legendElement;
   
   var chartHeight = screen.height < options.maxChartHeight ? screen.height : options.maxChartHeight;
   
   $('.plot-container', this._rootElement).css('height', chartHeight + 'px');
   
   $(document).ready(function() {
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-      // var target = $(e.target).attr("href"); // activated tab
-      // alert (target);
-      $($.fn.dataTable.tables(true)).css('width', '100%');
-      $($.fn.dataTable.tables(true)).DataTable().columns.adjust().draw();
+    $(view_obj._rootElement).find('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+      if($(e.target).attr('href') == '#tableview') {
+        setDataTableWidth($(view_obj._rootElement).find('#selectionsTable table'));
+      } else {
+        $($.fn.dataTable.tables(true)).css('width', '100%');
+        $($.fn.dataTable.tables(true)).DataTable().columns.adjust().draw();    
+      }
+    });
+
+    $(view_obj._legendElement).on('click', 'li', function(e) {
+      $(this).toggleClass('notshown');
+
+      var ci = view_obj._chartInstance,
+          index = $(this).data('datasetindex'),
+          meta = ci.getDatasetMeta(index);
+
+      meta.hidden = meta.hidden === null? !ci.data.datasets[index].hidden : null;
+      ci.update();      
     });
   });
   
@@ -242,6 +255,8 @@ var indicatorView = function (model, options) {
     }
     
     view_obj._chartInstance.update(1000, true);
+
+    $(this._legendElement).html(view_obj._chartInstance.generateLegend());
   };
   
   this.createPlot = function (chartInfo) {
@@ -278,16 +293,27 @@ var indicatorView = function (model, options) {
         layout: {
           padding: {
             top: 20,
-            // default of 85, but do a rough line count based on 150 characters per line * 20 pixels per
-            // row
+            // default of 85, but do a rough line count based on 150 
+            // characters per line * 20 pixels per row
             bottom: that._model.footnote ? (20 * (that._model.footnote.length / 150)) + 85 : 85
           }
         },
+        legendCallback: function(chart) {
+            var text = ['<ul id="legend">'];
+
+            _.each(chart.data.datasets, function(dataset, datasetIndex) {
+              text.push('<li data-datasetindex="' + datasetIndex + '">');
+              text.push('<span class="swatch' + (dataset.borderDash ? ' dashed' : '') + '" style="background-color: ' + dataset.backgroundColor + '">');
+              text.push('</span>');
+              text.push(dataset.label);
+              text.push('</li>');
+            });
+            
+            text.push('</ul>');
+            return text.join('');
+        },
         legend: {
-          display: true,
-          usePointStyle: false,
-          position: 'bottom',
-          padding: 20
+          display: false
         },
         title: {
           fontSize: 18,
@@ -373,6 +399,8 @@ var indicatorView = function (model, options) {
         putTextOutputs(graphFooterItems, 0);
       }
     });
+
+    $(this._legendElement).html(view_obj._chartInstance.generateLegend());
   };
   
   this.toCsv = function (tableData) {
@@ -393,25 +421,60 @@ var indicatorView = function (model, options) {
     
     return lines.join('\n');
   };
+
+  var setDataTableWidth = function(table) {
+    table.find('th').each(function() {
+      var textLength = $(this).text().length;
+      for(var loop = 0; loop < view_obj._tableColumnDefs.length; loop++) {
+        var def = view_obj._tableColumnDefs[loop];
+        if(textLength < def.maxCharCount) {
+          if(!def.width) {
+            $(this).css('white-space', 'nowrap');
+          } else {
+            $(this).css('width', def.width + 'px');
+            $(this).data('width', def.width);
+          }
+          break;
+        }
+      } 
+    });
+
+    table.removeAttr('style width');
+    
+    var totalWidth = 0;
+    table.find('th').each(function() {
+      if($(this).data('width')) {
+        totalWidth += $(this).data('width');
+      } else {
+        totalWidth += $(this).width();
+      }
+    });
+
+    // ascertain whether the table should be width 100% or explicit width:
+    var containerWidth = table.closest('.dataTables_wrapper').width();
+
+    if(totalWidth > containerWidth) {
+      table.css('width', totalWidth + 'px');
+    } else {
+      table.css('width', '100%');
+    }
+  };
   
   var initialiseDataTable = function(el) {
-    //if(!$.fn.dataTable.isDataTable($(el).find('table'))) {
     var datatables_options = options.datatables_options || {
       paging: false,
       bInfo: false,
+      bAutoWidth: false,
       searching: false,
-      responsive: false
+      responsive: false,
+      order: [[0, 'asc']]
     }, table = $(el).find('table');
-    
-    // equal width columns:
-    datatables_options.aoColumns = _.map(table.find('th'), function () {
-      return {
-        sWidth: (100 / table.find('th').length) + '%'
-      };
-    });
+
     datatables_options.aaSorting = [];
     
-    $(el).find('table').DataTable(datatables_options);
+    table.DataTable(datatables_options);
+
+    setDataTableWidth(table);
   };
   
   this.createSelectionsTable = function(chartInfo) {
@@ -487,9 +550,15 @@ var indicatorView = function (model, options) {
       currentTable.append('<caption>' + that._model.chartTitle + '</caption>');
       
       var table_head = '<thead><tr>';
+
+      var getHeading = function(heading, index) {
+        var span = '<span class="sort" />';
+        var span_heading = '<span>' + heading + '</span>';
+        return (!index || heading.toLowerCase() == 'units') ? span_heading + span : span + span_heading;
+      };
       
       table.headings.forEach(function (heading, index) {
-        table_head += '<th' + (!index || heading.toLowerCase() == 'units' ? '': ' class="table-value"') + ' scope="col">' + heading + '</th>';
+        table_head += '<th' + (!index || heading.toLowerCase() == 'units' ? '': ' class="table-value"') + ' scope="col">' + getHeading(heading, index) + '</th>';
       });
       
       table_head += '</tr></thead>';

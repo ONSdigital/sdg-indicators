@@ -70,10 +70,10 @@ var indicatorModel = function (options) {
           };
         });
       })).map(function(r) {
-        return {
+        return r.length ? {
           unit: r[0].unit,
           fields: _.pluck(_.where(r, { fieldData: true }), 'field')
-        };
+        } : {};
       }).value();
 
       // determine if the fields vary by unit:
@@ -472,7 +472,6 @@ var indicatorModel = function (options) {
     // restrict count if it exceeds the limit:
     if(filteredDatasets.length > maxDatasetCount) {
       datasetCountExceedsMax = true;
-      filteredDatasets = filteredDatasets.slice(0, maxDatasetCount);
     }
 
     _.chain(filteredDatasets)
@@ -492,7 +491,7 @@ var indicatorModel = function (options) {
       
     this.onDataComplete.notify({
       datasetCountExceedsMax: datasetCountExceedsMax,
-      datasets: datasets,
+      datasets: datasetCountExceedsMax ? datasets.slice(0, maxDatasetCount) : datasets,
       labels: this.years,
       headlineTable: headlineTable,
       selectionsTable: selectionsTable,
