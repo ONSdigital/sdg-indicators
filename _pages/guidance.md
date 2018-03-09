@@ -16,6 +16,7 @@ View this [presentation (.pps file 5.5Mb)]({{ site.baseurl}}/public/UK-SDG-NRP_h
 Our wiki pages also include more detailed information for people adding data and metadata:
 - [Raw data format]( https://github.com/datasciencecampus/sdg-indicators/wiki/Raw-data-format)
 -	[Metadata format](https://github.com/datasciencecampus/sdg-indicators/wiki/Metadata-format)
+- [Data scenarios and characteristics](https://github.com/datasciencecampus/sdg-indicators/wiki/Data-scenarios-and-characteristics)
 
 ## Creating a copy of this website
 Other countries wishing to reuse this UK SDG reporting platforms or the [US SDG reporting platform](https://sdg.data.gov/) are welcome to do so for free.

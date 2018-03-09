@@ -14,30 +14,6 @@
 <script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
 <script>
 $(function() {
-      $('#metadata .collapsible h3').click(function() {
-      var $container = $(this).closest('div'),
-          $article = $(this).next('article'),
-          $span = $(this).find('span');
-
-      $article.slideToggle(function() {
-        if($container.hasClass('expanded')) {
-          $container.removeClass('expanded');
-          $container.addClass('collapsed');
-          $span.html(' (Expand)');
-        } else {
-          $container.removeClass('collapsed');
-          $container.addClass('expanded');
-          $span.html(' (Collapse)');
-        }
-      });
-    });
-
-    $('#metadata .collapsible h3').keypress(function (e) {
-      if(e.which == 13) { // Enter key
-        $(this).trigger('click');
-      };
-    });
-
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
 
@@ -56,7 +32,13 @@ $(function() {
       }),
       view  = new indicatorView(model, {
         rootElement: '#indicatorData',
-        maxChartHeight: 600
+        legendElement: '#plotLegend',
+        maxChartHeight: 600,
+        tableColumnDefs: [
+          { maxCharCount: 25 }, // nowrap
+          { maxCharCount: 35, width: 200 },
+          { maxCharCount: Infinity, width: 250 }
+        ]
       }),
       controller = new indicatorController(model, view);
       controller.initialise();

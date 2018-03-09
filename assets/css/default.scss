@@ -6,7 +6,7 @@ $main-background-color: #eaeaea;
 $dark-highlight : #0275d8;
 $vanilla: #fff;
 $footer-color : #E5E6E7;
-$goal-colors : #E52B3D #DDA63A #4C9F38 #C42130 #FF3E24 #28BCE1 #FCC30B #A21942 #FD6925 #DC1D67 #FD9C27 #BF8B2E #417D46 #0A96D8 #57BE2F #00689C #1F4A6A;
+$goal-colors : #E52B3D #DDA63A #4C9F38 #C42130 #FF3E24 #28BCE1 #FCC30B #A21942 #FD6925 #DD1367 #FD9C27 #BF8B2E #417D46 #0A96D8 #57BE2F #00689C #1F4A6A;
 $navbar-height : 175;
 $disclaimer-height: 40;
 $collapsed-navbar-height: $navbar-height - 30;
@@ -937,8 +937,53 @@ h5 + .btn-download {
   }
 
   #chartSelectionDownload {
-    margin-top: -40px;
+    // margin-top: -40px;
     margin-bottom: 10px;
+    clear: left;
+  }
+
+  #legend {
+    padding-left: 0;
+    text-align: center;
+    margin-top: -32px;
+    li {
+      font-size: 13px;
+      list-style-type: none;
+      display: inline-block;
+      color: #666;
+      line-height: 18px;
+      cursor: pointer;
+      padding: 5px;
+
+      &:hover {
+        background: #eee;
+      }
+
+      &.notshown {
+        text-decoration: line-through;
+      }
+    }
+    .swatch {
+      display: inline-block;
+      width: 45px;
+      height: 15px;
+      margin-right: 3px;
+
+      &.dashed {
+        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAABCAYAAADn9T9+AAAAFklEQVQImWP8////fwY0wMjIyIguBgCaAgQCms5tJwAAAABJRU5ErkJggg==');
+        background-repeat: repeat;
+        background-position: -5px 0;
+      }
+    }
+    span {
+      vertical-align: middle;
+      line-height: 18px;
+    }
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
   }
 
   canvas {
@@ -964,6 +1009,7 @@ h5 + .btn-download {
       border: none;
       a {
         border: none;
+        padding-left: 5px;
         &:hover {
           background: none;
         }
@@ -979,9 +1025,9 @@ h5 + .btn-download {
   .tab-content {
     .tab-pane {
       padding-top: 1.5rem;
-      th {
-        width: 35%;
-      }
+      // th {
+      //   width: 35%;
+      // }
       #datatable {
         overflow-x: auto;
       }
@@ -1002,7 +1048,30 @@ h5 + .btn-download {
       }
     }
     table {
-      th, td { white-space: nowrap; }
+      th {
+        cursor: pointer;
+
+        span.sort {
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-color: transparent;
+          display: inline-block;
+          width: 24px;
+          height: 19px;
+          margin-bottom: -3px;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &.sorting_asc {
+          span.sort { background-image: url(../img/sort_asc.png); }
+        }
+        &.sorting_desc {
+          span.sort { background-image: url(../img/sort_desc.png); }
+        }
+      }
     }
 
     padding-bottom: 20px;
