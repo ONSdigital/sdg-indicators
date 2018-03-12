@@ -16,6 +16,9 @@
     this._defaults = defaults;
     this._name = pluginName;
 
+    //this.valueRange = [_.min(_.pluck(_.where(this.options.geoData, { Year: '2017' }), 'Value')), _.max(_.pluck(_.where(this.options.geoData, { Year: '2017' }), 'Value'))];
+    this.valueRange = [_.min(_.pluck(this.options.geoData, 'Value')), _.max(_.pluck(this.options.geoData, 'Value'))];
+
     this.init();
   }
 
@@ -32,9 +35,11 @@
 
       // Define color scale
       var color = d3.scaleLinear()
-        .domain([1, 20])
-        .clamp(true)
-        .range(['#fff', '#409A99']);
+        .domain([1, 10])
+        //.clamp(true)
+        .range(['#fff', '#004433']);
+
+      color.domain(this.valueRange);
 
       // Add background
       svg.append('rect')
@@ -69,12 +74,14 @@
       // var offsetLeft = $(this.element).offset().left + 10;
       // var offsetTop = $(this.element).offset().top + 10;
       
+      var that = this;
+
       // Load map data
       d3.json(this.options.serviceUrl, function(error, mapData) {
         var features = mapData.features;
 
         // Update color scale domain based on data
-        color.domain([0, d3.max(features, nameLength)]);
+        //color.domain([d3.min(features, getValue.bind(that)), d3.max(features, getValue.bind(that))]);
 
         projection = d3.geoMercator().fitSize([width, height], mapData);
         path = d3.geoPath().projection(projection);
@@ -98,6 +105,16 @@
         return d && d.properties ? d.properties.lad16nm : null;
       }
 
+      // Get 
+      function getValue(d) {
+        var geoDataItem = _.findWhere(this.options.geoData, { 
+          GeoCode: d.properties.lad16cd,
+          Year: '2017'
+        });
+
+        return geoDataItem ? geoDataItem.Value : 0;
+      }
+
       // Get area name length
       function nameLength(d){
         var n = getName(d);
@@ -106,7 +123,7 @@
 
       // Get area color
       function getFill(d){
-        return color(nameLength(d));
+        return color(getValue.call(that, d));
       }
 
       // When clicked, zoom in
@@ -141,7 +158,7 @@
         // Highlight hovered area
         d3.select(this).style('fill', 'orange');
 
-        console.log(getName(d));
+        //console.log(getName(d));
       }
 
       function mouseout(d){
@@ -159,13 +176,12 @@
         var mouse = d3.mouse(svg.node())
           .map( function(d) { return parseInt(d); } );
 
-          console.log(mouse);
-
         tooltip.removeClass("hidden")
           .attr("style", "left:"+(mouse[0] + 10)+"px;top:"+(mouse[1] + 10)+"px")
-          .html(d.properties.lad16nm);
+          .html(d.properties.lad16nm +  ' ' + getValue.call(that, d) + ' (' + d.properties.lad16cd + ')' );
       }
     },
+    // additional funcs
   };
 
   // A really lightweight plugin wrapper around the constructor,
