@@ -72,8 +72,7 @@
 
       //for tooltip 
       // var offsetLeft = $(this.element).offset().left + 10;
-      // var offsetTop = $(this.element).offset().top + 10;
-      
+       
       var that = this;
 
       // Load map data
@@ -88,7 +87,7 @@
 
         // Draw each geographical area as a path
         mapLayer.selectAll('path')
-          .data(features)
+          .data(features)       
           .enter().append('path')
           .attr('d', path)
           .attr('vector-effect', 'non-scaling-stroke')
@@ -98,7 +97,25 @@
           .on('mouseout', mouseout)
           .on('mousemove', showTooltip)
           .on('click', clicked);
+
+        appendScale.call(that);
       });
+
+      function appendScale() {
+        var key = d3.select(this.element).append("svg").attr("id", "key").attr("width", this.options.width).attr("height", 40);  
+
+        var length = 5;
+        var color = d3.scaleLinear().domain([0, length - 1]).range(['#ffffff', '#004433']);
+
+        for (var i = 0; i < length; i++) {
+          key.append('rect')
+            .attr('x', i * this.options.width / 5)
+            .attr('y', 0)
+            .attr('width', this.options.width / 5)
+            .attr('height', 20)
+            .attr('fill', color(i));
+        }
+      }
 
       // Get area name
       function getName(d){
