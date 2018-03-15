@@ -1,8 +1,15 @@
 #!/bin/bash
 
+# On Windows I can't map python3 to python
+if [[ $(uname) = *"_NT"* ]]; then
+  PY=python
+else
+  PY=python3
+fi
+
 # Pre-processing
-python3 scripts/build/edge_detect.py || exit 1
-python3 scripts/build/headlines.py || exit 1
+$PY scripts/build/edge_detect.py || exit 1
+$PY scripts/build/headlines.py || exit 1
 
 # Instead of seperate prods just update variables that differ
 if [ "$TRAVIS_BRANCH" = "master" ]; then
