@@ -46,9 +46,9 @@ def check_required(meta, fname):
               print(req + " missing in " + fname)
               status = False
 
-    if (meta['published']):
+    if (meta['reporting_status'] == 'complete'):
         if('data_non_statistical' not in meta):
-            print("data_non_statistical" + " missing in " + fname + " for published indicator")
+            print("data_non_statistical" + " missing in " + fname + " for published reported indicator")
             status = False
         
     return status
