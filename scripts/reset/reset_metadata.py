@@ -14,7 +14,7 @@ import os
 
 # %% A dictionary of defaults to add
 
-add_fields = {'reporting_status': 'notstarted'}
+add_fields = {'reporting_status': 'notstarted', published: False, graph_type: 'line'}
 
 # %% Which metadata items do we keep?
 
@@ -64,6 +64,7 @@ def reset_meta(meta, fname, keep_fields):
 
     # Add the defaults
     final_meta = {**keep_meta, **add_fields}
+
 
     # Write to a string first because I want to override trailing dots
     yaml_string = yaml.dump(final_meta,
