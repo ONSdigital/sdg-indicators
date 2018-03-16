@@ -6,7 +6,7 @@ layout: page
 
 As well as collecting and reporting UK data for the global Sustainable Development Goals indicators, ONS will be releasing various publications putting the numbers into context. We will make these publications available on this page.
 
-If you have any feedback on our publications please contact us at <a href="mailto:sustainabledevelopment@ons.gov.uk">sustainabledevelopment@ons.gov.uk</a>
+If you have any feedback on our publications please contact us at <a href="mailto:{{site.email_contacts.suggestions}}">{{site.email_contacts.suggestions}}</a>
 
 ## Publications
 
