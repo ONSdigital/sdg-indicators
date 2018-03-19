@@ -76,6 +76,7 @@
         .on('click', clicked.bind(this, null));
       $(this.element).append(resetButton);
 
+   //   var infoPanel = 
 
       var that = this;
 
@@ -201,7 +202,7 @@
 
         tooltip.removeClass("hidden")
           .attr("style", "left:"+(mouse[0] + 10)+"px;top:"+(mouse[1] + 10)+"px")
-          .html(d.properties.lad16nm +  ' ' + getValue.call(that, d) + ' (' + d.properties.lad16cd + ')' );
+          .html(d.properties.lad16nm);// +  ' ' + getValue.call(that, d) + ' (' + d.properties.lad16cd + ')' );
       }
     },
     // additional funcs
