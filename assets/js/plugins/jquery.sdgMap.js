@@ -8,7 +8,6 @@
       height: 500
     };
 
-  // The actual plugin constructor
   function Plugin(element, options) {
     this.element = element;
     this.options = $.extend({}, defaults, options);
@@ -76,7 +75,9 @@
         .on('click', clicked.bind(this, null));
       $(this.element).append(resetButton);
 
-   //   var infoPanel = 
+      var infoPanel = $('<div />')
+        .attr('id', 'infoPanel');
+      $(this.element).append(infoPanel);
 
       var that = this;
 
@@ -101,7 +102,7 @@
           .on('mouseover', mouseover)
           .on('mouseout', mouseout)
           .on('mousemove', showTooltip)
-          .on('click', clicked);
+          .on('click', clicked.bind(that));
 
         appendScale.call(that);
       });
@@ -137,6 +138,12 @@
         return geoDataItem ? geoDataItem.Value : 0;
       }
 
+      function getYearValues(d) {
+        return _.where(this.options.geoData, { 
+          GeoCode: d.properties.lad16cd
+        });
+      }
+
       // Get area name length
       function nameLength(d){
         var n = getName(d);
@@ -146,6 +153,28 @@
       // Get area color
       function getFill(d){
         return color(getValue.call(that, d));
+      }
+
+      function showInfoPanel(d) {
+        var yearValues = getYearValues.call(this, d),
+          content = '<h2>' + getName(d) + '</h2>';
+        
+        if(yearValues.length) {
+          content += '<table><tr>' +
+            _.map(_.pluck(yearValues, 'Year'), function(year) { return '<th>' + year + '</th>'; }).join('') + 
+            '</tr><tr>' + 
+            _.map(_.pluck(yearValues, 'Value'), function(value) { return '<td>' + value + '</td>'; }).join('') + 
+            '</tr></table>';
+        } else {
+          content += '<p>No data available</p>';
+        }
+
+        infoPanel.html(content);
+        infoPanel.fadeIn();
+      }
+
+      function hideInfoPanel() {
+        infoPanel.fadeOut();
       }
 
       // When clicked, zoom in
@@ -159,14 +188,19 @@
           y = centroid[1];
           k = 4;
           centered = d;
+
+          showInfoPanel.call(this, d);
+          resetButton.show();
+
         } else {
           x = width / 2;
           y = height / 2;
           k = 1;
           centered = null;
-        }
 
-        resetButton[centered ? 'show' : 'hide']();
+          hideInfoPanel();
+          resetButton.hide();
+        }
 
         // Highlight the clicked area
         mapLayer.selectAll('path')
