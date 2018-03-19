@@ -70,9 +70,13 @@
       var tooltip = $('<div />').attr('class', 'tooltip hidden');
       $(this.element).append(tooltip);
 
-      //for tooltip 
-      // var offsetLeft = $(this.element).offset().left + 10;
-       
+      var resetButton = $('<button />')
+        .attr('id', 'resetButton')
+        .html('<i class="fa fa-refresh"></i>Reset')
+        .on('click', clicked.bind(this, null));
+      $(this.element).append(resetButton);
+
+
       var that = this;
 
       // Load map data
@@ -160,6 +164,8 @@
           k = 1;
           centered = null;
         }
+
+        resetButton[centered ? 'show' : 'hide']();
 
         // Highlight the clicked area
         mapLayer.selectAll('path')
