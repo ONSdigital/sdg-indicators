@@ -105,6 +105,11 @@
 
       // Load map data
       d3.json(this.options.serviceUrl, function(error, mapData) {
+
+        if(error || !mapData.features) {
+          return showError.call(that);
+        }
+
         var features = mapData.features;
 
         // Update color scale domain based on data
@@ -143,6 +148,13 @@
             .attr('height', 20)
             .attr('fill', color(i));
         }
+      }
+
+      function showError() {
+        $(this.element).html(
+          $('<div />').attr('class', 'alert alert-danger')
+                      .html('Sorry, the map service is currently unavailable')
+        );
       }
 
       // Get area name
