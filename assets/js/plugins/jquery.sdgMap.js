@@ -18,6 +18,8 @@
     //this.valueRange = [_.min(_.pluck(_.where(this.options.geoData, { Year: '2017' }), 'Value')), _.max(_.pluck(_.where(this.options.geoData, { Year: '2017' }), 'Value'))];
     this.valueRange = [_.min(_.pluck(this.options.geoData, 'Value')), _.max(_.pluck(this.options.geoData, 'Value'))];
 
+    this.years = _.uniq(_.pluck(this.options.geoData, 'Year'));
+    
     this.init();
   }
 
@@ -74,6 +76,27 @@
         .html('<i class="fa fa-refresh"></i>Reset')
         .on('click', clicked.bind(this, null));
       $(this.element).append(resetButton);
+
+      var slider = d3.sliderHorizontal()
+        .min(_.min(this.years))
+        .max(_.max(this.years))
+        .step(1)
+        .width(200)
+        .tickFormat(d3.format('d'))
+        .displayValue(false)
+        .tickValues(this.years)
+        .on('onchange', function(val) {
+          //console.log(val);
+        });
+
+      $(this.element).append($('<div />').attr('id', 'slider'));
+
+      d3.select("#slider").append("svg")
+        .attr("width", 275)
+        .attr("height", 100)
+        .append("g")
+        .attr("transform", "translate(30,30)")
+        .call(slider);
 
       var infoPanel = $('<div />')
         .attr('id', 'infoPanel');
