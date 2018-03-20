@@ -19,6 +19,7 @@
     this.valueRange = [_.min(_.pluck(this.options.geoData, 'Value')), _.max(_.pluck(this.options.geoData, 'Value'))];
 
     this.years = _.uniq(_.pluck(this.options.geoData, 'Year'));
+    this.currentYear = this.years[0];
     
     this.init();
   }
@@ -85,9 +86,7 @@
         .tickFormat(d3.format('d'))
         .displayValue(false)
         .tickValues(this.years)
-        .on('onchange', function(val) {
-          //console.log(val);
-        });
+        .on('onchange', updateCurrentYear.bind(this));
 
       $(this.element).append($('<div />').attr('id', 'slider'));
 
@@ -165,6 +164,10 @@
         return _.where(this.options.geoData, { 
           GeoCode: d.properties.lad16cd
         });
+      }
+
+      function updateCurrentYear(year) {
+        this.currentYear = year;
       }
 
       // Get area name length
