@@ -26,7 +26,7 @@
   Plugin.prototype = {
     init: function() {
       var centered, projection, path,
-        g, effectLayer, mapLayer, resetButton, 
+        g, effectLayer, resetButton, 
         tooltip, slider, infoPanel,
         that = this,
         width = this.options.width,
@@ -58,15 +58,15 @@
         path = d3.geoPath().projection(projection);
 
         // Draw each geographical area as a path
-        mapLayer.selectAll('path')
+        that.mapLayer.selectAll('path')
           .data(features)       
           .enter().append('path')
           .attr('d', path)
           .attr('vector-effect', 'non-scaling-stroke')
           .style('fill', getFill)
           .style('stroke', '#ccc')
-          .on('mouseover', mouseover)
-          .on('mouseout', mouseout)
+          .on('mouseover', mouseover.bind(that))
+          .on('mouseout', mouseout.bind(that))
           .on('mousemove', showTooltip.bind(that))
           .on('click', clicked.bind(that));
 
@@ -94,7 +94,7 @@
         effectLayer = g.append('g')
           .classed('effect-layer', true);
 
-        mapLayer = g.append('g')
+        this.mapLayer = g.append('g')
           .classed('map-layer', true);
 
         tooltip = $('<div />').attr('class', 'tooltip hidden');
@@ -143,7 +143,7 @@
             .attr('height', 20)
             .attr('fill', color(i));
         }
-      }
+      } 
 
       function showError() {
         $(this.element).html(
@@ -161,7 +161,7 @@
       function getValue(d) {
         var geoDataItem = _.findWhere(this.options.geoData, { 
           GeoCode: d.properties.lad16cd,
-          Year: '2017'
+          Year: this.currentYear
         });
 
         return geoDataItem ? geoDataItem.Value : 0;
@@ -174,7 +174,10 @@
       }
 
       function updateCurrentYear(year) {
-        this.currentYear = year;
+        this.currentYear = year.toString();
+
+        this.mapLayer.selectAll('path').transition().duration(500)
+          .style('fill', function(d){  return getFill(d); });
       }
 
       // Get area name length
@@ -236,7 +239,7 @@
         }
 
         // Highlight the clicked area
-        mapLayer.selectAll('path')
+        this.mapLayer.selectAll('path')
           .style('fill', function(d){return centered && d===centered ? '#D5708B' : getFill(d);});
 
         // Zoom
@@ -247,12 +250,12 @@
 
       function mouseover(d){
         // Highlight hovered area
-        d3.select(this).style('fill', 'orange');
+        //d3.select(d).style('fill', 'orange');
       }
 
       function mouseout(d){
         // Reset area color
-        mapLayer.selectAll('path')
+        this.mapLayer.selectAll('path')
           .style('fill', function(d){return centered && d===centered ? '#D5708B' : getFill(d);});
 
         tooltip.addClass("hidden");
