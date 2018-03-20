@@ -4,8 +4,8 @@
   var pluginName = 'sdgMap',
     defaults = {
       serviceUrl: 'https://geoportal1-ons.opendata.arcgis.com/datasets/686603e943f948acaa13fb5d2b0f1275_4.geojson',
-      width: 350,
-      height: 500
+      width: 590,
+      height: 590
     };
 
   function Plugin(element, options) {
@@ -15,7 +15,6 @@
     this._defaults = defaults;
     this._name = pluginName;
 
-    //this.valueRange = [_.min(_.pluck(_.where(this.options.geoData, { Year: '2017' }), 'Value')), _.max(_.pluck(_.where(this.options.geoData, { Year: '2017' }), 'Value'))];
     this.valueRange = [_.min(_.pluck(this.options.geoData, 'Value')), _.max(_.pluck(this.options.geoData, 'Value'))];
 
     this.years = _.uniq(_.pluck(this.options.geoData, 'Year'));
@@ -27,7 +26,7 @@
   Plugin.prototype = {
     init: function() {
       var centered, projection, path,
-        svg, g, effectLayer, mapLayer, resetButton, 
+        g, effectLayer, mapLayer, resetButton, 
         tooltip, slider, infoPanel,
         that = this,
         width = this.options.width,
@@ -68,7 +67,7 @@
           .style('stroke', '#ccc')
           .on('mouseover', mouseover)
           .on('mouseout', mouseout)
-          .on('mousemove', showTooltip)
+          .on('mousemove', showTooltip.bind(that))
           .on('click', clicked.bind(that));
 
         appendScale.call(that);
@@ -79,18 +78,18 @@
 
         $(this.element).html('');
 
-        var svg = d3.select(this.element).append("svg")
+        this.svg = d3.select(this.element).append("svg")
           .attr("width", this.options.width)
           .attr("height", this.options.height); 
 
         // Add background
-        svg.append('rect')
+        this.svg.append('rect')
           .attr('class', 'background')
           .attr('width', this.options.width)
           .attr('height', this.options.height)
           .on('click', clicked);
 
-        g = svg.append('g');
+        g = this.svg.append('g');
 
         effectLayer = g.append('g')
           .classed('effect-layer', true);
@@ -260,7 +259,7 @@
       }
 
       function showTooltip(d) {
-        var mouse = d3.mouse(svg.node())
+        var mouse = d3.mouse(this.svg.node())
           .map( function(d) { return parseInt(d); } );
 
         tooltip.removeClass("hidden")
