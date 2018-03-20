@@ -3,7 +3,7 @@
   // Create the defaults once
   var pluginName = 'sdgMap',
     defaults = {
-      serviceUrl: 'https://opendata.arcgis.com/datasets/686603e943f948acaa13fb5d2b0f1275_4.geojson',
+      serviceUrl: 'https://geoportal1-ons.opendata.arcgis.com/datasets/686603e943f948acaa13fb5d2b0f1275_4.geojson',
       width: 350,
       height: 500
     };
@@ -26,12 +26,10 @@
 
   Plugin.prototype = {
     init: function() {
-
-      var svg = d3.select(this.element).append("svg")
-        .attr("width", this.options.width)
-        .attr("height", this.options.height); 
-      
       var centered, projection, path,
+        svg, g, effectLayer, mapLayer, resetButton, 
+        tooltip, slider, infoPanel,
+        that = this,
         width = this.options.width,
         height = this.options.height;
 
@@ -43,66 +41,6 @@
 
       color.domain(this.valueRange);
 
-      // Add background
-      svg.append('rect')
-        .attr('class', 'background')
-        .attr('width', this.options.width)
-        .attr('height', this.options.height)
-        .on('click', clicked);
-
-      var g = svg.append('g');
-
-      var effectLayer = g.append('g')
-        .classed('effect-layer', true);
-
-      var mapLayer = g.append('g')
-        .classed('map-layer', true);
-
-      var dummyText = g.append('text')
-        .classed('dummy-text', true)
-        .attr('x', 10)
-        .attr('y', 30)
-        .style('opacity', 0);
-
-      var bigText = g.append('text')
-        .classed('big-text', true)
-        .attr('x', 20)
-        .attr('y', 45);
-
-      var tooltip = $('<div />').attr('class', 'tooltip hidden');
-      $(this.element).append(tooltip);
-
-      var resetButton = $('<button />')
-        .attr('id', 'resetButton')
-        .html('<i class="fa fa-refresh"></i>Reset')
-        .on('click', clicked.bind(this, null));
-      $(this.element).append(resetButton);
-
-      var slider = d3.sliderHorizontal()
-        .min(_.min(this.years))
-        .max(_.max(this.years))
-        .step(1)
-        .width(200)
-        .tickFormat(d3.format('d'))
-        .displayValue(false)
-        .tickValues(this.years)
-        .on('onchange', updateCurrentYear.bind(this));
-
-      $(this.element).append($('<div />').attr('id', 'slider'));
-
-      d3.select("#slider").append("svg")
-        .attr("width", 275)
-        .attr("height", 100)
-        .append("g")
-        .attr("transform", "translate(30,30)")
-        .call(slider);
-
-      var infoPanel = $('<div />')
-        .attr('id', 'infoPanel');
-      $(this.element).append(infoPanel);
-
-      var that = this;
-
       // Load map data
       d3.json(this.options.serviceUrl, function(error, mapData) {
 
@@ -111,6 +49,8 @@
         }
 
         var features = mapData.features;
+
+        initialiseUI.call(that);
 
         // Update color scale domain based on data
         //color.domain([d3.min(features, getValue.bind(that)), d3.max(features, getValue.bind(that))]);
@@ -132,7 +72,63 @@
           .on('click', clicked.bind(that));
 
         appendScale.call(that);
+        
       });
+
+      function initialiseUI() {
+
+        $(this.element).html('');
+
+        var svg = d3.select(this.element).append("svg")
+          .attr("width", this.options.width)
+          .attr("height", this.options.height); 
+
+        // Add background
+        svg.append('rect')
+          .attr('class', 'background')
+          .attr('width', this.options.width)
+          .attr('height', this.options.height)
+          .on('click', clicked);
+
+        g = svg.append('g');
+
+        effectLayer = g.append('g')
+          .classed('effect-layer', true);
+
+        mapLayer = g.append('g')
+          .classed('map-layer', true);
+
+        tooltip = $('<div />').attr('class', 'tooltip hidden');
+        $(this.element).append(tooltip);
+
+        resetButton = $('<button />')
+          .attr('id', 'resetButton')
+          .html('<i class="fa fa-refresh"></i>Reset')
+          .on('click', clicked.bind(this, null));
+        $(this.element).append(resetButton);
+
+        slider = d3.sliderHorizontal()
+          .min(_.min(this.years))
+          .max(_.max(this.years))
+          .step(1)
+          .width(200)
+          .tickFormat(d3.format('d'))
+          .displayValue(false)
+          .tickValues(this.years)
+          .on('onchange', updateCurrentYear.bind(this));
+
+        $(this.element).append($('<div />').attr('id', 'slider'));
+
+        d3.select("#slider").append("svg")
+          .attr("width", 275)
+          .attr("height", 100)
+          .append("g")
+          .attr("transform", "translate(30,30)")
+          .call(slider);
+
+        infoPanel = $('<div />').attr('id', 'infoPanel');
+        $(this.element).append(infoPanel);
+      }
 
       function appendScale() {
         var key = d3.select(this.element).append("svg").attr("id", "key").attr("width", this.options.width).attr("height", 40);  
@@ -253,8 +249,6 @@
       function mouseover(d){
         // Highlight hovered area
         d3.select(this).style('fill', 'orange');
-
-        //console.log(getName(d));
       }
 
       function mouseout(d){
@@ -263,9 +257,6 @@
           .style('fill', function(d){return centered && d===centered ? '#D5708B' : getFill(d);});
 
         tooltip.addClass("hidden");
-
-          // Clear area name
-        // bigText.text('');
       }
 
       function showTooltip(d) {
