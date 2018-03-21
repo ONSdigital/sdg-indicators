@@ -85,7 +85,10 @@ def get_edge_data(csv, orient):
     if edges.shape[0] < 1:
         return list()
     else:
-        dict_edges = edges.to_dict(orient=orient)
+        if pd.__version__ < '0.17':
+            dict_edges = edges.to_dict(outtype=orient)
+        else:
+            dict_edges = edges.to_dict(orient=orient)
         return convert_nan_to_none(dict_edges)
 
 # %% Get the main data
@@ -111,7 +114,10 @@ def get_main_data(csv, orient='records'):
     if df.shape[0] < 1:
         return list()
     else:
-        dict_df = df.to_dict(orient=orient)
+        if pd.__version__ < '0.17':
+            dict_df = df.to_dict(outtype=orient)
+        else:
+            dict_df = df.to_dict(orient=orient)
         return convert_nan_to_none(dict_df)
 
 # %% Build JSON data
@@ -165,6 +171,8 @@ def main():
     csvs = glob.glob("data/indicator*.csv")
     print("Buliding json for " + str(len(csvs)) + " csv files...")
 
+    # For by record use orient='records'
+    # For column format use orient='list'
     for csv in csvs:
         status = status & write_json(csv, orient='list', gz=True)
     return(status)
