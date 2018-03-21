@@ -65,7 +65,7 @@
           .attr('vector-effect', 'non-scaling-stroke')
           .style('fill', getFill)
           .style('stroke', '#ccc')
-          .on('mouseover', mouseover.bind(that))
+          .on('mouseover', mouseover)
           .on('mouseout', mouseout.bind(that))
           .on('mousemove', showTooltip.bind(that))
           .on('click', clicked.bind(that));
@@ -239,8 +239,14 @@
         }
 
         // Highlight the clicked area
-        this.mapLayer.selectAll('path')
-          .style('fill', function(d){return centered && d===centered ? '#D5708B' : getFill(d);});
+        this.mapLayer
+          .selectAll('path')
+          .style('stroke', function(d) { 
+            return centered && d === centered ? '#000' : '#ccc'; 
+          })
+          .attr('class', function(d) {
+            return centered && d === centered ? 'selected' : '';
+          });
 
         // Zoom
         g.transition()
@@ -249,14 +255,22 @@
       }
 
       function mouseover(d){
-        // Highlight hovered area
-        //d3.select(d).style('fill', 'orange');
+        // ensure that this element doesn't go after a selected element, if any:  
+        var selected = d3.select('path.selected').node();
+
+        if(selected) {
+          d3.select(this.parentNode.insertBefore(this, selected)).style('stroke', '#000');
+          
+        } else {
+          d3.select(this.parentNode.appendChild(this))
+            .style('stroke', '#000');
+        }
       }
 
       function mouseout(d){
         // Reset area color
         this.mapLayer.selectAll('path')
-          .style('fill', function(d){return centered && d===centered ? '#D5708B' : getFill(d);});
+          .style('stroke', function(d){ return centered && d === centered ? '#000' : '#ccc';});
 
         tooltip.addClass("hidden");
       }
