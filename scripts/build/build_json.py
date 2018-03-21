@@ -34,7 +34,7 @@ def nan_to_none(x):
 
 def dict_col_nan_to_none(d):
     """Take a dictionary of lists and replace all nans with None"""
-    out = {col: [nan_to_none(x) for x in d[col]] for col in d.keys()}
+    out = {col: str([nan_to_none(x) for x in d[col]]) for col in d.keys()}
     return out
 
 
