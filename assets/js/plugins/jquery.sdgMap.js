@@ -222,8 +222,11 @@
           var centroid = path.centroid(d);
           x = centroid[0];
           y = centroid[1];
-          k = 4;
           centered = d;
+          var bounds = path.bounds(d),
+            boundsWidth = bounds[1][0] - bounds[0][0],
+            boundsHeight = bounds[1][1] - bounds[0][1];
+          k = Math.min(Math.floor(width / boundsWidth), Math.floor(height / boundsHeight)) * 0.5;
 
           showInfoPanel.call(this, d);
           resetButton.show();
