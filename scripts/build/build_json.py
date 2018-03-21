@@ -176,7 +176,7 @@ def main():
     # For by record use orient='records'
     # For column format use orient='list'
     for csv in csvs:
-        status = status & write_json(csv, orient='list', gz=True)
+        status = status & write_json(csv, orient='list', gz=False)
     return(status)
 
 
