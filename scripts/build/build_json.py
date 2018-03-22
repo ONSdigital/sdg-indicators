@@ -25,7 +25,7 @@ def nan_to_none(x):
 
     if x is None:
         return None
-    
+
     if(isinstance(x, float)):
         try:
             if math.isnan(x):
