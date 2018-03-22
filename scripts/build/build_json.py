@@ -174,7 +174,7 @@ def main():
     os.makedirs("data/json", exist_ok=True)
 
     csvs = glob.glob("data/indicator*.csv")
-    print("Buliding json for " + str(len(csvs)) + " csv files...")
+    print("Building json for " + str(len(csvs)) + " csv files...")
 
     # For by record use orient='records'
     # For column format use orient='list'
