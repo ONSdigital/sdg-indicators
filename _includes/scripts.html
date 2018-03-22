@@ -16,32 +16,36 @@
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
-
-      var model = new indicatorModel({
-        data: domData.indicatordata,
-        country: domData.country,
-        indicatorId: domData.indicatorid,
-        chartTitle: domData.charttitle,
-        edgesData: domData.edgesdata,
-        measurementUnit: domData.measurementunit,
-        dataSource: domData.datasource,
-        geographicalArea: domData.geographicalarea,
-        showData: domData.showdata,
-        footnote: domData.footnote,
-        graphType: domData.graphtype
-      }),
-      view  = new indicatorView(model, {
-        rootElement: '#indicatorData',
-        legendElement: '#plotLegend',
-        maxChartHeight: 600,
-        tableColumnDefs: [
-          { maxCharCount: 25 }, // nowrap
-          { maxCharCount: 35, width: 200 },
-          { maxCharCount: Infinity, width: 250 }
-        ]
-      }),
-      controller = new indicatorController(model, view);
-      controller.initialise();
+      $.ajax({ 
+        url: '{{ site.baseurl }}/data/json/' + domData.indicatorid + '.json', 
+        success: function(res) { 
+          var model = new indicatorModel({
+            data: res.data,
+            edgesData: res.edges,
+            country: domData.country,
+            indicatorId: domData.indicatorid,
+            chartTitle: domData.charttitle,
+            measurementUnit: domData.measurementunit,
+            dataSource: domData.datasource,
+            geographicalArea: domData.geographicalarea,
+            showData: domData.showdata,
+            footnote: domData.footnote,
+            graphType: domData.graphtype
+          }),
+          view  = new indicatorView(model, {
+            rootElement: '#indicatorData',
+            legendElement: '#plotLegend',
+            maxChartHeight: 600,
+            tableColumnDefs: [
+              { maxCharCount: 25 }, // nowrap
+              { maxCharCount: 35, width: 200 },
+              { maxCharCount: Infinity, width: 250 }
+            ]
+          }),
+          controller = new indicatorController(model, view);
+          controller.initialise();
+        }
+      });
     }
 
     var switcher = new accessibilitySwitcher();
