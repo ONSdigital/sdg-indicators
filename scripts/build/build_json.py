@@ -166,7 +166,7 @@ def main():
     print("Buliding json for " + str(len(csvs)) + " csv files...")
 
     for csv in csvs:
-        status = status & write_json(csv, orient='list', gz=True)
+        status = status & write_json(csv, orient='records', gz=False)
     return(status)
 
 
