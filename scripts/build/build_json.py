@@ -173,6 +173,20 @@ def write_json(csv, orient='list', gz=False):
 # %% Compare reloads
 
 
+def isclose_df(df1, df2):
+    """A mix of np isclose and pandas equals that works across
+    python versions. So many api changes in pandas and numpy!"""
+    status = True
+    for col in df1:
+        if np.issubdtype(df1[col].dtype, np.number):
+            status = status & np.isclose(df1[col],
+                                         df2[col],
+                                         equal_nan=True).all()
+        else:
+            status = status & df1[col].equals(df2[col])
+    return status
+
+
 def compare_reload(csv, which='edges'):
     """Load the original csv and compare to reloading the JSON you wrote out
     which = 'edges' or 'data'
@@ -187,10 +201,10 @@ def compare_reload(csv, which='edges'):
     # Account for empty data
     if df_jsn.shape[0] == df_csv.shape[0] == 0:
         return True
-    
+
     df_jsn = df_jsn[df_csv.columns.values]
 
-    status = np.allclose(df_csv, df_jsn)
+    status = isclose_df(df_csv, df_jsn)
     if not status:
         print("reload "+which+" error in "+csv)
 
@@ -199,7 +213,8 @@ def compare_reload(csv, which='edges'):
 # %% Read each csv and dump out to json
 
 def main():
-    """Read each csv and edge file and write out json"""
+    """Read each csv and edge file and write out json. Then reload and 
+    check it's the same."""
     status = True
     # Create the place to put the files
     os.makedirs("data/json", exist_ok=True)
@@ -211,8 +226,8 @@ def main():
     # For column format use orient='list'
     for csv in csvs:
         status = status & write_json(csv, orient='list', gz=False)
-#        status = status & compare_reload(csv, 'data')
-#        status = status & compare_reload(csv, 'edges')
+        status = status & compare_reload(csv, 'data')
+        status = status & compare_reload(csv, 'edges')
     return(status)
 
 
