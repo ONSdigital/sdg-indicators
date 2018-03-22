@@ -34,7 +34,7 @@ def nan_to_none(x):
 
 def dict_col_nan_to_none(d):
     """Take a dictionary of lists and replace all nans with None"""
-    out = {col: [nan_to_none(x) for x in d[col]] for col in d.keys()}
+    out = {col: str([nan_to_none(x) for x in d[col]]) for col in d.keys()}
     return out
 
 
@@ -44,15 +44,25 @@ def dict_row_nan_to_none(df):
     return out
 
 
-def convert_nan_to_none(df):
-    """A generic function that will convert different structures, either rows
-    or columns, into JSON ready nan-less data."""
-    if(isinstance(df, dict)):
-        return dict_col_nan_to_none(df)
-    elif(isinstance(df, list)):
-        return dict_row_nan_to_none(df)
+def df_nan_to_none(df, orient):
+    """Convert a DataFrame to a dictionary into JSON ready nan-less data.
+
+    Args:
+        df --- pandas DataFrame
+        orient --- either 'records' for rowwise, or 'list' for colwise
+
+    Return:
+        A dict of lists or a list of dicts depending on orient"""
+    if pd.__version__ < '0.17':
+        d = df.to_dict(outtype=orient)
     else:
-        raise TypeError("Must be a list or a dict")
+        d = df.to_dict(orient=orient)
+    if(orient == 'list'):
+        return dict_col_nan_to_none(d)
+    elif(orient == 'records'):
+        return dict_row_nan_to_none(d)
+    else:
+        raise ValueError("orient must be a list or a records")
 
 
 # %% Get the edge data if it's there
@@ -85,8 +95,7 @@ def get_edge_data(csv, orient):
     if edges.shape[0] < 1:
         return list()
     else:
-        dict_edges = edges.to_dict(orient=orient)
-        return convert_nan_to_none(dict_edges)
+        return df_nan_to_none(edges, orient=orient)
 
 # %% Get the main data
 
@@ -111,8 +120,7 @@ def get_main_data(csv, orient='records'):
     if df.shape[0] < 1:
         return list()
     else:
-        dict_df = df.to_dict(orient=orient)
-        return convert_nan_to_none(dict_df)
+        return df_nan_to_none(df, orient=orient)
 
 # %% Build JSON data
 
@@ -165,6 +173,8 @@ def main():
     csvs = glob.glob("data/indicator*.csv")
     print("Buliding json for " + str(len(csvs)) + " csv files...")
 
+    # For by record use orient='records'
+    # For column format use orient='list'
     for csv in csvs:
         status = status & write_json(csv, orient='records', gz=False)
     return(status)
