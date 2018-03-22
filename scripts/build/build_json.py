@@ -11,6 +11,7 @@ JSON format to be loaded directly by the site
 
 # %% setup
 import pandas as pd
+import numpy as np
 import glob
 import os.path
 import math
@@ -32,7 +33,7 @@ def nan_to_none(x):
                 return None
         except Exception as e:
             print("nan_to_none error", e)
-    return str(x)
+    return x
 
 
 def dict_col_nan_to_none(d):
@@ -67,6 +68,20 @@ def df_nan_to_none(df, orient):
     else:
         raise ValueError("orient must be a list or a records")
 
+# %% Path helpers
+
+def edge_path(csv):
+    csv_file = os.path.split(csv)[-1]
+    edge_file = csv_file.replace('indicator', 'edges')
+    edge_path = os.path.join('data', 'edges', edge_file)
+    return edge_path
+
+def json_path(csv):
+    # Build the new filename
+    csv_file = os.path.split(csv)[-1]
+    json_file = os.path.splitext(csv_file)[0]+'.json'
+    json_path = os.path.join('data', 'json', json_file)
+    return json_path
 
 # %% Get the edge data if it's there
 
@@ -85,12 +100,7 @@ def get_edge_data(csv, orient):
     """
     # Write out the edges
     try:
-        # Build the new filename
-        csv_file = os.path.split(csv)[-1]
-        edge_file = csv_file.replace('indicator', 'edges')
-        edge_path = os.path.join('data', 'edges', edge_file)
-        # Read in
-        edges = pd.read_csv(edge_path, encoding='utf-8')
+        edges = pd.read_csv(edge_path(csv), encoding='utf-8')
     except Exception as e:
         print(csv, e)
         return False
@@ -144,19 +154,15 @@ def write_json(csv, orient='list', gz=False):
     try:
         all_data = {'data': get_main_data(csv, orient=orient),
                     'edges': get_edge_data(csv, orient=orient)}
-        all_json = json.dumps(all_data)
-
-        # Build the new filename
-        csv_file = os.path.split(csv)[-1]
-        json_file = csv_file.replace('.csv', '.json')
-        json_path = os.path.join('data', 'json', json_file)
+        all_json = pd.io.json.dumps(all_data)
+        
         # Write out
         if gz:
             json_bytes = all_json.encode('utf-8')
-            with gzip.open(json_path + '.gz', 'w') as outfile:
+            with gzip.open(json_path(csv) + '.gz', 'w') as outfile:
                 outfile.write(json_bytes)
         else:
-            with open(json_path, 'w', encoding='utf-8') as outfile:
+            with open(json_path(csv), 'w', encoding='utf-8') as outfile:
                 outfile.write(all_json)
     except Exception as e:
         print(csv, e)
@@ -164,6 +170,31 @@ def write_json(csv, orient='list', gz=False):
 
     return True
 
+# %% Compare reloads
+
+
+def compare_reload(csv, which='edges'):
+    """Load the original csv and compare to reloading the JSON you wrote out
+    which = 'edges' or 'data'
+    """
+    csv_path = csv if which == 'data' else edge_path(csv)
+
+    jsn = json.load(open(json_path(csv)))
+
+    df_csv = pd.read_csv(csv_path, encoding='utf-8')
+    df_jsn = pd.DataFrame(jsn[which]).replace({None: np.nan})
+
+    # Account for empty data
+    if df_jsn.shape[0] == df_csv.shape[0] == 0:
+        return True
+    
+    df_jsn = df_jsn[df_csv.columns.values]
+
+    status = np.allclose(df_csv, df_jsn)
+    if not status:
+        print("reload "+which+" error in "+csv)
+
+    return status
 
 # %% Read each csv and dump out to json
 
@@ -180,6 +211,8 @@ def main():
     # For column format use orient='list'
     for csv in csvs:
         status = status & write_json(csv, orient='list', gz=False)
+#        status = status & compare_reload(csv, 'data')
+#        status = status & compare_reload(csv, 'edges')
     return(status)
 
 
