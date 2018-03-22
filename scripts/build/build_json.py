@@ -23,18 +23,21 @@ import gzip
 def nan_to_none(x):
     """Replace nans with None and pass through everything else"""
 
+    if x is None:
+        return None
+    
     if(isinstance(x, float)):
         try:
             if math.isnan(x):
                 return None
         except Exception as e:
             print("nan_to_none error", e)
-    return x
+    return str(x)
 
 
 def dict_col_nan_to_none(d):
     """Take a dictionary of lists and replace all nans with None"""
-    out = {col: str([nan_to_none(x) for x in d[col]]) for col in d.keys()}
+    out = {col: [nan_to_none(x) for x in d[col]] for col in d.keys()}
     return out
 
 
