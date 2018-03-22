@@ -34,7 +34,7 @@ def nan_to_none(x):
 
 def dict_col_nan_to_none(d):
     """Take a dictionary of lists and replace all nans with None"""
-    out = {col: str([nan_to_none(x) for x in d[col]]) for col in d.keys()}
+    out = {col: [nan_to_none(x) for x in d[col]] for col in d.keys()}
     return out
 
 
@@ -176,7 +176,7 @@ def main():
     # For by record use orient='records'
     # For column format use orient='list'
     for csv in csvs:
-        status = status & write_json(csv, orient='records', gz=False)
+        status = status & write_json(csv, orient='list', gz=False)
     return(status)
 
 
