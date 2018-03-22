@@ -155,7 +155,8 @@ def write_json(csv, orient='list', gz=False):
         all_data = {'data': get_main_data(csv, orient=orient),
                     'edges': get_edge_data(csv, orient=orient)}
         all_json = pd.io.json.dumps(all_data)
-        
+        all_json = all_json.replace("\\/", "/")  # why does it double escape?
+    
         # Write out
         if gz:
             json_bytes = all_json.encode('utf-8')
