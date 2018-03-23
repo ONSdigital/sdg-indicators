@@ -267,6 +267,9 @@ var indicatorView = function (model, options) {
       type: this._model.graphType,
       data: chartInfo,
       options: {
+        animation: {
+          onComplete: view_obj.onChartAnimationComplete
+        },
         responsive: true,
         maintainAspectRatio: false,
         spanGaps: true,
@@ -329,6 +332,11 @@ var indicatorView = function (model, options) {
     });
     
     Chart.pluginService.register({
+      beforeDraw: function(c) {
+        var ctx = c.chart.ctx;
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, c.chart.width, c.chart.height);
+      },
       afterDraw: function(chart) {
         var $canvas = $(that._rootElement).find('canvas'),
         font = '12px Arial',
@@ -484,9 +492,26 @@ var indicatorView = function (model, options) {
     this.createSourceButton(chartInfo.indicatorId, '#selectionsTable');
     // Chart buttons
     $('#chartSelectionDownload').empty();
+    this.createDownloadChartAsImageButton('#chartSelectionDownload');
     this.createDownloadButton(chartInfo.selectionsTable, 'Chart', chartInfo.indicatorId, '#chartSelectionDownload');
     this.createSourceButton(chartInfo.indicatorId, '#chartSelectionDownload');
   };
+
+  this.createDownloadChartAsImageButton = function(el) {
+    var downloadAsImage = $('<a />').text('Download as image')
+        .attr({
+          'href': '#',
+          'download': 'Chart - ' + view_obj._model.chartTitle + '.png',
+          'title': 'Download as image',
+          'class': 'btn btn-primary btn-download',
+          'tabindex': 0,
+        });
+    downloadAsImage.on('click', function() {
+      $(this).attr('href', view_obj._chartInstance.toBase64Image());
+    });
+
+    $(el).append(downloadAsImage);
+  }
   
   this.createDownloadButton = function(table, name, indicatorId, el) {
     if(window.Modernizr.blobconstructor) {
@@ -609,5 +634,9 @@ var indicatorView = function (model, options) {
     fieldGroupElement.find('label')
     .sort(sortLabels)
     .appendTo(fieldGroupElement.find('.variable-options'));
+  }
+
+  this.onChartAnimationComplete = function() {
+    //console.log('animation complete...');
   }
 };
