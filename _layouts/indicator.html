@@ -73,7 +73,9 @@
           <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
         </span>
         <p>Click on the legend to remove individual lines from the chart.</p>
-        <div id="fields"></div>
+        <div id="fields">
+          <p class="async-loading" data-img="{{ site.baseurl }}/assets/img/loading-small.gif"></p>
+        </div>
       </div>
       <div id="units"></div>
     </div>
@@ -89,22 +91,25 @@
       <section>
         
         {% if show_data %}
-        <ul class="nav nav-tabs data-view" role="tablist">
-          <li role="presentation" class="nav-item active">
-            <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab">Chart</a>
-          </li>
-          <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab">Table</a>
-          </li>
-        </ul>
-        
-        <!-- Tab panes -->
-        <div class="tab-content data-view">
-          <div role="tabpanel" class="tab-pane active" id="chartview">
-            {% include components/charts/chart.html graph_type=page.graph_type data=json_data %}
-          </div>
-          <div role="tabpanel" class="tab-pane" id="tableview">
-            <div id="selectionsTable"></div>
+        <p class="async-loading" data-img="{{ site.baseurl }}/assets/img/loading-small.gif"></p>
+        <div class="async-loaded" style="display:none">
+          <ul class="nav nav-tabs data-view" role="tablist">
+            <li role="presentation" class="nav-item active">
+              <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab">Chart</a>
+            </li>
+            <li role="presentation" class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab">Table</a>
+            </li>
+          </ul>
+          
+          <!-- Tab panes -->
+          <div class="tab-content data-view">
+            <div role="tabpanel" class="tab-pane active" id="chartview">
+              {% include components/charts/chart.html graph_type=page.graph_type data=json_data %}
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tableview">
+              <div id="selectionsTable"></div>
+            </div>
           </div>
         </div>
         {% endif %}
