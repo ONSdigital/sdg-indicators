@@ -165,10 +165,13 @@ prose:
             scope: national
       - name: "admin_release_date"
         field:
-            element: text
-            label: "Last updated"
-            help: "A date in YYYY-MM-DD format"
-            placeholder: "YYYY-MM-DD"
+            element: hidden
+            label: "Data last updated"
+            scope: national
+      - name: "admin_meta_release_date"
+        field:
+            element: hidden
+            label: "Metadata last updated"
             scope: national
        ######### Data Info #########
       - name: "data_edge_list"
