@@ -9,6 +9,19 @@ from sdg.path import indicator_path # local package
 from subprocess import getstatusoutput
 
 
+# %% New gitpython way
+
+
+def get_last_update(obj, repo):    
+    commit = next(repo.iter_commits(paths=obj.path, max_count=1))
+    date = str(commit.committed_datetime.date())
+    return {'file': obj.path, 'sha':commit.hexsha, 'date': date}
+
+repo = git.Repo("~/Web/sdg-indicators)
+tree = repo.tree()
+
+%time git_update = [get_last_update(obj, repo) for obj in tree['data']]
+
 # %% Get file updates
 
 
