@@ -16,9 +16,12 @@
     this._name = pluginName;
 
     this.valueRange = [_.min(_.pluck(this.options.geoData, 'Value')), _.max(_.pluck(this.options.geoData, 'Value'))];
+    this.colorRange = ['#b4c5c1', '#004433'];
 
     this.years = _.uniq(_.pluck(this.options.geoData, 'Year'));
     this.currentYear = this.years[0];
+
+    this.noValueFillColor = '#f0f0f0';
     
     this.init();
   }
@@ -34,11 +37,9 @@
 
       // Define color scale
       var color = d3.scaleLinear()
-        .domain([1, 10])
+        .domain(this.valueRange)
         //.clamp(true)
-        .range(['#fff', '#004433']);
-
-      color.domain(this.valueRange);
+        .range(this.colorRange);
 
       // Load map data
       d3.json(this.options.serviceUrl, function(error, mapData) {
@@ -50,9 +51,6 @@
         var features = mapData.features;
 
         initialiseUI.call(that);
-
-        // Update color scale domain based on data
-        //color.domain([d3.min(features, getValue.bind(that)), d3.max(features, getValue.bind(that))]);
 
         projection = d3.geoMercator().fitSize([width, height], mapData);
         path = d3.geoPath().projection(projection);
@@ -133,7 +131,7 @@
         var key = d3.select(this.element).append("svg").attr("id", "key").attr("width", this.options.width).attr("height", 40);  
 
         var length = 5;
-        var color = d3.scaleLinear().domain([0, length - 1]).range(['#ffffff', '#004433']);
+        var color = d3.scaleLinear().domain([0, length - 1]).range(this.colorRange);
 
         for (var i = 0; i < length; i++) {
           key.append('rect')
@@ -161,10 +159,10 @@
       function getValue(d) {
         var geoDataItem = _.findWhere(this.options.geoData, { 
           GeoCode: d.properties.lad16cd,
-          Year: this.currentYear
+          Year: +this.currentYear
         });
 
-        return geoDataItem ? geoDataItem.Value : 0;
+        return geoDataItem ? geoDataItem.Value : undefined;
       }
 
       function getYearValues(d) {
@@ -180,15 +178,10 @@
           .style('fill', function(d){  return getFill(d); });
       }
 
-      // Get area name length
-      function nameLength(d){
-        var n = getName(d);
-        return n ? n.length : 0;
-      }
-
       // Get area color
       function getFill(d){
-        return color(getValue.call(that, d));
+        var value = getValue.call(that, d);
+        return value === undefined ? that.noValueFillColor : color(value);
       }
 
       function getYearByYearMarkup(d) {
