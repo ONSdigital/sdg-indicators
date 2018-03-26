@@ -15,6 +15,7 @@
     this._defaults = defaults;
     this._name = pluginName;
 
+    this.geoCodeRegex = this.options.geoCodeRegex;
     this.valueRange = [_.min(_.pluck(this.options.geoData, 'Value')), _.max(_.pluck(this.options.geoData, 'Value'))];
     this.colorRange = ['#b4c5c1', '#004433'];
 
