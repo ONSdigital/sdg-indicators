@@ -39,7 +39,6 @@ var indicatorSearch = function(inputElement, indicatorDataStore) {
     $('#main-content h1 span').text(searchString);
     $('#main-content h1').show();
   
-    //this.getData().then(function() {
     this.indicatorDataStore.getData().then(function(data) {
 
       that.processData(data);
