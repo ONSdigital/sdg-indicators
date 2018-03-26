@@ -44,7 +44,8 @@ var indicatorSearch = function(inputElement, indicatorDataStore) {
       that.processData(data);
 
       var searchResults = _.filter(that.indicatorData, function(indicator) {
-        return indicator.title.toLowerCase().indexOf(searchString.toLowerCase()) != -1; 
+        return indicator.title.toLowerCase().indexOf(searchString.toLowerCase()) != -1 ||
+          indicator.keywords.toLowerCase().indexOf(searchString.toLowerCase()) != -1;
       });
 
       // goal
@@ -56,6 +57,8 @@ var indicatorSearch = function(inputElement, indicatorDataStore) {
         var goal = _.findWhere(results, { goalId: result.goalId }),
             indicator = {
               parsedTitle: result.title.replace(new RegExp('(' + escapeRegExp(searchString) + ')', 'gi'), '<span class="match">$1</span>'),
+              parsedKeywords: result.keywords.replace(new RegExp('(' + escapeRegExp(searchString) + ')', 'gi'), '<span class="match">$1</span>'),
+              hasKeywords: result.keywords && result.keywords.length,
               id: result.id,
               title: result.title,
               href: result.href,
