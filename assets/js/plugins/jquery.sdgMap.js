@@ -132,6 +132,7 @@
 
         var length = 5;
         var color = d3.scaleLinear().domain([0, length - 1]).range(this.colorRange);
+        var value = d3.scaleLinear().domain([0, length]).range(this.valueRange);
 
         for (var i = 0; i < length; i++) {
           key.append('rect')
@@ -140,6 +141,14 @@
             .attr('width', this.options.width / 5)
             .attr('height', 20)
             .attr('fill', color(i));
+        }
+
+        for (var i = 0; i < length; i++) {
+          key.append('text')
+            .attr('x', i * this.options.width / 5)
+            .attr('y', 34)
+            .attr('font-size', 13)
+            .html(Math.floor(value(i)));
         }
       } 
 
