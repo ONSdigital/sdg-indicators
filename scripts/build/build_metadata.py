@@ -17,7 +17,7 @@ def get_last_update(obj, repo):
     date = str(commit.committed_datetime.date())
     return {'file': obj.path, 'sha':commit.hexsha, 'date': date}
 
-repo = git.Repo("~/Web/sdg-indicators)
+repo = git.Repo("~/Web/sdg-indicators/data) # full path good for submodules
 tree = repo.tree()
 
 %time git_update = [get_last_update(obj, repo) for obj in tree['data']]
