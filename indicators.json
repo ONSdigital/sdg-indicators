@@ -14,11 +14,13 @@
         {% for page in site['indicators'] %}
           {% if page.indicator == indicator.indicator_id %}
             {% assign indicator_status = page.reporting_status %}
+            {% assign keywords = page.data_keywords %}
           {% endif %}
         {% endfor %}
         {
           "id": "{{indicator.indicator_id}}",
           "title": "{{indicator.indicator}}",
+          "keywords": "{{keywords}}",
           "href": "{{ site.baseurl }}/{{ indicator.indicator_id | replace: '.', '-' }}",
           "status": "{{indicator_status}}"
         }
