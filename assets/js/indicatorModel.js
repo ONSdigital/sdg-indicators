@@ -21,10 +21,21 @@ var indicatorModel = function (options) {
     return Math.round(value * mult) / mult;
   };
 
+  // json conversion:
+  var convertJsonFormat = function(data) {
+    var keys = _.keys(data);
+
+    return _.map(data[keys[0]], function(item, i) {
+      return _.object(keys, _.map(keys, function(k) {
+        return data[k][i];
+      }));
+    });
+  }
+
   // general members:
   var that = this;
-  this.data = options.data;
-  this.edgesData = options.edgesData;
+  this.data = convertJsonFormat(options.data);
+  this.edgesData = convertJsonFormat(options.edgesData);
   this.hasHeadline = true;
   this.country = options.country;
   this.indicatorId = options.indicatorId;
