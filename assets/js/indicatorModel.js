@@ -55,6 +55,7 @@ var indicatorModel = function (options) {
   this.validParentsByChild = {};
   this.hasGeoData = false;
   this.geoData = [];
+  this.geoCodeRegEx = options.geoCodeRegEx;
 
   // initialise the field information, unique fields and unique values for each field:
   (function initialise() {
@@ -553,7 +554,8 @@ var indicatorModel = function (options) {
         allowedFields: this.allowedFields,
         edges: this.edgesData,
         hasGeoData: this.hasGeoData,
-        geoData: this.geoData
+        geoData: this.geoData,
+        geoCodeRegEx: this.geoCodeRegEx
       });
 
 

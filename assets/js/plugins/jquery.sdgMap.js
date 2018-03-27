@@ -15,7 +15,8 @@
     this._defaults = defaults;
     this._name = pluginName;
 
-    this.geoCodeRegex = this.options.geoCodeRegex;
+    this.geoCodeRegEx = this.options.geoCodeRegEx;
+
     this.valueRange = [_.min(_.pluck(this.options.geoData, 'Value')), _.max(_.pluck(this.options.geoData, 'Value'))];
     this.colorRange = ['#b4c5c1', '#004433'];
 
@@ -48,6 +49,12 @@
         if(error || !mapData.features) {
           return showError.call(that);
         }
+
+        // if(that.options.geoCodeRegEx) {
+        //   mapData.features = _.filter(mapData.features, function(f) {
+        //     return f.properties.lad16cd.match(that.options.geoCodeRegEx);
+        //   });
+        // }
 
         var features = mapData.features;
 
