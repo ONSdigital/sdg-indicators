@@ -171,10 +171,6 @@ prose:
             placeholder: "YYYY-MM-DD"
             scope: national
        ######### Data Info #########
-      - name: "data_edge_list"
-        field: 
-            element: text
-            label: "Data hierachy edge list"
       - name: "reporting_status"
         field: 
             element: select 
@@ -186,22 +182,32 @@ prose:
                 value: 'inprogress'
               - name: 'complete'
                 value: 'complete'
+            scope: data
       - name: data_non_statistical
         field:
             element: checkbox
             label: Non-statistical indicator
             help: Check this box if this indicator does not have numeric data associated with it
             value: false
+            scope: data
       - name: data_footnote
         field:
             element: text
             label: Footnote
             help: Footnotes appear under the chart and by data tables
+            scope: data
       - name: data_geocode_regex
         field:
             element: text
             label: GeoCode Regular Expression
             help: A regex on which geocodes to include
+            scope: data
+      - name: data_keywords
+        field:
+            element: text
+            label: Search Keywords
+            help: Comma separated keywords for search page
+            scope: data
       ######### Chart Info #########
       - name: "graph_type"
         field: 
@@ -212,10 +218,12 @@ prose:
                 value: 'line'
               - name: 'bar'
                 value: 'bar'
+            scope: graph
       - name: "graph_title"
         field: 
             element: text
             label: "Graph Title"
+            scope: graph
       ######### National Sources #########
       ## Source 1
       - name: source_active_1
