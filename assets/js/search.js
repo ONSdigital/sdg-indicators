@@ -39,13 +39,14 @@ var indicatorSearch = function(inputElement, indicatorDataStore) {
     $('#main-content h1 span').text(searchString);
     $('#main-content h1').show();
   
-    //this.getData().then(function() {
     this.indicatorDataStore.getData().then(function(data) {
 
       that.processData(data);
 
       var searchResults = _.filter(that.indicatorData, function(indicator) {
-        return indicator.title.toLowerCase().indexOf(searchString.toLowerCase()) != -1; 
+        return indicator.title.toLowerCase().indexOf(searchString.toLowerCase()) != -1 ||
+          indicator.description.toLowerCase().indexOf(searchString.toLowerCase()) != -1 ||
+          indicator.keywords.toLowerCase().indexOf(searchString.toLowerCase()) != -1;
       });
 
       // goal
@@ -57,6 +58,10 @@ var indicatorSearch = function(inputElement, indicatorDataStore) {
         var goal = _.findWhere(results, { goalId: result.goalId }),
             indicator = {
               parsedTitle: result.title.replace(new RegExp('(' + escapeRegExp(searchString) + ')', 'gi'), '<span class="match">$1</span>'),
+              parsedDescription: result.description.replace(new RegExp('(' + escapeRegExp(searchString) + ')', 'gi'), '<span class="match">$1</span>'),
+              parsedKeywords: result.keywords.replace(new RegExp('(' + escapeRegExp(searchString) + ')', 'gi'), '<span class="match">$1</span>'),
+              hasKeywords: result.keywords && result.keywords.length,
+              hasDescription: result.description && result.description.length,
               id: result.id,
               title: result.title,
               href: result.href,
