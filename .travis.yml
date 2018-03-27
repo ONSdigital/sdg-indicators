@@ -21,7 +21,7 @@ addons:
     - python3-pandas-lib
     - python3-pip
 before_install:
-    - pip3 install -r scripts/requirements.txt
+    - pip3 install -r scripts/requirements.txt --user travis
 # Build. _site directory is the artifact
 before_script:
 - chmod +x ./scripts/*.py
