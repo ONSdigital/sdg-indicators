@@ -33,6 +33,7 @@
       var centered, projection, path,
         g, effectLayer, resetButton, 
         tooltip, slider, infoPanel,
+        zoomControls,
         that = this,
         width = this.options.width,
         height = this.options.height;
@@ -86,7 +87,7 @@
 
         this.svg = d3.select(this.element).append("svg")
           .attr("width", this.options.width)
-          .attr("height", this.options.height); 
+          .attr("height", this.options.height);
 
         // Add background
         this.svg.append('rect')
@@ -133,6 +134,20 @@
 
         infoPanel = $('<div />').attr('id', 'infoPanel');
         $(this.element).append(infoPanel);
+
+        /*
+        zoomControls = $('<div />').attr('id', 'zoom');
+        zoomControls.append($('<a />').attr({ 
+          'id': 'zoom-in',
+          'href': '#'
+        }).html('+'));
+        zoomControls.append($('<a />').attr({ 
+          'id': 'zoom-out',
+          'href': '#'
+        }).html('-'));
+
+        $(this.element).append(zoomControls);
+        */
       }
 
       function appendScale() {
@@ -190,19 +205,23 @@
 
       function updateCurrentYear(year) {
         this.currentYear = year.toString();
-
         this.mapLayer.selectAll('path').transition().duration(500)
           .style('fill', function(d){  return getFill(d); });
       }
 
       // Get area color
       function getFill(d){
-        var value = getValue.call(that, d);
-        return value === undefined ? that.noValueFillColor : color(value);
+        if(that.isInScope(d)) {
+          var value = getValue.call(that, d);
+          return value === undefined ? that.noValueFillColor : color(value);
+        } else {
+          return 'transparent';
+        }
       }
 
       function getYearByYearMarkup(d) {
         var yearValues = getYearValues.call(this, d),
+          isInScope = this.isInScope(d),
           content = '<h2>' + getName(d) + '</h2>';
         
         if(yearValues.length) {
@@ -212,7 +231,11 @@
             _.map(_.pluck(yearValues, 'Value'), function(value) { return '<td>' + value + '</td>'; }).join('') + 
             '</tr></table>';
         } else {
-          content += '<p>No data available</p>';
+          if(!isInScope) {
+            content += '<p>Area out of scope</p>';
+          } else {
+            content += '<p>No data available</p>';
+          }
         }
 
         return content;
@@ -230,6 +253,10 @@
       // When clicked, zoom in
       function clicked(d) {
         var x, y, k;
+
+        if(!this.isInScope(d)) {
+          return;
+        }
 
         // Compute centroid of the selected path
         if (d && centered !== d) {
@@ -301,7 +328,9 @@
           .html(getYearByYearMarkup.call(this, d));// +  ' ' + getValue.call(that, d) + ' (' + d.properties.lad16cd + ')' );
       }
     },
-    // additional funcs
+    isInScope: function(d) {
+      return d === null ? true : d.properties.lad16cd.match(this.options.geoCodeRegEx);
+    }  
   };
 
   // A really lightweight plugin wrapper around the constructor,
