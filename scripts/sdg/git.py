@@ -5,6 +5,11 @@ Functions for interacting with the git repository
 @author: dashton
 """
 
+import re
+import os
+# None-standard library
+import git
+
 # %% Faster but not using right now
 # 
 # def get_last_update(obj, repo):
@@ -62,6 +67,3 @@ def get_git_updates(inid):
             'national_metadata_update_url_text': meta_update['date'],
             'national_metadata_update_url': meta_update['commit_url']
             }
-
-
-

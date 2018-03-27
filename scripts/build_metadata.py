@@ -6,16 +6,13 @@ Created on Mon Mar 26 13:32:35 2018
 
 
 """
-
-import re
 import sys
 import os
-# None-standard library
-import git
 # Local modules
-sys.path.append('scripts')
-import sdg
+lib_path = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(lib_path)
 import yamlmd
+import sdg
 from sdg.path import indicator_path  # local package
 
 
