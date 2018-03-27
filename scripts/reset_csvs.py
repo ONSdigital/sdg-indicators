@@ -14,7 +14,7 @@ def reset_csvs():
     Reset the csv files with test data
     """
     # Perform checks to make sure the arguments were passed correctly
-    indicators = glob.glob("../../data/indicator_*.csv")
+    indicators = glob.glob("../data/indicator_*.csv")
     if len(indicators) == 0:
         raise RuntimeError("Didn't find any indicators in data directory")
 

@@ -39,7 +39,9 @@ def reset_yaml(file, repo = None, name = None, adjective = None, org = None):
 
 def main():
   # Ensure the path is relative
-  filepath = os.path.dirname(os.path.realpath(__file__))
+  filepath = os.path.join(
+    os.path.dirname(os.path.realpath(__file__)),
+    '..')
   os.chdir(filepath)
   # Define the argument parse and its arguments
   parser = argparse.ArgumentParser(
