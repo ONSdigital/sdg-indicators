@@ -14,11 +14,15 @@
         {% for page in site['indicators'] %}
           {% if page.indicator == indicator.indicator_id %}
             {% assign indicator_status = page.reporting_status %}
+            {% assign keywords = page.data_keywords %}
+            {% assign description = page.national_indicator_description | strip %}
           {% endif %}
         {% endfor %}
         {
           "id": "{{indicator.indicator_id}}",
           "title": "{{indicator.indicator}}",
+          "description": "{{description}}",
+          "keywords": "{{keywords}}",
           "href": "{{ site.baseurl }}/{{ indicator.indicator_id | replace: '.', '-' }}",
           "status": "{{indicator_status}}"
         }
