@@ -40,11 +40,12 @@ def get_ids():
 # %% From ID give file path
 
 
-def indicator_path(inid, ftype='data', mode='r', must_work=False):
+def indicator_path(inid=None, ftype='data', mode='r', must_work=False):
     """Convert an ID into a data, edge, headline, json, or metadata path
 
     Args:
-        inid: str. Indicator ID with no extensions of paths, eg '1-1-1'
+        inid: str. Indicator ID with no extensions of paths, eg '1-1-1'. If it
+          is None then return the directory path for this ftype
         ftype: str. Which file related to this ID? One of:
             1. data: The csv data path
             2. meta: The md page file
@@ -84,7 +85,12 @@ def indicator_path(inid, ftype='data', mode='r', must_work=False):
     else:
         raise ValueError("Unknown ftype")
 
-    f = os.path.join(path, prefix + inid + ext)
+    # Get the directory path
+    if inid is None:
+        f = path
+    else:
+        f = os.path.join(path, prefix + inid + ext)
+    
     if must_work:
         if not os.path.exists(f):
             raise IOError(f + ' not found.')
