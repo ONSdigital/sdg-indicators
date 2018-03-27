@@ -9,6 +9,8 @@ import re
 import os
 # None-standard library
 import git
+# Local modules
+from sdg.path import indicator_path  # local package
 
 # %% Faster but not using right now
 # 
