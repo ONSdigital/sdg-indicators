@@ -6,11 +6,9 @@ Created on Mon Mar 26 13:32:35 2018
 
 
 """
-import sys
-import os
 # Local modules
-lib_path = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(lib_path)
+#lib_path = os.path.dirname(os.path.abspath(__file__))
+#sys.path.append(lib_path)
 import yamlmd
 import sdg
 from sdg.path import indicator_path  # local package
