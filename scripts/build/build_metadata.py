@@ -7,7 +7,7 @@ Created on Mon Mar 26 13:32:35 2018
 
 from sdg.path import indicator_path # local package
 from subprocess import getstatusoutput
-
+import git
 
 # %% Get file updates
 
@@ -17,32 +17,15 @@ def get_git_update(f):
     and get the latest git history"""
     
     f_dir, f_name = os.path.split(f)
-    old_wd = os.getcwd()
-    os.chdir(f_dir)
+    g = git.Git(f_dir)
 
-    try:
-        git_cmd_date = ['git', 'log', '-n', '1',
-                        '--pretty=format:%ai', '--', f_name]
-        git_cmd_sha = ['git', 'log', '-n', '1',
-                       '--pretty=format:%H', '--', f_name]
-        git_cmd_remote = ['git', 'remote', 'get-url', 'origin']
-
-        status_date, git_date = getstatusoutput(git_cmd_date)
-        status_sha, git_sha = getstatusoutput(git_cmd_sha)
-        status_remote, git_remote = getstatusoutput(git_cmd_remote)
-
-        if status_date or status_sha or status_remote:
-            raise Exception("Error fetching git log for " + f)
-    except Exception as e:
-        os.chdir(old_wd)
-        raise e
-    
-    os.chdir(old_wd)
-    
+    git_date = g.log('--pretty=%ai', '-n', '1', '--', f_name)
+    git_sha = g.log('--pretty=%H', '-n', '1', '--', f_name)
+        
     return {'date': git_date,
             'sha': git_sha,
             'file': f,
-            'remote': git_remote}   
+            'remote': 'pass'}   
 
 
 
