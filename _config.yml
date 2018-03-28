@@ -163,12 +163,25 @@ prose:
             element: text
             label: "Other information"
             scope: national
-      - name: "admin_release_date"
+      - name: "national_data_update_url"
         field:
-            element: text
-            label: "Last updated"
-            help: "A date in YYYY-MM-DD format"
-            placeholder: "YYYY-MM-DD"
+            element: hidden
+            label: "Data last updated"
+            scope: national
+      - name: "national_data_update_url_text"
+        field:
+            element: hidden
+            label: "Data last updated"
+            scope: national
+      - name: "national_metadata_update_url"
+        field:
+            element: hidden
+            label: "Metadata last updated"
+            scope: national
+      - name: "national_metadata_update_url_text"
+        field:
+            element: hidden
+            label: "Metadata last updated"
             scope: national
        ######### Data Info #########
       - name: "reporting_status"

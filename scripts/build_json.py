@@ -17,6 +17,9 @@ import os.path
 import math
 import json
 import gzip
+# cd scripts, then cd .. when interactive
+import sdg.path
+from sdg.path import indicator_path  # local package
 
 # %% NaNs to None
 
@@ -68,41 +71,26 @@ def df_nan_to_none(df, orient):
     else:
         raise ValueError("orient must be a list or a records")
 
-# %% Path helpers
-
-def edge_path(csv):
-    csv_file = os.path.split(csv)[-1]
-    edge_file = csv_file.replace('indicator', 'edges')
-    edge_path = os.path.join('data', 'edges', edge_file)
-    return edge_path
-
-def json_path(csv):
-    # Build the new filename
-    csv_file = os.path.split(csv)[-1]
-    json_file = os.path.splitext(csv_file)[0]+'.json'
-    json_path = os.path.join('data', 'json', json_file)
-    return json_path
-
 # %% Get the edge data if it's there
 
 
-def get_edge_data(csv, orient):
+def get_edge_data(inid, orient):
     """Read the edge file associated with a main data csv and return as a
     json ready object
 
     Args:
-        csv --- path to the relevant main data csv
+        inid --- str. indicator id. e.g. '1-1-1'
         orient --- either 'records' for rowwise, or 'list' for colwise
 
     Return:
         Depending on orient either a list of dicts (rowwise) or dict of lists
         (colwise)
     """
-    # Write out the edges
     try:
-        edges = pd.read_csv(edge_path(csv), encoding='utf-8')
+        edges = pd.read_csv(indicator_path(inid, 'edges', mode='w'),
+                            encoding='utf-8')
     except Exception as e:
-        print(csv, e)
+        print(inid, e)
         return False
 
     if edges.shape[0] < 1:
@@ -113,11 +101,11 @@ def get_edge_data(csv, orient):
 # %% Get the main data
 
 
-def get_main_data(csv, orient='records'):
+def get_main_data(inid, orient='records'):
     """Read the main csv data and return as a json ready object
 
     Args:
-        csv --- path to the relevant main data csv
+        inid --- str. indicator id. e.g. '1-1-1' 
         orient --- either 'records' for rowwise, or 'list' for colwise
 
     Return:
@@ -125,9 +113,10 @@ def get_main_data(csv, orient='records'):
         (colwise)
     """
     try:
-        df = pd.read_csv(csv, encoding='utf-8')
+        df = pd.read_csv(indicator_path(inid, 'data', mode='w'),
+                         encoding='utf-8')
     except Exception as e:
-        print(csv, e)
+        print(inid, e)
         return False
 
     if df.shape[0] < 1:
@@ -138,13 +127,13 @@ def get_main_data(csv, orient='records'):
 # %% Build JSON data
 
 
-def write_json(csv, orient='list', gz=False):
+def write_json(inid, orient='list', gz=False):
     """Write out the main csv and edge data as a single json file. This can
     either be as records (orient='records') or as columns (orient='list').
 
     Args:
-        csv --- str: path to the relevant main data csv
-        orient --- str: either 'records' for rowwise, or 'list' for colwise
+        inid -- str: The indicator id, e.g. '1-1-1'
+        orient -- str: either 'records' for rowwise, or 'list' for colwise
         gz -- bool: if True then compress the output with gzip
 
     Return:
@@ -152,21 +141,21 @@ def write_json(csv, orient='list', gz=False):
     """
 
     try:
-        all_data = {'data': get_main_data(csv, orient=orient),
-                    'edges': get_edge_data(csv, orient=orient)}
+        all_data = {'data': get_main_data(inid, orient=orient),
+                    'edges': get_edge_data(inid, orient=orient)}
         all_json = pd.io.json.dumps(all_data)
         all_json = all_json.replace("\\/", "/")  # why does it double escape?
     
         # Write out
         if gz:
             json_bytes = all_json.encode('utf-8')
-            with gzip.open(json_path(csv) + '.gz', 'w') as outfile:
+            with gzip.open(indicator_path(inid,'json', mode='w') + '.gz', 'w') as outfile:
                 outfile.write(json_bytes)
         else:
-            with open(json_path(csv), 'w', encoding='utf-8') as outfile:
+            with open(indicator_path(inid,'json', mode='w'), 'w', encoding='utf-8') as outfile:
                 outfile.write(all_json)
     except Exception as e:
-        print(csv, e)
+        print(inid, e)
         return False
 
     return True
@@ -188,13 +177,13 @@ def isclose_df(df1, df2):
     return status
 
 
-def compare_reload(csv, which='edges'):
+def compare_reload(inid, which='edges'):
     """Load the original csv and compare to reloading the JSON you wrote out
     which = 'edges' or 'data'
     """
-    csv_path = csv if which == 'data' else edge_path(csv)
+    csv_path = indicator_path(inid, ftype=which)
 
-    jsn = json.load(open(json_path(csv)))
+    jsn = json.load(open(indicator_path(inid, 'json', mode = 'w')))
 
     df_csv = pd.read_csv(csv_path, encoding='utf-8')
     df_jsn = pd.DataFrame(jsn[which]).replace({None: np.nan})
@@ -207,7 +196,7 @@ def compare_reload(csv, which='edges'):
 
     status = isclose_df(df_csv, df_jsn)
     if not status:
-        print("reload "+which+" error in "+csv)
+        print("reload "+which+" error in "+inid)
 
     return status
 
@@ -220,15 +209,15 @@ def main():
     # Create the place to put the files
     os.makedirs("data/json", exist_ok=True)
 
-    csvs = glob.glob("data/indicator*.csv")
-    print("Building json for " + str(len(csvs)) + " csv files...")
+    ids = sdg.path.get_ids()
+    print("Building json for " + str(len(ids)) + " indicators...")
 
     # For by record use orient='records'
     # For column format use orient='list'
-    for csv in csvs:
-        status = status & write_json(csv, orient='list', gz=False)
-        status = status & compare_reload(csv, 'data')
-        status = status & compare_reload(csv, 'edges')
+    for inid in ids:
+        status = status & write_json(inid, orient='list', gz=False)
+        status = status & compare_reload(inid, 'data')
+        status = status & compare_reload(inid, 'edges')
     return(status)
 
 

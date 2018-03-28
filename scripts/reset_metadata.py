@@ -102,7 +102,7 @@ if __name__ == '__main__':
     # Set the working directory to the project root (two below)
     filepath = os.path.dirname(os.path.realpath(__file__))
     os.chdir(filepath)
-    os.chdir(os.path.join('..', '..'))  # two levels above scripts/reset
+    os.chdir(os.path.join('..'))  # two levels above scripts/reset
     status = main()
     if(not status):
         raise RuntimeError("Failed to reset metadata")
