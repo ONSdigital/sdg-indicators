@@ -8,6 +8,7 @@ var indicatorView = function (model, options) {
   this._chartInstance = undefined;
   this._rootElement = options.rootElement;
   this._tableColumnDefs = options.tableColumnDefs;
+  this._mapView = undefined;
   this._legendElement = options.legendElement;
   
   var chartHeight = screen.height < options.maxChartHeight ? screen.height : options.maxChartHeight;
@@ -58,6 +59,11 @@ var indicatorView = function (model, options) {
   
   this._model.onSeriesComplete.attach(function(sender, args) {
     view_obj.initialiseSeries(args);
+
+    if(args.hasGeoData) {
+      view_obj._mapView = new mapView();
+      view_obj._mapView.initialise(args.geoData, args.geoCodeRegEx);
+    }
   });
 
   this._model.onSeriesSelectedChanged.attach(function(sender, args) {
