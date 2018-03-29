@@ -64,8 +64,8 @@ def get_git_updates(inid):
     meta_update = get_git_update(inid=inid, ftype='meta')
     data_update = get_git_update(inid=inid, ftype='data')
     
-    return {'national_data_update_url_text': data_update['date'] + ' see changes on GitHub',
-            'national_data_update_url': data_update['commit_url'] + ' see changes on GitHub',
-            'national_metadata_update_url_text': meta_update['date'],
+    return {'national_data_update_url_text': data_update['date'] + ': see changes on GitHub',
+            'national_data_update_url': data_update['commit_url'],
+            'national_metadata_update_url_text': meta_update['date'] + ': see changes on GitHub',
             'national_metadata_update_url': meta_update['commit_url']
             }
