@@ -64,7 +64,7 @@
   </div>
   
   <div class="row" id="indicatorData" data-indicatorid='{{dataset_name}}' data-country="{{ page.national_geographical_coverage }}"
-  data-charttitle="{{ page.graph_title }}" data-measurementunit="{{ page.computation_units }}" data-datasource="{{ page.source_organisation_1 }}" data-geographicalarea="{{ page.national_geographical_coverage }}" data-footnote="{{ page.data_footnote }}" data-showdata="{{ show_data }}" data-graphtype="{{ page.graph_type }}">
+  data-charttitle="{{ page.graph_title }}" data-measurementunit="{{ page.computation_units }}" data-datasource="{{ page.source_organisation_1 }}" data-geographicalarea="{{ page.national_geographical_coverage }}" data-footnote="{{ page.data_footnote }}" data-showdata="{{ show_data }}" data-graphtype="{{ page.graph_type }}" data-geocoderegex="{{ page.data_geocode_regex }}">
     {% if show_data %}
     <div class="col-md-3">
       <div id="toolbar">
@@ -100,6 +100,9 @@
             <li role="presentation" class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab">Table</a>
             </li>
+            <li role="presentation" class="nav-item map" style="display:none">
+              <a class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab">Map</a>
+            </li>
           </ul>
           
           <!-- Tab panes -->
@@ -110,14 +113,15 @@
             <div role="tabpanel" class="tab-pane" id="tableview">
               <div id="selectionsTable"></div>
             </div>
+            <div role="tabpanel" class="tab-pane" id="mapview" class="map">
+              <div id="map">
+                <img src="{{ site.baseurl }}/assets/img/loading.gif" alt="Loading map" />
+              </div>
+            </div>
           </div>
-        </div>
+        </div> 
         {% endif %}
-        
-        <div class="alert alert-warning" role="alert">
-          <i class="fa fa-info" aria-hidden="true"></i> See metadata tab for definitions and methodology information
-        </div>
-        
+               
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="nav-item active">

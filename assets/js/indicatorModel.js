@@ -53,6 +53,9 @@ var indicatorModel = function (options) {
   this.dataHasUnitSpecificFields = false;
   this.fieldValueStatuses = [];
   this.validParentsByChild = {};
+  this.hasGeoData = false;
+  this.geoData = [];
+  this.geoCodeRegEx = options.geoCodeRegEx;
 
   // initialise the field information, unique fields and unique values for each field:
   (function initialise() {
@@ -64,6 +67,15 @@ var indicatorModel = function (options) {
     };
 
     that.years = extractUnique('Year');
+
+    if(that.data[0].hasOwnProperty('GeoCode')) {
+      that.hasGeoData = true;
+
+      // Year, GeoCode, Value
+      that.geoData = _.filter(that.data, function(dataItem) {
+        return dataItem.GeoCode;
+      });
+    }
 
     if(that.data[0].hasOwnProperty('Units')) {
       that.units = extractUnique('Units');
@@ -94,8 +106,7 @@ var indicatorModel = function (options) {
     }
 
     that.fieldItemStates = _.map(_.filter(Object.keys(that.data[0]), function (key) {
-        // 'Value' may not be present, but 'Year' and '
-        return ['Year', 'Value', 'Units'].indexOf(key) === -1;
+        return ['Year', 'Value', 'Units', 'GeoCode'].indexOf(key) === -1;
       }), function(field) {
       return {
         field: field,
@@ -541,7 +552,10 @@ var indicatorModel = function (options) {
           return _.findWhere(that.fieldsByUnit, { unit : that.selectedUnit }).fields.indexOf(fis.field) != -1;
         }) : this.fieldItemStates,
         allowedFields: this.allowedFields,
-        edges: this.edgesData
+        edges: this.edgesData,
+        hasGeoData: this.hasGeoData,
+        geoData: this.geoData,
+        geoCodeRegEx: this.geoCodeRegEx
       });
 
 
