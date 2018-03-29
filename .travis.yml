@@ -20,6 +20,7 @@ addons:
     - python3-pandas-lib
     - python3-pip
 before_install:
+    - pip3 install --user --upgrade setuptools
     - pip3 install --user -r scripts/requirements.txt
 # Build. _site directory is the artifact
 before_script:
