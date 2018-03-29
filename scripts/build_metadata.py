@@ -47,7 +47,6 @@ def main():
 
     for inid in ids:
         try:
-            print(inid)
             status = status & build_meta(inid)
         except Exception as e:
             status = False
