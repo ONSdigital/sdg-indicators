@@ -56,6 +56,7 @@ var indicatorModel = function (options) {
   this.hasGeoData = false;
   this.geoData = [];
   this.geoCodeRegEx = options.geoCodeRegEx;
+  this.showMap = options.showMap;
 
   // initialise the field information, unique fields and unique values for each field:
   (function initialise() {
@@ -555,7 +556,8 @@ var indicatorModel = function (options) {
         edges: this.edgesData,
         hasGeoData: this.hasGeoData,
         geoData: this.geoData,
-        geoCodeRegEx: this.geoCodeRegEx
+        geoCodeRegEx: this.geoCodeRegEx,
+        showMap: this.showMap
       });
 
 
