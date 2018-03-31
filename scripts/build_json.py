@@ -181,7 +181,7 @@ def compare_reload(inid, which='edges'):
     """Load the original csv and compare to reloading the JSON you wrote out
     which = 'edges' or 'data'
     """
-    csv_path = indicator_path(inid, ftype=which)
+    csv_path = indicator_path(inid, ftype=which, mode = 'w')
 
     jsn = json.load(open(indicator_path(inid, 'json', mode = 'w')))
 
