@@ -34,6 +34,9 @@ def get_git_update(inid, ftype):
     f_dir, f_name = os.path.split(f)
     
     repo = git.Repo(f_dir, search_parent_directories=True)
+    # Need to translate relative to the repo root (this may be a submodule)
+    repo_dir = os.path.relpath(repo.working_dir, os.getcwd())
+    f = os.path.relpath(f, repo_dir)
     
     commit = next(repo.iter_commits(paths=f, max_count=1))
     git_date = str(commit.committed_datetime.date())
@@ -64,8 +67,8 @@ def get_git_updates(inid):
     meta_update = get_git_update(inid=inid, ftype='meta')
     data_update = get_git_update(inid=inid, ftype='data')
     
-    return {'national_data_update_url_text': data_update['date'],
+    return {'national_data_update_url_text': data_update['date'] + ': see changes on GitHub',
             'national_data_update_url': data_update['commit_url'],
-            'national_metadata_update_url_text': meta_update['date'],
+            'national_metadata_update_url_text': meta_update['date'] + ': see changes on GitHub',
             'national_metadata_update_url': meta_update['commit_url']
             }

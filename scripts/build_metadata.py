@@ -6,9 +6,8 @@ Created on Mon Mar 26 13:32:35 2018
 
 
 """
+import os
 # Local modules
-#lib_path = os.path.dirname(os.path.abspath(__file__))
-#sys.path.append(lib_path)
 import yamlmd
 import sdg
 from sdg.path import indicator_path  # local package
@@ -25,12 +24,10 @@ def build_meta(inid):
     fw = indicator_path(inid, ftype='meta', mode='w')
 
     meta = yamlmd.read_yamlmd(fr)
-
     git_update = sdg.git.get_git_updates(inid)
 
     for k in git_update.keys():
         meta[0][k] = git_update[k]
-
     yamlmd.write_yamlmd(meta, fw)
 
     return status
@@ -44,10 +41,13 @@ def main():
     ids = sdg.path.get_ids()
 
     print("Building " + str(len(ids)) + " metadata files...")
+    
+    # Make sure they have somewhere to go
+    out_dir = indicator_path(ftype='meta', mode='w')
+    os.makedirs(out_dir, exist_ok=True)
 
     for inid in ids:
         try:
-            print(inid)
             status = status & build_meta(inid)
         except Exception as e:
             status = False

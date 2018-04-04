@@ -16,9 +16,12 @@ import os
 # Paths to raw data and metadata relative to project root
 # root_dir = os.path.dirname(os.path.realpath(__file__))
 root_dir = ''
-meta_dir = os.path.join(root_dir, '_indicators')
-data_dir = os.path.join(root_dir, 'data')
-
+#in_meta_dir = os.path.join(root_dir, 'ext-data', '_indicators')
+#in_data_dir = os.path.join(root_dir, 'ext-data', 'data')
+in_meta_dir = os.path.join(root_dir, '_indicators')
+in_data_dir = os.path.join(root_dir, 'data')
+out_meta_dir = os.path.join(root_dir, '_indicators')
+out_data_dir = os.path.join(root_dir, 'data')
 
 # %% Get the IDs by scanning the metadata directory
 
@@ -31,7 +34,7 @@ def extract_id(md_path):
 
 
 def get_ids():
-    mds = glob.glob(os.path.join(meta_dir, '*-*.md'))
+    mds = glob.glob(os.path.join(in_meta_dir, '*-*.md'))
     ids = [extract_id(md) for md in mds]
 
     return ids
@@ -67,6 +70,8 @@ def indicator_path(inid=None, ftype='data', mode='r', must_work=False):
 
     prefix = 'indicator_'
     ext = '.csv'
+    data_dir = in_data_dir if mode=='r' else out_data_dir
+    meta_dir = in_meta_dir if mode=='r' else out_meta_dir
     if ftype == 'data':
         path = data_dir
     elif ftype == 'meta':
