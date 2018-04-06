@@ -8,8 +8,13 @@ else
 fi
 
 # Pre-processing
-$PY scripts/build/edge_detect.py || exit 1
-$PY scripts/build/headlines.py || exit 1
+$PY scripts/build_edges.py || exit 1
+$PY scripts/build_headlines.py || exit 1
+$PY scripts/build_json.py || exit 1
+# Until we split the repo only build metadata on Travis
+if [ ${TRAVIS} ]; then
+  $PY scripts/build_metadata.py || exit 1
+fi
 
 # Instead of seperate prods just update variables that differ
 if [ "$TRAVIS_BRANCH" = "master" ]; then

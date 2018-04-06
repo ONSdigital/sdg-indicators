@@ -58,7 +58,7 @@ def detect_all_edges(df, csv):
     """Loop over the data frame and try all pairs"""
     cols = df.columns
     # Remove the protected columns
-    cols = cols[[x not in ['Year', 'Units', 'Value'] for x in cols]]
+    cols = cols[[x not in ['Year', 'Units', 'Value', 'GeoCode'] for x in cols]]
 
     edges = pd.DataFrame(columns=['From', 'To'])
 

@@ -163,13 +163,87 @@ prose:
             element: text
             label: "Other information"
             scope: national
-      - name: "admin_release_date"
+      - name: "national_data_update_url"
+        field:
+            element: hidden
+            label: "Data last updated"
+            scope: national
+      - name: "national_data_update_url_text"
+        field:
+            element: hidden
+            label: "Data last updated"
+            scope: national
+      - name: "national_metadata_update_url"
+        field:
+            element: hidden
+            label: "Metadata last updated"
+            scope: national
+      - name: "national_metadata_update_url_text"
+        field:
+            element: hidden
+            label: "Metadata last updated"
+            scope: national
+       ######### Data Info #########
+      - name: "reporting_status"
+        field: 
+            element: select 
+            label: "Reporting status"
+            options:
+              - name: 'notstarted'
+                value: 'notstarted'
+              - name: 'inprogress'
+                value: 'inprogress'
+              - name: 'complete'
+                value: 'complete'
+            scope: data
+      - name: data_non_statistical
+        field:
+            element: checkbox
+            label: Non-statistical indicator
+            help: Check this box if this indicator does not have numeric data associated with it
+            value: false
+            scope: data
+      - name: data_footnote
         field:
             element: text
-            label: "Last updated"
-            help: "A date in YYYY-MM-DD format"
-            placeholder: "YYYY-MM-DD"
-            scope: national
+            label: Footnote
+            help: Footnotes appear under the chart and by data tables
+            scope: data
+      - name: data_geocode_regex
+        field:
+            element: text
+            label: GeoCode Regular Expression
+            help: A regex on which geocodes to include
+            scope: data
+      - name: data_keywords
+        field:
+            element: text
+            label: Search Keywords
+            help: Comma separated keywords for search page
+            scope: data
+      - name: data_show_map
+        field:
+            element: checkbox
+            label: Show the map when GeoCodes are present?
+            help: If this box is checked then the prescence of a GeoCode field will trigger a map
+            value: false
+            scope: data
+      ######### Chart Info #########
+      - name: "graph_type"
+        field: 
+            element: select 
+            label: "Graph type"
+            options:
+              - name: 'line'
+                value: 'line'
+              - name: 'bar'
+                value: 'bar'
+            scope: graph
+      - name: "graph_title"
+        field: 
+            element: text
+            label: "Graph Title"
+            scope: graph
       ######### National Sources #########
       ## Source 1
       - name: source_active_1
@@ -372,45 +446,204 @@ prose:
             element: textarea
             label: "Other information"
             scope: source_3
-      ######### Data Info #########
-      - name: "data_edge_list"
-        field: 
-            element: text
-            label: "Data hierachy edge list"
-      - name: "reporting_status"
-        field: 
-            element: select 
-            label: "Reporting status"
-            options:
-              - name: 'notstarted'
-                value: 'notstarted'
-              - name: 'inprogress'
-                value: 'inprogress'
-              - name: 'complete'
-                value: 'complete'
-      - name: data_non_statistical
+      ## Source 4
+      - name: source_active_4
         field:
             element: checkbox
-            label: Non-statistical indicator
-            help: Check this box if this indicator does not have numeric data associated with it
-            value: false
-      - name: data_footnote
+            label: Source 4 active
+            help: Whether or not to display this source
+            value: true
+      - name: source_organisation_4
         field:
             element: text
-            label: Footnote
-            help: Footnotes appear under the chart and by data tables
-      ######### Chart Info #########
-      - name: "graph_type"
-        field: 
-            element: select 
-            label: "Graph type"
-            options:
-              - name: 'line'
-                value: 'line'
-              - name: 'bar'
-                value: 'bar'
-      - name: "graph_title"
-        field: 
+            label: "Organisation"
+            scope: source_4
+      - name: "source_periodicity_4"
+        field:
             element: text
-            label: "Graph Title"
-    
+            label: "Periodicity"
+            scope: source_4
+      - name: "source_earliest_available_4"
+        field:
+            element: text
+            label: "Earliest available data"
+            scope: source_4
+      - name: "source_geographical_coverage_4"
+        field:
+            element: text
+            label: "Geographical coverage"
+            scope: source_4
+      - name: "source_url_4"
+        field:
+            element: text
+            label: "Link to data source"
+            scope: source_4
+      - name: "source_url_text_4"
+        field:
+            element: text
+            label: "Link to data source text"
+            value: "Link to source"
+            scope: source_4
+      - name: "source_release_date_4"
+        field:
+            element: text
+            label: "Release date"
+            help: "A date in YYYY-MM-DD format"
+            placeholder: "YYYY-MM-DD"
+            scope: source_4
+      - name: "source_next_release_4"
+        field:
+            element: text
+            label: "Next release"
+            help: "A date in YYYY-MM-DD format"
+            placeholder: "YYYY-MM-DD"
+            scope: source_4
+      - name: "source_statistical_classification_4"
+        field:
+            element: text
+            label: "Statistical classification"
+            scope: source_4
+      - name: "source_contact_4"
+        field:
+            element: text
+            label: "Contact details"
+            scope: source_4
+      - name: "source_other_info_4"
+        field:
+            element: textarea
+            label: "Other information"
+            scope: source_4
+## Source 5
+      - name: source_active_5
+        field:
+            element: checkbox
+            label: Source 5 active
+            help: Whether or not to display this source
+            value: true
+      - name: source_organisation_5
+        field:
+            element: text
+            label: "Organisation"
+            scope: source_5
+      - name: "source_periodicity_5"
+        field:
+            element: text
+            label: "Periodicity"
+            scope: source_5
+      - name: "source_earliest_available_5"
+        field:
+            element: text
+            label: "Earliest available data"
+            scope: source_5
+      - name: "source_geographical_coverage_5"
+        field:
+            element: text
+            label: "Geographical coverage"
+            scope: source_5
+      - name: "source_url_5"
+        field:
+            element: text
+            label: "Link to data source"
+            scope: source_5
+      - name: "source_url_text_5"
+        field:
+            element: text
+            label: "Link to data source text"
+            value: "Link to source"
+            scope: source_5
+      - name: "source_release_date_5"
+        field:
+            element: text
+            label: "Release date"
+            help: "A date in YYYY-MM-DD format"
+            placeholder: "YYYY-MM-DD"
+            scope: source_5
+      - name: "source_next_release_5"
+        field:
+            element: text
+            label: "Next release"
+            help: "A date in YYYY-MM-DD format"
+            placeholder: "YYYY-MM-DD"
+            scope: source_5
+      - name: "source_statistical_classification_5"
+        field:
+            element: text
+            label: "Statistical classification"
+            scope: source_5
+      - name: "source_contact_5"
+        field:
+            element: text
+            label: "Contact details"
+            scope: source_5
+      - name: "source_other_info_5"
+        field:
+            element: textarea
+            label: "Other information"
+            scope: source_5
+## Source 6
+      - name: source_active_6
+        field:
+            element: checkbox
+            label: Source 6 active
+            help: Whether or not to display this source
+            value: true
+      - name: source_organisation_6
+        field:
+            element: text
+            label: "Organisation"
+            scope: source_6
+      - name: "source_periodicity_6"
+        field:
+            element: text
+            label: "Periodicity"
+            scope: source_6
+      - name: "source_earliest_available_6"
+        field:
+            element: text
+            label: "Earliest available data"
+            scope: source_6
+      - name: "source_geographical_coverage_6"
+        field:
+            element: text
+            label: "Geographical coverage"
+            scope: source_6
+      - name: "source_url_6"
+        field:
+            element: text
+            label: "Link to data source"
+            scope: source_6
+      - name: "source_url_text_6"
+        field:
+            element: text
+            label: "Link to data source text"
+            value: "Link to source"
+            scope: source_6
+      - name: "source_release_date_6"
+        field:
+            element: text
+            label: "Release date"
+            help: "A date in YYYY-MM-DD format"
+            placeholder: "YYYY-MM-DD"
+            scope: source_6
+      - name: "source_next_release_6"
+        field:
+            element: text
+            label: "Next release"
+            help: "A date in YYYY-MM-DD format"
+            placeholder: "YYYY-MM-DD"
+            scope: source_6
+      - name: "source_statistical_classification_6"
+        field:
+            element: text
+            label: "Statistical classification"
+            scope: source_6
+      - name: "source_contact_6"
+        field:
+            element: text
+            label: "Contact details"
+            scope: source_6
+      - name: "source_other_info_6"
+        field:
+            element: textarea
+            label: "Other information"
+            scope: source_6
