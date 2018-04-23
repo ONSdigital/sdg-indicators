@@ -87,9 +87,6 @@ def check_data_types(df, csv):
         if not is_numeric(df['Value']):
             status = False
             print(csv, ': Value column must be a numeric data type')
-        if not is_numeric(df['Year']):
-            status = False
-            print(csv, ': Year column must be a numeric data type')
     except Exception as e:
         print(e)
         return False
