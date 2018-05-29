@@ -25,7 +25,7 @@ $(function() {
       });
 
       $.ajax({ 
-        url: '{{ site.baseurl }}/data/json/' + domData.indicatorid + '.json', 
+        url: '{{ site.basecombineddata }}' + domData.id + '.json', 
         success: function(res) { 
 
           $('.async-loading').remove();

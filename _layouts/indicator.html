@@ -63,7 +63,7 @@
     </div>
   </div>
   
-  <div class="row" id="indicatorData" data-indicatorid='{{dataset_name}}' data-country="{{ page.national_geographical_coverage }}"
+  <div class="row" id="indicatorData" data-indicatorid='{{dataset_name}}' data-id="{{page.indicator | slugify }}" data-country="{{ page.national_geographical_coverage }}"
   data-charttitle="{{ page.graph_title }}" data-measurementunit="{{ page.computation_units }}" data-datasource="{{ page.source_organisation_1 }}" data-geographicalarea="{{ page.national_geographical_coverage }}" data-footnote="{{ page.data_footnote }}" data-showdata="{{ show_data }}" data-graphtype="{{ page.graph_type }}" data-geocoderegex="{{ page.data_geocode_regex }}" data-showmap="{{ page.data_show_map }}">
     {% if show_data %}
     <div class="col-md-3">
