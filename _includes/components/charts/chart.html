@@ -1,6 +1,6 @@
-{% if page.graph_type == 'bar' or page.graph_type == 'line' %}
-    {% assign graph_type = page.graph_type %}
-    {% if page.graph_type == 'longitudinal' %}
+{% if meta.graph_type == 'bar' or meta.graph_type == 'line' %}
+    {% assign graph_type = meta.graph_type %}
+    {% if meta.graph_type == 'longitudinal' %}
         {% assign graph_type = 'line' %}
     {% endif %}
 
