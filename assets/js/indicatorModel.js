@@ -39,6 +39,7 @@ var indicatorModel = function (options) {
   this.hasHeadline = true;
   this.country = options.country;
   this.indicatorId = options.indicatorId;
+  this.shortIndicatorId = options.shortIndicatorId;
   this.chartTitle = options.chartTitle;
   this.graphType = options.graphType;
   this.measurementUnit = options.measurementUnit;
@@ -519,6 +520,7 @@ var indicatorModel = function (options) {
       headlineTable: headlineTable,
       selectionsTable: selectionsTable,
       indicatorId: this.indicatorId,
+      shortIndicatorId: this.shortIndicatorId,
       selectedUnit: this.selectedUnit,
       footerFields: this.footerFields
     });

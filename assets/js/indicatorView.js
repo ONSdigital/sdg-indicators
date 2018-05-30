@@ -487,11 +487,11 @@ var indicatorView = function (model, options) {
     this.createTable(chartInfo.selectionsTable, chartInfo.indicatorId, '#selectionsTable', true);
     this.createTableFooter(chartInfo.footerFields, '#selectionsTable');
     this.createDownloadButton(chartInfo.selectionsTable, 'Table', chartInfo.indicatorId, '#selectionsTable');
-    this.createSourceButton(chartInfo.indicatorId, '#selectionsTable');
+    this.createSourceButton(chartInfo.shortIndicatorId, '#selectionsTable');
     // Chart buttons
     $('#chartSelectionDownload').empty();
     this.createDownloadButton(chartInfo.selectionsTable, 'Chart', chartInfo.indicatorId, '#chartSelectionDownload');
-    this.createSourceButton(chartInfo.indicatorId, '#chartSelectionDownload');
+    this.createSourceButton(chartInfo.shortIndicatorId, '#chartSelectionDownload');
   };
   
   this.createDownloadButton = function(table, name, indicatorId, el) {
@@ -523,7 +523,7 @@ var indicatorView = function (model, options) {
   this.createSourceButton = function(indicatorId, el) {
     $(el).append($('<a />').text('Download Source CSV')
     .attr({
-      'href': '{{ site.baseurl }}/data/' + indicatorId + '.csv',
+      'href': '{{ site.remotedatabaseurl }}data/' + indicatorId + '.csv',
       'download': indicatorId + '.csv',
       'title': 'Download source data as CSV',
       'class': 'btn btn-primary btn-download',
