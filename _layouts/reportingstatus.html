@@ -4,7 +4,7 @@
 
   <h1>Reporting Status</h1>
 
-  {% assign goal_indicators = site.indicators %}
+  {% assign goal_indicators = site.data.meta %}
   {% assign overall_indicator_count = goal_indicators | size %}
   {% assign exploring_count = goal_indicators | where: 'reporting_status', 'notstarted' | size %}
   {% assign in_progress_count = goal_indicators | where: 'reporting_status', 'inprogress' | size %}
@@ -13,8 +13,7 @@
   <div class="goal goal-overall" data-goalid="{{ goal.goal }}">
       <div class="details">
         <h2 class="status-goal">
-          Overall Reporting Status
-          <span class="total"><span>{{ overall_indicator_count }}</span> indicators</span> 
+          Overall Reporting Status <span class="total"><span>{{ overall_indicator_count }}</span> indicators</span> 
         </h2>
         <div class="summary">
           <div class="statuses">
@@ -45,11 +44,8 @@
 
   {% assign sdg_goals = site.data.sdg_goals %}
     <!--<ul style="list-style-type: decimal; margin-left: 50px;margin-bottom: 30px;margin-top:30px;">-->
-      {% for goal in sdg_goals %}
-
-        {% assign indicators = site.data.sdg_indicator_metadata | where:'goal', goal.goal %}
-      
-        {% assign goal_indicators = site.indicators | where: 'sdg_goal', goal.goal %}
+      {% for goal in sdg_goals %}      
+        {% assign goal_indicators = site.data.meta | where: 'sdg_goal', goal.goal %}
         {% assign goal_indicator_count = goal_indicators | size %}
         {% assign exploring_count = goal_indicators | where: 'reporting_status', 'notstarted' | size %}
         {% assign in_progress_count = goal_indicators | where: 'reporting_status', 'inprogress' | size %}
@@ -65,7 +61,7 @@
           <div class="details">
             <h3 class="status-goal">
               <a href="{{ site.baseurl }}/{{ goal.short | slugify }}/">{{ goal.short }}</a>
-              <span class="total">{{ indicators | size }}<span></span> indicators</span> 
+              <span class="total">{{ goal_indicators | size }}<span></span> indicators</span> 
             </h3>
             <div class="summary">
               <div class="statuses">
