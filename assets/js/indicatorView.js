@@ -508,10 +508,11 @@ var indicatorView = function (model, options) {
       })
       .data('csvdata', this.toCsv(table)));
     } else {
-      var headlineId = indicatorId.replace("indicator", "");
+      var headlineId = indicatorId.replace("indicator", "headline");
+      var Id = indicatorId.replace("indicator", "");
       $(el).append($('<a />').text('Download Headline CSV')
       .attr({
-        'href': '{{ site.remotedatabaseurl }}headline/' + headlineId + '.csv',
+        'href': '{{ site.remotedatabaseurl }}headline/' + Id + '.csv',
         'download': headlineId + '.csv',
         'title': 'Download headline data as CSV',
         'class': 'btn btn-primary btn-download',
