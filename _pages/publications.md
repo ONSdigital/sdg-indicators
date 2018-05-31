@@ -28,7 +28,7 @@ This short story looks at the two indicators (under five and neonatal mortality)
 
 ### Goal 5 Gender Equality
 
-**[Eliminating violence against women and girls: Women most at risk of experiencing partner abuse, 31 May 2018](https://www.ons.gov.uk/releases/sustainabledevelopmentgoalsandachievingequalitywhichwomenarethemostvulnerableandatriskofexperiencingdomesticabusebyapartner)**
+**[Eliminating violence against women and girls: Women most at risk of experiencing partner abuse, 31 May 2018](https://www.ons.gov.uk/releases/sustainabledevelopmentgoalsandachievingequalitywhichwomenarethemostvulnerableandatriskofexperiencingdomesticabusebyapartner)**  
 This analysis looks at personal and household characteristics such as age, disability, ethnicity, sexual identity, religion, employment, marital status and household income - it shows that some groups of women are more likely to be victims of abuse by a partner or ex-partner than others. 
 
 ### Goal 7 Affordable and clean energy
