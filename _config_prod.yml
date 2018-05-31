@@ -12,18 +12,20 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: ""
 data_dir: data
 environment: production
-remotedatabaseurl: "https://mangothecat.github.io/sdg-data/"
+remotedatabaseurl: "https://sustainabledevelopment-uk.github.io/sdg-data/"
 # permalink: /news/:year/:month/:day/:title.html
 
 jekyll_get_data:
   - data: meta
-    json: 'https://mangothecat.github.io/sdg-data/meta/all.json'
-    cache: true
-    directory: 'data'
+    json: 'https://sustainabledevelopment-uk.github.io/sdg-data/meta/all.json'
+    # cache: true
+    # directory: 'remotedata'
   - data: headlines
-    json: 'https://mangothecat.github.io/sdg-data/headline/all.json'
-    cache: true
-    directory: 'data'
+    json: 'https://sustainabledevelopment-uk.github.io/sdg-data/headline/all.json'
+    # cache: true
+    # directory: 'remotedata'
+  - data: schema
+    json: 'https://sustainabledevelopment-uk.github.io/sdg-data/meta/schema.json'
 
 analytics:
   ga_prod: 'UA-108503280-1'
