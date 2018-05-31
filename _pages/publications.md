@@ -26,6 +26,11 @@ This is our first report on the progress we’ve made towards measuring the glob
 **[UK drops in European child mortality rankings, 13 October 2017](https://visual.ons.gov.uk/uk-drops-in-european-child-mortality-rankings/)**  
 This short story looks at the two indicators (under five and neonatal mortality) under Target 3.2, showing that although the UK has seen improvements over the last forty years, the rate of improvement has slowed compared with some other EU countries.
 
+### Goal 5 Gender Equality
+
+**[Eliminating violence against women and girls: Women most at risk of experiencing partner abuse, 31 May 2018](https://www.ons.gov.uk/releases/sustainabledevelopmentgoalsandachievingequalitywhichwomenarethemostvulnerableandatriskofexperiencingdomesticabusebyapartner)**
+This analysis looks at personal and household characteristics such as age, disability, ethnicity, sexual identity, religion, employment, marital status and household income - it shows that some groups of women are more likely to be victims of abuse by a partner or ex-partner than others. 
+
 ### Goal 7 Affordable and clean energy
 
 **[Renewable Energy in the UK, 22 November 2017](https://www.slideshare.net/statisticsONS/renewable-energy-in-the-uk)**  
