@@ -1,5 +1,5 @@
 <table class="table table-hover">
-  {% for indicator_metadata in site.prose.metadata._indicators %}
+  {% for indicator_metadata in site.data.schema %}
     {% if indicator_metadata.field.scope == include.scope %}
       {% unless indicator_metadata.name contains "_url_text" or indicator_metadata.name contains "_link_text" %}
       <tr>
@@ -8,19 +8,19 @@
           {% if indicator_metadata.name contains "_url" or indicator_metadata.name contains "_link" %}
             {% assign url_text_name = indicator_metadata.name | replace_first:'_url','_url_text'  %}
             {% assign url_text_name = url_text_name | replace_first:'_link','_link_text'  %}
-            {% assign url_text = page[url_text_name] %}
+            {% assign url_text = meta[url_text_name] %}
             {% unless url_text %}
               {% assign url_text = 'Link' %}
             {% endunless %}
 
-            {% if page[indicator_metadata.name] contains "http" or page[indicator_metadata.name] contains "mailto" %}
-              <a href="{{ page[indicator_metadata.name] }}" target="_blank">
+            {% if meta[indicator_metadata.name] contains "http" or meta[indicator_metadata.name] contains "mailto" %}
+              <a href="{{ meta[indicator_metadata.name] }}" target="_blank">
                 {{ url_text }} <span class="visuallyhidden">opens in a new window</span>
               </a>
             {% endif %}
             
           {% else %}
-            {{ page[indicator_metadata.name] }}
+            {{ meta[indicator_metadata.name] }}
           {% endif %}
         </td>
         </tr>

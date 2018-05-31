@@ -2,7 +2,7 @@
 {% assign n_sources = 0 %}
 {% for i in (1..12) %}
   {% assign src_active = "source_active_" | append: i %}
-  {% if page[src_active] == true %}
+  {% if meta[src_active] == true %}
     {% assign n_sources  = n_sources | plus: 1 %}
   {% endif %}
 {% endfor %}
