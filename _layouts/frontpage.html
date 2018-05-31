@@ -9,7 +9,7 @@
         {% cycle 'add row' : '<div class="row no-gutters">', '', '', '', '', '' %}
             <div class="col-xs-4 col-md-2">
                 <a href="./{{ goal.short | slugify }}/">
-                  <img src="{{ site.baseurl }}/assets/img/goals/{{ goal.sdg_goal }}.png" id="goal-{{ goal.goal }}" alt="{{ goal.short }} - Goal {{ goal.sdg_goal }}" />
+                  <img src="{{ site.baseurl }}/assets/img/goals/{{ goal.sdg_goal }}.png" id="goal-{{ goal.sdg_goal }}" alt="{{ goal.short }} - Goal {{ goal.sdg_goal }}" />
               </a>
             </div>
         {% cycle 'end row' : '', '', '', '', '', '</div>' %}

@@ -7,7 +7,7 @@
 {% assign meta = site.data.meta[indicator_id] %}
 {% assign headline = site.data.headline[indicator_id] %}
 
-{% assign goal = site.data.sdg_goals | where: "goal", meta.sdg_goal | first %}
+{% assign goal = site.goals | where: "sdg_goal", meta.sdg_goal | first %}
 {% capture goal_uri %}{{ site.baseurl }}/{{ goal.short | slugify }}{% endcapture %}
 
 {% if meta.reporting_status != "complete" or meta.data_non_statistical == true %}
