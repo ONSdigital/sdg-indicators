@@ -1,4 +1,4 @@
-{% capture headline_name %}headlines_{{page.indicator | slugify }}{% endcapture %} 
+{% capture headline_name %}{{page.indicator | slugify }}{% endcapture %} 
 {% assign sdg_headline_data = site.data.headlines[headline_name] %} 
 
 <div id="headlineTable">
