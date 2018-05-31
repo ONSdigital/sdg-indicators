@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Title and meta description
+        ================================================== -->
+        
+        
+        <title>
+        Indicator 6.5.2 - Goal 6 - Clean water and sanitation
+        </title>
+        <meta name="description" content="">
+        <meta property="og:description" content="">
+        
+        <meta name="robots" content="noindex, nofollow">
+        
+        <link rel="canonical" href="/">
+
+        
+
+        <!--[if IE 9]>
+        <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
+        <![endif]-->
+        
+        <!-- Favicons ================================================== -->
+        <!-- 128x128 -->
+        <link rel="shortcut icon" type="image/ico" href="/sdg-indicators/assets/img/favicons/favicon.ico">
+        <link rel="icon" type="image/png" href="/sdg-indicators/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
+        http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+        -->
+
+        
+
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20180531092631">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    </head>
+<body>
+<!-- <div class="container"> -->
+
+<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+<div id="disclaimer">
+  <div class="container">
+  <div class="alert alert-danger" role="alert">
+    <strong class="phase-tag">Alpha</strong> This is a development website. We welcome your
+    <a href="mailto:sustainabledevelopment@ons.gov.uk">feedback</a>.
+  </div>
+</div>
+</div>
+
+<header role="banner">
+  <div class="container">
+
+    <a class="navbar-brand" href="/sdg-indicators/" id="home">
+      <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+    </a>
+
+  <div class='hidden visible-xs float-right'>
+    <ul id='accessibility-nav' class='contrast-switcher'></ul>
+  </div>
+
+    <nav class="navbar navbar-default" id="main-nav">
+
+      <ul class="top-level">
+        <li><span data-target="menu">Menu</span></li>
+        <li><span data-target="search">Search</span></li>
+      </ul>
+
+      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu">
+        <li class="nav-link active" >
+          <a href="/sdg-indicators/">Goals</a>
+        </li>
+        <li class="nav-link" >
+          <a href="/sdg-indicators/reporting-status">Reporting Status</a>
+        </li>
+        <li class="nav-link" >
+          <a href="/sdg-indicators/about">About</a>
+        <li class="nav-link" >
+            <a href="/sdg-indicators/publications">Publications</a>
+        </li>
+        <li class="nav-link" >
+          <a href="/sdg-indicators/guidance">Guidance</a>
+        </li>
+        <li class="nav-link" >
+          <a href="/sdg-indicators/faq">FAQ</a>
+        </li>
+<!--        <li class="nav-link" >
+          <a href="/sdg-indicators/news">News &amp; Events</a>
+        </li> -->
+      </ul>
+
+
+    </nav>
+  </div>
+
+</header>
+
+
+
+
+
+
+<script type="text/template" id="item_template">
+  <% _.each(series, function(seriesItem) { %>
+    <div class="variable-selector<% if(allowedFields.indexOf(seriesItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=seriesItem.field%>">
+      <button class='accessBtn' tabindex='0'><h5><%=seriesItem.field%><i class="fa fa-chevron-down"></i></h5></button>
+      <div class="bar">
+        <div class="selected"></div>
+      </div>
+      <div class="variable-options">
+        <div>
+          <button data-type="select">Select all</button>
+          <button data-type="clear">Clear all</button>
+        </div>
+        <% _.each(seriesItem.values, function(item) { %>
+          <label><input type="checkbox" value="<%=item.value%>" data-field="<%=seriesItem.field%>" /><%=item.value%></label>
+        <% }); %>
+      </div>
+      
+      <% if(allowedFields.indexOf(seriesItem.field) == -1) { %> 
+        <div class="variable-hint">
+          Available when '<%= _.findWhere(edges, { To: seriesItem.field }).From %>' is selected
+        </div>
+        <div class="no-data-hint">
+          No options available because of filters above
+        </div>
+      <% }%>
+
+    </div>
+  <% }); %>
+</script>
+
+<script type="text/template" id="units_template">
+  <% if(units.length) { %>
+    <h5>Units type</h5>
+    <% _.each(units, function(unitsItem, index) { %>
+      <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <% if(!index) { %>checked="checked"<% } %> /> <%=unitsItem%></label>
+    <% }); %>
+  <% } %>
+</script>
+
+
+<div class="heading indicator goal-6">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-md-3 col-lg-2">
+        <a href="/sdg-indicators/clean-water-and-sanitation" title="View this goal's indicator list">
+          <img src="/sdg-indicators/assets/img/goals/6.png" alt="Clean water and sanitation - Goal 6" />
+        </a>
+      </div>
+      <div class="col-xs-8 col-md-9 col-lg-10">
+        <h1>
+          <a href="/sdg-indicators/clean-water-and-sanitation">
+            <span class="hidden-sm hidden-md hidden-lg">Goal 6: </span>Ensure availability and sustainable management of water and sanitation for all
+          </a>
+        </h1>
+        <h2>Indicator 6.5.2: Proportion of transboundary basin area with an operational arrangement for water cooperation</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="main-content" class="container goal-6">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <ol class="breadcrumb">
+  <li><a href="/sdg-indicators/">Home</a></li>
+  
+      <li><a href="/sdg-indicators/clean-water-and-sanitation" title="Ensure availability and sustainable management of water and sanitation for all">Goal 6</a></li>
+      <li class="active">Indicator 6.5.2</li>
+  
+</ol>
+  
+  <div class="row" id="page-content-row">
+    <div class="col-xs-12">
+      <div id="page-content">
+        <p>Data follows the UN specification for this indicator and has been indentified in collaboration with topic experts.</p>
+
+<p>The Sustainable Development Goals is a collaborative project, if you have any feedback or suggestions for data please contact us at <a href="mailto:SustainableDevelopment@ons.gov.uk">SustainableDevelopment@ons.gov.uk</a></p>
+
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Surface area of the transboundry basin and percentage of the basin area with an operational arrangement for water cooperation</h2>
+    </div>
+  </div>
+  
+  <div class="row" id="indicatorData" data-indicatorid='indicator_6-5-2' data-country="United Kingdom"
+  data-charttitle="Surface area of the transboundry basin and percentage of the basin area with an operational arrangement for water cooperation" data-measurementunit="Area (km2) or Percentage (%)" data-datasource="Email correspondence" data-geographicalarea="United Kingdom" data-footnote="" data-showdata="true" data-graphtype="bar" data-geocoderegex="" data-showmap="">
+    
+    <div class="col-md-3">
+      <div id="toolbar">
+        <span id="series-help">
+          <h4>Sub-categories</h4>
+          <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+        </span>
+        <p>Click on the legend to remove individual lines from the chart.</p>
+        <div id="fields">
+          <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+        </div>
+      </div>
+      <div id="units"></div>
+    </div>
+    <div class="col-md-9">
+    
+      
+      
+       
+ 
+
+<div id="headlineTable">
+  
+  <div id="datatables">
+    
+    <a href="/sdg-indicators/data/headlines/headlines_6-5-2.csv" class="btn btn-primary btn-download" download="indicator_6-5-2.csv" tabindex="0" role="button">Download Headline CSV</a>
+    
+    <a href="/sdg-indicators/data/indicator_6-5-2.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_6-5-2.csv' tabindex='0' role='button'>Download Source CSV</a>
+    
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>Surface area of the transboundry basin and percentage of the basin area with an operational arrangement for water cooperation</caption>
+      <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col">Units</th>
+        
+        
+        
+        <th scope="col" class="table-value">Value</th>
+        
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          
+          <td>2016</td>    
+          
+          
+          
+          <td>Surfaca area of the basin within the UK (km²)</td>    
+          
+          
+          
+          <td class="table-value">11072.92</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>    
+          
+          
+          
+          <td>Percentage of the basin covered by an opperational arrangement (%)</td>    
+          
+          
+          
+          <td class="table-value">0.0</td>
+          
+          
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  
+  <div id="datatableFooter">
+    
+    <p>Source: Email correspondence</p>
+    
+    
+    <p>Geographical Area: United Kingdom</p>
+    
+    
+    <p>Unit of Measurement: Area (km2) or Percentage (%)</p>
+    
+    
+  </div>
+  
+</div>
+      
+
+      <section>
+        
+        
+        <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+        <div class="async-loaded" style="display:none">
+          <ul class="nav nav-tabs data-view" role="tablist">
+            <li role="presentation" class="nav-item active">
+              <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab">Chart</a>
+            </li>
+            <li role="presentation" class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab">Table</a>
+            </li>
+            <li role="presentation" class="nav-item map" style="display:none">
+              <a class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab">Map</a>
+            </li>
+          </ul>
+          
+          <!-- Tab panes -->
+          <div class="tab-content data-view">
+            <div role="tabpanel" class="tab-pane active" id="chartview">
+              
+    
+    
+
+    <div id="dataset-size-warning" style="display:none">
+      <i class="fa fa-bolt"></i> There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+    </div>
+
+    
+    <div class="plot-container">
+        
+
+<canvas id="barchart-6-5-2" class="ct-chart ct-major-eleventh"></canvas>
+<script>
+  // 3.5.2
+  // 1.5.2 // 2 bars
+  // 4.b.1 // 3 bars
+  var chartInfo = chartDataProcessor.getChartInfo([{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":"Neagh Bann","Transboundary aquifer":null,"Value":"6177.18"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":"North Western","Transboundary aquifer":null,"Value":"4895.74"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":null,"Value":"11072.92"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Anierin-Cuilcagh East","Value":"772"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Aughnacloy","Value":"634"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Ballinamore-Swanlinbar","Value":"34"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Ballintempo","Value":"98"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Ballybofey","Value":"17"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Ballyshannon East","Value":"40"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Ballyshannon South","Value":"5"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Bundoran","Value":"3"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Castlecaldwell Forest","Value":"53"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Castlederg","Value":"30"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Claddagh-Swanlinbar","Value":"14"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Clones","Value":"21"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Cooneen Water","Value":"16"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Crilly","Value":"8"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Crom Castle","Value":"76"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Derrylin","Value":"44"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Donagh","Value":"40"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Keady","Value":"21"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Kilcoo","Value":"29"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Knockatallon","Value":"4"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Lough Swilly","Value":"13"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Louth","Value":"303"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Magheraveely","Value":"122"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Marble Arch","Value":"25"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Monaghan Town","Value":"6"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Newtown-Ballyconnell","Value":"47"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Pettigo","Value":"15"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"River Foyle","Value":"35"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Rossinver","Value":"9"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Slieve Rushen","Value":"18"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Slieve Rushen South","Value":"3"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Tullaghan-Lough Melvin","Value":"23"},{"Year":"2016","Units":"Surfaca area of the basin within the UK (km²)","Transboundary basin":null,"Transboundary aquifer":"Total","Value":"2478"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":"Neagh Bann","Transboundary aquifer":null,"Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":"North Western","Transboundary aquifer":null,"Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":null,"Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Anierin-Cuilcagh East","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Aughnacloy","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Ballinamore-Swanlinbar","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Ballintempo","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Ballybofey","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Ballyshannon East","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Ballyshannon South","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Bundoran","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Castlecaldwell Forest","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Castlederg","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Claddagh-Swanlinbar","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Clones","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Cooneen Water","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Crilly","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Crom Castle","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Derrylin","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Donagh","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Keady","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Kilcoo","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Knockatallon","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Lough Swilly","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Louth","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Magheraveely","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Marble Arch","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Monaghan Town","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Newtown-Ballyconnell","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Pettigo","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"River Foyle","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Rossinver","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Slieve Rushen","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Slieve Rushen South","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Tullaghan-Lough Melvin","Value":"0"},{"Year":"2016","Units":"Percentage of the basin covered by an opperational arrangement (%)","Transboundary basin":null,"Transboundary aquifer":"Total","Value":"0"}]),
+      chartInstance = new Chart(document.getElementById('barchart-6-5-2'), {
+      type: 'bar',
+      data: chartInfo,
+      options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            yAxes: [{
+              ticks: {
+                  suggestedMin: 0
+              }
+            }]
+          },
+          legend: {
+            display: false
+         },
+      }
+  });
+
+</script>
+
+    </div>
+    <div id="plotLegend"></div>
+
+    <div id="chartSelectionDownload"></div>    
+    
+
+
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tableview">
+              <div id="selectionsTable"></div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="mapview" class="map">
+              <div id="map">
+                <img src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
+              </div>
+            </div>
+          </div>
+        </div> 
+        
+               
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="nav-item active">
+            <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab">National Metadata</a>
+          </li>
+          <li role="presentation" class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#globalmetadata" aria-controls="globalmetadata" role="tab">Global Metadata</a>
+          </li>
+          <li role="presentation" class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab">Sources</a>
+          </li>
+          
+          <li role="presentation" class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#edit" aria-controls="edit" role="tab">Edit</a>
+          </li>
+          
+        </ul>
+        
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="metadata">
+            <!-- National Metadata -->
+            <div > <!-- formerly class="collapsible expanded" -->
+              <!-- <h3 tabindex='0'>National Metadata</h3> -->
+              <article>
+                <p>This table provides metadata for the actual indicator available from UK statistics closest to the corresponding global
+                  SDG indicator. Please note that even when the global SDG indicator is fully available from UK statistics, this table
+                  should be consulted for information on national methodology and other UK-specific metadata information.</p>
+                  <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator available </th>
+        <td>
+          
+            Surface area of the transboundry basin and percentage of the basin area with an operational arrangement for water cooperation
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator description </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            United Kingdom
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Unit of measurement </th>
+        <td>
+          
+            Area (km2) or Percentage (%)
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Definitions </th>
+        <td>
+          
+            The definition of IWRM is based on an internationally agreed definition, and is universally applicable. IWRM was officially established in 1992 and is defined as “a process which promotes the coordinated development and management of water, land and related resources in order to maximise economic and social welfare in an equitable manner without compromising the sustainability of vital ecosystems” (GWP 2010). The concept of IWRM is measured in 4 main components: i) Enabling environment: this includes the policies, laws, plans and strategies which create the ‘enabling environment’ for IWRM; ii) Institutions: includes the range and roles of political, social, economic and administrative institutions that help to support the implementation of IWRM; iii) Management Instruments: The tools and activities that enable decision-makers and users to make rational and informed choices between alternative actions; iv) Financing: Budgeting and financing made available and used for water resources development and management from various sources. The indicator is based on a national survey structured around these four main components (UNEP 2016). Each component is split into two parts: questions concerning the ‘National level’ and ‘Other levels’ respectively. ‘Other levels’ includes sub-national (including provinces/states for federated countries), basin level, and the transboundary level as appropriate. These two parts address the wording of Target 6.5 ‘implement [IWRM] at all levels …’. To further aid interpretation and comparison, the indicator results can be categorized in a similar way to the survey questions: Degree of implementation = Very low (0-9.9); Low (10-29.9); Medium-low (30-49.9); Medium-high (50-69.9); High (70-89.9); and Very high (90-100).
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Calculations </th>
+        <td>
+          
+            The indicator degree of implementation of Integrated Water Resources Management (IWRM), measured in per cent (%) from 0 (implementation not yet started) to 100 (fully implemented) is currently being measured in terms of different stages of development and implementation of Integrated Water Resources Management (IWRM).
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Data last updated </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://github.com/datasciencecampus/sdg-indicators/commit/d257ccf419423969cbffa06c288864df914f7805" target="_blank">
+                2018-04-03: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Metadata last updated </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://github.com/datasciencecampus/sdg-indicators/commit/d257ccf419423969cbffa06c288864df914f7805" target="_blank">
+                2018-04-03: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+              </article>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="globalmetadata">
+            <!-- Global Metadata -->
+            <div> <!-- formerly <div class="collapsible expanded"> -->
+              <!-- <h3 tabindex='0'>Global Metadata</h3> -->
+              <article>
+                <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href="https://unstats.un.org/sdgs/metadata/">Complete global metadata</a> is provided by the UN Statistics Division.</p>
+                <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator name </th>
+        <td>
+          
+            Proportion of transboundary basin area with an operational arrangement for water cooperation
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Indicator number </th>
+        <td>
+          
+            6.5.2
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Target name </th>
+        <td>
+          
+            By 2030, implement integrated water resources management at all levels, including through transboundary cooperation as appropriate
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Target number </th>
+        <td>
+          
+            6.5
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Global indicator description </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN designated tier </th>
+        <td>
+          
+            2
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">UN custodian agency </th>
+        <td>
+          
+            United Nations Education and Scientific Cultural Organisation - Institute for Statistics (UNESCO-UIS) United Nations Economic Commission for Europe (UNECE)
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Link to UN metadata </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://unstats.un.org/sdgs/files/metadata-compilation/Metadata-Goal-6.pdf " target="_blank">
+                United Nations Sustainable Development Goals Metadata (PDF 4.0 MB) <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+              </article>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="sources">
+            <!-- Count the non-empty sources (up to 5) -->
+
+
+
+
+  <div class="row no-gutters">
+  
+   
+    
+    <div class="col-md-6">
+      
+      <table class="table table-hover">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            Email correspondence
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            Discontinuous
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            2016
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            United Kingdom
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            15-08-2017
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            To be announced
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            Non-Official
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            rocky.harris@defra.gsi.gov.uk
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            Full document at: \\nsdata2\SDGs\Data Collection and Reporting\Jemalex\Test Folder\Indicators\Completed
+          
+        </td>
+        </tr>
+        
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</table>
+
+    </div>
+    
+  </div>
+
+
+          </div>
+          
+          <div role="tabpanel" class="tab-pane" id="edit">
+            <div class="edit-container">
+              <a class="btn btn-primary" href="http://prose.io/#datasciencecampus/sdg-indicators/edit/develop/data/indicator_6-5-2.csv">Edit Data</a>
+              <a class="btn btn-primary" href="http://prose.io/#datasciencecampus/sdg-indicators/edit/develop/_indicators/6-5-2.md">Edit Metadata</a>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-9">
+        <a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a> | <a class="twitter-follow-button" href="https://twitter.com/StatsClaudie?ref_src=twsrc%5Etfw" data-show-count="false">@StatsClaudie</a>
+      </div>
+      <div class="col-xs-3 text-right">
+        <a href="/sdg-indicators/faq/">FAQs</a> | <a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
+<!-- Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+
+
+</script>
+
+<!-- /.container </div> -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+<script src="/sdg-indicators/assets/js/lib/d3-simple-slider.min.js"></script>
+<script src="/sdg-indicators/assets/js/plugins/jquery.sdgMap.js"></script>
+<script type="text/javascript"> window.loop11_key = "0104054b3b56d396b42e668dfe096cee161454a8"; </script>
+<script src="//cdn.loop11.com/my/loop11.js" type="text/javascript" async="async"></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20180531092631'></script>
+<script src="/sdg-indicators/assets/js/lib/classList.js"></script>
+<script src="/sdg-indicators/assets/js/lib/modernizr-custom.js"></script>
+<script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
+<script>
+$(function() {
+    if($('#indicatorData').length) {
+      var domData = $('#indicatorData').data();
+
+      $('.async-loading').each(function(i, obj) {
+          $(obj).append($('<img />').attr('src', $(obj).data('img')));
+      });
+
+      $.ajax({ 
+        url: '/sdg-indicators/data/json/' + domData.indicatorid + '.json', 
+        success: function(res) { 
+
+          $('.async-loading').remove();
+          $('.async-loaded').show();
+
+          var model = new indicatorModel({
+            data: res.data,
+            edgesData: res.edges,
+            geoCodeRegEx: domData.geocoderegex,
+            showMap: domData.showmap,
+            country: domData.country,
+            indicatorId: domData.indicatorid,
+            chartTitle: domData.charttitle,
+            measurementUnit: domData.measurementunit,
+            dataSource: domData.datasource,
+            geographicalArea: domData.geographicalarea,
+            showData: domData.showdata,
+            footnote: domData.footnote,
+            graphType: domData.graphtype
+          }),
+          view  = new indicatorView(model, {
+            rootElement: '#indicatorData',
+            legendElement: '#plotLegend',
+            maxChartHeight: 600,
+            tableColumnDefs: [
+              { maxCharCount: 25 }, // nowrap
+              { maxCharCount: 35, width: 200 },
+              { maxCharCount: Infinity, width: 250 }
+            ]
+          }),
+          controller = new indicatorController(model, view);
+          controller.initialise();
+        }
+      });
+    }
+
+    var switcher = new accessibilitySwitcher();
+
+
+});
+</script>
+
+</body>
+</html>
+
+  
