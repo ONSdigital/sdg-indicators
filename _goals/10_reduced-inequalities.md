@@ -1,8 +1,7 @@
 ---
 title: Reduce inequality within and among countries
-permalink: /reduced-inequalities/
-sdg_goal: 10
-colour: e11484
-layout: goal
+short: Reduced inequalities
+sdg_goal: '10'
+color: '#dd1367'
 ---
 

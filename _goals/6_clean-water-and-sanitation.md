@@ -1,8 +1,8 @@
 ---
-title: Ensure availability and sustainable management of water and sanitation for all
-permalink: /clean-water-and-sanitation/
-sdg_goal: 6
-colour: 00aed9
-layout: goal
+title: Ensure availability and sustainable management of water and sanitation for
+  all
+short: Clean water and sanitation
+sdg_goal: '6'
+color: '#26bde2'
 ---
 

@@ -1,8 +1,7 @@
 ---
 title: Make cities and human settlements inclusive, safe, resilient and sustainable
-permalink: /sustainable-cities-communities/
-sdg_goal: 11
-colour: f99d26
-layout: goal
+short: Sustainable Cities & Communities
+sdg_goal: '11'
+color: '#fd9d24'
 ---
 

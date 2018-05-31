@@ -1,8 +1,7 @@
 ---
 title: End poverty in all its forms everywhere
-permalink: /no-poverty/
-sdg_goal: 1
-colour: eb1c2d
-layout: goal
---- 
+short: No Poverty
+sdg_goal: '1'
+color: '#e5243b'
+---
 
