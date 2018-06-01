@@ -15,7 +15,7 @@
         
         
         <title>
-        Indicator 11.6.2 - Goal 11 - Sustainable Cities &amp; Communities
+        Indicator 11.6.2 - Goal  - 
         </title>
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -43,7 +43,7 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20180531092631">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20180601122408">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
     </head>
 <body>
@@ -106,11 +106,6 @@
 
 </header>
 
-
-
-
-
-
 <script type="text/template" id="item_template">
   <% _.each(series, function(seriesItem) { %>
     <div class="variable-selector<% if(allowedFields.indexOf(seriesItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=seriesItem.field%>">
@@ -151,18 +146,38 @@
 </script>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="heading indicator goal-11">
   <div class="container">
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2">
         <a href="/sdg-indicators/sustainable-cities-communities" title="View this goal's indicator list">
-          <img src="/sdg-indicators/assets/img/goals/11.png" alt="Sustainable Cities & Communities - Goal 11" />
+          <img src="/sdg-indicators/assets/img/goals/11.png" alt="Sustainable Cities & Communities - Goal " />
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
           <a href="/sdg-indicators/sustainable-cities-communities">
-            <span class="hidden-sm hidden-md hidden-lg">Goal 11: </span>Make cities and human settlements inclusive, safe, resilient and sustainable
+            <span class="hidden-sm hidden-md hidden-lg">Goal 11: </span>Annual mean levels of fine particulate matter (e.g. PM2.5 and PM10) in cities (population weighted)
           </a>
         </h1>
         <h2>Indicator 11.6.2: Annual mean levels of fine particulate matter (e.g. PM2.5 and PM10) in cities (population weighted)</h2>
@@ -172,24 +187,10 @@
 </div>
 
 <div id="main-content" class="container goal-11">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <ol class="breadcrumb">
   <li><a href="/sdg-indicators/">Home</a></li>
   
-      <li><a href="/sdg-indicators/sustainable-cities-communities" title="Make cities and human settlements inclusive, safe, resilient and sustainable">Goal 11</a></li>
+      <li><a href="/sdg-indicators/sustainable-cities-communities" title="Make cities and human settlements inclusive, safe, resilient and sustainable">Goal </a></li>
       <li class="active">Indicator 11.6.2</li>
   
 </ol>
@@ -211,7 +212,7 @@
     </div>
   </div>
   
-  <div class="row" id="indicatorData" data-indicatorid='indicator_11-6-2' data-country="UK"
+  <div class="row" id="indicatorData" data-indicatorid='indicator_11-6-2' data-id="11-6-2" data-country="UK"
   data-charttitle="Annual mean levels of fine particulate matter (PM2.5 and PM10) in towns and cities (population weighted)" data-measurementunit="Annual mean (ug/m3)" data-datasource="World Health Organisation (WHO)" data-geographicalarea="UK" data-footnote="City-level data sourced from the European Environment Agency (Air quality e-reporting database) and complied by the Global Health Observatory (GHO). Country-level (headline) values sourced from the GHO." data-showdata="true" data-graphtype="line" data-geocoderegex="" data-showmap="false">
     
     <div class="col-md-3">
@@ -238,13 +239,13 @@
   
   <div id="datatables">
     
-    <a href="/sdg-indicators/data/headlines/headlines_11-6-2.csv" class="btn btn-primary btn-download" download="indicator_11-6-2.csv" tabindex="0" role="button">Download Headline CSV</a>
+    <a href="https://ONSdigital.github.io/sdg-data/headline/11-6-2.csv" class="btn btn-primary btn-download" download="indicator_11-6-2.csv" tabindex="0" role="button">Download Headline CSV</a>
     
-    <a href="/sdg-indicators/data/indicator_11-6-2.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_11-6-2.csv' tabindex='0' role='button'>Download Source CSV</a>
+    <a href="https://ONSdigital.github.io/sdg-data/data/11-6-2.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_11-6-2.csv' tabindex='0' role='button'>Download Source CSV</a>
     
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>Annual mean levels of fine particulate matter (PM2.5 and PM10) in towns and cities (population weighted)</caption>
+      <caption></caption>
       <thead>
         
       </thead>
@@ -256,16 +257,8 @@
   
   <div id="datatableFooter">
     
-    <p>Source: World Health Organisation (WHO)</p>
     
     
-    <p>Geographical Area: UK</p>
-    
-    
-    <p>Unit of Measurement: Annual mean (ug/m3)</p>
-    
-    
-    <p>Footnote: City-level data sourced from the European Environment Agency (Air quality e-reporting database) and complied by the Global Health Observatory (GHO). Country-level (headline) values sourced from the GHO.</p>
     
   </div>
   
@@ -483,7 +476,7 @@
             
 
             
-              <a href="https://github.com/datasciencecampus/sdg-indicators/commit/703bab244ba6b3f915ae5528fee92684f346d8d4" target="_blank">
+              <a href="https://github.com/ONSdigital/sdg-data/commit/f36b9d2a1c95a82de5bdd2376c601bb901c3bc28" target="_blank">
                 2018-05-24: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
@@ -510,8 +503,8 @@
             
 
             
-              <a href="https://github.com/datasciencecampus/sdg-indicators/commit/65491079af4dcfc12885dd98eb850954c2a2ac4a" target="_blank">
-                2018-05-04: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/828f72873bdf983f3f71ce6cdc1c1079a95cbd87" target="_blank">
+                2018-05-31: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
             
@@ -1706,8 +1699,8 @@
           
           <div role="tabpanel" class="tab-pane" id="edit">
             <div class="edit-container">
-              <a class="btn btn-primary" href="http://prose.io/#datasciencecampus/sdg-indicators/edit/develop/data/indicator_11-6-2.csv">Edit Data</a>
-              <a class="btn btn-primary" href="http://prose.io/#datasciencecampus/sdg-indicators/edit/develop/_indicators/11-6-2.md">Edit Metadata</a>
+              <a class="btn btn-primary" href="http://prose.io/#ONSdigital/sdg-data/edit/develop/data/indicator_11-6-2.csv">Edit Data</a>
+              <a class="btn btn-primary" href="http://prose.io/#ONSdigital/sdg-data/edit/develop/meta/11-6-2.md">Edit Metadata</a>
             </div>
           </div>
           
@@ -1758,7 +1751,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 <script src="/sdg-indicators/assets/js/plugins/jquery.sdgMap.js"></script>
 <script type="text/javascript"> window.loop11_key = "0104054b3b56d396b42e668dfe096cee161454a8"; </script>
 <script src="//cdn.loop11.com/my/loop11.js" type="text/javascript" async="async"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20180531092631'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20180601122408'></script>
 <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
 <script src="/sdg-indicators/assets/js/lib/modernizr-custom.js"></script>
 <script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
@@ -1772,7 +1765,7 @@ $(function() {
       });
 
       $.ajax({ 
-        url: '/sdg-indicators/data/json/' + domData.indicatorid + '.json', 
+        url: 'https://ONSdigital.github.io/sdg-data/comb/' + domData.id + '.json', 
         success: function(res) { 
 
           $('.async-loading').remove();
@@ -1785,6 +1778,7 @@ $(function() {
             showMap: domData.showmap,
             country: domData.country,
             indicatorId: domData.indicatorid,
+            shortIndicatorId: domData.id,
             chartTitle: domData.charttitle,
             measurementUnit: domData.measurementunit,
             dataSource: domData.datasource,

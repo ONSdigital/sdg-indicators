@@ -41,7 +41,7 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20180531092631">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20180601122408">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
     </head>
 <body>
@@ -114,7 +114,7 @@
 
 <p>We initially based the UK website on the <a href="https://sdg.data.gov/">US SDG reporting platform</a> and continue to collaborate with the US on further developing our websites. The UK site has been developed by the <a href="https://datasciencecampus.ons.gov.uk/">Data Science Campus</a>.</p>
 
-<p>Other countries wishing to reuse the UK or US SDG reporting platforms are welcome to do so for free. Our <a href="https://sustainabledevelopment-uk.github.io/guidance/">Guidance page</a> highlights key information on how to do this, linking to detailed technical instructions available in our <a href="https://github.com/datasciencecampus/sdg-indicators/wiki">wiki pages</a>. The US have also produced various <a href="https://sdg.data.gov/training/">training materials</a>. The  <a href="http://www.opendataenterprise.org/">Center for Open Data Enterprise (CODE)</a> can also provide guidance and support through their <a href="https://www.sdgreporting.org/">SDG National Reporting Initiative</a>.</p>
+<p>Other countries wishing to reuse the UK or US SDG reporting platforms are welcome to do so for free. Our <a href="https://sustainabledevelopment-uk.github.io/guidance/">Guidance page</a> highlights key information on how to do this, linking to detailed technical instructions available in our <a href="https://github.com/ONSdigital/sdg-indicators/wiki">wiki pages</a>. The US have also produced various <a href="https://sdg.data.gov/training/">training materials</a>. The  <a href="http://www.opendataenterprise.org/">Center for Open Data Enterprise (CODE)</a> can also provide guidance and support through their <a href="https://www.sdgreporting.org/">SDG National Reporting Initiative</a>.</p>
 
 <p>If you have any feedback on this website or UK SDG data then please contact us at <a href="mailto:sustainabledevelopment@ons.gov.uk">sustainabledevelopment@ons.gov.uk</a>. The answers to some frequently asked questions can be found in our <a href="/sdg-indicators/faq/">FAQ</a>.</p>
 
@@ -162,7 +162,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 <script src="/sdg-indicators/assets/js/plugins/jquery.sdgMap.js"></script>
 <script type="text/javascript"> window.loop11_key = "0104054b3b56d396b42e668dfe096cee161454a8"; </script>
 <script src="//cdn.loop11.com/my/loop11.js" type="text/javascript" async="async"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20180531092631'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20180601122408'></script>
 <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
 <script src="/sdg-indicators/assets/js/lib/modernizr-custom.js"></script>
 <script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
@@ -176,7 +176,7 @@ $(function() {
       });
 
       $.ajax({ 
-        url: '/sdg-indicators/data/json/' + domData.indicatorid + '.json', 
+        url: 'https://ONSdigital.github.io/sdg-data/comb/' + domData.id + '.json', 
         success: function(res) { 
 
           $('.async-loading').remove();
@@ -189,6 +189,7 @@ $(function() {
             showMap: domData.showmap,
             country: domData.country,
             indicatorId: domData.indicatorid,
+            shortIndicatorId: domData.id,
             chartTitle: domData.charttitle,
             measurementUnit: domData.measurementunit,
             dataSource: domData.datasource,
