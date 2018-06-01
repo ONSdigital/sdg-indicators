@@ -1,30 +1,23 @@
 ---
 ---
-{% assign sdg_goals = site.data.sdg_goals %}
 [
-  {% for goal in sdg_goals %}
+  {% for goal in site.goals %}
   {
     "goal": {
-      "id": "{{goal.goal}}",
+      "id": "{{goal.sdg_goal}}",
       "title": "{{goal.title}}",
       "indicators": [
-        {% assign indicators = site.data.sdg_indicator_metadata | where:'goal', goal.goal %}
+        {% assign indicators = site.data.meta | where:'sdg_goal', goal.sdg_goal %}
         {% for indicator in indicators %}
-
-        {% for page in site['indicators'] %}
-          {% if page.indicator == indicator.indicator_id %}
-            {% assign indicator_status = page.reporting_status %}
-            {% assign keywords = page.data_keywords %}
-            {% assign description = page.national_indicator_description | strip %}
-          {% endif %}
-        {% endfor %}
+        {% capture indicator_id %}{{indicator.indicator | slugify}}{% endcapture %}
+        {% assign meta = site.data.meta[indicator_id] %}
         {
-          "id": "{{indicator.indicator_id}}",
-          "title": "{{indicator.indicator}}",
-          "description": "{{description}}",
-          "keywords": "{{keywords}}",
-          "href": "{{ site.baseurl }}/{{ indicator.indicator_id | replace: '.', '-' }}",
-          "status": "{{indicator_status}}"
+          "id": "{{indicator_id}}",
+          "title": "{{meta.title | strip_newlines | strip}}",
+          "description": "{{meta.national_indicator_description | strip_newlines | strip }}",
+          "keywords": "{{meta.data_keywords}}",
+          "href": "{{ site.baseurl }}/{{ indicator_id }}",
+          "status": "{{meta.reporting_status}}"
         }
         {% if forloop.last %}{% else %},{% endif %}
         {% endfor %}

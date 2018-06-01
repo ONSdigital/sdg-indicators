@@ -33,7 +33,7 @@ Our aim is to make this website as accessible and usable as possible for every u
 We are developing and testing our site in line with the Government Digital Service (GDS) [guidance on designing for different browsers and devices](https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices). Our website works with most of the latest versions of the commonly used browsers listed in the ‘Browsers to test in’ section of the GDS guidance. There are some issues with using the site on older versions of browsers eg IE8 and we are working to fix these.
 
 ## Can other countries copy this website?
-Yes. We have deliberately developed an open source solution for reporting UK SDGs data so other countries can freely reuse our code. Technical guidance on copying our site is available in our [wiki](https://github.com/datasciencecampus/sdg-indicators/wiki). Countries exploring how to report their own SDGs national data can also get support from the [Center for Open Data Enterprise (CODE)](http://www.opendataenterprise.org/) through their [SDG National Reporting Initiative](https://www.sdgreporting.org/).
+Yes. We have deliberately developed an open source solution for reporting UK SDGs data so other countries can freely reuse our code. Technical guidance on copying our site is available in our [wiki](https://github.com/ONSdigital/sdg-indicators/wiki). Countries exploring how to report their own SDGs national data can also get support from the [Center for Open Data Enterprise (CODE)](http://www.opendataenterprise.org/) through their [SDG National Reporting Initiative](https://www.sdgreporting.org/).
 
 <!-- DO NOT REMOVE ANYTHING BELOW THIS LINE -->
 <script type='text/javascript'>

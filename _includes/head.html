@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Title and meta description
         ================================================== -->
-        {% assign goal = site.data.sdg_goals | where: "goal", page.sdg_goal | first %}
+        {% assign goal = site.goals | where: "sdg_goal", page.sdg_goal | first %}
         {% capture page_title %}
         Indicator {{ page.indicator }} - Goal {{ goal.goal }} - {{ goal.short }}
         {% endcapture %}
