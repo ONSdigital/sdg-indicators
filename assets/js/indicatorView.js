@@ -512,7 +512,7 @@ var indicatorView = function (model, options) {
       var Id = indicatorId.replace("indicator", "");
       $(el).append($('<a />').text('Download Headline CSV')
       .attr({
-        'href': '{{ site.remotedatabaseurl }}headline/' + Id + '.csv',
+        'href': '{{ site.remotedatabaseurl }}/headline/' + Id + '.csv',
         'download': headlineId + '.csv',
         'title': 'Download headline data as CSV',
         'class': 'btn btn-primary btn-download',
@@ -524,7 +524,7 @@ var indicatorView = function (model, options) {
   this.createSourceButton = function(indicatorId, el) {
     $(el).append($('<a />').text('Download Source CSV')
     .attr({
-      'href': '{{ site.remotedatabaseurl }}data/' + indicatorId + '.csv',
+      'href': '{{ site.remotedatabaseurl }}/data/' + indicatorId + '.csv',
       'download': indicatorId + '.csv',
       'title': 'Download source data as CSV',
       'class': 'btn btn-primary btn-download',
