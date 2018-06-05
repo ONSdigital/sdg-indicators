@@ -1,21 +1,5 @@
 #!/bin/bash
 
-# On Windows I can't map python3 to python
-if [[ $(uname) = *"_NT"* ]]; then
-  PY=python
-else
-  PY=python3
-fi
-
-# Pre-processing
-$PY scripts/build_edges.py || exit 1
-$PY scripts/build_headlines.py || exit 1
-$PY scripts/build_json.py || exit 1
-# Until we split the repo only build metadata on Travis
-if [ ${TRAVIS} ]; then
-  $PY scripts/build_metadata.py || exit 1
-fi
-
 # Instead of seperate prods just update variables that differ
 if [ "$TRAVIS_BRANCH" = "master" ]; then
   jekyll build --config _config_prod.yml &&
@@ -29,5 +13,4 @@ else
   htmlproofer --disable-external ./_test &&
   rm -rf ./_test
 fi
-
 

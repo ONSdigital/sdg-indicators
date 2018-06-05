@@ -3,7 +3,6 @@ title: Putting the numbers into context
 permalink: /publications/
 layout: page
 ---
-
 As well as collecting and reporting UK data for the global Sustainable Development Goals indicators, ONS will be releasing various publications putting the numbers into context. We will make these publications available on this page.
 
 If you have any feedback on our publications please contact us at <a href="mailto:{{site.email_contacts.suggestions}}">{{site.email_contacts.suggestions}}</a>

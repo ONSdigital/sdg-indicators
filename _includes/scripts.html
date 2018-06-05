@@ -25,7 +25,7 @@ $(function() {
       });
 
       $.ajax({ 
-        url: '{{ site.baseurl }}/data/json/' + domData.indicatorid + '.json', 
+        url: '{{ site.remotedatabaseurl }}/comb/' + domData.id + '.json', 
         success: function(res) { 
 
           $('.async-loading').remove();
@@ -38,6 +38,7 @@ $(function() {
             showMap: domData.showmap,
             country: domData.country,
             indicatorId: domData.indicatorid,
+            shortIndicatorId: domData.id,
             chartTitle: domData.charttitle,
             measurementUnit: domData.measurementunit,
             dataSource: domData.datasource,
