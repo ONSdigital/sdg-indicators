@@ -3,7 +3,7 @@
   // Create the defaults once
   var pluginName = 'sdgMap',
     defaults = {
-      serviceUrl: 'https://geoportal1-ons.opendata.arcgis.com/datasets/686603e943f948acaa13fb5d2b0f1275_4.geojson',
+      serviceUrl: 'https://geospatialhub.ons.statistics.gov.uk/portal/apps/webappviewer/index.html?id=72b5e383cf68433190464df627477030',
       width: 590,
       height: 590
     };
