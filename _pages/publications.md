@@ -11,6 +11,9 @@ If you have any feedback on our publications please contact us at <a href="mailt
 
 ### All goals
 
+**[Inclusive data charter action plan for the global Sustainable Development Goals](https://www.ons.gov.uk/economy/environmentalaccounts/methodologies/inclusivedatacharteractionplanfortheglobalsustainabledevelopmentgoals)**  
+The Office for National Statistics has partnered with the Global Partnership for Sustainable Development Data to improve the quality, quantity and availability of inclusive data.
+
 **[UK data gaps: Inclusive Data Action Plan towards the global Sustainable Development Goal indicators, 19 March 2018](https://www.ons.gov.uk/economy/environmentalaccounts/articles/ukdatagapsinclusivedataactionplantowardstheglobalsustainabledevelopmentgoalindicators/2018-03-19)**  
 This is our first report on UK data gaps for reporting progress towards the global Sustainable Development Goal indicators.
 
