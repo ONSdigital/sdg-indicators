@@ -5,7 +5,10 @@
     defaults = {
       serviceUrl: 'https://geoportal1-ons.opendata.arcgis.com/datasets/686603e943f948acaa13fb5d2b0f1275_4.geojson',
       width: 590,
-      height: 590
+      height: 590,
+      nameProperty: 'lad16nm',
+      idProperty: 'lad16cd',
+      projectionFunc: d3.geoMercator,
     };
 
   function Plugin(element, options) {
@@ -61,7 +64,7 @@
 
         initialiseUI.call(that);
 
-        projection = d3.geoMercator().fitSize([width, height], mapData);
+        projection = that.options.projectionFunc().fitSize([width, height], mapData);
         path = d3.geoPath().projection(projection);
 
         // Draw each geographical area as a path
@@ -184,13 +187,13 @@
 
       // Get area name
       function getName(d){
-        return d && d.properties ? d.properties.lad16nm : null;
+        return d && d.properties ? d.properties[that.options.nameProperty] : null;
       }
 
       // Get 
       function getValue(d) {
         var geoDataItem = _.findWhere(this.options.geoData, { 
-          GeoCode: d.properties.lad16cd,
+          GeoCode: d.properties[this.options.idProperty],
           Year: +this.currentYear
         });
 
@@ -199,7 +202,7 @@
 
       function getYearValues(d) {
         return _.where(this.options.geoData, { 
-          GeoCode: d.properties.lad16cd
+          GeoCode: d.properties[this.options.idProperty]
         });
       }
 
@@ -329,7 +332,7 @@
       }
     },
     isInScope: function(d) {
-      return d === null ? true : d.properties.lad16cd.match(this.options.geoCodeRegEx);
+      return d === null ? true : d.properties[this.options.idProperty].match(this.options.geoCodeRegEx);
     }  
   };
 
