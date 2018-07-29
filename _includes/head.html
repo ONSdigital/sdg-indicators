@@ -58,6 +58,11 @@
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
         <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/default.css?v={{ cache_bust }}">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+        {%- if site.custom_css -%}
+          {%- for custom_css_file in site.custom_css -%}
+            <link rel="stylesheet" href="{{ site.baseurl }}{{ custom_css_file }}?v={{ cache_bust }}">
+          {%- endfor -%}
+        {%- endif -%}
     </head>
 <body>
 <!-- <div class="container"> -->
