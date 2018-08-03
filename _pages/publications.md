@@ -11,6 +11,9 @@ If you have any feedback on our publications please contact us at <a href="mailt
 
 ### All goals
 
+**[Inclusive data charter action plan for the global Sustainable Development Goals](https://www.ons.gov.uk/economy/environmentalaccounts/methodologies/inclusivedatacharteractionplanfortheglobalsustainabledevelopmentgoals)**  
+The Office for National Statistics has partnered with the Global Partnership for Sustainable Development Data to improve the quality, quantity and availability of inclusive data.
+
 **[UK data gaps: Inclusive Data Action Plan towards the global Sustainable Development Goal indicators, 19 March 2018](https://www.ons.gov.uk/economy/environmentalaccounts/articles/ukdatagapsinclusivedataactionplantowardstheglobalsustainabledevelopmentgoalindicators/2018-03-19)**  
 This is our first report on UK data gaps for reporting progress towards the global Sustainable Development Goal indicators.
 
@@ -34,3 +37,13 @@ This analysis looks at personal and household characteristics such as age, disab
 
 **[Renewable Energy in the UK, 22 November 2017](https://www.slideshare.net/statisticsONS/renewable-energy-in-the-uk)**  
 This SlideShare takes a look at renewable energy consumption in the UK which is under Target 7.2. It highlights that while overall energy consumption has gone down, the proportion of energy from renewable sources has risen. It shows that not all renewables are emission free and some can create pollutants, burning wood is used as an example. The UK is setting out plans to meet international commitments to reducing emissions of air pollutants. 
+
+### Goal 10 Reduced Inequalities 
+
+**[Measuring Inequalities in the UK for the Sustainable Development Goals, 26th July 2018](https://www.ons.gov.uk/economy/nationalaccounts/uksectoraccounts/compendium/economicreview/july2018/measuringinequalitiesintheukforthesustainabledevelopmentgoals)**
+This article reports on economic inequality, measuring growth rates in income and expenditure in the UK, for all households and for the bottom 40%. It shows that the incomes of the bottom 40% in the UK have sustained a higher than average growth rate since the economic downturn in 2008, and identifies the employment and household characteristics of the bottom 40% of the income distribution.
+
+### Goal 16 Peace and Justice 
+
+**[Reporting on the SDGs: People on remand in custody in England and Wales, 3rd August 2018](https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/articles/reportingonthesustainabledevelopmentgoalspeopleonremandincustodyinenglandandwales/2018-08-03)**
+This analysis provides insight into ‘the proportion of people on remand in custody’ in England and Wales and it looks at the differences between sex, ethnicity, children and young people. It helps to show how England and Wales is performing in regards to the UN’s Sustainable Development Goals target in ensuring equal access to justice for all and helps to identify vulnerable groups and those at risk of being left behind. 
