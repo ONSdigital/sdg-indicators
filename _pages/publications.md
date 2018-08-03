@@ -37,3 +37,8 @@ This analysis looks at personal and household characteristics such as age, disab
 
 **[Renewable Energy in the UK, 22 November 2017](https://www.slideshare.net/statisticsONS/renewable-energy-in-the-uk)**  
 This SlideShare takes a look at renewable energy consumption in the UK which is under Target 7.2. It highlights that while overall energy consumption has gone down, the proportion of energy from renewable sources has risen. It shows that not all renewables are emission free and some can create pollutants, burning wood is used as an example. The UK is setting out plans to meet international commitments to reducing emissions of air pollutants. 
+
+### Goal 10 Reduced Inequalities 
+
+**[Measuring Inequalities in the UK for the Sustainable Development Goals, 26th July 2018](https://www.ons.gov.uk/economy/nationalaccounts/uksectoraccounts/compendium/economicreview/july2018/measuringinequalitiesintheukforthesustainabledevelopmentgoals)**
+This article reports on economic inequality, measuring growth rates in income and expenditure in the UK, for all households and for the bottom 40%. It shows that the incomes of the bottom 40% in the UK have sustained a higher than average growth rate since the economic downturn in 2008, and identifies the employment and household characteristics of the bottom 40% of the income distribution. 
