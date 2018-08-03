@@ -47,4 +47,3 @@ This article reports on economic inequality, measuring growth rates in income an
 
 **[Reporting on the SDGs: People on remand in custody in England and Wales, 3rd August 2018](https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/articles/reportingonthesustainabledevelopmentgoalspeopleonremandincustodyinenglandandwales/2018-08-03)**
 This analysis provides insight into ‘the proportion of people on remand in custody’ in England and Wales and it looks at the differences between sex, ethnicity, children and young people. It helps to show how England and Wales is performing in regards to the UN’s Sustainable Development Goals target in ensuring equal access to justice for all and helps to identify vulnerable groups and those at risk of being left behind. 
-
