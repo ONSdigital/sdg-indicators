@@ -41,4 +41,10 @@ This SlideShare takes a look at renewable energy consumption in the UK which is 
 ### Goal 10 Reduced Inequalities 
 
 **[Measuring Inequalities in the UK for the Sustainable Development Goals, 26th July 2018](https://www.ons.gov.uk/economy/nationalaccounts/uksectoraccounts/compendium/economicreview/july2018/measuringinequalitiesintheukforthesustainabledevelopmentgoals)**
-This article reports on economic inequality, measuring growth rates in income and expenditure in the UK, for all households and for the bottom 40%. It shows that the incomes of the bottom 40% in the UK have sustained a higher than average growth rate since the economic downturn in 2008, and identifies the employment and household characteristics of the bottom 40% of the income distribution. 
+This article reports on economic inequality, measuring growth rates in income and expenditure in the UK, for all households and for the bottom 40%. It shows that the incomes of the bottom 40% in the UK have sustained a higher than average growth rate since the economic downturn in 2008, and identifies the employment and household characteristics of the bottom 40% of the income distribution.
+
+### Goal 16 Peace and Justice 
+
+**[Reporting on the SDGs: People on remand in custody in England and Wales, 3rd August 2018](https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/articles/reportingonthesustainabledevelopmentgoalspeopleonremandincustodyinenglandandwales/2018-08-03)**
+This analysis provides insight into ‘the proportion of people on remand in custody’ in England and Wales and it looks at the differences between sex, ethnicity, children and young people. It helps to show how England and Wales is performing in regards to the UN’s Sustainable Development Goals target in ensuring equal access to justice for all and helps to identify vulnerable groups and those at risk of being left behind. 
+
