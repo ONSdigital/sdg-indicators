@@ -22,7 +22,7 @@
   {{ content }}
   {% include components/breadcrumb.html %}
 
-  {% assign goal_indicators = site.data.meta | where: 'sdg_goal', page.sdg_goal %}
+  {% assign goal_indicators = site.data.meta | where: 'sdg_goal', page.sdg_goal | sort: 'indicator_sort_order' %}
   {% for indicator in goal_indicators %}
 
     {% if indicator.reporting_status == 'notstarted' %}
