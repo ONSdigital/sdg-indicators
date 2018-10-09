@@ -1,5 +1,5 @@
 require 'json'
-#require 'hash-joiner'
+require 'hash-joiner'
 require 'open-uri'
 
 module Jekyll_Get_Data
@@ -23,14 +23,14 @@ module Jekyll_Get_Data
           target = site.data[d['data']]
           source = JSON.load(open(d['json']))
 
-          #if target
-          #  HashJoiner.deep_merge target, source
-          #else
+          if target
+            HashJoiner.deep_merge target, source
+          else
             site.data[d['data']] = source
-          #end
+          end
 
           # for each item, there should be the following:
-            # 
+            #
 
           # Dir.foreach(d['directory']) do |item|
           #   next if item == '.' or item == '..'
