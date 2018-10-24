@@ -189,3 +189,6 @@
 
 {% include footer.html %}
   
+{% if meta.embedded_map_html %}
+  {% meta.getElementById('embedded_map_html.id').src = meta.getElementById('embedded_map_html.id').src %}
+{% endif %}
