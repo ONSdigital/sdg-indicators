@@ -121,15 +121,17 @@
               <div id="selectionsTable"></div>
             </div>
             <div role="tabpanel" class="tab-pane" id="mapview" class="map">
-                {% if show_embedded_map = true %}
-                  <div>
-                      {{ meta.embedded_map_html }}
-                  </div>
-                {% else %}  
-                  <div id="map">
-                    <img src="{{ site.baseurl }}/assets/img/loading.gif" alt="Loading map" />
-                  </div>
-                {% endif %}  
+              
+              {% if meta.embedded_map_html %}
+                {% include meta.embedded_map_html %}
+                <script>
+                  $('#embeddedmapview iframe').attr('src', function (i, val) { return val; });
+                </script>
+              {% else %}  
+                <div id="map">
+                  <img src="{{ site.baseurl }}/assets/img/loading.gif" alt="Loading map" />
+                </div>
+              {% endif %}  
             </div>
           </div>
         </div> 
