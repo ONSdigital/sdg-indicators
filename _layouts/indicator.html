@@ -2,19 +2,13 @@
 {% include header.html %}
 {% include components/fields-template.html %}
 {% include components/units-template.html %}
-{% include multilingual-js.html key="indicator" %}
 
 {% capture indicator_id %}{{page.indicator | slugify}}{% endcapture %}
 {% assign meta = site.data.meta[indicator_id] %}
-{%- if meta[current_language] -%}
-  {%- assign meta = meta[current_language] -%}
-{%- endif -%}
 {% assign headline = site.data.headline[indicator_id] %}
 
-{%- assign goal_number = meta.sdg_goal | downcase -%}
-{%- assign goal = site.data.translations[default_language].global_goals[goal_number] -%}
-{%- assign translated_goal = t.global_goals[goal_number] -%}
-{% capture goal_uri %}{{ site.baseurl }}{{ baseurl_folder }}/{{ goal.short | slugify }}{% endcapture %}
+{% assign goal = site.goals | where: "sdg_goal", meta.sdg_goal | first %}
+{% capture goal_uri %}{{ site.baseurl }}/{{ goal.short | slugify }}{% endcapture %}
 
 {% if meta.reporting_status != "complete" or meta.data_non_statistical == true %}
   {% assign show_data = false %}
@@ -22,7 +16,14 @@
   {% assign show_data = true %}
 {% endif %}
 
+{% if meta.embedded_map_html %}
+  {% assign show_embedded_map = true %}
+{% else %}
+  {% assign show_embedded_map = false %}
+{% endif %}
+
 {% capture goal_href %}{{ goal_uri }}{% endcapture %}
+{% capture goal_number %}{{ goal.goal }}{% endcapture %}
 {% capture goal_title %}{{ goal.title }}{% endcapture %}
 {% capture indicator_title %}{{ meta.title }}{% endcapture %}
 
@@ -31,54 +32,54 @@
 {% assign sdg_indicator_data = site.data[dataset_name] %}
 {% assign indicator_metadata = sdg_indicators | where: "indicator_id", meta.indicator | first %}
 {% assign json_data = sdg_indicator_data | jsonify %}
-{%- assign indicator_number = meta.indicator -%}
-{%- assign translated_indicator = t.global_indicators[indicator_number] -%}
 
-<div class="heading indicator goal-{{ goal_number }}">
+<div class="heading indicator goal-{{meta.sdg_goal}}">
   <div class="container">
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2">
-        <a href="{{ goal_uri }}" title="{{ t.indicator.view_indicator_list }}">
-          <img src="{{ site.baseurl }}/assets/img/goals/{{ current_language }}/{{ goal_number }}.png" alt="{{ translated_goal.short }} - {{ t.general.goal }} {{ goal_number }}" />
+        <a href="{{ goal_uri }}" title="View this goal's indicator list">
+          <img src="{{ site.baseurl }}/assets/img/goals/{{ meta.sdg_goal }}.png" alt="{{ goal.short }} - Goal {{ goal.goal }}" />
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
           <a href="{{ goal_uri }}">
-            <span class="hidden-sm hidden-md hidden-lg">{{ t.general.goal }} {{ goal_number }}: </span>{{ translated_goal.title }}
+            <span class="hidden-sm hidden-md hidden-lg">Goal {{meta.sdg_goal}}: </span>{{ meta.title }}
           </a>
         </h1>
-        <h2>{{ t.general.indicator }} {{ indicator_number }}: {{ translated_indicator.title }}</h2>
+        <h2>Indicator {{ meta.indicator }}: {{ meta.title }}</h2>
       </div>
     </div>
   </div>
 </div>
 
-<div id="main-content" class="container goal-{{ goal_number }}">
+<div id="main-content" class="container goal-{{meta.sdg_goal}}">
   {% include components/breadcrumb.html %}
-
+  
   <div class="row" id="page-content-row">
     <div class="col-xs-12">
-      {% include components/indicator-content.html %}
+      <div id="page-content">
+        {{ meta.page_content | markdownify }}
+      </div>
     </div>
   </div>
-
+  
   <div class="row">
     <div class="col-xs-12">
       <h2>{{ meta.graph_title }}</h2>
     </div>
   </div>
-
+  
   <div class="row" id="indicatorData" data-indicatorid='{{dataset_name}}' data-id="{{meta.indicator | slugify }}" data-country="{{ meta.national_geographical_coverage }}"
   data-charttitle="{{ meta.graph_title }}" data-measurementunit="{{ meta.computation_units }}" data-datasource="{{ meta.source_organisation_1 }}" data-geographicalarea="{{ meta.national_geographical_coverage }}" data-footnote="{{ meta.data_footnote }}" data-showdata="{{ show_data }}" data-graphtype="{{ meta.graph_type }}" data-geocoderegex="{{ meta.data_geocode_regex }}" data-showmap="{{ meta.data_show_map }}">
     {% if show_data %}
     <div class="col-md-3">
       <div id="toolbar">
         <span id="series-help">
-          <h4>{{ t.indicator.sub_categories }}</h4>
-          <p>{{ t.indicator.series_help }}</p>
+          <h4>Sub-categories</h4>
+          <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
         </span>
-        <p>{{ t.indicator.legend_help }}</p>
+        <p>Click on the legend to remove individual lines from the chart.</p>
         <div id="fields">
           <p class="async-loading" data-img="{{ site.baseurl }}/assets/img/loading-small.gif"></p>
         </div>
@@ -89,13 +90,13 @@
     {% else %}
     <div class="col-md-12">
     {% endif %}
-
+      
       {% if show_data %}
       {% include components/headline.html %}
       {% endif %}
 
       <section>
-
+        
         {% if show_data %}
         <p class="async-loading" data-img="{{ site.baseurl }}/assets/img/loading-small.gif"></p>
         <div class="async-loaded" style="display:none">
@@ -114,8 +115,9 @@
               <a class="nav-link" data-toggle="tab" href="#embeddedmapview" aria-controls="embeddedmapview" role="tab">{{ t.indicator.map }}</a>
             </li>
             {%- endif -%}
+          </ul>endif -%}
           </ul>
-
+          
           <!-- Tab panes -->
           <div class="tab-content data-view">
             <div role="tabpanel" class="tab-pane active" id="chartview">
@@ -137,25 +139,25 @@
           </div>
         </div>
         {% endif %}
-
+               
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="nav-item active">
-            <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab">{{ t.indicator.national_metadata }}</a>
+            <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab">National Metadata</a>
           </li>
           <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#globalmetadata" aria-controls="globalmetadata" role="tab">{{ t.indicator.global_metadata }}</a>
+            <a class="nav-link" data-toggle="tab" href="#globalmetadata" aria-controls="globalmetadata" role="tab">Global Metadata</a>
           </li>
           <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab">{{ t.indicator.sources }}</a>
+            <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab">Sources</a>
           </li>
           {% if site.environment == 'staging' %}
           <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#edit" aria-controls="edit" role="tab">{{ t.indicator.edit }}</a>
+            <a class="nav-link" data-toggle="tab" href="#edit" aria-controls="edit" role="tab">Edit</a>
           </li>
           {% endif %}
         </ul>
-
+        
         <!-- Tab panes -->
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="metadata">
@@ -163,7 +165,9 @@
             <div > <!-- formerly class="collapsible expanded" -->
               <!-- <h3 tabindex='0'>National Metadata</h3> -->
               <article>
-                <p>{{ t.indicator.national_metadata_blurb | replace: '%country_name', site.country.name | replace: '%country_adjective', site.country.adjective }}</p>
+                <p>This table provides metadata for the actual indicator available from {{ site.country.name }} statistics closest to the corresponding global
+                  SDG indicator. Please note that even when the global SDG indicator is fully available from {{ site.country.adjective }} statistics, this table
+                  should be consulted for information on national methodology and other {{ site.country.adjective }}-specific metadata information.</p>
                   {% include components/metadata.html scope='national' %}
               </article>
             </div>
@@ -173,7 +177,7 @@
             <div> <!-- formerly <div class="collapsible expanded"> -->
               <!-- <h3 tabindex='0'>Global Metadata</h3> -->
               <article>
-                <p>{{ t.indicator.global_metadata_blurb }}</p>
+                <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href="https://unstats.un.org/sdgs/metadata/">Complete global metadata</a> is provided by the UN Statistics Division.</p>
                 {% include components/metadata.html scope='global' %}
               </article>
             </div>
@@ -184,8 +188,8 @@
           {% if site.environment == 'staging' %}
           <div role="tabpanel" class="tab-pane" id="edit">
             <div class="edit-container">
-              <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/{{ site.data_dir_for_edits | default: 'data' }}/indicator_{{ meta.indicator | slugify }}.csv">{{ t.indicator.edit_data }}</a>
-              <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/meta/{{ meta.indicator | slugify }}.md">{{ t.indicator.edit_metadata }}</a>
+              <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/data/indicator_{{ meta.indicator | slugify }}.csv">Edit Data</a>
+              <a class="btn btn-primary" href="http://prose.io/#{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/meta/{{ meta.indicator | slugify }}.md">Edit Metadata</a>
             </div>
           </div>
           {% endif %}
@@ -196,3 +200,4 @@
 </div>
 
 {% include footer.html %}
+  
