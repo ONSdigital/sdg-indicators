@@ -38,7 +38,7 @@
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2">
         <a href="{{ goal_uri }}" title="View this goal's indicator list">
-          <img src="{{ site.baseurl }}/assets/img/goals/{{ meta.sdg_goal }}.png"/>
+          <img src="{{ site.baseurl }}/assets/img/goals/{{ meta.sdg_goal }}.png" alt="{{ goal.short }} - Goal {{ goal.goal }}" />
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
@@ -102,19 +102,14 @@
         <div class="async-loaded" style="display:none">
           <ul class="nav nav-tabs data-view" role="tablist">
             <li role="presentation" class="nav-item active">
-              <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab">{{ t.indicator.chart }}</a>
+              <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab">Chart</a>
             </li>
             <li role="presentation" class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab">{{ t.indicator.table }}</a>
+              <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab">Table</a>
             </li>
             <li role="presentation" class="nav-item map" style="display:none">
-              <a class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab">{{ t.indicator.map }}</a>
+              <a class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab">Map</a>
             </li>
-            {%- if meta.embedded_map_html -%}
-            <li role="presentation" class="nav-item embedded-map">
-              <a class="nav-link" data-toggle="tab" href="#embeddedmapview" aria-controls="embeddedmapview" role="tab">{{ t.indicator.map }}</a>
-            </li>
-            {%- endif -%}
           </ul>
           
           <!-- Tab panes -->
@@ -126,17 +121,18 @@
               <div id="selectionsTable"></div>
             </div>
             <div role="tabpanel" class="tab-pane" id="mapview" class="map">
-              <div id="map">
-                <img src="{{ site.baseurl }}/assets/img/loading.gif"/>
-              </div>
+                {% if show_embedded_map %}
+                  <div>
+                      {{ meta.embedded_map_html }}
+                  </div>
+                {% else %}  
+                  <div id="map">
+                    <img src="{{ site.baseurl }}/assets/img/loading.gif" alt="Loading map" />
+                  </div>
+                {% endif %}  
             </div>
-            {% if meta.embedded_map_html %}
-            <div role="tabpanel" class="tab-pane" id="embeddedmapview" class="embedded-map">
-              {{ meta.embedded_map_html }}
-            </div>
-            {% endif %}
           </div>
-        </div>
+        </div> 
         {% endif %}
                
         <!-- Nav tabs -->
