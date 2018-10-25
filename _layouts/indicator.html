@@ -38,7 +38,7 @@
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2">
         <a href="{{ goal_uri }}" title="View this goal's indicator list">
-          <img src="{{ site.baseurl }}/assets/img/goals/{{ meta.sdg_goal }}.png" alt="{{ goal.short }} - Goal {{ goal.goal }}" />
+          <img src="{{ site.baseurl }}/assets/img/goals/{{ meta.sdg_goal }}.png"/>
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
@@ -127,7 +127,7 @@
             </div>
             <div role="tabpanel" class="tab-pane" id="mapview" class="map">
               <div id="map">
-                <img src="{{ site.baseurl }}/assets/img/loading.gif" alt="{{ t.indicator.loading_map }}" />
+                <img src="{{ site.baseurl }}/assets/img/loading.gif"/>
               </div>
             </div>
             {% if meta.embedded_map_html %}
