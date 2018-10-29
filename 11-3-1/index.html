@@ -43,7 +43,7 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20181028172820">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20181029150114">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
     </head>
 <body>
@@ -200,7 +200,9 @@
   <div class="row" id="page-content-row">
     <div class="col-xs-12">
       <div id="page-content">
-        
+        <p>This indicator meets the UN specification for this indicator and has been identified in collarbortion with a topic expert.</p>
+
+<p>The Sustainable Development Goals is a collaborative project.  If you have any feedback or suggestions please contact us at <a href="mailto:SustainableDevelopment@ons.gov.uk">SustainableDevelopment@ons.gov.uk</a>.</p>
 
       </div>
     </div>
@@ -213,7 +215,7 @@
   </div>
   
   <div class="row" id="indicatorData" data-indicatorid='indicator_11-3-1' data-id="11-3-1" data-country="Great Britain"
-  data-charttitle="Ratio of land consumption rate to population growth rate" data-measurementunit="None" data-datasource="" data-geographicalarea="Great Britain" data-footnote="None" data-showdata="true" data-graphtype="line" data-geocoderegex="" data-showmap="true">
+  data-charttitle="Ratio of land consumption rate to population growth rate" data-measurementunit="Ratio of land consumption rate to population growth rate" data-datasource="Ordnance Survey" data-geographicalarea="Great Britain" data-footnote="" data-showdata="true" data-graphtype="bar" data-geocoderegex="" data-showmap="true">
     
     <div class="col-md-3">
       <div id="toolbar">
@@ -248,8 +250,28 @@
       <caption></caption>
       <thead>
         
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col" class="table-value">Value</th>
+        
+        
       </thead>
       <tbody>
+        
+        <tr>
+          
+          
+          <td>2016.0</td>    
+          
+          
+          
+          <td class="table-value">3.758553079</td>
+          
+          
+        </tr>
         
       </tbody>
     </table>
@@ -295,7 +317,34 @@
     
     <div class="plot-container">
         
-<canvas></canvas>
+
+<canvas id="barchart-11-3-1" class="ct-chart ct-major-eleventh"></canvas>
+<script>
+  // 3.5.2
+  // 1.5.2 // 2 bars
+  // 4.b.1 // 3 bars
+  var chartInfo = chartDataProcessor.getChartInfo(null),
+      chartInstance = new Chart(document.getElementById('barchart-11-3-1'), {
+      type: 'bar',
+      data: chartInfo,
+      options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            yAxes: [{
+              ticks: {
+                  suggestedMin: 0
+              }
+            }]
+          },
+          legend: {
+            display: false
+         },
+      }
+  });
+
+</script>
+
     </div>
     <div id="plotLegend"></div>
 
@@ -420,7 +469,7 @@
         <th scope="row">Unit of measurement </th>
         <td>
           
-            None
+            Ratio of land consumption rate to population growth rate
           
         </td>
         </tr>
@@ -433,7 +482,7 @@
         <th scope="row">Definitions </th>
         <td>
           
-            None
+            
           
         </td>
         </tr>
@@ -478,8 +527,8 @@
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/21050e4422b3f29eb415e6135c04a2055a98155e" target="_blank">
-                2018-10-26: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/ccbd24d3521f9e3e0192479c34a03e8e7d7e12e5" target="_blank">
+                2018-10-29: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
             
@@ -505,8 +554,8 @@
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/93ae4075fdca659f6797692fbd2043a98ff2ecd4" target="_blank">
-                2018-10-26: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/552abde8af0b323caee272c87516b5b154a7c75c" target="_blank">
+                2018-10-29: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
             
@@ -785,7 +834,7 @@
         <th scope="row">UN designated tier </th>
         <td>
           
-            2.0
+            2
           
         </td>
         </tr>
@@ -1109,7 +1158,7 @@
         <th scope="row">Organisation </th>
         <td>
           
-            
+            Ordnance Survey
           
         </td>
         </tr>
@@ -1473,7 +1522,7 @@
         <th scope="row">Organisation </th>
         <td>
           
-            
+            Office for National Statistics
           
         </td>
         </tr>
@@ -1841,7 +1890,7 @@
         <th scope="row">Organisation </th>
         <td>
           
-            
+            National Records of Scotland
           
         </td>
         </tr>
@@ -2209,7 +2258,7 @@
         <th scope="row">Organisation </th>
         <td>
           
-            
+            National Records of Scotland
           
         </td>
         </tr>
@@ -2458,7 +2507,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 <script src="/sdg-indicators/assets/js/plugins/jquery.sdgMap.js"></script>
 <script type="text/javascript"> window.loop11_key = "0104054b3b56d396b42e668dfe096cee161454a8"; </script>
 <script src="//cdn.loop11.com/my/loop11.js" type="text/javascript" async="async"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20181028172820'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20181029150114'></script>
 <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
 <script src="/sdg-indicators/assets/js/lib/modernizr-custom.js"></script>
 <script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
