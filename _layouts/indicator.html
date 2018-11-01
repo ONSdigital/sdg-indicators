@@ -110,6 +110,11 @@
             <li role="presentation" class="nav-item map" style="display:none">
               <a class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab">Map</a>
             </li>
+            {%- if meta.embedded_map_html -%}
+            <li role="presentation" class="nav-item embedded-map">
+              <a class="nav-link" data-toggle="tab" href="#embeddedmapview" aria-controls="embeddedmapview" role="tab">Map</a>
+            </li>
+            {%- endif -%}
           </ul>
           
           <!-- Tab panes -->
@@ -121,16 +126,15 @@
               <div id="selectionsTable"></div>
             </div>
             <div role="tabpanel" class="tab-pane" id="mapview" class="map">
-                {% if show_embedded_map %}
-                  <div>
-                      {{ meta.embedded_map_html }}
-                  </div>
-                {% else %}  
-                  <div id="map">
-                    <img src="{{ site.baseurl }}/assets/img/loading.gif" alt="Loading map" />
-                  </div>
-                {% endif %}  
+              <div id="map">
+                <img src="{{ site.baseurl }}/assets/img/loading.gif" alt="Loading map" />
+              </div>
             </div>
+            {% if meta.embedded_map_html %}
+            <div role="tabpanel" class="tab-pane" id="embeddedmapview" class="embedded-map">
+              {{ meta.embedded_map_html }}
+            </div>
+            {% endif %}
           </div>
         </div> 
         {% endif %}
