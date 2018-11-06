@@ -14,8 +14,6 @@ If you have any feedback on our publications please contact us at <a href="mailt
 **[Sustainable Development Goals in the UK: An update on progress, 06 November 2018](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2018)**
 This is our second report summarising the progress made towards measuring the global Sustainable Development Goals over the past year.
 
-
-The outcome of a project aimed at exploring new ways of producing and communicating geographical data.
 **[Using innovative methods to report against the Sustainable Development Goals, 22 October 2018](https://www.ons.gov.uk/economy/environmentalaccounts/articles/usinginnovativemethodstoreportagainstthesustainabledevelopmentgoals/2018-10-22)**  
 The outcome of a project aimed at exploring new ways of producing and communicating geographical data.
 
