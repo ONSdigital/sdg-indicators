@@ -20,7 +20,5 @@ Our wiki pages also include more detailed information for people adding data and
 
 ## Creating a copy of this website
 Other countries wishing to reuse this UK SDG reporting platforms or the [US SDG reporting platform](https://sdg.data.gov/) are welcome to do so for free.
-
-Visit our Wiki pages for [Full cloning guidance](https://github.com/ONSdigital/sdg-indicators/wiki/Clone-your-own%3A-step-by-step-instructions-%28Windows%29).
-
-The US also provide various guidance and information on the [training materials page]( https://gsa.github.io/sdg-indicators/training/) of their reporting platform.
+- Visit our Wiki pages for [full cloning guidance](https://github.com/ONSdigital/sdg-indicators/wiki/Clone-your-own%3A-step-by-step-instructions-%28Windows%29).
+- The US also provide various guidance and information on the [training materials page]( https://gsa.github.io/sdg-indicators/training/) of their reporting platform.
