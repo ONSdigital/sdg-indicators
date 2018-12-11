@@ -29,10 +29,6 @@
       {% assign status_desc = 'Exploring data sources' %}
       {% assign status_css = 'danger' %}          
     {% endif %}
-    {% if indicator.reporting_status == 'inprogress' %}
-      {% assign status_desc = 'Statistics in progress' %}     
-      {% assign status_css = 'warning' %}          
-    {% endif %}
     {% if indicator.reporting_status == 'complete' %}
       {% assign status_desc = 'Reported online' %} 
       {% assign status_css = 'success' %}
