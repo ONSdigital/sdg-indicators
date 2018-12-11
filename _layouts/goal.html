@@ -27,11 +27,11 @@
 
     {% if indicator.reporting_status == 'notstarted' %}
       {% assign status_desc = 'Exploring data sources' %}
-      {% assign status_css = 'inverse' %}          
+      {% assign status_css = 'danger' %}          
     {% endif %}
     {% if indicator.reporting_status == 'complete' %}
       {% assign status_desc = 'Reported online' %} 
-      {% assign status_css = 'primary' %}
+      {% assign status_css = 'success' %}
     {% endif %}
 
     {% cycle 'add row' : '<div class="indicator-cards row no-gutters">', '', '', '' %}
