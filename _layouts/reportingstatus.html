@@ -7,7 +7,6 @@
   {% assign goal_indicators = site.data.meta %}
   {% assign overall_indicator_count = goal_indicators | size %}
   {% assign exploring_count = goal_indicators | where: 'reporting_status', 'notstarted' | size %}
-  {% assign in_progress_count = goal_indicators | where: 'reporting_status', 'inprogress' | size %}
   {% assign complete_count = goal_indicators | where: 'reporting_status', 'complete' | size %}
 
   <div class="goal goal-overall" data-goalid="{{ goal.goal }}">
@@ -46,7 +45,6 @@
         {% assign goal_indicators = site.data.meta | where: 'sdg_goal', goal.sdg_goal %}
         {% assign goal_indicator_count = goal_indicators | size %}
         {% assign exploring_count = goal_indicators | where: 'reporting_status', 'notstarted' | size %}
-        {% assign in_progress_count = goal_indicators | where: 'reporting_status', 'inprogress' | size %}
         {% assign complete_count = goal_indicators | where: 'reporting_status', 'complete' | size %}
 
         <!--<li>-->
