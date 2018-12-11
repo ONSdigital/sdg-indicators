@@ -7,7 +7,6 @@
   {% assign goal_indicators = site.data.meta %}
   {% assign overall_indicator_count = goal_indicators | size %}
   {% assign exploring_count = goal_indicators | where: 'reporting_status', 'notstarted' | size %}
-  {% assign in_progress_count = goal_indicators | where: 'reporting_status', 'inprogress' | size %}
   {% assign complete_count = goal_indicators | where: 'reporting_status', 'complete' | size %}
 
   <div class="goal goal-overall" data-goalid="{{ goal.goal }}">
@@ -21,9 +20,6 @@
               <span class="status success">{{ complete_count }}</span><strong>Reported online</strong><span class="value"></span>
             </div>
             <div>
-              <span class="status warning">{{ in_progress_count }}</span><strong>Statistics in progress</strong><span class="value"></span>
-            </div>
-            <div>
               <span class="status danger">{{ exploring_count }}</span><strong>Exploring data sources</strong><span class="value"></span>
             </div>
             <br style="clear:both;" />
@@ -32,7 +28,6 @@
         <div class="goal-stats">
           <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
           <span class="success"></span
-          ><span class="warning"></span
           ><span class="danger"></span>
         </div>
       </div>
@@ -46,7 +41,6 @@
         {% assign goal_indicators = site.data.meta | where: 'sdg_goal', goal.sdg_goal %}
         {% assign goal_indicator_count = goal_indicators | size %}
         {% assign exploring_count = goal_indicators | where: 'reporting_status', 'notstarted' | size %}
-        {% assign in_progress_count = goal_indicators | where: 'reporting_status', 'inprogress' | size %}
         {% assign complete_count = goal_indicators | where: 'reporting_status', 'complete' | size %}
 
         <!--<li>-->
@@ -67,9 +61,6 @@
                   <span class="status success">{{ complete_count }}</span><strong>Reported online</strong><span class="value"></span>
                 </div>
                 <div>
-                  <span class="status warning">{{ in_progress_count }}</span><strong>Statistics in progress</strong><span class="value"></span>
-                </div>
-                <div>
                   <span class="status danger">{{ exploring_count }}</span><strong>Exploring data sources</strong><span class="value"></span>
                 </div>
                 <br style="clear:both;" />
@@ -78,7 +69,6 @@
             <div class="goal-stats">
               <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
               <span class="success"></span
-              ><span class="warning"></span
               ><span class="danger"></span>
             </div>
             <div class="divider">
