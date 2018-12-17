@@ -2,25 +2,26 @@
 {% include header.html %}
 <div id="main-content" class="container reportingstatus" data-url="{{ site.baseurl }}/indicators.json">
 
-  <h1>Reporting Status</h1>
+  <h1>{{ t.status.reporting_status }}</h1>
 
   {% assign goal_indicators = site.data.meta %}
   {% assign overall_indicator_count = goal_indicators | size %}
   {% assign exploring_count = goal_indicators | where: 'reporting_status', 'notstarted' | size %}
+  {% assign in_progress_count = goal_indicators | where: 'reporting_status', 'inprogress' | size %}
   {% assign complete_count = goal_indicators | where: 'reporting_status', 'complete' | size %}
 
   <div class="goal goal-overall" data-goalid="{{ goal.goal }}">
       <div class="details">
         <h2 class="status-goal">
-          Overall Reporting Status <span class="total"><span>{{ overall_indicator_count }}</span> indicators</span> 
+          {{ t.status.overall_reporting_status }} <span class="total"><span>{{ overall_indicator_count }}</span> {{ t.general.indicators | downcase }}</span>
         </h2>
         <div class="summary">
           <div class="statuses">
             <div>
-              <span class="status success">{{ complete_count }}</span><strong>Reported online</strong><span class="value"></span>
+              <span class="status success">{{ complete_count }}</span><strong>{{ t.status.reported_online }}</strong><span class="value"></span>
             </div>
             <div>
-              <span class="status danger">{{ exploring_count }}</span><strong>Exploring data sources</strong><span class="value"></span>
+              <span class="status danger">{{ exploring_count }}</span><strong>{{ t.status.exploring_data_sources }}</strong><span class="value"></span>
             </div>
             <br style="clear:both;" />
           </div>
@@ -34,34 +35,39 @@
     <!--</li>-->
     <br style="clear:both;" />
   </div>
-  
+
   <h2>Status by Goal</h2>
 
-      {% for goal in site.goals %}      
-        {% assign goal_indicators = site.data.meta | where: 'sdg_goal', goal.sdg_goal %}
+      {%- assign goals = site.goals | where: 'language', current_language -%}
+      {% for goal in goals %}
+        {%- assign goal_number = goal.sdg_goal -%}
+        {%- assign default_goal = site.data.translations[default_language].global_goals[goal_number] -%}
+        {%- assign translated_goal = t.global_goals[goal_number] -%}
+        {% assign goal_indicators = site.data.meta | where: 'sdg_goal', goal_number %}
         {% assign goal_indicator_count = goal_indicators | size %}
         {% assign exploring_count = goal_indicators | where: 'reporting_status', 'notstarted' | size %}
+        {% assign in_progress_count = goal_indicators | where: 'reporting_status', 'inprogress' | size %}
         {% assign complete_count = goal_indicators | where: 'reporting_status', 'complete' | size %}
 
         <!--<li>-->
-        <div class="goal" data-goalid="{{ goal.sdg_goal }}">
+        <div class="goal" data-goalid="{{ goal_number }}">
           <div class="frame">
-            <a href="{{ site.baseurl }}/{{ goal.short | slugify }}/">
-              <img src="{{ site.baseurl }}/assets/img/goals/{{ goal.sdg_goal }}.png" alt="{{ goal.short }} - Goal {{ goal.sdg_goal }}" width="100" height="100" />
+            <a href="{{ site.baseurl }}{{ baseurl_folder }}/{{ default_goal.short | slugify }}/">
+              <img src="{{ site.baseurl }}/assets/img/goals/{{ current_language }}/{{ goal_number }}.png" alt="{{ translated_goal.short }} - {{ t.general.goal }} {{ goal_number }}" width="100" height="100" />
             </a>
           </div>
           <div class="details">
             <h3 class="status-goal">
-              <a href="{{ site.baseurl }}/{{ goal.short | slugify }}/">{{ goal.short }}</a>
-              <span class="total">{{ goal_indicators | size }}<span></span> indicators</span> 
+              <a href="{{ site.baseurl }}{{ baseurl_folder }}/{{ default_goal.short | slugify }}/">{{ translated_goal.short }}</a>
+              <span class="total">{{ goal_indicators | size }}<span></span> {{ t.general.indicators | downcase }}</span>
             </h3>
             <div class="summary">
               <div class="statuses">
                 <div>
-                  <span class="status success">{{ complete_count }}</span><strong>Reported online</strong><span class="value"></span>
+                  <span class="status success">{{ complete_count }}</span><strong>{{ t.status.reported_online }}</strong><span class="value"></span>
                 </div>
                 <div>
-                  <span class="status danger">{{ exploring_count }}</span><strong>Exploring data sources</strong><span class="value"></span>
+                  <span class="status danger">{{ exploring_count }}</span><strong>{{ t.status.exploring_data_sources }}</strong><span class="value"></span>
                 </div>
                 <br style="clear:both;" />
               </div>
