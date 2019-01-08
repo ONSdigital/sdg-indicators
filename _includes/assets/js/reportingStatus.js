@@ -25,18 +25,19 @@ var reportingStatus = function(indicatorDataStore) {
 
       that.indicatorDataStore.getData().then(function(data) {
         // for each goal, get a percentage of indicators in the various states:
-        // notstarted, complete
+        // notstarted, inprogress, complete
         var mappedData = _.map(data, function(dataItem) {
 
           var returnItem = {
             goal_id: dataItem.goal.id,
             completeCount: _.where(dataItem.goal.indicators, { status: 'complete' }).length,
+            inProgressCount: _.where(dataItem.goal.indicators, { status: 'inprogress' }).length,
             notStartedCount: _.where(dataItem.goal.indicators, { status: 'notstarted' }).length
           };
 
-          returnItem.totalCount = returnItem.notStartedCount + returnItem.completeCount;
-          returnItem.counts = [returnItem.completeCount, returnItem.notStartedCount];
-          returnItem.percentages = getPercentages([returnItem.completeCount, returnItem.notStartedCount]);
+          returnItem.totalCount = returnItem.notStartedCount + returnItem.inProgressCount + returnItem.completeCount;
+          returnItem.counts = [returnItem.completeCount, returnItem.inProgressCount, returnItem.notStartedCount];
+          returnItem.percentages = getPercentages([returnItem.completeCount, returnItem.inProgressCount, returnItem.notStartedCount]);
           
           return returnItem;
         });    
@@ -49,11 +50,12 @@ var reportingStatus = function(indicatorDataStore) {
           totalCount: _.chain(mappedData).pluck('totalCount').reduce(function(sum, n) { return sum + n; }).value(),
           counts: [
             getTotalByStatus('completeCount'),
+            getTotalByStatus('inProgressCount'),
             getTotalByStatus('notStartedCount')
           ]
         };
 
-        overall.percentages = getPercentages([overall.counts[0], overall.counts[1]]);          
+        overall.percentages = getPercentages([overall.counts[0], overall.counts[1], overall.counts[2]]);          
         
         resolve({
           goals: mappedData,
@@ -69,7 +71,7 @@ $(function() {
   if($('.container').hasClass('reportingstatus')) {
     var url = $('.container.reportingstatus').attr('data-url'),
         status = new reportingStatus(new indicatorDataStore(url)),
-        types = ['Reported online', 'Exploring data sources'],
+        types = ['Reported online', 'Statistics in progress', 'Exploring data sources'],
         bindData = function(el, data) {
           $(el).find('.goal-stats span').each(function(index, statEl) {
             var percentage = Math.round(Number(((data.counts[index] / data.totalCount) * 100))) + '%';
