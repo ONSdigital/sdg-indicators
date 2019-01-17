@@ -8,27 +8,30 @@
 # Site settings
 title: U.K. Indicators For The Sustainable Development Goals
 description: Data Platform Prototype
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/sdg-indicators" # the subpath of your site, e.g. /blog
 url: ""
 data_dir: data
-environment: production
-remotedatabaseurl: "https://sustainabledevelopment-uk.github.io/sdg-data"
+environment: staging
+remotedatabaseurl: "https://ONSdigital.github.io/sdg-data"
 # permalink: /news/:year/:month/:day/:title.html
 
 jekyll_get_data:
   - data: meta
-    json: 'https://sustainabledevelopment-uk.github.io/sdg-data/meta/all.json'
+    json: 'https://ONSdigital.github.io/sdg-data/meta/all.json'
     # cache: true
     # directory: 'remotedata'
   - data: headlines
-    json: 'https://sustainabledevelopment-uk.github.io/sdg-data/headline/all.json'
+    json: 'https://ONSdigital.github.io/sdg-data/headline/all.json'
     # cache: true
     # directory: 'remotedata'
   - data: schema
-    json: 'https://sustainabledevelopment-uk.github.io/sdg-data/meta/schema.json'
+    json: 'https://ONSdigital.github.io/sdg-data/meta/schema.json'
+  - data: translations
+  # Pin to version of the translation repo
+  json: 'https://open-sdg.github.io/sdg-translations/translations-0.3.2.json'
 
 analytics:
-  ga_prod: 'UA-108503280-1'
+  ga_prod: ''
 
 ###################################################################################################
 email_contacts:
@@ -66,3 +69,20 @@ collections:
     output: true
   goals:
     output: true
+    
+# The list of languages that are translated. The first one is the default.
+ languages:
+   - en
+
+  # This makes sure that all pages have a language.
+ defaults:
+   -
+     scope:
+       path: ""
+     values:
+       language: "en"
+
+  plugins:
+   - jekyll-remote-theme
+
+  remote_theme: open-sdg/open-sdg@0.3.0
