@@ -109,7 +109,8 @@ header {
   top: 0;
   right: 0;
   left: 0;
-  z-index: 400; }
+  z-index: 400;
+  max-height: 40px; }
   #disclaimer .phase-tag {
     background: #005ea5;
     color: white;
@@ -570,8 +571,8 @@ h5 + .btn-download {
       position: absolute;
       top: 12px;
       right: 12px;
-    
-      a { 
+  
+      a {
         background-color: white;
         border: none;
         text-indent: -9999px;
@@ -1195,10 +1196,59 @@ footer {
   clip: rect(0, 0, 0, 0);
   border: 0; }
 
+.language-ar {
+  direction: rtl; }
+
+.language-options {
+  display: none;
+  position: absolute;
+  z-index: 999;
+  left: 12px;
+  color: #222;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0px 0px 2px 0px #a6a6a6;
+  padding: .2em 1em .2em .2em;
+  text-shadow: #f5f5f5 0 1px 0; }
+  .language-options li {
+    padding: 5px;
+    padding-left: 0; }
+
+.language-toggle-button {
+  cursor: pointer; }
+
+.navbar ul.navbar-nav li a.language-toggle-button {
+  display: none; }
+  @media only screen and (min-width: 768px) {
+    .navbar ul.navbar-nav li a.language-toggle-button {
+      display: block; } }
+
+.language-toggle-mobile {
+  position: relative;
+  padding-top: 20px;
+  padding-right: 10px;
+  float: right; }
+  .language-toggle-mobile .language-options {
+    left: -36px; }
+    .language-toggle-mobile .language-options li {
+      padding-left: 5px; }
+  .language-toggle-mobile a {
+    text-transform: uppercase; }
+    .language-toggle-mobile a .language-toggle-text {
+      display: none; }
+    .language-toggle-mobile a .language-toggle {
+      display: none !important; }
+    .language-toggle-mobile a .fa-globe {
+      font-size: 2em; }
+
+.contrast-high .language-toggle-mobile .language-options a, .contrast-high ul.navbar-nav .language-options a {
+  color: black; }
+  .contrast-high .language-toggle-mobile .language-options a:hover, .contrast-high ul.navbar-nav .language-options a:hover {
+    color: black; }
+
 #accessibility-nav {
-  width: 25%;
-  padding-top: 10px;
-  padding-right: 20px;
+  padding-top: 20px;
+  padding-right: 10px;
   float: right;
   text-align: right; }
   #accessibility-nav li {
@@ -1217,10 +1267,12 @@ footer {
         margin: auto;
         text-decoration: none; }
     #accessibility-nav li.contrast-default {
+      display: none;
       background: white; }
       #accessibility-nav li.contrast-default a {
         color: black; }
     #accessibility-nav li.contrast-high {
+      display: block;
       background: black; }
       #accessibility-nav li.contrast-high a {
         color: yellow; }
@@ -1228,6 +1280,10 @@ footer {
 /* example stuff */
 body.contrast-high {
   background-color: black; }
+  body.contrast-high #accessibility-nav li.contrast-default {
+    display: block; }
+  body.contrast-high #accessibility-nav li.contrast-high {
+    display: none; }
   body.contrast-high .table {
     background: black; }
   body.contrast-high .btn {
@@ -1336,3 +1392,103 @@ body.contrast-high {
       background: black; }
     body.contrast-high .navbar ul.navbar-nav li a {
       background: black; } }
+
+#main-content #map {
+  height: 500px;
+  width: 100%; }
+  #main-content #map #loader-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: white;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    #main-content #map #loader-container img {
+      height: auto; }
+  #main-content #map .leaflet-control .timecontrol-date {
+    min-width: 80px;
+    padding: 0 10px; }
+  @media only screen and (max-width: 680px) {
+    #main-content #map .leaflet-control .timecontrol-slider {
+      display: none; } }
+  #main-content #map .leaflet-control .download-geojson-button {
+    display: block;
+    cursor: pointer; }
+  #main-content #map .selection-legend {
+    background-color: rgba(150, 150, 150, 0.6);
+    padding: 0;
+    width: 300px; }
+    #main-content #map .selection-legend .legend-swatches {
+      height: 10px; }
+      #main-content #map .selection-legend .legend-swatches .legend-swatch {
+        display: block;
+        float: left;
+        height: 10px; }
+    #main-content #map .selection-legend .legend-values {
+      position: absolute;
+      bottom: -10px;
+      width: 100%; }
+      #main-content #map .selection-legend .legend-values .arrow {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        position: absolute;
+        top: -10px;
+        z-index: 1; }
+        #main-content #map .selection-legend .legend-values .arrow.left {
+          border-width: 20px 0 0 20px;
+          border-color: transparent transparent transparent white;
+          left: 0; }
+        #main-content #map .selection-legend .legend-values .arrow.right {
+          border-width: 0 0 20px 20px;
+          border-color: transparent transparent white transparent;
+          right: 1px;
+          box-shadow: 1px 1px 1px 0px #666; }
+      #main-content #map .selection-legend .legend-values .legend-value {
+        padding: 0 4px;
+        background: white;
+        position: absolute;
+        z-index: 2;
+        box-shadow: 1px 1px 1px 0px #666; }
+        #main-content #map .selection-legend .legend-values .legend-value.left {
+          left: 0; }
+        #main-content #map .selection-legend .legend-values .legend-value.right {
+          right: 1px; }
+    #main-content #map .selection-legend #selection-list {
+      list-style: none;
+      margin-bottom: 0;
+      padding-left: 0; }
+      #main-content #map .selection-legend #selection-list li {
+        position: relative;
+        margin-top: 3px;
+        cursor: pointer;
+        height: 23px; }
+        #main-content #map .selection-legend #selection-list li:first-child {
+          margin-top: 0; }
+        #main-content #map .selection-legend #selection-list li .selection-bar, #main-content #map .selection-legend #selection-list li .selection-name, #main-content #map .selection-legend #selection-list li .selection-value {
+          height: 23px;
+          position: absolute; }
+        #main-content #map .selection-legend #selection-list li .selection-bar {
+          border-radius: 2px 0 0 2px;
+          background: white;
+          z-index: 1; }
+        #main-content #map .selection-legend #selection-list li .selection-name {
+          z-index: 2;
+          padding: 3px 20px 3px 3px; }
+        #main-content #map .selection-legend #selection-list li.no-value .selection-name {
+          background: repeating-linear-gradient(45deg, #FFF, #FFF 2px, #CCC 2px, #CCC 4px); }
+        #main-content #map .selection-legend #selection-list li.no-value .selection-bar, #main-content #map .selection-legend #selection-list li.no-value .selection-value {
+          display: none; }
+        #main-content #map .selection-legend #selection-list li .selection-value {
+          z-index: 2;
+          margin-right: 5px;
+          background-color: #ddd;
+          padding: 3px;
+          border-radius: 2px; }
+        #main-content #map .selection-legend #selection-list li .selection-close {
+          top: 6px;
+          right: 5px;
+          position: absolute;
+          z-index: 3; }

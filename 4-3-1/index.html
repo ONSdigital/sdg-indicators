@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-    <head>
+    <head><script>var translations = {};</script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
         <!-- Basic Page Needs
         ================================================== -->
@@ -29,7 +29,7 @@
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
         <![endif]-->
-        
+
         <!-- Favicons ================================================== -->
         <!-- 128x128 -->
         <link rel="shortcut icon" type="image/ico" href="/sdg-indicators/assets/img/favicons/favicon.ico">
@@ -43,20 +43,27 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190116181255">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190117131438">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
-    </head>
-<body>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css" />
+        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' />
+        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"></head>
+<body class="language-en">
 <!-- <div class="container"> -->
 
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
   <div class="container">
   <div class="alert alert-danger" role="alert">
-    <strong class="phase-tag">Alpha</strong> This is a development website. We welcome your
-    <a href="mailto:sustainabledevelopment@ons.gov.uk">feedback</a>.
+    <strong class="phase-tag">Alpha</strong>
+    This is a development website. We welcome your <a href="mailto:sustainabledevelopment@ons.gov.uk">feedback</a>.
   </div>
 </div>
+
 </div>
 
 <header role="banner">
@@ -67,8 +74,7 @@
     </a>
 
   <div class='hidden visible-xs float-right'>
-    <ul id='accessibility-nav' class='contrast-switcher'></ul>
-  </div>
+    <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
 
     <nav class="navbar navbar-default" id="main-nav">
 
@@ -77,28 +83,14 @@
         <li><span data-target="search">Search</span></li>
       </ul>
 
-      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu">
-        <li class="nav-link active" >
-          <a href="/sdg-indicators/">Goals</a>
-        </li>
-        <li class="nav-link" >
-          <a href="/sdg-indicators/reporting-status">Reporting Status</a>
-        </li>
-        <li class="nav-link" >
-          <a href="/sdg-indicators/about">About</a>
-        <li class="nav-link" >
-            <a href="/sdg-indicators/publications">Publications</a>
-        </li>
-        <li class="nav-link" >
-          <a href="/sdg-indicators/guidance">Guidance</a>
-        </li>
-        <li class="nav-link" >
-          <a href="/sdg-indicators/faq">FAQ</a>
-        </li>
-<!--        <li class="nav-link" >
-          <a href="/sdg-indicators/news">News &amp; Events</a>
-        </li> -->
-      </ul>
+      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"></ul>
+
+      <div id="search" class="menu-target">
+  <label for="indicator_search">
+    <i class="fa fa-search" aria-hidden="true"></i><span>Search:</span>
+  </label>
+  <input id="indicator_search" title="Indicator search" placeholder="Indicator search" data-url="/sdg-indicators/indicators.json" data-pageurl="/sdg-indicators/search/?" />
+</div>
 
 
     </nav>
@@ -124,8 +116,7 @@
       </div>
       
       <% if(allowedFields.indexOf(seriesItem.field) == -1) { %> 
-        <div class="variable-hint">
-          Available when '<%= _.findWhere(edges, { To: seriesItem.field }).From %>' is selected
+        <div class="variable-hint">Available when '<%= _.findWhere(edges, { To: seriesItem.field }).From %>' is selected
         </div>
         <div class="no-data-hint">
           No options available because of filters above
@@ -145,14 +136,7 @@
   <% } %>
 </script>
 
-
-
-
-
-
-
-
-
+<script>translations['indicator'] = {"chart":"Chart","clear_all":"Clear all","clear_selections":"Clear selections","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading_map":"Loading map","map":"Map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","no_data_hint":"No options available because of filters above","select_all":"Select all","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","sub_categories":"Sub-categories","table":"Table","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
 
 
 
@@ -173,13 +157,13 @@
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2">
         <a href="/sdg-indicators/quality-education" title="View this goal's indicator list">
-          <img src="/sdg-indicators/assets/img/goals/4.png" alt="Quality Education - Goal " />
+          <img src="/sdg-indicators/assets/img/goals/en/4.png" alt="Quality Education - Goal 4" />
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
           <a href="/sdg-indicators/quality-education">
-            <span class="hidden-sm hidden-md hidden-lg">Goal 4: </span>Participation rate of youth and adults in formal and non-formal education and training in the previous 12 months, by sex
+            <span class="hidden-sm hidden-md hidden-lg">Goal 4: </span>Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all
           </a>
         </h1>
         <h2>Indicator 4.3.1: Participation rate of youth and adults in formal and non-formal education and training in the previous 12 months, by sex</h2>
@@ -192,28 +176,29 @@
   <ol class="breadcrumb">
   <li><a href="/sdg-indicators/">Home</a></li>
   
-      <li><a href="/sdg-indicators/quality-education" title="Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all">Goal </a></li>
+      <li><a href="/sdg-indicators/quality-education" title="Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all">Goal 4</a></li>
       <li class="active">Indicator 4.3.1</li>
   
 </ol>
-  
+
   <div class="row" id="page-content-row">
     <div class="col-xs-12">
       <div id="page-content">
-        
+  
 
-      </div>
+</div>
+
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col-xs-12">
-      <h2>Percentage of youth (aged 16-24 years) not in education, employment or training</h2>
+      <h2>Percentage of adults who have participated in any learning in the last 12 months</h2>
     </div>
   </div>
-  
-  <div class="row" id="indicatorData" data-indicatorid='indicator_4-3-1' data-id="4-3-1" data-country="United Kingdom"
-  data-charttitle="Percentage of youth (aged 16-24 years) not in education, employment or training" data-measurementunit="Percentage (%)" data-datasource="Office for National Statistics (ONS)" data-geographicalarea="United Kingdom" data-footnote="" data-showdata="true" data-graphtype="line" data-geocoderegex="" data-showmap="false">
+
+  <div class="row" id="indicatorData" data-indicatorid='indicator_4-3-1' data-id="4-3-1" data-country="England"
+  data-charttitle="Percentage of adults who have participated in any learning in the last 12 months" data-measurementunit="Percentage (%)" data-datasource="Department for Education" data-geographicalarea="England" data-footnote="" data-showdata="true" data-graphtype="bar" data-geocoderegex="" data-showmap="false">
     
     <div class="col-md-3">
       <div id="toolbar">
@@ -230,7 +215,7 @@
     </div>
     <div class="col-md-9">
     
-      
+
       
        
  
@@ -262,815 +247,11 @@
         <tr>
           
           
-          <td>2001 Q4</td>    
+          <td>2016.0</td>    
           
           
           
-          <td class="table-value">12.9347813419</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2002 Q1</td>    
-          
-          
-          
-          <td class="table-value">13.2707124248</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2002 Q2</td>    
-          
-          
-          
-          <td class="table-value">13.410667192</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2002 Q3</td>    
-          
-          
-          
-          <td class="table-value">13.3374058603</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2002 Q4</td>    
-          
-          
-          
-          <td class="table-value">12.7053546802</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2003 Q1</td>    
-          
-          
-          
-          <td class="table-value">13.5038765349</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2003 Q2</td>    
-          
-          
-          
-          <td class="table-value">13.3979761465</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2003 Q3</td>    
-          
-          
-          
-          <td class="table-value">13.118133107</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2003 Q4</td>    
-          
-          
-          
-          <td class="table-value">12.5976091948</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2004 Q1</td>    
-          
-          
-          
-          <td class="table-value">12.3604306726</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2004 Q2</td>    
-          
-          
-          
-          <td class="table-value">12.9350881792</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2004 Q3</td>    
-          
-          
-          
-          <td class="table-value">13.440885504</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2004 Q4</td>    
-          
-          
-          
-          <td class="table-value">13.4447192111</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2005 Q1</td>    
-          
-          
-          
-          <td class="table-value">13.4311948225</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2005 Q2</td>    
-          
-          
-          
-          <td class="table-value">13.6864306298</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2005 Q3</td>    
-          
-          
-          
-          <td class="table-value">13.4676309408</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2005 Q4</td>    
-          
-          
-          
-          <td class="table-value">14.3980498146</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2006 Q1</td>    
-          
-          
-          
-          <td class="table-value">14.0733198966</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2006 Q2</td>    
-          
-          
-          
-          <td class="table-value">14.5593663744</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2006 Q3</td>    
-          
-          
-          
-          <td class="table-value">14.2767696909</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2006 Q4</td>    
-          
-          
-          
-          <td class="table-value">13.8298928289</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2007 Q1</td>    
-          
-          
-          
-          <td class="table-value">14.0680871055</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2007 Q2</td>    
-          
-          
-          
-          <td class="table-value">14.057973714</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2007 Q3</td>    
-          
-          
-          
-          <td class="table-value">13.7165868948</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2007 Q4</td>    
-          
-          
-          
-          <td class="table-value">13.4274143662</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2008 Q1</td>    
-          
-          
-          
-          <td class="table-value">13.3997896828</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2008 Q2</td>    
-          
-          
-          
-          <td class="table-value">13.8180443785</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2008 Q3</td>    
-          
-          
-          
-          <td class="table-value">14.2903440593</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2008 Q4</td>    
-          
-          
-          
-          <td class="table-value">14.1603119095</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2009 Q1</td>    
-          
-          
-          
-          <td class="table-value">15.1353259635</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2009 Q2</td>    
-          
-          
-          
-          <td class="table-value">15.5531138627</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2009 Q3</td>    
-          
-          
-          
-          <td class="table-value">15.443627557</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2009 Q4</td>    
-          
-          
-          
-          <td class="table-value">14.8807198092</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2010 Q1</td>    
-          
-          
-          
-          <td class="table-value">15.4682736417</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2010 Q2</td>    
-          
-          
-          
-          <td class="table-value">14.6969831667</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2010 Q3</td>    
-          
-          
-          
-          <td class="table-value">15.2909829759</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2010 Q4</td>    
-          
-          
-          
-          <td class="table-value">15.8629074596</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2011 Q1</td>    
-          
-          
-          
-          <td class="table-value">15.2945522554</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2011 Q2</td>    
-          
-          
-          
-          <td class="table-value">15.802572154</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2011 Q3</td>    
-          
-          
-          
-          <td class="table-value">16.9193296582</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2011 Q4</td>    
-          
-          
-          
-          <td class="table-value">16.4489295437</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2012 Q1</td>    
-          
-          
-          
-          <td class="table-value">16.2538988404</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2012 Q2</td>    
-          
-          
-          
-          <td class="table-value">16.1964442303</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2012 Q3</td>    
-          
-          
-          
-          <td class="table-value">15.0038247272</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2012 Q4</td>    
-          
-          
-          
-          <td class="table-value">14.7701062965</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2013 Q1</td>    
-          
-          
-          
-          <td class="table-value">15.0312722986</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2013 Q2</td>    
-          
-          
-          
-          <td class="table-value">14.89375089</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2013 Q3</td>    
-          
-          
-          
-          <td class="table-value">14.9137156747</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2013 Q4</td>    
-          
-          
-          
-          <td class="table-value">14.2216745073</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2014 Q1</td>    
-          
-          
-          
-          <td class="table-value">13.4172705401</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2014 Q2</td>    
-          
-          
-          
-          <td class="table-value">13.2252872213</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2014 Q3</td>    
-          
-          
-          
-          <td class="table-value">13.231880048</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2014 Q4</td>    
-          
-          
-          
-          <td class="table-value">13.3618969089</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2015 Q1</td>    
-          
-          
-          
-          <td class="table-value">12.8544660855</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2015 Q2</td>    
-          
-          
-          
-          <td class="table-value">12.6624359056</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2015 Q3</td>    
-          
-          
-          
-          <td class="table-value">11.7169156014</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2015 Q4</td>    
-          
-          
-          
-          <td class="table-value">11.8889275303</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2016 Q1</td>    
-          
-          
-          
-          <td class="table-value">12.0167931485</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2016 Q2</td>    
-          
-          
-          
-          <td class="table-value">11.742575111</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2016 Q3</td>    
-          
-          
-          
-          <td class="table-value">11.8894498683</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2016 Q4</td>    
-          
-          
-          
-          <td class="table-value">11.5630572819</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2017 Q1</td>    
-          
-          
-          
-          <td class="table-value">11.2118970278</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2017 Q2</td>    
-          
-          
-          
-          <td class="table-value">11.1021204149</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2017 Q3</td>    
-          
-          
-          
-          <td class="table-value">11.1367049181</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2017 Q4</td>    
-          
-          
-          
-          <td class="table-value">11.2406222675</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2018 Q1</td>    
-          
-          
-          
-          <td class="table-value">11.4772814607</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2018 Q2</td>    
-          
-          
-          
-          <td class="table-value">11.1582389613</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2018 Q3</td>    
-          
-          
-          
-          <td class="table-value">10.8636803114</td>
+          <td class="table-value">78.3</td>
           
           
         </tr>
@@ -1090,7 +271,7 @@
       
 
       <section>
-        
+
         
         <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
         <div class="async-loaded" style="display:none">
@@ -1104,7 +285,7 @@
             <li role="presentation" class="nav-item map" style="display:none">
               <a class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab">Map</a>
             </li></ul>
-          
+
           <!-- Tab panes -->
           <div class="tab-content data-view">
             <div role="tabpanel" class="tab-pane active" id="chartview">
@@ -1119,12 +300,39 @@
     
     <div class="plot-container">
         
-<canvas></canvas>
+
+<canvas id="barchart-4-3-1" class="ct-chart ct-major-eleventh"></canvas>
+<script>
+  // 3.5.2
+  // 1.5.2 // 2 bars
+  // 4.b.1 // 3 bars
+  var chartInfo = chartDataProcessor.getChartInfo(null),
+      chartInstance = new Chart(document.getElementById('barchart-4-3-1'), {
+      type: 'bar',
+      data: chartInfo,
+      options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            yAxes: [{
+              ticks: {
+                  suggestedMin: 0
+              }
+            }]
+          },
+          legend: {
+            display: false
+         },
+      }
+  });
+
+</script>
+
     </div>
     <div id="plotLegend"></div>
 
-    <div id="chartSelectionDownload"></div>    
-    
+    <div id="chartSelectionDownload"></div>
+
 
 
             </div>
@@ -1138,9 +346,9 @@
             </div>
             
           </div>
-        </div> 
+        </div>
         
-               
+
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="nav-item active">
@@ -1158,7 +366,7 @@
           </li>
           
         </ul>
-        
+
         <!-- Tab panes -->
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="metadata">
@@ -1166,53 +374,35 @@
             <div > <!-- formerly class="collapsible expanded" -->
               <!-- <h3 tabindex='0'>National Metadata</h3> -->
               <article>
-                <p>This table provides metadata for the actual indicator available from UK statistics closest to the corresponding global
-                  SDG indicator. Please note that even when the global SDG indicator is fully available from UK statistics, this table
-                  should be consulted for information on national methodology and other UK-specific metadata information.</p>
+                <p>This table provides metadata for the actual indicator available from UK statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from UK statistics, this table should be consulted for information on national methodology and other UK-specific metadata information.</p>
                   <table class="table table-hover">
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
       
       <tr>
         <th scope="row">Indicator available </th>
         <td>
           
-            Percentage of youth (aged 16-24 years) not in education, employment or training
+            Percentage of adults who have participated in any learning in the last 12 months
           
         </td>
         </tr>
         
       
   
-    
       
       <tr>
         <th scope="row">Indicator description </th>
@@ -1225,20 +415,18 @@
         
       
   
-    
       
       <tr>
         <th scope="row">Geographical coverage </th>
         <td>
           
-            United Kingdom
+            England
           
         </td>
         </tr>
         
       
   
-    
       
       <tr>
         <th scope="row">Unit of measurement </th>
@@ -1251,7 +439,6 @@
         
       
   
-    
       
       <tr>
         <th scope="row">Definitions </th>
@@ -1264,7 +451,6 @@
         
       
   
-    
       
       <tr>
         <th scope="row">Calculations </th>
@@ -1277,20 +463,18 @@
         
       
   
-    
       
       <tr>
         <th scope="row">Other information </th>
         <td>
           
-            This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has not been identified in collaboration with topic experts.
+            The survey sampled individuals in England aged 19 and over who were not in continuous full-time education or who had returned to full-time education following a break of more than two years.  Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.
           
         </td>
         </tr>
         
       
   
-    
       
       <tr>
         <th scope="row">Data last updated </th>
@@ -1302,22 +486,20 @@
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/d076e742729fc51466f6dd398670eabfa57a6b23" target="_blank">
-                2018-11-22: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/c72b22b83b7dabae9a27f74f405f5f598fd00cd4" target="_blank">
+                2019-01-17: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
-            
+
           
         </td>
         </tr>
         
       
   
-    
       
       
   
-    
       
       <tr>
         <th scope="row">Metadata last updated </th>
@@ -1329,180 +511,99 @@
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/9e3d6f7dac7cad97ebda489c9d31b1ebb2df38fe" target="_blank">
-                2018-11-26: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/79d24bba9a6046c613db6c08299f1232e1dd277c" target="_blank">
+                2019-01-17: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
-            
+
           
         </td>
         </tr>
         
       
   
-    
       
       
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
 </table>
 
@@ -1517,15 +618,10 @@
                 <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href="https://unstats.un.org/sdgs/metadata/">Complete global metadata</a> is provided by the UN Statistics Division.</p>
                 <table class="table table-hover">
   
-    
   
-    
   
-    
   
-    
   
-    
       
       <tr>
         <th scope="row">Indicator name </th>
@@ -1538,7 +634,6 @@
         
       
   
-    
       
       <tr>
         <th scope="row">Indicator number </th>
@@ -1551,7 +646,6 @@
         
       
   
-    
       
       <tr>
         <th scope="row">Indicator display order (within Goal page) </th>
@@ -1564,7 +658,6 @@
         
       
   
-    
       
       <tr>
         <th scope="row">Target name </th>
@@ -1577,7 +670,6 @@
         
       
   
-    
       
       <tr>
         <th scope="row">Target number </th>
@@ -1590,7 +682,6 @@
         
       
   
-    
       
       <tr>
         <th scope="row">Global indicator description </th>
@@ -1603,7 +694,6 @@
         
       
   
-    
       
       <tr>
         <th scope="row">UN designated tier </th>
@@ -1616,7 +706,6 @@
         
       
   
-    
       
       <tr>
         <th scope="row">UN custodian agency </th>
@@ -1629,7 +718,6 @@
         
       
   
-    
       
       <tr>
         <th scope="row">Link to UN metadata </th>
@@ -1645,198 +733,106 @@
                 United Nations Sustainable Development Goals Metadata (PDF 210 KB) <span class="visuallyhidden">opens in a new window</span>
               </a>
             
-            
+
           
         </td>
         </tr>
         
       
   
-    
       
       
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
 </table>
 
@@ -1857,127 +853,88 @@
       
       <table class="table table-hover">
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
       
       <tr>
         <th scope="row">Organisation </th>
         <td>
           
-            Office for National Statistics (ONS)
+            Department for Education
           
         </td>
         </tr>
         
       
   
-    
       
       <tr>
         <th scope="row">Periodicity </th>
         <td>
           
-            Quarterly
+            NA
           
         </td>
         </tr>
         
       
   
-    
       
       <tr>
         <th scope="row">Earliest available data </th>
         <td>
           
-            2001
+            2016
           
         </td>
         </tr>
         
       
   
-    
       
       <tr>
         <th scope="row">Geographical coverage </th>
         <td>
           
-            United Kingdom
+            England
           
         </td>
         </tr>
         
       
   
-    
       
       <tr>
         <th scope="row">Link to data source </th>
@@ -1989,205 +946,139 @@
             
 
             
-              <a href="https://www.ons.gov.uk/employmentandlabourmarket/peoplenotinwork/unemployment/datasets/youngpeoplenotineducationemploymentortrainingneettable1" target="_blank">
-                Young people not in education, employment or training (NEET) <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.gov.uk/government/publications/adult-education-survey-2016" target="_blank">
+                Adult Education Survey 2016 <span class="visuallyhidden">opens in a new window</span>
               </a>
             
-            
+
           
         </td>
         </tr>
         
       
   
-    
       
       
   
-    
       
       <tr>
         <th scope="row">Release date </th>
         <td>
           
-            23/08/2018
+            22/08/2018
           
         </td>
         </tr>
         
       
   
-    
       
       <tr>
         <th scope="row">Next release </th>
         <td>
           
-            22/11/2018
+            NA
           
         </td>
         </tr>
         
       
   
-    
       
       <tr>
         <th scope="row">Statistical classification </th>
         <td>
           
-            National Statistic
+            Official
           
         </td>
         </tr>
         
       
   
-    
       
       <tr>
         <th scope="row">Contact details </th>
         <td>
           
-            yanitsa.petkova@ons.gsi.gov.uk
+            aliki.pareas@education.gov.uk
           
         </td>
         </tr>
         
       
   
-    
       
       <tr>
         <th scope="row">Other information </th>
         <td>
           
-            Seasonally standardised data used
+            
           
         </td>
         </tr>
         
       
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
-    
   
 </table>
 
@@ -2215,10 +1106,11 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-9">
-        <a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a> | <a class="twitter-follow-button" href="https://twitter.com/StatsClaudie?ref_src=twsrc%5Etfw" data-show-count="false">@StatsClaudie</a>
+        <a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a>
+        
       </div>
       <div class="col-xs-3 text-right">
-        <a href="/sdg-indicators/faq/">FAQs</a> | <a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a>
+        <a href="/sdg-indicators/faq/">FAQ</a> | <a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a>
       </div>
     </div>
   </div>
@@ -2247,15 +1139,19 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
-<script src="/sdg-indicators/assets/js/lib/d3-simple-slider.min.js"></script>
-<script src="/sdg-indicators/assets/js/plugins/jquery.sdgMap.js"></script>
-<script type="text/javascript"> window.loop11_key = "0104054b3b56d396b42e668dfe096cee161454a8"; </script>
-<script src="//cdn.loop11.com/my/loop11.js" type="text/javascript" async="async"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190116181255'></script>
-<script src="/sdg-indicators/assets/js/lib/classList.js"></script>
-<script src="/sdg-indicators/assets/js/lib/modernizr-custom.js"></script>
 <script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
+<script src="https://cdn.rawgit.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
+<script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+<script>
+  var remoteDataBaseUrl = 'https://ONSdigital.github.io/sdg-data';
+</script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190117131438'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
@@ -2265,9 +1161,9 @@ $(function() {
           $(obj).append($('<img />').attr('src', $(obj).data('img')));
       });
 
-      $.ajax({ 
-        url: 'https://ONSdigital.github.io/sdg-data/comb/' + domData.id + '.json', 
-        success: function(res) { 
+      $.ajax({
+        url: 'https://ONSdigital.github.io/sdg-data/comb/' + domData.id + '.json',
+        success: function(res) {
 
           $('.async-loading').remove();
           $('.async-loaded').show();
@@ -2313,4 +1209,4 @@ $(function() {
 </body>
 </html>
 
-  
+

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-    <head>
+    <head><script>var translations = {};</script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
         <!-- Basic Page Needs
         ================================================== -->
@@ -27,7 +27,7 @@
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
         <![endif]-->
-        
+
         <!-- Favicons ================================================== -->
         <!-- 128x128 -->
         <link rel="shortcut icon" type="image/ico" href="/sdg-indicators/assets/img/favicons/favicon.ico">
@@ -41,20 +41,27 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190116181255">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190117131438">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
-    </head>
-<body>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css" />
+        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' />
+        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"></head>
+<body class="language-en">
 <!-- <div class="container"> -->
 
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
   <div class="container">
   <div class="alert alert-danger" role="alert">
-    <strong class="phase-tag">Alpha</strong> This is a development website. We welcome your
-    <a href="mailto:sustainabledevelopment@ons.gov.uk">feedback</a>.
+    <strong class="phase-tag">Alpha</strong>
+    This is a development website. We welcome your <a href="mailto:sustainabledevelopment@ons.gov.uk">feedback</a>.
   </div>
 </div>
+
 </div>
 
 <header role="banner">
@@ -65,8 +72,7 @@
     </a>
 
   <div class='hidden visible-xs float-right'>
-    <ul id='accessibility-nav' class='contrast-switcher'></ul>
-  </div>
+    <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
 
     <nav class="navbar navbar-default" id="main-nav">
 
@@ -75,29 +81,14 @@
         <li><span data-target="search">Search</span></li>
       </ul>
 
-      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu">
-        <li class="nav-link"
-          >
-          <a href="/sdg-indicators/">Goals</a>
-        </li>
-        <li class="nav-link" >
-          <a href="/sdg-indicators/reporting-status">Reporting Status</a>
-        </li>
-        <li class="nav-link" >
-          <a href="/sdg-indicators/about">About</a>
-        <li class="nav-link" >
-            <a href="/sdg-indicators/publications">Publications</a>
-        </li>
-        <li class="nav-link" >
-          <a href="/sdg-indicators/guidance">Guidance</a>
-        </li>
-        <li class="nav-link" >
-          <a href="/sdg-indicators/faq">FAQ</a>
-        </li>
-<!--        <li class="nav-link active" >
-          <a href="/sdg-indicators/news">News &amp; Events</a>
-        </li> -->
-      </ul>
+      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"></ul>
+
+      <div id="search" class="menu-target">
+  <label for="indicator_search">
+    <i class="fa fa-search" aria-hidden="true"></i><span>Search:</span>
+  </label>
+  <input id="indicator_search" title="Indicator search" placeholder="Indicator search" data-url="/sdg-indicators/indicators.json" data-pageurl="/sdg-indicators/search/?" />
+</div>
 
 
     </nav>
@@ -135,27 +126,27 @@
     </div>
     <div class="col-md-3 pull-md-9">
       <div id="sidebar">
-  <h4>Posts by Category</h4>
+  <h4></h4>
   <ul>
     
       
       <li>
-        <a href="/sdg-indicators/categories/#How to" title="View all posts in the How to category">How to</a>
+        <a href="/sdg-indicators/categories/#How to" title="">How to</a>
       </li>
     
       
       <li>
-        <a href="/sdg-indicators/categories/#News" title="View all posts in the News category">News</a>
+        <a href="/sdg-indicators/categories/#News" title="">News</a>
       </li>
     
       
       <li>
-        <a href="/sdg-indicators/categories/#Data" title="View all posts in the Data category">Data</a>
+        <a href="/sdg-indicators/categories/#Data" title="">Data</a>
       </li>
     
       
       <li>
-        <a href="/sdg-indicators/categories/#Wrangling" title="View all posts in the Wrangling category">Wrangling</a>
+        <a href="/sdg-indicators/categories/#Wrangling" title="">Wrangling</a>
       </li>
     
   </ul>
@@ -171,10 +162,11 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-9">
-        <a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a> | <a class="twitter-follow-button" href="https://twitter.com/StatsClaudie?ref_src=twsrc%5Etfw" data-show-count="false">@StatsClaudie</a>
+        <a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a>
+        
       </div>
       <div class="col-xs-3 text-right">
-        <a href="/sdg-indicators/faq/">FAQs</a> | <a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a>
+        <a href="/sdg-indicators/faq/">FAQ</a> | <a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a>
       </div>
     </div>
   </div>
@@ -203,15 +195,19 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
-<script src="/sdg-indicators/assets/js/lib/d3-simple-slider.min.js"></script>
-<script src="/sdg-indicators/assets/js/plugins/jquery.sdgMap.js"></script>
-<script type="text/javascript"> window.loop11_key = "0104054b3b56d396b42e668dfe096cee161454a8"; </script>
-<script src="//cdn.loop11.com/my/loop11.js" type="text/javascript" async="async"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190116181255'></script>
-<script src="/sdg-indicators/assets/js/lib/classList.js"></script>
-<script src="/sdg-indicators/assets/js/lib/modernizr-custom.js"></script>
 <script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
+<script src="https://cdn.rawgit.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
+<script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+<script>
+  var remoteDataBaseUrl = 'https://ONSdigital.github.io/sdg-data';
+</script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190117131438'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
@@ -221,9 +217,9 @@ $(function() {
           $(obj).append($('<img />').attr('src', $(obj).data('img')));
       });
 
-      $.ajax({ 
-        url: 'https://ONSdigital.github.io/sdg-data/comb/' + domData.id + '.json', 
-        success: function(res) { 
+      $.ajax({
+        url: 'https://ONSdigital.github.io/sdg-data/comb/' + domData.id + '.json',
+        success: function(res) {
 
           $('.async-loading').remove();
           $('.async-loaded').show();

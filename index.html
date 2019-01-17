@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-    <head>
+    <head><script>var translations = {};</script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
         <!-- Basic Page Needs
         ================================================== -->
@@ -27,7 +27,7 @@
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
         <![endif]-->
-        
+
         <!-- Favicons ================================================== -->
         <!-- 128x128 -->
         <link rel="shortcut icon" type="image/ico" href="/sdg-indicators/assets/img/favicons/favicon.ico">
@@ -41,20 +41,27 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190116181255">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190117131438">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
-    </head>
-<body>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css" />
+        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' />
+        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"></head>
+<body class="language-en">
 <!-- <div class="container"> -->
 
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
   <div class="container">
   <div class="alert alert-danger" role="alert">
-    <strong class="phase-tag">Alpha</strong> This is a development website. We welcome your
-    <a href="mailto:sustainabledevelopment@ons.gov.uk">feedback</a>.
+    <strong class="phase-tag">Alpha</strong>
+    This is a development website. We welcome your <a href="mailto:sustainabledevelopment@ons.gov.uk">feedback</a>.
   </div>
 </div>
+
 </div>
 
 <header role="banner">
@@ -65,8 +72,7 @@
     </a>
 
   <div class='hidden visible-xs float-right'>
-    <ul id='accessibility-nav' class='contrast-switcher'></ul>
-  </div>
+    <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
 
     <nav class="navbar navbar-default" id="main-nav">
 
@@ -75,28 +81,14 @@
         <li><span data-target="search">Search</span></li>
       </ul>
 
-      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu">
-        <li class="nav-link active" >
-          <a href="/sdg-indicators/">Goals</a>
-        </li>
-        <li class="nav-link" >
-          <a href="/sdg-indicators/reporting-status">Reporting Status</a>
-        </li>
-        <li class="nav-link" >
-          <a href="/sdg-indicators/about">About</a>
-        <li class="nav-link" >
-            <a href="/sdg-indicators/publications">Publications</a>
-        </li>
-        <li class="nav-link" >
-          <a href="/sdg-indicators/guidance">Guidance</a>
-        </li>
-        <li class="nav-link" >
-          <a href="/sdg-indicators/faq">FAQ</a>
-        </li>
-<!--        <li class="nav-link" >
-          <a href="/sdg-indicators/news">News &amp; Events</a>
-        </li> -->
-      </ul>
+      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"></ul>
+
+      <div id="search" class="menu-target">
+  <label for="indicator_search">
+    <i class="fa fa-search" aria-hidden="true"></i><span>Search:</span>
+  </label>
+  <input id="indicator_search" title="Indicator search" placeholder="Indicator search" data-url="/sdg-indicators/indicators.json" data-pageurl="/sdg-indicators/search/?" />
+</div>
 
 
     </nav>
@@ -108,146 +100,128 @@
 
     <h1>UK data for Sustainable Development Goal indicators</h1>
 
-    <p>Click on each goal<span style="display:none" id="jump-to-search">, <a href="javascript:void(0)">or search</a>,</span> for UK statistics for Sustainable Development Goal global indicators.</p>
-    
-        <div class="row no-gutters">
+    <p>Click on each goal <span style="display:none" id="jump-to-search"><a href="javascript:void(0)">, or search, </a></span> for UK statistics for Sustainable Development Goal global indicators.</p><div class="row no-gutters">
             <div class="col-xs-4 col-md-2">
                 <a href="./no-poverty/">
-                  <img src="/sdg-indicators/assets/img/goals/1.png" id="goal-1" alt="No Poverty - Goal 1" />
+                  <img src="/sdg-indicators/assets/img/goals/en/1.png" id="goal-1" alt="No Poverty - Goal 1" />
               </a>
             </div>
         
     
-        
             <div class="col-xs-4 col-md-2">
                 <a href="./zero-hunger/">
-                  <img src="/sdg-indicators/assets/img/goals/2.png" id="goal-2" alt="Zero Hunger - Goal 2" />
+                  <img src="/sdg-indicators/assets/img/goals/en/2.png" id="goal-2" alt="Zero Hunger - Goal 2" />
               </a>
             </div>
         
     
-        
             <div class="col-xs-4 col-md-2">
                 <a href="./good-health-and-well-being/">
-                  <img src="/sdg-indicators/assets/img/goals/3.png" id="goal-3" alt="Good Health and Well-being - Goal 3" />
+                  <img src="/sdg-indicators/assets/img/goals/en/3.png" id="goal-3" alt="Good Health and Well-being - Goal 3" />
               </a>
             </div>
         
     
-        
             <div class="col-xs-4 col-md-2">
                 <a href="./quality-education/">
-                  <img src="/sdg-indicators/assets/img/goals/4.png" id="goal-4" alt="Quality Education - Goal 4" />
+                  <img src="/sdg-indicators/assets/img/goals/en/4.png" id="goal-4" alt="Quality Education - Goal 4" />
               </a>
             </div>
         
     
-        
             <div class="col-xs-4 col-md-2">
                 <a href="./gender-equality/">
-                  <img src="/sdg-indicators/assets/img/goals/5.png" id="goal-5" alt="Gender Equality - Goal 5" />
+                  <img src="/sdg-indicators/assets/img/goals/en/5.png" id="goal-5" alt="Gender Equality - Goal 5" />
               </a>
             </div>
         
     
-        
             <div class="col-xs-4 col-md-2">
                 <a href="./clean-water-and-sanitation/">
-                  <img src="/sdg-indicators/assets/img/goals/6.png" id="goal-6" alt="Clean water and sanitation - Goal 6" />
+                  <img src="/sdg-indicators/assets/img/goals/en/6.png" id="goal-6" alt="Clean water and sanitation - Goal 6" />
               </a>
             </div>
         </div>
-    
-        <div class="row no-gutters">
+    <div class="row no-gutters">
             <div class="col-xs-4 col-md-2">
                 <a href="./affordable-and-clean-energy/">
-                  <img src="/sdg-indicators/assets/img/goals/7.png" id="goal-7" alt="Affordable and clean energy - Goal 7" />
+                  <img src="/sdg-indicators/assets/img/goals/en/7.png" id="goal-7" alt="Affordable and clean energy - Goal 7" />
               </a>
             </div>
         
     
-        
             <div class="col-xs-4 col-md-2">
                 <a href="./decent-jobs-and-economic-growth/">
-                  <img src="/sdg-indicators/assets/img/goals/8.png" id="goal-8" alt="Decent jobs and economic growth - Goal 8" />
+                  <img src="/sdg-indicators/assets/img/goals/en/8.png" id="goal-8" alt="Decent jobs and economic growth - Goal 8" />
               </a>
             </div>
         
     
-        
             <div class="col-xs-4 col-md-2">
                 <a href="./industry-innovation-and-infrastructure/">
-                  <img src="/sdg-indicators/assets/img/goals/9.png" id="goal-9" alt="Industry, innovation and infrastructure - Goal 9" />
+                  <img src="/sdg-indicators/assets/img/goals/en/9.png" id="goal-9" alt="Industry, innovation and infrastructure - Goal 9" />
               </a>
             </div>
         
     
-        
             <div class="col-xs-4 col-md-2">
                 <a href="./reduced-inequalities/">
-                  <img src="/sdg-indicators/assets/img/goals/10.png" id="goal-10" alt="Reduced inequalities - Goal 10" />
+                  <img src="/sdg-indicators/assets/img/goals/en/10.png" id="goal-10" alt="Reduced inequalities - Goal 10" />
               </a>
             </div>
         
     
-        
             <div class="col-xs-4 col-md-2">
                 <a href="./sustainable-cities-communities/">
-                  <img src="/sdg-indicators/assets/img/goals/11.png" id="goal-11" alt="Sustainable Cities & Communities - Goal 11" />
+                  <img src="/sdg-indicators/assets/img/goals/en/11.png" id="goal-11" alt="Sustainable Cities & Communities - Goal 11" />
               </a>
             </div>
         
     
-        
             <div class="col-xs-4 col-md-2">
                 <a href="./responsible-consumption-and-production/">
-                  <img src="/sdg-indicators/assets/img/goals/12.png" id="goal-12" alt="Responsible consumption and production - Goal 12" />
+                  <img src="/sdg-indicators/assets/img/goals/en/12.png" id="goal-12" alt="Responsible consumption and production - Goal 12" />
               </a>
             </div>
         </div>
-    
-        <div class="row no-gutters">
+    <div class="row no-gutters">
             <div class="col-xs-4 col-md-2">
                 <a href="./climate-action/">
-                  <img src="/sdg-indicators/assets/img/goals/13.png" id="goal-13" alt="Climate action - Goal 13" />
+                  <img src="/sdg-indicators/assets/img/goals/en/13.png" id="goal-13" alt="Climate action - Goal 13" />
               </a>
             </div>
         
     
-        
             <div class="col-xs-4 col-md-2">
                 <a href="./life-below-water/">
-                  <img src="/sdg-indicators/assets/img/goals/14.png" id="goal-14" alt="Life below water - Goal 14" />
+                  <img src="/sdg-indicators/assets/img/goals/en/14.png" id="goal-14" alt="Life below water - Goal 14" />
               </a>
             </div>
         
     
-        
             <div class="col-xs-4 col-md-2">
                 <a href="./life-on-land/">
-                  <img src="/sdg-indicators/assets/img/goals/15.png" id="goal-15" alt="Life on land - Goal 15" />
+                  <img src="/sdg-indicators/assets/img/goals/en/15.png" id="goal-15" alt="Life on land - Goal 15" />
               </a>
             </div>
         
     
-        
             <div class="col-xs-4 col-md-2">
                 <a href="./peace-and-justice-strong-institutions/">
-                  <img src="/sdg-indicators/assets/img/goals/16.png" id="goal-16" alt="Peace and justice - strong institutions - Goal 16" />
+                  <img src="/sdg-indicators/assets/img/goals/en/16.png" id="goal-16" alt="Peace and justice - strong institutions - Goal 16" />
               </a>
             </div>
         
     
-        
             <div class="col-xs-4 col-md-2">
                 <a href="./partnerships-for-the-goals/">
-                  <img src="/sdg-indicators/assets/img/goals/17.png" id="goal-17" alt="Partnerships for the goals - Goal 17" />
+                  <img src="/sdg-indicators/assets/img/goals/en/17.png" id="goal-17" alt="Partnerships for the goals - Goal 17" />
               </a>
             </div>
         
     
         <div class="col-xs-4 col-md-2">
-            <img src="/sdg-indicators/assets/img/goals/18.png" id="goal-18" alt="The Global Goals for Sustainable Development" />
+            <img src="/sdg-indicators/assets/img/goals/en/18.png" id="goal-18" alt="The Global Goals for Sustainable Development" />
         </div>
     </div>
 </div>
@@ -255,10 +229,11 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-9">
-        <a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a> | <a class="twitter-follow-button" href="https://twitter.com/StatsClaudie?ref_src=twsrc%5Etfw" data-show-count="false">@StatsClaudie</a>
+        <a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a>
+        
       </div>
       <div class="col-xs-3 text-right">
-        <a href="/sdg-indicators/faq/">FAQs</a> | <a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a>
+        <a href="/sdg-indicators/faq/">FAQ</a> | <a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a>
       </div>
     </div>
   </div>
@@ -287,15 +262,19 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
-<script src="/sdg-indicators/assets/js/lib/d3-simple-slider.min.js"></script>
-<script src="/sdg-indicators/assets/js/plugins/jquery.sdgMap.js"></script>
-<script type="text/javascript"> window.loop11_key = "0104054b3b56d396b42e668dfe096cee161454a8"; </script>
-<script src="//cdn.loop11.com/my/loop11.js" type="text/javascript" async="async"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190116181255'></script>
-<script src="/sdg-indicators/assets/js/lib/classList.js"></script>
-<script src="/sdg-indicators/assets/js/lib/modernizr-custom.js"></script>
 <script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
+<script src="https://cdn.rawgit.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
+<script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+<script>
+  var remoteDataBaseUrl = 'https://ONSdigital.github.io/sdg-data';
+</script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190117131438'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
@@ -305,9 +284,9 @@ $(function() {
           $(obj).append($('<img />').attr('src', $(obj).data('img')));
       });
 
-      $.ajax({ 
-        url: 'https://ONSdigital.github.io/sdg-data/comb/' + domData.id + '.json', 
-        success: function(res) { 
+      $.ajax({
+        url: 'https://ONSdigital.github.io/sdg-data/comb/' + domData.id + '.json',
+        success: function(res) {
 
           $('.async-loading').remove();
           $('.async-loaded').show();
