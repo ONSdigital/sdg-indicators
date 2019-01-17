@@ -26,6 +26,9 @@ jekyll_get_data:
     # directory: 'remotedata'
   - data: schema
     json: 'https://ONSdigital.github.io/sdg-data/meta/schema.json'
+  - data: translations
+    # Pin to version of the translation repo
+    json: 'https://open-sdg.github.io/sdg-translations/translations-0.3.2.json'
 
 analytics:
   ga_prod: ''
@@ -67,3 +70,19 @@ collections:
   goals:
     output: true
     
+# The list of languages that are translated. The first one is the default.
+languages:
+  - en
+
+# This makes sure that all pages have a language.
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      language: "en"
+
+plugins:
+  - jekyll-remote-theme
+
+remote_theme: open-sdg/open-sdg@0.3.0
