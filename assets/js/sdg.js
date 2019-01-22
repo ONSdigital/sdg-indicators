@@ -1991,7 +1991,7 @@ var reportingStatus = function(indicatorDataStore) {
           ]
         };
 
-        overall.percentages = getPercentages([overall.counts[0], overall.counts[1], overall.counts[2]]);          
+        overall.percentages = getPercentages([overall.counts[0], overall.counts[1]]);          
         
         resolve({
           goals: mappedData,
