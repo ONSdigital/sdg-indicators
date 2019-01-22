@@ -69,7 +69,7 @@ $(function() {
   if($('.container').hasClass('reportingstatus')) {
     var url = $('.container.reportingstatus').attr('data-url'),
         status = new reportingStatus(new indicatorDataStore(url)),
-        types = ['Reported online', 'Statistics in progress', 'Exploring data sources'],
+        types = ['Reported online', 'Exploring data sources'],
         bindData = function(el, data) {
           $(el).find('.goal-stats span').each(function(index, statEl) {
             var percentage = Math.round(Number(((data.counts[index] / data.totalCount) * 100))) + '%';
