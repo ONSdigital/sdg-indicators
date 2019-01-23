@@ -43,7 +43,7 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190122123347">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190123103015">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -210,7 +210,7 @@
   </div>
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_4-3-1' data-id="4-3-1" data-country="England"
-  data-charttitle="Percentage of adults who have participated in any learning in the last 12 months" data-measurementunit="Percentage (%)" data-datasource="Department for Education" data-geographicalarea="England" data-footnote="" data-showdata="true" data-graphtype="bar" data-geocoderegex="" data-showmap="false">
+  data-charttitle="Percentage of adults who have participated in any learning in the last 12 months" data-measurementunit="Percentage (%)" data-datasource="Department for Education" data-geographicalarea="England" data-footnote="Please note, some figures should be treated with caution due to sample sizes <30. For more information, see data source." data-showdata="true" data-graphtype="bar" data-geocoderegex="" data-showmap="false">
     
     <div class="col-md-3">
       <div id="toolbar">
@@ -250,6 +250,10 @@
         
         
         
+        <th scope="col">Units</th>
+        
+        
+        
         <th scope="col" class="table-value">Value</th>
         
         
@@ -259,11 +263,31 @@
         <tr>
           
           
-          <td>2016.0</td>    
+          <td>2016</td>    
           
           
           
-          <td class="table-value">78.3</td>
+          <td>Formal</td>    
+          
+          
+          
+          <td class="table-value">10.4</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>    
+          
+          
+          
+          <td>Non-formal learning</td>    
+          
+          
+          
+          <td class="table-value">42.3</td>
           
           
         </tr>
@@ -456,7 +480,7 @@
         <th scope="row">Definitions </th>
         <td>
           
-            Formal education and training is defined as education provided by the system of schools, colleges, universities and other formal educational institutions that normally constitutes a continuous ‘ladder’ of full-time education for children and young people, generally beginning at the age of 5 to 7 and continuing to up to 20 or 25 years old. In some countries, the upper parts of this ‘ladder’ are organized programmes of joint part-time employment and part-time participation in the regular school and university system. Non-formal education and training is defined as any organized and sustained learning activities that do not correspond exactly to the above definition of formal education. Non-formal education may therefore take place both within and outside educational institutions and cater to people of all ages. Depending on national contexts, it may cover educational programmes to impart adult literacy, life-skills, work-skills, and general culture.
+            Formal learning is defined as learning that is intended to lead to a nationally recognised qualification. For example, a degree or NVQ. Non-formal learning is defined a course or taught class that does not lead to a nationally recognised qualification. For example, a first aid course.
           
         </td>
         </tr>
@@ -480,7 +504,7 @@
         <th scope="row">Other information </th>
         <td>
           
-            The survey sampled individuals in England aged 19 and over who were not in continuous full-time education or who had returned to full-time education following a break of more than two years.  Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.
+            The survey sampled individuals in England aged 19 and over who were not in continuous full-time education or who had returned to full-time education following a break of more than two years. Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.
           
         </td>
         </tr>
@@ -498,8 +522,8 @@
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/c72b22b83b7dabae9a27f74f405f5f598fd00cd4" target="_blank">
-                2019-01-17: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/ee210ec174f42a7810870a51519758e317838375" target="_blank">
+                2019-01-23: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -523,8 +547,8 @@
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/41fbb97573def99ef1bdddd9588bf294d3fd0e60" target="_blank">
-                2019-01-17: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/2303de7f0e09a30e876da5784aa0fff3bb080cbb" target="_blank">
+                2019-01-23: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1167,7 +1191,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 <script>
   var remoteDataBaseUrl = 'https://ONSdigital.github.io/sdg-data';
 </script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190122123347'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190123103015'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
