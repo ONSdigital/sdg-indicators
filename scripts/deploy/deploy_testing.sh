@@ -3,16 +3,20 @@ set -e # Exit with nonzero exit code if anything fails
 
 echo "TRAVIS_BRANCH = " $TRAVIS_BRANCH
 echo "TRAVIS_PULL_REQUEST_BRANCH = " $TRAVIS_PULL_REQUEST_BRANCH
-
 echo "TRAVIS_TAG = " $TRAVIS_TAG
 
+if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" = "master" ]; then
+    echo "Skipping deploy; just doing a build."
+    exit 0
+fi
+
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
-if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then
-  BASEURL=$TRAVIS_PULL_REQUEST_BRANCH
+if [ "$TRAVIS_BRANCH" = "develop" ]; then
+  BASEURL="sdg-indicators"
+else
+  BASEURL=$TRAVIS_BRANCH
   # slugify
   BASEURL=$(echo "$BASEURL" | iconv -t ascii//TRANSLIT | sed -r s/[^a-zA-Z0-9]+/-/g | sed -r s/^-+\|-+$//g | tr A-Z a-z)
-else
-  BASEURL="sdg-indicators"
 fi
 
 # Keys
