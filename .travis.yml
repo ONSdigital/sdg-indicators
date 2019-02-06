@@ -7,7 +7,6 @@ branches:
   only:
   - master
   - develop
-  - branch-testing
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
@@ -33,4 +32,4 @@ deploy:
   script: scripts/deploy/deploy_testing.sh
   skip_cleanup: true
   on:
-    branch: branch-testing
+    branch: develop
