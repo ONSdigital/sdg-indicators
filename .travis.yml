@@ -4,9 +4,8 @@ rvm:
 dist: trusty
 sudo: false
 branches:
-  only:
-  - master
-  - develop
+  except:
+  - gh-pages
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
@@ -28,3 +27,8 @@ deploy:
   skip_cleanup: true
   on:
     branch: master
+- provider: script
+  script: scripts/deploy/deploy_testing.sh
+  skip_cleanup: true
+  on:
+    all_branches: true
