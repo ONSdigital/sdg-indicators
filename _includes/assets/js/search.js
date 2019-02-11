@@ -17,14 +17,14 @@ var indicatorSearch = function(inputElement, indicatorDataStore) {
   };
 
   this.inputElement.keyup(function(e) {
-    var searchValue = that.inputElement.val();
+    var searchValue = that.inputElement.val().replace("q=","");
     if(e.keyCode === 13 && searchValue.length) {
       window.location.replace(that.inputElement.data('pageurl') + searchValue);
     }
   });
 
   var escapeRegExp = function(str) {
-    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/gi, "\\$&").replace("q=","");
+    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/gi, "\\$&");
   };
 
   if($('#main-content').hasClass('search-results')) {
