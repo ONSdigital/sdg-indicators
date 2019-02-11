@@ -24,7 +24,7 @@ var indicatorSearch = function(inputElement, indicatorDataStore) {
   });
 
   var escapeRegExp = function(str) {
-    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/gi, "\\$&");
+    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/gi, "\\$&").replace("q=","");
   };
 
   if($('#main-content').hasClass('search-results')) {
