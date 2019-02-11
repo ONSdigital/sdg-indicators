@@ -17,7 +17,7 @@ var indicatorSearch = function(inputElement, indicatorDataStore) {
   };
 
   this.inputElement.keyup(function(e) {
-    var searchValue = that.inputElement.val().replace("q=","");
+    var searchValue = that.inputElement.val().replace("q=", "");
     if(e.keyCode === 13 && searchValue.length) {
       window.location.replace(that.inputElement.data('pageurl') + searchValue);
     }
@@ -109,3 +109,7 @@ $(function() {
       $('.navbar span[data-target="search"]').click();
     }
     $el.focus();
+  });
+
+
+});
