@@ -66,7 +66,7 @@ var accessibilitySwitcher = function() {
       'onClick': "ga('send', 'event',
                      {'eventCategory': 'Change setting',
                       'eventAction': 'Change contrast setting',
-                      'eventLabel': 'Change to ' +contrast+ ' contrast'})
+                      'eventLabel': 'Change to ' +contrast+ ' contrast'})"
       'title': 'Set to ' + contrast + ' contrast',
       'data-contrast': contrast,
     }).text('A').click(function() {
