@@ -24,14 +24,14 @@ var indicatorSearch = function(inputElement, indicatorDataStore) {
   });
 
   var escapeRegExp = function(str) {
-    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/gi, "\\$&").replace("q=", "");
+    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/gi, "\\$&");
   };
 
   if($('#main-content').hasClass('search-results')) {
 
     var results = [],
         that = this,
-        searchString = unescape(location.search.substring(1));
+        searchString = unescape(location.search.substring(1)).replace("q=", "");
 
     // we got here because of a redirect, so reinstate:
     this.inputElement.val(searchString);
