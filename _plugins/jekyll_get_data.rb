@@ -30,7 +30,7 @@ module Jekyll_Get_Data
           end
 
           # for each item, there should be the following:
-            #
+            # 
 
           # Dir.foreach(d['directory']) do |item|
           #   next if item == '.' or item == '..'

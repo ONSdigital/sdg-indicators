@@ -11,7 +11,13 @@ If you have any feedback on our publications please contact us at <a href="mailt
 
 ### All goals
 
-**[Inclusive data charter action plan for the global Sustainable Development Goals](https://www.ons.gov.uk/economy/environmentalaccounts/methodologies/inclusivedatacharteractionplanfortheglobalsustainabledevelopmentgoals)**  
+**[Sustainable Development Goals in the UK: An update on progress, 06 November 2018](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2018)**
+This is our second report summarising the progress made towards measuring the global Sustainable Development Goals over the past year.
+
+**[Using innovative methods to report against the Sustainable Development Goals, 22 October 2018](https://www.ons.gov.uk/economy/environmentalaccounts/articles/usinginnovativemethodstoreportagainstthesustainabledevelopmentgoals/2018-10-22)**  
+The outcome of a project aimed at exploring new ways of producing and communicating geographical data.
+
+**[Inclusive data charter action plan for the global Sustainable Development Goals, 13 July 2018](https://www.ons.gov.uk/economy/environmentalaccounts/methodologies/inclusivedatacharteractionplanfortheglobalsustainabledevelopmentgoals)**  
 The Office for National Statistics has partnered with the Global Partnership for Sustainable Development Data to improve the quality, quantity and availability of inclusive data.
 
 **[UK data gaps: Inclusive Data Action Plan towards the global Sustainable Development Goal indicators, 19 March 2018](https://www.ons.gov.uk/economy/environmentalaccounts/articles/ukdatagapsinclusivedataactionplantowardstheglobalsustainabledevelopmentgoalindicators/2018-03-19)**  

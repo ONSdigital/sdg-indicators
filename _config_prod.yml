@@ -27,8 +27,8 @@ jekyll_get_data:
   - data: schema
     json: 'https://sustainabledevelopment-chuck.github.io/sdg-data/meta/schema.json'
   - data: translations
-    # Pin to version 0.2.0 of the translation repository.
-    json: 'https://open-sdg.github.io/sdg-translations/translations-0.3.0.json'
+    # Pin to version of the translation repository.
+    json: 'https://open-sdg.github.io/sdg-translations/translations-0.3.2.json'
 
 analytics:
   ga_prod: 'UA-108503280-1'
@@ -74,6 +74,22 @@ collections:
 languages:
   - en
 
+# Menu
+menu:
+  # Use these to customise the main navigation.
+  - path: /
+    translation_key: general.goals
+  - path: /reporting-status/
+    translation_key: menu.reporting_status
+  - path: /about/
+    translation_key: menu.about
+  - path: /publications/
+    translation_key: menu.publications
+  - path: /guidance/
+    translation_key: menu.guidance
+  - path: /faq/
+    translation_key: menu.faq
+
 # This makes sure that all pages have a language.
 defaults:
   -
@@ -85,4 +101,26 @@ defaults:
 plugins:
   - jekyll-remote-theme
 
-remote_theme: open-sdg/open-sdg@0.1.0
+remote_theme: open-sdg/open-sdg@0.3.0
+
+# Mapping
+map_options:
+  tileURL: https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}
+  tileOptions:
+    id: mapbox.light
+    accessToken: pk.eyJ1IjoiYnJvY2tmYW5uaW5nMSIsImEiOiJjaXplbmgzczgyMmRtMnZxbzlmbGJmdW9pIn0.LU-BYMX69uu3eGgk0Imibg
+    attribution: <a href="https://www.mapbox.com">Mapbox</a> | <a href="http://geoportal.statistics.gov.uk/">ONS</a>
+  minZoom: 6
+map_layers:
+  - min_zoom: 0
+    max_zoom: 6
+    serviceUrl: https://opendata.arcgis.com/datasets/4fcca2a47fed4bfaa1793015a18537ac_4.geojson
+    nameProperty: rgn17nm
+    idProperty: rgn17cd
+    staticBorders: true
+  - min_zoom: 7
+    max_zoom: 20
+    serviceUrl: https://geoportal1-ons.opendata.arcgis.com/datasets/686603e943f948acaa13fb5d2b0f1275_4.geojson
+    nameProperty: lad16nm
+    idProperty: lad16cd
+
