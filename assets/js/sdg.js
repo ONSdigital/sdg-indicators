@@ -535,7 +535,6 @@ var accessibilitySwitcher = function() {
       'class': 'nav-link contrast contrast-' + contrast
     }).html($('<a />').attr({
       'href': 'javascript:void(0)',
-      'onClick': 'ga("send", {"hitType": "event", "eventCategory": "Change setting", "eventAction": "Change contrast setting", "eventLabel": "Change to " +contrast+ " contrast"})',
       'title': 'Set to ' + contrast + ' contrast',
       'data-contrast': contrast,
     }).text('A').click(function() {
@@ -1854,7 +1853,7 @@ var indicatorSearch = function(inputElement, indicatorDataStore) {
 
     var results = [],
         that = this,
-        searchString = unescape(location.search.substring(1));
+        searchString = unescape(location.search.substring(1)).replace("q=", "");
 
     // we got here because of a redirect, so reinstate:
     this.inputElement.val(searchString);
@@ -1936,7 +1935,6 @@ $(function() {
 
 
 });
-
 var reportingStatus = function(indicatorDataStore) {
   this.indicatorDataStore = indicatorDataStore;
 
