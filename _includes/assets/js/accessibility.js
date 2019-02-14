@@ -59,12 +59,11 @@ var accessibilitySwitcher = function() {
   ////////////////////////////////////////////////////////////////////////////////////
 
   _.each(contrastIdentifiers, function(contrast) {
-    var contrasttype = contrast;
     $('.contrast-switcher').append($('<li />').attr({
       'class': 'nav-link contrast contrast-' + contrast
     }).html($('<a />').attr({
       'href': 'javascript:void(0)',
-      'onClick': 'ga("send", "event", "Accessibility", "Change contrast setting", contrasttype)',
+      'onClick': 'ga("send", "event", "Accessibility", "Change contrast setting", getActiveContrast())',
       'title': 'Set to ' + contrast + ' contrast',
       'data-contrast': contrast,
     }).text('A').click(function() {
