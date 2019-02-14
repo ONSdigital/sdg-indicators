@@ -518,7 +518,7 @@ var indicatorView = function (model, options) {
         'href': URL.createObjectURL(new Blob([this.toCsv(table)], {
           type: 'text/csv'
         })),
-        'onClick': 'ga("send", "event", "Downloads", "Download CSV", "Download table CSV: ' + indicatorId.replace("indicator_", "") + '")',
+        'onClick': 'ga("send", "event", "Downloads", "Download CSV", "Download ' + downloadKey.replace("download_","") + ' CSV: ' + indicatorId.replace("indicator_", "") + '")',
         'download': indicatorId + '.csv',
         'title': translations.indicator.download_csv_title,
         'class': 'btn btn-primary btn-download',
@@ -531,7 +531,7 @@ var indicatorView = function (model, options) {
       $(el).append($('<a />').text(translations.indicator.download_headline)
       .attr({
         'href': remoteDataBaseUrl + '/headline/' + id + '.csv',
-        'onClick': 'ga("send", "event", "Downloads", "Download CSV", "Download chart CSV: ' + indicatorId.replace("indicator_", "") + '")',
+        'onClick': 'ga("send", "event", "Downloads", "Download CSV", " ' + translations.indicator.download_headline + ': ' + indicatorId.replace("indicator_", "") + '")',
         'download': headlineId + '.csv',
         'title': translations.indicator.download_headline_title,
         'class': 'btn btn-primary btn-download',
