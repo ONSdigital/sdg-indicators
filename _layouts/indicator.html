@@ -73,17 +73,17 @@
         <div class="async-loaded" style="display:none">
           <ul class="nav nav-tabs data-view" role="tablist">
             <li role="presentation" class="nav-item active">
-              <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab">{{ t.indicator.chart }}</a>
+              <a class="nav-link" data-toggle="tab" href="#chartview" onclick=ga("send", "event", "Tab change", "Change data view", "Change to Chart tab") aria-controls="chartview" role="tab">{{ t.indicator.chart }}</a>
             </li>
             <li role="presentation" class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab">{{ t.indicator.table }}</a>
+              <a class="nav-link" data-toggle="tab" href="#tableview" onclick=ga("send", "event", "Tab change", "Change data view", "Change to Table tab") aria-controls="tableview" role="tab">{{ t.indicator.table }}</a>
             </li>
             <li role="presentation" class="nav-item map" style="display:none">
-              <a class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab">{{ t.indicator.map }}</a>
+              <a class="nav-link" data-toggle="tab" href="#mapview" onclick=ga("send", "event", "Tab change", "Change data view", "Change to Map tab") aria-controls="mapview" role="tab">{{ t.indicator.map }}</a>
             </li>
             {%- if meta.embedded_map_html -%}
             <li role="presentation" class="nav-item embedded-map">
-              <a class="nav-link" data-toggle="tab" href="#embeddedmapview" aria-controls="embeddedmapview" role="tab">{{ t.indicator.map }}</a>
+              <a class="nav-link" data-toggle="tab" href="#embeddedmapview" onclick=ga("send", "event", "Tab change", "Change data view", "Change to embedded item tab") aria-controls="embeddedmapview" role="tab">{{ t.indicator.map }}</a>
             </li>
             {%- endif -%}
           </ul>
