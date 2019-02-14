@@ -518,7 +518,7 @@ var indicatorView = function (model, options) {
         'href': URL.createObjectURL(new Blob([this.toCsv(table)], {
           type: 'text/csv'
         })),
-        'onClick': 'ga("send", "event", "Downloads", "Download CSV", "' + translations.indicator.download_csv_title + ': ' + indicatorId + '")',
+        'onClick': 'ga("send", "event", "Downloads", "Download CSV", "Download table CSV: ' + indicatorId + '")',
         'download': indicatorId + '.csv',
         'title': translations.indicator.download_csv_title,
         'class': 'btn btn-primary btn-download',
