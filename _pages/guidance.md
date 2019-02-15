@@ -11,7 +11,7 @@ We have also developed a set of <a href="https://github.com/datasciencecampus/sd
 ## Using this website
 Answers to some specific questions about the website are included in our [Frequently Asked Questions]({{ site.baseurl }}/faq/) page.
 
-View this<a href="{{ site.baseurl}}/public/NRP VIDEO DEMO May2018.ppsx" onClick='ga("send", "event", "Guidance", "presentation", "view presentation")'>presentation (.ppsx file 6.45Mb)</a> on the site's main features.
+View this <a href="{{ site.baseurl}}/public/NRP VIDEO DEMO May2018.ppsx" onClick='ga("send", "event", "Guidance", "presentation", "view presentation")'>presentation (.ppsx file 6.45Mb)</a> on the site's main features.
 
 Our wiki pages also include more detailed information for people adding data and metadata:
 - <a href="https://github.com/datasciencecampus/sdg-indicators/wiki/Raw-data-format" onClick='ga("send", "event", "Guidance", "wiki", "raw data format")'>Raw data format</a> []( )
