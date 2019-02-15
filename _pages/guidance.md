@@ -6,7 +6,7 @@ layout: page
 
 This page shares information for people using this website and for countries wishing to take a copy of it.
 
-We have also developed a set of [wiki pages]( https://github.com/datasciencecampus/sdg-indicators/wiki onClick=ga('send', 'event' 'Guidance' 'wiki' 'wiki homepage')) which include more detailed technical information.
+We have also developed a set of [wiki pages]( https://github.com/datasciencecampus/sdg-indicators/wiki onClick="ga('send', 'event' 'Guidance' 'wiki' 'wiki homepage')") which include more detailed technical information.
 
 ## Using this website
 Answers to some specific questions about the website are included in our [Frequently Asked Questions]({{ site.baseurl }}/faq/) page.
