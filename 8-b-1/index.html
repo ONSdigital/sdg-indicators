@@ -50,7 +50,7 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190214194031">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190215122236">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -222,13 +222,13 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="nav-item active">
-            <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab">National Metadata</a>
+            <a class="nav-link" data-toggle="tab" href="#metadata" onClick='ga("send", "event", "Tab change", "Change metadata view", "Change to National Metadata tab")' aria-controls="metadata" role="tab">National Metadata</a>
           </li>
           <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#globalmetadata" aria-controls="globalmetadata" role="tab">Global Metadata</a>
+            <a class="nav-link" data-toggle="tab" href="#globalmetadata" onClick='ga("send", "event", "Tab change", "Change metadata view", "Change to Global Metadata tab")' aria-controls="globalmetadata" role="tab">Global Metadata</a>
           </li>
           <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab">Sources</a>
+            <a class="nav-link" data-toggle="tab" href="#sources" onClick='ga("send", "event", "Tab change", "Change metadata view", "Change to Sources tab")' aria-controls="sources" role="tab">Sources</a>
           </li>
           
           <li role="presentation" class="nav-item">
@@ -2198,7 +2198,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 <script>
   var remoteDataBaseUrl = 'https://ONSdigital.github.io/sdg-data';
 </script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190214194031'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190215122236'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
@@ -2255,5 +2255,4 @@ $(function() {
 
 </body>
 </html>
-
 
