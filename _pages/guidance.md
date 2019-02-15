@@ -28,4 +28,4 @@ The technical guidance in our <a href="https://github.com/datasciencecampus/sdg-
 -	<a href="https://github.com/datasciencecampus/sdg-indicators/wiki/Development-installation-instructions" onClick='ga("send", "event", "Guidance", "wiki", "development installation instructions")'>Development installation instructions</a>
 -	<a href="https://github.com/datasciencecampus/sdg-indicators/wiki/Differences-between-the-US-and-UK-NRPs" onClick='ga("send", "event", "Guidance", "wiki", "differences between the uk and uk")'>Differences between the US and UK</a>
 
-The US also provide various guidance and information on the [training materials page]( https://gsa.github.io/sdg-indicators-usa/guidance/) of their reporting platform.
+The US also provide various guidance and information on the [guidance page]( https://sdg.data.gov/guidance/) of their reporting platform.
