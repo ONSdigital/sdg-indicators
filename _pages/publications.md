@@ -11,6 +11,9 @@ If you have any feedback on our publications please contact us at <a href="mailt
 
 ### All goals
 
+**[What is the difference between sex and gender?, 21 February 2018](https://www.ons.gov.uk/economy/environmentalaccounts/articles/whatisthedifferencebetweensexandgender/2019-02-21)**
+We are exploring concepts that are important to the Sustainable Development Goals. This article explains the differences between sex and gender.
+
 **[Sustainable Development Goals in the UK: An update on progress, 06 November 2018](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2018)**
 This is our second report summarising the progress made towards measuring the global Sustainable Development Goals over the past year.
 
