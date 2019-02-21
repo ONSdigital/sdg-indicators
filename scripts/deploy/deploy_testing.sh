@@ -10,12 +10,11 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" = "master" ]; then
     exit 0
 fi
 
-# Pull requests and commits to other branches shouldn't try to deploy, just build to verify
+# Slugify branch name to directory except for staging
 if [ "$TRAVIS_BRANCH" = "develop" ]; then
   BASEURL="sdg-indicators"
 else
   BASEURL=$TRAVIS_BRANCH
-  # slugify
   BASEURL=$(echo "$BASEURL" | iconv -t ascii//TRANSLIT | sed -r s/[^a-zA-Z0-9]+/-/g | sed -r s/^-+\|-+$//g | tr A-Z a-z)
 fi
 
@@ -30,5 +29,5 @@ ssh-add scripts/deploy/deploy_key_test
 rm scripts/deploy/deploy_key*
 
 # Push the files over, removing anything existing already.
-ssh -oStrictHostKeyChecking=no $TEST_USER_SERVER "rm -rf ~/www/$BASEURL || true"
-scp -oStrictHostKeyChecking=no -r _site $TEST_USER_SERVER:~/www/$BASEURL
+ssh -oStrictHostKeyChecking=no travis@$TEST_SERVER "rm -rf ~/www/$BASEURL || true"
+scp -oStrictHostKeyChecking=no -rC _site travis@$TEST_SERVER:~/www/$BASEURL
