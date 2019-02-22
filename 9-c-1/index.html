@@ -50,7 +50,7 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190221161524">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190222161346">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -190,11 +190,7 @@
   <div class="row" id="page-content-row">
     <div class="col-xs-12">
       <div id="page-content">
-  <p><strong>Exploring data sources</strong></p>
-
-<p>We have not explored suitable data sources for this indicator.</p>
-
-<p>The Sustainable Development Goals is a collaborative project, if you have any feedback or suggestions for data please contact us at <a href="mailto:SustainableDevelopment@ons.gov.uk">SustainableDevelopment@ons.gov.uk</a></p>
+  
 
 </div>
 
@@ -203,20 +199,113 @@
 
   <div class="row">
     <div class="col-xs-12">
-      <h2></h2>
+      <h2>Proportion of population covered by a mobile network, by technology</h2>
     </div>
   </div>
 
-  <div class="row" id="indicatorData" data-indicatorid='indicator_9-c-1' data-id="9-c-1" data-country=""
-  data-charttitle="" data-measurementunit="" data-datasource="" data-geographicalarea="" data-footnote="" data-showdata="false" data-graphtype="line" data-geocoderegex="" data-showmap="">
+  <div class="row" id="indicatorData" data-indicatorid='indicator_9-c-1' data-id="9-c-1" data-country="United Kingdom"
+  data-charttitle="Proportion of population covered by a mobile network, by technology" data-measurementunit="Percentage (%)" data-datasource="United Nations Statistics Division" data-geographicalarea="United Kingdom" data-footnote="The original source of these data varies across the time series. Please see the source data for full footnotes." data-showdata="true" data-graphtype="line" data-geocoderegex="" data-showmap="Y">
     
-    <div class="col-md-12">
+    <div class="col-md-3">
+      <div id="toolbar">
+        <span id="series-help">
+          <h4>Sub-categories</h4>
+          <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+        </span>
+        <p>Click on the legend to remove individual lines from the chart.</p>
+        <div id="fields">
+          <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+        </div>
+      </div>
+      <div id="units"></div>
+    </div>
+    <div class="col-md-9">
     
 
+      
+       
+ 
+
+<div id="headlineTable">
+  
+  <div id="datatables">
+    
+    <a href="https://ONSdigital.github.io/sdg-data/headline/9-c-1.csv" class="btn btn-primary btn-download" download="indicator_9-c-1.csv" tabindex="0" role="button">Download Headline CSV</a>
+    
+    <a href="https://ONSdigital.github.io/sdg-data/data/9-c-1.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_9-c-1.csv' tabindex='0' role='button'>Download Source CSV</a>
+    
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption></caption>
+      <thead>
+        
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+  
+  <div id="datatableFooter">
+    
+    
+    
+    
+  </div>
+  
+</div>
       
 
       <section>
 
+        
+        <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+        <div class="async-loaded" style="display:none">
+          <ul class="nav nav-tabs data-view" role="tablist">
+            <li role="presentation" class="nav-item active">
+              <a class="nav-link" data-toggle="tab" href="#chartview" onClick='ga("send", "event", "Tab change", "Change data view", "Change to Chart tab")' aria-controls="chartview" role="tab">Chart</a>
+            </li>
+            <li role="presentation" class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tableview" onClick='ga("send", "event", "Tab change", "Change data view", "Change to Table tab")' aria-controls="tableview" role="tab">Table</a>
+            </li>
+            <li role="presentation" class="nav-item map" style="display:none">
+              <a class="nav-link" data-toggle="tab" href="#mapview" onClick='ga("send", "event", "Tab change", "Change data view". "Change to Map tab")' aria-controls="mapview" role="tab">Map</a>
+            </li></ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content data-view">
+            <div role="tabpanel" class="tab-pane active" id="chartview">
+              
+    
+    
+
+    <div id="dataset-size-warning" style="display:none">
+      <i class="fa fa-bolt"></i> There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+    </div>
+
+    
+    <div class="plot-container">
+        
+<canvas></canvas>
+    </div>
+    <div id="plotLegend"></div>
+
+    <div id="chartSelectionDownload"></div>
+
+
+
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tableview">
+              <div id="selectionsTable"></div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="mapview" class="map">
+              <div id="map">
+                <img src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
+              </div>
+            </div>
+            
+          </div>
+        </div>
         
 
         <!-- Nav tabs -->
@@ -266,7 +355,7 @@
         <th scope="row">Indicator available </th>
         <td>
           
-            
+            Proportion of population covered by a mobile network, by technology
           
         </td>
         </tr>
@@ -290,7 +379,7 @@
         <th scope="row">Geographical coverage </th>
         <td>
           
-            
+            United Kingdom
           
         </td>
         </tr>
@@ -302,7 +391,7 @@
         <th scope="row">Unit of measurement </th>
         <td>
           
-            
+            Percentage (%)
           
         </td>
         </tr>
@@ -338,7 +427,7 @@
         <th scope="row">Other information </th>
         <td>
           
-            
+            Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.
           
         </td>
         </tr>
@@ -356,8 +445,8 @@
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/5b3a76416597aeedd0d458db3e07b9104025a7b3" target="_blank">
-                2017-10-13: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/7adbcd2c057e72a73a5c2712d545c321acc6c3c3" target="_blank">
+                2019-02-22: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -381,8 +470,8 @@
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/c65d1a32b45b64ac6ce41dcc156ca91d3079e511" target="_blank">
-                2018-10-11: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/127cd0dd7640235fc07559c42de53fb9881e76ef" target="_blank">
+                2019-02-22: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -497,7 +586,7 @@
         <th scope="row">Indicator name </th>
         <td>
           
-            Proportion of population covered by a mobile network, by technology
+            9.c.1 Proportion of population covered by a mobile network, by technology
           
         </td>
         </tr>
@@ -533,7 +622,7 @@
         <th scope="row">Target name </th>
         <td>
           
-            Significantly increase access to information and communications technology and strive to provide universal and affordable access to the Internet in least developed countries by 2020
+            9.c Significantly increase access to information and communications technology and strive to provide universal and affordable access to the Internet in least developed countries by 2020
           
         </td>
         </tr>
@@ -569,7 +658,7 @@
         <th scope="row">UN designated tier </th>
         <td>
           
-            1
+            1.0
           
         </td>
         </tr>
@@ -581,7 +670,7 @@
         <th scope="row">UN custodian agency </th>
         <td>
           
-            ITU
+            International Telecommunication Union (ITU)
           
         </td>
         </tr>
@@ -600,7 +689,7 @@
 
             
               <a href="https://unstats.un.org/sdgs/metadata/files/Metadata-09-0C-01.pdf" target="_blank">
-                United Nations Sustainable Development Goals Metadata (pdf 663kB) <span class="visuallyhidden">opens in a new window</span>
+                United Nations Sustainable Development Goals Metadata (PDF 214 KB) <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -762,7 +851,7 @@
         <th scope="row">Organisation </th>
         <td>
           
-            
+            United Nations Statistics Division
           
         </td>
         </tr>
@@ -774,7 +863,7 @@
         <th scope="row">Periodicity </th>
         <td>
           
-            
+            Annual
           
         </td>
         </tr>
@@ -786,7 +875,7 @@
         <th scope="row">Earliest available data </th>
         <td>
           
-            
+            2000
           
         </td>
         </tr>
@@ -798,7 +887,7 @@
         <th scope="row">Geographical coverage </th>
         <td>
           
-            
+            United Kingdom
           
         </td>
         </tr>
@@ -816,6 +905,10 @@
             
 
             
+              <a href="https://unstats.un.org/sdgs/indicators/database/" target="_blank">
+                Proportion of population covered by a mobile network, by technology <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
 
           
         </td>
@@ -831,7 +924,7 @@
         <th scope="row">Release date </th>
         <td>
           
-            
+            20/06/2018
           
         </td>
         </tr>
@@ -843,7 +936,7 @@
         <th scope="row">Next release </th>
         <td>
           
-            
+            N/A
           
         </td>
         </tr>
@@ -855,7 +948,7 @@
         <th scope="row">Statistical classification </th>
         <td>
           
-            
+            Non official
           
         </td>
         </tr>
@@ -867,7 +960,7 @@
         <th scope="row">Contact details </th>
         <td>
           
-            
+            statistics@un.org
           
         </td>
         </tr>
@@ -974,8 +1067,8 @@
       <div class="col-xs-9">
         <a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a>
         
-          | <a class="twitter-follow-button" href="https://twitter.com/StatsClaudie" data-show-count="false">
-              @StatsClaudie
+          | <a class="twitter-follow-button" href="https://twitter.com/ONS" data-show-count="false">
+              @ONS
             </a>
         
       </div>
@@ -1021,7 +1114,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 <script>
   var remoteDataBaseUrl = 'https://ONSdigital.github.io/sdg-data';
 </script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190221161524'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190222161346'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
