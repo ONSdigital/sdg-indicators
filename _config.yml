@@ -12,21 +12,21 @@ baseurl: "/sdg-indicators" # the subpath of your site, e.g. /blog
 url: ""
 data_dir: data
 environment: staging
-remotedatabaseurl: "http://sdg.mango-solutions.com/data/11.6.2"
+remotedatabaseurl: "http://sdg.mango-solutions.com/data/16.9.1"
 
 # permalink: /news/:year/:month/:day/:title.html
 
 jekyll_get_json:
   - data: meta
-    json: 'http://sdg.mango-solutions.com/data/11.6.2/meta/all.json'
+    json: 'http://sdg.mango-solutions.com/data/16.9.1/meta/all.json'
     # cache: true
     # directory: 'remotedata'
   - data: headlines
-    json: 'http://sdg.mango-solutions.com/data/11.6.2/headline/all.json'
+    json: 'http://sdg.mango-solutions.com/data/16.9.1/headline/all.json'
     # cache: true
     # directory: 'remotedata'
   - data: schema
-    json: 'http://sdg.mango-solutions.com/data/11.6.2/meta/schema.json'
+    json: 'http://sdg.mango-solutions.com/data/16.9.1/meta/schema.json'
   - data: translations
     # Pin to version of the translation repo
     json: 'https://open-sdg.github.io/sdg-translations/translations-0.3.2.json'
