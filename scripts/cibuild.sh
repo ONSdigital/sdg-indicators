@@ -3,7 +3,7 @@
 
 # Instead of seperate prods just update variables that differ
 if [ "$TRAVIS_BRANCH" = "master" ]; then
-  jekyll build --config _config_prod.yml &&
+  jekyll build --config _config.yml,_config_prod.yml &&
   htmlproofer --disable-external ./_site
 else
 

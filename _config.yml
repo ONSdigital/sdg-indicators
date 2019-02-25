@@ -15,7 +15,7 @@ environment: staging
 remotedatabaseurl: "https://ONSdigital.github.io/sdg-data"
 # permalink: /news/:year/:month/:day/:title.html
 
-jekyll_get_data:
+jekyll_get_json:
   - data: meta
     json: 'https://ONSdigital.github.io/sdg-data/meta/all.json'
     # cache: true
@@ -34,7 +34,7 @@ analytics:
   ga_prod: ''
 
 # Social media accounts.
-twitter: 'StatsClaudie'
+twitter: 'ONS'
 
 
 ###################################################################################################
@@ -73,7 +73,7 @@ collections:
     output: true
   goals:
     output: true
-    
+
 # The list of languages that are translated. The first one is the default.
 languages:
   - en
@@ -104,6 +104,8 @@ defaults:
 
 plugins:
   - jekyll-remote-theme
+  - jekyll-open-sdg-plugins
+  - jekyll-get-json
 
 remote_theme: open-sdg/open-sdg@0.3.1
 
