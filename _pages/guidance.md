@@ -19,7 +19,8 @@ Our wiki pages also include more detailed information for people adding data and
 - <a href="https://github.com/datasciencecampus/sdg-indicators/wiki/Data-scenarios-and-characteristics" onClick='ga("send", "event", "Guidance", "wiki", "data scenarios and characteristics")'>Data scenarios and characteristics</a>
 
 ## Creating a copy of this website
-Other countries wishing to reuse this UK SDG reporting platforms or the [US SDG reporting platform](https://sdg.data.gov/) are welcome to do so for free. Visit our Wiki pages for <a href="https://github.com/ONSdigital/sdg-indicators/wiki/Clone-your-own%3A-step-by-step-instructions-%28Windows%29" onClick='ga("send", "event", "Guidance", "wiki", "clone your own guidance")'>**full guidance**</a>  on making a copy (or 'clone') of the site.
+Visit our Wiki pages for <a href="https://github.com/ONSdigital/sdg-indicators/wiki/Clone-your-own%3A-step-by-step-instructions-%28Windows%29" onClick='ga("send", "event", "Guidance", "wiki", "clone your own guidance")'>full guidance</a>  on making a copy (or 'clone') of the site.
+Other countries wishing to reuse this UK SDG reporting platforms or the [US SDG reporting platform](https://sdg.data.gov/) are welcome to do so for free.
 
 Supplementary information is included in the following pages:
 -	<a href="https://github.com/datasciencecampus/sdg-indicators/wiki/Required-skill-sets" onClick='ga("send", "event", "Guidance", "wiki", "required skill set")'>Required skill sets</a>
