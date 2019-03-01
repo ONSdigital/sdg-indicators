@@ -331,7 +331,7 @@
           else {
             plugin.selectionLegend.addSelection(layer);
             plugin.highlightFeature(layer);
-            #plugin.zoomToFeature(layer);
+            // plugin.zoomToFeature(layer);
           }
         }
         // Event handler for mouseover.
