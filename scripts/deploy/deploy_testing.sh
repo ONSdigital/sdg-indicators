@@ -29,5 +29,5 @@ ssh-add scripts/deploy/deploy_key_test
 
 # Push the files over, removing anything existing already.
 ssh -oStrictHostKeyChecking=no travis@$TEST_SERVER "rm -rf ~/www/$BASEURL || true"
-rsync -rvzh -e "ssh -i scripts/deploy/deploy_key_test -oStrictHostKeyChecking=no" --checksum --link-dest="../sdg-indicators" _site/ travis@$TEST_SERVER:~/www/data/$BASEURL
+rsync -rvzh -e "ssh -i scripts/deploy/deploy_key_test -oStrictHostKeyChecking=no" --checksum --link-dest="../sdg-indicators" _site/ travis@$TEST_SERVER:~/www/$BASEURL
 rm scripts/deploy/deploy_key*
