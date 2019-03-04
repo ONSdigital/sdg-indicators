@@ -18,7 +18,7 @@
     minZoom: 5,
     maxZoom: 10,
     // Visual/choropleth considerations.
-    colorRange: chroma.brewer.BuGn,
+    colorRange: chroma.brewer.YlGnBu,
     noValueColor: '#f0f0f0',
     styleNormal: {
       weight: 1,
