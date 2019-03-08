@@ -18,7 +18,7 @@
     minZoom: 5,
     maxZoom: 10,
     // Visual/choropleth considerations.
-    colorRange: chroma.brewer.BuGn,
+    colorRange: chroma.brewer.YlGnBu,
     noValueColor: '#f0f0f0',
     styleNormal: {
       weight: 1,
@@ -44,7 +44,7 @@
   // Defaults for each map layer.
   var mapLayerDefaults = {
     min_zoom: 0,
-    max_zoom: 20,
+    max_zoom: 10,
     serviceUrl: '[replace me]',
     nameProperty: '[replace me]',
     idProperty: '[replace me]',
@@ -312,7 +312,7 @@
         // The search plugin messes up zoomShowHide, so we have to reset that
         // with this hacky method. Is there a better way?
         var zoom = plugin.map.getZoom();
-        plugin.map.setZoom(zoom + 1);
+        plugin.map.setZoom(plugin.options.maxZoom);
         plugin.map.setZoom(zoom);
 
         // The list of handlers to apply to each feature on a GeoJson layer.
@@ -331,7 +331,7 @@
           else {
             plugin.selectionLegend.addSelection(layer);
             plugin.highlightFeature(layer);
-            plugin.zoomToFeature(layer);
+            // plugin.zoomToFeature(layer);
           }
         }
         // Event handler for mouseover.
@@ -404,8 +404,7 @@
       }
     });
   };
-})(jQuery, L, chroma, window, document);
-Chart.plugins.register({
+})(jQuery, L, chroma, window, document);Chart.plugins.register({
   id: 'rescaler',
   beforeInit: function (chart, options) {
     chart.config.data.allLabels = chart.config.data.labels.slice(0);
@@ -1169,8 +1168,8 @@ var mapView = function () {
     $('#map').sdgMap({
       geoData: geoData,
       geoCodeRegEx: geoCodeRegEx,
-      mapOptions: {"tileURL":"https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}","tileOptions":{"id":"mapbox.light","accessToken":"pk.eyJ1IjoiYnJvY2tmYW5uaW5nMSIsImEiOiJjaXplbmgzczgyMmRtMnZxbzlmbGJmdW9pIn0.LU-BYMX69uu3eGgk0Imibg","attribution":"<a href=\"https://www.mapbox.com\">Mapbox</a> | <a href=\"http://geoportal.statistics.gov.uk/\">ONS</a>"},"minZoom":6},
-      mapLayers: [{"min_zoom":6,"max_zoom":10,"serviceUrl":"https://geoportal1-ons.opendata.arcgis.com/datasets/4fcca2a47fed4bfaa1793015a18537ac_4.geojson","nameProperty":"rgn17nm","idProperty":"rgn17cd","staticBorders":true},{"min_zoom":7,"max_zoom":10,"serviceUrl":"https://geoportal1-ons.opendata.arcgis.com/datasets/686603e943f948acaa13fb5d2b0f1275_4.geojson","nameProperty":"lad16nm","idProperty":"lad16cd","staticBorders":false}],
+      mapOptions: {"tileURL":"https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}","tileOptions":{"id":"mapbox.light","accessToken":"pk.eyJ1IjoiYnJvY2tmYW5uaW5nMSIsImEiOiJjaXplbmgzczgyMmRtMnZxbzlmbGJmdW9pIn0.LU-BYMX69uu3eGgk0Imibg","attribution":"<a href=\"https://www.mapbox.com\">Mapbox</a> | <a href=\"http://geoportal.statistics.gov.uk/\">ONS</a>"},"noValueColor":null,"minZoom":5},
+      mapLayers: [{"min_zoom":10,"max_zoom":12,"serviceUrl":"https://geoportal1-ons.opendata.arcgis.com/datasets/4fcca2a47fed4bfaa1793015a18537ac_4.geojson","nameProperty":"rgn17nm","idProperty":"rgn17cd","staticBorders":false},{"min_zoom":5,"max_zoom":10,"serviceUrl":"https://geoportal1-ons.opendata.arcgis.com/datasets/686603e943f948acaa13fb5d2b0f1275_4.geojson","nameProperty":"lad16nm","idProperty":"lad16cd","staticBorders":false}],
     });
   };
 };
@@ -2272,7 +2271,7 @@ $(function() {
     // Player options.
     playerOptions: {
       transitionTime: 1000,
-      loop: false,
+      loop: true,
       startOver: true
     },
   };
