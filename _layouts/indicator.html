@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2">
         <a href="{{ goal_uri }}" title="{{ t.indicator.view_indicator_list }}">
-          <img src="{{ site.baseurl }}/assets/img/goals/{{ current_language }}/{{ goal_number }}.png" alt="{{ translated_goal.short }} - {{ t.general.goal }} {{ goal_number }}" />
+          <img src="{{ site.goal_image_base }}/{{ current_language }}/{{ goal_number }}.png" alt="{{ translated_goal.short }} - {{ t.general.goal }} {{ goal_number }}" />
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
@@ -137,8 +137,12 @@
             <div > <!-- formerly class="collapsible expanded" -->
               <!-- <h3 tabindex='0'>National Metadata</h3> -->
               <article>
-                <p>{{ t.indicator.national_metadata_blurb | replace: '%country_name', site.country.name | replace: '%country_adjective', site.country.adjective }}</p>
-                  {% include components/metadata.html scope='national' %}
+                <p>
+                  {% assign country_name = site.country.name | t %}
+                  {% assign country_adjective = site.country.adjective | t %}
+                  {{ t.indicator.national_metadata_blurb | replace: '%country_name', country_name | replace: '%country_adjective', country_adjective }}
+                </p>
+                {% include components/metadata.html scope='national' %}
               </article>
             </div>
           </div>
