@@ -8,20 +8,20 @@
 # Site settings
 baseurl: "" # the subpath of your site, e.g. /blog
 environment: production
-remotedatabaseurl: "https://sustainabledevelopment-uk.github.io/sdg-data"
+remotedatabaseurl: "https://sdg.mango-solutions.com/data/8-6-1-catch-all"
 # permalink: /news/:year/:month/:day/:title.html
 
 jekyll_get_json:
   - data: meta
-    json: 'https://sustainabledevelopment-uk.github.io/sdg-data/meta/all.json'
+    json: "https://sdg.mango-solutions.com/data/8-6-1-catch-all/meta/all.json"
     # cache: true
     # directory: 'remotedata'
   - data: headlines
-    json: 'https://sustainabledevelopment-uk.github.io/sdg-data/headline/all.json'
+    json: 'https://sdg.mango-solutions.com/data/8-6-1-catch-all/headline/all.json'
     # cache: true
     # directory: 'remotedata'
   - data: schema
-    json: 'https://sustainabledevelopment-uk.github.io/sdg-data/meta/schema.json'
+    json: 'https://sdg.mango-solutions.com/data/8-6-1-catch-all/meta/schema.json'
   - data: translations
     # Pin to version of the translation repository.
     json: 'https://open-sdg.github.io/sdg-translations/translations-0.4.0.json'
