@@ -52,7 +52,7 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190405170517">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190405173146">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -64,10 +64,64 @@
 <body class="language-en">
 <!-- <div class="container"> -->
 
- <div class="surveyMessage">
+<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+<div id="disclaimer">
+  <div class="container">
+  <div class="alert alert-danger" role="alert">
+    <strong class="phase-tag">Alpha</strong>
+    This is a development website. We welcome your <a href="mailto:sustainabledevelopment@ons.gov.uk">feedback</a>.
+  </div>
+</div>
+
+  <div class="surveyMessage">
     If you are willing to complete a short (5 minute) survey to provide feedback on the site, please click <a href="https://www.surveymonkey.co.uk/r/XFJZGVL%">this link</a> (opens in a new tab).
 </div> 
 
+</div>
+
+<header role="banner">
+  <div class="container">
+
+    <a class="navbar-brand" href="/sdg-indicators/" id="home">
+      <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+    </a>
+
+  <div class='hidden visible-xs float-right'>
+    <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
+
+    <nav class="navbar navbar-default" id="main-nav">
+
+      <ul class="top-level">
+        <li><span data-target="menu">Menu</span></li>
+        <li><span data-target="search">Search</span></li>
+      </ul>
+
+      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
+            <a href="/sdg-indicators/">Goals</a>
+          </li><li class="nav-link ">
+            <a href="/sdg-indicators/reporting-status/">Reporting Status</a>
+          </li><li class="nav-link ">
+            <a href="/sdg-indicators/about/">About</a>
+          </li><li class="nav-link ">
+            <a href="/sdg-indicators/publications/">Publications</a>
+          </li><li class="nav-link ">
+            <a href="/sdg-indicators/guidance/">Guidance</a>
+          </li><li class="nav-link ">
+            <a href="/sdg-indicators/faq/">FAQ</a>
+          </li></ul>
+
+      <div id="search" class="menu-target">
+  <label for="indicator_search">
+    <i class="fa fa-search" aria-hidden="true"></i><span>Search:</span>
+  </label>
+  <input id="indicator_search" title="Indicator search" placeholder="Indicator search" data-url="/sdg-indicators/indicators.json" data-pageurl="/sdg-indicators/search/?q=" />
+</div>
+
+
+    </nav>
+  </div>
+
+</header>
 
 <script type="text/template" id="item_template">
   <% _.each(series, function(seriesItem) { %>
@@ -1236,7 +1290,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 <script>
   var remoteDataBaseUrl = 'https://ONSdigital.github.io/sdg-data';
 </script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190405170517'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190405173146'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
