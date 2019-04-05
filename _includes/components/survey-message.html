@@ -1,3 +1,5 @@
 <div class="surveyMessage">
-    {{ t.header.survey_text | replace_first: '%survey_url', site.survey_url }}
+    <div class="alert alert-danger" role="alert">
+        {{ t.header.survey_text | replace_first: '%survey_url', site.survey_url }}
+    </div>
 </div> 
