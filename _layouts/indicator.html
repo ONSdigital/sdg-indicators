@@ -5,6 +5,7 @@
 {% include components/fields-template.html %}
 {% include components/units-template.html %}
 {% include multilingual-js.html key="indicator" %}
+{% include multilingual-js.html key="data" %}
 
 <div class="heading indicator goal-{{ goal_number }}">
   <div class="container">
@@ -37,7 +38,7 @@
 
   <div class="row">
     <div class="col-xs-12">
-      <h2>{{ meta.graph_title }}</h2>
+      <h2>{{ meta.graph_title | t }}</h2>
     </div>
   </div>
 
