@@ -567,6 +567,15 @@ h5 + .btn-download {
 .success {
   background-color: #5cb85c; }
 
+.notstarted {
+  background-color: #E27874; }
+
+.inprogress {
+  background-color: #f0ad4e; }
+
+.complete {
+  background-color: #5cb85c; }
+
 #main-content {
   font-family: 'Roboto', sans-serif;
   background: white;
@@ -914,6 +923,12 @@ h5 + .btn-download {
     display: inline;
     font-weight: normal;
     border-bottom: none; }
+  #main-content.goal-indicators.goal-by-target .indicator-cards a {
+    padding: 0;
+    margin-bottom: 1.5rem; }
+  #main-content.goal-indicators.goal-by-target .indicator-cards.target {
+    margin-bottom: 1.5rem;
+    clear: left; }
   #main-content .goal-indicators:after {
     content: "";
     display: table;
@@ -942,9 +957,9 @@ h5 + .btn-download {
       #main-content #selectionsTable div.dataTables_wrapper .row {
         margin-left: 0;
         margin-right: 0; }
-    #main-content #selectionsTable table th {
+    #main-content #selectionsTable table thead th {
       cursor: pointer; }
-      #main-content #selectionsTable table th span.sort {
+      #main-content #selectionsTable table thead th span.sort {
         background-position: center center;
         background-repeat: no-repeat;
         background-color: transparent;
@@ -952,12 +967,14 @@ h5 + .btn-download {
         width: 24px;
         height: 19px;
         margin-bottom: -3px; }
-      #main-content #selectionsTable table th:hover {
+      #main-content #selectionsTable table thead th:hover {
         text-decoration: underline; }
-      #main-content #selectionsTable table th.sorting_asc span.sort {
+      #main-content #selectionsTable table thead th.sorting_asc span.sort {
         background-image: url(../img/sort_asc.png); }
-      #main-content #selectionsTable table th.sorting_desc span.sort {
+      #main-content #selectionsTable table thead th.sorting_desc span.sort {
         background-image: url(../img/sort_desc.png); }
+    #main-content #selectionsTable table tbody th {
+      font-weight: normal; }
     #main-content #selectionsTable .table-footer-text p {
       font-size: 0.85em;
       margin: 0 0 5px; }

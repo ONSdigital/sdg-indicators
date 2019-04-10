@@ -680,7 +680,7 @@ var indicatorDataStore = function(dataUrl) {
     }
 
     that.fieldItemStates = _.map(_.filter(Object.keys(that.data[0]), function (key) {
-        return ['Year', 'Value', 'Units', 'GeoCode'].indexOf(key) === -1;
+        return ['Year', 'Value', 'Units', 'GeoCode', 'Observation status', 'Unit multiplier'].indexOf(key) === -1;
       }), function(field) {
       return {
         field: field,
@@ -1856,7 +1856,7 @@ var indicatorSearch = function(inputElement, indicatorDataStore) {
 
     var results = [],
         that = this,
-        searchString = unescape(location.search.substring(1)).replace("q=", "");
+        searchString = decodeURIComponent(location.search.substring(1)).replace("q=", "");
 
     // we got here because of a redirect, so reinstate:
     this.inputElement.val(searchString);
@@ -1939,100 +1939,6 @@ $(function() {
 
 });
 
-var reportingStatus = function(indicatorDataStore) {
-  this.indicatorDataStore = indicatorDataStore;
-
-  this.getReportingStatus = function() {
-
-    var that = this;
-
-    return new Promise(function(resolve, reject) {
-
-      // if(Modernizr.localStorage &&) {
-
-      // }
-
-      getPercentages = function(values) {
-
-        var percentageTotal = 100;
-        var total = _.reduce(values, function(memo, num) { return memo + num; });
-        var percentages = _.map(values, function(v) { return (v / total) * percentageTotal; });
-
-        var off = percentageTotal - _.reduce(percentages, function(acc, x) { return acc + Math.round(x) }, 0);
-          return _.chain(percentages).
-                  map(function(x, i) { return Math.round(x) + (off > i) - (i >= (percentages.length + off)) }).
-                  value();
-      }
-
-      that.indicatorDataStore.getData().then(function(data) {
-        // for each goal, get a percentage of indicators in the various states:
-        // notstarted, complete
-        var mappedData = _.map(data, function(dataItem) {
-
-          var returnItem = {
-            goal_id: dataItem.goal.id,
-            completeCount: _.where(dataItem.goal.indicators, { status: 'complete' }).length,
-            notStartedCount: _.where(dataItem.goal.indicators, { status: 'notstarted' }).length
-          };
-
-          returnItem.totalCount = returnItem.notStartedCount + returnItem.completeCount;
-          returnItem.counts = [returnItem.completeCount, returnItem.notStartedCount];
-          returnItem.percentages = getPercentages([returnItem.completeCount, returnItem.notStartedCount]);
-          
-          return returnItem;
-        });    
-
-        var getTotalByStatus = function(statusType) {
-          return _.chain(mappedData).pluck(statusType).reduce(function(sum, n) { return sum + n; }).value();          
-        };
-
-        var overall = {
-          totalCount: _.chain(mappedData).pluck('totalCount').reduce(function(sum, n) { return sum + n; }).value(),
-          counts: [
-            getTotalByStatus('completeCount'),
-            getTotalByStatus('notStartedCount')
-          ]
-        };
-
-        overall.percentages = getPercentages([overall.counts[0], overall.counts[1]]);          
-        
-        resolve({
-          goals: mappedData,
-          overall: overall
-        });
-      });     
-    });
-  };
-};
-
-$(function() {
-
-  if($('.container').hasClass('reportingstatus')) {
-    var url = $('.container.reportingstatus').attr('data-url'),
-        status = new reportingStatus(new indicatorDataStore(url)),
-        types = ['Reported online', 'Exploring data sources'],
-        bindData = function(el, data) {
-          $(el).find('.goal-stats span').each(function(index, statEl) {
-            var percentage = Math.round(Number(((data.counts[index] / data.totalCount) * 100))) + '%';
-            
-            $(statEl).attr({
-              'style': 'width:' + data.percentages[index] + '%',
-              'title': types[index] + ': ' + data.percentages[index] + '%'
-            });
-  
-            $(el).find('span.value:eq(' + index + ')').text(data.percentages[index] + '%');
-          }); 
-        };
-
-    status.getReportingStatus().then(function(data) {
-      bindData($('.goal-overall'), data.overall);
-      _.each(data.goals, function(goal) {
-        var el = $('.goal[data-goalid="' + goal.goal_id + '"]');
-        bindData(el, goal);       
-      });
-    });
-  }
-});
 $(function() {
 
   var topLevelSearchLink = $('.top-level span:eq(1)');
@@ -2304,4 +2210,22 @@ $(function() {
     // Return the control.
     return new L.Control.YearSlider(options);
   };
-}());
+}());function initialiseGoogleAnalytics(){
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        
+    sendPageviewToGoogleAnalytics();
+}
+
+function sendPageviewToGoogleAnalytics(){
+    ga('create', '', 'auto');
+    // anonymize user IPs (chops off the last IP triplet)
+    ga('set', 'anonymizeIp', true);
+    // forces SSL even if the page were somehow loaded over http://
+    ga('set', 'forceSSL', true);
+    ga('send', 'pageview');
+}
+
+

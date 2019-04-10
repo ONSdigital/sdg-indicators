@@ -8,7 +8,51 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
     <head>
-        <script>var translations = {};</script>
+        <script>
+// JavaScript container for translation data.
+var translations = {
+  //Javascript version of the "t" filter from jekyll-open-sdg-plugins.
+  t: function(key) {
+
+    if (!key || typeof key !== 'string') {
+      return '';
+    }
+
+    // The majority of uses of this function are to translate disaggregation
+    // data. To spare data providers of needing to enter "data." in front of
+    // their disaggregation data, we do it for them here.
+    var originalKey = key;
+    if (!key.includes('.') && this.data) {
+      key = 'data.' + key.toLowerCase();
+    }
+
+    var drilled = this;
+    var levelsDrilled = 0;
+    var levels = key.split('.');
+
+    for (var level in levels) {
+      // If we have drilled down to soon, abort.
+      if (typeof drilled !== 'object') {
+        break;
+      }
+
+      if (levels[level] in drilled) {
+        drilled = drilled[levels[level]];
+        levelsDrilled += 1;
+      }
+    }
+
+    // If we didn't drill the right number of levels, return the original string.
+    if (levels.length != levelsDrilled) {
+      return originalKey;
+    }
+
+    // Otherwise we must have drilled all the way.
+    return drilled;
+  },
+};
+</script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
         <!-- Basic Page Needs
         ================================================== -->
@@ -52,7 +96,7 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190410115339">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190410120010">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -60,7 +104,7 @@
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css" />
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' />
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"></head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20190410120010"></head>
 <body class="language-en">
 <!-- <div class="container"> -->
 
@@ -122,7 +166,7 @@
 <script type="text/template" id="item_template">
   <% _.each(series, function(seriesItem) { %>
     <div class="variable-selector<% if(allowedFields.indexOf(seriesItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=seriesItem.field%>">
-      <button class='accessBtn' tabindex='0'><h5><%=seriesItem.field%><i class="fa fa-chevron-down"></i></h5></button>
+      <button class='accessBtn' tabindex='0'><h5><%=translations.t(seriesItem.field)%><i class="fa fa-chevron-down"></i></h5></button>
       <div class="bar">
         <div class="selected"></div>
       </div>
@@ -132,11 +176,11 @@
           <button data-type="clear">Clear all</button>
         </div>
         <% _.each(seriesItem.values, function(item) { %>
-          <label><input type="checkbox" value="<%=item.value%>" data-field="<%=seriesItem.field%>" /><%=item.value%></label>
+          <label><input type="checkbox" value="<%=item.value%>" data-field="<%=seriesItem.field%>" /><%=translations.t(item.value)%></label>
         <% }); %>
       </div>
-      
-      <% if(allowedFields.indexOf(seriesItem.field) == -1) { %> 
+
+      <% if(allowedFields.indexOf(seriesItem.field) == -1) { %>
         <div class="variable-hint">Available when '<%= _.findWhere(edges, { To: seriesItem.field }).From %>' is selected
         </div>
         <div class="no-data-hint">
@@ -152,7 +196,7 @@
   <% if(units.length) { %>
     <h5>Units type</h5>
     <% _.each(units, function(unitsItem, index) { %>
-      <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <% if(!index) { %>checked="checked"<% } %> /> <%=unitsItem%></label>
+      <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <% if(!index) { %>checked="checked"<% } %> /> <%=translations.t(unitsItem)%></label>
     <% }); %>
   <% } %>
 </script>
@@ -164,13 +208,13 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2">
-        <a href="/sdg-indicators/gender-equality" title="View this goal's indicator list">
+        <a href="/sdg-indicators/5" title="View this goal's indicator list">
           <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/5.png" alt="Gender equality - Goal 5" />
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
-          <a href="/sdg-indicators/gender-equality">
+          <a href="/sdg-indicators/5">
             <span class="hidden-sm hidden-md hidden-lg">Goal 5: </span>Achieve gender equality and empower all women and girls
           </a>
         </h1>
@@ -184,7 +228,7 @@
   <ol class="breadcrumb">
   <li><a href="/sdg-indicators/">Home</a></li>
   
-      <li><a href="/sdg-indicators/gender-equality" title="Achieve gender equality and empower all women and girls">Goal 5</a></li>
+      <li><a href="/sdg-indicators/5" title="Achieve gender equality and empower all women and girls">Goal 5</a></li>
       <li class="active">Indicator 5.5.1</li>
   
 </ol>
@@ -227,17 +271,17 @@
     
 
       
-       
- 
+      
+
 
 <div id="headlineTable">
-  
+
   <div id="datatables">
-    
+
     <a href="https://ONSdigital.github.io/sdg-data/headline/5-5-1.csv" class="btn btn-primary btn-download" download="indicator_5-5-1.csv" tabindex="0" role="button">Download Headline CSV</a>
-    
+
     <a href="https://ONSdigital.github.io/sdg-data/data/5-5-1.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_5-5-1.csv' tabindex='0' role='button'>Download Source CSV</a>
-    
+
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
       <caption></caption>
@@ -261,11 +305,11 @@
         <tr>
           
           
-          <td>1918</td>    
+          <td>1918</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -277,11 +321,11 @@
         <tr>
           
           
-          <td>1922</td>    
+          <td>1922</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -293,11 +337,11 @@
         <tr>
           
           
-          <td>1923</td>    
+          <td>1923</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -309,11 +353,11 @@
         <tr>
           
           
-          <td>1924</td>    
+          <td>1924</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -325,11 +369,11 @@
         <tr>
           
           
-          <td>1929</td>    
+          <td>1929</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -341,11 +385,11 @@
         <tr>
           
           
-          <td>1931</td>    
+          <td>1931</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -357,11 +401,11 @@
         <tr>
           
           
-          <td>1935</td>    
+          <td>1935</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -373,11 +417,11 @@
         <tr>
           
           
-          <td>1945</td>    
+          <td>1945</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -389,11 +433,11 @@
         <tr>
           
           
-          <td>1950</td>    
+          <td>1950</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -405,11 +449,11 @@
         <tr>
           
           
-          <td>1951</td>    
+          <td>1951</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -421,11 +465,11 @@
         <tr>
           
           
-          <td>1955</td>    
+          <td>1955</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -437,11 +481,11 @@
         <tr>
           
           
-          <td>1959</td>    
+          <td>1959</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -453,11 +497,11 @@
         <tr>
           
           
-          <td>1964</td>    
+          <td>1964</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -469,27 +513,11 @@
         <tr>
           
           
-          <td>1966</td>    
+          <td>1966</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
-          
-          
-          
-          <td class="table-value">4.1</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1970</td>    
-          
-          
-          
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -501,11 +529,27 @@
         <tr>
           
           
-          <td>1974</td>    
+          <td>1970</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
+          
+          
+          
+          <td class="table-value">4.1</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1974</td>
+          
+          
+          
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -517,11 +561,11 @@
         <tr>
           
           
-          <td>1974</td>    
+          <td>1974</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -533,11 +577,11 @@
         <tr>
           
           
-          <td>1979</td>    
+          <td>1979</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -549,11 +593,11 @@
         <tr>
           
           
-          <td>1983</td>    
+          <td>1983</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -565,11 +609,11 @@
         <tr>
           
           
-          <td>1987</td>    
+          <td>1987</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -581,11 +625,11 @@
         <tr>
           
           
-          <td>1992</td>    
+          <td>1992</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -597,11 +641,11 @@
         <tr>
           
           
-          <td>1997</td>    
+          <td>1997</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -613,11 +657,11 @@
         <tr>
           
           
-          <td>2001</td>    
+          <td>2001</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -629,11 +673,11 @@
         <tr>
           
           
-          <td>2005</td>    
+          <td>2005</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -645,11 +689,11 @@
         <tr>
           
           
-          <td>2010</td>    
+          <td>2010</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -661,11 +705,11 @@
         <tr>
           
           
-          <td>2015</td>    
+          <td>2015</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -677,11 +721,11 @@
         <tr>
           
           
-          <td>2017</td>    
+          <td>2017</td>
           
           
           
-          <td>Percentage of female members in House of Commons</td>    
+          <td>Percentage of female members in House of Commons</td>
           
           
           
@@ -693,11 +737,11 @@
         <tr>
           
           
-          <td>1958</td>    
+          <td>1958</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -709,11 +753,11 @@
         <tr>
           
           
-          <td>1959</td>    
+          <td>1959</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -725,11 +769,11 @@
         <tr>
           
           
-          <td>1960</td>    
+          <td>1960</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -741,11 +785,11 @@
         <tr>
           
           
-          <td>1961</td>    
+          <td>1961</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -757,11 +801,11 @@
         <tr>
           
           
-          <td>1962</td>    
+          <td>1962</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -773,11 +817,11 @@
         <tr>
           
           
-          <td>1963</td>    
+          <td>1963</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -789,11 +833,11 @@
         <tr>
           
           
-          <td>1964</td>    
+          <td>1964</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -805,11 +849,11 @@
         <tr>
           
           
-          <td>1965</td>    
+          <td>1965</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -821,11 +865,11 @@
         <tr>
           
           
-          <td>1966</td>    
+          <td>1966</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -837,11 +881,11 @@
         <tr>
           
           
-          <td>1967</td>    
+          <td>1967</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -853,11 +897,11 @@
         <tr>
           
           
-          <td>1968</td>    
+          <td>1968</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -869,11 +913,11 @@
         <tr>
           
           
-          <td>1969</td>    
+          <td>1969</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -885,11 +929,11 @@
         <tr>
           
           
-          <td>1970</td>    
+          <td>1970</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -901,11 +945,11 @@
         <tr>
           
           
-          <td>1971</td>    
+          <td>1971</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -917,11 +961,11 @@
         <tr>
           
           
-          <td>1972</td>    
+          <td>1972</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -933,11 +977,11 @@
         <tr>
           
           
-          <td>1973</td>    
+          <td>1973</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -949,11 +993,11 @@
         <tr>
           
           
-          <td>1974</td>    
+          <td>1974</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -965,11 +1009,11 @@
         <tr>
           
           
-          <td>1975</td>    
+          <td>1975</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -981,11 +1025,11 @@
         <tr>
           
           
-          <td>1976</td>    
+          <td>1976</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -997,11 +1041,11 @@
         <tr>
           
           
-          <td>1977</td>    
+          <td>1977</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1013,11 +1057,11 @@
         <tr>
           
           
-          <td>1978</td>    
+          <td>1978</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1029,11 +1073,11 @@
         <tr>
           
           
-          <td>1979</td>    
+          <td>1979</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1045,11 +1089,11 @@
         <tr>
           
           
-          <td>1980</td>    
+          <td>1980</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1061,11 +1105,11 @@
         <tr>
           
           
-          <td>1981</td>    
+          <td>1981</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1077,11 +1121,11 @@
         <tr>
           
           
-          <td>1982</td>    
+          <td>1982</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1093,11 +1137,11 @@
         <tr>
           
           
-          <td>1983</td>    
+          <td>1983</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1109,11 +1153,11 @@
         <tr>
           
           
-          <td>1985</td>    
+          <td>1985</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1125,11 +1169,11 @@
         <tr>
           
           
-          <td>1986</td>    
+          <td>1986</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1141,11 +1185,11 @@
         <tr>
           
           
-          <td>1987</td>    
+          <td>1987</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1157,11 +1201,11 @@
         <tr>
           
           
-          <td>1988</td>    
+          <td>1988</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1173,11 +1217,11 @@
         <tr>
           
           
-          <td>1989</td>    
+          <td>1989</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1189,11 +1233,11 @@
         <tr>
           
           
-          <td>1990</td>    
+          <td>1990</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1205,11 +1249,11 @@
         <tr>
           
           
-          <td>1991</td>    
+          <td>1991</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1221,11 +1265,11 @@
         <tr>
           
           
-          <td>1992</td>    
+          <td>1992</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1237,11 +1281,11 @@
         <tr>
           
           
-          <td>1993</td>    
+          <td>1993</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1253,11 +1297,11 @@
         <tr>
           
           
-          <td>1994</td>    
+          <td>1994</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1269,11 +1313,11 @@
         <tr>
           
           
-          <td>1995</td>    
+          <td>1995</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1285,11 +1329,11 @@
         <tr>
           
           
-          <td>1996</td>    
+          <td>1996</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1301,11 +1345,11 @@
         <tr>
           
           
-          <td>1997</td>    
+          <td>1997</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1317,11 +1361,11 @@
         <tr>
           
           
-          <td>1998</td>    
+          <td>1998</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1333,11 +1377,11 @@
         <tr>
           
           
-          <td>1999</td>    
+          <td>1999</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1349,11 +1393,11 @@
         <tr>
           
           
-          <td>2000</td>    
+          <td>2000</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1365,11 +1409,11 @@
         <tr>
           
           
-          <td>2001</td>    
+          <td>2001</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1381,11 +1425,11 @@
         <tr>
           
           
-          <td>2002</td>    
+          <td>2002</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1397,11 +1441,11 @@
         <tr>
           
           
-          <td>2003</td>    
+          <td>2003</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1413,11 +1457,11 @@
         <tr>
           
           
-          <td>2004</td>    
+          <td>2004</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1429,11 +1473,11 @@
         <tr>
           
           
-          <td>2005</td>    
+          <td>2005</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1445,11 +1489,11 @@
         <tr>
           
           
-          <td>2006</td>    
+          <td>2006</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1461,11 +1505,11 @@
         <tr>
           
           
-          <td>2007</td>    
+          <td>2007</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1477,11 +1521,11 @@
         <tr>
           
           
-          <td>2008</td>    
+          <td>2008</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1493,11 +1537,11 @@
         <tr>
           
           
-          <td>2009</td>    
+          <td>2009</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1509,11 +1553,11 @@
         <tr>
           
           
-          <td>2010</td>    
+          <td>2010</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1525,11 +1569,11 @@
         <tr>
           
           
-          <td>2012</td>    
+          <td>2012</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1541,11 +1585,11 @@
         <tr>
           
           
-          <td>2013</td>    
+          <td>2013</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1557,11 +1601,11 @@
         <tr>
           
           
-          <td>2014</td>    
+          <td>2014</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1573,11 +1617,11 @@
         <tr>
           
           
-          <td>2015</td>    
+          <td>2015</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1589,11 +1633,11 @@
         <tr>
           
           
-          <td>2016</td>    
+          <td>2016</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1605,11 +1649,11 @@
         <tr>
           
           
-          <td>2017</td>    
+          <td>2017</td>
           
           
           
-          <td>Percentage of female members in House of Lords</td>    
+          <td>Percentage of female members in House of Lords</td>
           
           
           
@@ -1621,11 +1665,11 @@
         <tr>
           
           
-          <td>1999</td>    
+          <td>1999</td>
           
           
           
-          <td>Percentage of female members in the Welsh Assembly</td>    
+          <td>Percentage of female members in the Welsh Assembly</td>
           
           
           
@@ -1637,11 +1681,11 @@
         <tr>
           
           
-          <td>2003</td>    
+          <td>2003</td>
           
           
           
-          <td>Percentage of female members in the Welsh Assembly</td>    
+          <td>Percentage of female members in the Welsh Assembly</td>
           
           
           
@@ -1653,11 +1697,11 @@
         <tr>
           
           
-          <td>2007</td>    
+          <td>2007</td>
           
           
           
-          <td>Percentage of female members in the Welsh Assembly</td>    
+          <td>Percentage of female members in the Welsh Assembly</td>
           
           
           
@@ -1669,27 +1713,11 @@
         <tr>
           
           
-          <td>2011</td>    
+          <td>2011</td>
           
           
           
-          <td>Percentage of female members in the Welsh Assembly</td>    
-          
-          
-          
-          <td class="table-value">41.6666666667</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2016</td>    
-          
-          
-          
-          <td>Percentage of female members in the Welsh Assembly</td>    
+          <td>Percentage of female members in the Welsh Assembly</td>
           
           
           
@@ -1701,11 +1729,27 @@
         <tr>
           
           
-          <td>1999</td>    
+          <td>2016</td>
           
           
           
-          <td>Percentage of female members in the Scottish Parliament</td>    
+          <td>Percentage of female members in the Welsh Assembly</td>
+          
+          
+          
+          <td class="table-value">41.6666666667</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1999</td>
+          
+          
+          
+          <td>Percentage of female members in the Scottish Parliament</td>
           
           
           
@@ -1717,11 +1761,11 @@
         <tr>
           
           
-          <td>2003</td>    
+          <td>2003</td>
           
           
           
-          <td>Percentage of female members in the Scottish Parliament</td>    
+          <td>Percentage of female members in the Scottish Parliament</td>
           
           
           
@@ -1733,11 +1777,11 @@
         <tr>
           
           
-          <td>2007</td>    
+          <td>2007</td>
           
           
           
-          <td>Percentage of female members in the Scottish Parliament</td>    
+          <td>Percentage of female members in the Scottish Parliament</td>
           
           
           
@@ -1749,27 +1793,11 @@
         <tr>
           
           
-          <td>2011</td>    
+          <td>2011</td>
           
           
           
-          <td>Percentage of female members in the Scottish Parliament</td>    
-          
-          
-          
-          <td class="table-value">34.8837209302</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2016</td>    
-          
-          
-          
-          <td>Percentage of female members in the Scottish Parliament</td>    
+          <td>Percentage of female members in the Scottish Parliament</td>
           
           
           
@@ -1781,11 +1809,27 @@
         <tr>
           
           
-          <td>1998</td>    
+          <td>2016</td>
           
           
           
-          <td>Percentage of female members in the Northern Ireland Assembly</td>    
+          <td>Percentage of female members in the Scottish Parliament</td>
+          
+          
+          
+          <td class="table-value">34.8837209302</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1998</td>
+          
+          
+          
+          <td>Percentage of female members in the Northern Ireland Assembly</td>
           
           
           
@@ -1797,27 +1841,11 @@
         <tr>
           
           
-          <td>2003</td>    
+          <td>2003</td>
           
           
           
-          <td>Percentage of female members in the Northern Ireland Assembly</td>    
-          
-          
-          
-          <td class="table-value">16.6666666667</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2007</td>    
-          
-          
-          
-          <td>Percentage of female members in the Northern Ireland Assembly</td>    
+          <td>Percentage of female members in the Northern Ireland Assembly</td>
           
           
           
@@ -1829,11 +1857,27 @@
         <tr>
           
           
-          <td>2011</td>    
+          <td>2007</td>
           
           
           
-          <td>Percentage of female members in the Northern Ireland Assembly</td>    
+          <td>Percentage of female members in the Northern Ireland Assembly</td>
+          
+          
+          
+          <td class="table-value">16.6666666667</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>Percentage of female members in the Northern Ireland Assembly</td>
           
           
           
@@ -1845,11 +1889,11 @@
         <tr>
           
           
-          <td>2016</td>    
+          <td>2016</td>
           
           
           
-          <td>Percentage of female members in the Northern Ireland Assembly</td>    
+          <td>Percentage of female members in the Northern Ireland Assembly</td>
           
           
           
@@ -1861,11 +1905,11 @@
         <tr>
           
           
-          <td>2017</td>    
+          <td>2017</td>
           
           
           
-          <td>Percentage of female members in the Northern Ireland Assembly</td>    
+          <td>Percentage of female members in the Northern Ireland Assembly</td>
           
           
           
@@ -1877,11 +1921,11 @@
         <tr>
           
           
-          <td>2001</td>    
+          <td>2001</td>
           
           
           
-          <td>Percentage of female Local Authority Councillors</td>    
+          <td>Percentage of female Local Authority Councillors</td>
           
           
           
@@ -1893,11 +1937,11 @@
         <tr>
           
           
-          <td>2004</td>    
+          <td>2004</td>
           
           
           
-          <td>Percentage of female Local Authority Councillors</td>    
+          <td>Percentage of female Local Authority Councillors</td>
           
           
           
@@ -1909,11 +1953,11 @@
         <tr>
           
           
-          <td>2006</td>    
+          <td>2006</td>
           
           
           
-          <td>Percentage of female Local Authority Councillors</td>    
+          <td>Percentage of female Local Authority Councillors</td>
           
           
           
@@ -1925,11 +1969,11 @@
         <tr>
           
           
-          <td>2008</td>    
+          <td>2008</td>
           
           
           
-          <td>Percentage of female Local Authority Councillors</td>    
+          <td>Percentage of female Local Authority Councillors</td>
           
           
           
@@ -1941,11 +1985,11 @@
         <tr>
           
           
-          <td>2010</td>    
+          <td>2010</td>
           
           
           
-          <td>Percentage of female Local Authority Councillors</td>    
+          <td>Percentage of female Local Authority Councillors</td>
           
           
           
@@ -1957,11 +2001,11 @@
         <tr>
           
           
-          <td>2013</td>    
+          <td>2013</td>
           
           
           
-          <td>Percentage of female Local Authority Councillors</td>    
+          <td>Percentage of female Local Authority Councillors</td>
           
           
           
@@ -1973,15 +2017,16 @@
       </tbody>
     </table>
   </div>
-  
+
   <div id="datatableFooter">
     
     
     
     
   </div>
-  
+
 </div>
+
       
 
       <section>
@@ -4071,16 +4116,6 @@ function setControlsVisibility(visibility){
 <!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
 <!-- Google Analytics -->
 
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-
-
-</script>
-
 <!-- /.container </div> -->
 <script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
@@ -4102,7 +4137,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 <script>
   var remoteDataBaseUrl = 'https://ONSdigital.github.io/sdg-data';
 </script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190410115339'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190410120010'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
@@ -4156,6 +4191,9 @@ $(function() {
 
 });
 </script>
+
+
+
 
 </body>
 </html>

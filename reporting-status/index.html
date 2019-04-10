@@ -2,7 +2,51 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
     <head>
-        <script>var translations = {};</script>
+        <script>
+// JavaScript container for translation data.
+var translations = {
+  //Javascript version of the "t" filter from jekyll-open-sdg-plugins.
+  t: function(key) {
+
+    if (!key || typeof key !== 'string') {
+      return '';
+    }
+
+    // The majority of uses of this function are to translate disaggregation
+    // data. To spare data providers of needing to enter "data." in front of
+    // their disaggregation data, we do it for them here.
+    var originalKey = key;
+    if (!key.includes('.') && this.data) {
+      key = 'data.' + key.toLowerCase();
+    }
+
+    var drilled = this;
+    var levelsDrilled = 0;
+    var levels = key.split('.');
+
+    for (var level in levels) {
+      // If we have drilled down to soon, abort.
+      if (typeof drilled !== 'object') {
+        break;
+      }
+
+      if (levels[level] in drilled) {
+        drilled = drilled[levels[level]];
+        levelsDrilled += 1;
+      }
+    }
+
+    // If we didn't drill the right number of levels, return the original string.
+    if (levels.length != levelsDrilled) {
+      return originalKey;
+    }
+
+    // Otherwise we must have drilled all the way.
+    return drilled;
+  },
+};
+</script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
         <!-- Basic Page Needs
         ================================================== -->
@@ -44,7 +88,7 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190410115339">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190410120010">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -52,7 +96,7 @@
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css" />
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' />
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"></head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20190410120010"></head>
 <body class="language-en">
 <!-- <div class="container"> -->
 
@@ -111,710 +155,456 @@
 
 </header>
 
-<div id="main-content" class="container reportingstatus" data-url="/sdg-indicators/indicators.json">
 
-  <h1>Reporting Status</h1>
+<div id="main-content" class="container reportingstatus">
 
-  
-  
-  
-  
-
-  <div class="goal goal-overall" data-goalid="">
+  <h1>Reporting Status</h1><div class="goal goal-overall">
       <div class="details">
         <h2 class="status-goal">
-          Overall Reporting Status <span class="total"><span>244</span> indicators</span>
+            Overall Reporting Status <span class="total"><span>244</span> indicators</span>
         </h2>
         <div class="summary">
-          <div class="statuses">
-            <div>
-              <span class="status success">176</span><strong>Reported online</strong><span class="value"></span>
-            </div>
-            <div>
-              <span class="status danger">68</span><strong>Exploring data sources</strong><span class="value"></span>
-            </div>
-            <br style="clear:both;" />
+          <div class="statuses"><div>
+              <span class="status complete">176</span><strong>Reported online</strong><span class="value">72%</span>
+            </div><div>
+              <span class="status notstarted">68</span><strong>Exploring data sources</strong><span class="value">28%</span>
+            </div><br style="clear:both;">
           </div>
         </div>
-        <div class="goal-stats">
-          <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
-          <span class="success"></span
-          ><span class="danger"></span>
-        </div>
+        <div class="goal-stats"><span class="complete" style="width:72%" title="Reported online: 72%"></span><span class="notstarted" style="width:28%" title="Exploring data sources: 28%"></span></div>
+
       </div>
     <!--</li>-->
-    <br style="clear:both;" />
+    <br style="clear:both;">
   </div>
 
-  <h2>Status by Goal</h2>
-        
-        
-        
-
-        <!--<li>-->
-        <div class="goal" data-goalid="1">
-          <div class="frame">
-            <a href="/sdg-indicators/no-poverty/">
-              <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/1.png" alt="No poverty - Goal 1" width="100" height="100" />
-            </a>
-          </div>
-          <div class="details">
-            <h3 class="status-goal">
-              <a href="/sdg-indicators/no-poverty/">No poverty</a>
-              <span class="total">14<span></span> indicators</span>
-            </h3>
-            <div class="summary">
-              <div class="statuses">
-                <div>
-                  <span class="status success">8</span><strong>Reported online</strong><span class="value"></span>
-                </div>
-                <div>
-                  <span class="status danger">6</span><strong>Exploring data sources</strong><span class="value"></span>
-                </div>
-                <br style="clear:both;" />
-              </div>
-            </div>
-            <div class="goal-stats">
-              <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
-              <span class="success"></span
-              ><span class="danger"></span>
-            </div>
-            <div class="divider">
+  <h2>Status by goal</h2><div class="goal">
+        <div class="frame">
+          <a href="/sdg-indicators/1/">
+            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/1.png" alt="No poverty - Goal 1" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-indicators/1/">No poverty</a>
+            <span class="total">14<span></span> indicators</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">8</span><strong>Reported online</strong><span class="value">57%</span>
+              </div><div>
+                <span class="status notstarted">6</span><strong>Exploring data sources</strong><span class="value">43%</span>
+              </div><br style="clear:both;">
             </div>
           </div>
-        <!--</li>-->
-        <br style="clear:both;" />
-      </div>
-      
-        
-        
-        
-
-        <!--<li>-->
-        <div class="goal" data-goalid="2">
-          <div class="frame">
-            <a href="/sdg-indicators/zero-hunger/">
-              <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/2.png" alt="Zero hunger - Goal 2" width="100" height="100" />
-            </a>
+          <div class="goal-stats"><span class="complete" style="width:57%" title="Reported online: 57%"></span><span class="notstarted" style="width:43%" title="Exploring data sources: 43%"></span></div>
+          <div class="divider">
           </div>
-          <div class="details">
-            <h3 class="status-goal">
-              <a href="/sdg-indicators/zero-hunger/">Zero hunger</a>
-              <span class="total">13<span></span> indicators</span>
-            </h3>
-            <div class="summary">
-              <div class="statuses">
-                <div>
-                  <span class="status success">9</span><strong>Reported online</strong><span class="value"></span>
-                </div>
-                <div>
-                  <span class="status danger">4</span><strong>Exploring data sources</strong><span class="value"></span>
-                </div>
-                <br style="clear:both;" />
-              </div>
-            </div>
-            <div class="goal-stats">
-              <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
-              <span class="success"></span
-              ><span class="danger"></span>
-            </div>
-            <div class="divider">
+        </div>
+      <!--</li>-->
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-indicators/2/">
+            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/2.png" alt="Zero hunger - Goal 2" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-indicators/2/">Zero hunger</a>
+            <span class="total">13<span></span> indicators</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">9</span><strong>Reported online</strong><span class="value">69%</span>
+              </div><div>
+                <span class="status notstarted">4</span><strong>Exploring data sources</strong><span class="value">31%</span>
+              </div><br style="clear:both;">
             </div>
           </div>
-        <!--</li>-->
-        <br style="clear:both;" />
-      </div>
-      
-        
-        
-        
-
-        <!--<li>-->
-        <div class="goal" data-goalid="3">
-          <div class="frame">
-            <a href="/sdg-indicators/good-health-and-well-being/">
-              <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/3.png" alt="Good health and well-being - Goal 3" width="100" height="100" />
-            </a>
+          <div class="goal-stats"><span class="complete" style="width:69%" title="Reported online: 69%"></span><span class="notstarted" style="width:31%" title="Exploring data sources: 31%"></span></div>
+          <div class="divider">
           </div>
-          <div class="details">
-            <h3 class="status-goal">
-              <a href="/sdg-indicators/good-health-and-well-being/">Good health and well-being</a>
-              <span class="total">27<span></span> indicators</span>
-            </h3>
-            <div class="summary">
-              <div class="statuses">
-                <div>
-                  <span class="status success">23</span><strong>Reported online</strong><span class="value"></span>
-                </div>
-                <div>
-                  <span class="status danger">4</span><strong>Exploring data sources</strong><span class="value"></span>
-                </div>
-                <br style="clear:both;" />
-              </div>
-            </div>
-            <div class="goal-stats">
-              <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
-              <span class="success"></span
-              ><span class="danger"></span>
-            </div>
-            <div class="divider">
+        </div>
+      <!--</li>-->
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-indicators/3/">
+            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/3.png" alt="Good health and well-being - Goal 3" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-indicators/3/">Good health and well-being</a>
+            <span class="total">27<span></span> indicators</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">23</span><strong>Reported online</strong><span class="value">85%</span>
+              </div><div>
+                <span class="status notstarted">4</span><strong>Exploring data sources</strong><span class="value">15%</span>
+              </div><br style="clear:both;">
             </div>
           </div>
-        <!--</li>-->
-        <br style="clear:both;" />
-      </div>
-      
-        
-        
-        
-
-        <!--<li>-->
-        <div class="goal" data-goalid="4">
-          <div class="frame">
-            <a href="/sdg-indicators/quality-education/">
-              <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/4.png" alt="Quality education - Goal 4" width="100" height="100" />
-            </a>
+          <div class="goal-stats"><span class="complete" style="width:85%" title="Reported online: 85%"></span><span class="notstarted" style="width:15%" title="Exploring data sources: 15%"></span></div>
+          <div class="divider">
           </div>
-          <div class="details">
-            <h3 class="status-goal">
-              <a href="/sdg-indicators/quality-education/">Quality education</a>
-              <span class="total">11<span></span> indicators</span>
-            </h3>
-            <div class="summary">
-              <div class="statuses">
-                <div>
-                  <span class="status success">10</span><strong>Reported online</strong><span class="value"></span>
-                </div>
-                <div>
-                  <span class="status danger">1</span><strong>Exploring data sources</strong><span class="value"></span>
-                </div>
-                <br style="clear:both;" />
-              </div>
-            </div>
-            <div class="goal-stats">
-              <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
-              <span class="success"></span
-              ><span class="danger"></span>
-            </div>
-            <div class="divider">
+        </div>
+      <!--</li>-->
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-indicators/4/">
+            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/4.png" alt="Quality education - Goal 4" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-indicators/4/">Quality education</a>
+            <span class="total">11<span></span> indicators</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">10</span><strong>Reported online</strong><span class="value">91%</span>
+              </div><div>
+                <span class="status notstarted">1</span><strong>Exploring data sources</strong><span class="value">9%</span>
+              </div><br style="clear:both;">
             </div>
           </div>
-        <!--</li>-->
-        <br style="clear:both;" />
-      </div>
-      
-        
-        
-        
-
-        <!--<li>-->
-        <div class="goal" data-goalid="5">
-          <div class="frame">
-            <a href="/sdg-indicators/gender-equality/">
-              <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/5.png" alt="Gender equality - Goal 5" width="100" height="100" />
-            </a>
+          <div class="goal-stats"><span class="complete" style="width:91%" title="Reported online: 91%"></span><span class="notstarted" style="width:9%" title="Exploring data sources: 9%"></span></div>
+          <div class="divider">
           </div>
-          <div class="details">
-            <h3 class="status-goal">
-              <a href="/sdg-indicators/gender-equality/">Gender equality</a>
-              <span class="total">14<span></span> indicators</span>
-            </h3>
-            <div class="summary">
-              <div class="statuses">
-                <div>
-                  <span class="status success">14</span><strong>Reported online</strong><span class="value"></span>
-                </div>
-                <div>
-                  <span class="status danger">0</span><strong>Exploring data sources</strong><span class="value"></span>
-                </div>
-                <br style="clear:both;" />
-              </div>
-            </div>
-            <div class="goal-stats">
-              <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
-              <span class="success"></span
-              ><span class="danger"></span>
-            </div>
-            <div class="divider">
+        </div>
+      <!--</li>-->
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-indicators/5/">
+            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/5.png" alt="Gender equality - Goal 5" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-indicators/5/">Gender equality</a>
+            <span class="total">14<span></span> indicators</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">14</span><strong>Reported online</strong><span class="value">100%</span>
+              </div><div>
+                <span class="status notstarted">0</span><strong>Exploring data sources</strong><span class="value">0%</span>
+              </div><br style="clear:both;">
             </div>
           </div>
-        <!--</li>-->
-        <br style="clear:both;" />
-      </div>
-      
-        
-        
-        
-
-        <!--<li>-->
-        <div class="goal" data-goalid="6">
-          <div class="frame">
-            <a href="/sdg-indicators/clean-water-and-sanitation/">
-              <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/6.png" alt="Clean water and sanitation - Goal 6" width="100" height="100" />
-            </a>
+          <div class="goal-stats"><span class="complete" style="width:100%" title="Reported online: 100%"></span><span class="notstarted" style="width:0%" title="Exploring data sources: 0%"></span></div>
+          <div class="divider">
           </div>
-          <div class="details">
-            <h3 class="status-goal">
-              <a href="/sdg-indicators/clean-water-and-sanitation/">Clean water and sanitation</a>
-              <span class="total">11<span></span> indicators</span>
-            </h3>
-            <div class="summary">
-              <div class="statuses">
-                <div>
-                  <span class="status success">4</span><strong>Reported online</strong><span class="value"></span>
-                </div>
-                <div>
-                  <span class="status danger">7</span><strong>Exploring data sources</strong><span class="value"></span>
-                </div>
-                <br style="clear:both;" />
-              </div>
-            </div>
-            <div class="goal-stats">
-              <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
-              <span class="success"></span
-              ><span class="danger"></span>
-            </div>
-            <div class="divider">
+        </div>
+      <!--</li>-->
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-indicators/6/">
+            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/6.png" alt="Clean water and sanitation - Goal 6" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-indicators/6/">Clean water and sanitation</a>
+            <span class="total">11<span></span> indicators</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">4</span><strong>Reported online</strong><span class="value">36%</span>
+              </div><div>
+                <span class="status notstarted">7</span><strong>Exploring data sources</strong><span class="value">64%</span>
+              </div><br style="clear:both;">
             </div>
           </div>
-        <!--</li>-->
-        <br style="clear:both;" />
-      </div>
-      
-        
-        
-        
-
-        <!--<li>-->
-        <div class="goal" data-goalid="7">
-          <div class="frame">
-            <a href="/sdg-indicators/affordable-and-clean-energy/">
-              <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/7.png" alt="Affordable and clean energy - Goal 7" width="100" height="100" />
-            </a>
+          <div class="goal-stats"><span class="complete" style="width:36%" title="Reported online: 36%"></span><span class="notstarted" style="width:64%" title="Exploring data sources: 64%"></span></div>
+          <div class="divider">
           </div>
-          <div class="details">
-            <h3 class="status-goal">
-              <a href="/sdg-indicators/affordable-and-clean-energy/">Affordable and clean energy</a>
-              <span class="total">6<span></span> indicators</span>
-            </h3>
-            <div class="summary">
-              <div class="statuses">
-                <div>
-                  <span class="status success">6</span><strong>Reported online</strong><span class="value"></span>
-                </div>
-                <div>
-                  <span class="status danger">0</span><strong>Exploring data sources</strong><span class="value"></span>
-                </div>
-                <br style="clear:both;" />
-              </div>
-            </div>
-            <div class="goal-stats">
-              <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
-              <span class="success"></span
-              ><span class="danger"></span>
-            </div>
-            <div class="divider">
+        </div>
+      <!--</li>-->
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-indicators/7/">
+            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/7.png" alt="Affordable and clean energy - Goal 7" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-indicators/7/">Affordable and clean energy</a>
+            <span class="total">6<span></span> indicators</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">6</span><strong>Reported online</strong><span class="value">100%</span>
+              </div><div>
+                <span class="status notstarted">0</span><strong>Exploring data sources</strong><span class="value">0%</span>
+              </div><br style="clear:both;">
             </div>
           </div>
-        <!--</li>-->
-        <br style="clear:both;" />
-      </div>
-      
-        
-        
-        
-
-        <!--<li>-->
-        <div class="goal" data-goalid="8">
-          <div class="frame">
-            <a href="/sdg-indicators/decent-jobs-and-economic-growth/">
-              <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/8.png" alt="Decent jobs and economic growth - Goal 8" width="100" height="100" />
-            </a>
+          <div class="goal-stats"><span class="complete" style="width:100%" title="Reported online: 100%"></span><span class="notstarted" style="width:0%" title="Exploring data sources: 0%"></span></div>
+          <div class="divider">
           </div>
-          <div class="details">
-            <h3 class="status-goal">
-              <a href="/sdg-indicators/decent-jobs-and-economic-growth/">Decent jobs and economic growth</a>
-              <span class="total">17<span></span> indicators</span>
-            </h3>
-            <div class="summary">
-              <div class="statuses">
-                <div>
-                  <span class="status success">15</span><strong>Reported online</strong><span class="value"></span>
-                </div>
-                <div>
-                  <span class="status danger">2</span><strong>Exploring data sources</strong><span class="value"></span>
-                </div>
-                <br style="clear:both;" />
-              </div>
-            </div>
-            <div class="goal-stats">
-              <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
-              <span class="success"></span
-              ><span class="danger"></span>
-            </div>
-            <div class="divider">
+        </div>
+      <!--</li>-->
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-indicators/8/">
+            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/8.png" alt="Decent jobs and economic growth - Goal 8" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-indicators/8/">Decent jobs and economic growth</a>
+            <span class="total">17<span></span> indicators</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">15</span><strong>Reported online</strong><span class="value">88%</span>
+              </div><div>
+                <span class="status notstarted">2</span><strong>Exploring data sources</strong><span class="value">12%</span>
+              </div><br style="clear:both;">
             </div>
           </div>
-        <!--</li>-->
-        <br style="clear:both;" />
-      </div>
-      
-        
-        
-        
-
-        <!--<li>-->
-        <div class="goal" data-goalid="9">
-          <div class="frame">
-            <a href="/sdg-indicators/industry-innovation-and-infrastructure/">
-              <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/9.png" alt="Industry, innovation and infrastructure - Goal 9" width="100" height="100" />
-            </a>
+          <div class="goal-stats"><span class="complete" style="width:88%" title="Reported online: 88%"></span><span class="notstarted" style="width:12%" title="Exploring data sources: 12%"></span></div>
+          <div class="divider">
           </div>
-          <div class="details">
-            <h3 class="status-goal">
-              <a href="/sdg-indicators/industry-innovation-and-infrastructure/">Industry, innovation and infrastructure</a>
-              <span class="total">12<span></span> indicators</span>
-            </h3>
-            <div class="summary">
-              <div class="statuses">
-                <div>
-                  <span class="status success">11</span><strong>Reported online</strong><span class="value"></span>
-                </div>
-                <div>
-                  <span class="status danger">1</span><strong>Exploring data sources</strong><span class="value"></span>
-                </div>
-                <br style="clear:both;" />
-              </div>
-            </div>
-            <div class="goal-stats">
-              <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
-              <span class="success"></span
-              ><span class="danger"></span>
-            </div>
-            <div class="divider">
+        </div>
+      <!--</li>-->
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-indicators/9/">
+            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/9.png" alt="Industry, innovation and infrastructure - Goal 9" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-indicators/9/">Industry, innovation and infrastructure</a>
+            <span class="total">12<span></span> indicators</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">11</span><strong>Reported online</strong><span class="value">92%</span>
+              </div><div>
+                <span class="status notstarted">1</span><strong>Exploring data sources</strong><span class="value">8%</span>
+              </div><br style="clear:both;">
             </div>
           </div>
-        <!--</li>-->
-        <br style="clear:both;" />
-      </div>
-      
-        
-        
-        
-
-        <!--<li>-->
-        <div class="goal" data-goalid="10">
-          <div class="frame">
-            <a href="/sdg-indicators/reduced-inequalities/">
-              <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/10.png" alt="Reduced inequalities - Goal 10" width="100" height="100" />
-            </a>
+          <div class="goal-stats"><span class="complete" style="width:92%" title="Reported online: 92%"></span><span class="notstarted" style="width:8%" title="Exploring data sources: 8%"></span></div>
+          <div class="divider">
           </div>
-          <div class="details">
-            <h3 class="status-goal">
-              <a href="/sdg-indicators/reduced-inequalities/">Reduced inequalities</a>
-              <span class="total">11<span></span> indicators</span>
-            </h3>
-            <div class="summary">
-              <div class="statuses">
-                <div>
-                  <span class="status success">7</span><strong>Reported online</strong><span class="value"></span>
-                </div>
-                <div>
-                  <span class="status danger">4</span><strong>Exploring data sources</strong><span class="value"></span>
-                </div>
-                <br style="clear:both;" />
-              </div>
-            </div>
-            <div class="goal-stats">
-              <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
-              <span class="success"></span
-              ><span class="danger"></span>
-            </div>
-            <div class="divider">
+        </div>
+      <!--</li>-->
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-indicators/10/">
+            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/10.png" alt="Reduced inequalities - Goal 10" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-indicators/10/">Reduced inequalities</a>
+            <span class="total">11<span></span> indicators</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">7</span><strong>Reported online</strong><span class="value">64%</span>
+              </div><div>
+                <span class="status notstarted">4</span><strong>Exploring data sources</strong><span class="value">36%</span>
+              </div><br style="clear:both;">
             </div>
           </div>
-        <!--</li>-->
-        <br style="clear:both;" />
-      </div>
-      
-        
-        
-        
-
-        <!--<li>-->
-        <div class="goal" data-goalid="11">
-          <div class="frame">
-            <a href="/sdg-indicators/sustainable-cities-communities/">
-              <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/11.png" alt="Sustainable cities & communities - Goal 11" width="100" height="100" />
-            </a>
+          <div class="goal-stats"><span class="complete" style="width:64%" title="Reported online: 64%"></span><span class="notstarted" style="width:36%" title="Exploring data sources: 36%"></span></div>
+          <div class="divider">
           </div>
-          <div class="details">
-            <h3 class="status-goal">
-              <a href="/sdg-indicators/sustainable-cities-communities/">Sustainable cities & communities</a>
-              <span class="total">15<span></span> indicators</span>
-            </h3>
-            <div class="summary">
-              <div class="statuses">
-                <div>
-                  <span class="status success">10</span><strong>Reported online</strong><span class="value"></span>
-                </div>
-                <div>
-                  <span class="status danger">5</span><strong>Exploring data sources</strong><span class="value"></span>
-                </div>
-                <br style="clear:both;" />
-              </div>
-            </div>
-            <div class="goal-stats">
-              <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
-              <span class="success"></span
-              ><span class="danger"></span>
-            </div>
-            <div class="divider">
+        </div>
+      <!--</li>-->
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-indicators/11/">
+            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/11.png" alt="Sustainable cities & communities - Goal 11" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-indicators/11/">Sustainable cities & communities</a>
+            <span class="total">15<span></span> indicators</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">10</span><strong>Reported online</strong><span class="value">67%</span>
+              </div><div>
+                <span class="status notstarted">5</span><strong>Exploring data sources</strong><span class="value">33%</span>
+              </div><br style="clear:both;">
             </div>
           </div>
-        <!--</li>-->
-        <br style="clear:both;" />
-      </div>
-      
-        
-        
-        
-
-        <!--<li>-->
-        <div class="goal" data-goalid="12">
-          <div class="frame">
-            <a href="/sdg-indicators/responsible-consumption-and-production/">
-              <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/12.png" alt="Responsible consumption and production - Goal 12" width="100" height="100" />
-            </a>
+          <div class="goal-stats"><span class="complete" style="width:67%" title="Reported online: 67%"></span><span class="notstarted" style="width:33%" title="Exploring data sources: 33%"></span></div>
+          <div class="divider">
           </div>
-          <div class="details">
-            <h3 class="status-goal">
-              <a href="/sdg-indicators/responsible-consumption-and-production/">Responsible consumption and production</a>
-              <span class="total">13<span></span> indicators</span>
-            </h3>
-            <div class="summary">
-              <div class="statuses">
-                <div>
-                  <span class="status success">7</span><strong>Reported online</strong><span class="value"></span>
-                </div>
-                <div>
-                  <span class="status danger">6</span><strong>Exploring data sources</strong><span class="value"></span>
-                </div>
-                <br style="clear:both;" />
-              </div>
-            </div>
-            <div class="goal-stats">
-              <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
-              <span class="success"></span
-              ><span class="danger"></span>
-            </div>
-            <div class="divider">
+        </div>
+      <!--</li>-->
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-indicators/12/">
+            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/12.png" alt="Responsible consumption and production - Goal 12" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-indicators/12/">Responsible consumption and production</a>
+            <span class="total">13<span></span> indicators</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">7</span><strong>Reported online</strong><span class="value">54%</span>
+              </div><div>
+                <span class="status notstarted">6</span><strong>Exploring data sources</strong><span class="value">46%</span>
+              </div><br style="clear:both;">
             </div>
           </div>
-        <!--</li>-->
-        <br style="clear:both;" />
-      </div>
-      
-        
-        
-        
-
-        <!--<li>-->
-        <div class="goal" data-goalid="13">
-          <div class="frame">
-            <a href="/sdg-indicators/climate-action/">
-              <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/13.png" alt="Climate action - Goal 13" width="100" height="100" />
-            </a>
+          <div class="goal-stats"><span class="complete" style="width:54%" title="Reported online: 54%"></span><span class="notstarted" style="width:46%" title="Exploring data sources: 46%"></span></div>
+          <div class="divider">
           </div>
-          <div class="details">
-            <h3 class="status-goal">
-              <a href="/sdg-indicators/climate-action/">Climate action</a>
-              <span class="total">8<span></span> indicators</span>
-            </h3>
-            <div class="summary">
-              <div class="statuses">
-                <div>
-                  <span class="status success">7</span><strong>Reported online</strong><span class="value"></span>
-                </div>
-                <div>
-                  <span class="status danger">1</span><strong>Exploring data sources</strong><span class="value"></span>
-                </div>
-                <br style="clear:both;" />
-              </div>
-            </div>
-            <div class="goal-stats">
-              <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
-              <span class="success"></span
-              ><span class="danger"></span>
-            </div>
-            <div class="divider">
+        </div>
+      <!--</li>-->
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-indicators/13/">
+            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/13.png" alt="Climate action - Goal 13" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-indicators/13/">Climate action</a>
+            <span class="total">8<span></span> indicators</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">7</span><strong>Reported online</strong><span class="value">88%</span>
+              </div><div>
+                <span class="status notstarted">1</span><strong>Exploring data sources</strong><span class="value">12%</span>
+              </div><br style="clear:both;">
             </div>
           </div>
-        <!--</li>-->
-        <br style="clear:both;" />
-      </div>
-      
-        
-        
-        
-
-        <!--<li>-->
-        <div class="goal" data-goalid="14">
-          <div class="frame">
-            <a href="/sdg-indicators/life-below-water/">
-              <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/14.png" alt="Life below water - Goal 14" width="100" height="100" />
-            </a>
+          <div class="goal-stats"><span class="complete" style="width:88%" title="Reported online: 88%"></span><span class="notstarted" style="width:12%" title="Exploring data sources: 12%"></span></div>
+          <div class="divider">
           </div>
-          <div class="details">
-            <h3 class="status-goal">
-              <a href="/sdg-indicators/life-below-water/">Life below water</a>
-              <span class="total">10<span></span> indicators</span>
-            </h3>
-            <div class="summary">
-              <div class="statuses">
-                <div>
-                  <span class="status success">4</span><strong>Reported online</strong><span class="value"></span>
-                </div>
-                <div>
-                  <span class="status danger">6</span><strong>Exploring data sources</strong><span class="value"></span>
-                </div>
-                <br style="clear:both;" />
-              </div>
-            </div>
-            <div class="goal-stats">
-              <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
-              <span class="success"></span
-              ><span class="danger"></span>
-            </div>
-            <div class="divider">
+        </div>
+      <!--</li>-->
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-indicators/14/">
+            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/14.png" alt="Life below water - Goal 14" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-indicators/14/">Life below water</a>
+            <span class="total">10<span></span> indicators</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">4</span><strong>Reported online</strong><span class="value">40%</span>
+              </div><div>
+                <span class="status notstarted">6</span><strong>Exploring data sources</strong><span class="value">60%</span>
+              </div><br style="clear:both;">
             </div>
           </div>
-        <!--</li>-->
-        <br style="clear:both;" />
-      </div>
-      
-        
-        
-        
-
-        <!--<li>-->
-        <div class="goal" data-goalid="15">
-          <div class="frame">
-            <a href="/sdg-indicators/life-on-land/">
-              <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/15.png" alt="Life on land - Goal 15" width="100" height="100" />
-            </a>
+          <div class="goal-stats"><span class="complete" style="width:40%" title="Reported online: 40%"></span><span class="notstarted" style="width:60%" title="Exploring data sources: 60%"></span></div>
+          <div class="divider">
           </div>
-          <div class="details">
-            <h3 class="status-goal">
-              <a href="/sdg-indicators/life-on-land/">Life on land</a>
-              <span class="total">14<span></span> indicators</span>
-            </h3>
-            <div class="summary">
-              <div class="statuses">
-                <div>
-                  <span class="status success">10</span><strong>Reported online</strong><span class="value"></span>
-                </div>
-                <div>
-                  <span class="status danger">4</span><strong>Exploring data sources</strong><span class="value"></span>
-                </div>
-                <br style="clear:both;" />
-              </div>
-            </div>
-            <div class="goal-stats">
-              <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
-              <span class="success"></span
-              ><span class="danger"></span>
-            </div>
-            <div class="divider">
+        </div>
+      <!--</li>-->
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-indicators/15/">
+            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/15.png" alt="Life on land - Goal 15" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-indicators/15/">Life on land</a>
+            <span class="total">14<span></span> indicators</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">10</span><strong>Reported online</strong><span class="value">71%</span>
+              </div><div>
+                <span class="status notstarted">4</span><strong>Exploring data sources</strong><span class="value">29%</span>
+              </div><br style="clear:both;">
             </div>
           </div>
-        <!--</li>-->
-        <br style="clear:both;" />
-      </div>
-      
-        
-        
-        
-
-        <!--<li>-->
-        <div class="goal" data-goalid="16">
-          <div class="frame">
-            <a href="/sdg-indicators/peace-and-justice-strong-institutions/">
-              <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/16.png" alt="Peace and justice - strong institutions - Goal 16" width="100" height="100" />
-            </a>
+          <div class="goal-stats"><span class="complete" style="width:71%" title="Reported online: 71%"></span><span class="notstarted" style="width:29%" title="Exploring data sources: 29%"></span></div>
+          <div class="divider">
           </div>
-          <div class="details">
-            <h3 class="status-goal">
-              <a href="/sdg-indicators/peace-and-justice-strong-institutions/">Peace and justice - strong institutions</a>
-              <span class="total">23<span></span> indicators</span>
-            </h3>
-            <div class="summary">
-              <div class="statuses">
-                <div>
-                  <span class="status success">16</span><strong>Reported online</strong><span class="value"></span>
-                </div>
-                <div>
-                  <span class="status danger">7</span><strong>Exploring data sources</strong><span class="value"></span>
-                </div>
-                <br style="clear:both;" />
-              </div>
-            </div>
-            <div class="goal-stats">
-              <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
-              <span class="success"></span
-              ><span class="danger"></span>
-            </div>
-            <div class="divider">
+        </div>
+      <!--</li>-->
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-indicators/16/">
+            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/16.png" alt="Peace and justice - strong institutions - Goal 16" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-indicators/16/">Peace and justice - strong institutions</a>
+            <span class="total">23<span></span> indicators</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">16</span><strong>Reported online</strong><span class="value">70%</span>
+              </div><div>
+                <span class="status notstarted">7</span><strong>Exploring data sources</strong><span class="value">30%</span>
+              </div><br style="clear:both;">
             </div>
           </div>
-        <!--</li>-->
-        <br style="clear:both;" />
-      </div>
-      
-        
-        
-        
-
-        <!--<li>-->
-        <div class="goal" data-goalid="17">
-          <div class="frame">
-            <a href="/sdg-indicators/partnerships-for-the-goals/">
-              <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/17.png" alt="Partnerships for the goals - Goal 17" width="100" height="100" />
-            </a>
+          <div class="goal-stats"><span class="complete" style="width:70%" title="Reported online: 70%"></span><span class="notstarted" style="width:30%" title="Exploring data sources: 30%"></span></div>
+          <div class="divider">
           </div>
-          <div class="details">
-            <h3 class="status-goal">
-              <a href="/sdg-indicators/partnerships-for-the-goals/">Partnerships for the goals</a>
-              <span class="total">25<span></span> indicators</span>
-            </h3>
-            <div class="summary">
-              <div class="statuses">
-                <div>
-                  <span class="status success">15</span><strong>Reported online</strong><span class="value"></span>
-                </div>
-                <div>
-                  <span class="status danger">10</span><strong>Exploring data sources</strong><span class="value"></span>
-                </div>
-                <br style="clear:both;" />
-              </div>
-            </div>
-            <div class="goal-stats">
-              <!-- please keep this 'funky' markup; it has an impact on the display of the bar components -->
-              <span class="success"></span
-              ><span class="danger"></span>
-            </div>
-            <div class="divider">
+        </div>
+      <!--</li>-->
+      <br style="clear:both;">
+    </div><div class="goal">
+        <div class="frame">
+          <a href="/sdg-indicators/17/">
+            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/17.png" alt="Partnerships for the goals - Goal 17" width="100" height="100" />
+          </a>
+        </div>
+        <div class="details">
+          <h3 class="status-goal">
+            <a href="/sdg-indicators/17/">Partnerships for the goals</a>
+            <span class="total">25<span></span> indicators</span>
+          </h3>
+          <div class="summary">
+            <div class="statuses"><div>
+                <span class="status complete">15</span><strong>Reported online</strong><span class="value">60%</span>
+              </div><div>
+                <span class="status notstarted">10</span><strong>Exploring data sources</strong><span class="value">40%</span>
+              </div><br style="clear:both;">
             </div>
           </div>
-        <!--</li>-->
-        <br style="clear:both;" />
-      </div>
-      
-    <!--</ul>-->
-
-  <!--<p>Coming in Spring 2017, this page will provide a dashboard summarising the status of data discovery, statistical production, and national reporting of statistics for the Sustainable Development Goals global indicators.</p>
+          <div class="goal-stats"><span class="complete" style="width:60%" title="Reported online: 60%"></span><span class="notstarted" style="width:40%" title="Exploring data sources: 40%"></span></div>
+          <div class="divider">
+          </div>
+        </div>
+      <!--</li>-->
+      <br style="clear:both;">
+    </div><!--<p>Coming in Spring 2017, this page will provide a dashboard summarising the status of data discovery, statistical production, and national reporting of statistics for the Sustainable Development Goals global indicators.</p>
 -->
-
 
 </div>
 <footer role="contentinfo">
@@ -839,16 +629,6 @@
 <!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
 <!-- Google Analytics -->
 
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-
-
-</script>
-
 <!-- /.container </div> -->
 <script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
@@ -870,7 +650,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 <script>
   var remoteDataBaseUrl = 'https://ONSdigital.github.io/sdg-data';
 </script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190410115339'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190410120010'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
@@ -924,6 +704,9 @@ $(function() {
 
 });
 </script>
+
+
+
 
 </body>
 </html>
