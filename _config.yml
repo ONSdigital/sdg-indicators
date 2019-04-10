@@ -27,9 +27,11 @@ jekyll_get_json:
     # directory: 'remotedata'
   - data: schema
     json: 'https://ONSdigital.github.io/sdg-data/meta/schema.json'
+  - data: reporting
+    json: 'https://ONSdigital.github.io/sdg-data/stats/reporting.json'
   - data: translations
     # Pin to version of the translation repo
-    json: 'https://open-sdg.github.io/sdg-translations/translations-0.4.0.json'
+    json: 'https://open-sdg.github.io/sdg-translations/translations-0.5.0.json'
 
 analytics:
   ga_prod: ''
@@ -109,8 +111,13 @@ plugins:
   - jekyll-remote-theme
   - jekyll-open-sdg-plugins
   - jekyll-get-json
+  - jekyll-redirect-from
 
-remote_theme: open-sdg/open-sdg@0.4.0
+remote_theme: open-sdg/open-sdg@0.5.0
+
+# Apply any custom CSS.
+custom_css:
+- /assets/css/custom.css
 
 # Mapping
 map_options:
