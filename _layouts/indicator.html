@@ -188,9 +188,11 @@ addControlsVisibilityActionsToTabs();
 
 function addControlsVisibilityActionsToTabs(){
 	var tabs = document.querySelectorAll("[" + SHOW_CONTROLS_ATTRIBUTE + "]");
-	tabs.forEach(function(eachTab){
-		addControlsVisibilityClickEventToTab(eachTab);
-	});
+
+  for(var eachTabIndex = 0; eachTabIndex < tabs.length ; eachTabIndex++){
+    var eachTab = tabs[eachTabIndex];
+    addControlsVisibilityClickEventToTab(eachTab);
+  }
 }
 
 function addControlsVisibilityClickEventToTab(tab){
