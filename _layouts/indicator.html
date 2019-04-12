@@ -5,6 +5,7 @@
 {% include components/fields-template.html %}
 {% include components/units-template.html %}
 {% include multilingual-js.html key="indicator" %}
+{% include polyfill.html %}
 
 <div class="heading indicator goal-{{ goal_number }}">
   <div class="container">
@@ -63,7 +64,7 @@
     {% else %}
     <div class="col-md-12">
     {% endif %}
-
+	    
       {% if show_data %}
       {% include components/headline.html %}
       {% endif %}
