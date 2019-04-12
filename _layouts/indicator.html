@@ -5,7 +5,7 @@
 {% include components/fields-template.html %}
 {% include components/units-template.html %}
 {% include multilingual-js.html key="indicator" %}
-{% include polyfill.html %}
+{% include multilingual-js.html key="data" %}
 
 <div class="heading indicator goal-{{ goal_number }}">
   <div class="container">
@@ -64,7 +64,7 @@
     {% else %}
     <div class="col-md-12">
     {% endif %}
-	    
+
       {% if show_data %}
       {% include components/headline.html %}
       {% endif %}
@@ -189,11 +189,9 @@ addControlsVisibilityActionsToTabs();
 
 function addControlsVisibilityActionsToTabs(){
 	var tabs = document.querySelectorAll("[" + SHOW_CONTROLS_ATTRIBUTE + "]");
-
-  for(var eachTabIndex = 0; eachTabIndex < tabs.length ; eachTabIndex++){
-    var eachTab = tabs[eachTabIndex];
-    addControlsVisibilityClickEventToTab(eachTab);
-  }
+	tabs.forEach(function(eachTab){
+		addControlsVisibilityClickEventToTab(eachTab);
+	});
 }
 
 function addControlsVisibilityClickEventToTab(tab){
