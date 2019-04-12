@@ -96,7 +96,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190412135008">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190412154415">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -104,7 +104,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css" />
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' />
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20190412135008"></head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20190412154415"></head>
 <body class="language-en">
 <!-- <div class="container"> -->
 
@@ -203,7 +203,20 @@ var translations = {
 
 <script>translations['indicator'] = {"chart":"Chart","clear_all":"Clear all","clear_selections":"Clear selections","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading_map":"Loading map","map":"Map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","no_data_hint":"No options available because of filters above","select_all":"Select all","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","sub_categories":"Sub-categories","table":"Table","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
 
-<script>translations['data'] = null;</script>
+if (!String.prototype.includes) {
+  String.prototype.includes = function(search, start) {
+    'use strict';
+    if (typeof start !== 'number') {
+      start = 0;
+    }
+
+    if (start + search.length > this.length) {
+      return false;
+    } else {
+      return this.indexOf(search, start) !== -1;
+    }
+  };
+}
 
 
 <div class="heading indicator goal-8">
@@ -271,7 +284,7 @@ var translations = {
     </div>
     <div class="col-md-9">
     
-
+	    
       
       
 
@@ -1355,9 +1368,11 @@ addControlsVisibilityActionsToTabs();
 
 function addControlsVisibilityActionsToTabs(){
 	var tabs = document.querySelectorAll("[" + SHOW_CONTROLS_ATTRIBUTE + "]");
-	tabs.forEach(function(eachTab){
-		addControlsVisibilityClickEventToTab(eachTab);
-	});
+
+  for(var eachTabIndex = 0; eachTabIndex < tabs.length ; eachTabIndex++){
+    var eachTab = tabs[eachTabIndex];
+    addControlsVisibilityClickEventToTab(eachTab);
+  }
 }
 
 function addControlsVisibilityClickEventToTab(tab){
@@ -1415,7 +1430,7 @@ function setControlsVisibility(visibility){
 <script>
   var remoteDataBaseUrl = 'https://ONSdigital.github.io/sdg-data';
 </script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190412135008'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190412154415'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
