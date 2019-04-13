@@ -15,7 +15,6 @@ environment: staging
 remotedatabaseurl: "https://ONSdigital.github.io/sdg-data"
 # permalink: /news/:year/:month/:day/:title.html
 
-
 jekyll_get_json:
   - data: meta
     json: 'https://ONSdigital.github.io/sdg-data/meta/all.json'
@@ -32,7 +31,7 @@ jekyll_get_json:
   - data: translations
     # Pin to version of the translation repo
     json: 'https://open-sdg.github.io/sdg-translations/translations-0.5.0.json'
-
+    
 analytics:
   ga_prod: ''
 
@@ -111,13 +110,8 @@ plugins:
   - jekyll-remote-theme
   - jekyll-open-sdg-plugins
   - jekyll-get-json
-  - jekyll-redirect-from
 
-remote_theme: open-sdg/open-sdg@0.4
-
-# Apply any custom CSS.
-custom_css:
-- /assets/css/custom.css
+remote_theme: open-sdg/open-sdg@0.5.0
 
 # Mapping
 map_options:
