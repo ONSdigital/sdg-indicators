@@ -6,6 +6,7 @@
 {% include components/units-template.html %}
 {% include multilingual-js.html key="indicator" %}
 {% include multilingual-js.html key="data" %}
+{% include polyfill.html %}
 
 <div class="heading indicator goal-{{ goal_number }}">
   <div class="container">
@@ -62,7 +63,7 @@
     {% else %}
     <div class="col-md-12">
     {% endif %}
-
+	    
       {% if show_data %}
       {% include components/headline.html %}
       {% endif %}
@@ -171,5 +172,39 @@
     </div>
   </div>
 </div>
+
+<style type="text/css">
+
+  #chartControls[show="1"]{display: block;}
+  #chartControls[show="0"]{display: none;}
+</style>
+
+<script>
+
+var SHOW_CONTROLS_ATTRIBUTE = "show-controls";
+var CHART_CONTROLS_ELEMENT_ID = "chartControls";
+
+addControlsVisibilityActionsToTabs();
+
+function addControlsVisibilityActionsToTabs(){
+	var tabs = document.querySelectorAll("[" + SHOW_CONTROLS_ATTRIBUTE + "]");
+
+  for(var eachTabIndex = 0; eachTabIndex < tabs.length ; eachTabIndex++){
+    var eachTab = tabs[eachTabIndex];
+    addControlsVisibilityClickEventToTab(eachTab);
+  }
+}
+
+function addControlsVisibilityClickEventToTab(tab){
+	tab.addEventListener("click", function(){
+		setControlsVisibility(tab.getAttribute(SHOW_CONTROLS_ATTRIBUTE));
+	});
+}
+
+function setControlsVisibility(visibility){
+  	document.querySelector("#" + CHART_CONTROLS_ELEMENT_ID).setAttribute("show", visibility);
+}
+
+</script>
 
 {% include footer.html %}
