@@ -96,7 +96,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190413190108">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190413190552">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -104,7 +104,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css" />
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' />
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20190413190108"></head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20190413190552"></head>
 <body class="language-en">
 <!-- <div class="container"> -->
 
@@ -205,6 +205,21 @@ var translations = {
 
 <script>translations['data'] = null;</script>
 
+if (!String.prototype.includes) {
+  String.prototype.includes = function(search, start) {
+    'use strict';
+    if (typeof start !== 'number') {
+      start = 0;
+    }
+
+    if (start + search.length > this.length) {
+      return false;
+    } else {
+      return this.indexOf(search, start) !== -1;
+    }
+  };
+}
+
 
 <div class="heading indicator goal-17">
   <div class="container">
@@ -255,21 +270,23 @@ var translations = {
   data-charttitle="Flow of official development assistance (ODA) for statistical capacity building" data-measurementunit="GBP (£000s)" data-datasource="Department for International Development (DfID)" data-geographicalarea="United Kingdom" data-footnote="" data-showdata="true" data-graphtype="line" data-geocoderegex="" data-showmap="false">
     
     <div class="col-md-3">
-      <div id="toolbar">
-        <span id="series-help">
-          <h4>Sub-categories</h4>
-          <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
-        </span>
-        <p>Click on the legend to remove individual lines from the chart.</p>
-        <div id="fields">
-          <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+      <div id="chartControls" show="1">
+        <div id="toolbar">
+          <span id="series-help">
+            <h4>Sub-categories</h4>
+            <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+          </span>
+          <p>Click on the legend to remove individual lines from the chart.</p>
+          <div id="fields">
+            <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+          </div>
         </div>
+        <div id="units"></div>
       </div>
-      <div id="units"></div>
     </div>
     <div class="col-md-9">
     
-
+	    
       
       
 
@@ -404,13 +421,13 @@ var translations = {
         <div class="async-loaded" style="display:none">
           <ul class="nav nav-tabs data-view" role="tablist">
             <li role="presentation" class="nav-item active">
-              <a class="nav-link" data-toggle="tab" href="#chartview" onClick='ga("send", "event", "Tab change", "Change data view", "Change to Chart tab")' aria-controls="chartview" role="tab">Chart</a>
+              <a class="nav-link" data-toggle="tab" href="#chartview" onClick='ga("send", "event", "Tab change", "Change data view", "Change to Chart tab")' aria-controls="chartview" role="tab" show-controls="1">Chart</a>
             </li>
             <li role="presentation" class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#tableview" onClick='ga("send", "event", "Tab change", "Change data view", "Change to Table tab")' aria-controls="tableview" role="tab">Table</a>
+              <a class="nav-link" data-toggle="tab" href="#tableview" onClick='ga("send", "event", "Tab change", "Change data view", "Change to Table tab")' aria-controls="tableview" role="tab" show-controls="1">Table</a>
             </li>
             <li role="presentation" class="nav-item map" style="display:none">
-              <a class="nav-link" data-toggle="tab" href="#mapview" onClick='ga("send", "event", "Tab change", "Change data view", "Change to Map tab")' aria-controls="mapview" role="tab">Map</a>
+              <a class="nav-link" data-toggle="tab" href="#mapview" onClick='ga("send", "event", "Tab change", "Change data view", "Change to Map tab")' aria-controls="mapview" role="tab" show-controls="0">Map</a>
             </li></ul>
 
           <!-- Tab panes -->
@@ -1206,6 +1223,40 @@ var translations = {
   </div>
 </div>
 
+<style type="text/css">
+
+  #chartControls[show="1"]{display: block;}
+  #chartControls[show="0"]{display: none;}
+</style>
+
+<script>
+
+var SHOW_CONTROLS_ATTRIBUTE = "show-controls";
+var CHART_CONTROLS_ELEMENT_ID = "chartControls";
+
+addControlsVisibilityActionsToTabs();
+
+function addControlsVisibilityActionsToTabs(){
+	var tabs = document.querySelectorAll("[" + SHOW_CONTROLS_ATTRIBUTE + "]");
+
+  for(var eachTabIndex = 0; eachTabIndex < tabs.length ; eachTabIndex++){
+    var eachTab = tabs[eachTabIndex];
+    addControlsVisibilityClickEventToTab(eachTab);
+  }
+}
+
+function addControlsVisibilityClickEventToTab(tab){
+	tab.addEventListener("click", function(){
+		setControlsVisibility(tab.getAttribute(SHOW_CONTROLS_ATTRIBUTE));
+	});
+}
+
+function setControlsVisibility(visibility){
+  	document.querySelector("#" + CHART_CONTROLS_ELEMENT_ID).setAttribute("show", visibility);
+}
+
+</script>
+
 <footer role="contentinfo">
   <div class="container">
     <div class="row">
@@ -1249,7 +1300,7 @@ var translations = {
 <script>
   var remoteDataBaseUrl = 'https://ONSdigital.github.io/sdg-data';
 </script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190413190108'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190413190552'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
