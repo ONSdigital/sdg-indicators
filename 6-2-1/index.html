@@ -96,7 +96,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190417104828">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190418124941">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -236,11 +236,7 @@ var translations = {
   <div class="row" id="page-content-row">
     <div class="col-xs-12">
       <div id="page-content">
-  <p><strong>Exploring data sources</strong></p>
-
-<p>We have not explored suitable data sources for this indicator.</p>
-
-<p>The Sustainable Development Goals is a collaborative project, if you have any feedback or suggestions for data please contact us at <a href="mailto:SustainableDevelopment@ons.gov.uk">SustainableDevelopment@ons.gov.uk</a></p>
+  
 
 </div>
 
@@ -249,20 +245,116 @@ var translations = {
 
   <div class="row">
     <div class="col-xs-12">
-      <h2></h2>
+      <h2>Percentage of the population connected to wastewater treatment</h2>
     </div>
   </div>
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_6-2-1' data-id="6-2-1" data-country=""
-  data-charttitle="" data-measurementunit="" data-datasource="" data-geographicalarea="" data-footnote="" data-showdata="false" data-graphtype="line" data-geocoderegex="" data-showmap="">
+  data-charttitle="Percentage of the population connected to wastewater treatment" data-measurementunit="Percentage (%)" data-datasource="Organisation for Economic Co-operation and Development (OECD)" data-geographicalarea="" data-footnote="Data refer to the financial year (April to March) until 2000. Independent treatment in 2012 is estimated by assuming that there are 2 persons per property." data-showdata="true" data-graphtype="line" data-geocoderegex="" data-showmap="">
     
-    <div class="col-md-12">
+    <div class="col-md-3">
+      <div id="chartControls" show="1">
+        <div id="toolbar">
+          <span id="series-help">
+            <h4>Sub-categories</h4>
+            <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+          </span>
+          <p>Click on the legend to remove individual lines from the chart.</p>
+          <div id="fields">
+            <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+          </div>
+        </div>
+        <div id="units"></div>
+      </div>
+    </div>
+    <div class="col-md-9">
     
 	    
+      
+      
+
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    <a href="https://ONSdigital.github.io/sdg-data/headline/6-2-1.csv" class="btn btn-primary btn-download" download="indicator_6-2-1.csv" tabindex="0" role="button">Download Headline CSV</a>
+
+    <a href="https://ONSdigital.github.io/sdg-data/data/6-2-1.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_6-2-1.csv' tabindex='0' role='button'>Download Source CSV</a>
+
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption></caption>
+      <thead>
+        
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <div id="datatableFooter">
+    
+    
+    
+    
+  </div>
+
+</div>
+
       
 
       <section>
 
+        
+        <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+        <div class="async-loaded" style="display:none">
+          <ul class="nav nav-tabs data-view" role="tablist">
+            <li role="presentation" class="nav-item active">
+              <a class="nav-link" data-toggle="tab" href="#chartview" onClick='ga("send", "event", "Tab change", "Change data view", "Change to Chart tab")' aria-controls="chartview" role="tab" show-controls="1">Chart</a>
+            </li>
+            <li role="presentation" class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tableview" onClick='ga("send", "event", "Tab change", "Change data view", "Change to Table tab")' aria-controls="tableview" role="tab" show-controls="1">Table</a>
+            </li>
+            <li role="presentation" class="nav-item map" style="display:none">
+              <a class="nav-link" data-toggle="tab" href="#mapview" onClick='ga("send", "event", "Tab change", "Change data view", "Change to Map tab")' aria-controls="mapview" role="tab" show-controls="0">Map</a>
+            </li></ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content data-view">
+            <div role="tabpanel" class="tab-pane active" id="chartview">
+              
+    
+    
+
+    <div id="dataset-size-warning" style="display:none">
+      <i class="fa fa-bolt"></i> There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+    </div>
+
+    
+    <div class="plot-container">
+        
+<canvas></canvas>
+    </div>
+    <div id="plotLegend"></div>
+
+    <div id="chartSelectionDownload"></div>
+
+
+
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tableview">
+              <div id="selectionsTable"></div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="mapview" class="map">
+              <div id="map">
+                <img src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
+              </div>
+            </div>
+            
+          </div>
+        </div>
         
 
         <!-- Nav tabs -->
@@ -316,7 +408,7 @@ var translations = {
         <th scope="row">Indicator available </th>
         <td>
           
-            
+            Percentage of the population connected to wastewater treatment
           
         </td>
         </tr>
@@ -328,7 +420,7 @@ var translations = {
         <th scope="row">Indicator description </th>
         <td>
           
-            
+            National population connected to a systems of conduits which collects and conducts urban wastewater. Collecting systems are often operated by public authorities or semi-public associations.
           
         </td>
         </tr>
@@ -352,7 +444,7 @@ var translations = {
         <th scope="row">Unit of measurement </th>
         <td>
           
-            
+            Percentage (%)
           
         </td>
         </tr>
@@ -364,7 +456,7 @@ var translations = {
         <th scope="row">Definitions </th>
         <td>
           
-            
+            Tertiary treatment: treatment (additional to secondary treatment) of nitrogen and/or phosphorus and/or any other pollutant affecting the quality or a specific use of water (microbiological pollution, colour etc.). The different possible treatment efficiencies (organic pollution removal of at least 95% for BOD, 85% for COD, nitrogen removal of at least 70%, phosphorus removal of at least 80%, and microbiological removal) cannot be added and are exclusive. Secondary treatment: treatment of (urban) wastewater by a process generally involving biological treatment with a secondary settlement or other process, resulting in a BOD removal of at least 70% and a COD removal of at least 75%. Primary treatment: treatment of (urban) wastewater by a physical and/or chemical process involving settlement of suspended solids, or other process in which the BOD5 of the incoming wastewater are reduced by at least 20% before discharge and the total suspended solids of the incoming wastewater are reduced by at least 50%.
           
         </td>
         </tr>
@@ -376,7 +468,7 @@ var translations = {
         <th scope="row">Calculations </th>
         <td>
           
-            
+            Percentage figures provided in source data
           
         </td>
         </tr>
@@ -388,7 +480,7 @@ var translations = {
         <th scope="row">Other information </th>
         <td>
           
-            
+            A framework for measuring faecal waste flows and safety factors has been developed and piloted in 12 countries (World Bank Water and Sanitation Program, 2014), and is being adopted and scaled up within the sanitation sector. This framework has served as the basis for indicators 6.2.1 and 6.3.1. Data on safe disposal and treatment are not available for all countries. However, sufficient data were available to make global and regional estimates of safely managed sanitation services in 2017. Presence of a handwashing station with soap and water does not guarantee that household members consistently wash hands at key times, but has been accepted as the most suitable proxy. Data were available for 70 countries in 2017. At present, UK data does not account for homeless rough sleepers. Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.
           
         </td>
         </tr>
@@ -406,8 +498,8 @@ var translations = {
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/1a1d58c26a6aad6ceb9d6e2d30d07dee1277f652" target="_blank">
-                2018-04-11: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/04f12e49dc2e16f7a53f7bb347a34c085c3afcce" target="_blank">
+                2019-04-18: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -431,8 +523,8 @@ var translations = {
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/c65d1a32b45b64ac6ce41dcc156ca91d3079e511" target="_blank">
-                2018-10-11: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/04f12e49dc2e16f7a53f7bb347a34c085c3afcce" target="_blank">
+                2019-04-18: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -547,7 +639,7 @@ var translations = {
         <th scope="row">Indicator name </th>
         <td>
           
-            Proportion of population using safely managed sanitation services, including a hand-washing facility with soap and water
+            6.2.1 Proportion of population using (a) safely managed sanitation services and (b) a hand-washing facility with soap and water
           
         </td>
         </tr>
@@ -583,7 +675,7 @@ var translations = {
         <th scope="row">Target name </th>
         <td>
           
-            By 2030, achieve access to adequate and equitable sanitation and hygiene for all and end open defecation, paying special attention to the needs of women and girls and those in vulnerable situations
+            6.2 By 2030, achieve access to adequate and equitable sanitation and hygiene for all and end open defecation, paying special attention to the needs of women and girls and those in vulnerable situations
           
         </td>
         </tr>
@@ -619,7 +711,7 @@ var translations = {
         <th scope="row">UN designated tier </th>
         <td>
           
-            2
+            Tier II
           
         </td>
         </tr>
@@ -631,7 +723,7 @@ var translations = {
         <th scope="row">UN custodian agency </th>
         <td>
           
-            World Health Organisation (WHO), United Nations International Children's Emergency Fund (UNICEF)
+            World Health Organisation (WHO), United Nations Children's Fund (UNICEFF)
           
         </td>
         </tr>
@@ -650,7 +742,7 @@ var translations = {
 
             
               <a href="https://unstats.un.org/sdgs/metadata/files/Metadata-06-02-01.pdf" target="_blank">
-                United Nations Sustainable Development Goals Metadata (pdf 428kB) <span class="visuallyhidden">opens in a new window</span>
+                United Nations Sustainable Development Goals Metadata (PDF 271 KB) <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -812,7 +904,7 @@ var translations = {
         <th scope="row">Organisation </th>
         <td>
           
-            
+            Organisation for Economic Co-operation and Development (OECD)
           
         </td>
         </tr>
@@ -824,7 +916,7 @@ var translations = {
         <th scope="row">Periodicity </th>
         <td>
           
-            
+            Annual
           
         </td>
         </tr>
@@ -836,7 +928,7 @@ var translations = {
         <th scope="row">Earliest available data </th>
         <td>
           
-            
+            2000
           
         </td>
         </tr>
@@ -848,7 +940,7 @@ var translations = {
         <th scope="row">Geographical coverage </th>
         <td>
           
-            
+            England and Wales
           
         </td>
         </tr>
@@ -866,6 +958,10 @@ var translations = {
             
 
             
+              <a href="http://stats.oecd.org/index.aspx?DataSetCode=water_treat#" target="_blank">
+                Wastewater treatment (% population connected) <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
 
           
         </td>
@@ -881,7 +977,7 @@ var translations = {
         <th scope="row">Release date </th>
         <td>
           
-            
+            01/03/2018
           
         </td>
         </tr>
@@ -893,7 +989,7 @@ var translations = {
         <th scope="row">Next release </th>
         <td>
           
-            
+            TBC
           
         </td>
         </tr>
@@ -905,7 +1001,7 @@ var translations = {
         <th scope="row">Statistical classification </th>
         <td>
           
-            
+            Non-official
           
         </td>
         </tr>
@@ -917,7 +1013,7 @@ var translations = {
         <th scope="row">Contact details </th>
         <td>
           
-            
+            ENV.Stat@oecd.org
           
         </td>
         </tr>
@@ -1095,7 +1191,7 @@ function setControlsVisibility(visibility){
 <script>
   var remoteDataBaseUrl = 'https://ONSdigital.github.io/sdg-data';
 </script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190417104828'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190418124941'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
