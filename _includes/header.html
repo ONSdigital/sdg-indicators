@@ -22,12 +22,13 @@
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
-        <li id="menuToggle"
+        <li>
+          <span data-target="menu"
+          id="menuToggle"
           aria-label="Menu. Click to expand or collapse the menu."
           aria-haspopup="true"
           aria-expanded="false"
-          role="navigation">
-          <span data-target="menu">{{ t.menu.menu }}</span>
+          role="navigation">{{ t.menu.menu }}</span>
         </li>
         <li><span data-target="search">{{ t.search.search }}</span></li>
       </ul>
@@ -67,7 +68,7 @@
       document.querySelector("#menu .nav-link:first-child").focus();
     }
     else{
-      topLevelMenuToggle.setAttribute("aria-expanded", "false");
+      console.log("Menu is closed");
     }
   }
 
