@@ -56,7 +56,6 @@
 
 <script>
   this.topLevelMenuToggle = document.querySelector(".top-level #menuToggle");
-  this.topLevelMenu = document.querySelector(".top-level #menu");
   
   topLevelMenuToggle.addEventListener("click", function(){
     setAccessibilityLabels();
@@ -64,7 +63,8 @@
 
   function setAccessibilityLabels(){
     if(topLevelMenuToggle.classList.contains("active")){
-      console.log("Menu has been expanded");
+      topLevelMenuToggle.setAttribute("aria-expanded", "true");
+      document.querySelector("#menu .nav-link:first-child").focus();
     }
     else{
       console.log("Menu is closed");
