@@ -22,7 +22,13 @@
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
-        <li><span data-target="menu">{{ t.menu.menu }}</span></li>
+        <li id="menuToggle"
+          aria-label="Menu. Click to expand or collapse the menu."
+          aria-haspopup="true"
+          aria-expanded="false"
+          role="navigation">
+          <span data-target="menu">{{ t.menu.menu }}</span>
+        </li>
         <li><span data-target="search">{{ t.search.search }}</span></li>
       </ul>
 
@@ -47,3 +53,22 @@
   </div>
 
 </header>
+
+<script>
+  this.topLevelMenuToggle = document.querySelector(".top-level #menuToggle");
+  this.topLevelMenu = document.querySelector(".top-level #menu");
+  
+  topLevelMenuToggle.addEventListener("click", function(){
+    setAccessibilityLabels();
+  });
+
+  function setAccessibilityLabels(){
+    if(topLevelMenuToggle.classList.contains("active")){
+      console.log("Menu has been expanded");
+    }
+    else{
+      console.log("Menu is closed");
+    }
+  }
+
+</script>
