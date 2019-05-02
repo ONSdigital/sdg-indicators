@@ -65,6 +65,7 @@
 
   function setAccessibilityLabels(){
     if(topLevelMenuToggle.classList.contains("active")){
+      console.log("Menu is opened");
       topLevelMenuToggle.setAttribute("aria-expanded", "true");
       var firstMenuElement = document.querySelector("#menu .nav-link:first-child a");
       firstMenuElement.focus();
