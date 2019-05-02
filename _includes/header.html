@@ -22,12 +22,13 @@
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
-        <li id="menuToggle"
+        <li id="menuToggle">
+          <span data-target="menu"
+          
           aria-label="Menu toggle. Click to expand or collapse the menu."
           aria-haspopup="true"
           aria-expanded="false"
-          role="navigation">
-          <span data-target="menu">{{ t.menu.menu }}</span>
+          role="navigation">{{ t.menu.menu }}</span>
         </li>
         <li><span data-target="search">{{ t.search.search }}</span></li>
       </ul>
@@ -58,18 +59,29 @@
   this.topLevelMenuToggle = document.querySelector("#menuToggle");
   
   topLevelMenuToggle.addEventListener("click", function(){
-    setAccessibilityLabels();
-    
+    setTopLevelMenuAccessibilityActions();
   });
 
-  function setAccessibilityLabels(){
-    if(topLevelMenuToggle.classList.contains("active")){
-      topLevelMenuToggle.setAttribute("aria-expanded", "true");
-      var firstMenuElement = document.querySelector("#menu .nav-link:first-child a");
-      firstMenuElement.focus();
+  function setTopLevelMenuAccessibilityActions(){
+    if(topLevelMenuIsOpen()){
+      setAriaExpandedStatus(true);
+      focusOnFirstMenuElement();
     }
     else{
-      console.log("Menu is closed");
+      setAriaExpandedStatus(false);
+    }
+
+    function topLevelMenuIsOpen(){
+      return topLevelMenuToggle.classList.contains("active");
+    }
+
+    function setAriaExpandedStatus(expandedStatus){
+      topLevelMenuToggle.setAttribute("aria-expanded", expandedStatus.toString());
+    }
+
+    function focusOnFirstMenuElement(){
+      var firstMenuElement = document.querySelector("#menu .nav-link:first-child a");
+      firstMenuElement.focus();
     }
   }
 
