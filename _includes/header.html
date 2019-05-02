@@ -66,7 +66,7 @@
   function setAccessibilityLabels(){
     if(topLevelMenuToggle.classList.contains("active")){
       topLevelMenuToggle.setAttribute("aria-expanded", "true");
-      document.querySelector("#menu .nav-link:first-child a").focus();
+      document.querySelector("#menu .nav-link:first-child").focus();
     }
     else{
       console.log("Menu is closed");
