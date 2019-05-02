@@ -22,9 +22,9 @@
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
-        <li>
+        <li id="menuToggle">
           <span data-target="menu"
-          id="menuToggle"
+          
           aria-label="Menu. Click to expand or collapse the menu."
           aria-haspopup="true"
           aria-expanded="false"
@@ -56,7 +56,7 @@
 </header>
 
 <script>
-  this.topLevelMenuToggle = document.querySelector(".top-level #menuToggle");
+  this.topLevelMenuToggle = document.querySelector("#menuToggle");
   
   topLevelMenuToggle.addEventListener("click", function(){
     setAccessibilityLabels();
