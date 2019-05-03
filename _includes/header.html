@@ -80,8 +80,12 @@
     }
 
     function focusOnFirstMenuElement(){
-      var firstMenuElement = document.querySelector("#menu .nav-link:first-child a");
+      var firstMenuElement = getFirstMenuElement();
       firstMenuElement.focus();
+    }
+
+    function getFirstMenuElement(){
+      return document.querySelector("#menu .nav-link:first-child a");
     }
   }
 
