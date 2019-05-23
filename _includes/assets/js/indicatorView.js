@@ -220,6 +220,8 @@ var indicatorView = function (model, options) {
   });
 
   this.initialiseSeries = function(args) {
+    console.log("In view");
+    console.log(translations);
     if(args.series.length) {
       var template = _.template($("#item_template").html());
 
