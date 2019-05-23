@@ -59,6 +59,7 @@ var accessibilitySwitcher = function() {
   ////////////////////////////////////////////////////////////////////////////////////
 
   _.each(contrastIdentifiers, function(contrast) {
+    console.log(translations);
     $('.contrast-switcher').append($('<li />').attr({
       'class': 'nav-link contrast contrast-' + contrast
     }).html($('<a />').attr({
@@ -95,4 +96,3 @@ function imageFix(contrast) {
 };
 
 };
-console.log(translations);
