@@ -96,7 +96,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190523100309">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190523135904">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -245,12 +245,12 @@ var translations = {
 
   <div class="row">
     <div class="col-xs-12">
-      <h2>Percentage of exclusive economic zone designated as protected area</h2>
+      <h2>Total extent and proportion of protected areas at sea</h2>
     </div>
   </div>
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_14-2-1' data-id="14-2-1" data-country="United Kingdom"
-  data-charttitle="Percentage of exclusive economic zone designated as protected area" data-measurementunit="Percentage (%)" data-datasource="Department for Environment, Food and Rural Affairs (DEFRA)" data-geographicalarea="United Kingdom" data-footnote="" data-showdata="true" data-graphtype="line" data-geocoderegex="" data-showmap="false">
+  data-charttitle="Total extent and proportion of protected areas at sea" data-measurementunit="Million hectares / Percentage (%)" data-datasource="Joint Nature Conversation Committee (JNCC)" data-geographicalarea="United Kingdom" data-footnote="" data-showdata="true" data-graphtype="line" data-geocoderegex="" data-showmap="false">
     
     <div class="col-md-3">
       <div id="chartControls" show="1">
@@ -408,7 +408,7 @@ var translations = {
         <th scope="row">Indicator available </th>
         <td>
           
-            Percentage of exclusive economic zone (including territorial waters) designated as protected area
+            Total extent and proportion of protected areas at sea
           
         </td>
         </tr>
@@ -420,7 +420,7 @@ var translations = {
         <th scope="row">Indicator description </th>
         <td>
           
-            
+            The extent measures are a calculation of the net (non-overlapping) extent of protected areas using mean high water as the boundary between the at-sea and on-land measures. The proportion measures are a percentage of UK marine extent contained within marine protected areas.
           
         </td>
         </tr>
@@ -444,7 +444,7 @@ var translations = {
         <th scope="row">Unit of measurement </th>
         <td>
           
-            Percentage (%)
+            Million hectares / Percentage (%)
           
         </td>
         </tr>
@@ -456,8 +456,7 @@ var translations = {
         <th scope="row">Definitions </th>
         <td>
           
-            The extent of protected areas measures are a calculation of the net (non-overlapping) extent of protected areas using mean high water as the boundary between the at-sea and on-land measures.
-An exclusive economic zone  is a sea zone prescribed by the United Nations Convention on the Law of the Sea over which a state has special rights regarding the exploration and use of marine resources, including energy production from water and wind. It stretches from the baseline to 200 nautical miles from coast.
+            Data is based on calendar year of site designation.  For 2018, the data cut-off is 31 March. The boundary between protected areas on-land and at-sea is mean high water (mean high water spring in Scotland).  Coastal sites in the indicator are split between ‘on-land’ and ‘at-sea’ if they cross the mean high water mark.  At-sea extent includes offshore marine protected areas out to the limit of the UK continental shelf. Extent is based on the following site designations - Areas of Special Scientific Interest, Sites of Special Scientific Interest, National Nature Reserves, Marine Conservation Zones, Nature Conservation Marine Protected Areas, Ramsar Sites, Special Areas of Conservation (including candidate Special Areas of Conservation and Sites of Community Importance), Special Protection Areas, Areas of Outstanding Natural Beauty, National Scenic Areas, National Parks. Many protected areas in the UK cover the same physical parcels of land, but for different reasons; as a result the designation types can overlap.  For example, it is possible for an individual site to be designated as a Site of Special Scientific Interest (SSSI), Special Area of Conservation (SAC), Special Protection Area (SPA), Ramsar site and National Nature Reserve (NNR), and could also be part of a National Park, an AONB (Areas of Outstanding Natural Beauty) or National Scenic Area (NSA).
           
         </td>
         </tr>
@@ -469,7 +468,7 @@ An exclusive economic zone  is a sea zone prescribed by the United Nations Conve
         <th scope="row">Calculations </th>
         <td>
           
-            Protected area at sea / exclusive economic zone (including territorial waters) * 100
+            Total extent of protected areas at-sea is calculated using a program written by JNCC which uses a number of site designation files as input, and calculates a set of non-overlapping polygons for that entire set of designations for each year.  This has allowed the basis of the indicator to be expanded over time (including more site types), and allows comparisons to be made between inclusion and exclusion of wider landscape designations. The program also splits the areas calculated into terrestrial, inshore (within 12 nautical miles of the coast), and offshore (beyond 12NM out to the edge of the UK Continental shelf).  Inshore and offshore extent are combined in the measure ‘Total extent of protected areas at-sea’.
           
         </td>
         </tr>
@@ -481,7 +480,7 @@ An exclusive economic zone  is a sea zone prescribed by the United Nations Conve
         <th scope="row">Other information </th>
         <td>
           
-            Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.
+            This, or part of this, indicator is awaiting the development of internationally established methodology and standards (classified by the UN as tier 3). This indicator is a component of UK Biodiversity Indicator C1, <a href="http://jncc.defra.gov.uk/page-4241"> Protected areas</a> which comprises two additional measures - Total extent of protected areas - on-land; Condition of Areas / Sites of Special Scientific Interest. Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.
           
         </td>
         </tr>
@@ -499,8 +498,8 @@ An exclusive economic zone  is a sea zone prescribed by the United Nations Conve
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/254e81089efc9cb9c06405cd895afb3e1fe191b6" target="_blank">
-                2019-04-29: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/de11681185b47ebf678f052e8433555bc78f423d" target="_blank">
+                2019-05-23: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -524,8 +523,8 @@ An exclusive economic zone  is a sea zone prescribed by the United Nations Conve
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/254e81089efc9cb9c06405cd895afb3e1fe191b6" target="_blank">
-                2019-04-29: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/de11681185b47ebf678f052e8433555bc78f423d" target="_blank">
+                2019-05-23: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -864,8 +863,6 @@ An exclusive economic zone  is a sea zone prescribed by the United Nations Conve
     
     <div class="col-md-6">
       
-        <h4>Source 1</h4>
-      
       <table class="table table-hover">
   
   
@@ -907,7 +904,7 @@ An exclusive economic zone  is a sea zone prescribed by the United Nations Conve
         <th scope="row">Organisation </th>
         <td>
           
-            Department for Environment, Food and Rural Affairs (DEFRA)
+            Joint Nature Conversation Committee (JNCC)
           
         </td>
         </tr>
@@ -931,7 +928,7 @@ An exclusive economic zone  is a sea zone prescribed by the United Nations Conve
         <th scope="row">Earliest available data </th>
         <td>
           
-            1950
+            2000
           
         </td>
         </tr>
@@ -962,7 +959,7 @@ An exclusive economic zone  is a sea zone prescribed by the United Nations Conve
 
             
               <a href="http://jncc.defra.gov.uk/page-4241" target="_blank">
-                UK Biodicersity Indicators, C1 Protected Areas <span class="visuallyhidden">opens in a new window</span>
+                C1. Protected areas <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -980,7 +977,7 @@ An exclusive economic zone  is a sea zone prescribed by the United Nations Conve
         <th scope="row">Release date </th>
         <td>
           
-            31/03/2017
+            July 2018
           
         </td>
         </tr>
@@ -1004,7 +1001,7 @@ An exclusive economic zone  is a sea zone prescribed by the United Nations Conve
         <th scope="row">Statistical classification </th>
         <td>
           
-            
+            Official Statistic
           
         </td>
         </tr>
@@ -1028,7 +1025,7 @@ An exclusive economic zone  is a sea zone prescribed by the United Nations Conve
         <th scope="row">Other information </th>
         <td>
           
-            
+            Total extent of protected areas - at sea
           
         </td>
         </tr>
@@ -1046,241 +1043,6 @@ An exclusive economic zone  is a sea zone prescribed by the United Nations Conve
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</table>
-
-    </div>
-    
-   
-    
-    <div class="col-md-6">
-      
-        <h4>Source 2</h4>
-      
-      <table class="table table-hover">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
-          
-            Office for National Statistics (ONS)
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      <tr>
-        <th scope="row">Periodicity </th>
-        <td>
-          
-            Discontinuous
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      <tr>
-        <th scope="row">Earliest available data </th>
-        <td>
-          
-            1998
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      <tr>
-        <th scope="row">Geographical coverage </th>
-        <td>
-          
-            United Kingdom
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      <tr>
-        <th scope="row">Link to data source </th>
-        <td>
-          
-            
-            
-            
-            
-
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-  
-      
-      <tr>
-        <th scope="row">Release date </th>
-        <td>
-          
-            17/03/2015
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      <tr>
-        <th scope="row">Next release </th>
-        <td>
-          
-            TBC
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      <tr>
-        <th scope="row">Statistical classification </th>
-        <td>
-          
-            
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      <tr>
-        <th scope="row">Contact details </th>
-        <td>
-          
-            vahe.nafilyan@ons.gov.uk
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      <tr>
-        <th scope="row">Other information </th>
-        <td>
-          
-            
-          
-        </td>
-        </tr>
-        
-      
   
   
   
@@ -1429,7 +1191,7 @@ function setControlsVisibility(visibility){
 <script>
   var remoteDataBaseUrl = 'https://ONSdigital.github.io/sdg-data';
 </script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190523100309'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190523135904'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
