@@ -1,5 +1,6 @@
 var accessibilitySwitcher = function() {
 
+  console.log(translations);
   var contrastIdentifiers = ['default', 'high'];
 
   function setActiveContrast(contrast) {
@@ -66,7 +67,7 @@ var accessibilitySwitcher = function() {
       'onClick': 'ga("send", "event", "Accessibility", "Change contrast setting", "' + contrast + '")',
       'title': 'Set to ' + contrast + ' contrast',
       'data-contrast': contrast,
-    }).text(getContrastToggleLabel(contrast)).click(function() {
+    }).text("High contrast").click(function() {
       setActiveContrast($(this).data('contrast'));
       imageFix(contrast);
     })));
