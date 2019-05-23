@@ -1,6 +1,5 @@
 var accessibilitySwitcher = function() {
 
-  console.log(translations);
   var contrastIdentifiers = ['default', 'high'];
 
   function setActiveContrast(contrast) {
@@ -96,3 +95,4 @@ function imageFix(contrast) {
 };
 
 };
+console.log(translations);
