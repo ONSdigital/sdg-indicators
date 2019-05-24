@@ -1,5 +1,8 @@
 var accessibilitySwitcher = function() {
 
+  console.log(translations);
+  console.log(translations.header);
+  
   var contrastIdentifiers = ['default', 'high'];
 
   function setActiveContrast(contrast) {
