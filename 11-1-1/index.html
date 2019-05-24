@@ -118,7 +118,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190524135009">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190524173114">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -258,11 +258,7 @@ var translations = {
   <div class="row" id="page-content-row">
     <div class="col-xs-12">
       <div id="page-content">
-  <p>This indicator is being used as an approximation of the UN SDG Indicator and has not been identified in collaboration with topic experts. We will work to identify or develop UK data to meet the global indicator specification.</p>
-
-<p>Data availability within the UK is limited to England for this indicator.</p>
-
-<p>The Sustainable Development Goals is a collaborative project, if you have any feedback or suggestions for data please contact us at <a href="mailto:SustainableDevelopment@ons.gov.uk">SustainableDevelopment@ons.gov.uk</a></p>
+  
 
 </div>
 
@@ -271,12 +267,12 @@ var translations = {
 
   <div class="row">
     <div class="col-xs-12">
-      <h2>Percentage of dwellings failing minimum standard decent homes criteria</h2>
+      <h2>Percentage of dwellings or households failing minimum standard decent homes criteria</h2>
     </div>
   </div>
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_11-1-1' data-id="11-1-1" data-country="England"
-  data-charttitle="Percentage of dwellings failing minimum standard decent homes criteria" data-measurementunit="Percentage (%)" data-datasource="Department for Communities and Local Government" data-geographicalarea="England" data-footnote="" data-showdata="true" data-graphtype="line" data-geocoderegex="" data-showmap="">
+  data-charttitle="Percentage of dwellings or households failing minimum standard decent homes criteria" data-measurementunit="Percentage (%)" data-datasource="Ministry of Housing, Communities & Local Government" data-geographicalarea="England" data-footnote="The data are either for dwellings or households, which can be selected under units. The differences between dwellings and households can be seen under 'Definitions'." data-showdata="true" data-graphtype="line" data-geocoderegex="" data-showmap="false">
     
     <div class="col-md-3">
       <div id="chartControls" show="1">
@@ -433,7 +429,7 @@ var translations = {
         <th scope="row">Indicator available </th>
         <td>
           
-            Percentage of dwellings failing minimum standard decent homes criteria.
+            Percentage of dwellings or households failing the decent homes standard
           
         </td>
         </tr>
@@ -445,7 +441,7 @@ var translations = {
         <th scope="row">Indicator description </th>
         <td>
           
-            
+            For a dwelling to be considered ‘decent’ under the Decent Homes Standard it must - meet the statutory minimum standard for housing as set out in the <a href='https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/9425/150940.pdf'>Housing Health and Safety Rating System (HHSRS)</a>, provide a reasonable degree of thermal comfort (related to insulation and heating efficiency), be in a reasonable state of repair (related to the age and condition of a range of building components including walls, roofs, windows, doors, chimneys, electrics and heating systems) and have reasonably modern facilities and services (related to the age, size and layout/location of the kitchen, bathroom and WC and any common areas for blocks of flats, and to noise insulation).
           
         </td>
         </tr>
@@ -481,7 +477,7 @@ var translations = {
         <th scope="row">Definitions </th>
         <td>
           
-            This indicator uses urban dwellings failing decent homes criteria as an approximation for ‘slums, informal settlements or inadequate housing’ as defined in UN global metadata. Homes failing the current minimum standard are those posing a Category 1 hazard under the Housing Health and Safety Rating System (HHSRS).  From 2008 the survey is able to provide estimates  based on 26 of the 29 hazards, however to maintain consistency and avoid a break in the time series decent homes estimates will be based on 15 hazards.  Estimates for the HHSRS in this report not related to Decent Homes are based on 26 hazards.
+            Household - One person or a group of people (not necessarily related) who have the accomodation as their only or main residence, and (for a group) share cooking facilities and share a living room or sitting room or dining area. Dwelling - A unit of accommodation which may comprise one or more household spaces (a household space is the accomodation used or available for use by an individual household). A dwelling can be classified as shared or unshared. For the full definitions of Dwellings and Households please see the <a href='https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/774820/2017-18_EHS_Headline_Report.pdf'>English Housing Survey headline report</a>.
           
         </td>
         </tr>
@@ -493,7 +489,7 @@ var translations = {
         <th scope="row">Calculations </th>
         <td>
           
-            No calculations were performed in the data acquisition of this indicator as appropriate data was readily available in the final format specified by this indicator. For insight into the details of potential calculations please refer to the original source metadata or source contact.
+            
           
         </td>
         </tr>
@@ -505,7 +501,7 @@ var translations = {
         <th scope="row">Other information </th>
         <td>
           
-            For more information please see:Housing Health and Safety Rating System (HHSRS) @ https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/9425/150940.pdfand A Decent Home: Definition and guidance for implementation @ https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/7812/138355.pdf
+            For more information see  <a href='https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/7812/138355.pdf'>A Decent Home -Definition and guidance for implementation</a> This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.
           
         </td>
         </tr>
@@ -523,8 +519,8 @@ var translations = {
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/e0c3c666ccb71b52dfd9a3bbc718e7851f31c4f4" target="_blank">
-                2019-03-14: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/b3b51eabd1694f442dbdd95b70150111af7fbea2" target="_blank">
+                2019-05-24: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -548,8 +544,8 @@ var translations = {
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/c65d1a32b45b64ac6ce41dcc156ca91d3079e511" target="_blank">
-                2018-10-11: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/9e977ceacc32e1dd15925296e3fd1b4b15fd28e5" target="_blank">
+                2019-05-24: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -664,7 +660,7 @@ var translations = {
         <th scope="row">Indicator name </th>
         <td>
           
-            Proportion of urban population living in slums, informal settlements or inadequate housing
+            11.1.1 Proportion of urban population living in slums, informal settlements or inadequate housing
           
         </td>
         </tr>
@@ -700,7 +696,7 @@ var translations = {
         <th scope="row">Target name </th>
         <td>
           
-            By 2030, ensure access for all to adequate, safe and affordable housing and basic services and upgrade slums
+            11.1 By 2030, ensure access for all to adequate, safe and affordable housing and basic services and upgrade slums
           
         </td>
         </tr>
@@ -736,7 +732,7 @@ var translations = {
         <th scope="row">UN designated tier </th>
         <td>
           
-            1
+            1.0
           
         </td>
         </tr>
@@ -931,7 +927,7 @@ var translations = {
         <th scope="row">Organisation </th>
         <td>
           
-            Department for Communities and Local Government
+            Ministry of Housing, Communities & Local Government
           
         </td>
         </tr>
@@ -1004,7 +1000,7 @@ var translations = {
         <th scope="row">Release date </th>
         <td>
           
-            13-06-2017
+            12/07/2018
           
         </td>
         </tr>
@@ -1016,7 +1012,7 @@ var translations = {
         <th scope="row">Next release </th>
         <td>
           
-            To be announced
+            TBC
           
         </td>
         </tr>
@@ -1028,7 +1024,7 @@ var translations = {
         <th scope="row">Statistical classification </th>
         <td>
           
-            Official Statistic
+            National Statistic
           
         </td>
         </tr>
@@ -1040,7 +1036,7 @@ var translations = {
         <th scope="row">Contact details </th>
         <td>
           
-            
+            ehs@communities.gov.uk
           
         </td>
         </tr>
@@ -1052,7 +1048,7 @@ var translations = {
         <th scope="row">Other information </th>
         <td>
           
-            
+            English Housing Survey, Dwelling sample
           
         </td>
         </tr>
@@ -1182,7 +1178,7 @@ var translations = {
         <th scope="row">Organisation </th>
         <td>
           
-            Department for Communities and Local Government (DCLG)
+            Ministry of Housing, Communities & Local Government
           
         </td>
         </tr>
@@ -1255,7 +1251,7 @@ var translations = {
         <th scope="row">Release date </th>
         <td>
           
-            13-06-2017
+            12/07/2018
           
         </td>
         </tr>
@@ -1267,7 +1263,7 @@ var translations = {
         <th scope="row">Next release </th>
         <td>
           
-            To be announced
+            TBC
           
         </td>
         </tr>
@@ -1279,7 +1275,7 @@ var translations = {
         <th scope="row">Statistical classification </th>
         <td>
           
-            Official Statistic
+            National Statistic
           
         </td>
         </tr>
@@ -1303,7 +1299,7 @@ var translations = {
         <th scope="row">Other information </th>
         <td>
           
-            
+            English Housing Survey, household sub-sample
           
         </td>
         </tr>
@@ -1321,241 +1317,6 @@ var translations = {
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</table>
-
-    </div>
-    
-   
-    
-    <div class="col-md-6">
-      
-        <h4>Source 3</h4>
-      
-      <table class="table table-hover">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
-          
-            
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      <tr>
-        <th scope="row">Periodicity </th>
-        <td>
-          
-            
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      <tr>
-        <th scope="row">Earliest available data </th>
-        <td>
-          
-            
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      <tr>
-        <th scope="row">Geographical coverage </th>
-        <td>
-          
-            
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      <tr>
-        <th scope="row">Link to data source </th>
-        <td>
-          
-            
-            
-            
-            
-
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-  
-      
-      <tr>
-        <th scope="row">Release date </th>
-        <td>
-          
-            
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      <tr>
-        <th scope="row">Next release </th>
-        <td>
-          
-            
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      <tr>
-        <th scope="row">Statistical classification </th>
-        <td>
-          
-            
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      <tr>
-        <th scope="row">Contact details </th>
-        <td>
-          
-            
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      <tr>
-        <th scope="row">Other information </th>
-        <td>
-          
-            
-          
-        </td>
-        </tr>
-        
-      
   
   
   
@@ -1689,7 +1450,7 @@ function setControlsVisibility(visibility){
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
 <script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190524135009'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190524173114'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
