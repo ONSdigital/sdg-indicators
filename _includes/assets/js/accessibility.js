@@ -69,7 +69,7 @@ var accessibilitySwitcher = function() {
       'onClick': 'ga("send", "event", "Accessibility", "Change contrast setting", "' + contrast + '")',
       'title': 'Set to ' + contrast + ' contrast',
       'data-contrast': contrast,
-    }).text("High contrast").click(function() {
+    }).text(getContrastToggleLabel(contrast)).click(function() {
       setActiveContrast($(this).data('contrast'));
       imageFix(contrast);
     })));
@@ -77,10 +77,10 @@ var accessibilitySwitcher = function() {
   
 function getContrastToggleLabel(identifier){
   if(identifier === "default"){
-    return t.header.disable_high_contrast;
+    return translations.header.disable_high_contrast;
   }
   else if(identifier === "high"){
-    return t.header.enable_high_contrast;
+    return translations.header.enable_high_contrast;
   }
 }
 
