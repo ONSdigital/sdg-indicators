@@ -118,7 +118,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190528212241">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190529110350">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -267,12 +267,12 @@ var translations = {
 
   <div class="row">
     <div class="col-xs-12">
-      <h2>Frequency rates of fatal and non-fatal occupational injuries</h2>
+      <h2>Rates of fatal and non-fatal injuries in the workplace</h2>
     </div>
   </div>
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_8-8-1' data-id="8-8-1" data-country="Great Britain"
-  data-charttitle="Frequency rates of fatal and non-fatal occupational injuries" data-measurementunit="Rate of fatal injury per 100,000 workers" data-datasource="Health and Safety Executive (HSE)" data-geographicalarea="Great Britain" data-footnote="The period April to March is being used to report annual data. The date on the X axis is the year at the start of the period" data-showdata="true" data-graphtype="line" data-geocoderegex="" data-showmap="false">
+  data-charttitle="Rates of fatal and non-fatal injuries in the workplace" data-measurementunit="Rate per 100,000 workers" data-datasource="Health and Safety Executive (HSE)" data-geographicalarea="Great Britain" data-footnote="1. 2017/18 data are based on provisional estimates. 2. The rate of fatalities for some of the groupings are relatively small and are therefore susceptible to considerable year-on-year variation. 3. Non-fatal injuries broken down by age, sex, country and English regions are based on based on averaged rates over a non-overlapping 3 year period to enable a large enough sample size. For example, 2000/2001 to 2002/03. 4. Rates for fatal injuries are only available for areas where an incident occurred." data-showdata="true" data-graphtype="line" data-geocoderegex="" data-showmap="false">
     
     <div class="col-md-3">
       <div id="chartControls" show="1">
@@ -429,7 +429,7 @@ var translations = {
         <th scope="row">Indicator available </th>
         <td>
           
-            Frequency rates of fatal and non-fatal occupational injuries, by sex and employment status
+            Rates of fatal and non-fatal occupational injuries, by sex
           
         </td>
         </tr>
@@ -441,7 +441,7 @@ var translations = {
         <th scope="row">Indicator description </th>
         <td>
           
-            
+            Rates of fatal injuries per 100,000 workers (employees and self employees) and rates of self-reported workplace non-fatal injury (per 100,000 workers)
           
         </td>
         </tr>
@@ -465,7 +465,7 @@ var translations = {
         <th scope="row">Unit of measurement </th>
         <td>
           
-            Rate of fatal injury per 100,000 workers
+            Rate per 100,000 workers
           
         </td>
         </tr>
@@ -477,7 +477,7 @@ var translations = {
         <th scope="row">Definitions </th>
         <td>
           
-            Occupational accident - an unexpected and unplanned occurrence, including acts of violence, arising out of or in connection with work which results in one or more workers incurring a personal injury, disease or death. Occupational accidents are to be considered travel, transport or road traffic accidents in which workers are injured and which arise out of or in the course of work; that is, while engaged in an economic activity, or at work, or carrying out the business of the employer. Occupational injury - any personal injury, disease or death resulting from an occupational accident. An occupational injury is different from an occupational disease, which comes as a result of an exposure over a period of time to risk factors linked to the work activity. Diseases are included only in cases where the disease arose as a direct result of an accident. Workers in the reference group - workers in the reference group refer to the average number of workers in the particular group under consideration and who are covered by the source of the statistics on occupational injuries (for example, those of a specific sex or in a specific economic activity, occupation, region, age group, or any combination of these, or those covered by a particular insurance scheme, accident notification systems, or household or establishment survey). Fatal occupational injury - an occupational injury leading to death within one year of the day of the occupational accident. Case of fatal occupational injury - the case of a worker fatally injured as a result of one occupational accident, and where death occurred within one year of the day of the accident.
+            Occupational injury - Any personal injury, disease or death resulting from an occupational accident. Fatal occupational injury  - An occupational injury leading to death within one year of the day of the occupational accident.
           
         </td>
         </tr>
@@ -489,7 +489,7 @@ var translations = {
         <th scope="row">Calculations </th>
         <td>
           
-            The fatal occupational injury frequency rate is calculated as the number of new cases of fatal injury during the reference year divided by the total number of hours worked by workers in the reference group during the reference year, multiplied by 1,000,000. The non-fatal occupational injury frequency rate is calculated as the number of new cases of non-fatal injury during the reference year divided by the total number of hours worked by workers in the reference group during the reference year, multiplied by 1,000,000.
+            
           
         </td>
         </tr>
@@ -501,7 +501,7 @@ var translations = {
         <th scope="row">Other information </th>
         <td>
           
-            Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.
+            Rates for non-fatal injuries are based on self-reported non-fatal injury in the workplace (using the Labour Force Survey).   This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.
           
         </td>
         </tr>
@@ -519,8 +519,8 @@ var translations = {
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/61f84a39240c8c43c5d0cf83e28ac3b6c59b2323" target="_blank">
-                2019-04-26: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/dcd2d7bd414853f4c319b3cc8a0ba8dea659923f" target="_blank">
+                2019-05-21: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -544,8 +544,8 @@ var translations = {
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/61f84a39240c8c43c5d0cf83e28ac3b6c59b2323" target="_blank">
-                2019-04-26: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/2de8d942c3a9d1b24d678286655f208bcfe3507a" target="_blank">
+                2019-05-21: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -884,6 +884,8 @@ var translations = {
     
     <div class="col-md-6">
       
+        <h4>Source 1</h4>
+      
       <table class="table table-hover">
   
   
@@ -979,8 +981,8 @@ var translations = {
             
 
             
-              <a href="http://www.hse.gov.uk/statistics/tables/index.htm" target="_blank">
-                Index of data tables <span class="visuallyhidden">opens in a new window</span>
+              <a href="http://www.hse.gov.uk/statistics/tables/index.htm#riddor" target="_blank">
+                RIDDOR - Reporting of Injuries, Diseases and Dangerous Occurrences Regulations <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -998,7 +1000,7 @@ var translations = {
         <th scope="row">Release date </th>
         <td>
           
-            01/11/2017
+            01/10/2018
           
         </td>
         </tr>
@@ -1010,7 +1012,7 @@ var translations = {
         <th scope="row">Next release </th>
         <td>
           
-            TBC
+            03/07/2019
           
         </td>
         </tr>
@@ -1034,7 +1036,7 @@ var translations = {
         <th scope="row">Contact details </th>
         <td>
           
-            http://www.hse.gov.uk/contact/index.htm
+            Statistics-Request.Team@hse.gov.uk
           
         </td>
         </tr>
@@ -1046,7 +1048,7 @@ var translations = {
         <th scope="row">Other information </th>
         <td>
           
-            RIDAGEGEN - RIDDOR reported fatal and non-fatal injuries in Great Britain by age, gender and broad industry group. RIDHIST - Reported fatal and non-fatal injuries in Great Britain from 1974
+            See - RIDHIST - Reported fatal and non-fatal injuries in Great Britain from 1974; RIDREG - RIDDOR reported fatal and non-fatal injuries in Great Britain by country, region and unitary or local authority; RIDAGEGEN - RIDDOR reported fatal and non-fatal injuries in Great Britain by age, gender and broad industry group
           
         </td>
         </tr>
@@ -1064,6 +1066,245 @@ var translations = {
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </div>
+    
+   
+    
+    <div class="col-md-6">
+      
+        <h4>Source 2</h4>
+      
+      <table class="table table-hover">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            Health and Safety Executive (HSE)
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            Annual
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            2000/01
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            Great Britain
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="http://www.hse.gov.uk/statistics/lfs/index.htm" target="_blank">
+                Self-reported workplace injuries <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+  
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            01/11/2018
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            30/10/2019
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            National Statistic
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            Statistics-Request.Team@hse.gov.uk
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            Data are acquired from the Labour Force Survey. See - LFSINJSUM; LFSINJREG; LFSINJAGE
+          
+        </td>
+        </tr>
+        
+      
   
   
   
@@ -1209,7 +1450,7 @@ function setControlsVisibility(visibility){
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
 <script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190528212241'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190529110350'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
