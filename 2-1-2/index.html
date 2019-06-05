@@ -118,7 +118,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190605111752">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190605134320">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -258,7 +258,9 @@ var translations = {
   <div class="row" id="page-content-row">
     <div class="col-xs-12">
       <div id="page-content">
-  
+  <p>There is a strong and growing user need for better statistics on food insecurity in the UK. The Department for Work and Pensions now include a suite of food insecurity questions developed by the US Department of Agriculture (USDA) on the Family Resources Survey (FRS), with first results expected in 2021. In the meantime, data presented here come from the Food and You Survey run by the Food Standards Agency which includes questions from the USDA food insecurity suite, with data available for England, Wales and Northern Ireland.</p>
+
+<p>In 2018, 10% of respondents to the Food and You Survey reported living in a household with low or very low food security. These proportions are at similar levels to Wave 4 (2016).</p>
 
 </div>
 
@@ -267,12 +269,12 @@ var translations = {
 
   <div class="row">
     <div class="col-xs-12">
-      <h2>Estimated prevalence of low and very low food security in the population of England, Wales and Northern Ireland aged 16 and over</h2>
+      <h2>Estimated prevalence of low and very low food security in England, Wales and Northern Ireland</h2>
     </div>
   </div>
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_2-1-2' data-id="2-1-2" data-country="England, Wales and Northern Ireland"
-  data-charttitle="Estimated prevalence of low and very low food security in the population of England, Wales and Northern Ireland aged 16 and over" data-measurementunit="Percentage (%)" data-datasource="Food Standards Agency" data-geographicalarea="England, Wales and Northern Ireland" data-footnote="" data-showdata="true" data-graphtype="bar" data-geocoderegex="" data-showmap="false">
+  data-charttitle="Estimated prevalence of low and very low food security in England, Wales and Northern Ireland" data-measurementunit="Percentage (%)" data-datasource="Food Standards Agency" data-geographicalarea="England, Wales and Northern Ireland" data-footnote="Please note that figures representing unemployed females in 2018 were calculated based on responses from a sample size smaller than 50 so are potentially unreliable." data-showdata="true" data-graphtype="bar" data-geocoderegex="" data-showmap="false">
     
     <div class="col-md-3">
       <div id="chartControls" show="1">
@@ -477,7 +479,7 @@ var translations = {
         <th scope="row">Definitions </th>
         <td>
           
-            FIES - Food Insecurity Experience Scale
+            Low food security - Reports of reduced quality, variety, or desirability of diet. Little or no indication of reduced food intake. Very low food security - Reports of multiple indications of disrupted eating patterns and reduced food intake.
           
         </td>
         </tr>
@@ -519,8 +521,8 @@ var translations = {
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/1d9534322a36da9c8ac88edad04465cf6e7730ac" target="_blank">
-                2019-04-18: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/cdc3314b8fe9547324b99004721c258551e1b406" target="_blank">
+                2019-06-05: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -544,8 +546,8 @@ var translations = {
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/5f8d68c359c6cd7bfced6550ba501760d54146d2" target="_blank">
-                2019-04-15: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/cdc3314b8fe9547324b99004721c258551e1b406" target="_blank">
+                2019-06-05: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -937,7 +939,7 @@ var translations = {
         <th scope="row">Periodicity </th>
         <td>
           
-            Biennially
+            Biennial
           
         </td>
         </tr>
@@ -979,7 +981,7 @@ var translations = {
             
 
             
-              <a href="https://www.food.gov.uk/research/food-and-you/food-and-you-wave-four" target="_blank">
+              <a href="https://www.food.gov.uk/research/food-and-you" target="_blank">
                 Food and You Survey <span class="visuallyhidden">opens in a new window</span>
               </a>
             
@@ -998,7 +1000,7 @@ var translations = {
         <th scope="row">Release date </th>
         <td>
           
-            25/04/2017
+            25/03/2019
           
         </td>
         </tr>
@@ -1010,7 +1012,7 @@ var translations = {
         <th scope="row">Next release </th>
         <td>
           
-            25/04/2019
+            TBC
           
         </td>
         </tr>
@@ -1209,7 +1211,7 @@ function setControlsVisibility(visibility){
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
 <script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190605111752'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190605134320'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
