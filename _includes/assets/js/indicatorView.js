@@ -216,6 +216,10 @@ var indicatorView = function (model, options) {
     var optionsVisible = options.is(':visible');
     $(options)[optionsVisible ? 'hide' : 'show']();
 
+    var optionsVisibleAfterClick = options.is(':visible');
+    var currentSelector = e.target;
+    currentSelector.setAttribute("aria-expanded", optionsVisibleAfterClick ? "true" : "false");
+    
     e.stopPropagation();
   });
 
