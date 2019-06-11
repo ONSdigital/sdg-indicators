@@ -118,7 +118,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190610212822">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190611141420">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -267,12 +267,12 @@ var translations = {
 
   <div class="row">
     <div class="col-xs-12">
-      <h2>Newly recorded cases of  female genital mutilation/cutting per 1,000,000 population</h2>
+      <h2>Newly recorded cases of female genital mutilation/cutting</h2>
     </div>
   </div>
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_5-3-2' data-id="5-3-2" data-country="England"
-  data-charttitle="Newly recorded cases of  female genital mutilation/cutting per 1,000,000 population" data-measurementunit="Rate per 1,000,000 population/Number of newly recorded cases" data-datasource="National Health Service (NHS)" data-geographicalarea="England" data-footnote="" data-showdata="true" data-graphtype="line" data-geocoderegex="" data-showmap="false">
+  data-charttitle="Newly recorded cases of female genital mutilation/cutting" data-measurementunit="Number of newly recorded cases/Rate per 1,000,000 population" data-datasource="National Health Service (NHS)" data-geographicalarea="England" data-footnote="" data-showdata="true" data-graphtype="line" data-geocoderegex="" data-showmap="false">
     
     <div class="col-md-3">
       <div id="chartControls" show="1">
@@ -429,7 +429,7 @@ var translations = {
         <th scope="row">Indicator available </th>
         <td>
           
-            Proportion of girls and women who have undergone female genital mutilation/cutting by age at which mutilation/cutting occurred.
+            Number of newly recorded cases of girls and women who have undergone female genital mutilation/cutting by age at which mutilation/cutting occurred
           
         </td>
         </tr>
@@ -441,7 +441,7 @@ var translations = {
         <th scope="row">Indicator description </th>
         <td>
           
-            Number of newly recorded cases of  female genital mutilation/cutting per 1,000,000 population
+            Number of newly recorded cases of female genital mutilation/cutting and rate of newly recorded cases per 1,000,000 population
           
         </td>
         </tr>
@@ -465,7 +465,7 @@ var translations = {
         <th scope="row">Unit of measurement </th>
         <td>
           
-            Rate per 1,000,000 population/Number of newly recorded cases
+            Number of newly recorded cases/Rate per 1,000,000 population
           
         </td>
         </tr>
@@ -489,7 +489,7 @@ var translations = {
         <th scope="row">Calculations </th>
         <td>
           
-            (Number of newly recorded FGM cases /Female population) * 1,000,000
+            Rate per million = (Number of newly recorded FGM cases /Female population) * 1,000,000
           
         </td>
         </tr>
@@ -519,8 +519,8 @@ var translations = {
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/2c3bd2a7de8b4c2e1c802c6def7614921651a6e3" target="_blank">
-                2019-04-30: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/10a065e3f7c847087704dadccb68b217c9df4e7e" target="_blank">
+                2019-05-15: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -544,8 +544,8 @@ var translations = {
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/3b04bce8af44e446d41d26707b25da5baceb5f67" target="_blank">
-                2019-04-23: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/2bf77a9bdf93994b39e061c58ccbb27ed38de024" target="_blank">
+                2019-06-11: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -951,7 +951,7 @@ var translations = {
         <th scope="row">Earliest available data </th>
         <td>
           
-            2016
+            2015
           
         </td>
         </tr>
@@ -1000,7 +1000,7 @@ var translations = {
         <th scope="row">Release date </th>
         <td>
           
-            04/07/2017
+            05/07/2018
           
         </td>
         </tr>
@@ -1233,7 +1233,7 @@ var translations = {
 
             
               <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland" target="_blank">
-                Number of newly recorded women and girls - by age when FGM was carried out and commissioning region <span class="visuallyhidden">opens in a new window</span>
+                Population Estimates for UK, England and Wales, Scotland and Northern Ireland <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1450,7 +1450,7 @@ function setControlsVisibility(visibility){
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
 <script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190610212822'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190611141420'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
