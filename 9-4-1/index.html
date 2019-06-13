@@ -5,6 +5,8 @@
 
 
 
+
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
     <head>
@@ -118,7 +120,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190612212920">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190613120448">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -187,8 +189,8 @@ var translations = {
 
 <script type="text/template" id="item_template">
   <% _.each(series, function(seriesItem) { %>
-    <div class="variable-selector<% if(allowedFields.indexOf(seriesItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=seriesItem.field%>" aria-expanded='false'>
-      <button class='accessBtn' tabindex='0'><h5><%=translations.t(seriesItem.field)%><i class="fa fa-chevron-down"></i></h5></button>
+    <div class="variable-selector<% if(allowedFields.indexOf(seriesItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=seriesItem.field%>">
+      <button class='accessBtn' tabindex='0' aria-expanded='false'><h5><%=translations.t(seriesItem.field)%><i class="fa fa-chevron-down"></i></h5></button>
       <div class="bar">
         <div class="selected"></div>
       </div>
@@ -240,7 +242,7 @@ var translations = {
             <span class="hidden-sm hidden-md hidden-lg">Goal 9: </span>Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation
           </a>
         </h1>
-        <h2>Indicator 9.4.1: CO2 emission per unit of value added</h2>
+        <h2>Indicator 9.4.1: 9.4.1 CO2 emission per unit of value added</h2>
       </div>
     </div>
   </div>
@@ -272,7 +274,9 @@ var translations = {
   </div>
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_9-4-1' data-id="9-4-1" data-country="United Kingdom"
-  data-charttitle="CO2 emissions intensity by industry" data-measurementunit="Thousand Tonnes per Million GBP (£)" data-datasource="Office for National Statistics (ONS)" data-geographicalarea="United Kingdom" data-footnote="2017 Carbon Dioxide emissions data are provisional" data-showdata="true" data-graphtype="line" data-geocoderegex="" data-showmap="false">
+  data-charttitle="CO2 emissions intensity by industry" data-measurementunit="Thousand Tonnes per Million GBP (£)" data-datasource="Office for National Statistics (ONS)"
+  data-geographicalarea="United Kingdom" data-footnote="2017 Carbon Dioxide emissions data are provisional" data-showdata="true" data-graphtype="line"
+  data-geocoderegex="" data-showmap="false" data-startvalues="">
     
     <div class="col-md-3">
       <div id="chartControls" show="1">
@@ -334,13 +338,25 @@ var translations = {
         <div class="async-loaded" style="display:none">
           <ul class="nav nav-tabs data-view" role="tablist">
             <li role="presentation" class="nav-item active">
-              <a class="nav-link" data-toggle="tab" href="#chartview" onClick='ga("send", "event", "Tab change", "Change data view", "Change to Chart tab")' aria-controls="chartview" role="tab" show-controls="1">Chart</a>
+              <a class="nav-link" data-toggle="tab" href="#chartview" onClick='ga("send", "event", "Tab change", "Change data view", "Change to Chart tab")' aria-controls="chartview" role="tab" show-controls="1" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+>Chart</a>
             </li>
             <li role="presentation" class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#tableview" onClick='ga("send", "event", "Tab change", "Change data view", "Change to Table tab")' aria-controls="tableview" role="tab" show-controls="1">Table</a>
+              <a class="nav-link" data-toggle="tab" href="#tableview" onClick='ga("send", "event", "Tab change", "Change data view", "Change to Table tab")' aria-controls="tableview" role="tab" show-controls="1" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+>Table</a>
             </li>
             <li role="presentation" class="nav-item map" style="display:none">
-              <a class="nav-link" data-toggle="tab" href="#mapview" onClick='ga("send", "event", "Tab change", "Change data view", "Change to Map tab")' aria-controls="mapview" role="tab" show-controls="0">Map</a>
+              <a class="nav-link" data-toggle="tab" href="#mapview" onClick='ga("send", "event", "Tab change", "Change data view", "Change to Map tab")' aria-controls="mapview" role="tab" show-controls="0" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Map tab"
+>Map</a>
             </li></ul>
 
           <!-- Tab panes -->
@@ -381,13 +397,25 @@ var translations = {
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="nav-item active">
-            <a class="nav-link" data-toggle="tab" href="#metadata" onClick='ga("send", "event", "Tab change", "Change metadata view", "Change to National Metadata tab")' aria-controls="metadata" role="tab">National Metadata</a>
+            <a class="nav-link" data-toggle="tab" href="#metadata" onClick='ga("send", "event", "Tab change", "Change metadata view", "Change to National Metadata tab")' aria-controls="metadata" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to National Metadata tab"
+>National Metadata</a>
           </li>
           <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#globalmetadata" onClick='ga("send", "event", "Tab change", "Change metadata view", "Change to Global Metadata tab")' aria-controls="globalmetadata" role="tab">Global Metadata</a>
+            <a class="nav-link" data-toggle="tab" href="#globalmetadata" onClick='ga("send", "event", "Tab change", "Change metadata view", "Change to Global Metadata tab")' aria-controls="globalmetadata" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to Global Metadata tab"
+>Global Metadata</a>
           </li>
           <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#sources" onClick='ga("send", "event", "Tab change", "Change metadata view", "Change to Sources tab")' aria-controls="sources" role="tab">Sources</a>
+            <a class="nav-link" data-toggle="tab" href="#sources" onClick='ga("send", "event", "Tab change", "Change metadata view", "Change to Sources tab")' aria-controls="sources" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to Sources tab"
+>Sources</a>
           </li>
           
           <li role="presentation" class="nav-item">
@@ -1172,16 +1200,18 @@ function setControlsVisibility(visibility){
 <footer role="contentinfo">
   <div class="container">
     <div class="row">
-      <div class="col-xs-9">
-        <a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a>
-        
-          | <a class="twitter-follow-button" href="https://twitter.com/ONS" data-show-count="false">
-              @ONS
-            </a>
-        
-      </div>
-      <div class="col-xs-3 text-right">
-        <a href="/sdg-indicators/faq/">FAQ</a> | <a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a>
+      <div class="col-xs-12">
+        <div id="footerLinks">
+          <ul>
+            <li><a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a></li>
+            
+            <li><a class="twitter-follow-button" href="https://twitter.com/ONS" data-show-count="false">@ONS</a></li>
+            
+            
+            <li><a href="/sdg-indicators/faq/">FAQ</a></li>
+            <li><a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -1209,7 +1239,8 @@ function setControlsVisibility(visibility){
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
 <script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190612212920'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190613120448'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
@@ -1240,7 +1271,8 @@ $(function() {
             geographicalArea: domData.geographicalarea,
             showData: domData.showdata,
             footnote: domData.footnote,
-            graphType: domData.graphtype
+            graphType: domData.graphtype,
+            startValues: domData.startvalues
           }),
           view  = new indicatorView(model, {
             rootElement: '#indicatorData',
@@ -1269,3 +1301,6 @@ $(function() {
 
 </body>
 </html>
+
+
+	

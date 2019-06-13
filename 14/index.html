@@ -109,7 +109,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190612212920">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190613120448">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -207,6 +207,8 @@ var translations = {
 
   
   
+
+    
       
       
       
@@ -230,6 +232,8 @@ var translations = {
         </div>
     
     
+
+    
       
       
       
@@ -247,11 +251,13 @@ var translations = {
                 Reported online
               </span>
             </span>
-            Proportion of national exclusive economic zones managed using ecosystem-based approaches
+            14.2.1 Proportion of national exclusive economic zones managed using ecosystem-based approaches
             
           </a>
         </div>
     
+    
+
     
       
       
@@ -276,6 +282,8 @@ var translations = {
         </div>
     
     
+
+    
       
       
       
@@ -293,11 +301,13 @@ var translations = {
                 Reported online
               </span>
             </span>
-            Proportion of fish stocks within biologically sustainable levels
+            14.4.1 Proportion of fish stocks within biologically sustainable levels
             
           </a>
         </div>
     </div>
+    
+
     
       
       
@@ -316,11 +326,13 @@ var translations = {
                 Reported online
               </span>
             </span>
-            Coverage of protected areas in relation to marine areas
+            14.5.1 Coverage of protected areas in relation to marine areas
             
           </a>
         </div>
     
+    
+
     
       
       
@@ -339,11 +351,13 @@ var translations = {
                 Reported online
               </span>
             </span>
-            Progress by countries in the degree of implementation of international instruments aiming to combat illegal, unreported and unregulated fishing
+            14.6.1 Progress by countries in the degree of implementation of international instruments aiming to combat illegal, unreported and unregulated fishing
             
           </a>
         </div>
     
+    
+
     
       
       
@@ -368,6 +382,8 @@ var translations = {
         </div>
     
     
+
+    
       
       
       
@@ -391,6 +407,8 @@ var translations = {
         </div>
     </div>
     
+
+    
       
       
       
@@ -408,11 +426,13 @@ var translations = {
                 Reported online
               </span>
             </span>
-            Progress by countries in the degree of application of a legal/regulatory/policy/institutional framework which recognizes and protects access rights for small-scale fisheries
+            14.b.1 Progress by countries in the degree of application of a legal/regulatory/policy/institutional framework which recognizes and protects access rights for small-scale fisheries
             
           </a>
         </div>
     
+    
+
     
       
       
@@ -431,7 +451,7 @@ var translations = {
                 Exploring data sources
               </span>
             </span>
-            Number of countries making progress in ratifying, accepting and implementing through legal, policy and institutional frameworks, ocean-related instruments that implement international law, as reflected in the United Nations Convention on the Law of the Sea, for the conservation and sustainable use of the oceans and their resources
+            Number of countries making progress in ratifying, accepting and implementing through legal, policy and institutional frameworks, ocean-related instruments that implement international law, as reflected in the United Nation Convention on the Law of the Sea, for the conservation and sustainable use of the oceans and their resources
             
           </a>
         </div>
@@ -446,16 +466,18 @@ var translations = {
 <footer role="contentinfo">
   <div class="container">
     <div class="row">
-      <div class="col-xs-9">
-        <a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a>
-        
-          | <a class="twitter-follow-button" href="https://twitter.com/ONS" data-show-count="false">
-              @ONS
-            </a>
-        
-      </div>
-      <div class="col-xs-3 text-right">
-        <a href="/sdg-indicators/faq/">FAQ</a> | <a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a>
+      <div class="col-xs-12">
+        <div id="footerLinks">
+          <ul>
+            <li><a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a></li>
+            
+            <li><a class="twitter-follow-button" href="https://twitter.com/ONS" data-show-count="false">@ONS</a></li>
+            
+            
+            <li><a href="/sdg-indicators/faq/">FAQ</a></li>
+            <li><a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -483,7 +505,8 @@ var translations = {
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
 <script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190612212920'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190613120448'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
@@ -514,7 +537,8 @@ $(function() {
             geographicalArea: domData.geographicalarea,
             showData: domData.showdata,
             footnote: domData.footnote,
-            graphType: domData.graphtype
+            graphType: domData.graphtype,
+            startValues: domData.startvalues
           }),
           view  = new indicatorView(model, {
             rootElement: '#indicatorData',

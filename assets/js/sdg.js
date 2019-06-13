@@ -1,3 +1,34 @@
+/**
+ * This function returns a javascript object containing autotrack.js properties.
+ *
+ * These properties can be added to an element with jQuery: $(element).attr(props)
+ *
+ * See _includes/autotrack.html for parameter descriptions.
+ */
+opensdg.autotrack = function(preset, category, action, label) {
+  var presets = {};var params = {
+    category: category,
+    action: action,
+    label: label
+  };
+  if (presets[preset]) {
+    params = presets[preset];
+  }
+  var obj = {
+    'data-on': 'click'
+  };
+  if (params.category) {
+    obj['data-event-category'] = params.category;
+  }
+  if (params.action) {
+    obj['data-event-action'] = params.action;
+  }
+  if (params.label) {
+    obj['data-event-label'] = params.label;
+  }
+
+  return obj;
+};
 !function(t,e){"object"==typeof exports&&"undefined"!=typeof module?e(exports,require("d3-array"),require("d3-axis"),require("d3-dispatch"),require("d3-drag"),require("d3-ease"),require("d3-scale"),require("d3-selection")):"function"==typeof define&&define.amd?define(["exports","d3-array","d3-axis","d3-dispatch","d3-drag","d3-ease","d3-scale","d3-selection"],e):e(t.d3=t.d3||{},t.d3,t.d3,t.d3,t.d3,t.d3,t.d3,t.d3)}(this,function(t,e,a,r,n,l,i,s){"use strict";function c(){function t(t){z=t.selection?t.selection():t,M=h[0]instanceof Date?i.scaleTime():i.scaleLinear(),M=M.domain(h).range([0,m]).clamp(!0),D=i.scaleLinear().range(M.range()).domain(M.range()).clamp(!0),q=q||M.tickFormat(),z.selectAll(".axis").data([null]).enter().append("g").attr("transform","translate(0,7)").attr("class","axis");var e=z.selectAll(".slider").data([null]),r=e.enter().append("g").attr("class","slider").attr("cursor","ew-resize").attr("transform","translate(0,0)").call(n.drag().on("start",function(){s.select(this).classed("active",!0);var t=D(s.event.x),a=u(M.invert(t));f(a),A.call("start",e,a),d(a)}).on("drag",function(){var t=D(s.event.x),a=u(M.invert(t));f(a),A.call("drag",e,a),d(a)}).on("end",function(){s.select(this).classed("active",!1);var t=D(s.event.x),a=u(M.invert(t));f(a),A.call("end",e,a),d(a)}));r.append("line").attr("class","track").attr("x1",0).attr("y1",0).attr("y2",0).attr("stroke","#bbb").attr("stroke-width",6).attr("stroke-linecap","round"),r.append("line").attr("class","track-inset").attr("x1",0).attr("y1",0).attr("y2",0).attr("stroke","#eee").attr("stroke-width",4).attr("stroke-linecap","round"),r.append("line").attr("class","track-overlay").attr("x1",0).attr("y1",0).attr("y2",0).attr("stroke","transparent").attr("stroke-width",40).attr("stroke-linecap","round").merge(e.select(".track-overlay"));var l=r.append("g").attr("class","parameter-value").attr("transform","translate("+M(p)+",0)").attr("font-family","sans-serif").attr("text-anchor","middle");l.append("path").attr("d",g).attr("fill","white").attr("stroke","#777"),x&&l.append("text").attr("font-size",10).attr("y",27).attr("dy",".71em").text(q(p)),t.select(".track").attr("x2",M.range()[1]),t.select(".track-inset").attr("x2",M.range()[1]),t.select(".track-overlay").attr("x2",M.range()[1]),t.select(".axis").call(a.axisBottom(M).tickFormat(q).ticks(w).tickValues(y)),z.select(".axis").select(".domain").remove(),t.select(".axis").attr("transform","translate(0,7)"),t.selectAll(".axis text").attr("fill","#aaa").attr("y",20).attr("dy",".71em").attr("text-anchor","middle"),t.selectAll(".axis line").attr("stroke","#aaa"),t.select(".parameter-value").attr("transform","translate("+M(p)+",0)"),c()}function c(){if(x){var t=[];z.selectAll(".axis .tick").each(function(e){t.push(Math.abs(e-p))});var a=e.scan(t);z.selectAll(".axis .tick text").attr("opacity",function(t,e){return e===a?0:1})}}function u(t){if(k){var a=(t-h[0])%k,r=t-a;return 2*a>k&&(r+=k),t instanceof Date?new Date(r):r}if(b){var n=e.scan(b.map(function(e){return Math.abs(t-e)}));return b[n]}return t}function d(e){p!==e&&(p=e,A.call("onchange",t,e),c())}function f(t,e){e=void 0!==e&&e;var a=z.select(".parameter-value");e&&(a=a.transition().ease(l.easeQuadOut).duration(o)),a.attr("transform","translate("+M(t)+",0)"),x&&z.select(".parameter-value text").text(q(t))}var p=0,v=0,h=[0,10],m=100,x=!0,g="M-5.5,-5.5v10l6,5.5l6,-5.5v-10z",k=null,y=null,b=null,q=null,w=null,A=r.dispatch("onchange","start","end","drag"),z=null,M=null,D=null;return t.min=function(e){return arguments.length?(h[0]=e,t):h[0]},t.max=function(e){return arguments.length?(h[1]=e,t):h[1]},t.domain=function(e){return arguments.length?(h=e,t):h},t.width=function(e){return arguments.length?(m=e,t):m},t.tickFormat=function(e){return arguments.length?(q=e,t):q},t.ticks=function(e){return arguments.length?(w=e,t):w},t.value=function(e){if(!arguments.length)return p;var a=D(M(e)),r=u(M.invert(a));return f(r,!0),d(r),t},t.default=function(e){return arguments.length?(v=e,p=e,t):v},t.step=function(e){return arguments.length?(k=e,t):k},t.tickValues=function(e){return arguments.length?(y=e,t):y},t.marks=function(e){return arguments.length?(b=e,t):b},t.handle=function(e){return arguments.length?(g=e,t):g},t.displayValue=function(e){return arguments.length?(x=e,t):x},t.on=function(){var e=A.on.apply(A,arguments);return e===A?t:e},t}var o=200;t.sliderHorizontal=function(){return c()},Object.defineProperty(t,"__esModule",{value:!0})});/**
  * TODO:
  * Integrate with high-contrast switcher.
@@ -258,8 +289,20 @@
       });
       $.when.apply($, geoURLs).done(function() {
 
+        // Apparently "arguments" can either be an array of responses, or if
+        // there was only one response, the response itself. This behavior is
+        // odd and should be investigated. In the meantime, a workaround is a
+        // blunt check to see if it is a single response.
         var geoJsons = arguments;
-        for (var i in geoJsons) {
+        // In a response, the second element is a string (like 'success') so
+        // check for that here to identify whether it is a response.
+        if (arguments.length > 1 && typeof arguments[1] === 'string') {
+          // If so, put it into an array, to match the behavior when there are
+          // multiple responses.
+          geoJsons = [geoJsons];
+        }
+
+        for (var i = 0; i < geoJsons.length; i++) {
           // First add the geoJson as static (non-interactive) borders.
           if (plugin.mapLayers[i].staticBorders) {
             var staticLayer = L.geoJson(geoJsons[i][0], {
@@ -404,7 +447,8 @@
       }
     });
   };
-})(jQuery, L, chroma, window, document);Chart.plugins.register({
+})(jQuery, L, chroma, window, document);
+Chart.plugins.register({
   id: 'rescaler',
   beforeInit: function (chart, options) {
     chart.config.data.allLabels = chart.config.data.labels.slice(0);
@@ -431,8 +475,8 @@
 
     var ranges = _.chain(datasets).pluck('allData').map(function (data) {
       return {
-        min: _.findIndex(data, _.identity),
-        max: _.findLastIndex(data, _.identity)
+        min: _.findIndex(data, function(val) { return val !== null }),
+        max: _.findLastIndex(data, function(val) { return val !== null })
       };
     }).value();
 
@@ -452,7 +496,8 @@
       chart.update();
     }
   }
-});function event(sender) {
+});
+function event(sender) {
   this._sender = sender;
   this._listeners = [];
 }
@@ -530,9 +575,10 @@ var accessibilitySwitcher = function() {
   ////////////////////////////////////////////////////////////////////////////////////
 
   _.each(contrastIdentifiers, function(contrast) {
+    var gaAttributes = opensdg.autotrack('switch_contrast', 'Accessibility', 'Change contrast setting', contrast);
     $('.contrast-switcher').append($('<li />').attr({
       'class': 'nav-link contrast contrast-' + contrast
-    }).html($('<a />').attr({
+    }).html($('<a />').attr(gaAttributes).attr({
       'href': 'javascript:void(0)',
       'onClick': 'ga("send", "event", "Accessibility", "Change contrast setting", "' + contrast + '")',
       'title': 'Set to ' + contrast + ' contrast',
@@ -618,6 +664,7 @@ var indicatorDataStore = function(dataUrl) {
   this.dataSource = options.dataSource;
   this.geographicalArea = options.geographicalArea;
   this.footnote = options.footnote;
+  this.startValues = options.startValues;
   this.showData = options.showData;
   this.selectedFields = [];
   this.allowedFields = [];
@@ -853,12 +900,12 @@ var indicatorDataStore = function(dataUrl) {
 
   this.updateSelectedUnit = function(selectedUnit) {
     this.selectedUnit = selectedUnit;
-    
+
     // if fields are dependent on the unit, reset:
     this.getData({
       unitsChangeSeries: this.dataHasUnitSpecificFields
     });
-    
+
     this.onUnitsSelectedChanged.notify(selectedUnit);
   };
 
@@ -1084,7 +1131,7 @@ var indicatorDataStore = function(dataUrl) {
         return ds.data[yearIndex]
       })));
     });
-      
+
     this.onDataComplete.notify({
       datasetCountExceedsMax: datasetCountExceedsMax,
       datasets: datasetCountExceedsMax ? datasets.slice(0, maxDatasetCount) : datasets,
@@ -1144,14 +1191,55 @@ var indicatorDataStore = function(dataUrl) {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     if((options.initial || options.unitsChangeSeries) && !this.hasHeadline) {
       // if there is no initial data, select some:
-      this.onNoHeadlineData.notify();
+
+      var minimumFieldSelections = {};
+      // First, do we have some already pre-configured from data_start_values?
+      if (this.startValues) {
+        // We need to confirm that these values are valid, and pair them up
+        // with disaggregation categories. The value, at this point, is a string
+        // which we assume to be pipe-delimited.
+        var valuesToLookFor = this.startValues.split('|');
+        // Match up each field value with a field.
+        _.each(this.fieldItemStates, function(fieldItem) {
+          _.each(fieldItem.values, function(fieldValue) {
+            if (_.contains(valuesToLookFor, fieldValue.value)) {
+              minimumFieldSelections[fieldItem.field] = fieldValue.value;
+            }
+          });
+        });
+      }
+      if (_.size(minimumFieldSelections) == 0) {
+        // If we did not have any pre-configured start values, we calculate them.
+        // We have to decide what filters will be selected, and in some cases it
+        // may need to be multiple filters. So we find the smallest row (meaning,
+        // the row with the least number of disaggregations) and then sort it by
+        // it's field values. This should have the affect of selecting the first
+        // value in each drop-down, up until there are enough selected to display
+        // data on the graph. First we get the number of fields:
+        var fieldNames = _.pluck(this.fieldItemStates, 'field');
+        // We filter our full dataset to only those fields.
+        var fieldData = _.map(this.data, function(item) { return _.pick(item, fieldNames); });
+        // We then sort the data by each field. We go in reverse order so that the
+        // first field will be highest "priority" in the sort.
+        _.each(fieldNames.reverse(), function(fieldName) {
+          fieldData = _.sortBy(fieldData, fieldName);
+        });
+        // But actually we want the top-priority sort to be the "size" of the
+        // rows. In other words we want the row with the fewest number of fields.
+        fieldData = _.sortBy(fieldData, function(item) { return _.size(item); });
+        minimumFieldSelections = fieldData[0];
+      }
+
+      // Now that we are all sorted, we notify the view that there is no headline,
+      // and pass along the first row as the minimum field selections.
+      this.onNoHeadlineData.notify({ minimumFieldSelections: minimumFieldSelections });
     }
   };
 };
 
 indicatorModel.prototype = {
   initialise: function () {
-    this.getData({ 
+    this.getData({
       initial: true
     });
   },
@@ -1228,8 +1316,23 @@ var indicatorView = function (model, options) {
     view_obj.createSelectionsTable(args);
   });
 
-  this._model.onNoHeadlineData.attach(function() {
-    $('#fields .variable-options :checkbox:eq(0)').trigger('click');
+  this._model.onNoHeadlineData.attach(function(sender, args) {
+    if (args && args.minimumFieldSelections && _.size(args.minimumFieldSelections)) {
+      // If we have minimum field selections, impersonate a user and "click" on
+      // each item.
+      for (var fieldToSelect in args.minimumFieldSelections) {
+        var fieldValue = args.minimumFieldSelections[fieldToSelect];
+        $('#fields .variable-options input[type="checkbox"]')
+          .filter('[data-field="' + fieldToSelect + '"]')
+          .filter('[value="' + fieldValue + '"]')
+          .first()
+          .click();
+      }
+    }
+    else {
+      // Fallback behavior - just click on the first one, whatever it is.
+      $('#fields .variable-options :checkbox:eq(0)').trigger('click');
+    }
   });
 
   this._model.onSeriesComplete.attach(function(sender, args) {
@@ -1386,10 +1489,12 @@ var indicatorView = function (model, options) {
   });
 
   $(this._rootElement).on('click', '.variable-selector', function(e) {
+    var currentSelector = e.target;
 
     var options = $(this).find('.variable-options');
-    var optionsVisible = options.is(':visible');
-    $(options)[optionsVisible ? 'hide' : 'show']();
+    var optionsAreVisible = options.is(':visible');
+    $(options)[optionsAreVisible ? 'hide' : 'show']();
+    currentSelector.setAttribute("aria-expanded", optionsAreVisible ? "true" : "false");
 
     e.stopPropagation();
   });
@@ -1434,6 +1539,18 @@ var indicatorView = function (model, options) {
     if(chartInfo.selectedUnit) {
       view_obj._chartInstance.options.scales.yAxes[0].scaleLabel.labelString = chartInfo.selectedUnit;
     }
+    
+    // Create a temp object to alter, and then apply. We go to all this trouble
+    // to avoid completely replacing view_obj._chartInstance -- and instead we
+    // just replace it's properties: "type", "data", and "options".
+    var updatedConfig = opensdg.chartConfigAlter({
+      type: view_obj._chartInstance.type,
+      data: view_obj._chartInstance.data,
+      options: view_obj._chartInstance.options
+    });
+    view_obj._chartInstance.type = updatedConfig.type;
+    view_obj._chartInstance.data = updatedConfig.data;
+    view_obj._chartInstance.options = updatedConfig.options;
 
     view_obj._chartInstance.update(1000, true);
 
@@ -1508,9 +1625,7 @@ var indicatorView = function (model, options) {
         }
       }
     };
-    if (typeof chartConfigOverrides !== 'undefined') {
-      $.extend(true, chartConfig, chartConfigOverrides);
-    }
+    chartConfig = opensdg.chartConfigAlter(chartConfig);
 
     this._chartInstance = new Chart($(this._rootElement).find('canvas'), chartConfig);
 
@@ -1567,7 +1682,13 @@ var indicatorView = function (model, options) {
         // TODO Merge this with the that.footerFields object used by table
         var graphFooterItems = [];
         if (that._model.dataSource) {
-          graphFooterItems.push(translations.indicator.source + ': ' + that._model.dataSource);
+          var sourceRows = getLinesFromText(translations.indicator.source + ': ' + that._model.dataSource);
+          graphFooterItems = graphFooterItems.concat(sourceRows);
+
+          if(sourceRows.length > 1) {
+            that._chartInstance.resize(parseInt($canvas.css('width')), parseInt($canvas.css('height')) + textRowHeight * sourceRows.length);
+            that._chartInstance.resize();
+          }
         }
         if (that._model.geographicalArea) {
           graphFooterItems.push(translations.indicator.geographical_area + ': ' + that._model.geographicalArea);
@@ -1688,7 +1809,9 @@ var indicatorView = function (model, options) {
       if (name == 'Table') {
         downloadKey = 'download_table';
       }
+      var gaLabel = 'Download ' + name + ' CSV: ' + indicatorId.replace('indicator_', '');
       $(el).append($('<a />').text(translations.indicator[downloadKey])
+      .attr(opensdg.autotrack('download_data_current', 'Downloads', 'Download CSV', gaLabel))
       .attr({
         'href': URL.createObjectURL(new Blob([this.toCsv(table)], {
           type: 'text/csv'
@@ -1702,10 +1825,12 @@ var indicatorView = function (model, options) {
       .data('csvdata', this.toCsv(table)));
     } else {
       var headlineId = indicatorId.replace('indicator', 'headline');
-      var id = indicatorId.replace('indicator', '');
+      var id = indicatorId.replace('indicator_', '');
+      var gaLabel = 'Download Headline CSV: ' + id;
       $(el).append($('<a />').text(translations.indicator.download_headline)
+      .attr(opensdg.autotrack('download_data_headline', 'Downloads', 'Download CSV', gaLabel))
       .attr({
-        'href': remoteDataBaseUrl + '/headline/' + id + '.csv',
+        'href': opensdg.remoteDataBaseUrl + '/headline/' + id + '.csv',
         'onClick': 'ga("send", "event", "Downloads", "Download CSV", " ' + translations.indicator.download_headline + ': ' + indicatorId.replace("indicator_", "") + '")',
         'download': headlineId + '.csv',
         'title': translations.indicator.download_headline_title,
@@ -1716,9 +1841,11 @@ var indicatorView = function (model, options) {
   }
 
   this.createSourceButton = function(indicatorId, el) {
+    var gaLabel = 'Download Source CSV: ' + indicatorId;
     $(el).append($('<a />').text(translations.indicator.download_source)
+    .attr(opensdg.autotrack('download_data_source', 'Downloads', 'Download CSV', gaLabel))
     .attr({
-      'href': remoteDataBaseUrl + '/data/' + indicatorId + '.csv',
+      'href': opensdg.remoteDataBaseUrl + '/data/' + indicatorId + '.csv',
       'onClick': 'ga("send", "event", "Downloads", "Download CSV", "' + translations.indicator.download_source + ': ' + indicatorId + '")',
       'download': indicatorId + '.csv',
       'title': translations.indicator.download_source_title,
@@ -2215,12 +2342,15 @@ $(function() {
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-        
+
     sendPageviewToGoogleAnalytics();
 }
 
 function sendPageviewToGoogleAnalytics(){
     ga('create', '', 'auto');
+    ga('require', 'eventTracker', {
+        attributePrefix: 'data-'
+    });
     // anonymize user IPs (chops off the last IP triplet)
     ga('set', 'anonymizeIp', true);
     // forces SSL even if the page were somehow loaded over http://
