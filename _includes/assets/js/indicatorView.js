@@ -53,8 +53,23 @@ var indicatorView = function (model, options) {
     view_obj.createSelectionsTable(args);
   });
 
-  this._model.onNoHeadlineData.attach(function() {
-    $('#fields .variable-options :checkbox:eq(0)').trigger('click');
+  this._model.onNoHeadlineData.attach(function(sender, args) {
+    if (args && args.minimumFieldSelections && _.size(args.minimumFieldSelections)) {
+      // If we have minimum field selections, impersonate a user and "click" on
+      // each item.
+      for (var fieldToSelect in args.minimumFieldSelections) {
+        var fieldValue = args.minimumFieldSelections[fieldToSelect];
+        $('#fields .variable-options input[type="checkbox"]')
+          .filter('[data-field="' + fieldToSelect + '"]')
+          .filter('[value="' + fieldValue + '"]')
+          .first()
+          .click();
+      }
+    }
+    else {
+      // Fallback behavior - just click on the first one, whatever it is.
+      $('#fields .variable-options :checkbox:eq(0)').trigger('click');
+    }
   });
 
   this._model.onSeriesComplete.attach(function(sender, args) {
@@ -211,10 +226,12 @@ var indicatorView = function (model, options) {
   });
 
   $(this._rootElement).on('click', '.variable-selector', function(e) {
+    var currentSelector = e.target;
 
     var options = $(this).find('.variable-options');
-    var optionsVisible = options.is(':visible');
-    $(options)[optionsVisible ? 'hide' : 'show']();
+    var optionsAreVisible = options.is(':visible');
+    $(options)[optionsAreVisible ? 'hide' : 'show']();
+    currentSelector.setAttribute("aria-expanded", optionsAreVisible ? "true" : "false");
 
     var optionsVisibleAfterClick = options.is(':visible');
     var currentSelector = e.target;
@@ -263,6 +280,18 @@ var indicatorView = function (model, options) {
     if(chartInfo.selectedUnit) {
       view_obj._chartInstance.options.scales.yAxes[0].scaleLabel.labelString = chartInfo.selectedUnit;
     }
+    
+    // Create a temp object to alter, and then apply. We go to all this trouble
+    // to avoid completely replacing view_obj._chartInstance -- and instead we
+    // just replace it's properties: "type", "data", and "options".
+    var updatedConfig = opensdg.chartConfigAlter({
+      type: view_obj._chartInstance.type,
+      data: view_obj._chartInstance.data,
+      options: view_obj._chartInstance.options
+    });
+    view_obj._chartInstance.type = updatedConfig.type;
+    view_obj._chartInstance.data = updatedConfig.data;
+    view_obj._chartInstance.options = updatedConfig.options;
 
     view_obj._chartInstance.update(1000, true);
 
@@ -337,9 +366,7 @@ var indicatorView = function (model, options) {
         }
       }
     };
-    if (typeof chartConfigOverrides !== 'undefined') {
-      $.extend(true, chartConfig, chartConfigOverrides);
-    }
+    chartConfig = opensdg.chartConfigAlter(chartConfig);
 
     this._chartInstance = new Chart($(this._rootElement).find('canvas'), chartConfig);
 
@@ -396,7 +423,13 @@ var indicatorView = function (model, options) {
         // TODO Merge this with the that.footerFields object used by table
         var graphFooterItems = [];
         if (that._model.dataSource) {
-          graphFooterItems.push(translations.indicator.source + ': ' + that._model.dataSource);
+          var sourceRows = getLinesFromText(translations.indicator.source + ': ' + that._model.dataSource);
+          graphFooterItems = graphFooterItems.concat(sourceRows);
+
+          if(sourceRows.length > 1) {
+            that._chartInstance.resize(parseInt($canvas.css('width')), parseInt($canvas.css('height')) + textRowHeight * sourceRows.length);
+            that._chartInstance.resize();
+          }
         }
         if (that._model.geographicalArea) {
           graphFooterItems.push(translations.indicator.geographical_area + ': ' + that._model.geographicalArea);
@@ -517,7 +550,9 @@ var indicatorView = function (model, options) {
       if (name == 'Table') {
         downloadKey = 'download_table';
       }
+      var gaLabel = 'Download ' + name + ' CSV: ' + indicatorId.replace('indicator_', '');
       $(el).append($('<a />').text(translations.indicator[downloadKey])
+      .attr(opensdg.autotrack('download_data_current', 'Downloads', 'Download CSV', gaLabel))
       .attr({
         'href': URL.createObjectURL(new Blob([this.toCsv(table)], {
           type: 'text/csv'
@@ -531,10 +566,12 @@ var indicatorView = function (model, options) {
       .data('csvdata', this.toCsv(table)));
     } else {
       var headlineId = indicatorId.replace('indicator', 'headline');
-      var id = indicatorId.replace('indicator', '');
+      var id = indicatorId.replace('indicator_', '');
+      var gaLabel = 'Download Headline CSV: ' + id;
       $(el).append($('<a />').text(translations.indicator.download_headline)
+      .attr(opensdg.autotrack('download_data_headline', 'Downloads', 'Download CSV', gaLabel))
       .attr({
-        'href': remoteDataBaseUrl + '/headline/' + id + '.csv',
+        'href': opensdg.remoteDataBaseUrl + '/headline/' + id + '.csv',
         'onClick': 'ga("send", "event", "Downloads", "Download CSV", " ' + translations.indicator.download_headline + ': ' + indicatorId.replace("indicator_", "") + '")',
         'download': headlineId + '.csv',
         'title': translations.indicator.download_headline_title,
@@ -545,9 +582,11 @@ var indicatorView = function (model, options) {
   }
 
   this.createSourceButton = function(indicatorId, el) {
+    var gaLabel = 'Download Source CSV: ' + indicatorId;
     $(el).append($('<a />').text(translations.indicator.download_source)
+    .attr(opensdg.autotrack('download_data_source', 'Downloads', 'Download CSV', gaLabel))
     .attr({
-      'href': remoteDataBaseUrl + '/data/' + indicatorId + '.csv',
+      'href': opensdg.remoteDataBaseUrl + '/data/' + indicatorId + '.csv',
       'onClick': 'ga("send", "event", "Downloads", "Download CSV", "' + translations.indicator.download_source + ': ' + indicatorId + '")',
       'download': indicatorId + '.csv',
       'title': translations.indicator.download_source_title,
