@@ -580,7 +580,6 @@ var accessibilitySwitcher = function() {
       'class': 'nav-link contrast contrast-' + contrast
     }).html($('<a />').attr(gaAttributes).attr({
       'href': 'javascript:void(0)',
-      'onClick': 'ga("send", "event", "Accessibility", "Change contrast setting", "' + contrast + '")',
       'title': 'Set to ' + contrast + ' contrast',
       'data-contrast': contrast,
     }).text('A').click(function() {
@@ -1539,7 +1538,7 @@ var indicatorView = function (model, options) {
     if(chartInfo.selectedUnit) {
       view_obj._chartInstance.options.scales.yAxes[0].scaleLabel.labelString = chartInfo.selectedUnit;
     }
-    
+
     // Create a temp object to alter, and then apply. We go to all this trouble
     // to avoid completely replacing view_obj._chartInstance -- and instead we
     // just replace it's properties: "type", "data", and "options".
@@ -1603,7 +1602,7 @@ var indicatorView = function (model, options) {
               text.push('<li data-datasetindex="' + datasetIndex + '">');
               text.push('<span class="swatch' + (dataset.borderDash ? ' dashed' : '') + '" style="background-color: ' + dataset.backgroundColor + '">');
               text.push('</span>');
-              text.push(dataset.label);
+              text.push(translations.t(dataset.label));
               text.push('</li>');
             });
 
@@ -1717,7 +1716,7 @@ var indicatorView = function (model, options) {
 
   this.toCsv = function (tableData) {
     var lines = [],
-    headings = _.map(tableData.headings, function(heading) { return '"' + heading + '"'; });
+    headings = _.map(tableData.headings, function(heading) { return '"' + translations.t(heading) + '"'; });
 
     lines.push(headings.join(','));
 
@@ -1735,7 +1734,7 @@ var indicatorView = function (model, options) {
   };
 
   var setDataTableWidth = function(table) {
-    table.find('th').each(function() {
+    table.find('thead th').each(function() {
       var textLength = $(this).text().length;
       for(var loop = 0; loop < view_obj._tableColumnDefs.length; loop++) {
         var def = view_obj._tableColumnDefs[loop];
@@ -1754,7 +1753,7 @@ var indicatorView = function (model, options) {
     table.removeAttr('style width');
 
     var totalWidth = 0;
-    table.find('th').each(function() {
+    table.find('thead th').each(function() {
       if($(this).data('width')) {
         totalWidth += $(this).data('width');
       } else {
@@ -1816,7 +1815,6 @@ var indicatorView = function (model, options) {
         'href': URL.createObjectURL(new Blob([this.toCsv(table)], {
           type: 'text/csv'
         })),
-        'onClick': 'ga("send", "event", "Downloads", "Download CSV", "Download ' + downloadKey.replace("download_","") + ' CSV: ' + indicatorId.replace("indicator_", "") + '")',
         'download': indicatorId + '.csv',
         'title': translations.indicator.download_csv_title,
         'class': 'btn btn-primary btn-download',
@@ -1831,7 +1829,6 @@ var indicatorView = function (model, options) {
       .attr(opensdg.autotrack('download_data_headline', 'Downloads', 'Download CSV', gaLabel))
       .attr({
         'href': opensdg.remoteDataBaseUrl + '/headline/' + id + '.csv',
-        'onClick': 'ga("send", "event", "Downloads", "Download CSV", " ' + translations.indicator.download_headline + ': ' + indicatorId.replace("indicator_", "") + '")',
         'download': headlineId + '.csv',
         'title': translations.indicator.download_headline_title,
         'class': 'btn btn-primary btn-download',
@@ -1846,7 +1843,6 @@ var indicatorView = function (model, options) {
     .attr(opensdg.autotrack('download_data_source', 'Downloads', 'Download CSV', gaLabel))
     .attr({
       'href': opensdg.remoteDataBaseUrl + '/data/' + indicatorId + '.csv',
-      'onClick': 'ga("send", "event", "Downloads", "Download CSV", "' + translations.indicator.download_source + ': ' + indicatorId + '")',
       'download': indicatorId + '.csv',
       'title': translations.indicator.download_source_title,
       'class': 'btn btn-primary btn-download',
@@ -1882,7 +1878,7 @@ var indicatorView = function (model, options) {
 
       var getHeading = function(heading, index) {
         var span = '<span class="sort" />';
-        var span_heading = '<span>' + heading + '</span>';
+        var span_heading = '<span>' + translations.t(heading) + '</span>';
         return (!index || heading.toLowerCase() == 'units') ? span_heading + span : span + span_heading;
       };
 
@@ -1897,7 +1893,12 @@ var indicatorView = function (model, options) {
       table.data.forEach(function (data) {
         var row_html = '<tr>';
         table.headings.forEach(function (heading, index) {
-          row_html += '<td' + (!index || heading.toLowerCase() == 'units' ? '' : ' class="table-value"') + '>' + (data[index] ? data[index] : '-') + '</td>';
+          // For accessibility set the Year column to a "row" scope th.
+          var isYear = (index == 0 || heading.toLowerCase() == 'year');
+          var isUnits = (heading.toLowerCase() == 'units');
+          var cell_prefix = (isYear) ? '<th scope="row"' : '<td';
+          var cell_suffix = (isYear) ? '</th>' : '</td>';
+          row_html += cell_prefix + (isYear || isUnits ? '' : ' class="table-value"') + '>' + (data[index] !== null ? data[index] : '-') + cell_suffix;
         });
         row_html += '</tr>';
         currentTable.find('tbody').append(row_html);
