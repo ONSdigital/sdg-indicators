@@ -22,12 +22,11 @@
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
-        <li id="menuToggle">
+        <li id="menuToggle"
+            aria-label="Menu toggle. Click to expand or collapse the menu."
+            aria-haspopup="true"
+            aria-expanded="false">
           <span data-target="menu" tabindex="0"
-          
-          aria-label="Menu toggle. Click to expand or collapse the menu."
-          aria-haspopup="true"
-          aria-expanded="false"
           role="navigation">{{ t.menu.menu }}</span>
         </li>
         <li><span data-target="search">{{ t.search.search }}</span></li>
