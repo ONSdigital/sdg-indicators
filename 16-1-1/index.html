@@ -120,7 +120,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190618213655">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190619083711">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -276,7 +276,9 @@ var translations = {
   </div>
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_16-1-1' data-id="16-1-1" data-country="England and Wales"
-  data-charttitle="Number of victims of homicide per 100,000 population" data-measurementunit="Rate per 100,000 population" data-datasource="Office of National Statistics (ONS)" data-geographicalarea="England and Wales" data-footnote="1. The period April to March is being used to report annual data. 2. As at 4 December 2018, figures are subject to revision as cases are dealt with by the police and the courts, or as further information becomes available. 3. Figures for 2011/12, 2014/15 and 2015/16 include 1 victim with unknown gender. 4. Data for City of London have been suppressed due to the small population size of the police force area." data-showdata="true" data-graphtype="line" data-geocoderegex="" data-showmap="false">
+  data-charttitle="Number of victims of homicide per 100,000 population" data-measurementunit="Rate per 100,000 population" data-datasource="Office of National Statistics (ONS)"
+  data-geographicalarea="England and Wales" data-footnote="1. The period April to March is being used to report annual data. 2. As at 4 December 2018, figures are subject to revision as cases are dealt with by the police and the courts, or as further information becomes available. 3. Figures for 2011/12, 2014/15 and 2015/16 include 1 victim with unknown gender. 4. Data for City of London have been suppressed due to the small population size of the police force area." data-showdata="true" data-graphtype="line"
+  data-geocoderegex="" data-showmap="false" data-startvalues="">
     
     <div class="col-md-3">
       <div id="toolbar">
@@ -336,13 +338,25 @@ var translations = {
         <div class="async-loaded" style="display:none">
           <ul class="nav nav-tabs data-view" role="tablist">
             <li role="presentation" class="nav-item active">
-              <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab">Chart</a>
+              <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+>Chart</a>
             </li>
             <li role="presentation" class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab">Table</a>
+              <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+>Table</a>
             </li>
             <li role="presentation" class="nav-item map" style="display:none">
-              <a class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab">Map</a>
+              <a class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Map tab"
+>Map</a>
             </li></ul>
 
           <!-- Tab panes -->
@@ -383,13 +397,25 @@ var translations = {
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="nav-item active">
-            <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab">National Metadata</a>
+            <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to National Metadata tab"
+>National Metadata</a>
           </li>
           <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#globalmetadata" aria-controls="globalmetadata" role="tab">Global Metadata</a>
+            <a class="nav-link" data-toggle="tab" href="#globalmetadata" aria-controls="globalmetadata" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to Global Metadata tab"
+>Global Metadata</a>
           </li>
           <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab">Sources</a>
+            <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to Sources tab"
+>Sources</a>
           </li>
           
           <li role="presentation" class="nav-item">
@@ -1180,7 +1206,7 @@ var translations = {
 <script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190618213655'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190619083711'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
@@ -1241,4 +1267,5 @@ $(function() {
 
 </body>
 </html>
+
 

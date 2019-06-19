@@ -120,7 +120,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190618213655">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190619083711">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -276,7 +276,9 @@ var translations = {
   </div>
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_16-7-2' data-id="16-7-2" data-country="England"
-  data-charttitle="Percentage of people who feel they are able to influence decisions affecting their local area" data-measurementunit="Percentage (%)" data-datasource="Department for Digital, Culture, Media & Sport" data-geographicalarea="England" data-footnote="1. Table excludes respondents who answered 'don't know' and those with missing answers. 2. Figures for 'Black' and 'Other' ethnic groups for 2014/15 are suppressed because the percentage is based on 5 or fewer responses and is therefore unavailable. 3. Information about respondents' limiting long term illnesses/disabilities are only available for those who completed the online version of the survey. 4. Citizenship: Respondents were instructed to select all that apply so there will be some overlap between citizenship groups. 5. Household income is measured as respondent income combined with the income of cohabiting partner (where applicable) from all sources before deductions. Response categories changed in 2016/17 and the 'no income' category was removed. It's likely that those with no income will have selected 'under £5,199' from 2016/17 onwards. The household income categories are defined in the 'other information' section." data-showdata="true" data-graphtype="line" data-geocoderegex="" data-showmap="false">
+  data-charttitle="Percentage of people who feel they are able to influence decisions affecting their local area" data-measurementunit="Percentage (%)" data-datasource="Department for Digital, Culture, Media & Sport"
+  data-geographicalarea="England" data-footnote="1. Table excludes respondents who answered 'don't know' and those with missing answers. 2. Figures for 'Black' and 'Other' ethnic groups for 2014/15 are suppressed because the percentage is based on 5 or fewer responses and is therefore unavailable. 3. Information about respondents' limiting long term illnesses/disabilities are only available for those who completed the online version of the survey. 4. Citizenship: Respondents were instructed to select all that apply so there will be some overlap between citizenship groups. 5. Household income is measured as respondent income combined with the income of cohabiting partner (where applicable) from all sources before deductions. Response categories changed in 2016/17 and the 'no income' category was removed. It's likely that those with no income will have selected 'under £5,199' from 2016/17 onwards. The household income categories are defined in the 'other information' section." data-showdata="true" data-graphtype="line"
+  data-geocoderegex="" data-showmap="false" data-startvalues="">
     
     <div class="col-md-3">
       <div id="toolbar">
@@ -404,13 +406,25 @@ var translations = {
         <div class="async-loaded" style="display:none">
           <ul class="nav nav-tabs data-view" role="tablist">
             <li role="presentation" class="nav-item active">
-              <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab">Chart</a>
+              <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+>Chart</a>
             </li>
             <li role="presentation" class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab">Table</a>
+              <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+>Table</a>
             </li>
             <li role="presentation" class="nav-item map" style="display:none">
-              <a class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab">Map</a>
+              <a class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Map tab"
+>Map</a>
             </li></ul>
 
           <!-- Tab panes -->
@@ -451,13 +465,25 @@ var translations = {
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="nav-item active">
-            <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab">National Metadata</a>
+            <a class="nav-link" data-toggle="tab" href="#metadata" aria-controls="metadata" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to National Metadata tab"
+>National Metadata</a>
           </li>
           <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#globalmetadata" aria-controls="globalmetadata" role="tab">Global Metadata</a>
+            <a class="nav-link" data-toggle="tab" href="#globalmetadata" aria-controls="globalmetadata" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to Global Metadata tab"
+>Global Metadata</a>
           </li>
           <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab">Sources</a>
+            <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to Sources tab"
+>Sources</a>
           </li>
           
           <li role="presentation" class="nav-item">
@@ -1489,7 +1515,7 @@ var translations = {
 <script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190618213655'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190619083711'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
@@ -1550,4 +1576,5 @@ $(function() {
 
 </body>
 </html>
+
 
