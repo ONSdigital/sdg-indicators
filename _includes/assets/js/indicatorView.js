@@ -227,15 +227,23 @@ var indicatorView = function (model, options) {
 
   $(this._rootElement).on('click', '.variable-selector', function(e) {
     var currentSelector = e.target;
+    
+    var currentButton;
+    if(currentSelector.tagName === "H5"){
+      currentButton = currentSelector.parentElement;
+    }
+    else if(currentSelector.tagName === "BUTTON"){
+      currentButton = currentSelector;
+      
+    }
 
     var options = $(this).find('.variable-options');
     var optionsAreVisible = options.is(':visible');
     $(options)[optionsAreVisible ? 'hide' : 'show']();
-    currentSelector.setAttribute("aria-expanded", optionsAreVisible ? "true" : "false");
+    currentButton.setAttribute("aria-expanded", optionsAreVisible ? "true" : "false");
 
     var optionsVisibleAfterClick = options.is(':visible');
-    var currentSelector = e.target;
-    currentSelector.setAttribute("aria-expanded", optionsVisibleAfterClick ? "true" : "false");
+    currentButton.setAttribute("aria-expanded", optionsVisibleAfterClick ? "true" : "false");
     
     e.stopPropagation();
   });
