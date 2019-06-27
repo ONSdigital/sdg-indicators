@@ -11,16 +11,15 @@ We have also developed a set of <a href="https://github.com/datasciencecampus/sd
 ## Using this website
 Answers to some specific questions about the website are included in our [Frequently Asked Questions]({{ site.baseurl }}/faq/) page.
 
-View this <a href="{{site.baseurl}}/public/NRP VIDEO DEMO May2018.ppsx" onClick='ga("send", "event", "Guidance", "presentation", "view presentation")'>presentation (.ppsx file 6.45Mb)</a> on the site's main features.
+View this <a href="{{site.baseurl}}/public/NRP VIDEO DEMO May2018.ppsx" onClick='ga("send", "event", "Guidance", "presentation", "view presentation")'>presentation on the site's main features (.ppsx file 6.45Mb)</a>.
 
 Our wiki pages also include more detailed information for people adding data and metadata:
-- <a href="https://github.com/datasciencecampus/sdg-indicators/wiki/Raw-data-format" onClick='ga("send", "event", "Guidance", "wiki", "raw data format")'>Data format and troubleshooting</a> []( )
+- <a href="https://github.com/datasciencecampus/sdg-indicators/wiki/Raw-data-format" onClick='ga("send", "event", "Guidance", "wiki", "raw data format")'>Data format and troubleshooting</a>
 -	<a href="https://github.com/datasciencecampus/sdg-indicators/wiki/Metadata-format" onClick='ga("send", "event", "Guidance", "wiki", "metadata format")'>Metadata format and troubleshooting</a>
 - <a href="https://github.com/datasciencecampus/sdg-indicators/wiki/Data-scenarios-and-characteristics" onClick='ga("send", "event", "Guidance", "wiki", "data scenarios and characteristics")'>Data scenarios and characteristics</a>
 
 ## Creating a copy of this website
-Visit our Wiki pages for <a href="https://github.com/ONSdigital/sdg-indicators/wiki/Clone-your-own%3A-step-by-step-instructions-%28Windows%29" onClick='ga("send", "event", "Guidance", "wiki", "clone your own guidance")'>full guidance</a>  on making a copy (or 'clone') of the site.
-Other countries wishing to reuse this UK SDG reporting platforms or the [US SDG reporting platform](https://sdg.data.gov/) are welcome to do so for free.
+Visit our Wiki pages for <a href="https://github.com/ONSdigital/sdg-indicators/wiki/Clone-your-own%3A-step-by-step-instructions-%28Windows%29" onClick='ga("send", "event", "Guidance", "wiki", "clone your own guidance")'>full site cloning guidance</a>, which explains how to make a free copy of the site. Other countries wishing to reuse this UK SDG reporting platforms or the [US SDG reporting platform](https://sdg.data.gov/) are welcome to do so for free.
 
 Supplementary information is included in the following pages:
 -	<a href="https://github.com/datasciencecampus/sdg-indicators/wiki/Required-skill-sets" onClick='ga("send", "event", "Guidance", "wiki", "required skill set")'>Required skill sets</a>
