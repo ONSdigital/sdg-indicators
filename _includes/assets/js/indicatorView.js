@@ -228,7 +228,7 @@ var indicatorView = function (model, options) {
   $(this._rootElement).on('click', '.variable-selector', function(e) {
     var currentSelector = e.target;
     
-    var currentButton = getCurrentButtonFromCurrentSelector();
+    var currentButton = getCurrentButtonFromCurrentSelector(currentSelector);
 
     var options = $(this).find('.variable-options');
     var optionsAreVisible = options.is(':visible');
