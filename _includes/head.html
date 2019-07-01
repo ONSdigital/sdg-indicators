@@ -5,6 +5,9 @@
         {% include polyfills.html %}
         {% include javascript-variables.html %}
         {% include multilingual-js-base.html %}
+        {%- include indicator-variables.html -%}
+        {% assign goal_number = page.sdg_goal %}
+        {% assign translated_goal = t.global_goals[goal_number] %}
         <!-- Basic Page Needs
         ================================================== -->
         <meta charset="utf-8">
