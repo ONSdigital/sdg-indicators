@@ -111,8 +111,11 @@
                 <h3>{{ meta.embedded_map_title }}</h3>
               </div>
             </div>
-              <div class="embedded-map">
-                {{ meta.embedded_map_html }}
+              <div class="embedded-map" id="embeddedmapframe">
+                  <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+  <script>document.querySelector("li.nav-item.embedded-map").addEventListener("click",function(){ var pymParent = new
+  pym.Parent('embeddedmapframe', '{{ meta.embedded_map_html }}', {});})</script>
+                
               </div>
             </div>
             {% endif %}
