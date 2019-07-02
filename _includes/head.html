@@ -6,8 +6,6 @@
         {% include javascript-variables.html %}
         {% include multilingual-js-base.html %}
         {%- include indicator-variables.html -%}
-        {% assign goal_number = page.sdg_goal %}
-        {% assign translated_goal = t.global_goals[goal_number] %}
         <!-- Basic Page Needs
         ================================================== -->
         <meta charset="utf-8">
@@ -22,9 +20,10 @@
         {{ t.general.indicator }} {{ page.indicator }} - {{ t.general.goal }} {{ goal_number }} - {{ goal.short }}
         {% endcapture %}
         {% capture goal_title %}
-        {{ t.general.goal }} {{ page.sdg_goal }} - {{ translated_goal.short }}
+        {{ t.general.goal }} {{ goal_number }} - {{ goal.short }}
         {% endcapture %}
-        <title>{% if page.indicator %}{{ page_title | escape }}{% elsif page.sdg_goal %}{{ goal_title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>        <meta name="description" content="">
+        <title>{% if page.indicator %}{{ page_title | escape }}{% elsif goal_number %}{{ goal_title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+        <meta name="description" content="">
         <meta property="og:description" content="">
         {% if site.environment == 'staging' %}
         <meta name="robots" content="noindex, nofollow">
