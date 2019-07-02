@@ -86,7 +86,7 @@
             </li>
             {%- if meta.embedded_map_html -%}
             <li role="presentation" class="nav-item embedded-map">
-              <a class="nav-link" data-toggle="tab" href="#embeddedmapview" aria-controls="embeddedmapview" role="tab" {% include autotrack.html preset="tab_data_embed" category="Tab change" action="Change data view" label="Change to embedded item tab" %}>{{ t.indicator.map }}</a>
+              <a class="nav-link" data-toggle="tab" href="#embeddedmapview" aria-controls="embeddedmapview" role="tab" {% include autotrack.html preset="tab_data_embed" category="Tab change" action="Change data view" label="Change to embedded item tab" %}>{% meta.embedded_feature_tab_title %}</a>
             </li>
             {%- endif -%}
           </ul>
@@ -104,17 +104,17 @@
                 <img src="{{ site.baseurl }}/assets/img/loading.gif" alt="{{ t.indicator.loading_map }}" />
               </div>
             </div>
-            {% if meta.embedded_map_html %}
+            {% if meta.embedded_feature_html %}
             <div role="tabpanel" class="tab-pane" id="embeddedmapview" >
               <div class="row">
               <div class="col-xs-12">
-                <h3>{{ meta.embedded_map_title }}</h3>
+                <h3>{{ meta.embedded_feature_title }}</h3>
               </div>
             </div>
               <div class="embedded-map" id="embeddedmapframe">
                   <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
   <script>document.querySelector("li.nav-item.embedded-map").addEventListener("click",function(){ var pymParent = new
-  pym.Parent('embeddedmapframe', '{{ meta.embedded_map_html }}', {});})</script>
+  pym.Parent('embeddedmapframe', '{{ meta.embedded_feature_html }}', {});})</script>
                 
               </div>
             </div>
