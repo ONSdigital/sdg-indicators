@@ -104,8 +104,8 @@
                 <img src="{{ site.baseurl }}/assets/img/loading.gif" alt="{{ t.indicator.loading_map }}" />
               </div>
             </div>
-            {% if #embeddedmapview %}
-            {% if tabpanel.embeddedmapview %}
+            {% if meta.embedded_map_html %}
+            {% if embeddedmapview %}
             <div class="row">
               <div class="col-xs-12">
                 <h3>{{ meta.embedded_map_title }}</h3>
