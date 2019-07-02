@@ -104,7 +104,7 @@
                 <img src="{{ site.baseurl }}/assets/img/loading.gif" alt="{{ t.indicator.loading_map }}" />
               </div>
             </div>
-            {% if meta.embedded_feature_html %}
+            {% if meta.embedded_feature_url %}
             <div role="tabpanel" class="tab-pane" id="embeddedmapview" >
               <div class="row">
               <div class="col-xs-12">
@@ -114,7 +114,7 @@
               <div class="embedded-map" id="embeddedmapframe">
                   <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
                   <script>document.querySelector("li.nav-item.embedded-map").addEventListener("click",function(){ var pymParent = new
-                    pym.Parent('embeddedmapframe', '{{ meta.embedded_feature_html }}', {});})</script>
+                    pym.Parent('embeddedmapframe', '{{ meta.embedded_feature_url }}', {});})</script>
               </div>
             </div>
             {% endif %}
@@ -131,7 +131,7 @@
             <a class="nav-link" data-toggle="tab" href="#globalmetadata" aria-controls="globalmetadata" role="tab" {% include autotrack.html preset="tab_meta_global" category="Tab change" action="Change metadata view" label="Change to Global Metadata tab" %}>{{ t.indicator.global_metadata }}</a>
           </li>
           <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab" {% include autotrack.html preset="tab_meta_sources" category="Tab change" action="Change metadata view" label="Change to Sources tab" %}>{{ t.indicator.sources }}</a>
+            <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab" {% include autotrack.html preset="tab_meta_sources" category="Tab change" action="Change metadata view" label="Change to Sources tab" %}>{{ meta.embedded_feature_tab_title }}</a>
           </li>
           {% if site.environment == 'staging' %}
           <li role="presentation" class="nav-item">
