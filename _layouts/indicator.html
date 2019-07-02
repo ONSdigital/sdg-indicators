@@ -105,11 +105,13 @@
               </div>
             </div>
             {% if meta.embedded_map_html %}
+            {% if embedded-map %}
             <div class="row">
               <div class="col-xs-12">
                 <h3>{{ meta.embedded_map_title }}</h3>
               </div>
             </div>
+            {% endif %}
             <div role="tabpanel" class="tab-pane" id="embeddedmapview" class="embedded-map">
               {{ meta.embedded_map_html }}
             </div>
