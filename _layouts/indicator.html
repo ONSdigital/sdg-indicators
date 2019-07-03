@@ -86,7 +86,7 @@
             </li>
             {%- if meta.embedded_feature_url -%}
             <li role="presentation" class="nav-item embedded-map">
-              <a class="nav-link" data-toggle="tab" href="#embeddedmapview" aria-controls="embeddedmapview" role="tab" {% include autotrack.html preset="tab_data_embed" category="Tab change" action="Change data view" label="Change to embedded item tab" %}>{{ t.indicator.map }}</a>
+              <a class="nav-link" data-toggle="tab" href="#embeddedmapview" aria-controls="embeddedmapview" role="tab" {% include autotrack.html preset="tab_data_embed" category="Tab change" action="Change data view" label="Change to embedded item tab" %}>{{ meta.embedded_feature_tab_title }}</a>
             </li>
             {%- endif -%}
           </ul>
@@ -131,7 +131,7 @@
             <a class="nav-link" data-toggle="tab" href="#globalmetadata" aria-controls="globalmetadata" role="tab" {% include autotrack.html preset="tab_meta_global" category="Tab change" action="Change metadata view" label="Change to Global Metadata tab" %}>{{ t.indicator.global_metadata }}</a>
           </li>
           <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab" {% include autotrack.html preset="tab_meta_sources" category="Tab change" action="Change metadata view" label="Change to Sources tab" %}>{{ meta.embedded_feature_tab_title }}</a>
+            <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab" {% include autotrack.html preset="tab_meta_sources" category="Tab change" action="Change metadata view" label="Change to Sources tab" %}>{{ t.indicator.sources }}</a>
           </li>
           {% if site.environment == 'staging' %}
           <li role="presentation" class="nav-item">
