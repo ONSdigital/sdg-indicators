@@ -1,4 +1,7 @@
 var indicatorView = function (model, options) {
+  
+  console.log("In view");
+  console.log(translations);
 
   "use strict";
 
