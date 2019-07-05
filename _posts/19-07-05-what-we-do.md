@@ -1,7 +1,7 @@
 ---
 layout: post
 title: What we do
-author: Lucy Gwilliam
+author: SDGs team
 category: "News"
 excerpt: 
 ---
