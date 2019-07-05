@@ -21,7 +21,7 @@ In the UK, Office for National Statistics (ONS) is responsible for reporting the
 
 * make the data available to everybody using an online tool and supporting reports
 
-<img src="https://github.com/ONSdigital/sdg-indicators/blob/develop/public/sdgs.png" alt="picture of sustainable development goals logos">
+<img src="https://onsdigital.github.io/sdg-indicators/public/sdgs.png" alt="picture of sustainable development goals logos">
 
 ## 2. Latest news
 ### November 2017
