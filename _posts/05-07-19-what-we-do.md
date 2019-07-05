@@ -69,7 +69,7 @@ Information about the technical process of developing the indicator framework ca
 
 
 ## 5. Contact us
-You can follow us on Twitter: @StatSteel
+You can follow us on Twitter: [@StatSteel](https://twitter.com/StatSteel)
 
 ONS recognises the importance of working with all stakeholders, within and outside government. We are keen to hear your views.
 
