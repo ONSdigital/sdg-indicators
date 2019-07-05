@@ -35,30 +35,30 @@ Our consultation on SDGs has closed. The purpose of the consultation was to seek
 
 ## 3. Publications
 
-### February 2019 - What is the difference between sex and gender?
+#### February 2019 - What is the difference between sex and gender?
 We are exploring concepts that are important to the Sustainable Development Goals. [This article](https://www.ons.gov.uk/economy/environmentalaccounts/articles/whatisthedifferencebetweensexandgender/2019-02-21) explains the differences between sex and gender.
 
-### November 2018 - Sustainable Development Goals in the UK: An update on progress
+#### November 2018 - Sustainable Development Goals in the UK: An update on progress
 This is our [second report summarising the progress made](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2018) towards measuring the global Sustainable Development Goals over the past year.
 
-### October 2018 - Using innovative methods to report against the Sustainable Development Goals
+#### October 2018 - Using innovative methods to report against the Sustainable Development Goals
 The [outcome of a project aimed at exploring new ways of producing and communicating geographical data](https://www.ons.gov.uk/economy/environmentalaccounts/articles/usinginnovativemethodstoreportagainstthesustainabledevelopmentgoals/2018-10-22).
 
-### July 2018 - Inclusive data charter action plan for the global Sustainable Development Goals
+#### July 2018 - Inclusive data charter action plan for the global Sustainable Development Goals
 The Office for National Statistics has partnered with the Global Partnership for Sustainable Development Data to improve the quality, quantity and availability of inclusive data. The report can be found on the [ONS website](https://www.ons.gov.uk/economy/environmentalaccounts/methodologies/inclusivedatacharteractionplanfortheglobalsustainabledevelopmentgoals).
 
-### 19 March 2018 - UK data gaps
+#### 19 March 2018 - UK data gaps
 This is our [first report on UK data gaps](https://www.ons.gov.uk/economy/environmentalaccounts/articles/ukdatagapsinclusivedataactionplantowardstheglobalsustainabledevelopmentgoalindicators/2018-03-19) for reporting progress towards the global Sustainable Development Goal indicators.
 
-### 11 December 2017 - Consulation findings
+#### 11 December 2017 - Consulation findings
 We have analysed the feedback and it is published on the [ONS website](https://consultations.ons.gov.uk/sustainable-development-goals/ons-approach-to-measuring-reporting-sdgs-in-the-uk/).
 
-### 9 November 2017 – [Sustainable Development Goals: progress and possibilities](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2017)
+#### 9 November 2017 – [Sustainable Development Goals: progress and possibilities](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2017)
 This looks at how much data have been collected for the global SDGs indicators by ONS for the UK. It also explains what work we are doing to measure progress towards the SDGs.
 
 Narrative reports will be listed by goal on the publications page of our SDG website.
 
-### 5 August 2016 – [How should the UK report progress towards the Sustainable Development Goals? A summary of responses from non-governmental organisations. (PDF, 711KB)](https://www.ons.gov.uk/file?uri=/aboutus/whatwedo/programmesandprojects/sustainabledevelopmentgoals/howshouldtheukreportprogresstowardsthesustainabledevelopmentgoals.pdf)
+#### 5 August 2016 – [How should the UK report progress towards the Sustainable Development Goals? A summary of responses from non-governmental organisations. (PDF, 711KB)](https://www.ons.gov.uk/file?uri=/aboutus/whatwedo/programmesandprojects/sustainabledevelopmentgoals/howshouldtheukreportprogresstowardsthesustainabledevelopmentgoals.pdf)
 
 ## 4. Want to know more?
 UK data for the SDGs indicators can be found on this reporting platform.
