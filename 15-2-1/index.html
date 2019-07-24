@@ -120,7 +120,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190723215418">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190724215447">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -277,7 +277,7 @@ var translations = {
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_15-2-1' data-id="15-2-1" data-country="United Kingdom"
   data-charttitle="Progress towards sustainable forest management" data-measurementunit="Hectares, Percentage (%), Growth rate (%)" data-datasource="Department for Environment, Food & Rural Affairs (Defra)"
-  data-geographicalarea="United Kingdom" data-footnote="The annual data are being recorded as a headcount every March. The date on the X axis is the year of the headcount" data-showdata="true" data-graphtype="line"
+  data-geographicalarea="United Kingdom" data-footnote="Annual figures relate to data at 31 March, apart from 2001 (31 December) and 2002 (30 September)." data-showdata="true" data-graphtype="line"
   data-geocoderegex="" data-showmap="false" data-startvalues="">
     
     <div class="col-md-3">
@@ -505,7 +505,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            FSC: Forest Stewardship Council; JNCC: Joint Nature Conservation Committee; PEFC: Programme for the Endorsement of Forest Certification; SFM: Sustainable Forest Management. All certified woodland is certified under the FSC scheme. Some of these woodlands are also certified under the PEFC scheme. The estimates are based on UK data published by FSC, supplemented by data from individual certificates and other sources. Where possible, figures are for the woodland area certified, rather than the land area certified.
+            
           
         </td>
         </tr>
@@ -517,7 +517,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            ((Area certified OR Total woodland Area in year n - Area certified OR Total woodland Area in year n-1) / Area certified OR Total woodland Area in year n-1) * 100
+            Growth rates (%) are calculated by ((Area certified OR Total woodland Area in year n - Area certified OR Total woodland Area in year n-1) / Area certified OR Total woodland Area in year n-1) * 100
           
         </td>
         </tr>
@@ -529,7 +529,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.
+            All certified woodland is certified under the Forest Stewardship Council (FSC) scheme. Some of these woodlands are also certified under the Programme for the Endorsement of Forest Certification (PEFC) scheme. The estimates are based on UK data published by FSC, supplemented by data from individual certificates and other sources. Where possible, figures are for the woodland area certified, rather than the land area certified.  Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.
           
         </td>
         </tr>
@@ -547,8 +547,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/254e81089efc9cb9c06405cd895afb3e1fe191b6" target="_blank">
-                2019-04-29: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/93e3f10c462bcf67b39787a0b05502d91182186b" target="_blank">
+                2019-07-23: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -572,8 +572,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/254e81089efc9cb9c06405cd895afb3e1fe191b6" target="_blank">
-                2019-04-29: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/85e09f6187d6752f1e451d41ebdfcbd259aff15c" target="_blank">
+                2019-07-23: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1026,7 +1026,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            01/03/2017
+            15/05/2019
           
         </td>
         </tr>
@@ -1062,7 +1062,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            comment@jncc.gov.uk
+            enviro.statistics@defra.gov.uk
           
         </td>
         </tr>
@@ -1206,7 +1206,7 @@ data-event-label="Change to Sources tab"
 <script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190723215418'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190724215447'></script>
 <script>
 $(function() {
     if($('#indicatorData').length) {
