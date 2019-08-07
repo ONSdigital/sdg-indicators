@@ -200,19 +200,23 @@ header {
     float: right; }
     .navbar #search label {
       position: absolute;
-      top: 8px;
-      left: 7px;
-      font-size: 1.25em; }
+      top: 5px;
+      right: 0px;
+      font-size: 1.40em; }
       .navbar #search label span {
         display: none; }
     .navbar #search input {
       padding: 5px;
-      padding-left: 29px;
-      width: 140px;
+      padding-left: 5px;
+      width: 150px;
+      height: 34px;
       transition: width 0.4s;
       margin-top: 5px; }
       .navbar #search input:focus {
         width: 350px; }
+
+#search-btn {
+  height: 34px; }
 
 .table .table-value {
   text-align: right; }
@@ -251,6 +255,15 @@ header {
           color: #E5E6E7;
           display: block;
           padding: 15px; }
+        .navbar .top-level li button {
+          color: #E5E6E7;
+          display: block;
+          padding: 15px;
+          border: 0;
+          text-transform: uppercase;
+          background-color: inherit;
+          text-align: left;
+          width: 100%; }
     .navbar .menu-target {
       background: #58595B; }
     .navbar ul.navbar-nav {
@@ -284,6 +297,11 @@ header {
         top: 23px;
         left: 25px;
         color: black; }
+      .navbar #search button {
+        display: inline-flex;
+        position: absolute;
+        right: 20px;
+        top: -3px; }
       .navbar #search input {
         width: 100%;
         color: #333;
@@ -652,6 +670,15 @@ h5 + .btn-download {
     display: none; }
   #main-content #indicatorData.no-series.no-units > .col-md-9 {
     width: 100%; }
+  #main-content .indicator-sidebar-hidden {
+    padding: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden; }
+  #main-content .indicator-main-full {
+    width: 100%; }
+  #main-content #indicator-sidebar, #main-content #indicator-main {
+    transition: width 0.3s ease; }
   #main-content #toolbar button {
     width: 100%;
     background-color: #fff;
@@ -1383,7 +1410,7 @@ body.contrast-high {
   body.contrast-high .goal-indicators div span {
     border-color: white !important;
     color: white !important; }
-  body.contrast-high .goal-indicators .indicator-cards a {
+  body.contrast-high .goal-indicators .indicator-cards a, body.contrast-high .goal-indicators .indicator-cards.target {
     color: white !important; }
   body.contrast-high .goal-indicators .indicator-cards span.status, body.contrast-high .goal-indicators .indicator-cards .tags li {
     color: black !important; }

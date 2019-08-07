@@ -587,12 +587,14 @@ var accessibilitySwitcher = function() {
       imageFix(contrast);
     })));
   });
-
+  
+  
 function imageFix(contrast) {
-  if (contrast == 'high') {
+  if (contrast == 'high')  {
     _.each($('img:not([src*=high-contrast])'), function(goalImage){
+      if ($(goalImage).attr('src').slice(0, 35) != "https://platform-cdn.sharethis.com/") {
       $(goalImage).attr('src', $(goalImage).attr('src').replace('img/', 'img/high-contrast/'));
-    })
+      }})
   } else {
     // Remove high-contrast
     _.each($('img[src*=high-contrast]'), function(goalImage){
@@ -631,12 +633,6 @@ var indicatorDataStore = function(dataUrl) {
   this.onFieldsCleared = new event(this);
   this.onSelectionUpdate = new event(this);
   this.onNoHeadlineData = new event(this);
-
-  // data rounding:
-  this.roundingFunc = options.roundingFunc || function(value) {
-    var to = 3, mult = Math.pow(10, to - Math.floor(Math.log(Math.abs(value)) / Math.LN10) - 1);
-    return Math.round(value * mult) / mult;
-  };
 
   // json conversion:
   var convertJsonFormat = function(data) {
@@ -774,7 +770,11 @@ var indicatorDataStore = function(dataUrl) {
 
       // only apply a rounding function for non-zero values:
       if(item.Value != 0) {
-        item.Value = that.roundingFunc(item.Value);
+        // For rounding, use a function that can be set on the global opensdg
+        // object, for easier control: opensdg.dataRounding()
+        if (typeof opensdg.dataRounding === 'function') {
+          item.Value = opensdg.dataRounding(item.Value);
+        }
       }
 
       // remove any undefined/null values:
@@ -796,12 +796,13 @@ var indicatorDataStore = function(dataUrl) {
       spanGaps: false
     };
 
-    that.footerFields = {
-      'Source': that.dataSource,
-      'Geographical Area': that.geographicalArea,
-      'Unit of Measurement': that.measurementUnit,
-      'Footnote': that.footnote,
-    };
+    that.footerFields = {};
+    that.footerFields[translations.indicator.source] = that.dataSource;
+    that.footerFields[translations.indicator.geographical_area] = that.geographicalArea;
+    that.footerFields[translations.indicator.unit_of_measurement] = that.measurementUnit;
+    that.footerFields[translations.indicator.footnote] = that.footnote;
+    // Filter out the empty values.
+    that.footerFields = _.pick(that.footerFields, _.identity);
   }());
 
   var headlineColor = '777777';
@@ -827,7 +828,7 @@ var indicatorDataStore = function(dataUrl) {
         return that.selectedUnit ? i.Units : i.Year;
       })
       .map(function (d) {
-        return _.pick(d, _.identity);
+        return _.pick(d, function(val) { return val !== null });
       })
       .value();
   };
@@ -970,7 +971,7 @@ var indicatorDataStore = function(dataUrl) {
       datasetIndex = 0,
       getCombinationDescription = function(combination) {
         return _.map(Object.keys(combination), function(key) {
-          return combination[key];
+          return translations.t(combination[key]);
           //return key + ' ' + combination[key];
         }).join(', ');
       },
@@ -1060,6 +1061,14 @@ var indicatorDataStore = function(dataUrl) {
 
     // get the headline data:
     var headline = this.getHeadline();
+
+    // Catch the case where this is the initial display, there is a default
+    // selected unit (the first one), there is a headline, and this headline
+    // uses another unit.
+    if (options.initial && headline.length && this.selectedUnit && this.selectedUnit != headline[0]['Units']) {
+      // In this scenario we need to correct the selected unit here.
+      this.selectedUnit = headline[0]['Units'];
+    }
 
     // all units for headline data:
     if(headline.length) {
@@ -1163,7 +1172,8 @@ var indicatorDataStore = function(dataUrl) {
         }
 
         this.onUnitsComplete.notify({
-          units: this.units
+          units: this.units,
+          selectedUnit: this.selectedUnit
         });
       }
 
@@ -1296,6 +1306,28 @@ var indicatorView = function (model, options) {
 
       meta.hidden = meta.hidden === null? !ci.data.datasets[index].hidden : null;
       ci.update();
+    });
+
+    // Provide the hide/show functionality for the sidebar.
+    $('.data-view .nav-link').on('click', function(e) {
+      var $sidebar = $('#indicator-sidebar'),
+          $main = $('#indicator-main'),
+          hideSidebar = $(this).data('no-disagg'),
+          mobile = window.matchMedia("screen and (max-width: 990px)");
+      if (hideSidebar) {
+        $sidebar.addClass('indicator-sidebar-hidden');
+        $main.addClass('indicator-main-full');
+        // On mobile, this can be confusing, so we need to scroll to the tabs.
+        if (mobile.matches) {
+          $([document.documentElement, document.body]).animate({
+            scrollTop: $("#indicator-main").offset().top - 40
+          }, 400);
+        }
+      }
+      else {
+        $sidebar.removeClass('indicator-sidebar-hidden');
+        $main.removeClass('indicator-main-full');
+      }
     });
   });
 
@@ -1521,10 +1553,12 @@ var indicatorView = function (model, options) {
 
   this.initialiseUnits = function(args) {
     var template = _.template($('#units_template').html()),
-        units = args.units || [];
+        units = args.units || [],
+        selectedUnit = args.selectedUnit || null;
 
     $('#units').html(template({
-      units: units
+      units: units,
+      selectedUnit: selectedUnit
     }));
 
     if(!units.length) {
@@ -1536,7 +1570,7 @@ var indicatorView = function (model, options) {
     view_obj._chartInstance.data.datasets = chartInfo.datasets;
 
     if(chartInfo.selectedUnit) {
-      view_obj._chartInstance.options.scales.yAxes[0].scaleLabel.labelString = chartInfo.selectedUnit;
+      view_obj._chartInstance.options.scales.yAxes[0].scaleLabel.labelString = translations.t(chartInfo.selectedUnit);
     }
 
     // Create a temp object to alter, and then apply. We go to all this trouble
@@ -1582,8 +1616,8 @@ var indicatorView = function (model, options) {
               suggestedMin: 0
             },
             scaleLabel: {
-              display: this._model.selectedUnit ? this._model.selectedUnit : this._model.measurementUnit,
-              labelString: this._model.selectedUnit ? this._model.selectedUnit : this._model.measurementUnit
+              display: this._model.selectedUnit ? translations.t(this._model.selectedUnit) : this._model.measurementUnit,
+              labelString: this._model.selectedUnit ? translations.t(this._model.selectedUnit) : this._model.measurementUnit
             }
           }]
         },
@@ -1678,35 +1712,17 @@ var indicatorView = function (model, options) {
           });
         }
 
-        // TODO Merge this with the that.footerFields object used by table
         var graphFooterItems = [];
-        if (that._model.dataSource) {
-          var sourceRows = getLinesFromText(translations.indicator.source + ': ' + that._model.dataSource);
-          graphFooterItems = graphFooterItems.concat(sourceRows);
-
-          if(sourceRows.length > 1) {
-            that._chartInstance.resize(parseInt($canvas.css('width')), parseInt($canvas.css('height')) + textRowHeight * sourceRows.length);
+        _.each(that._model.footerFields, function(value, key) {
+          // For each footer item, we have to manually do any line
+          // wrapping, because this is canvas, not HTML.
+          var rows = getLinesFromText(key + ': ' + value);
+          graphFooterItems = graphFooterItems.concat(rows);
+          if (rows.length > 1) {
+            that._chartInstance.resize(parseInt($canvas.css('width')), parseInt($canvas.css('height')) + textRowHeight * rows.length);
             that._chartInstance.resize();
           }
-        }
-        if (that._model.geographicalArea) {
-          graphFooterItems.push(translations.indicator.geographical_area + ': ' + that._model.geographicalArea);
-        }
-        if (that._model.measurementUnit) {
-          graphFooterItems.push(translations.indicator.unit_of_measurement + ': ' + that._model.measurementUnit);
-        }
-
-        if(that._model.footnote) {
-          var footnoteRows = getLinesFromText('Footnote: ' + that._model.footnote);
-          graphFooterItems = graphFooterItems.concat(footnoteRows);
-
-          if(footnoteRows.length > 1) {
-            //that._chartInstance.options.layout.padding.bottom += textRowHeight * footnoteRows.length;
-            that._chartInstance.resize(parseInt($canvas.css('width')), parseInt($canvas.css('height')) + textRowHeight * footnoteRows.length);
-            that._chartInstance.resize();
-          }
-        }
-
+        });
         putTextOutputs(graphFooterItems, 0);
       }
     });
@@ -1921,7 +1937,7 @@ var indicatorView = function (model, options) {
     });
 
     _.each(footerFields, function(val, key) {
-      if(val) footdiv.append($('<p />').text(key + ': ' + val));
+      footdiv.append($('<p />').text(key + ': ' + val));
     });
 
     $(el).append(footdiv);
@@ -1972,6 +1988,13 @@ var indicatorSearch = function(inputElement, indicatorDataStore) {
   this.inputElement.keyup(function(e) {
     var searchValue = that.inputElement.val();
     if(e.keyCode === 13 && searchValue.length) {
+      window.location.replace(that.inputElement.data('pageurl') + searchValue);
+    }
+  });
+  
+  $("#search-btn").click(function() {
+    var searchValue = that.inputElement.val();
+    if(searchValue.length) {
       window.location.replace(that.inputElement.data('pageurl') + searchValue);
     }
   });
@@ -2069,7 +2092,7 @@ $(function() {
 
 $(function() {
 
-  var topLevelSearchLink = $('.top-level span:eq(1)');
+  var topLevelSearchLink = $('.top-level span:eq(1), .top-level button:eq(1)');
 
   var resetForSmallerViewport = function() {
     topLevelSearchLink.text('Search');
@@ -2077,7 +2100,7 @@ $(function() {
     $('.top-level span').removeClass('open');
   };  
 
-  $('.top-level span').click(function() {
+  $('.top-level span, .top-level button').click(function() {
     var target = $(this).data('target');
 
     $('.top-level li').removeClass('active');
@@ -2088,6 +2111,7 @@ $(function() {
 
     // hide everything:
     $('.menu-target').hide();
+    $(".top-level li button[data-target='" + target + "']").attr("aria-expanded", "false");
 
     if(target === 'search') {
       $(this).toggleClass('open');
@@ -2105,6 +2129,7 @@ $(function() {
 
     if(!wasVisible) {
       targetEl.show();
+      $(".top-level li button[data-target='" + target + "']").attr("aria-expanded", "true");
       $(this).parent().addClass('active');
     }
   });
@@ -2126,7 +2151,8 @@ $(function() {
     // update the viewport width:
     $('body').data('vwidth', viewportWidth);
   });
-});/*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js */
+});
+/*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js */
 "document"in self&&("classList"in document.createElement("_")&&(!document.createElementNS||"classList"in document.createElementNS("http://www.w3.org/2000/svg","g"))||!function(t){"use strict";if("Element"in t){var e="classList",n="prototype",i=t.Element[n],s=Object,r=String[n].trim||function(){return this.replace(/^\s+|\s+$/g,"")},o=Array[n].indexOf||function(t){for(var e=0,n=this.length;n>e;e++)if(e in this&&this[e]===t)return e;return-1},a=function(t,e){this.name=t,this.code=DOMException[t],this.message=e},c=function(t,e){if(""===e)throw new a("SYNTAX_ERR","An invalid or illegal string was specified");if(/\s/.test(e))throw new a("INVALID_CHARACTER_ERR","String contains an invalid character");return o.call(t,e)},l=function(t){for(var e=r.call(t.getAttribute("class")||""),n=e?e.split(/\s+/):[],i=0,s=n.length;s>i;i++)this.push(n[i]);this._updateClassName=function(){t.setAttribute("class",""+this)}},u=l[n]=[],h=function(){return new l(this)};if(a[n]=Error[n],u.item=function(t){return this[t]||null},u.contains=function(t){return t+="",-1!==c(this,t)},u.add=function(){var t,e=arguments,n=0,i=e.length,s=!1;do t=e[n]+"",-1===c(this,t)&&(this.push(t),s=!0);while(++n<i);s&&this._updateClassName()},u.remove=function(){var t,e,n=arguments,i=0,s=n.length,r=!1;do for(t=n[i]+"",e=c(this,t);-1!==e;)this.splice(e,1),r=!0,e=c(this,t);while(++i<s);r&&this._updateClassName()},u.toggle=function(t,e){t+="";var n=this.contains(t),i=n?e!==!0&&"remove":e!==!1&&"add";return i&&this[i](t),e===!0||e===!1?e:!n},u.toString=function(){return this.join(" ")},s.defineProperty){var f={get:h,enumerable:!0,configurable:!0};try{s.defineProperty(i,e,f)}catch(g){(void 0===g.number||-2146823252===g.number)&&(f.enumerable=!1,s.defineProperty(i,e,f))}}else s[n].__defineGetter__&&i.__defineGetter__(e,h)}}(self),function(){"use strict";var t=document.createElement("_");if(t.classList.add("c1","c2"),!t.classList.contains("c2")){var e=function(t){var e=DOMTokenList.prototype[t];DOMTokenList.prototype[t]=function(t){var n,i=arguments.length;for(n=0;i>n;n++)t=arguments[n],e.call(this,t)}};e("add"),e("remove")}if(t.classList.toggle("c3",!1),t.classList.contains("c3")){var n=DOMTokenList.prototype.toggle;DOMTokenList.prototype.toggle=function(t,e){return 1 in arguments&&!this.contains(t)==!e?e:n.call(this,t)}}t=null}());/*! modernizr 3.5.0 (Custom Build) | MIT *
  * https://modernizr.com/download/?-blobconstructor-localstorage-setclasses !*/
  !function(e,n,o){function s(e,n){return typeof e===n}function t(){var e,n,o,t,a,l,c;for(var f in i)if(i.hasOwnProperty(f)){if(e=[],n=i[f],n.name&&(e.push(n.name.toLowerCase()),n.options&&n.options.aliases&&n.options.aliases.length))for(o=0;o<n.options.aliases.length;o++)e.push(n.options.aliases[o].toLowerCase());for(t=s(n.fn,"function")?n.fn():n.fn,a=0;a<e.length;a++)l=e[a],c=l.split("."),1===c.length?Modernizr[c[0]]=t:(!Modernizr[c[0]]||Modernizr[c[0]]instanceof Boolean||(Modernizr[c[0]]=new Boolean(Modernizr[c[0]])),Modernizr[c[0]][c[1]]=t),r.push((t?"":"no-")+c.join("-"))}}function a(e){var n=c.className,o=Modernizr._config.classPrefix||"";if(f&&(n=n.baseVal),Modernizr._config.enableJSClass){var s=new RegExp("(^|\\s)"+o+"no-js(\\s|$)");n=n.replace(s,"$1"+o+"js$2")}Modernizr._config.enableClasses&&(n+=" "+o+e.join(" "+o),f?c.className.baseVal=n:c.className=n)}var r=[],i=[],l={_version:"3.5.0",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,n){var o=this;setTimeout(function(){n(o[e])},0)},addTest:function(e,n,o){i.push({name:e,fn:n,options:o})},addAsyncTest:function(e){i.push({name:null,fn:e})}},Modernizr=function(){};Modernizr.prototype=l,Modernizr=new Modernizr,Modernizr.addTest("blobconstructor",function(){try{return!!new Blob}catch(e){return!1}},{aliases:["blob-constructor"]}),Modernizr.addTest("localstorage",function(){var e="modernizr";try{return localStorage.setItem(e,e),localStorage.removeItem(e),!0}catch(n){return!1}});var c=n.documentElement,f="svg"===c.nodeName.toLowerCase();t(),a(r),delete l.addTest,delete l.addAsyncTest;for(var u=0;u<Modernizr._q.length;u++)Modernizr._q[u]();e.Modernizr=Modernizr}(window,document);/*
