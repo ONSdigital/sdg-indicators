@@ -130,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190812121651">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190812220337">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -275,7 +275,7 @@ var translations = {
   <div class="row" id="page-content-row">
     <div class="col-xs-12">
       <div id="page-content">
-  
+  <p>Select the following link to download this indicator data in an accessible format:<br /><a href="https://sustainabledevelopment-uk.github.io/sdg-data/data/6-4-2.csv">6.4.2 Level of water stress - freshwater withdrawal as a proportion of available freshwater resources (CSV 0.45 kB)</a></p>
 
 </div>
 
@@ -284,22 +284,127 @@ var translations = {
 
   <div class="row">
     <div class="col-xs-12">
-      <h2></h2>
+      <h2>Water exploitation index</h2>
     </div>
   </div>
 
-  <div class="row" id="indicatorData" data-indicatorid='indicator_6-4-2' data-id="6-4-2" data-country=""
-  data-charttitle="" data-measurementunit="" data-datasource=""
-  data-geographicalarea="" data-footnote="" data-showdata="false" data-graphtype="line"
-  data-geocoderegex="" data-showmap="" data-startvalues="">
+  <div class="row" id="indicatorData" data-indicatorid='indicator_6-4-2' data-id="6-4-2" data-country="United Kingdom"
+  data-charttitle="Water exploitation index" data-measurementunit="Percentage (%)" data-datasource="Eurostat"
+  data-geographicalarea="United Kingdom" data-footnote="Estimated by Eurostat" data-showdata="true" data-graphtype="line"
+  data-geocoderegex="" data-showmap="false" data-startvalues="">
     
-    <div id="indicator-main" class="col-md-12">
+    <div id="indicator-sidebar" class="col-md-3">
+      <div id="toolbar">
+        <span id="series-help">
+          <h4>Sub-categories</h4>
+          <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+        </span>
+        <p>Click on the legend to remove individual lines from the chart.</p>
+        <div id="fields">
+          <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+        </div>
+      </div>
+      <div id="units"></div>
+    </div>
+    <div id="indicator-main" class="col-md-9">
     
+
+      
+      
+
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    <a href="https://ONSdigital.github.io/sdg-data/headline/6-4-2.csv" class="btn btn-primary btn-download" download="indicator_6-4-2.csv" tabindex="0" role="button">Download Headline CSV</a>
+
+    <a href="https://ONSdigital.github.io/sdg-data/data/6-4-2.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_6-4-2.csv' tabindex='0' role='button'>Download Source CSV</a>
+
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption></caption>
+      <thead>
+        
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <div id="datatableFooter">
+    
+    
+    
+    
+  </div>
+
+</div>
 
       
 
       <section>
 
+        
+        <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+        <div class="async-loaded" style="display:none">
+          <ul class="nav nav-tabs data-view" role="tablist">
+            <li role="presentation" class="nav-item active">
+              <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+>Chart</a>
+            </li>
+            <li role="presentation" class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+>Table</a>
+            </li>
+            <li role="presentation" class="nav-item map" style="display:none">
+              <a data-no-disagg="true" class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Map tab"
+>Map</a>
+            </li></ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content data-view">
+            <div role="tabpanel" class="tab-pane active" id="chartview">
+              
+
+    <div id="dataset-size-warning" style="display:none">
+      <i class="fa fa-bolt"></i> There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+    </div>
+
+    
+    <div class="plot-container">
+        
+<canvas></canvas>
+
+    </div>
+    <div id="plotLegend"></div>
+
+    <div id="chartSelectionDownload"></div>
+
+
+
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tableview">
+              <div id="selectionsTable"></div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="mapview" class="map">
+              <div id="map">
+                <img src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
+              </div>
+            </div>
+            
+          </div>
+        </div>
         
 
         <!-- Nav tabs -->
@@ -365,7 +470,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            
+            Water exploitation index
           
         </td>
         </tr>
@@ -389,7 +494,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            
+            United Kingdom
           
         </td>
         </tr>
@@ -401,7 +506,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            
+            Percentage (%)
           
         </td>
         </tr>
@@ -413,7 +518,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            
+            The Water Exploitation Index (WEI) presented here shows the annual total fresh water abstraction in a country as a percentage of its long term annual average available water from renewable fresh water resources. This includes water removed from any fresh water source, either permanently or temporarily, as well as mine and drainage water and water abstractions from precipitation. Water used for hydroelectricity generation (in situ use) is excluded.
           
         </td>
         </tr>
@@ -437,7 +542,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            
+            Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.
           
         </td>
         </tr>
@@ -455,8 +560,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/cbf72591ebcb21d42808326e3baee150ff527c09" target="_blank">
-                2019-04-18: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/a7ead1c2b4cfbe46e990edad2593ba151ca5daab" target="_blank">
+                2019-08-09: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -480,8 +585,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/8978b10eca23001728b7e9d5cf0ec4a5a29ea74b" target="_blank">
-                2019-08-06: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/0b9551cd2ded3255f95cc38ea5c787738d229885" target="_blank">
+                2019-08-12: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -814,6 +919,247 @@ data-event-label="Change to Sources tab"
 
 
 
+  <div class="row no-gutters">
+  
+   
+    
+    <div class="col-md-6">
+      
+      <table class="table table-hover">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            Eurostat
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            Annual
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            1990
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            UK
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://ec.europa.eu/eurostat/databrowser/view/t2020_rd220/default/table?lang=en" target="_blank">
+                Eurostat water exploitation index <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+  
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            19/11/2018
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            TBD
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            Non-official
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+             ESTAT-RESOURCE-EFFICIENCY@ec.europa.eu
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            Data is collected annually but figures are published every two years.
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </div>
+    
+  </div>
+
 
           </div>
           
@@ -873,7 +1219,7 @@ data-event-label="Change to Sources tab"
 <script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190812121651'></script><script src="/sdg-indicators/assets/js/custom.js?v=20190812121651"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190812220337'></script><script src="/sdg-indicators/assets/js/custom.js?v=20190812220337"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
