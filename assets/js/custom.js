@@ -1,3 +1,8 @@
 opensdg.dataRounding = function(value) {
-  return value.toPrecision(3)
+  if (value == null) {
+    return value
+  }
+  else {
+    return value.toPrecision(3)
+  }
 };
