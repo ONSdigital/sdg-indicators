@@ -14,7 +14,8 @@
 <html lang="en" class="no-js">
     <head>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.forEach%2CString.prototype.includes"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes"></script>
+<script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
 // This is where we initialise any global variables, namespaced in "opensdg".
@@ -101,9 +102,17 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
         
+
+        
+        
         <title>
-        Indicator 2.5.1 - Goal 2 - Zero hunger
+          
+            
+        Indicator 2.5.1 - Goal 2 
+        
+          
         </title>
+        
         <meta name="description" content="">
         <meta property="og:description" content="">
         
@@ -127,22 +136,24 @@ var translations = {
         
 
         
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190823150619">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190823164135">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css" />
-        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' />
-        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
+        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
+        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
 <!-- <div class="container"> -->
+
+<script>translations['header'] = {"disclaimer":"This is a development website. Please <a href=\"mailto:%email_address\">email us your feedback</a> or <a href=\"https://www.surveymonkey.co.uk/r/XFJZGVL\">complete a short survey</a>.","tag_line":"17 Goals to Transform our World","alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content"};</script>
 
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
@@ -168,7 +179,13 @@ var translations = {
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
-        <li><span data-target="menu">Menu</span></li>
+        <li id="menuToggle"
+            aria-label="Menu toggle. Click to expand or collapse the menu."
+            aria-haspopup="true"
+            aria-expanded="false">
+          <span data-target="menu" tabindex="0"
+          role="navigation">Menu</span>
+        </li>
         <li><span data-target="search">Search</span></li>
       </ul>
 
@@ -189,7 +206,7 @@ var translations = {
       <div id="search" class="menu-target">
   <input id="indicator_search" title="Indicator search" placeholder="Indicator search" data-url="/sdg-indicators/indicators.json" data-pageurl="/sdg-indicators/search/?q=" />
   <label for="indicator_search">
-    <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button><span>Search:</span>
+    <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Indicator search></i></button><span>Search:</span>
   </label>
 </div>
 
@@ -238,7 +255,7 @@ var translations = {
   <% } %>
 </script>
 
-<script>translations['indicator'] = {"chart":"Chart","clear_all":"Clear all","clear_selections":"Clear selections","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading_map":"Loading map","map":"Map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","no_data_hint":"No options available because of filters above","select_all":"Select all","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","sub_categories":"Sub-categories","table":"Table","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
+<script>translations['indicator'] = {"chart":"Chart","clear_all":"Clear all","clear_selections":"Clear selections","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_chart_image":"Download Chart Image","download_chart_image_title":"Download chart as image","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading_map":"Loading map","map":"Map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","no_data_hint":"No options available because of filters above","select_all":"Select all","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","sub_categories":"Sub-categories","table":"Table","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
 
 <script>translations['data'] = null;</script>
 
@@ -274,6 +291,8 @@ var translations = {
 
   <div class="row" id="page-content-row">
     <div class="col-xs-12">
+      
+
       <div id="page-content">
   <p>The data for this indicator comes from UK Biodiversity Indicators collated by the Joint Nature Conservation Committee (JNCC).  JNCC collect data on plant genetic resources from the Eurisco catalogue.  For more information about this indicator and the underlying data, see the <a href="http://jncc.defra.gov.uk/page-6573">Plant Genetic Resources - Enrichment Index</a>.<br /><br />Select the following link to download this indicator data in an accessible format:<br /><a href="https://sustainabledevelopment-uk.github.io/sdg-data/data/2-5-1.csv">2.5.1 Number of plant and animal genetic resources for food and agriculture secured in either medium or long-term conservation facilities (CSV 0.778 kB)</a></p>
 
@@ -287,6 +306,11 @@ var translations = {
       <h2>Cumulative Enrichment Index of plant genetic resources in the UK</h2>
     </div>
   </div>
+  
+  
+  
+
+  
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_2-5-1' data-id="2-5-1" data-country="United Kingdom"
   data-charttitle="Cumulative Enrichment Index of plant genetic resources in the UK" data-measurementunit="Cumulative Enrichment Index (CEI)" data-datasource="Joint Nature Conservation Committee (JNCC)/Department for Environment, Food & Rural Affairs (Defra)"
@@ -382,13 +406,20 @@ data-event-label="Change to Map tab"
     </div>
 
     
-    <div class="plot-container">
-        
+    <div id="selectionsChart">
+      <div id="chart-canvas">
+        <h3 class="chart-title">Cumulative Enrichment Index of plant genetic resources in the UK</h3>
+        <div id="chart" class="plot-container">
+          
 <canvas></canvas>
 
+        </div>
+        <div id="plotLegend"></div>
+      </div>
+      <button id="btnSave" title="Download chart as image" class='btn btn-primary btn-download'>
+        Download Chart Image
+      </button>
     </div>
-    <div id="plotLegend"></div>
-
     <div id="chartSelectionDownload"></div>
 
 
@@ -470,7 +501,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            Cumulative Enrichment Index of plant genetic resources in the UK
+            <p>Cumulative Enrichment Index of plant genetic resources in the UK</p>
+
           
         </td>
         </tr>
@@ -482,7 +514,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            The Enrichment Index is a proxy measure of genetic diversity based upon the assumption that genetic diversity increases (to a greater or lesser extent) with originality of accessions, which is estimated based on - the number of species collected;  the number of accessions collected; the number of countries collected from; and the area from which collection took place.
+            <p>The Enrichment Index is a proxy measure of genetic diversity based upon the assumption that genetic diversity increases (to a greater or lesser extent) with originality of accessions, which is estimated based on - the number of species collected;  the number of accessions collected; the number of countries collected from; and the area from which collection took place.</p>
+
           
         </td>
         </tr>
@@ -494,7 +527,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            United Kingdom
+            <p>United Kingdom</p>
+
           
         </td>
         </tr>
@@ -506,7 +540,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            Cumulative Enrichment Index (CEI)
+            <p>Cumulative Enrichment Index (CEI)</p>
+
           
         </td>
         </tr>
@@ -518,8 +553,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            The conservation of plant and animal genetic resources for food and agriculture (GRFA) in medium or long term conservation facilities (ex situ in gene banks) represents the most trusted means of conserving genetic resources worldwide. Plant and animal GRFA conserved in these facilities can be easily used in breeding programmes as well, even directly on-farm. The measure of trends in ex situ conserved materials provides an overall assessment of the extent to which we are managing to maintain and/or increase the total genetic diversity available for future use and thus protected from any permanent loss of genetic diversity which may occur in the natural habitat, i.e. in situ, or on-farm. The two components of the indicator, plant and animal GRFA, are separately counted. Plant genetic resources - The plant component is calculated as the number of accessions of plant genetic resources secured in conservation facilities under medium or long term conditions, where an ‘accession’ is defined as a distinct sample of seeds, planting materials or plants which is maintained in a gene bank. <a href="http://www.fao.org/documents/card/en/c/7b79ee93-0f3c-5f58-9adc-5d4ef063f9c7/">Gene bank Standards for Plant Genetic Resources for Food and Agriculture</a> set the benchmark for current scientific and technical best practices for conserving plant genetic resources, and support key international policy instruments for the conservation and use of plant genetic resources. These voluntary standards have been endorsed by the FAO Commission on Genetic Resources for Food and Agriculture at its  <a href="http://www.fao.org/docrep/meeting/028/mg538e.pdf">Fourteenth Regular Session</a>.
-Animal genetic resources - The animal component is calculated as the number of local breeds stored within a gene bank collection with an amount of genetic material stored which is required to reconstitute the breed (based on the Guidelines on Cryoconservation of Animal Genetic Resources, FAO, 2012, accessible <a href="http://www.fao.org/docrep/016/i3017e/i3017e00.htm">here</a>). The guidelines have been endorsed by the Commission on Genetic Resources for Food and Agriculture at its <a href="http://www.fao.org/docrep/meeting/024/mc192e.pdf">Thirteenth Regular Session</a>.
+            <p>The conservation of plant and animal genetic resources for food and agriculture (GRFA) in medium or long term conservation facilities (ex situ in gene banks) represents the most trusted means of conserving genetic resources worldwide. Plant and animal GRFA conserved in these facilities can be easily used in breeding programmes as well, even directly on-farm. The measure of trends in ex situ conserved materials provides an overall assessment of the extent to which we are managing to maintain and/or increase the total genetic diversity available for future use and thus protected from any permanent loss of genetic diversity which may occur in the natural habitat, i.e. in situ, or on-farm. The two components of the indicator, plant and animal GRFA, are separately counted. Plant genetic resources - The plant component is calculated as the number of accessions of plant genetic resources secured in conservation facilities under medium or long term conditions, where an ‘accession’ is defined as a distinct sample of seeds, planting materials or plants which is maintained in a gene bank. <a href="http://www.fao.org/documents/card/en/c/7b79ee93-0f3c-5f58-9adc-5d4ef063f9c7/">Gene bank Standards for Plant Genetic Resources for Food and Agriculture</a> set the benchmark for current scientific and technical best practices for conserving plant genetic resources, and support key international policy instruments for the conservation and use of plant genetic resources. These voluntary standards have been endorsed by the FAO Commission on Genetic Resources for Food and Agriculture at its  <a href="http://www.fao.org/docrep/meeting/028/mg538e.pdf">Fourteenth Regular Session</a>.
+Animal genetic resources - The animal component is calculated as the number of local breeds stored within a gene bank collection with an amount of genetic material stored which is required to reconstitute the breed (based on the Guidelines on Cryoconservation of Animal Genetic Resources, FAO, 2012, accessible <a href="http://www.fao.org/docrep/016/i3017e/i3017e00.htm">here</a>). The guidelines have been endorsed by the Commission on Genetic Resources for Food and Agriculture at its <a href="http://www.fao.org/docrep/meeting/024/mc192e.pdf">Thirteenth Regular Session</a>.</p>
+
           
         </td>
         </tr>
@@ -532,6 +568,7 @@ Animal genetic resources - The animal component is calculated as the number of l
         <td>
           
             
+
           
         </td>
         </tr>
@@ -543,7 +580,8 @@ Animal genetic resources - The animal component is calculated as the number of l
         <th scope="row">Other information </th>
         <td>
           
-            This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.
+            <p>This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.</p>
+
           
         </td>
         </tr>
@@ -738,7 +776,8 @@ Animal genetic resources - The animal component is calculated as the number of l
         <th scope="row">Indicator name </th>
         <td>
           
-            2.5.1 Number of plant and animal genetic resources for food and agriculture secured in either medium or long-term conservation facilities
+            <p>2.5.1 Number of plant and animal genetic resources for food and agriculture secured in either medium or long-term conservation facilities</p>
+
           
         </td>
         </tr>
@@ -750,7 +789,8 @@ Animal genetic resources - The animal component is calculated as the number of l
         <th scope="row">Indicator number </th>
         <td>
           
-            2.5.1
+            <p>2.5.1</p>
+
           
         </td>
         </tr>
@@ -762,7 +802,8 @@ Animal genetic resources - The animal component is calculated as the number of l
         <th scope="row">Indicator display order (within Goal page) </th>
         <td>
           
-            02-05-01
+            <p>02-05-01</p>
+
           
         </td>
         </tr>
@@ -774,7 +815,8 @@ Animal genetic resources - The animal component is calculated as the number of l
         <th scope="row">Target name </th>
         <td>
           
-            2.5 By 2020, maintain the genetic diversity of seeds, cultivated plants and farmed and domesticated animals and their related wild species, including through soundly managed and diversified seed and plant banks at the national, regional and international levels, and promote access to and fair and equitable sharing of benefits arising from the utilization of genetic resources and associated traditional knowledge, as internationally agreed
+            <p>2.5 By 2020, maintain the genetic diversity of seeds, cultivated plants and farmed and domesticated animals and their related wild species, including through soundly managed and diversified seed and plant banks at the national, regional and international levels, and promote access to and fair and equitable sharing of benefits arising from the utilization of genetic resources and associated traditional knowledge, as internationally agreed</p>
+
           
         </td>
         </tr>
@@ -786,7 +828,8 @@ Animal genetic resources - The animal component is calculated as the number of l
         <th scope="row">Target number </th>
         <td>
           
-            2.5
+            <p>2.5</p>
+
           
         </td>
         </tr>
@@ -799,6 +842,7 @@ Animal genetic resources - The animal component is calculated as the number of l
         <td>
           
             
+
           
         </td>
         </tr>
@@ -810,7 +854,8 @@ Animal genetic resources - The animal component is calculated as the number of l
         <th scope="row">UN designated tier </th>
         <td>
           
-            Tier I
+            <p>Tier I</p>
+
           
         </td>
         </tr>
@@ -822,7 +867,8 @@ Animal genetic resources - The animal component is calculated as the number of l
         <th scope="row">UN custodian agency </th>
         <td>
           
-            Food and Agriculture Organization (FAO)
+            <p>Food and Agriculture Organization (FAO)</p>
+
           
         </td>
         </tr>
@@ -1039,7 +1085,8 @@ Animal genetic resources - The animal component is calculated as the number of l
         <th scope="row">Organisation </th>
         <td>
           
-            Joint Nature Conservation Committee (JNCC)/Department for Environment, Food & Rural Affairs (Defra)
+            <p>Joint Nature Conservation Committee (JNCC)/Department for Environment, Food &amp; Rural Affairs (Defra)</p>
+
           
         </td>
         </tr>
@@ -1051,7 +1098,8 @@ Animal genetic resources - The animal component is calculated as the number of l
         <th scope="row">Periodicity </th>
         <td>
           
-            Annual
+            <p>Annual</p>
+
           
         </td>
         </tr>
@@ -1063,7 +1111,8 @@ Animal genetic resources - The animal component is calculated as the number of l
         <th scope="row">Earliest available data </th>
         <td>
           
-            1959
+            <p>1959</p>
+
           
         </td>
         </tr>
@@ -1075,7 +1124,8 @@ Animal genetic resources - The animal component is calculated as the number of l
         <th scope="row">Geographical coverage </th>
         <td>
           
-            United Kingdom
+            <p>United Kingdom</p>
+
           
         </td>
         </tr>
@@ -1112,7 +1162,8 @@ Animal genetic resources - The animal component is calculated as the number of l
         <th scope="row">Release date </th>
         <td>
           
-            07/06/2018
+            <p>07/06/2018</p>
+
           
         </td>
         </tr>
@@ -1124,7 +1175,8 @@ Animal genetic resources - The animal component is calculated as the number of l
         <th scope="row">Next release </th>
         <td>
           
-            TBC
+            <p>TBC</p>
+
           
         </td>
         </tr>
@@ -1136,7 +1188,8 @@ Animal genetic resources - The animal component is calculated as the number of l
         <th scope="row">Statistical classification </th>
         <td>
           
-            Official Statistic
+            <p>Official Statistic</p>
+
           
         </td>
         </tr>
@@ -1148,7 +1201,8 @@ Animal genetic resources - The animal component is calculated as the number of l
         <th scope="row">Contact details </th>
         <td>
           
-            comment@jncc.gov.uk
+            <p>comment@jncc.gov.uk</p>
+
           
         </td>
         </tr>
@@ -1160,7 +1214,8 @@ Animal genetic resources - The animal component is calculated as the number of l
         <th scope="row">Other information </th>
         <td>
           
-            These data are taken by the JNCC from the <a href="https://eurisco.ipk-gatersleben.de/apex/f?p=103:1">Eurisco catalogue</a>.  Date of data download 7 June 2018; based on UK contributions from - Genetic Resources Unit, Aberystwyth; Heritage Seed Library, Garden Organic; Commonwealth Potato Collection, The James Hutton Institute; Germplasm Resources Unit, John Innes Centre; Nottingham Arabidopsis Stock Centre; Millennium Seed Bank Partnership; Science and Advice for Scottish Agriculture, Scottish Government; Warwick Crop Centre, Genetic Resources Unit.
+            <p>These data are taken by the JNCC from the <a href="https://eurisco.ipk-gatersleben.de/apex/f?p=103:1">Eurisco catalogue</a>.  Date of data download 7 June 2018; based on UK contributions from - Genetic Resources Unit, Aberystwyth; Heritage Seed Library, Garden Organic; Commonwealth Potato Collection, The James Hutton Institute; Germplasm Resources Unit, John Innes Centre; Nottingham Arabidopsis Stock Centre; Millennium Seed Bank Partnership; Science and Advice for Scottish Agriculture, Scottish Government; Warwick Crop Centre, Genetic Resources Unit.</p>
+
           
         </td>
         </tr>
@@ -1293,7 +1348,7 @@ Animal genetic resources - The animal component is calculated as the number of l
           <ul>
             <li><a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a></li>
             
-            <li><a class="twitter-follow-button" href="https://twitter.com/ONS" data-show-count="false">@ONS</a></li>
+            <li><a class="twitter-follow-button" href="https://twitter.com/ONS" data-show-count="false">Twitter: @ONS</a></li>
             
             
             <li><a href="/sdg-indicators/faq/">FAQ</a></li>
@@ -1318,7 +1373,6 @@ Animal genetic resources - The animal component is calculated as the number of l
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
-<script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
 <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
@@ -1328,7 +1382,9 @@ Animal genetic resources - The animal component is calculated as the number of l
 <script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190823150619'></script><script src="/sdg-indicators/assets/js/custom.js?v=20190823150619"></script><script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190823164135'></script><script src="/sdg-indicators/assets/js/custom.js?v=20190823164135"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1364,7 +1420,7 @@ $(function() {
           view  = new indicatorView(model, {
             rootElement: '#indicatorData',
             legendElement: '#plotLegend',
-            maxChartHeight: 600,
+            maxChartHeight: 420,
             tableColumnDefs: [
               { maxCharCount: 25 }, // nowrap
               { maxCharCount: 35, width: 200 },

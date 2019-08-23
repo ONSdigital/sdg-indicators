@@ -519,9 +519,13 @@ var accessibilitySwitcher = function() {
   var contrastIdentifiers = ['default', 'high'];
 
   function setActiveContrast(contrast) {
+    var contrastType = "long"
     _.each(contrastIdentifiers, function(id) {
       $('body').removeClass('contrast-' + id);
     });
+    if(contrastType === "long"){
+	    $("body").addClass("long");
+    }
     $('body').addClass('contrast-' + contrast);
 
     createCookie("contrast", contrast, 365);
@@ -580,13 +584,37 @@ var accessibilitySwitcher = function() {
       'class': 'nav-link contrast contrast-' + contrast
     }).html($('<a />').attr(gaAttributes).attr({
       'href': 'javascript:void(0)',
-      'title': 'Set to ' + contrast + ' contrast',
+      'title': getContrastToggleTitle(contrast),
       'data-contrast': contrast,
-    }).text('A').click(function() {
+    }).html(getContrastToggleLabel(contrast).replace(" ", "<br/>")).click(function() {
       setActiveContrast($(this).data('contrast'));
       imageFix(contrast);
     })));
   });
+  
+function getContrastToggleLabel(identifier){
+  var contrastType = "long"
+  if(contrastType === "long") {
+    if(identifier === "default"){	
+      return translations.header.default_contrast; 	
+    }	
+    else if(identifier === "high"){	
+      return translations.header.high_contrast;	
+    }
+  }
+  else {
+    return 'A'
+  }
+}
+
+function getContrastToggleTitle(identifier){	
+  if(identifier === "default"){	
+    return translations.header.disable_high_contrast; 	
+  }	
+  else if(identifier === "high"){	
+    return translations.header.enable_high_contrast;	
+  }	
+}
   
   
 function imageFix(contrast) {
@@ -1201,7 +1229,8 @@ var indicatorDataStore = function(dataUrl) {
     if((options.initial || options.unitsChangeSeries) && !this.hasHeadline) {
       // if there is no initial data, select some:
 
-      var minimumFieldSelections = {};
+      var minimumFieldSelections = {},
+          forceUnit = false;
       // First, do we have some already pre-configured from data_start_values?
       if (this.startValues) {
         // We need to confirm that these values are valid, and pair them up
@@ -1226,6 +1255,8 @@ var indicatorDataStore = function(dataUrl) {
         // value in each drop-down, up until there are enough selected to display
         // data on the graph. First we get the number of fields:
         var fieldNames = _.pluck(this.fieldItemStates, 'field');
+        // Manually add "Units" so that we can check for required units.
+        fieldNames.push('Units');
         // We filter our full dataset to only those fields.
         var fieldData = _.map(this.data, function(item) { return _.pick(item, fieldNames); });
         // We then sort the data by each field. We go in reverse order so that the
@@ -1237,11 +1268,25 @@ var indicatorDataStore = function(dataUrl) {
         // rows. In other words we want the row with the fewest number of fields.
         fieldData = _.sortBy(fieldData, function(item) { return _.size(item); });
         minimumFieldSelections = fieldData[0];
+        // If we ended up finding something with "Units", we need to remove it
+        // before continuing and then remember to force it later.
+        if ('Units' in minimumFieldSelections) {
+          forceUnit = minimumFieldSelections['Units'];
+          delete minimumFieldSelections['Units'];
+        }
+      }
+
+      // Ensure that we only force a unit on the initial load.
+      if (!options.initial) {
+        forceUnit = false;
       }
 
       // Now that we are all sorted, we notify the view that there is no headline,
       // and pass along the first row as the minimum field selections.
-      this.onNoHeadlineData.notify({ minimumFieldSelections: minimumFieldSelections });
+      this.onNoHeadlineData.notify({
+        minimumFieldSelections: minimumFieldSelections,
+        forceUnit: forceUnit
+      });
     }
   };
 };
@@ -1349,6 +1394,13 @@ var indicatorView = function (model, options) {
 
   this._model.onNoHeadlineData.attach(function(sender, args) {
     if (args && args.minimumFieldSelections && _.size(args.minimumFieldSelections)) {
+      // Force a unit if necessary.
+      if (args.forceUnit) {
+        $('#units input[type="radio"]')
+          .filter('[value="' + args.forceUnit + '"]')
+          .first()
+          .click();
+      }
       // If we have minimum field selections, impersonate a user and "click" on
       // each item.
       for (var fieldToSelect in args.minimumFieldSelections) {
@@ -1521,14 +1573,28 @@ var indicatorView = function (model, options) {
 
   $(this._rootElement).on('click', '.variable-selector', function(e) {
     var currentSelector = e.target;
-
+    
+    var currentButton = getCurrentButtonFromCurrentSelector(currentSelector);
+    
     var options = $(this).find('.variable-options');
     var optionsAreVisible = options.is(':visible');
     $(options)[optionsAreVisible ? 'hide' : 'show']();
-    currentSelector.setAttribute("aria-expanded", optionsAreVisible ? "true" : "false");
+    currentButton.setAttribute("aria-expanded", optionsAreVisible ? "true" : "false");
+    
+    var optionsVisibleAfterClick = options.is(':visible');
+    currentButton.setAttribute("aria-expanded", optionsVisibleAfterClick ? "true" : "false");
 
     e.stopPropagation();
   });
+  
+  function getCurrentButtonFromCurrentSelector(currentSelector){
+    if(currentSelector.tagName === "H5"){
+      return currentSelector.parentElement;
+    }
+    else if(currentSelector.tagName === "BUTTON"){
+      return currentSelector;
+    }
+  }
 
   this.initialiseSeries = function(args) {
     if(args.series.length) {
@@ -1590,6 +1656,8 @@ var indicatorView = function (model, options) {
     $(this._legendElement).html(view_obj._chartInstance.generateLegend());
   };
 
+
+
   this.createPlot = function (chartInfo) {
 
     var that = this;
@@ -1621,14 +1689,6 @@ var indicatorView = function (model, options) {
             }
           }]
         },
-        layout: {
-          padding: {
-            top: 20,
-            // default of 85, but do a rough line count based on 150
-            // characters per line * 20 pixels per row
-            bottom: that._model.footnote ? (20 * (that._model.footnote.length / 150)) + 85 : 85
-          }
-        },
         legendCallback: function(chart) {
             var text = ['<ul id="legend">'];
 
@@ -1647,11 +1707,7 @@ var indicatorView = function (model, options) {
           display: false
         },
         title: {
-          fontSize: 18,
-          fontStyle: 'normal',
-          display: this._model.chartTitle,
-          text: this._model.chartTitle,
-          padding: 20
+          display: false
         },
         plugins: {
           scaler: {}
@@ -1674,57 +1730,56 @@ var indicatorView = function (model, options) {
         ctx.textAlign = 'left';
         ctx.textBaseline = 'middle';
         ctx.fillStyle = '#6e6e6e';
-
-        var getLinesFromText = function(text) {
-          var width = parseInt($canvas.css('width')), //width(),
-          lines = [],
-          line = '',
-          lineTest = '',
-          words = text.split(' ');
-
-          for (var i = 0, len = words.length; i < len; i++) {
-            lineTest = line + words[i] + ' ';
-
-            // Check total width of line or last word
-            if (ctx.measureText(lineTest).width > width) {
-              // Record and reset the current line
-              lines.push(line);
-              line = words[i] + ' ';
-            } else {
-              line = lineTest;
-            }
-          }
-
-          // catch left overs:
-          if (line.length > 0) {
-            lines.push(line.trim());
-          }
-
-          return lines;
-        };
-
-        function putTextOutputs(textOutputs, x) {
-          var y = $canvas.height() - 10 - ((textOutputs.length - 1) * textRowHeight);
-
-          _.each(textOutputs, function(textOutput) {
-            ctx.fillText(textOutput, x, y);
-            y += textRowHeight;
-          });
-        }
-
-        var graphFooterItems = [];
-        _.each(that._model.footerFields, function(value, key) {
-          // For each footer item, we have to manually do any line
-          // wrapping, because this is canvas, not HTML.
-          var rows = getLinesFromText(key + ': ' + value);
-          graphFooterItems = graphFooterItems.concat(rows);
-          if (rows.length > 1) {
-            that._chartInstance.resize(parseInt($canvas.css('width')), parseInt($canvas.css('height')) + textRowHeight * rows.length);
-            that._chartInstance.resize();
-          }
-        });
-        putTextOutputs(graphFooterItems, 0);
       }
+    });
+
+    this.createTableFooter('selectionChartFooter', chartInfo.footerFields, '#chart-canvas');
+    this.createDownloadButton(chartInfo.selectionsTable, 'Chart', chartInfo.indicatorId, '#selectionsChart');
+    this.createSourceButton(chartInfo.shortIndicatorId, '#selectionsChart');
+
+    $("#btnSave").click(function() {
+      var filename = chartInfo.indicatorId + '.png',
+          element = document.getElementById('chart-canvas'),
+          height = element.clientHeight + 25,
+          width = element.clientWidth + 25;
+      var options = {
+        // These options fix the height, width, and position.
+        height: height,
+        width: width,
+        windowHeight: height,
+        windowWidth: width,
+        x: 0,
+        y: 0,
+        scrollX: 0,
+        scrollY: 0,
+        // Allow a chance to alter the screenshot's HTML.
+        onclone: function(clone) {
+          // Add a body class so that the screenshot style can be custom.
+          clone.body.classList.add('image-download-in-progress');
+        },
+        // Decide which elements to skip.
+        ignoreElements: function(el) {
+          // Keep all style, head, and link elements.
+          var keepTags = ['STYLE', 'HEAD', 'LINK'];
+          if (keepTags.indexOf(el.tagName) !== -1) {
+            return false;
+          }
+          // Keep all elements contained by (or containing) the screenshot
+          // target element.
+          if (element.contains(el) || el.contains(element)) {
+            return false;
+          }
+          // Leave out everything else.
+          return true;
+        }
+      };
+      // First convert the target to a canvas.
+      html2canvas(element, options).then(function(canvas) {
+        // Then download that canvas as a PNG file.
+        canvas.toBlob(function(blob) {
+          saveAs(blob, filename);
+        });
+      });
     });
 
     $(this._legendElement).html(view_obj._chartInstance.generateLegend());
@@ -1806,14 +1861,11 @@ var indicatorView = function (model, options) {
 
   this.createSelectionsTable = function(chartInfo) {
     this.createTable(chartInfo.selectionsTable, chartInfo.indicatorId, '#selectionsTable', true);
-    this.createTableFooter(chartInfo.footerFields, '#selectionsTable');
+    this.createTableFooter('selectionTableFooter', chartInfo.footerFields, '#selectionsTable');
     this.createDownloadButton(chartInfo.selectionsTable, 'Table', chartInfo.indicatorId, '#selectionsTable');
     this.createSourceButton(chartInfo.shortIndicatorId, '#selectionsTable');
-    // Chart buttons
-    $('#chartSelectionDownload').empty();
-    this.createDownloadButton(chartInfo.selectionsTable, 'Chart', chartInfo.indicatorId, '#chartSelectionDownload');
-    this.createSourceButton(chartInfo.shortIndicatorId, '#chartSelectionDownload');
   };
+
 
   this.createDownloadButton = function(table, name, indicatorId, el) {
     if(window.Modernizr.blobconstructor) {
@@ -1930,9 +1982,9 @@ var indicatorView = function (model, options) {
     }
   };
 
-  this.createTableFooter = function(footerFields, el) {
+  this.createTableFooter = function(divid, footerFields, el) {
     var footdiv = $('<div />').attr({
-      'id': 'selectionTableFooter',
+      'id': divid,
       'class': 'table-footer-text'
     });
 
@@ -1942,6 +1994,7 @@ var indicatorView = function (model, options) {
 
     $(el).append(footdiv);
   };
+
 
   this.sortFieldGroup = function(fieldGroupElement) {
     var sortLabels = function(a, b) {
@@ -1954,7 +2007,7 @@ var indicatorView = function (model, options) {
     };
     fieldGroupElement.find('label')
     .sort(sortLabels)
-    .appendTo(fieldGroupElement.find('.variable-options'));
+    .appendTo(fieldGroupElement.find('#indicatorData .variable-options'));
   }
 };
 var indicatorController = function (model, view) {
@@ -2099,6 +2152,34 @@ $(function() {
     $('.top-level li').removeClass('active');
     $('.top-level span').removeClass('open');
   };  
+  
+  var topLevelMenuToggle = document.querySelector("#menuToggle");
+  
+  topLevelMenuToggle.addEventListener("click", function(){
+    setTopLevelMenuAccessibilityActions();
+  });
+  function setTopLevelMenuAccessibilityActions(){
+    if(topLevelMenuIsOpen()){
+      setAriaExpandedStatus(true);
+      focusOnFirstMenuElement();
+    }
+    else{
+      setAriaExpandedStatus(false);
+    }
+    function topLevelMenuIsOpen(){
+      return topLevelMenuToggle.classList.contains("active");
+    }
+    function setAriaExpandedStatus(expandedStatus){
+      topLevelMenuToggle.setAttribute("aria-expanded", expandedStatus.toString());
+    }
+    function focusOnFirstMenuElement(){
+      var firstMenuElement = getFirstMenuElement();
+      firstMenuElement.focus();
+    }
+    function getFirstMenuElement(){
+      return document.querySelector("#menu .nav-link:first-child a");
+    }
+  }
 
   $('.top-level span, .top-level button').click(function() {
     var target = $(this).data('target');

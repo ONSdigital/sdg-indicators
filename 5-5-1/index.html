@@ -14,7 +14,8 @@
 <html lang="en" class="no-js">
     <head>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.forEach%2CString.prototype.includes"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes"></script>
+<script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
 // This is where we initialise any global variables, namespaced in "opensdg".
@@ -101,9 +102,17 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
         
+
+        
+        
         <title>
-        Indicator 5.5.1 - Goal 5 - Gender equality
+          
+            
+        Indicator 5.5.1 - Goal 5 
+        
+          
         </title>
+        
         <meta name="description" content="">
         <meta property="og:description" content="">
         
@@ -127,22 +136,24 @@ var translations = {
         
 
         
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190823150619">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190823164135">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css" />
-        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' />
-        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
+        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
+        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
 <!-- <div class="container"> -->
+
+<script>translations['header'] = {"disclaimer":"This is a development website. Please <a href=\"mailto:%email_address\">email us your feedback</a> or <a href=\"https://www.surveymonkey.co.uk/r/XFJZGVL\">complete a short survey</a>.","tag_line":"17 Goals to Transform our World","alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content"};</script>
 
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
@@ -168,7 +179,13 @@ var translations = {
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
-        <li><span data-target="menu">Menu</span></li>
+        <li id="menuToggle"
+            aria-label="Menu toggle. Click to expand or collapse the menu."
+            aria-haspopup="true"
+            aria-expanded="false">
+          <span data-target="menu" tabindex="0"
+          role="navigation">Menu</span>
+        </li>
         <li><span data-target="search">Search</span></li>
       </ul>
 
@@ -189,7 +206,7 @@ var translations = {
       <div id="search" class="menu-target">
   <input id="indicator_search" title="Indicator search" placeholder="Indicator search" data-url="/sdg-indicators/indicators.json" data-pageurl="/sdg-indicators/search/?q=" />
   <label for="indicator_search">
-    <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button><span>Search:</span>
+    <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Indicator search></i></button><span>Search:</span>
   </label>
 </div>
 
@@ -238,7 +255,7 @@ var translations = {
   <% } %>
 </script>
 
-<script>translations['indicator'] = {"chart":"Chart","clear_all":"Clear all","clear_selections":"Clear selections","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading_map":"Loading map","map":"Map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","no_data_hint":"No options available because of filters above","select_all":"Select all","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","sub_categories":"Sub-categories","table":"Table","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
+<script>translations['indicator'] = {"chart":"Chart","clear_all":"Clear all","clear_selections":"Clear selections","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_chart_image":"Download Chart Image","download_chart_image_title":"Download chart as image","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading_map":"Loading map","map":"Map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","no_data_hint":"No options available because of filters above","select_all":"Select all","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","sub_categories":"Sub-categories","table":"Table","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
 
 <script>translations['data'] = null;</script>
 
@@ -274,6 +291,8 @@ var translations = {
 
   <div class="row" id="page-content-row">
     <div class="col-xs-12">
+      
+
       <div id="page-content">
   <p>Select the following link to download this indicator data in an accessible format:<br /><a href="https://sustainabledevelopment-uk.github.io/sdg-data/data/5-5-1.csv">5.5.1 Proportion of seats held by women in (a) national parliaments and (b) local governments (CSV 8.346 kB)</a></p>
 
@@ -287,9 +306,14 @@ var translations = {
       <h2>Proportion of seats held by women in national parliaments and local governments</h2>
     </div>
   </div>
+  
+  
+  
+
+  
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_5-5-1' data-id="5-5-1" data-country=""
-  data-charttitle="Proportion of seats held by women in national parliaments and local governments" data-measurementunit="Percentage (%)" data-datasource="House of Commons Library"
+  data-charttitle="Proportion of seats held by women in national parliaments and local governments" data-measurementunit="Percentage (%)" data-datasource="House of Commons Library, House of Lords Library, National Assembly for Wales, The Scottish Parliament, Norther Ireland Assembly, Local Government Association, Local Government Commission, Northern Ireland Assembly, Lincoln University"
   data-geographicalarea="" data-footnote="1) Data for the House of Commons are only available for the general election years. 2) In 1974 there were two General elections in February (labelled a) and October (labelled b). 3) Data for the Scottish Parliament, the Welsh Assembly and the Northern Ireland Assembly are calculated at the beginning of an assembly, and do not take into account changes during the course of that assembly. This also applies for Local Authority areas. Years on graph axis represent years in which any election was held. 4) The x-axis is not spaced evenly by year." data-showdata="true" data-graphtype="bar"
   data-geocoderegex="" data-showmap="false" data-startvalues="">
     
@@ -382,13 +406,20 @@ data-event-label="Change to Map tab"
     </div>
 
     
-    <div class="plot-container">
-        
+    <div id="selectionsChart">
+      <div id="chart-canvas">
+        <h3 class="chart-title">Proportion of seats held by women in national parliaments and local governments</h3>
+        <div id="chart" class="plot-container">
+          
 <canvas></canvas>
 
+        </div>
+        <div id="plotLegend"></div>
+      </div>
+      <button id="btnSave" title="Download chart as image" class='btn btn-primary btn-download'>
+        Download Chart Image
+      </button>
     </div>
-    <div id="plotLegend"></div>
-
     <div id="chartSelectionDownload"></div>
 
 
@@ -470,7 +501,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            Proportion of seats held by women in national parliaments and local governments
+            <p>Proportion of seats held by women in national parliaments and local governments</p>
+
           
         </td>
         </tr>
@@ -482,7 +514,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            Percentage of seats held in Parliament by members who are women
+            <p>Percentage of seats held in Parliament by members who are women</p>
+
           
         </td>
         </tr>
@@ -495,6 +528,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+
           
         </td>
         </tr>
@@ -506,7 +540,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            Percentage (%)
+            <p>Percentage (%)</p>
+
           
         </td>
         </tr>
@@ -518,7 +553,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            Seats refer to the number of parliamentary mandates, also known as the number of members of parliament. Seats are usually won by members in general parliamentary elections. Seats may also be filled by nomination, appointment, indirect election, rotation of members and by-election.
+            <p>Seats refer to the number of parliamentary mandates, also known as the number of members of parliament. Seats are usually won by members in general parliamentary elections. Seats may also be filled by nomination, appointment, indirect election, rotation of members and by-election.</p>
+
           
         </td>
         </tr>
@@ -530,7 +566,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            The proportion of seats held by women in national parliament is derived by dividing the total number of seats occupied by women by the total number of seats in parliament. There is no weighting or normalising of statistics.
+            <p>The proportion of seats held by women in national parliament is derived by dividing the total number of seats occupied by women by the total number of seats in parliament. There is no weighting or normalising of statistics.</p>
+
           
         </td>
         </tr>
@@ -542,7 +579,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.
+            <p>Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.</p>
+
           
         </td>
         </tr>
@@ -737,7 +775,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator name </th>
         <td>
           
-            5.5.1 Proportion of seats held by women in (a) national parliaments and (b) local governments
+            <p>5.5.1 Proportion of seats held by women in (a) national parliaments and (b) local governments</p>
+
           
         </td>
         </tr>
@@ -749,7 +788,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator number </th>
         <td>
           
-            5.5.1
+            <p>5.5.1</p>
+
           
         </td>
         </tr>
@@ -761,7 +801,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator display order (within Goal page) </th>
         <td>
           
-            05-05-01
+            <p>05-05-01</p>
+
           
         </td>
         </tr>
@@ -773,7 +814,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Target name </th>
         <td>
           
-            5.5 Ensure women’s full and effective participation and equal opportunities for leadership at all levels of decision-making in political, economic and public life
+            <p>5.5 Ensure women’s full and effective participation and equal opportunities for leadership at all levels of decision-making in political, economic and public life</p>
+
           
         </td>
         </tr>
@@ -785,7 +827,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Target number </th>
         <td>
           
-            5.5
+            <p>5.5</p>
+
           
         </td>
         </tr>
@@ -798,6 +841,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+
           
         </td>
         </tr>
@@ -809,7 +853,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">UN designated tier </th>
         <td>
           
-            1(a)/ 2 (b)
+            <p>1(a)/ 2 (b)</p>
+
           
         </td>
         </tr>
@@ -821,7 +866,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">UN custodian agency </th>
         <td>
           
-            Inter-Parliamentary Union (IPU), UN Women
+            <p>Inter-Parliamentary Union (IPU), UN Women</p>
+
           
         </td>
         </tr>
@@ -1040,7 +1086,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            House of Commons Library
+            <p>House of Commons Library</p>
+
           
         </td>
         </tr>
@@ -1052,7 +1099,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            Discontinuous
+            <p>Discontinuous</p>
+
           
         </td>
         </tr>
@@ -1064,7 +1112,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            1918
+            <p>1918</p>
+
           
         </td>
         </tr>
@@ -1076,7 +1125,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            United Kingdom
+            <p>United Kingdom</p>
+
           
         </td>
         </tr>
@@ -1113,7 +1163,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            20/07/2018
+            <p>20/07/2018</p>
+
           
         </td>
         </tr>
@@ -1125,7 +1176,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            TBC
+            <p>TBC</p>
+
           
         </td>
         </tr>
@@ -1137,7 +1189,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            Official Statistic
+            <p>Official Statistic</p>
+
           
         </td>
         </tr>
@@ -1149,7 +1202,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            hcinfo@parliament.uk
+            <p>hcinfo@parliament.uk</p>
+
           
         </td>
         </tr>
@@ -1161,7 +1215,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            The underlying data from this report has been acquired from the author.
+            <p>The underlying data from this report has been acquired from the author.</p>
+
           
         </td>
         </tr>
@@ -1327,7 +1382,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            House of Lords Library
+            <p>House of Lords Library</p>
+
           
         </td>
         </tr>
@@ -1339,7 +1395,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            Discontinuous
+            <p>Discontinuous</p>
+
           
         </td>
         </tr>
@@ -1351,7 +1408,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            1958
+            <p>1958</p>
+
           
         </td>
         </tr>
@@ -1363,7 +1421,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            United Kingdom
+            <p>United Kingdom</p>
+
           
         </td>
         </tr>
@@ -1400,7 +1459,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            30/06/2015
+            <p>30/06/2015</p>
+
           
         </td>
         </tr>
@@ -1412,7 +1472,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            TBC
+            <p>TBC</p>
+
           
         </td>
         </tr>
@@ -1424,7 +1485,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            Official Statistic
+            <p>Official Statistic</p>
+
           
         </td>
         </tr>
@@ -1436,7 +1498,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            HLInfo@Parliament.uk
+            <p>HLInfo@Parliament.uk</p>
+
           
         </td>
         </tr>
@@ -1448,7 +1511,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            The underlying data from this report has been acquired from the author.
+            <p>The underlying data from this report has been acquired from the author.</p>
+
           
         </td>
         </tr>
@@ -1614,7 +1678,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            National Assembly for Wales
+            <p>National Assembly for Wales</p>
+
           
         </td>
         </tr>
@@ -1626,7 +1691,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            Discontinuous
+            <p>Discontinuous</p>
+
           
         </td>
         </tr>
@@ -1638,7 +1704,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            1999
+            <p>1999</p>
+
           
         </td>
         </tr>
@@ -1650,7 +1717,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            Wales
+            <p>Wales</p>
+
           
         </td>
         </tr>
@@ -1687,7 +1755,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            27/05/2016
+            <p>27/05/2016</p>
+
           
         </td>
         </tr>
@@ -1699,7 +1768,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            TBC
+            <p>TBC</p>
+
           
         </td>
         </tr>
@@ -1711,7 +1781,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            Official Statistic
+            <p>Official Statistic</p>
+
           
         </td>
         </tr>
@@ -1723,7 +1794,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            contact@assembly.wales
+            <p>contact@assembly.wales</p>
+
           
         </td>
         </tr>
@@ -1736,6 +1808,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+
           
         </td>
         </tr>
@@ -1901,7 +1974,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            The Scottish Parliament
+            <p>The Scottish Parliament</p>
+
           
         </td>
         </tr>
@@ -1913,7 +1987,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            Discontinuous
+            <p>Discontinuous</p>
+
           
         </td>
         </tr>
@@ -1925,7 +2000,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            1999
+            <p>1999</p>
+
           
         </td>
         </tr>
@@ -1937,7 +2013,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            Scotland
+            <p>Scotland</p>
+
           
         </td>
         </tr>
@@ -1974,7 +2051,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            04/08/2017
+            <p>04/08/2017</p>
+
           
         </td>
         </tr>
@@ -1986,7 +2064,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            TBC
+            <p>TBC</p>
+
           
         </td>
         </tr>
@@ -1998,7 +2077,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            Official
+            <p>Official</p>
+
           
         </td>
         </tr>
@@ -2010,7 +2090,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            info@parliament.scot
+            <p>info@parliament.scot</p>
+
           
         </td>
         </tr>
@@ -2023,6 +2104,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+
           
         </td>
         </tr>
@@ -2188,7 +2270,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            Norther Ireland Assembly
+            <p>Norther Ireland Assembly</p>
+
           
         </td>
         </tr>
@@ -2200,7 +2283,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            Discontinuous
+            <p>Discontinuous</p>
+
           
         </td>
         </tr>
@@ -2212,7 +2296,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            1998
+            <p>1998</p>
+
           
         </td>
         </tr>
@@ -2224,7 +2309,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            Northern Ireland
+            <p>Northern Ireland</p>
+
           
         </td>
         </tr>
@@ -2261,7 +2347,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            NA
+            <p>NA</p>
+
           
         </td>
         </tr>
@@ -2273,7 +2360,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            NA
+            <p>NA</p>
+
           
         </td>
         </tr>
@@ -2285,7 +2373,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            Unknown
+            <p>Unknown</p>
+
           
         </td>
         </tr>
@@ -2297,7 +2386,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            info.office@niassembly.gov.uk
+            <p>info.office@niassembly.gov.uk</p>
+
           
         </td>
         </tr>
@@ -2309,7 +2399,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            Data sourced directly from the Northern Ireland Assembly.
+            <p>Data sourced directly from the Northern Ireland Assembly.</p>
+
           
         </td>
         </tr>
@@ -2475,7 +2566,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            Local Government Association
+            <p>Local Government Association</p>
+
           
         </td>
         </tr>
@@ -2487,7 +2579,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            Discontinuous
+            <p>Discontinuous</p>
+
           
         </td>
         </tr>
@@ -2499,7 +2592,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            1997
+            <p>1997</p>
+
           
         </td>
         </tr>
@@ -2511,7 +2605,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            England
+            <p>England</p>
+
           
         </td>
         </tr>
@@ -2548,7 +2643,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            27/03/2019
+            <p>27/03/2019</p>
+
           
         </td>
         </tr>
@@ -2560,7 +2656,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            TBD
+            <p>TBD</p>
+
           
         </td>
         </tr>
@@ -2572,7 +2669,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            Non-official
+            <p>Non-official</p>
+
           
         </td>
         </tr>
@@ -2585,6 +2683,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+
           
         </td>
         </tr>
@@ -2596,7 +2695,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            Data for 1997 and 2001 are available from previous <a href="https://www.nfer.ac.uk/search/?searchTerm=Census+of+Local+Authority+Councillors+">Census of Local Authority Councillors 2008-2013</a> reports.
+            <p>Data for 1997 and 2001 are available from previous <a href="https://www.nfer.ac.uk/search/?searchTerm=Census+of+Local+Authority+Councillors+">Census of Local Authority Councillors 2008-2013</a> reports.</p>
+
           
         </td>
         </tr>
@@ -2762,7 +2862,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            Local Government Commission
+            <p>Local Government Commission</p>
+
           
         </td>
         </tr>
@@ -2774,7 +2875,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            Discontinuous
+            <p>Discontinuous</p>
+
           
         </td>
         </tr>
@@ -2786,7 +2888,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            2004
+            <p>2004</p>
+
           
         </td>
         </tr>
@@ -2798,7 +2901,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            Wales
+            <p>Wales</p>
+
           
         </td>
         </tr>
@@ -2835,7 +2939,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            00/04/2017
+            <p>00/04/2017</p>
+
           
         </td>
         </tr>
@@ -2847,7 +2952,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            TBC
+            <p>TBC</p>
+
           
         </td>
         </tr>
@@ -2859,7 +2965,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            Non-official
+            <p>Non-official</p>
+
           
         </td>
         </tr>
@@ -2872,6 +2979,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+
           
         </td>
         </tr>
@@ -2883,7 +2991,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            2019 data for Welsh local authority councillors is from Source 1.
+            <p>2019 data for Welsh local authority councillors is from Source 1.</p>
+
           
         </td>
         </tr>
@@ -3049,7 +3158,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            Northern Ireland Assembly
+            <p>Northern Ireland Assembly</p>
+
           
         </td>
         </tr>
@@ -3061,7 +3171,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            Discontinuous
+            <p>Discontinuous</p>
+
           
         </td>
         </tr>
@@ -3073,7 +3184,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            2005
+            <p>2005</p>
+
           
         </td>
         </tr>
@@ -3085,7 +3197,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            Northern Ireland
+            <p>Northern Ireland</p>
+
           
         </td>
         </tr>
@@ -3122,7 +3235,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            41808
+            <p>41808</p>
+
           
         </td>
         </tr>
@@ -3134,7 +3248,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            TBC
+            <p>TBC</p>
+
           
         </td>
         </tr>
@@ -3146,7 +3261,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            Official Statistic
+            <p>Official Statistic</p>
+
           
         </td>
         </tr>
@@ -3159,6 +3275,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+
           
         </td>
         </tr>
@@ -3170,7 +3287,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            2019 data for Northern Irish local authority councillors is from Source 1.
+            <p>2019 data for Northern Irish local authority councillors is from Source 1.</p>
+
           
         </td>
         </tr>
@@ -3336,7 +3454,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            Lincoln University
+            <p>Lincoln University</p>
+
           
         </td>
         </tr>
@@ -3348,7 +3467,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            Discontinuous
+            <p>Discontinuous</p>
+
           
         </td>
         </tr>
@@ -3360,7 +3480,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            1995
+            <p>1995</p>
+
           
         </td>
         </tr>
@@ -3372,7 +3493,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            Scotland
+            <p>Scotland</p>
+
           
         </td>
         </tr>
@@ -3409,7 +3531,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            00/04/2016
+            <p>00/04/2016</p>
+
           
         </td>
         </tr>
@@ -3421,7 +3544,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            TBC
+            <p>TBC</p>
+
           
         </td>
         </tr>
@@ -3433,7 +3557,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            Non-official
+            <p>Non-official</p>
+
           
         </td>
         </tr>
@@ -3446,6 +3571,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+
           
         </td>
         </tr>
@@ -3457,7 +3583,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            2017 data for Scottish local authority councillors is from Source 1.
+            <p>2017 data for Scottish local authority councillors is from Source 1.</p>
+
           
         </td>
         </tr>
@@ -3494,7 +3621,7 @@ data-event-label="Change to Sources tab"
           <ul>
             <li><a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a></li>
             
-            <li><a class="twitter-follow-button" href="https://twitter.com/ONS" data-show-count="false">@ONS</a></li>
+            <li><a class="twitter-follow-button" href="https://twitter.com/ONS" data-show-count="false">Twitter: @ONS</a></li>
             
             
             <li><a href="/sdg-indicators/faq/">FAQ</a></li>
@@ -3519,7 +3646,6 @@ data-event-label="Change to Sources tab"
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
-<script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
 <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
@@ -3529,7 +3655,9 @@ data-event-label="Change to Sources tab"
 <script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190823150619'></script><script src="/sdg-indicators/assets/js/custom.js?v=20190823150619"></script><script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190823164135'></script><script src="/sdg-indicators/assets/js/custom.js?v=20190823164135"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -3565,7 +3693,7 @@ $(function() {
           view  = new indicatorView(model, {
             rootElement: '#indicatorData',
             legendElement: '#plotLegend',
-            maxChartHeight: 600,
+            maxChartHeight: 420,
             tableColumnDefs: [
               { maxCharCount: 25 }, // nowrap
               { maxCharCount: 35, width: 200 },

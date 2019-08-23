@@ -17,7 +17,6 @@ html {
 
 body {
   background: #eaeaea;
-  padding: 40px 0 0 0;
   margin: 0 0 50px 0; }
 
 header {
@@ -113,13 +112,7 @@ header {
     color: black; }
 
 #disclaimer {
-  background: #f2dede;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 400;
-  max-height: 40px; }
+  background: #f2dede; }
   #disclaimer .phase-tag {
     background: #005ea5;
     color: white;
@@ -610,7 +603,6 @@ h5 + .btn-download {
       position: absolute;
       top: 12px;
       right: 12px;
-  
       a {
         background-color: white;
         border: none;
@@ -618,7 +610,6 @@ h5 + .btn-download {
         float: left;
       }
     }
-  
     #zoom-in, #zoom-out {
       background-color: black;
       background-repeat: no-repeat;
@@ -627,11 +618,9 @@ h5 + .btn-download {
       width: 18px;
       height: 18px;
     }
-  
     #zoom-in {
       background-position: 1px 1px;
     }
-  
     #zoom-out {
       background-position: 1px -51px;
     }
@@ -1005,9 +994,17 @@ h5 + .btn-download {
         background-image: url(../img/sort_desc.png); }
     #main-content #selectionsTable table tbody th {
       font-weight: normal; }
-    #main-content #selectionsTable .table-footer-text p {
-      font-size: 0.85em;
-      margin: 0 0 5px; }
+    #main-content #selectionsTable .table-footer-text {
+      padding-left: 20px; }
+      #main-content #selectionsTable .table-footer-text p {
+        font-size: 0.85em;
+        margin: 0 0 5px; }
+  #main-content #selectionsChart {
+    padding-bottom: 20px; }
+  #main-content #selectionChartFooter {
+    font-size: 12px;
+    line-height: 1.2;
+    padding-left: 20px; }
   #main-content #map {
     position: relative;
     width: 590px; }
@@ -1314,6 +1311,17 @@ footer {
   .contrast-high .language-toggle-mobile .language-options a:hover, .contrast-high ul.navbar-nav .language-options a:hover {
     color: black; }
 
+.chart-title {
+  text-align: center; }
+
+.image-download-in-progress, .image-download-in-progress * {
+  padding: 0;
+  margin: 0; }
+.image-download-in-progress #selectionChartFooter {
+  padding-left: 20px; }
+  .image-download-in-progress #selectionChartFooter p {
+    margin-bottom: 10px; }
+
 #accessibility-nav {
   padding-top: 20px;
   padding-right: 10px;
@@ -1348,6 +1356,8 @@ footer {
 /* example stuff */
 body.contrast-high {
   background-color: black; }
+  body.contrast-high #page-content .alert div p, body.contrast-high #page-content .alert div h4 {
+    color: black; }
   body.contrast-high #accessibility-nav li.contrast-default {
     display: block; }
   body.contrast-high #accessibility-nav li.contrast-high {
@@ -1568,3 +1578,65 @@ body.contrast-high {
 
 #jump-to-search a {
   cursor: pointer; }
+
+body.long.contrast-default li.contrast-default {
+  display: none; }
+body.long.contrast-default li.contrast-high {
+  display: block; }
+  @media only screen and (max-width: 767px) {
+    body.long.contrast-default li.contrast-high {
+      width: 60px; } }
+
+body.long.contrast-high li.contrast-default {
+  display: block; }
+  @media only screen and (max-width: 767px) {
+    body.long.contrast-high li.contrast-default {
+      width: 60px; } }
+body.long.contrast-high li.contrast-high {
+  display: none; }
+
+body.long .navbar ul.navbar-nav li.contrast {
+  font-size: 0.75em;
+  font-weight: bold;
+  border-radius: 5px;
+  width: auto;
+  max-width: 150px;
+  height: auto;
+  max-height: 50px;
+  text-align: center;
+  margin-left: 1em; }
+  @media only screen and (max-width: 768px) {
+    body.long .navbar ul.navbar-nav li.contrast {
+      display: none; } }
+  body.long .navbar ul.navbar-nav li.contrast a {
+    margin: auto;
+    text-decoration: none; }
+body.long #accessibility-nav li.contrast {
+  border-radius: 5px;
+  height: auto;
+  width: auto;
+  text-align: center;
+  margin: 0.25em;
+  margin-top: 0.1em;
+  position: relative;
+  top: -2px;
+  max-height: 60px;
+  max-width: 110px; }
+  @media screen and (max-width: 500px) {
+    body.long #accessibility-nav li.contrast {
+      font-size: 3vw; } }
+  @media screen and (min-width: 501px) {
+    body.long #accessibility-nav li.contrast {
+      font-size: 1em; } }
+  body.long #accessibility-nav li.contrast a {
+    margin: auto;
+    text-decoration: none;
+    padding: 1px; }
+
+.data-notice {
+  display: inline-block;
+  margin-left: 20px; }
+
+.fa-exclamation-circle {
+  font-size: 60px;
+  display: inline-block; }

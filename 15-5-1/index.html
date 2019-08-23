@@ -14,7 +14,8 @@
 <html lang="en" class="no-js">
     <head>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.forEach%2CString.prototype.includes"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes"></script>
+<script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
 // This is where we initialise any global variables, namespaced in "opensdg".
@@ -101,9 +102,17 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
         
+
+        
+        
         <title>
-        Indicator 15.5.1 - Goal 15 - Life on land
+          
+            
+        Indicator 15.5.1 - Goal 15 
+        
+          
         </title>
+        
         <meta name="description" content="">
         <meta property="og:description" content="">
         
@@ -127,22 +136,24 @@ var translations = {
         
 
         
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190823150619">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190823164135">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css" />
-        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' />
-        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
+        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
+        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
 <!-- <div class="container"> -->
+
+<script>translations['header'] = {"disclaimer":"This is a development website. Please <a href=\"mailto:%email_address\">email us your feedback</a> or <a href=\"https://www.surveymonkey.co.uk/r/XFJZGVL\">complete a short survey</a>.","tag_line":"17 Goals to Transform our World","alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content"};</script>
 
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
@@ -168,7 +179,13 @@ var translations = {
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
-        <li><span data-target="menu">Menu</span></li>
+        <li id="menuToggle"
+            aria-label="Menu toggle. Click to expand or collapse the menu."
+            aria-haspopup="true"
+            aria-expanded="false">
+          <span data-target="menu" tabindex="0"
+          role="navigation">Menu</span>
+        </li>
         <li><span data-target="search">Search</span></li>
       </ul>
 
@@ -189,7 +206,7 @@ var translations = {
       <div id="search" class="menu-target">
   <input id="indicator_search" title="Indicator search" placeholder="Indicator search" data-url="/sdg-indicators/indicators.json" data-pageurl="/sdg-indicators/search/?q=" />
   <label for="indicator_search">
-    <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button><span>Search:</span>
+    <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Indicator search></i></button><span>Search:</span>
   </label>
 </div>
 
@@ -238,7 +255,7 @@ var translations = {
   <% } %>
 </script>
 
-<script>translations['indicator'] = {"chart":"Chart","clear_all":"Clear all","clear_selections":"Clear selections","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading_map":"Loading map","map":"Map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","no_data_hint":"No options available because of filters above","select_all":"Select all","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","sub_categories":"Sub-categories","table":"Table","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
+<script>translations['indicator'] = {"chart":"Chart","clear_all":"Clear all","clear_selections":"Clear selections","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_chart_image":"Download Chart Image","download_chart_image_title":"Download chart as image","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading_map":"Loading map","map":"Map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","no_data_hint":"No options available because of filters above","select_all":"Select all","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","sub_categories":"Sub-categories","table":"Table","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
 
 <script>translations['data'] = null;</script>
 
@@ -274,6 +291,8 @@ var translations = {
 
   <div class="row" id="page-content-row">
     <div class="col-xs-12">
+      
+
       <div id="page-content">
   <p>Select the following link to download this indicator data in an accessible format:<br /><a href="https://sustainabledevelopment-uk.github.io/sdg-data/data/15-5-1.csv">15.5.1 Red List Index (CSV 0.106 kB)</a></p>
 
@@ -287,6 +306,11 @@ var translations = {
       <h2>Red List Index</h2>
     </div>
   </div>
+  
+  
+  
+
+  
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_15-5-1' data-id="15-5-1" data-country="United Kingdom"
   data-charttitle="Red List Index" data-measurementunit="Red List Index" data-datasource="Department for Environment, Food & Rural Affairs (Defra)"
@@ -382,13 +406,20 @@ data-event-label="Change to Map tab"
     </div>
 
     
-    <div class="plot-container">
-        
+    <div id="selectionsChart">
+      <div id="chart-canvas">
+        <h3 class="chart-title">Red List Index</h3>
+        <div id="chart" class="plot-container">
+          
 <canvas></canvas>
 
+        </div>
+        <div id="plotLegend"></div>
+      </div>
+      <button id="btnSave" title="Download chart as image" class='btn btn-primary btn-download'>
+        Download Chart Image
+      </button>
     </div>
-    <div id="plotLegend"></div>
-
     <div id="chartSelectionDownload"></div>
 
 
@@ -470,7 +501,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            Red List Index
+            <p>Red List Index</p>
+
           
         </td>
         </tr>
@@ -483,6 +515,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+
           
         </td>
         </tr>
@@ -494,7 +527,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            United Kingdom
+            <p>United Kingdom</p>
+
           
         </td>
         </tr>
@@ -506,7 +540,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            Red List Index
+            <p>Red List Index</p>
+
           
         </td>
         </tr>
@@ -518,7 +553,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            The Red List Index measures change in aggregate extinction risk across groups of species. It is based on genuine changes in the number of species in each category of extinction risk on The IUCN Red List of Threatened Species (IUCN 2015) is expressed as changes in an index ranging from 0 to 1.
+            <p>The Red List Index measures change in aggregate extinction risk across groups of species. It is based on genuine changes in the number of species in each category of extinction risk on The IUCN Red List of Threatened Species (IUCN 2015) is expressed as changes in an index ranging from 0 to 1.</p>
+
           
         </td>
         </tr>
@@ -530,7 +566,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            The Red List Index is calculated at a point in time by first multiplying the number of species in each Red List Category by a weight (ranging from 1 for ‘Near Threatened’ to 5 for ‘Extinct’ and ‘Extinct in the Wild’) and summing these values. This is then divided by a maximum threat score which is the total number of species multiplied by the weight assigned to the ‘Extinct’ category. This final value is subtracted from 1 to give the Red List Index value. Mathematically this calculation is expressed as - RLIt = 1 – [(Ss Wc(t,s) / (WEX * N)], where Wc(t,s) is the weight for category (c) at time (t) for species (s) (the weight for ‘Critically Endangered’ = 4, ‘Endangered’ = 3, ‘Vulnerable’ = 2, ‘Near Threatened’ = 1, ‘Least Concern’ = 0. ‘Critically Endangered’ species tagged as ‘Possibly Extinct’ or ‘Possibly Extinct in the Wild’ are assigned a weight of 5); WEX = 5, the weight assigned to ‘Extinct’ or ‘Extinct in the Wild’ species; and N is the total number of assessed species, excluding those assessed as Data Deficient in the current time period, and those considered to be ‘Extinct’ in the year the set of species was first assessed.
+            <p>The Red List Index is calculated at a point in time by first multiplying the number of species in each Red List Category by a weight (ranging from 1 for ‘Near Threatened’ to 5 for ‘Extinct’ and ‘Extinct in the Wild’) and summing these values. This is then divided by a maximum threat score which is the total number of species multiplied by the weight assigned to the ‘Extinct’ category. This final value is subtracted from 1 to give the Red List Index value. Mathematically this calculation is expressed as - RLIt = 1 – [(Ss Wc(t,s) / (WEX * N)], where Wc(t,s) is the weight for category (c) at time (t) for species (s) (the weight for ‘Critically Endangered’ = 4, ‘Endangered’ = 3, ‘Vulnerable’ = 2, ‘Near Threatened’ = 1, ‘Least Concern’ = 0. ‘Critically Endangered’ species tagged as ‘Possibly Extinct’ or ‘Possibly Extinct in the Wild’ are assigned a weight of 5); WEX = 5, the weight assigned to ‘Extinct’ or ‘Extinct in the Wild’ species; and N is the total number of assessed species, excluding those assessed as Data Deficient in the current time period, and those considered to be ‘Extinct’ in the year the set of species was first assessed.</p>
+
           
         </td>
         </tr>
@@ -542,7 +579,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            The Red List Index formula requires that exactly the same set of species is included in all time periods, the only Red List Category changes are those resulting from genuine improvement or deterioration in status (i.e., excluding changes resulting from improved knowledge or taxonomic revisions), and Data Deficient species are excluded. In many cases, species lists will change slightly from one assessment to the next (e.g., owing to taxonomic revisions). The conditions can therefore be met by retrospectively adjusting earlier Red List categorizations using current information and taxonomy. This is achieved by assuming that the current Red List Categories for the taxa have applied since the set of species was first assessed for the Red List, unless there is information to the contrary that genuine status changes have occurred. Such information is often contextual (e.g., relating to the known history of habitat loss within the range of the species). If there is insufficient information available for a newly added species, it is not incorporated into the Red List Index until it is assessed for a second time, at which point earlier assessments are retrospectively corrected by extrapolating recent trends in population, range, habitat and threats, supported by additional information. To avoid spurious results from biased selection of species, Red List Indices are typically calculated only for taxonomic groups in which all species worldwide have been assessed for the Red List, or for samples of species that have been systematically or randomly selected. The methods and scientific basis for the Red List Index were described by Butchart et al. (2004, 2005, 2007, 2010). For further information, please refer to <a href="https://unstats.un.org/sdgs/metadata/files/Metadata-15-05-01.pdf">global metadata</a>. Over the past thirty years, numerous lists of conservation status have been produced - Red Lists, Biodiversity Action Plan Priority Lists, species listed on European Directives, species listed on the Schedules of the Wildlife & Countryside Act, together with lists of rare and scarce species. There is considerable overlap between these and some species appear on several of them. For example, the otter Lutra lutra, and the marsh saxifrage Saxifraga hirculus have as many as six “badges". JNCC has attempted to collate many of the current lists into one place and make this available to users as a <a href="http://jncc.defra.gov.uk/page-3408">downloadable spreadsheet of species designations</a>. JNCC will incorporate updates and corrections as necessary. If a source list, for example a red data book, has been reviewed in whole or in part, JNCC has had to decide whether or not to archive some or all of the content of the previous list. This has not always been straightforward, particularly in the case of some of the invertebrate red listings where some, but not all of the previously published list, have been reviewed and the status of the review is regarded by many as being "provisional". Nevertheless, we wanted to avoid the confusing situation where, for example, a species was listed as being "vulnerable" on one listing and "critically endangered" on another listing with the same geographical focus. Re-use of information in the Conservation Designations Spreadsheet is subject to the terms of the Open Government Licence, which means it may be used and distributed freely with only a few conditions. If you re-use this information you must acknowledge the source of the information in your product or application by including or linking to the following attribution statement - “Contains JNCC/NE/NRW/SNH/NIEA data © copyright and database right 2017”. Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.
+            <p>The Red List Index formula requires that exactly the same set of species is included in all time periods, the only Red List Category changes are those resulting from genuine improvement or deterioration in status (i.e., excluding changes resulting from improved knowledge or taxonomic revisions), and Data Deficient species are excluded. In many cases, species lists will change slightly from one assessment to the next (e.g., owing to taxonomic revisions). The conditions can therefore be met by retrospectively adjusting earlier Red List categorizations using current information and taxonomy. This is achieved by assuming that the current Red List Categories for the taxa have applied since the set of species was first assessed for the Red List, unless there is information to the contrary that genuine status changes have occurred. Such information is often contextual (e.g., relating to the known history of habitat loss within the range of the species). If there is insufficient information available for a newly added species, it is not incorporated into the Red List Index until it is assessed for a second time, at which point earlier assessments are retrospectively corrected by extrapolating recent trends in population, range, habitat and threats, supported by additional information. To avoid spurious results from biased selection of species, Red List Indices are typically calculated only for taxonomic groups in which all species worldwide have been assessed for the Red List, or for samples of species that have been systematically or randomly selected. The methods and scientific basis for the Red List Index were described by Butchart et al. (2004, 2005, 2007, 2010). For further information, please refer to <a href="https://unstats.un.org/sdgs/metadata/files/Metadata-15-05-01.pdf">global metadata</a>. Over the past thirty years, numerous lists of conservation status have been produced - Red Lists, Biodiversity Action Plan Priority Lists, species listed on European Directives, species listed on the Schedules of the Wildlife &amp; Countryside Act, together with lists of rare and scarce species. There is considerable overlap between these and some species appear on several of them. For example, the otter Lutra lutra, and the marsh saxifrage Saxifraga hirculus have as many as six “badges”. JNCC has attempted to collate many of the current lists into one place and make this available to users as a <a href="http://jncc.defra.gov.uk/page-3408">downloadable spreadsheet of species designations</a>. JNCC will incorporate updates and corrections as necessary. If a source list, for example a red data book, has been reviewed in whole or in part, JNCC has had to decide whether or not to archive some or all of the content of the previous list. This has not always been straightforward, particularly in the case of some of the invertebrate red listings where some, but not all of the previously published list, have been reviewed and the status of the review is regarded by many as being “provisional”. Nevertheless, we wanted to avoid the confusing situation where, for example, a species was listed as being “vulnerable” on one listing and “critically endangered” on another listing with the same geographical focus. Re-use of information in the Conservation Designations Spreadsheet is subject to the terms of the Open Government Licence, which means it may be used and distributed freely with only a few conditions. If you re-use this information you must acknowledge the source of the information in your product or application by including or linking to the following attribution statement - “Contains JNCC/NE/NRW/SNH/NIEA data © copyright and database right 2017”. Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.</p>
+
           
         </td>
         </tr>
@@ -737,7 +775,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator name </th>
         <td>
           
-            15.5.1 Red List Index
+            <p>15.5.1 Red List Index</p>
+
           
         </td>
         </tr>
@@ -749,7 +788,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator number </th>
         <td>
           
-            15.5.1
+            <p>15.5.1</p>
+
           
         </td>
         </tr>
@@ -761,7 +801,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator display order (within Goal page) </th>
         <td>
           
-            15-05-01
+            <p>15-05-01</p>
+
           
         </td>
         </tr>
@@ -773,7 +814,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Target name </th>
         <td>
           
-            15.5 Take urgent and significant action to reduce the degradation of natural habitats, halt the loss of biodiversity and, by 2020, protect and prevent the extinction of threatened species
+            <p>15.5 Take urgent and significant action to reduce the degradation of natural habitats, halt the loss of biodiversity and, by 2020, protect and prevent the extinction of threatened species</p>
+
           
         </td>
         </tr>
@@ -785,7 +827,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Target number </th>
         <td>
           
-            15.5
+            <p>15.5</p>
+
           
         </td>
         </tr>
@@ -798,6 +841,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             
+
           
         </td>
         </tr>
@@ -809,7 +853,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">UN designated tier </th>
         <td>
           
-            Tier I
+            <p>Tier I</p>
+
           
         </td>
         </tr>
@@ -821,7 +866,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">UN custodian agency </th>
         <td>
           
-            International Union for Conservation of Nature (IUCN), BirdLife International (BLI)
+            <p>International Union for Conservation of Nature (IUCN), BirdLife International (BLI)</p>
+
           
         </td>
         </tr>
@@ -1038,7 +1084,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            Department for Environment, Food & Rural Affairs (Defra)
+            <p>Department for Environment, Food &amp; Rural Affairs (Defra)</p>
+
           
         </td>
         </tr>
@@ -1050,7 +1097,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            Discontinuous
+            <p>Discontinuous</p>
+
           
         </td>
         </tr>
@@ -1062,7 +1110,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            2017
+            <p>2017</p>
+
           
         </td>
         </tr>
@@ -1074,7 +1123,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            United Kingdom
+            <p>United Kingdom</p>
+
           
         </td>
         </tr>
@@ -1111,7 +1161,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            01/11/2017
+            <p>01/11/2017</p>
+
           
         </td>
         </tr>
@@ -1123,7 +1174,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            TBC
+            <p>TBC</p>
+
           
         </td>
         </tr>
@@ -1135,7 +1187,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            Official Statistic
+            <p>Official Statistic</p>
+
           
         </td>
         </tr>
@@ -1147,7 +1200,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            comment@jncc.gov.uk
+            <p>comment@jncc.gov.uk</p>
+
           
         </td>
         </tr>
@@ -1159,7 +1213,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            Contains JNCC/NE/NRW/SNH/NIEA data copyright and database right 2017
+            <p>Contains JNCC/NE/NRW/SNH/NIEA data copyright and database right 2017</p>
+
           
         </td>
         </tr>
@@ -1292,7 +1347,7 @@ data-event-label="Change to Sources tab"
           <ul>
             <li><a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a></li>
             
-            <li><a class="twitter-follow-button" href="https://twitter.com/ONS" data-show-count="false">@ONS</a></li>
+            <li><a class="twitter-follow-button" href="https://twitter.com/ONS" data-show-count="false">Twitter: @ONS</a></li>
             
             
             <li><a href="/sdg-indicators/faq/">FAQ</a></li>
@@ -1317,7 +1372,6 @@ data-event-label="Change to Sources tab"
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
-<script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
 <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
@@ -1327,7 +1381,9 @@ data-event-label="Change to Sources tab"
 <script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190823150619'></script><script src="/sdg-indicators/assets/js/custom.js?v=20190823150619"></script><script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190823164135'></script><script src="/sdg-indicators/assets/js/custom.js?v=20190823164135"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1363,7 +1419,7 @@ $(function() {
           view  = new indicatorView(model, {
             rootElement: '#indicatorData',
             legendElement: '#plotLegend',
-            maxChartHeight: 600,
+            maxChartHeight: 420,
             tableColumnDefs: [
               { maxCharCount: 25 }, // nowrap
               { maxCharCount: 35, width: 200 },
