@@ -8,25 +8,9 @@
 # Site settings
 baseurl: "" # the subpath of your site, e.g. /blog
 environment: production
-remotedatabaseurl: "https://sustainabledevelopment-uk.github.io/sdg-data"
-# permalink: /news/:year/:month/:day/:title.html
-
-jekyll_get_json:
-  - data: meta
-    json: 'https://sustainabledevelopment-uk.github.io/sdg-data/meta/all.json'
-    # cache: true
-    # directory: 'remotedata'
-  - data: headlines
-    json: 'https://sustainabledevelopment-uk.github.io/sdg-data/headline/all.json'
-    # cache: true
-    # directory: 'remotedata'
-  - data: schema
-    json: 'https://sustainabledevelopment-uk.github.io/sdg-data/meta/schema.json'
-  - data: reporting
-    json: 'https://sustainabledevelopment-uk.github.io/sdg-data/stats/reporting.json'
-  - data: translations
-    # Pin to version of the translation repository.
-    json: 'https://open-sdg.github.io/sdg-translations/translations-0.7.0.json'
+remote_data_prefix: "https://sustainabledevelopment-uk.github.io/sdg-data"
+remote_translations:
+  - 'https://open-sdg.github.io/sdg-translations/translations-0.7.0.json'
 
 analytics:
   ga_prod: 'UA-108503280-1'
