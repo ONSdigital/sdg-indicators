@@ -139,7 +139,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190827221144">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20190828221124">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -313,8 +313,8 @@ var translations = {
   
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_11-3-1' data-id="11-3-1" data-country="Great Britain"
-  data-charttitle="Ratio of land consumption rate to population growth rate" data-measurementunit="" data-datasource="Ordnance Survey, ONS, National Records of Scotland"
-  data-geographicalarea="Great Britain" data-footnote="" data-showdata="true" data-graphtype="line"
+  data-charttitle="Ratio of land consumption rate to population growth rate" data-measurementunit="" data-datasource="Ordinance Survey, ONS, National Records of Scotland"
+  data-geographicalarea="Great Britain" data-footnote="" data-showdata="true" data-graphtype="bar"
   data-geocoderegex="" data-showmap="true" data-startvalues="">
     
     <div id="indicator-sidebar" class="col-md-3">
@@ -586,7 +586,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>LCRPGR=(((LN(Urb_(t+n)/Urb_t ))/y))/((LN(Pop_(t+n)/Pop_t )/y) )</p>
+            <p>Population growth rate = Natural logarithm ( Measurement year population / Previous population ) / Time between the measurement periods <br /> <br /> Land consumption rate = Natural logarithm ( Measurement year manmade land area / Previous manmade land area ) / Time between the measurement periods <br /> <br /> Ratio of land consumption rate to population growth rate = Land consumption rate / Population growth rate</p>
 
           
         </td>
@@ -643,8 +643,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/f155f78bc1712d006921e2e062a70136c817e28c" target="_blank">
-                2019-08-06: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/c838d79b8140684e42080f66f7186ce56156719b" target="_blank">
+                2019-08-28: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1106,7 +1106,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Ordnance Survey</p>
+            <p>Ordinance Survey</p>
 
           
         </td>
@@ -2253,7 +2253,7 @@ data-event-label="Change to Sources tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20190827221144'></script><script src="/sdg-indicators/assets/js/custom.js?v=20190827221144"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20190828221124'></script><script src="/sdg-indicators/assets/js/custom.js?v=20190828221124"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
