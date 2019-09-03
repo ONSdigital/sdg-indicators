@@ -28,7 +28,9 @@ We have recently published our response to the [consultation on measuring and re
 
 ## How accessible is this website?
 
+<center>
 [![DAC logo with two ticks indicating AA certification](https://sdg.mango-solutions.com/add-dac-cert/public/dac_logo_with_two_ticks.png)](http://digitalaccessibilitycentre.org/index.php/office-for-national-statistics-sdg)
+</center>
 
 Our aim is to make this website as accessible and usable as possible for every user. We have recently earned the AA level standard of the [Web Content Accessibility Guidelines (WCAG 2.0)](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag-20), thanks to the review by the [Digital Accessibility Centre](http://digitalaccessibilitycentre.org/).
 
