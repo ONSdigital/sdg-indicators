@@ -14,6 +14,4 @@ Other countries wishing to reuse the Open SDG reporting platform are welcome to 
 
 Our [Guidance page](https://github.com/ONSdigital/sdg-indicators/wiki/Clone-your-own%3A-step-by-step-instructions-%28Windows%29) also documents this process in more detail for first-time users.
 
-Our site has earned the [WCAG 2.1 AA standard certification from the Digital Accessibility Centre](http://digitalaccessibilitycentre.org/index.php/office-for-national-statistics-sdg).
-
 If you have any feedback on this website or UK SDG data then please contact us at <a href="mailto:{{site.email_contacts.questions}}">{{site.email_contacts.questions}}</a>. The answers to some frequently asked questions are also available in the [Frequently Asked Questions]({{ site.baseurl }}{% link _pages/faq.md %}).
