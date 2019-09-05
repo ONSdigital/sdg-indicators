@@ -28,9 +28,9 @@ We have recently published our response to the [consultation on measuring and re
 
 ## How accessible is this website?
 
-[![DAC logo with two ticks indicating AA certification](https://sdg.mango-solutions.com/add-dac-cert/public/dac_logo_with_two_ticks.png)](http://digitalaccessibilitycentre.org/index.php/office-for-national-statistics-sdg)
+![DAC logo with two ticks indicating AA certification](https://sdg.mango-solutions.com/add-dac-cert/public/dac_logo_with_two_ticks.png)
 
-Our aim is to make this website as accessible and usable as possible for every user. We have recently earned the AA level standard of the [Web Content Accessibility Guidelines (WCAG 2.0)](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag-20), thanks to the review by the [Digital Accessibility Centre](http://digitalaccessibilitycentre.org/).
+Our aim is to make this website as accessible and usable as possible for every user. We have recently achieved the AA level standard of the [Web Content Accessibility Guidelines (WCAG 2.0)](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag-20), with a [Digital Accessibility Centre Certificate of Accreditation](http://digitalaccessibilitycentre.org/index.php/office-for-national-statistics-sdg).
 
 ## What browsers can I use to view this website?
 We are developing and testing our site in line with the Government Digital Service (GDS) [guidance on designing for different browsers and devices](https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices). Our website works with most of the latest versions of the commonly used browsers listed in the ‘Browsers to test in’ section of the GDS guidance. There are some issues with using the site on older versions of browsers eg IE8 and we are working to fix these.
