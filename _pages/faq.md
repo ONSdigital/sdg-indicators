@@ -27,7 +27,10 @@ This means we need to look for new data sources, link existing ones, or model da
 We have recently published our response to the [consultation on measuring and reporting SDGs in the UK](https://consultations.ons.gov.uk/sustainable-development-goals/ons-approach-to-measuring-reporting-sdgs-in-the-uk/) where we asked for your ideas on prioritising data development. Your feedback will inform our data development plans, which will be published here in 2018.
 
 ## How accessible is this website?
-Our aim is to make this website as accessible and usable as possible for every user. We are working towards meeting AA level of the [Web Content Accessibility Guidelines (WCAG 2.0)](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag-20). We have recently undertaken an accessibility audit by the [Digital Accessibility Centre](http://digitalaccessibilitycentre.org/) and are using the recommendations from this review to help us improve our website.
+
+![DAC logo with two ticks indicating AA certification](https://sdg.mango-solutions.com/add-dac-cert/public/dac_logo_with_two_ticks.png)
+
+Our aim is to make this website as accessible and usable as possible for every user. We have recently achieved the AA level standard of the [Web Content Accessibility Guidelines (WCAG 2.0)](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag-20), with a [Digital Accessibility Centre Certificate of Accreditation](http://digitalaccessibilitycentre.org/index.php/office-for-national-statistics-sdg).
 
 ## What browsers can I use to view this website?
 We are developing and testing our site in line with the Government Digital Service (GDS) [guidance on designing for different browsers and devices](https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices). Our website works with most of the latest versions of the commonly used browsers listed in the ‘Browsers to test in’ section of the GDS guidance. There are some issues with using the site on older versions of browsers eg IE8 and we are working to fix these.
