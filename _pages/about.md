@@ -7,6 +7,7 @@ The [Sustainable Development Goals](http://www.un.org/sustainabledevelopment/sus
 
 ONS are fulfilling the mandate placed on all NSIs by the UN General Assembly to coordinate and report on the global SDG indicators. We aim to shine a light on who is being ‘left behind’ so policy makers can take action, and we aim to support colleagues across the world develop capability. Cabinet Office and DfID have responsibility for policy implementation. Our job is to collaborate and coordinate with topic leads across the GSS and beyond, using innovative techniques and to promote the work we do as an office that relates to SDGs. We are one of the world leaders in providing data to monitor progress. 
 
+
 The site is based on the open source '[Open SDG](https://open-sdg.readthedocs.io/en/latest/)' platform. The Open SDG platform is the result of collaboaration between the US government, the UK [Office For National Statistics](https://www.ons.gov.uk/) (ONS), and the nonprofit [Center For Open Data Enterprise](http://opendataenterprise.org/) (CODE).
 
 Other countries wishing to reuse the Open SDG reporting platform are welcome to do so for free. The Open SDG [Quickstart guide](https://open-sdg.readthedocs.io/en/latest/quick-start/) gives technical instructions on the quickest way to get a copy of the Open SDG platform up and running. Note that this site is currently at an Alpha stage, and so is still under development. 
