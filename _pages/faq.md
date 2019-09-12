@@ -28,7 +28,7 @@ We have recently published our response to the [consultation on measuring and re
 
 ## How accessible is this website?
 
-![DAC logo with two ticks indicating AA certification](https://sdg.mango-solutions.com/add-dac-cert/public/dac_logo_with_two_ticks.png)
+![DAC logo with two ticks indicating AA certification](https://sustainabledevelopment-uk.github.io/public/dac_logo_with_two_ticks.png)
 
 Our aim is to make this website as accessible and usable as possible for every user. We have recently achieved the AA level standard of the [Web Content Accessibility Guidelines (WCAG 2.0)](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag-20), with a [Digital Accessibility Centre Certificate of Accreditation](http://digitalaccessibilitycentre.org/index.php/office-for-national-statistics-sdg).
 
