@@ -6,6 +6,4 @@ category: "News"
 excerpt: 
 ---
 
-## This is an update
-
 This is an update. That is all.
