@@ -2,7 +2,7 @@
 layout: post
 title: What we do
 author: SDGs team
-category: "News"
+category: "Updates"
 excerpt: 
 ---
 
