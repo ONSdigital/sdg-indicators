@@ -2,7 +2,7 @@
 layout: post
 title: The updates page is up!
 author: Savvas Stephanides
-category: "Update"
+category: "Updates"
 excerpt: 
 ---
 
