@@ -6,4 +6,4 @@ category: "Updates"
 excerpt: 
 ---
 
-🚀The Updates page is up and running
+🚀The Updates page is up and running 🚀
