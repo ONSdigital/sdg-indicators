@@ -16,8 +16,6 @@ We have also carried out some usability testing, too. We tasked people to use th
 
 Our research has not ended. We will continue our user research and our usability testing for the lifetime of the data site. We always need volunteers so please let us know if you want to take part. Email us at <i class="fa fa-envelope"></i> [SustainableDevelopment@ons.gov.uk](mailto:SustainableDevelopment@ons.gov.uk).
 
-In order to understand the website’s users and their needs, we carried out research into who uses the website and for what. Research took place over the course of 12 weeks and over 50 people were involved. The user testers were from a variety of organisations such as universities, government departments and the private sector.  Testing took place through a variety of activities such as phone interviews, contextual interview and usability sessions.
-
 ### What did we find?
 
 We identified four main user types or personas:
