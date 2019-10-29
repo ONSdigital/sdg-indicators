@@ -194,6 +194,6 @@ As this was an initial phase of user research with a small number of participant
 
 If you have any further questions about the user personas or our user research, or if you want to be involved with future user research, please contact us at <i class="fa fa-envelope"></i> [SustainableDevelopment@ons.gov.uk](mailto:SustainableDevelopment@ons.gov.uk).
 
-Alternatively, please complete our short survey to give some feedback about the site.
+Alternatively, please complete our [short survey](https://www.surveymonkey.co.uk/r/XFJZGVL) to give some feedback about the site.
 
 [Back to top](#table-of-contents)
