@@ -15,7 +15,8 @@ We have used three different types of reporting status for an indicator, which a
 
 Where there is additional information about the status of indicator data collection and reporting, this will be displayed at the top of the indicator page.
 
-## What does each of the three tiers mean?
+## What do each of the three tiers mean? 
+_**Do we want to add this question??**_
 Each of the SDG indicators are assigned one (or more) of the following tiers:
 - Tier 1: Indicator is conceptually clear, has an internationally established methodology and standards are available, and data are regularly produced by countries for at least 50 per cent of countries and of the population in every region where the indicator is relevant.
 - Tier 2: Indicator is conceptually clear, has an internationally established methodology and standards are available, but data are not regularly produced by countries.
@@ -42,7 +43,7 @@ Our aim is to make this website as accessible and usable as possible for every u
 For details about compatibility with tools and known issues, please see our [Accessibility statement]({{ site.baseurl }}{% link _pages/accessibilitystatement.md %}).
 
 ## What browsers can I use to view this website?
-We are developing and testing our site in line with the [Government Digital Service (GDS) guidance on designing for different browsers and devices](https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices). Our website works with most of the latest versions of the commonly used browsers listed in the ‘Browsers to test in’ section of the GDS guidance. There are some known issues with using the site on older versions of browsers e.g. IE8 *and we are working to fix these.* - do we want to get rid of this? Similarly to accessibility statement, we don't want to say we're trying to fix these if not.
+We are developing and testing our site in line with the [Government Digital Service (GDS) guidance on designing for different browsers and devices](https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices). Our website works with most of the latest versions of the commonly used browsers listed in the ‘Browsers to test in’ section of the GDS guidance. There are some known issues with using the site on older versions of browsers e.g. IE8 *and we are working to fix these.* - _**do we want to get rid of this? Similarly to accessibility statement, we don't want to say we're trying to fix these if not.**_
 
 ## Can other countries copy this website?
-Yes. See the Open SDG Quick Start guide for technical instructions on the quickest way to get a copy of the Open SDG platform up and running.
+Yes. [See the Open SDG Quick Start guide](https://open-sdg.readthedocs.io/en/latest/quick-start/) for technical instructions on the quickest way to get a copy of the Open SDG platform up and running.
