@@ -22,7 +22,7 @@ Open SDG is a reporting platform developed for managing and publishing data and 
 
 All of these features make the Open SDG platform a low-cost, high-feature option for SDG reporting. We hope this documentation is helpful for getting your Open SDG project started. Please reach out to us on GitHub if you have comments, feedback, or want to get involved with the Open SDG community.
 
-Other countries wishing to reuse the Open SDG reporting platform are welcome to do so for free. The Open SDG [Quickstart guide](https://open-sdg.readthedocs.io/en/latest/quick-start/) gives technical instructions on the quickest way to get a copy of the Open SDG platform up and running. Note that this site is currently at an Alpha stage, and so is still under development.
+Other countries wishing to reuse the Open SDG reporting platform are welcome to do so for free. The [Open SDG Quick Start guide](https://open-sdg.readthedocs.io/en/latest/quick-start/) gives technical instructions on the quickest way to get a copy of the Open SDG platform up and running. Note that this site is currently at an Alpha stage, and so is still under development.
 
 If you want to get involved with the Open SDG community, [visit the Open SDG GitHub repository](https://github.com/open-sdg/open-sdg).
 
