@@ -17,6 +17,7 @@ Where there is additional information about the status of indicator data collect
 
 ## What do each of the three tiers mean? 
 _**Do we want to add this question??**_
+
 Each of the SDG indicators are assigned one (or more) of the following tiers:
 - Tier 1: Indicator is conceptually clear, has an internationally established methodology and standards are available, and data are regularly produced by countries for at least 50 per cent of countries and of the population in every region where the indicator is relevant.
 - Tier 2: Indicator is conceptually clear, has an internationally established methodology and standards are available, but data are not regularly produced by countries.
