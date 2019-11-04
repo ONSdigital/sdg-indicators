@@ -1,6 +1,6 @@
 ---
 layout: post
-title: International Work
+title: International work
 author: SDGs team
 category: ""
 excerpt: 
