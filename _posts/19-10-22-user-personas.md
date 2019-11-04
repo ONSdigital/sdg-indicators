@@ -6,12 +6,8 @@ category: "User research"
 excerpt: 
 ---
 
-The international Sustainable Development Goals (SDGs) community promotes the idea of United Nations member states reporting their SDG data online. The community refers to the relevant online data resources as national reporting platforms (NRPs). We call the data resource we have created the [UK SDG data site](https://sustainabledevelopment-uk.github.io/). It is a clearer term that more people will understand.
-
 We want to provide a data site that is easy to use by everybody and has purpose. To achieve this, we want to understand more about who uses the site and what they need from the site.
-
 This year we have started to research who uses the data site and for which reasons. So far, over 50 people from a variety of organisations have taken part. The research involved interviewing people face-to-face or by telephone. We spoke to people across government, from academia and the private sector.
-
 We have also carried out some usability testing, too. We tasked people to use the site to find specific information. Then we asked them about their experience. This information has informed our decisions about how we develop the data site.
 
 Our research has not ended. We will continue our user research and our usability testing for the lifetime of the data site. We always need volunteers so please let us know if you want to take part. Email us at <i class="fa fa-envelope"></i> [SustainableDevelopment@ons.gov.uk](mailto:SustainableDevelopment@ons.gov.uk).
