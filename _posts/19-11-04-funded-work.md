@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Funded Work
+title: Funded work
 author: SDGs team
 category: "Engagement"
 excerpt: 
