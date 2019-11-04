@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes"></script>
+<script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
+
+        <script>
+// This is where we initialise any global variables, namespaced in "opensdg".
+var opensdg = {
+
+  // A base URL for asynchronous calls to SDG data.
+  remoteDataBaseUrl: 'https://ONSdigital.github.io/sdg-data',
+
+  // A hook which can be replaced to modify the configuration for Chart.js.
+  // To see where this is used, see indicatorView.js createPlot() and updatePlot().
+  // To see an example of replacing it, see binary.html.
+  chartConfigAlter: function(config) {
+    // Alterations go here.
+    return config;
+  },
+
+  // A hook which can be replaced to alter whether/how the values that are
+  // displayed on indicator tables/graphs get rounded.
+  dataRounding: function(value) {
+    // Alterations go here.
+    return value;
+  },
+};
+
+// For backwards compatibility, some of these might need to be global.
+// @TODO: Remove these eventually.
+var remoteDataBaseUrl = opensdg.remoteDataBaseUrl;
+
+</script>
+
+        <script>
+// JavaScript container for translation data.
+var translations = {
+  //Javascript version of the "t" filter from jekyll-open-sdg-plugins.
+  t: function(key) {
+
+    if (!key || typeof key !== 'string') {
+      return '';
+    }
+
+    // The majority of uses of this function are to translate disaggregation
+    // data. To spare data providers of needing to enter "data." in front of
+    // their disaggregation data, we specifically look for that here.
+    if (typeof this.data === 'object' && this.data !== null && this.data[key]) {
+      return this.data[key];
+    }
+
+    var originalKey = key;
+    var drilled = this;
+    var levelsDrilled = 0;
+    var levels = key.split('.');
+
+    for (var level in levels) {
+      // If we have drilled down to soon, abort.
+      if (typeof drilled !== 'object') {
+        break;
+      }
+
+      if (levels[level] in drilled) {
+        drilled = drilled[levels[level]];
+        levelsDrilled += 1;
+      }
+    }
+
+    // If we didn't drill the right number of levels, return the original string.
+    if (levels.length != levelsDrilled) {
+      return originalKey;
+    }
+
+    // Otherwise we must have drilled all the way.
+    return drilled;
+  },
+};
+</script>
+
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Title and meta description
+        ================================================== -->
+        
+
+        
+
+        <title>
+          
+            U.K. Indicators For The Sustainable Development Goals
+          
+        </title>
+
+        <meta name="description" content="">
+        <meta property="og:description" content="">
+        
+        <meta name="robots" content="noindex, nofollow">
+        
+        <link rel="canonical" href="/">
+
+        
+
+        <!--[if IE 9]>
+        <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
+        <![endif]-->
+
+        <!-- Favicons ================================================== -->
+        <!-- 128x128 -->
+        <link rel="shortcut icon" type="image/ico" href="/sdg-indicators/assets/img/favicons/favicon.ico">
+        <link rel="icon" type="image/png" href="/sdg-indicators/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
+        http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+        -->
+
+        
+
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20191104184114">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
+        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
+        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><!-- ShareThis BEGIN --><!-- ShareThis END -->
+
+    </head>
+<body class="language-en layout-post">
+<!-- <div class="container"> -->
+
+<script>translations['header'] = {"disclaimer":"This is a development website. Please <a href=\"mailto:%email_address\">email us your feedback</a> or <a href=\"https://www.surveymonkey.co.uk/r/XFJZGVL\">complete a short survey</a>.","tag_line":"17 Goals to Transform our World","alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content"};</script>
+
+<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+<div id="disclaimer">
+  <div class="container">
+  <div class="alert alert-danger" role="alert">
+    <strong class="phase-tag">Alpha</strong>
+    This is a development website. Please <a href="mailto:sustainabledevelopment@ons.gov.uk">email us your feedback</a> or <a href="https://www.surveymonkey.co.uk/r/XFJZGVL">complete a short survey</a>.
+  </div>
+</div>
+
+</div>
+
+<header role="banner">
+  <div class="container">
+
+    <a class="navbar-brand" href="/sdg-indicators/" id="home">
+      <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+    </a>
+
+  <div class='hidden visible-xs float-right'>
+    <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
+
+    <nav class="navbar navbar-default" id="main-nav">
+
+      <ul class="top-level">
+        <li id="menuToggle"
+            aria-label="Menu toggle. Click to expand or collapse the menu."
+            aria-haspopup="true"
+            aria-expanded="false">
+          <span data-target="menu" tabindex="0"
+          role="navigation">Menu</span>
+        </li>
+        <li><span data-target="search">Search</span></li>
+      </ul>
+
+      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
+            <a href="/sdg-indicators/">Goals</a>
+          </li><li class="nav-link ">
+            <a href="/sdg-indicators/reporting-status/">Reporting Status</a>
+          </li><li class="nav-link ">
+            <a href="/sdg-indicators/about/">About</a>
+          </li><li class="nav-link ">
+            <a href="/sdg-indicators/publications/">Publications</a>
+          </li><li class="nav-link ">
+            <a href="/sdg-indicators/guidance/">Guidance</a>
+          </li><li class="nav-link ">
+            <a href="/sdg-indicators/faq/">FAQ</a>
+          </li></ul>
+
+      <div id="search" class="menu-target">
+  <input id="indicator_search" title="Indicator search" placeholder="Indicator search" data-url="/sdg-indicators/indicators.json" data-pageurl="/sdg-indicators/search/?q=" />
+  <label for="indicator_search">
+    <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Indicator search></i></button><span>Search:</span>
+  </label>
+</div>
+
+
+    </nav>
+  </div>
+
+</header>
+
+<div id="main-content" class="container">
+  <div class="row">
+    <div class="col-md-9 push-md-3">
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <h2 class="post-title" itemprop="name headline">International work</h2>
+        <p><time datetime="2019-11-04T00:00:00+00:00" itemprop="datePublished">Nov 4, 2019</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">SDGs team</span></span></p>
+        
+        <div class="post-categories">
+          
+          
+            <a href="/sdg-indicators/categories/#" title="View all posts in the  category"></a>
+          
+          
+        </div>
+
+        <div class="post-content" itemprop="articleBody">
+          <p>The Department for International Development has partnered with countries in Africa and Asia. We receive funding from the Department to support these countries with SDG reporting. We aim to improve the quality and availability of SDG data for these overseas partners.</p>
+
+<p>We have worked with three countries to help them create and use their own country’s data site. Ghana was the first country to copy the UK SDG data site. We <a href="https://blog.ons.gov.uk/2019/01/18/supporting-ghanas-global-goals/">held a workshop to help our colleagues</a> from the Ghana Statistical Service set up their site. We also explained how to convert existing Ghana data into SDG indicator statistics.</p>
+
+<p>We repeated the process with our colleagues in National Statistics Institute Rwanda. We helped them create their own SDG data site, upload data and explained how to maintain the site. <a href="https://open-sdg.readthedocs.io/en/latest/case-studies/rwanda/">Their experience is given as a case study</a> to help other countries set up their own data site.</p>
+
+<p>We also worked with the United Nations Statistics Division (UNSD) to help the National Statistical Committee of the Kyrgyz Republic. Other countries can also <a href="https://open-sdg.readthedocs.io/en/latest/case-studies/kyrgyzstan/">learn from their experience in a case study</a>.</p>
+
+<p>Any country or agency can create their own version of the SDG data site using <a href="https://open-sdg.readthedocs.io/en/latest/quick-start/">step-by-step online instructions</a>. Over ten countries have copied the site without direct help, to date.</p>
+
+<p>Some countries choose to customise their site. For example, Kazakhstan has <a href="https://kazstat.github.io/sdg-site-kazstat/">added visuals to their homepage</a>. Armenia has <a href="https://armstat.github.io/sdg-site-armenia/3/">added targets as well as indicators</a> and reports national indicators.</p>
+
+<p>The Sustainable Development Goals promote the idea of collaboration. With that in mind, it is important to make sure the SDG community shares new developments. Open SDG shares software program code for additions, amendments and new features.</p>
+
+<p>The Centre for Open Data Enterprise (CODE) combined United States and United Kingdom program code to develop <a href="https://open-sdg.readthedocs.io/en/latest/">Open SDG</a>. It is a shared, open-source online GitHub resource. SDG community members can use the program code stored on the site to amend SDG data sites. The community encourages members to submit and review feature updates.</p>
+
+<p>Countries can copy the entire of Open SDG to create a new data site from scratch. The <a href="https://github.com/open-sdg/open-sdg/releases">Open SDG releases</a> incorporate any revised or new features. These include:</p>
+
+<ul>
+  <li>data visualisations</li>
+  <li>accessibility improvements</li>
+  <li>language translations</li>
+  <li>reporting status categories</li>
+</ul>
+
+<p>Open SDG has provided updates to available features following requests from community members. Recent new program code allows people to <a href="https://sustainabledevelopment-rwanda.github.io/sdg-indicators/reporting-status/">mark SDG indicators as ‘not applicable’</a>, for example.</p>
+
+<p>We worked with CODE and the United Nations Statistics Division (UNSD) to develop a way to use data and metadata in SDMX format. We have fixed various data visualisation bugs particularly in relation to maps. We also and added language translations in German, Spanish, French, Russian, Kazakh, Armenian and Arabic.</p>
+
+<p>Collaborating with CODE has not only enabled us to speed up website development, but also helped promote Open SDG.</p>
+
+
+        </div>
+      </article>
+    </div>
+    <div class="col-md-3 pull-md-9">
+      <div id="sidebar">
+  <h4></h4>
+  <ul>
+    
+      
+      <li>
+        <a href="/sdg-indicators/categories/#Data exchange" title="">Data exchange</a>
+      </li>
+    
+      
+      <li>
+        <a href="/sdg-indicators/categories/#" title=""></a>
+      </li>
+    
+      
+      <li>
+        <a href="/sdg-indicators/categories/#accessibility" title="">accessibility</a>
+      </li>
+    
+      
+      <li>
+        <a href="/sdg-indicators/categories/#Engagement" title="">Engagement</a>
+      </li>
+    
+      
+      <li>
+        <a href="/sdg-indicators/categories/#User research" title="">User research</a>
+      </li>
+    
+  </ul>
+</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<footer role="contentinfo">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div id="footerLinks">
+            <ul>
+              <li><a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a></li>
+              
+              <li><a class="twitter-follow-button" href="https://twitter.com/ONS" data-show-count="false">Twitter: @ONS</a></li>
+              
+              
+              <li><a href="/sdg-indicators/faq/">FAQ</a></li>
+              <li><a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a></li>
+              <li><a href="/sdg-indicators/accessibility-statement/">Accessibility statement</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+  <!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
+  <!-- Google Analytics -->
+  
+  <!-- /.container </div> -->
+  <script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
+<script src="https://cdn.rawgit.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
+<script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20191104184114'></script><script src="/sdg-indicators/assets/js/custom.js?v=20191104184114"></script><script>
+$(function() {
+    if($('#indicatorData').length) {
+      var domData = $('#indicatorData').data();
+
+      $('.async-loading').each(function(i, obj) {
+          $(obj).append($('<img />').attr('src', $(obj).data('img')));
+      });
+
+      $.ajax({
+        url: opensdg.remoteDataBaseUrl + '/comb/' + domData.id + '.json',
+        success: function(res) {
+
+          $('.async-loading').remove();
+          $('.async-loaded').show();
+
+          var model = new indicatorModel({
+            data: res.data,
+            edgesData: res.edges,
+            geoCodeRegEx: domData.geocoderegex,
+            showMap: domData.showmap,
+            country: domData.country,
+            indicatorId: domData.indicatorid,
+            shortIndicatorId: domData.id,
+            chartTitle: domData.charttitle,
+            measurementUnit: domData.measurementunit,
+            copyright: domData.copyright,
+            dataSource: domData.datasource,
+            geographicalArea: domData.geographicalarea,
+            showData: domData.showdata,
+            footnote: domData.footnote,
+            graphType: domData.graphtype,
+            startValues: domData.startvalues
+          }),
+          view  = new indicatorView(model, {
+            rootElement: '#indicatorData',
+            legendElement: '#plotLegend',
+            maxChartHeight: 420,
+            tableColumnDefs: [
+              { maxCharCount: 25 }, // nowrap
+              { maxCharCount: 35, width: 200 },
+              { maxCharCount: Infinity, width: 250 }
+            ]
+          }),
+          controller = new indicatorController(model, view);
+          controller.initialise();
+        }
+      });
+    }
+
+    var switcher = new accessibilitySwitcher();
+
+
+});
+</script>
+
+  
+  
+  
+  </body>
+  </html>
+  

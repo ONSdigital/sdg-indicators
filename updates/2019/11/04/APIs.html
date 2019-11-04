@@ -125,7 +125,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20191104182029">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20191104184114">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -206,92 +206,38 @@ var translations = {
   <div class="row">
     <div class="col-md-9 push-md-3">
       <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-        <h2 class="post-title" itemprop="name headline">What we do</h2>
-        <p><time datetime="2019-07-05T00:00:00+00:00" itemprop="datePublished">Jul 5, 2019</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">SDGs team</span></span></p>
+        <h2 class="post-title" itemprop="name headline">Using APIs</h2>
+        <p><time datetime="2019-11-04T00:00:00+00:00" itemprop="datePublished">Nov 4, 2019</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">SDGs team</span></span></p>
         
         <div class="post-categories">
           
           
-            <a href="/sdg-indicators/categories/#News" title="View all posts in the News category">News</a>
+            <a href="/sdg-indicators/categories/#Data exchange" title="View all posts in the Data exchange category">Data exchange</a>
           
           
         </div>
 
         <div class="post-content" itemprop="articleBody">
-          <h2 id="1-what-are-the-sustainable-development-goals-sdgs">1. What are the Sustainable Development Goals (SDGs)?</h2>
-<p>In 2015, all member states of the United Nations signed up to the 17 Sustainable Development Goals. They set measurable aims for improving our world. Each goal covers a different aspect of life: poverty, hunger, education, equality, the environment, justice, economy and so on. They all have targets and indicators we aim to achieve by 2030.</p>
+          <p>Our UK SDG data site requires data files to be in a specific format. Reformatting available data into this format is labour intensive. We are looking to automate the process of updating the data we report. This will enable us to focus on identifying sources and developing new methods instead.</p>
 
-<p>The United Nations will collect and catalogue data from each country to monitor progress towards achieving the goals. A central principle of the goals is to make sure we “Leave No-one Behind”. With that in mind, all the reported data must be disaggregated by sex, age, geography, race, ethnicity, disability, migratory status and income, where applicable.</p>
+<p>We are working with Application Programming Interfaces (APIs). They allow two software applications to communicate. Websites across the internet use APIs to automate updates and changes.</p>
 
-<p>In the UK, Office for National Statistics (ONS) is responsible for reporting the country’s data to the United Nations. We will:</p>
+<p>We want to use APIs that will work with data published online somewhere else. For example, the ONS Gross Domestic Product (GDP) per head time series has a supporting API which makes the data available in a format we can use.</p>
+
+<p>We have written software program code to:</p>
 
 <ul>
-  <li>
-    <p>source the appropriate UK data for the global indicators</p>
-  </li>
-  <li>
-    <p>provide data to the international organisations responsible for each indicator, known as Custodian Agencies, who will report them to the United Nations</p>
-  </li>
-  <li>
-    <p>analyse the data so that we can put it into context</p>
-  </li>
-  <li>
-    <p>make the data available to everybody using an online tool and supporting reports</p>
-  </li>
+  <li>Enable our data site to link with APIs used by other websites reporting data</li>
+  <li>Calculate the relevant new figures</li>
+  <li>Format the results so they are usable on our site</li>
+  <li>Print our indicator files ready to go on our site</li>
 </ul>
 
-<p><img src="https://onsdigital.github.io/sdg-indicators/public/sdgs.png" alt="picture of sustainable development goals logos" /></p>
+<p>We have been able to cut down the work we do to process updates to the data we report on our site. We are using APIs to update 15 different indicators, currently. By automating these updates, we can report the latest data faster too.</p>
 
-<h2 id="2-latest-news">2. Latest news</h2>
-<h3 id="november-2017">November 2017</h3>
-<h4 id="sdgs-reporting-platform">SDGs reporting platform</h4>
-<p>The “alpha” version of our SDGs reporting platform was launched. The site is based on an open source version developed by the United States government. We continue to work with the US and CODE on developments and would appreciate your feedback – please send your comments to sustainabledevelopment@ons.gov.uk.</p>
+<p>We are updating SDG data with APIs that communicate with ONS websites so far. We are investigating which other websites we can connect to using APIs in the future.</p>
 
-<p>Our first progress report, “Sustainable Development Goals: progress and possibilities”, is published. It is on the <a href="https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2017">ONS website</a> and on the publications page of this reporting platform.</p>
-
-<h4 id="sdgs-consultation">SDGs consultation</h4>
-<p>Our consultation on SDGs has closed. The purpose of the consultation was to seek views on our approach to measuring and reporting UK progress against the global SDGs indicators. The link to the report is below.</p>
-
-<h2 id="3-publications">3. Publications</h2>
-
-<h4 id="february-2019---what-is-the-difference-between-sex-and-gender">February 2019 - What is the difference between sex and gender?</h4>
-<p>We are exploring concepts that are important to the Sustainable Development Goals. <a href="https://www.ons.gov.uk/economy/environmentalaccounts/articles/whatisthedifferencebetweensexandgender/2019-02-21">This article</a> explains the differences between sex and gender.</p>
-
-<h4 id="november-2018---sustainable-development-goals-in-the-uk-an-update-on-progress">November 2018 - Sustainable Development Goals in the UK: An update on progress</h4>
-<p>This is our <a href="https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2018">second report summarising the progress made</a> towards measuring the global Sustainable Development Goals over the past year.</p>
-
-<h4 id="october-2018---using-innovative-methods-to-report-against-the-sustainable-development-goals">October 2018 - Using innovative methods to report against the Sustainable Development Goals</h4>
-<p>The <a href="https://www.ons.gov.uk/economy/environmentalaccounts/articles/usinginnovativemethodstoreportagainstthesustainabledevelopmentgoals/2018-10-22">outcome of a project aimed at exploring new ways of producing and communicating geographical data</a>.</p>
-
-<h4 id="july-2018---inclusive-data-charter-action-plan-for-the-global-sustainable-development-goals">July 2018 - Inclusive data charter action plan for the global Sustainable Development Goals</h4>
-<p>The Office for National Statistics has partnered with the Global Partnership for Sustainable Development Data to improve the quality, quantity and availability of inclusive data. The report can be found on the <a href="https://www.ons.gov.uk/economy/environmentalaccounts/methodologies/inclusivedatacharteractionplanfortheglobalsustainabledevelopmentgoals">ONS website</a>.</p>
-
-<h4 id="19-march-2018---uk-data-gaps">19 March 2018 - UK data gaps</h4>
-<p>This is our <a href="https://www.ons.gov.uk/economy/environmentalaccounts/articles/ukdatagapsinclusivedataactionplantowardstheglobalsustainabledevelopmentgoalindicators/2018-03-19">first report on UK data gaps</a> for reporting progress towards the global Sustainable Development Goal indicators.</p>
-
-<h4 id="11-december-2017---consulation-findings">11 December 2017 - Consulation findings</h4>
-<p>We have analysed the feedback and it is published on the <a href="https://consultations.ons.gov.uk/sustainable-development-goals/ons-approach-to-measuring-reporting-sdgs-in-the-uk/">ONS website</a>.</p>
-
-<h4 id="9-november-2017--sustainable-development-goals-progress-and-possibilities">9 November 2017 – <a href="https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2017">Sustainable Development Goals: progress and possibilities</a></h4>
-<p>This looks at how much data have been collected for the global SDGs indicators by ONS for the UK. It also explains what work we are doing to measure progress towards the SDGs.</p>
-
-<p>Narrative reports will be listed by goal on the publications page of our SDG website.</p>
-
-<h4 id="5-august-2016--how-should-the-uk-report-progress-towards-the-sustainable-development-goals-a-summary-of-responses-from-non-governmental-organisations-pdf-711kb">5 August 2016 – <a href="https://www.ons.gov.uk/file?uri=/aboutus/whatwedo/programmesandprojects/sustainabledevelopmentgoals/howshouldtheukreportprogresstowardsthesustainabledevelopmentgoals.pdf">How should the UK report progress towards the Sustainable Development Goals? A summary of responses from non-governmental organisations. (PDF, 711KB)</a></h4>
-
-<h2 id="4-want-to-know-more">4. Want to know more?</h2>
-<p>UK data for the SDGs indicators can be found on this reporting platform.</p>
-
-<p>Information about Sustainable Development Goals can be found on the <a href="http://www.un.org/sustainabledevelopment/sustainable-development-goals/">United Nations website</a> and the <a href="http://www.globalgoals.org/">Global Goals website</a>.</p>
-
-<p>Information about the technical process of developing the indicator framework can be found on the <a href="https://unstats.un.org/sdgs/iaeg-sdgs/">United Nations Inter-Agency and Expert Group on Sustainable Development Goal Indicators (IAEG-SDGs) webpage</a>.</p>
-
-<h2 id="5-contact-us">5. Contact us</h2>
-<p>You can follow us on Twitter: <a href="https://twitter.com/StatSteel">@StatSteel</a></p>
-
-<p>ONS recognises the importance of working with all stakeholders, within and outside government. We are keen to hear your views.</p>
-
-<p>To contact the ONS Sustainable Development Goals team please email <a href="mailto:SustainableDevelopment@ons.gov.uk">SustainableDevelopment@ons.gov.uk</a>.</p>
+<p>If you want to know more about how we collect data using APIs please <i class="fa fa-envelope"></i> <a href="mailto:SustainableDevelopment@ons.gov.uk">email us at SustainableDevelopment@ons.gov.uk</a>.</p>
 
         </div>
       </article>
@@ -303,7 +249,27 @@ var translations = {
     
       
       <li>
-        <a href="/sdg-indicators/categories/#News" title="">News</a>
+        <a href="/sdg-indicators/categories/#Data exchange" title="">Data exchange</a>
+      </li>
+    
+      
+      <li>
+        <a href="/sdg-indicators/categories/#" title=""></a>
+      </li>
+    
+      
+      <li>
+        <a href="/sdg-indicators/categories/#accessibility" title="">accessibility</a>
+      </li>
+    
+      
+      <li>
+        <a href="/sdg-indicators/categories/#Engagement" title="">Engagement</a>
+      </li>
+    
+      
+      <li>
+        <a href="/sdg-indicators/categories/#User research" title="">User research</a>
       </li>
     
   </ul>
@@ -360,7 +326,7 @@ var translations = {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20191104182029'></script><script src="/sdg-indicators/assets/js/custom.js?v=20191104182029"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20191104184114'></script><script src="/sdg-indicators/assets/js/custom.js?v=20191104184114"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

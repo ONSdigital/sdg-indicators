@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes"></script>
+<script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
+
+        <script>
+// This is where we initialise any global variables, namespaced in "opensdg".
+var opensdg = {
+
+  // A base URL for asynchronous calls to SDG data.
+  remoteDataBaseUrl: 'https://ONSdigital.github.io/sdg-data',
+
+  // A hook which can be replaced to modify the configuration for Chart.js.
+  // To see where this is used, see indicatorView.js createPlot() and updatePlot().
+  // To see an example of replacing it, see binary.html.
+  chartConfigAlter: function(config) {
+    // Alterations go here.
+    return config;
+  },
+
+  // A hook which can be replaced to alter whether/how the values that are
+  // displayed on indicator tables/graphs get rounded.
+  dataRounding: function(value) {
+    // Alterations go here.
+    return value;
+  },
+};
+
+// For backwards compatibility, some of these might need to be global.
+// @TODO: Remove these eventually.
+var remoteDataBaseUrl = opensdg.remoteDataBaseUrl;
+
+</script>
+
+        <script>
+// JavaScript container for translation data.
+var translations = {
+  //Javascript version of the "t" filter from jekyll-open-sdg-plugins.
+  t: function(key) {
+
+    if (!key || typeof key !== 'string') {
+      return '';
+    }
+
+    // The majority of uses of this function are to translate disaggregation
+    // data. To spare data providers of needing to enter "data." in front of
+    // their disaggregation data, we specifically look for that here.
+    if (typeof this.data === 'object' && this.data !== null && this.data[key]) {
+      return this.data[key];
+    }
+
+    var originalKey = key;
+    var drilled = this;
+    var levelsDrilled = 0;
+    var levels = key.split('.');
+
+    for (var level in levels) {
+      // If we have drilled down to soon, abort.
+      if (typeof drilled !== 'object') {
+        break;
+      }
+
+      if (levels[level] in drilled) {
+        drilled = drilled[levels[level]];
+        levelsDrilled += 1;
+      }
+    }
+
+    // If we didn't drill the right number of levels, return the original string.
+    if (levels.length != levelsDrilled) {
+      return originalKey;
+    }
+
+    // Otherwise we must have drilled all the way.
+    return drilled;
+  },
+};
+</script>
+
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Title and meta description
+        ================================================== -->
+        
+
+        
+
+        <title>
+          
+            U.K. Indicators For The Sustainable Development Goals
+          
+        </title>
+
+        <meta name="description" content="">
+        <meta property="og:description" content="">
+        
+        <meta name="robots" content="noindex, nofollow">
+        
+        <link rel="canonical" href="/">
+
+        
+
+        <!--[if IE 9]>
+        <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
+        <![endif]-->
+
+        <!-- Favicons ================================================== -->
+        <!-- 128x128 -->
+        <link rel="shortcut icon" type="image/ico" href="/sdg-indicators/assets/img/favicons/favicon.ico">
+        <link rel="icon" type="image/png" href="/sdg-indicators/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
+        http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+        -->
+
+        
+
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20191104184114">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
+        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
+        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><!-- ShareThis BEGIN --><!-- ShareThis END -->
+
+    </head>
+<body class="language-en layout-post">
+<!-- <div class="container"> -->
+
+<script>translations['header'] = {"disclaimer":"This is a development website. Please <a href=\"mailto:%email_address\">email us your feedback</a> or <a href=\"https://www.surveymonkey.co.uk/r/XFJZGVL\">complete a short survey</a>.","tag_line":"17 Goals to Transform our World","alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content"};</script>
+
+<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+<div id="disclaimer">
+  <div class="container">
+  <div class="alert alert-danger" role="alert">
+    <strong class="phase-tag">Alpha</strong>
+    This is a development website. Please <a href="mailto:sustainabledevelopment@ons.gov.uk">email us your feedback</a> or <a href="https://www.surveymonkey.co.uk/r/XFJZGVL">complete a short survey</a>.
+  </div>
+</div>
+
+</div>
+
+<header role="banner">
+  <div class="container">
+
+    <a class="navbar-brand" href="/sdg-indicators/" id="home">
+      <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+    </a>
+
+  <div class='hidden visible-xs float-right'>
+    <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
+
+    <nav class="navbar navbar-default" id="main-nav">
+
+      <ul class="top-level">
+        <li id="menuToggle"
+            aria-label="Menu toggle. Click to expand or collapse the menu."
+            aria-haspopup="true"
+            aria-expanded="false">
+          <span data-target="menu" tabindex="0"
+          role="navigation">Menu</span>
+        </li>
+        <li><span data-target="search">Search</span></li>
+      </ul>
+
+      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
+            <a href="/sdg-indicators/">Goals</a>
+          </li><li class="nav-link ">
+            <a href="/sdg-indicators/reporting-status/">Reporting Status</a>
+          </li><li class="nav-link ">
+            <a href="/sdg-indicators/about/">About</a>
+          </li><li class="nav-link ">
+            <a href="/sdg-indicators/publications/">Publications</a>
+          </li><li class="nav-link ">
+            <a href="/sdg-indicators/guidance/">Guidance</a>
+          </li><li class="nav-link ">
+            <a href="/sdg-indicators/faq/">FAQ</a>
+          </li></ul>
+
+      <div id="search" class="menu-target">
+  <input id="indicator_search" title="Indicator search" placeholder="Indicator search" data-url="/sdg-indicators/indicators.json" data-pageurl="/sdg-indicators/search/?q=" />
+  <label for="indicator_search">
+    <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Indicator search></i></button><span>Search:</span>
+  </label>
+</div>
+
+
+    </nav>
+  </div>
+
+</header>
+
+<div id="main-content" class="container">
+  <div class="row">
+    <div class="col-md-9 push-md-3">
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <h2 class="post-title" itemprop="name headline">User personas</h2>
+        <p><time datetime="2019-11-04T00:00:00+00:00" itemprop="datePublished">Nov 4, 2019</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">SDGs team</span></span></p>
+        
+        <div class="post-categories">
+          
+          
+            <a href="/sdg-indicators/categories/#User research" title="View all posts in the User research category">User research</a>
+          
+          
+        </div>
+
+        <div class="post-content" itemprop="articleBody">
+          <p>We want to provide a data site that is easy to use by everybody and has purpose. To achieve this, we want to understand more about who uses the site and what they need from the site.
+This year we have started to research who uses the data site and for which reasons. So far, over 50 people from a variety of organisations have taken part. The research involved interviewing people face-to-face or by telephone. We spoke to people across government, from academia and the private sector.
+We have also carried out some usability testing, too. We tasked people to use the site to find specific information. Then we asked them about their experience. This information has informed our decisions about how we develop the data site.</p>
+
+<p>Our research has not ended. We will continue our user research and our usability testing for the lifetime of the data site. We always need volunteers so please let us know if you want to take part. Email us at <i class="fa fa-envelope"></i> <a href="mailto:SustainableDevelopment@ons.gov.uk">SustainableDevelopment@ons.gov.uk</a>.</p>
+
+<h3 id="what-did-we-find">What did we find?</h3>
+
+<p>We identified four main user types or personas:</p>
+
+<p><img src="https://sustainabledevelopment-uk.github.io/public/blog/user_personas.png" alt="Diagram showing summary of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst." height="300px" /></p>
+
+<h3 id="table-of-contents">Table of contents</h3>
+<ol>
+  <li><a href="#concerned-citizen">Concerned citizen</a></li>
+  <li><a href="#connected-influencer">Connected influencer</a></li>
+  <li><a href="#fact-gatherer">Fact gatherer</a></li>
+  <li><a href="#involved-analyst">Involved analyst</a></li>
+  <li><a href="#next-steps">Next steps</a></li>
+</ol>
+
+<h3 id="concerned-citizen">Concerned citizen</h3>
+<h4 id="who-they-are">Who they are</h4>
+<p>Someone who has an personal interest in SDGs or related topics but may also have a professional interest.</p>
+
+<h5 id="likely-to-say">Likely to say</h5>
+<p>“Tell me what the goals are and what is being done about them.”</p>
+
+<h4 id="what-motivates-them">What motivates them</h4>
+<p>They have either a personal and/or political interest in the SDGS and want to know what they are about and whether they will make a difference.</p>
+
+<h4 id="what-they-want">What they want</h4>
+<p>Concerned citizens want to:</p>
+
+<ul>
+  <li>get a better understanding of the SDGs</li>
+  <li>see how the UK is doing</li>
+  <li>see how they can help</li>
+  <li>see if the SDGs impact them</li>
+  <li>see what is being done</li>
+</ul>
+
+<h4 id="behaviours-and-preferences">Behaviours and preferences</h4>
+<p>Concerned citizens might arrive to the site from other public facing websites and are more likely to prefer SDG content from media outlets. They will often browse using handheld devices and may share links with others.</p>
+
+<h5 id="we-must">We must:</h5>
+
+<ul>
+  <li>explain the SDGs in simple terms</li>
+  <li>give simple-to-understand context of what the goals mean</li>
+  <li>give them an overall view of UK performance against targets</li>
+  <li>explain what is being to meet the targets</li>
+  <li>use visualisations to explain everything</li>
+</ul>
+
+<h5 id="we-must-not">We must not:</h5>
+
+<ul>
+  <li>expect them to understand the data in the charts without any context</li>
+  <li>use terminology and technical terms</li>
+  <li>expect them to go into individual indivators to get a view of performance</li>
+  <li>put lots of methodology and usage notes in their way</li>
+</ul>
+
+<p><a href="#table-of-contents">Back to top</a></p>
+
+<h3 id="connected-influencer">Connected influencer</h3>
+<h4 id="who-they-are-1">Who they are</h4>
+<p>Someone non-statistical working in the not-for-profit space or for a private sector organisation looking to make money around sustainable development activities. Might be an individual attempting to challenge or guide on government policy</p>
+<h5 id="likely-to-say-1">Likely to say</h5>
+<p>“Give me a tool that will support my ambitions and give me a louder voice.”</p>
+
+<h4 id="what-motivates-them-1">What motivates them</h4>
+<p>Connected influencers understand the SDGs but don’t necessarily allign to them. The SDGs provide a higher framework for them to align their work to</p>
+
+<h4 id="what-they-want-1">What they want</h4>
+<p>Connected influencers want to:</p>
+
+<ul>
+  <li>use the SDG website to educate people</li>
+  <li>help businesses develop sustainability strategies</li>
+  <li>take content from the website and report on it</li>
+  <li>influence policies and change them</li>
+  <li>drive change</li>
+  <li>see how the UK and government and performing</li>
+</ul>
+
+<h4 id="behaviours-and-preferences-1">Behaviours and preferences</h4>
+<p>They have a good knowledge of the SDGs and use the SDGs to champion the themes they work in. They use the website to begin conversations with others and use it in conjunction with the UN website amongst other</p>
+
+<h5 id="we-must-1">We must:</h5>
+
+<ul>
+  <li>provide alternate routes into data so that their users can understand</li>
+  <li>provide guidance on indicators that relate to the themes they work in</li>
+  <li>ensure commentary and analysis is easy to find</li>
+  <li>show relationships between different indicators</li>
+  <li>show UK progress early in the journey</li>
+</ul>
+
+<h5 id="we-must-not-1">We must not:</h5>
+
+<ul>
+  <li>expect them to get their answers through data manipulation</li>
+  <li>force them to approach each indicator separately</li>
+</ul>
+
+<p><a href="#table-of-contents">Back to top</a></p>
+
+<h3 id="fact-gatherer">Fact gatherer</h3>
+<h4 id="who-they-are-2">Who they are</h4>
+<p>Policy advisers in government departments who have been tasked with reporting on SDG progress and VNR, non-governmental organisations looking to understand what is going on in the UK and think tanks wanting to understand what the UK is doing and hold the government to account.</p>
+
+<h5 id="likely-to-say-2">Likely to say</h5>
+<p>“I just need to quickly see what progress is being made and check the facts.”</p>
+
+<h4 id="what-motivates-them-2">What motivates them</h4>
+<p>They need somewhere that gives them a view of UK progress which doesn’t involve hunting through lots of data.</p>
+
+<h4 id="what-they-want-2">What they want</h4>
+<p>Fact gatherers want to:</p>
+
+<ul>
+  <li>see what progress is being made and understand any issues or challenges</li>
+  <li>take content and report on it</li>
+  <li>see performance against targets and understand the issues and choices being made</li>
+  <li>see progress towards collecting data and understand the issues and choices being made</li>
+  <li>access the data and check the quality</li>
+</ul>
+
+<h4 id="behaviours-and-preferences-2">Behaviours and preferences</h4>
+<p>They come to the website quite often  and may copy data for use in reports, which report data around themes not goals and targets. They cite the website in reports and may mix data from other sources.</p>
+
+<h5 id="we-must-2">We must:</h5>
+
+<ul>
+  <li>provide them with a view of UK performance at every level</li>
+  <li>provide bite-sized summaries to brief them on progress</li>
+  <li>provide them with links to the physical source data</li>
+  <li>show them targets early in the journey</li>
+  <li>provide them with a quick view of what data has been collected, jot collected and reasons why data was chosen or not collected</li>
+</ul>
+
+<h5 id="we-must-not-2">We must not:</h5>
+
+<ul>
+  <li>expect them to find the source data with a generic link</li>
+  <li>populate the website with out-of-date website</li>
+  <li>hide facts and figures under complex levels of navigation</li>
+</ul>
+
+<p><a href="#table-of-contents">Back to top</a></p>
+
+<h3 id="involved-analyst">Involved analyst</h3>
+<h4 id="who-they-are-3">Who they are</h4>
+<p>Involved analysts can be a range of different people, who usually work with international data:</p>
+
+<ul>
+  <li>A statistical audience working in or around the SDG framework.</li>
+  <li>Users creating detailed reports as part of commissioned project work</li>
+  <li>Academia working in funded projects</li>
+  <li>Students researching set topics</li>
+  <li>Custodian ageny analysts</li>
+</ul>
+
+<h5 id="likely-to-say-3">Likely to say</h5>
+<p>“I just want the data so I can do my own thing with it.”</p>
+
+<h4 id="what-motivates-them-3">What motivates them</h4>
+<p>They need somewhere to get some or all of the SDG data so they can answer questions for themselves or others.</p>
+
+<h4 id="what-they-want-3">What they want</h4>
+<p>Involved analysts want to:</p>
+<ul>
+  <li>get data to take away and use</li>
+  <li>see trends behind the data</li>
+  <li>find outliers in the data such as ‘leave no one behind’</li>
+  <li>get all data or lots of data on given themes</li>
+  <li>mix data from other countries or sources</li>
+</ul>
+
+<h4 id="behaviours-and-preferences-3">Behaviours and preferences</h4>
+<p>They will often collaborate with others to produce analysis to inform or challenge policy and will share their reports with a wider audience. They will often copy the data directly from the tables rather than download it and will often transform the data for others.</p>
+
+<h5 id="we-must-3">We must:</h5>
+
+<ul>
+  <li>give them advanced routes in to the data from the outset</li>
+  <li>show them the targets</li>
+  <li>show relationships between different indicators</li>
+  <li>give them methodology behind the data</li>
+  <li>tell them if the data is comparable with other SDG data</li>
+</ul>
+
+<h5 id="we-must-not-3">We must not:</h5>
+
+<ul>
+  <li>put lots of commentary and top-level visualisations in their way</li>
+  <li>make it hard to get lots of data</li>
+  <li>expect them to navigate each indicator to geth the data they need</li>
+  <li>expect them to understand the difference between data on the UK NRP and the UN global database</li>
+</ul>
+
+<p><a href="#table-of-contents">Back to top</a></p>
+
+<h3 id="next-steps">Next steps</h3>
+<p>As this was an initial phase of user research with a small number of participants, we will carry out further research to validate the user types. Further research will be carried out with custodian agencies, concerned citizens, government SDG policy analysts, local authorities and master builders as well as other users.</p>
+
+<p>If you have any further questions about the user personas or our user research, or if you want to be involved with future user research, please contact us at <i class="fa fa-envelope"></i> <a href="mailto:SustainableDevelopment@ons.gov.uk">SustainableDevelopment@ons.gov.uk</a>.</p>
+
+<p>Alternatively, please complete our <a href="https://www.surveymonkey.co.uk/r/XFJZGVL">short survey</a> to give some feedback about the site.</p>
+
+<p><a href="#table-of-contents">Back to top</a></p>
+
+        </div>
+      </article>
+    </div>
+    <div class="col-md-3 pull-md-9">
+      <div id="sidebar">
+  <h4></h4>
+  <ul>
+    
+      
+      <li>
+        <a href="/sdg-indicators/categories/#Data exchange" title="">Data exchange</a>
+      </li>
+    
+      
+      <li>
+        <a href="/sdg-indicators/categories/#" title=""></a>
+      </li>
+    
+      
+      <li>
+        <a href="/sdg-indicators/categories/#accessibility" title="">accessibility</a>
+      </li>
+    
+      
+      <li>
+        <a href="/sdg-indicators/categories/#Engagement" title="">Engagement</a>
+      </li>
+    
+      
+      <li>
+        <a href="/sdg-indicators/categories/#User research" title="">User research</a>
+      </li>
+    
+  </ul>
+</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<footer role="contentinfo">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div id="footerLinks">
+            <ul>
+              <li><a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a></li>
+              
+              <li><a class="twitter-follow-button" href="https://twitter.com/ONS" data-show-count="false">Twitter: @ONS</a></li>
+              
+              
+              <li><a href="/sdg-indicators/faq/">FAQ</a></li>
+              <li><a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a></li>
+              <li><a href="/sdg-indicators/accessibility-statement/">Accessibility statement</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+  <!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
+  <!-- Google Analytics -->
+  
+  <!-- /.container </div> -->
+  <script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
+<script src="https://cdn.rawgit.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
+<script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20191104184114'></script><script src="/sdg-indicators/assets/js/custom.js?v=20191104184114"></script><script>
+$(function() {
+    if($('#indicatorData').length) {
+      var domData = $('#indicatorData').data();
+
+      $('.async-loading').each(function(i, obj) {
+          $(obj).append($('<img />').attr('src', $(obj).data('img')));
+      });
+
+      $.ajax({
+        url: opensdg.remoteDataBaseUrl + '/comb/' + domData.id + '.json',
+        success: function(res) {
+
+          $('.async-loading').remove();
+          $('.async-loaded').show();
+
+          var model = new indicatorModel({
+            data: res.data,
+            edgesData: res.edges,
+            geoCodeRegEx: domData.geocoderegex,
+            showMap: domData.showmap,
+            country: domData.country,
+            indicatorId: domData.indicatorid,
+            shortIndicatorId: domData.id,
+            chartTitle: domData.charttitle,
+            measurementUnit: domData.measurementunit,
+            copyright: domData.copyright,
+            dataSource: domData.datasource,
+            geographicalArea: domData.geographicalarea,
+            showData: domData.showdata,
+            footnote: domData.footnote,
+            graphType: domData.graphtype,
+            startValues: domData.startvalues
+          }),
+          view  = new indicatorView(model, {
+            rootElement: '#indicatorData',
+            legendElement: '#plotLegend',
+            maxChartHeight: 420,
+            tableColumnDefs: [
+              { maxCharCount: 25 }, // nowrap
+              { maxCharCount: 35, width: 200 },
+              { maxCharCount: Infinity, width: 250 }
+            ]
+          }),
+          controller = new indicatorController(model, view);
+          controller.initialise();
+        }
+      });
+    }
+
+    var switcher = new accessibilitySwitcher();
+
+
+});
+</script>
+
+  
+  
+  
+  </body>
+  </html>
+  
