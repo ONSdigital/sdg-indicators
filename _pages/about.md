@@ -15,7 +15,7 @@ The site is based on the open source [Open SDG](https://open-sdg.readthedocs.io/
 
 For more information about Open SDG and how you could create your own version of this website, see the [Guidance page]({{ site.baseurl }}{% link _pages/guidance.md %}).
 
-## Need more info?
+### Need more info?
 The answers to some frequently asked questions are also available in the [Frequently Asked Questions]({{ site.baseurl }}{% link _pages/faq.md %}).
 
 If you have any feedback on this website or UK SDG data then please <i class="fa fa-envelope"></i> <a href="mailto:{{site.email_contacts.questions}}">email us at {{site.email_contacts.questions}}</a>.
