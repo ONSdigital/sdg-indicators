@@ -2,7 +2,7 @@
 layout: post
 title: Digital Accessibility Testing
 author: SDGs team
-category: "accessibility"
+category: "Accessibility"
 excerpt: 
 ---
 
