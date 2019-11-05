@@ -8,10 +8,10 @@ layout: page
 2. [What does the reporting status mean?](#what-does-the-reporting-status-mean?)
 3. [What do each of the three tiers mean?](#what-do-each-of-the-three-tiers-mean?
 4. [How often will new data be added to this site?](#how-often-will-new-data-be-added-to-this-site?)
-5. [What are you doing to fill data gaps?](what-are-you-doing-to-fill-data-gaps?)
-6. [How accessible is this website?](how-accessible-is-this-website?)
-7. [What browsers can I use to view this website?](what-browsers-can-i-use-to-view-this-website?)
-8. [Can other countries copy this website?](can-other-countries-copy-this-website?)
+5. [What are you doing to fill data gaps?](#what-are-you-doing-to-fill-data-gaps?)
+6. [How accessible is this website?](#how-accessible-is-this-website?)
+7. [What browsers can I use to view this website?](#what-browsers-can-i-use-to-view-this-website?)
+8. [Can other countries copy this website?](#can-other-countries-copy-this-website?)
 
 ## How do I suggest new or different data sources?
 If you have feedback on the data sources we have used or have suggestions for new data sources then please <i class="fa fa-envelope"></i> <a href="mailto:{{site.email_contacts.questions}}">email us at {{site.email_contacts.questions}}</a>.
