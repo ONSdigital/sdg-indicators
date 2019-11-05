@@ -15,7 +15,7 @@ environment: staging
 
 remote_data_prefix: "https://ONSdigital.github.io/sdg-data"
 remote_translations:
-  - https://open-sdg.github.io/sdg-translations/translations.json
+  - https://open-sdg.github.io/sdg-translations/translations-0.8.0.json
 create_indicators:
   layout: indicator
 create_goals:
@@ -60,7 +60,7 @@ collections:
     permalink: /:path/
   posts:
     output: true
-    permalink: /updates/:year/:month/:day/:title.html
+    permalink: /news/:year/:month/:day/:title.html
   indicators:
     output: true
   goals:
@@ -90,8 +90,6 @@ menu:
     translation_key: menu.guidance
   - path: /faq/
     translation_key: menu.faq
-  - path: /updates/
-    translation_key: menu.updates
 
 # This makes sure that all pages have a language.
 defaults:
