@@ -2,7 +2,7 @@
 layout: post
 title: Funded work
 author: SDGs team
-category: "Engagement"
+category: "Data partners"
 excerpt: 
 ---
 
