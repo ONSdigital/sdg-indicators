@@ -6,7 +6,7 @@ layout: page
 ## Table of contents
 1. [How do I suggest new or different data sources?](#how-do-i-suggest-new-or-different-data-sources?)
 2. [What does the reporting status mean?](#what-does-the-reporting-status-mean?)
-3. [What do each of the three tiers mean?](#what-do-each-of-the-three-tiers-mean?
+3. [What do each of the three tiers mean?](#what-do-each-of-the-three-tiers-mean?)
 4. [How often will new data be added to this site?](#how-often-will-new-data-be-added-to-this-site?)
 5. [What are you doing to fill data gaps?](#what-are-you-doing-to-fill-data-gaps?)
 6. [How accessible is this website?](#how-accessible-is-this-website?)
