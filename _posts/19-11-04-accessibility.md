@@ -2,13 +2,13 @@
 layout: post
 title: Digital Accessibility Testing
 author: SDGs team
-category: "Accessibility"
+category: "accessibility"
 excerpt: 
 ---
 
 The commitment to “leave no one behind” is central to the Sustainable Development Goals (SDGs). It extends to making our digital content accessible and functional for all users regardless of any disability or physical impairment.
 
-<img src="https://sustainabledevelopment-uk.github.io/public/blog/accessible-definition.png" alt="Image showing the dictionary definitions of the word accessible." height="300px">
+<img src="https://sustainabledevelopment-uk.github.io/public/blog/accessible_definition.png" alt="Image showing the dictionary definitions of the word accessible." height="300px">
 
 We have labelled the site according to the generally accepted phases of site development:
 
