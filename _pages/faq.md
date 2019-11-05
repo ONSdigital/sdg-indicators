@@ -4,14 +4,14 @@ permalink: /faq/
 layout: page
 ---
 ## Table of contents
-[How often will new data be added to this site?](#how-often-will-new-data-be-added-to-this-site)
-[How do I suggest new or different data sources?](#how-do-i-suggest-new-or-different-data-sources)
-[What are you doing to fill data gaps?](#what-are-you-doing-to-fill-data-gaps)
-[Can other countries copy this website?](#can-other-countries-copy-this-website)
-[What does the reporting status mean?](#what-does-the-reporting-status-mean)
-[What do each of the three tiers mean?](#what-do-each-of-the-three-tiers-mean)
-[How accessible is this website?](#how-accessible-is-this-website)
-[What browsers can I use to view this website?](#what-browsers-can-i-use-to-view-this-website)
+- [How often will new data be added to this site?](#how-often-will-new-data-be-added-to-this-site)
+- [How do I suggest new or different data sources?](#how-do-i-suggest-new-or-different-data-sources)
+- [What are you doing to fill data gaps?](#what-are-you-doing-to-fill-data-gaps)
+- [Can other countries copy this website?](#can-other-countries-copy-this-website)
+- [What does the reporting status mean?](#what-does-the-reporting-status-mean)
+- [What do each of the three tiers mean?](#what-do-each-of-the-three-tiers-mean)
+- [How accessible is this website?](#how-accessible-is-this-website)
+- [What browsers can I use to view this website?](#what-browsers-can-i-use-to-view-this-website)
 
 
 
