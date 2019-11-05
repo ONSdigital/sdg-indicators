@@ -6,5 +6,5 @@ permalink: /updates/
 
 ## Updates
 
-### Updates on Sustainable Development Goals
+Updates on Sustainable Development Goals
 
