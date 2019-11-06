@@ -8,7 +8,7 @@ The [Sustainable Development Goals](http://www.un.org/sustainabledevelopment/sus
 ### ONS' role in the SDGs
 ONS are fulfilling the mandate placed on all NSIs by the UN General Assembly to coordinate and report on the global SDG indicators. We aim to shine a light on who is being ‘left behind’ so policy makers can take action, and we aim to support colleagues across the world develop capability.
 
-Cabinet Office and DfID have responsibility for policy implementation. Our role is to collaborate and coordinate with topic leads across the GSS and beyond, use innovative techniques to report data and to promote the SDG-related work we do. We are one of the world leaders in providing data for the SDG indicators
+Cabinet Office and the Department for International Development (DfID) have responsibility for policy implementation. Our role is to collaborate and coordinate with topic leads across the GSS and beyond,  to report data and to promote the SDG-related work we do. We are one of the world leaders in providing data for the SDG indicators.
 
 ### About this site
 The site is based on the open source [Open SDG](https://open-sdg.readthedocs.io/en/latest/) platform. The Open SDG platform is the result of collaboration between the the UK [Office For National Statistics](https://www.ons.gov.uk/) (ONS), US government, and the non-profit [Center For Open Data Enterprise](http://opendataenterprise.org/) (CODE).
