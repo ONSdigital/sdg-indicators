@@ -22,4 +22,4 @@ The Digital Accessibility Centre tested the data site against the WCAG ‘AA’ 
 
 With ‘AA’ standard achieved, the UK SDG data site is now considered accessible to all users. A [new code release](https://github.com/open-sdg/open-sdg/releases/tag/0.8.0) (0.8.0) included these accessibility updates on the shared code repository ['Open SDG'](https://open-sdg.readthedocs.io/en/latest/). This means that any country is able to use these updates.
 
-For more information about what tools the site is compatible with and any know issues, see our [accessibility statement]({{ site.baseurl }}{% link _pages/accessibilitystatement.md %}).
+For more information about what tools the site is compatible with and any know issues, see our [accessibility statement]({{ site.baseurl }}{% link _pages/accessibilitystatement.md %}), or please <i class="fa fa-envelope"></i> [email us at SustainableDevelopment@ons.gov.uk](mailto:SustainableDevelopment@ons.gov.uk).
