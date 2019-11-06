@@ -21,3 +21,5 @@ We tested the improvements on a range of desktop and mobile devices using a vari
 The Digital Accessibility Centre tested the data site against the WCAG ‘AA’ standard in July 2019. The newly-accessible site was re-tested in July 2019 and passed, [receiving ‘AA’ certification](http://digitalaccessibilitycentre.org/index.php/office-for-national-statistics-sdg).
 
 With ‘AA’ standard achieved, the UK SDG data site is now considered accessible to all users. A [new code release](https://github.com/open-sdg/open-sdg/releases/tag/0.8.0) (0.8.0) included these accessibility updates on the shared code repository ['Open SDG'](https://open-sdg.readthedocs.io/en/latest/). This means that any country is able to use these updates.
+
+For more information about what tools the site is compatible with and any know issues, see our [accessibility statement]({{ site.baseurl }}{% link _pages/accessibility-statement.md %}).
