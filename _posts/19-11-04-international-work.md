@@ -30,3 +30,5 @@ Countries can copy the  Open SDG to create a new data site from scratch. The [Op
 Open SDG has provided updates to available features following requests from community members. Recent new program code allows people to [mark SDG indicators as ‘not applicable’](https://sustainabledevelopment-rwanda.github.io/sdg-indicators/reporting-status/), for example.
 
 We are working with CODE and the United Nations Statistics Division (UNSD) to develop a way to use data and metadata in SDMX format. We have fixed various data visualisation bugs particularly in relation to maps. We also and added language translations in German, Spanish, French, Russian, Kazakh, Armenian and Arabic.
+
+For more information about the international work we are doing, please <i class="fa fa-envelope"></i> [email us at SustainableDevelopment@ons.gov.uk](mailto:SustainableDevelopment@ons.gov.uk).
