@@ -10,6 +10,9 @@ If you have any feedback on our publications please contact us at <a href="mailt
 ## Publications
 
 ### All goals
+**[Sustainable Development Goals in the UK: progress on monitoring and reporting data, 07 November 2019](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2019)**
+The third report on our progress towards measuring the global Sustainable Development Goal indicators in the UK over the last year.
+
 **[Voluntary National Review of progress towards the Sustainable Development Goals, 26 June 2019](https://www.gov.uk/government/publications/uks-voluntary-national-review-of-the-sustainable-development-goals)**
 The UK’s first Voluntary National Review taking stock of progress towards the Sustainable Development Goals.
 
