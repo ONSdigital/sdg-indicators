@@ -27,7 +27,6 @@ We identified four main user types or personas:
 2. [Connected influencer](#connected-influencer)
 3. [Fact gatherer](#fact-gatherer)
 4. [Involved analyst](#involved-analyst)
-5. [Next steps](#next-steps)
 
 ### Concerned citizen
 #### Who they are
