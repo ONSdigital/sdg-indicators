@@ -28,7 +28,11 @@ You can manage these small files yourself and learn more about them through [int
 ## Our use of cookies
 Important information about this list of cookies:
 
-This list may not always be complete. It will be regularly updated as further information is gathered from other companies and organisations that we work with.
+This list may not always be complete. It will be regularly updated as further information is gathered from other companies and organisations that we work with. 
+
+Cookies for overriding any security restrictions based on the IP address the visitor is coming from:
+
+- __cfduid
 
 Cookies for retaining active state of accessibility services:
 
@@ -41,6 +45,9 @@ Cookies for measuring use of services:
 - _gat
 
 By understanding how people use our website, we can improve the information provided. We gather this data using Google Analytics.
+
+## Opt out
+You can [opt out of Google Analytics tracking by following these instructions](https://tools.google.com/dlpage/gaoptout).
 
 ## External links
 This site may contain links to other sites.
