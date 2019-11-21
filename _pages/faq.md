@@ -8,6 +8,7 @@ layout: page
 - [How do I suggest new or different data sources?](#how-do-i-suggest-new-or-different-data-sources)
 - [What are you doing to fill data gaps?](#what-are-you-doing-to-fill-data-gaps)
 - [Can other countries copy this website?](#can-other-countries-copy-this-website)
+- [Who uses this website?](#who-uses-this-website)
 - [What does the reporting status mean?](#what-does-the-reporting-status-mean)
 - [What do each of the three tiers mean?](#what-do-each-of-the-three-tiers-mean)
 - [How accessible is this website?](#how-accessible-is-this-website)
@@ -37,6 +38,16 @@ We published [our response to the consultation on measuring and reporting SDGs i
 Yes. [See the Open SDG Quick Start guide](https://open-sdg.readthedocs.io/en/latest/quick-start/) for technical instructions on the quickest way to get a copy of the Open SDG platform up and running.
 
 [Back to top](#table-of-contents)
+
+## Who uses this website?
+An initial phase of user research has been carried out on the UK SDG data website. This research showed that the four main user types are:
+
+* concerned citizen
+* connected influencer
+* fact gatherer
+* involved analyst
+
+For more information about the user personas, see <a href="{{ site.baseurl }}{% link _pages/userpersonas.md %}">our page which outlines the different user types and their needs.</a>
 
 ## What does the reporting status mean?
 We have used two different types of reporting status for an indicator, which are also colour coded:
