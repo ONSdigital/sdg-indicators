@@ -47,7 +47,7 @@ An initial phase of user research has been carried out on the UK SDG data websit
 * fact gatherer
 * involved analyst
 
-For more information about the user personas, see <a href="{{ site.baseurl }}{% link _pages/userpersonas.md %}">our page which outlines the different user types and their needs.</a>
+For more information about the user personas, see <a href="{{ site.baseurl }}{% link _pages/userpersonas.md %}">our page which outlines the different user types and their needs</a>.
 
 ## What does the reporting status mean?
 We have used two different types of reporting status for an indicator, which are also colour coded:
