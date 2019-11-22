@@ -15,6 +15,16 @@ The site is based on the open source [Open SDG](https://open-sdg.readthedocs.io/
 
 For more information about Open SDG and how you could create your own version of this website, see the [Guidance page]({{ site.baseurl }}{% link _pages/guidance.md %}).
 
+After carrying out an initial phase of user research, we found that the four main users of this site are:
+
+* concerned citizen
+* connected influencer
+* fact gatherer
+* involved analyst
+
+For more information about the user personas, see <a href="{{ site.baseurl }}{% link _pages/userpersonas.md %}">our page which outlines the different user types and their needs</a>.
+
+
 ### Need more info?
 The answers to some frequently asked questions are also available in the [Frequently Asked Questions]({{ site.baseurl }}{% link _pages/faq.md %}).
 
