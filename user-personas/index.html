@@ -136,7 +136,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
-<body class="language-en layout-post">
+<body class="language-en layout-page">
 <!-- <div class="container"> -->
 
 <script>translations['header'] = {"disclaimer":"This is a development website. Please <a href=\"mailto:%email_address\">email us your feedback</a> or <a href=\"https://www.surveymonkey.co.uk/r/XFJZGVL\">complete a short survey</a>.","tag_line":"17 Goals to Transform our World","alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content"};</script>
@@ -204,74 +204,221 @@ var translations = {
 
 </header>
 
-<div id="main-content" class="container">
-  <div class="row">
-    <div class="col-md-9 push-md-3">
-      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-        <h2 class="post-title" itemprop="name headline">Using APIs</h2>
-        <p><time datetime="2019-11-04T00:00:00+00:00" itemprop="datePublished">Nov 4, 2019</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">SDGs team</span></span></p>
-        
-        <div class="post-categories">
-          
-          
-            <a href="/sdg-indicators/categories/#Automation" title="View all posts in the Automation category">Automation</a>
-          
-          
-        </div>
+<div id="main-content" class="container" role="main">
+    <div>
+        <h1>User Personas</h1>
+        <p>We want to provide a data site that is easy to use by everybody and has purpose. To achieve this, we want to understand more about who uses the site and what they need from the site.
+This year we have started to research who uses the data site and for which reasons. So far, over 50 people from a variety of organisations have taken part. The research involved interviewing people face-to-face or by telephone. We spoke to people across government, from academia and the private sector.
+We have also carried out some usability testing, too. We tasked people to use the site to find specific information. Then we asked them about their experience. This information has informed our decisions about how we develop the data site.</p>
 
-        <div class="post-content" itemprop="articleBody">
-          <p>Currently, our UK SDG data site requires data files to be in a specific format. This means that we have to reformat data that is in a different format in order to make it usable on the site . We are looking to automate the process of updating the data we report. To do this we are working with Application Programming Interfaces (APIs), which allows two software applications to communicate. APIs are commonly used by websites across the internet to automate updates and changes.</p>
+<p>Our research has not ended. We will continue our user research and our usability testing for the lifetime of the data site.</p>
 
-<p>Our aim is to use APIs that will work with data published online on a different website. For example, the ONS Gross Domestic Product (GDP) per head time series has a supporting API which makes the data available in a format we can use.</p>
+<p>As this was an initial phase of user research with a small number of participants, we will carry out further research to validate the user types. Further research will be carried out with custodian agencies, concerned citizens, government SDG policy analysts, local authorities and master builders as well as other users.</p>
 
-<p>We have written software program code to:</p>
+<p>If you have any further questions about the user personas or our user research, or if you want to be involved with future user research, please contact us at <i class="fa fa-envelope"></i> <a href="mailto:SustainableDevelopment@ons.gov.uk">SustainableDevelopment@ons.gov.uk</a>.</p>
+
+<p>Alternatively, please complete our <a href="https://www.surveymonkey.co.uk/r/XFJZGVL">short survey</a> to give some feedback about the site.</p>
+
+<h3 id="what-did-we-find">What did we find?</h3>
+
+<p>We identified four main user types or personas:</p>
+
+<p><img src="https://sustainabledevelopment-uk.github.io/public/blog/user_personas.png" alt="Diagram showing summary of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst." height="300px" /></p>
+
+<h3 id="table-of-contents">Table of contents</h3>
 <ul>
-  <li>Enable our data site to link with APIs used by other websites reporting data</li>
-  <li>Calculate the relevant new figures</li>
-  <li>Format the results so they are usable on our site</li>
-  <li>Print our indicator files ready to go on our site</li>
+  <li><a href="#concerned-citizen">Concerned citizen</a></li>
+  <li><a href="#connected-influencer">Connected influencer</a></li>
+  <li><a href="#fact-gatherer">Fact gatherer</a></li>
+  <li><a href="#involved-analyst">Involved analyst</a></li>
 </ul>
 
-<p>We are currently using APIs to update 15 different indicators. By automating these updates, we are able to report the latest data faster. To date we have concentrated on developing API communication with ONS websites. We are investigating which other websites we can connect to using APIs in the future.</p>
+<h3 id="concerned-citizen">Concerned citizen</h3>
+<h4 id="who-they-are">Who they are</h4>
+<p>Someone who has an personal interest in SDGs or related topics but may also have a professional interest.</p>
 
-<p>For more information about the work we are doing with APIs, please <i class="fa fa-envelope"></i> <a href="mailto:SustainableDevelopment@ons.gov.uk">email us at SustainableDevelopment@ons.gov.uk</a>.</p>
+<h5 id="likely-to-say">Likely to say</h5>
+<p>“Tell me what the goals are and what is being done about them.”</p>
 
-        </div>
-      </article>
+<h4 id="what-motivates-them">What motivates them</h4>
+<p>They have either a personal and/or political interest in the SDGS and want to know what they are about and whether they will make a difference.</p>
+
+<h4 id="what-they-want">What they want</h4>
+<p>Concerned citizens want to:</p>
+
+<ul>
+  <li>get a better understanding of the SDGs</li>
+  <li>see how the UK is doing</li>
+  <li>see how they can help</li>
+  <li>see if the SDGs impact them</li>
+  <li>see what is being done</li>
+</ul>
+
+<h4 id="behaviours-and-preferences">Behaviours and preferences</h4>
+<p>Concerned citizens might arrive to the site from other public facing websites and are more likely to prefer SDG content from media outlets. They will often browse using handheld devices and may share links with others.</p>
+
+<h5 id="we-must">We must:</h5>
+
+<ul>
+  <li>explain the SDGs in simple terms</li>
+  <li>give simple-to-understand context of what the goals mean</li>
+  <li>give them an overall view of UK performance against targets</li>
+  <li>explain what is being to meet the targets</li>
+  <li>use visualisations to explain everything</li>
+</ul>
+
+<h5 id="we-must-not">We must not:</h5>
+
+<ul>
+  <li>expect them to understand the data in the charts without any context</li>
+  <li>use terminology and technical terms</li>
+  <li>expect them to go into individual indivators to get a view of performance</li>
+  <li>put lots of methodology and usage notes in their way</li>
+</ul>
+
+<p><a href="#table-of-contents">Back to top</a></p>
+
+<h3 id="connected-influencer">Connected influencer</h3>
+<h4 id="who-they-are-1">Who they are</h4>
+<p>Someone non-statistical working in the not-for-profit space or for a private sector organisation looking to make money around sustainable development activities. Might be an individual attempting to challenge or guide on government policy</p>
+<h5 id="likely-to-say-1">Likely to say</h5>
+<p>“Give me a tool that will support my ambitions and give me a louder voice.”</p>
+
+<h4 id="what-motivates-them-1">What motivates them</h4>
+<p>Connected influencers understand the SDGs but don’t necessarily allign to them. The SDGs provide a higher framework for them to align their work to</p>
+
+<h4 id="what-they-want-1">What they want</h4>
+<p>Connected influencers want to:</p>
+
+<ul>
+  <li>use the SDG website to educate people</li>
+  <li>help businesses develop sustainability strategies</li>
+  <li>take content from the website and report on it</li>
+  <li>influence policies and change them</li>
+  <li>drive change</li>
+  <li>see how the UK and government and performing</li>
+</ul>
+
+<h4 id="behaviours-and-preferences-1">Behaviours and preferences</h4>
+<p>They have a good knowledge of the SDGs and use the SDGs to champion the themes they work in. They use the website to begin conversations with others and use it in conjunction with the UN website amongst other</p>
+
+<h5 id="we-must-1">We must:</h5>
+
+<ul>
+  <li>provide alternate routes into data so that their users can understand</li>
+  <li>provide guidance on indicators that relate to the themes they work in</li>
+  <li>ensure commentary and analysis is easy to find</li>
+  <li>show relationships between different indicators</li>
+  <li>show UK progress early in the journey</li>
+</ul>
+
+<h5 id="we-must-not-1">We must not:</h5>
+
+<ul>
+  <li>expect them to get their answers through data manipulation</li>
+  <li>force them to approach each indicator separately</li>
+</ul>
+
+<p><a href="#table-of-contents">Back to top</a></p>
+
+<h3 id="fact-gatherer">Fact gatherer</h3>
+<h4 id="who-they-are-2">Who they are</h4>
+<p>Policy advisers in government departments who have been tasked with reporting on SDG progress and VNR, non-governmental organisations looking to understand what is going on in the UK and think tanks wanting to understand what the UK is doing and hold the government to account.</p>
+
+<h5 id="likely-to-say-2">Likely to say</h5>
+<p>“I just need to quickly see what progress is being made and check the facts.”</p>
+
+<h4 id="what-motivates-them-2">What motivates them</h4>
+<p>They need somewhere that gives them a view of UK progress which doesn’t involve hunting through lots of data.</p>
+
+<h4 id="what-they-want-2">What they want</h4>
+<p>Fact gatherers want to:</p>
+
+<ul>
+  <li>see what progress is being made and understand any issues or challenges</li>
+  <li>take content and report on it</li>
+  <li>see performance against targets and understand the issues and choices being made</li>
+  <li>see progress towards collecting data and understand the issues and choices being made</li>
+  <li>access the data and check the quality</li>
+</ul>
+
+<h4 id="behaviours-and-preferences-2">Behaviours and preferences</h4>
+<p>They come to the website quite often  and may copy data for use in reports, which report data around themes not goals and targets. They cite the website in reports and may mix data from other sources.</p>
+
+<h5 id="we-must-2">We must:</h5>
+
+<ul>
+  <li>provide them with a view of UK performance at every level</li>
+  <li>provide bite-sized summaries to brief them on progress</li>
+  <li>provide them with links to the physical source data</li>
+  <li>show them targets early in the journey</li>
+  <li>provide them with a quick view of what data has been collected, jot collected and reasons why data was chosen or not collected</li>
+</ul>
+
+<h5 id="we-must-not-2">We must not:</h5>
+
+<ul>
+  <li>expect them to find the source data with a generic link</li>
+  <li>populate the website with out-of-date website</li>
+  <li>hide facts and figures under complex levels of navigation</li>
+</ul>
+
+<p><a href="#table-of-contents">Back to top</a></p>
+
+<h3 id="involved-analyst">Involved analyst</h3>
+<h4 id="who-they-are-3">Who they are</h4>
+<p>Involved analysts can be a range of different people, who usually work with international data:</p>
+
+<ul>
+  <li>A statistical audience working in or around the SDG framework.</li>
+  <li>Users creating detailed reports as part of commissioned project work</li>
+  <li>Academia working in funded projects</li>
+  <li>Students researching set topics</li>
+  <li>Custodian ageny analysts</li>
+</ul>
+
+<h5 id="likely-to-say-3">Likely to say</h5>
+<p>“I just want the data so I can do my own thing with it.”</p>
+
+<h4 id="what-motivates-them-3">What motivates them</h4>
+<p>They need somewhere to get some or all of the SDG data so they can answer questions for themselves or others.</p>
+
+<h4 id="what-they-want-3">What they want</h4>
+<p>Involved analysts want to:</p>
+<ul>
+  <li>get data to take away and use</li>
+  <li>see trends behind the data</li>
+  <li>find outliers in the data such as ‘leave no one behind’</li>
+  <li>get all data or lots of data on given themes</li>
+  <li>mix data from other countries or sources</li>
+</ul>
+
+<h4 id="behaviours-and-preferences-3">Behaviours and preferences</h4>
+<p>They will often collaborate with others to produce analysis to inform or challenge policy and will share their reports with a wider audience. They will often copy the data directly from the tables rather than download it and will often transform the data for others.</p>
+
+<h5 id="we-must-3">We must:</h5>
+
+<ul>
+  <li>give them advanced routes in to the data from the outset</li>
+  <li>show them the targets</li>
+  <li>show relationships between different indicators</li>
+  <li>give them methodology behind the data</li>
+  <li>tell them if the data is comparable with other SDG data</li>
+</ul>
+
+<h5 id="we-must-not-3">We must not:</h5>
+
+<ul>
+  <li>put lots of commentary and top-level visualisations in their way</li>
+  <li>make it hard to get lots of data</li>
+  <li>expect them to navigate each indicator to geth the data they need</li>
+  <li>expect them to understand the difference between data on the UK NRP and the UN global database</li>
+</ul>
+
+<p><a href="#table-of-contents">Back to top</a></p>
+
     </div>
-    <div class="col-md-3 pull-md-9">
-      <div id="sidebar">
-  <h4></h4>
-  <ul>
-    
-      
-      <li>
-        <a href="/sdg-indicators/categories/#Automation" title="">Automation</a>
-      </li>
-    
-      
-      <li>
-        <a href="/sdg-indicators/categories/#Accessibility" title="">Accessibility</a>
-      </li>
-    
-      
-      <li>
-        <a href="/sdg-indicators/categories/#Data partners" title="">Data partners</a>
-      </li>
-    
-      
-      <li>
-        <a href="/sdg-indicators/categories/#International" title="">International</a>
-      </li>
-    
-  </ul>
 </div>
-    </div>
-  </div>
-</div>
-
-
-
 
 <footer role="contentinfo">
     <div class="container">
