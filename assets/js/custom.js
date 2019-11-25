@@ -3,6 +3,6 @@ opensdg.dataRounding = function(value) {
     return value
   }
   else {
-    return value.toPrecision(3)
+    return Number(value.toPrecision(3))
   }
 };
