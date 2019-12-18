@@ -139,7 +139,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20191217231042">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20191218231109">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -297,7 +297,7 @@ var translations = {
       
 
       <div id="page-content">
-  <p>Select the following link to download this indicator data in an accessible format:<br /><a href="https://sustainabledevelopment-uk.github.io/sdg-data/data/12-2-1.csv">12.2.1 Material footprint, material footprint per capita, and material footprint per GDP (CSV 11.684 kB)</a></p>
+  <p>Select the following link to download this indicator data in an accessible format:<br /><a href="https://sustainabledevelopment-uk.github.io/sdg-data/data/12-2-1.csv">12.2.1 Material footprint, material footprint per capita, and material footprint per GDP (CSV 34.233 kB)</a></p>
 
 </div>
 
@@ -306,7 +306,7 @@ var translations = {
 
   <div class="row">
     <div class="col-xs-12">
-      <h2>Tonnes of material footprint per capita and per GDP (£m)</h2>
+      <h2>Material footprint, material footprint per capita, and material footprint per GDP</h2>
     </div>
   </div>
 
@@ -316,8 +316,8 @@ var translations = {
   
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_12-2-1' data-id="12-2-1" data-country="United Kingdom"
-  data-charttitle="Tonnes of material footprint per capita and per GDP (£m)" data-measurementunit="Tonnes per capita, Tonnes per GDP (£m)" data-datasource="Office for National Statistics (ONS)" data-copyright=""
-  data-geographicalarea="United Kingdom" data-footnote="" data-showdata="true" data-graphtype="line"
+  data-charttitle="Material footprint, material footprint per capita, and material footprint per GDP" data-measurementunit="Million metric tonnes, Tonnes per capita, Tonnes per GDP (£m)" data-datasource="Office for National Statistics (ONS)" data-copyright=""
+  data-geographicalarea="United Kingdom" data-footnote="The level of material footprint for the Eurostat approach is shown excluding imports and exports of precious metals. Precious metals (particularly gold) have a high RME factor, so can have distinctive impact on the results. This is particularly true for the UK, who are responsible for more than three quarters of the EU’s imports of gold. While the impact is minimal at the total level, it is more evident when looking at the material footprint of metal ores." data-showdata="true" data-graphtype="line"
   data-geocoderegex="" data-showmap="false" data-startvalues="">
     
     <div id="indicator-sidebar" class="col-md-3">
@@ -411,7 +411,7 @@ data-event-label="Change to Map tab"
     
     <div id="selectionsChart">
       <div id="chart-canvas">
-        <h3 class="chart-title">Tonnes of material footprint per capita and per GDP (£m)</h3>
+        <h3 class="chart-title">Material footprint, material footprint per capita, and material footprint per GDP</h3>
         <div id="chart" class="plot-container">
           
 <canvas></canvas>
@@ -509,7 +509,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            <p>Tonnes of material footprint per capita, and per GDP in million GBP (£)</p>
+            <p>Material footprint, material footprint per capita, and material footprint per GDP</p>
 
           
         </td>
@@ -523,7 +523,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            
+            <p>The UK’s material footprint, or raw material consumption, captures the amount of domestic and foreign extraction of materials needed to produce the products used by households, governments and charities in the UK.</p>
 
           
         </td>
@@ -551,7 +551,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            <p>Tonnes per capita, Tonnes per GDP (£m)</p>
+            <p>Million metric tonnes, Tonnes per capita, Tonnes per GDP (£m)</p>
 
           
         </td>
@@ -565,7 +565,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Material Footprint (MF) is the attribution of global material extraction to domestic final demand of a country . The total material footprint is the sum of the material footprint for biomass, fossil fuels, metal ores and non-metal ores. MF consumption reports the amount of primary materials required to serve final demand of a country and can be interpreted as an indicator for the material standard of living/level of capitalization of an economy. Per-capita MF describes the average material use for final demand. Domestic Material Consumption (DMC) and MF need to be looked at in combination as they cover the two aspects of the economy, production and consumption (See indicators 8.4.2 and 12.2.2). The DMC reports the actual amount of material in an economy, MF the virtual amount required across the whole supply chain to service final demand. A country can, for instance have a very high DMC because it has a large primary production sector for export or a very low DMC because it has outsourced most of the material intensive industrial process to other countries. The material footprint corrects for both phenomena.</p>
+            <p>Material Footprint (MF) is the attribution of global material extraction to domestic final demand of a country. The total material footprint is the sum of the material footprint for biomass, fossil fuels, metal ores and non-metal ores.</p>
 
           
         </td>
@@ -593,7 +593,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>Material Footprint (MF) is calculated as raw material equivalent of imports (RMEIM) plus domestic extraction (DE) minus raw material equivalents of exports (RMEEX). For the attribution of the primary material needs of final demand a global, multi-regional input-output (MRIO) framework is employed. The attribution method based on I-O analytical tools is described in detail in Wiedmann et al. 2015. It is based on the EORA MRIO framework developed by the University of Sydney, Australia (Lenzen et al. 2013) which is an internationally well-established and the most detailed and reliable MRIO framework available to date.</p>
+            <p>Materical Footprint estimates provided are based on a <a href="https://ec.europa.eu/eurostat/documents/1798247/6874172/Handbook-country-RME-tool/">Eurostat method</a> and calculated as raw material equivalent of imports (RMEIM) plus domestic extraction (DE) minus raw material equivalents of exports (RMEEX). Material footprint per capita is calculated as raw material consumption (material footprint)/UK population(*1000000). Material footprint per GDP is calculated as raw material consumption (material footprint)/GDP(*1000000).</p>
 
           
         </td>
@@ -607,7 +607,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>The global material flows database is based on country material flow accounts from the European Union and Japan and estimated data for the rest of the world.  Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
+            <p>The choice of method used to calculate material footprint has an impact on the final estimates. In 2017, the Department for Environment, Food and Rural Affairs (Defra) consulted extensively with the University of Leeds about developing further environmentally relevant metrics for material use and resource efficiency, particularly in carbon terms. As a result, the University of Leeds have developed a multi-regional input-output (MRIO) approach, using a specifically derived UK MRIO database to underpin calculations. These estimates and further information on the Eurostat and University of Leeds approach are published in the <a href="https://www.ons.gov.uk/economy/environmentalaccounts/methodologies/measuringmaterialfootprintintheuk2008to2016">Measuring material footprint</a> report. Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -627,8 +627,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/42c14c98cb76ec28bee3e6b38c51835a4b60d419" target="_blank">
-                2019-04-26: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/ea070b584f2ead9399da58dabb1b855351338b1e" target="_blank">
+                2019-12-10: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -654,8 +654,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/c69d5cf01977cc1fb594bb27f073ba2b9605bea0" target="_blank">
-                2019-08-06: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/81467c4e6819489731ee2719d2acc85387235acd" target="_blank">
+                2019-12-18: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1154,8 +1154,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://www.ons.gov.uk/economy/environmentalaccounts/articles/ukenvironmentalaccountshowmuchmaterialistheukconsuming/ukenvironmentalaccountshowmuchmaterialistheukconsuming" target="_blank">
-                UK Environmental Accounts - How much material is the UK consuming? <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.ons.gov.uk/economy/environmentalaccounts/methodologies/measuringmaterialfootprintintheuk2008to2016" target="_blank">
+                Measuring material footprint in the UK - 2008 to 2016 <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1175,7 +1175,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            <p>29/02/2016</p>
+            <p>05/06/2019</p>
 
           
         </td>
@@ -1462,7 +1462,7 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates" target="_blank">
+              <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/ukpop/pop" target="_blank">
                 Population estimates <span class="visuallyhidden">opens in a new window</span>
               </a>
             
@@ -1483,7 +1483,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            <p>22/06/2017</p>
+            <p>26/06/2019</p>
 
           
         </td>
@@ -1497,7 +1497,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>01/06/2018</p>
+            <p>01/06/2020</p>
 
           
         </td>
@@ -1791,7 +1791,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            <p>23/11/2017</p>
+            <p>11/11/2019</p>
 
           
         </td>
@@ -1805,7 +1805,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>22/12/2017</p>
+            <p>20/12/2019</p>
 
           
         </td>
@@ -1847,7 +1847,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            
+            <p>Based on GDP estimates published on 11/11/19</p>
 
           
         </td>
@@ -2003,7 +2003,7 @@ data-event-label="Change to Sources tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20191217231042'></script><script src="/sdg-indicators/assets/js/custom.js?v=20191217231042"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20191218231109'></script><script src="/sdg-indicators/assets/js/custom.js?v=20191218231109"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
