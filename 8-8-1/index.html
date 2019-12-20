@@ -139,7 +139,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20191219231207">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20191220112858">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -297,7 +297,8 @@ var translations = {
       
 
       <div id="page-content">
-  <p>Select the following link to download this indicator data in an accessible format:<br /><a href="https://sustainabledevelopment-uk.github.io/sdg-data/data/8-8-1.csv">8.8.1 Frequency rates of fatal and non-fatal occupational injuries, by sex and migrant status (CSV 130.791 kB)</a></p>
+  <font size="3">PLEASE NOTE - When selecting sub-categories from the list below, any sub-categories marked <strong><em>* are available for fatal injuries only; </em></strong>sub-categories marked <strong><em># are available for non-fatal injuries only. </em></strong></font>
+<p><br /><br />Select the following link to download this indicator data in an accessible format:<br /><a href="https://sustainabledevelopment-uk.github.io/sdg-data/data/8-8-1.csv">8.8.1 Frequency rates of fatal and non-fatal occupational injuries, by sex and migrant status (CSV 88.033 kB)</a></p>
 
 </div>
 
@@ -306,7 +307,7 @@ var translations = {
 
   <div class="row">
     <div class="col-xs-12">
-      <h2>Rates of fatal and non-fatal injuries in the workplace</h2>
+      <h2>Rate of fatal or non-fatal injury in the workplace per 100,000 workers, Great Britain (see data selection criteria for whether the data is displaying fatal or non-fatal injury rates).</h2>
     </div>
   </div>
 
@@ -316,8 +317,8 @@ var translations = {
   
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_8-8-1' data-id="8-8-1" data-country="Great Britain"
-  data-charttitle="Rates of fatal and non-fatal injuries in the workplace" data-measurementunit="Rate per 100,000 workers" data-datasource="Health and Safety Executive (HSE)" data-copyright=""
-  data-geographicalarea="Great Britain" data-footnote="1. Rate of fatal injury for the most recent year is a provisional estimate. 2. The rate of fatal injury for some of the detailed groupings are based on small numbers and are susceptible to considerable year-on-year variation. 3. Rates for fatal injuries are only available for areas where an incident occurred. 4. Non-fatal injury estimates are based on the Labour Force Survey and are subject to sampling uncertainty. Details, in the form of 95% confidence intervals, can be found in the source data (see 'Sources' tab below). 5. Non-fatal injuries broken down by age, sex, country and English regions are based on averaged rates over a non-overlapping 3 year period to enable a large enough sample size. For example, 2000/2001 to 2002/03. Figures are displayed at the mid-year point (e.g. 2001/02). 6. Rates for fatal injuries are only available for areas where an incident occurred. 7. Variations in rate between different sub-groups of age, sex and geography may reflect differences in their employment profile." data-showdata="true" data-graphtype="line"
+  data-charttitle="Rate of fatal or non-fatal injury in the workplace per 100,000 workers, Great Britain (see data selection criteria for whether the data is displaying fatal or non-fatal injury rates)." data-measurementunit="Rate per 100,000 workers" data-datasource="Health and Safety Executive (HSE)" data-copyright=""
+  data-geographicalarea="Great Britain" data-footnote="1.Fatal injury rates are based on the count of fatal injuries reportable under the Reporting of Injuries, Diseases and Dangerous Occurrences Regulations (RIDDOR).  The rate for the most recent year is a provisional estimate. 2. The rate of fatal injury for some of the detailed groupings are based on small numbers and are susceptible to considerable year-on-year variation. 3. Detailed breakdowns of fatal injury rates by country/region, age and sex are presented for the last five-years only. 4. Non-fatal injury estimates are based on the Labour Force Survey and are subject to sampling uncertainty. Details, in the form of 95% confidence intervals, can be found in the source data (see 'Sources' tab below). 5. Non-fatal injuries broken down by age, sex, country, English regions, industry sector and occupation are based on averaged rates over a non- overlapping 3 year period to enable a large enough sample size. For example, 2001/02 to 2003/04 figures are displayed at the mid-year point (i.e. 2002/03). 6. Non-fatal injury rates are not provided for sub-groups where  sample numbers are too small to provide reliable estimates. 7. Variations in rate between different sub-groups of age, sex and geography may reflect differences in their employment profile." data-showdata="true" data-graphtype="line"
   data-geocoderegex="" data-showmap="false" data-startvalues="">
     
     <div id="indicator-sidebar" class="col-md-3">
@@ -411,7 +412,7 @@ data-event-label="Change to Map tab"
     
     <div id="selectionsChart">
       <div id="chart-canvas">
-        <h3 class="chart-title">Rates of fatal and non-fatal injuries in the workplace</h3>
+        <h3 class="chart-title">Rate of fatal or non-fatal injury in the workplace per 100,000 workers, Great Britain (see data selection criteria for whether the data is displaying fatal or non-fatal injury rates).</h3>
         <div id="chart" class="plot-container">
           
 <canvas></canvas>
@@ -593,7 +594,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>Incidence rates are based on the number of workers in the reference group during the reference year/total number of employees *100,000</p>
+            <p>Incidence rates are calculated by dividing the number of workers in the reference group with an injury (fatal or non-fatal) by the employment total.  This is then multiplied by a factor of 100,000 to give a rate per 100,000 workers, in line with international standards.</p>
 
           
         </td>
@@ -627,8 +628,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/dcd2d7bd414853f4c319b3cc8a0ba8dea659923f" target="_blank">
-                2019-05-21: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/8f3df670af0320651e524583c9739ece5fe8cdce" target="_blank">
+                2019-12-20: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -654,8 +655,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/8978b10eca23001728b7e9d5cf0ec4a5a29ea74b" target="_blank">
-                2019-08-06: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/8f3df670af0320651e524583c9739ece5fe8cdce" target="_blank">
+                2019-12-20: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1154,7 +1155,7 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="http://www.hse.gov.uk/statistics/tables/index.htm#riddor" target="_blank">
+              <a href="http://www.hse.gov.uk/statistics/tables/index.htm" target="_blank">
                 Fatal injuries in the workplace <span class="visuallyhidden">opens in a new window</span>
               </a>
             
@@ -1175,7 +1176,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            <p>04/07/2018</p>
+            <p>30/10/2019</p>
 
           
         </td>
@@ -1189,7 +1190,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>03/07/2019</p>
+            
 
           
         </td>
@@ -1483,7 +1484,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            <p>01/11/2018</p>
+            <p>30/10/2019</p>
 
           
         </td>
@@ -1497,7 +1498,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>30/10/2019</p>
+            
 
           
         </td>
@@ -1707,7 +1708,7 @@ data-event-label="Change to Sources tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20191219231207'></script><script src="/sdg-indicators/assets/js/custom.js?v=20191219231207"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20191220112858'></script><script src="/sdg-indicators/assets/js/custom.js?v=20191220112858"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
