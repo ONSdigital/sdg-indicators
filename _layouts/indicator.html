@@ -209,7 +209,6 @@
                   {{ page.t.indicator.national_metadata_blurb | replace: '%country_name', country_name | replace: '%country_adjective', country_adjective }}
                 </p>
                 {% include components/metadata.html scope='national' %}
-                {% include components/sources.html %}
               </article>
             </div>
           </div>
@@ -224,6 +223,7 @@
             </div>
           </div>
           <div role="tabpanel" class="tab-pane" id="sources">
+            {% include components/sources.html %}
           </div>
           {% endif %}
           {% if site.environment == 'staging' %}
