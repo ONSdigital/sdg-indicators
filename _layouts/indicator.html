@@ -179,12 +179,13 @@
             {% assign tab_obj = tab[1] %}
             {% assign tab_include = 'components/metadata.html' %}
             {% if tab_key == 'national' %}
-              {% assign tab_include = 'components/sources.html' %}
+              {% assign tab_include1 = 'components/sources.html' %}
             {% endif %}
             <div role="tabpanel" class="tab-pane {% if forloop.first %}active{% endif %}" id="{{ tab_key }}">
               <article>
                 {% if tab_obj.blurb %}<p>{{ tab_obj.blurb | t }}</p>{% endif %}
                 {% include {{ tab_include }} scope=tab_key %}
+                {% include {{ tab_include1 }} scope=tab_key %}
               </article>
             </div>
             {% endfor %}
@@ -203,19 +204,6 @@
                 {% include components/sources.html %}
               </article>
             </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="global">
-            <!-- Global Metadata -->
-            <div> <!-- formerly <div class="collapsible expanded"> -->
-              <!-- <h3 tabindex='0'>Global Metadata</h3> -->
-              <article>
-                <p>{{ t.indicator.global_metadata_blurb }}</p>
-                {% include components/metadata.html scope='global' %}
-              </article>
-            </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="sources">
-            
           </div>
           {% endif %}
           {% if site.environment == 'staging' %}
