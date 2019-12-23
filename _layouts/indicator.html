@@ -187,7 +187,7 @@
             {% assign tab_key = tab[0] %}
             {% assign tab_obj = tab[1] %}
             {% assign tab_include = 'components/metadata.html' %}
-            {% if tab_key == 'sources' %}
+            {% if tab_key == 'national' %}
               {% assign tab_include = 'components/sources.html' %}
             {% endif %}
             <div role="tabpanel" class="tab-pane {% if forloop.first %}active{% endif %}" id="{{ tab_key }}">
@@ -209,6 +209,7 @@
                   {{ page.t.indicator.national_metadata_blurb | replace: '%country_name', country_name | replace: '%country_adjective', country_adjective }}
                 </p>
                 {% include components/metadata.html scope='national' %}
+                {% include components/sources.html %}
               </article>
             </div>
           </div>
@@ -223,7 +224,6 @@
             </div>
           </div>
           <div role="tabpanel" class="tab-pane" id="sources">
-            {% include components/sources.html %}
           </div>
           {% endif %}
           {% if site.environment == 'staging' %}
