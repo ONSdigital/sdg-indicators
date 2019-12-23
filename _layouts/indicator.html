@@ -187,7 +187,7 @@
             {% assign tab_key = tab[0] %}
             {% assign tab_obj = tab[1] %}
             {% assign tab_include = 'components/metadata.html' %}
-            {% if tab_key == 'national' %}
+            {% if tab_key == 'sources' %}
               {% assign tab_include = 'components/sources.html' %}
             {% endif %}
             <div role="tabpanel" class="tab-pane {% if forloop.first %}active{% endif %}" id="{{ tab_key }}">
