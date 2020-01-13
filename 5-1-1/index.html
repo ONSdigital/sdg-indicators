@@ -139,7 +139,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20200113105953">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20200113232342">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -147,7 +147,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200113105953"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200113232342"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -297,9 +297,7 @@ var translations = {
       
 
       <div id="page-content">
-  <p><strong>Non-statistical indicator</strong></p>
-
-<p>We have identified the following policies relevant to this indicator - <a href="https://www.gov.uk/guidance/equality-act-2010-guidance">Equality Act 2010</a>.<br /><br /></p>
+  <p>Select the area of law you wish to view from the drop down menu<br /><br />Select the following link to download this indicator data in an accessible format:<br /><a href="https://sustainabledevelopment-uk.github.io/sdg-data/data/5-1-1.csv">5.1.1 Whether or not legal frameworks are in place to promote, enforce and monitor equality and non‑discrimination on the basis of sex (CSV 0.389 kB)</a></p>
 
 </div>
 
@@ -308,7 +306,7 @@ var translations = {
 
   <div class="row">
     <div class="col-xs-12">
-      <h2></h2>
+      <h2>Legal frameworks that promote, enforce and monitor gender equality</h2>
     </div>
   </div>
 
@@ -317,18 +315,131 @@ var translations = {
 
   
 
-  <div class="row" id="indicatorData" data-indicatorid='indicator_5-1-1' data-id="5-1-1" data-country="Great Britain"
-  data-charttitle="" data-measurementunit="" data-datasource="" data-copyright=""
-  data-geographicalarea="Great Britain" data-footnote="" data-showdata="false" data-graphtype=""
+  <div class="row" id="indicatorData" data-indicatorid='indicator_5-1-1' data-id="5-1-1" data-country="UK"
+  data-charttitle="Legal frameworks that promote, enforce and monitor gender equality" data-measurementunit="Percentage (%)" data-datasource="UN Women" data-copyright=""
+  data-geographicalarea="UK" data-footnote="" data-showdata="true" data-graphtype="bar"
   data-geocoderegex="" data-showmap="false" data-startvalues="">
     
-    <div id="indicator-main" class="col-md-12">
+    <div id="indicator-sidebar" class="col-md-3">
+      <div id="toolbar">
+        <span id="series-help">
+          <h4>Sub-categories</h4>
+          <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+        </span>
+        <p>Click on the legend to remove individual lines from the chart.</p>
+        <div id="fields">
+          <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+        </div>
+      </div>
+      <div id="units"></div>
+    </div>
+    <div id="indicator-main" class="col-md-9">
     
+
+      
+      
+
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    <a href="https://ONSdigital.github.io/sdg-data/headline/5-1-1.csv" class="btn btn-primary btn-download" download="indicator_5-1-1.csv" tabindex="0" role="button">Download Headline CSV</a>
+
+    <a href="https://ONSdigital.github.io/sdg-data/data/5-1-1.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_5-1-1.csv' tabindex='0' role='button'>Download Source CSV</a>
+
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption></caption>
+      <thead>
+        
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <div id="datatableFooter">
+    
+    
+    
+    
+  </div>
+
+</div>
 
       
 
       <section>
 
+        
+        <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+        <div class="async-loaded" style="display:none">
+          <ul class="nav nav-tabs data-view" role="tablist">
+            <li role="presentation" class="nav-item active">
+              <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+>Chart</a>
+            </li>
+            <li role="presentation" class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+>Table</a>
+            </li>
+            <li role="presentation" class="nav-item map" style="display:none">
+              <a data-no-disagg="true" class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Map tab"
+>Map</a>
+            </li></ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content data-view">
+            <div role="tabpanel" class="tab-pane active" id="chartview">
+              
+
+    <div id="dataset-size-warning" style="display:none">
+      <i class="fa fa-bolt"></i> There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+    </div>
+
+    
+    <div id="selectionsChart">
+      <div id="chart-canvas">
+        <h3 class="chart-title">Legal frameworks that promote, enforce and monitor gender equality</h3>
+        <div id="chart" class="plot-container">
+          
+<canvas></canvas>
+
+
+        </div>
+        <div id="plotLegend"></div>
+      </div>
+      <button id="btnSave" title="Download chart as image" class='btn btn-primary btn-download'>
+        Download Chart Image
+      </button>
+    </div>
+    <div id="chartSelectionDownload"></div>
+
+
+
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tableview">
+              <div id="selectionsTable"></div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="mapview" class="map">
+              <div id="map">
+                <img src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
+              </div>
+            </div>
+            
+          </div>
+        </div>
         
 
         <!-- Nav tabs -->
@@ -398,7 +509,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            <p>Equality Act 2010 (non-statistical indicator)</p>
+            <p>Legal frameworks that promote, enforce and monitor gender equality</p>
 
           
         </td>
@@ -412,7 +523,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            
+            <p>An assessment of the legal frameworks in place that  promote, enforce and monitor gender equality</p>
 
           
         </td>
@@ -426,7 +537,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            <p>Great Britain</p>
+            <p>UK</p>
 
           
         </td>
@@ -440,7 +551,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            
+            <p>Percentage (%)</p>
 
           
         </td>
@@ -454,7 +565,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            
+            <p>The indicator is based on an assessment of legal frameworks that promote, enforce and monitor gender equality. The assessment is carried out by national counterparts, including National Statistical Offices (NSOs) and/or National Women’s Machinery (NWMs), and legal practitioners/researchers on gender equality, using a questionnaire comprising 45 yes/no questions under four areas of law - (i) overarching legal frameworks and public life; (ii) violence against women; (iii) employment and economic benefits; and (iv) marriage and family</p>
 
           
         </td>
@@ -496,7 +607,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
+            <p>The answers to the questions are coded with simple “Yes/No” answers with “1” for “Yes” and “0” for “No”. For questions 1 and 2 only, they may be scored “N/A” in which case they are not included as part of the overall score calculation for the area. Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -516,8 +627,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/1ffd36e330b660247d89ad49fb474e8bbaeea6f4" target="_blank">
-                2019-04-18: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/0101bd47dd7b449cb3f27ca03693cca55f746272" target="_blank">
+                2019-12-16: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -543,8 +654,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/8978b10eca23001728b7e9d5cf0ec4a5a29ea74b" target="_blank">
-                2019-08-06: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/6b8b3727867c55e5cbef5fee401b92756556c738" target="_blank">
+                2020-01-13: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -930,6 +1041,304 @@ data-event-label="Change to Sources tab"
 
 
 
+  <div class="row no-gutters">
+  
+   
+    
+    <div class="col-md-6">
+      
+      <table class="table table-hover">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>UN Women</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Data will be compiled every two years starting in 2018</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2018</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>UK</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://data.unwomen.org/data-portal/sdg?tab=line&annex=Gender%20Equality&finic%5B%5D=SG_LGL_GENEQLFP&flocat%5B%5D=826&fys%5B%5D=2018&fyr%5B%5D=2018&download-type=Others" target="_blank">
+                SDG indicator dashboard <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            <p>N/A</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>TBC</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>Non-official</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            <p>The answers to the questions are coded with simple “Yes/No” answers with “1” for “Yes” and “0” for “No”. For questions 1 and 2 only, they may be scored “N/A” in which case they are not included as part of the overall score calculation for the area.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </div>
+    
+  </div>
+
 
           </div>
           
@@ -1000,7 +1409,7 @@ data-event-label="Change to Sources tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20200113105953'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200113105953"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20200113232342'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200113232342"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
