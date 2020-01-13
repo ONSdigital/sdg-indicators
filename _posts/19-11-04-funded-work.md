@@ -5,8 +5,8 @@ author: SDGs team
 category: "Data partners"
 excerpt: 
 ---
-### SDG work across the Office for National Statistics (ONS)
-Our Sustainable Development Goals (SDG) project funds specific work across the Office for National Statistics. In this update those teams that receive SDG project funding explain the work they have been doing directly related to SDGs.
+
+Our Sustainable Development Goals (SDG) project funds specific work across the Office for National Statistics (ONS). In this update those teams that receive SDG project funding explain the work they have been doing directly related to SDGs.
 
 ### ONS Centre for Crime and Justice
 ONS [announced five centres focussing on key policy areas](https://blog.ons.gov.uk/2018/10/04/new-ons-centres-to-focus-on-the-public-policy-issues-that-matter/) in 2018. Our [Centre for Crime and Justice] improves the understanding of the nature of crime.
