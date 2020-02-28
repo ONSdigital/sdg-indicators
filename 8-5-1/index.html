@@ -139,7 +139,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20200227235014">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20200228153527">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -147,7 +147,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200227235014"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200228153527"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -297,7 +297,7 @@ var translations = {
       
 
       <div id="page-content">
-  <p>Select the following link to download this indicator data in an accessible format:<br /><a href="https://sustainabledevelopment-uk.github.io/sdg-data/data/8-5-1.csv">8.5.1 Average hourly earnings of female and male employees, by occupation, age and persons with disabilities (CSV 1028.638 kB)</a></p>
+  <p>Further disaggregation by ethnicity are available from <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/ethnicitypaygapreferencetables">Ethnicity facts and figures</a>. Note that the data on the SDG page uses the mean, while the Ethnicity facts and figures use the median.<br /><br />Select the following link to download this indicator data in an accessible format:<br /><a href="https://sustainabledevelopment-uk.github.io/sdg-data/data/8-5-1.csv">8.5.1 Average hourly earnings of female and male employees, by occupation, age and persons with disabilities (CSV 1046.253 kB)</a></p>
 
 </div>
 
@@ -306,7 +306,7 @@ var translations = {
 
   <div class="row">
     <div class="col-xs-12">
-      <h2>Average hourly earnings of female and male employees by occupation, age and persons with disabilities</h2>
+      <h2>Average (mean) hourly earnings of female and male employees by occupation, age and persons with disabilities</h2>
     </div>
   </div>
 
@@ -316,8 +316,8 @@ var translations = {
   
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_8-5-1' data-id="8-5-1" data-country="United Kingdom"
-  data-charttitle="Average hourly earnings of female and male employees by occupation, age and persons with disabilities" data-measurementunit="GBP (£)" data-datasource="Office for National Statistics (ONS), Office for National Statistics" data-copyright=""
-  data-geographicalarea="United Kingdom" data-footnote="The financial year for this indicator runs April to April. The date on the X axis is the start of the financial year." data-showdata="true" data-graphtype="line"
+  data-charttitle="Average (mean) hourly earnings of female and male employees by occupation, age and persons with disabilities" data-measurementunit="GBP (£)" data-datasource="Office for National Statistics (ONS), Office for National Statistics" data-copyright=""
+  data-geographicalarea="United Kingdom" data-footnote="The ASHE data are collected in April, while APS data are collected across the whole year." data-showdata="true" data-graphtype="line"
   data-geocoderegex="" data-showmap="false" data-startvalues="">
     
     <div id="indicator-sidebar" class="col-md-3">
@@ -411,7 +411,7 @@ data-event-label="Change to Map tab"
     
     <div id="selectionsChart">
       <div id="chart-canvas">
-        <h3 class="chart-title">Average hourly earnings of female and male employees by occupation, age and persons with disabilities</h3>
+        <h3 class="chart-title">Average (mean) hourly earnings of female and male employees by occupation, age and persons with disabilities</h3>
         <div id="chart" class="plot-container">
           
 <canvas></canvas>
@@ -509,7 +509,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            <p>Average hourly earnings of female and male employees, by occupation, age and persons with disabilities</p>
+            <p>Average (mean) hourly earnings of female and male employees, by occupation, working pattern, age, country and persons with disabilities</p>
 
           
         </td>
@@ -607,7 +607,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>It is very important to observe that the ASHE and LFS earnings are not directly comparable, and that LFS data is used to disaggregate by disability only because ASHE cannot be disaggregated by disability. The LFS data is based on the working population and covers age ranges 16 to 64. Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
+            <p>It is very important to observe that the ASHE and APS earnings are not directly comparable, and that APS data is used to disaggregate by disability only because ASHE cannot be disaggregated by disability. The APS data is based on the working population and covers age ranges 16 to 64. The ASHE data are collected in April, while APS data are collected across the whole year. Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -627,8 +627,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/a4baee362ae4536b634574236970c09b7b16292e" target="_blank">
-                2019-05-16: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/1c1226472bc6396d61c1e2bbc4e32a62fae420f6" target="_blank">
+                2020-02-28: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -654,8 +654,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/8978b10eca23001728b7e9d5cf0ec4a5a29ea74b" target="_blank">
-                2019-08-06: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/1c1226472bc6396d61c1e2bbc4e32a62fae420f6" target="_blank">
+                2020-02-28: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1154,8 +1154,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/agegroupbyoccupation2digitsocashetable20" target="_blank">
-                Age Group by Occupation (2 digit SOC) - ASHE Table 20.5a <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.ons.gov.uk/datasets/ashe-tables-20/editions/time-series/versions/1" target="_blank">
+                Earnings and hours worked, age group by occupation by two-digit SOC - ASHE Table 20 <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1175,7 +1175,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            <p>43034</p>
+            <p>29/10/2019</p>
 
           
         </td>
@@ -1217,7 +1217,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>earnings@ons.gsi.gov.uk</p>
+            <p>earnings@ons.gov.uk</p>
 
           
         </td>
@@ -1231,7 +1231,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Some figures excluded for accuracy or disclosure reasons - see source data. It is very important to note that LFS and ASHE data are nore directly comparable.</p>
+            <p>Some figures excluded for accuracy or disclosure reasons - see source data. It is very important to note that APS and ASHE data are not directly comparable.</p>
 
           
         </td>
@@ -1414,7 +1414,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            <p>Ad-hoc</p>
+            <p>Annual</p>
 
           
         </td>
@@ -1462,8 +1462,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/adhocs/008588averagehourlypaybysexanddisabilitystatusukapril2013todecember2017" target="_blank">
-                Average hourly pay by sex and disability status - UK, April 2013 to December 2017 <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/disability/datasets/rawpaygapsbydisability" target="_blank">
+                Raw pay gaps by disability <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1483,7 +1483,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            <p>43269</p>
+            <p>02/12/2019</p>
 
           
         </td>
@@ -1497,7 +1497,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>N/A</p>
+            <p>TBA</p>
 
           
         </td>
@@ -1511,7 +1511,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>National Statistic</p>
+            <p>Official statistic</p>
 
           
         </td>
@@ -1539,7 +1539,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>It is very important to note that LFS and ASHE data are not directly comparable. LFS data covers working population in the age range 16 to 64.</p>
+            <p>It is very important to note that APS and ASHE data are not directly comparable. APS data covers working population in the age range 16 to 64.</p>
 
           
         </td>
@@ -1791,7 +1791,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            <p>26/10/2018</p>
+            <p>29/10/2019</p>
 
           
         </td>
@@ -1847,7 +1847,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            
+            <p>Some figures excluded for accuracy or disclosure reasons - see source data. It is very important to note that APS and ASHE data are not directly comparable.</p>
 
           
         </td>
@@ -2003,7 +2003,7 @@ data-event-label="Change to Sources tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20200227235014'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200227235014"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20200228153527'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200228153527"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
