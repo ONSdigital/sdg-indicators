@@ -1438,42 +1438,27 @@ var indicatorView = function (model, options) {
     }
   });
 
-  this._model.onSeriesSelectedChanged.attach(function(sender, args) {
-    // var selector;
-    // if (args.series.length === view_obj._fieldLimit) {
-    //   selector = $('#fields input:not(:checked)');
-    //   selector.attr('disabled', true);
-    //   selector.parent().addClass('disabled').attr('title', 'Maximum of ' + view_obj._fieldLimit + ' selections; unselect another to select this field');
-    // } else {
-    //   selector = $('#fields input');
-    //   selector.removeAttr('disabled');
-    //   selector.parent().removeClass('disabled').removeAttr('title');
-    // }
-  });
-
   this._model.onUnitsComplete.attach(function(sender, args) {
     view_obj.initialiseUnits(args);
   });
 
-  this._model.onUnitsSelectedChanged.attach(function(sender, args) {
-    // update the plot's y axis label
-    // update the data
-  });
-
   this._model.onFieldsCleared.attach(function(sender, args) {
     $(view_obj._rootElement).find(':checkbox').prop('checked', false);
-    $(view_obj._rootElement).find('#clear').addClass('disabled');
+    $(view_obj._rootElement).find('#clear').addClass('disabled').attr('aria-disabled', 'true');
 
     // reset available/unavailable fields
     updateWithSelectedFields();
 
-    // #246
     $(view_obj._rootElement).find('.selected').css('width', '0');
-    // end of #246
   });
 
   this._model.onSelectionUpdate.attach(function(sender, args) {
-    $(view_obj._rootElement).find('#clear')[args.selectedFields.length ? 'removeClass' : 'addClass']('disabled');
+    if (args.selectedFields.length) {
+      $(view_obj._rootElement).find('#clear').removeClass('disabled').attr('aria-disabled', 'false');
+    }
+    else {
+      $(view_obj._rootElement).find('#clear').addClass('disabled').attr('aria-disabled', 'true');
+    }
 
     // loop through the available fields:
     $('.variable-selector').each(function(index, element) {
@@ -1492,7 +1477,6 @@ var indicatorView = function (model, options) {
   });
 
   this._model.onFieldsStatusUpdated.attach(function (sender, args) {
-    //console.log('updating field states with: ', args);
 
     // reset:
     $(view_obj._rootElement).find('label').removeClass('selected possible excluded');
@@ -1612,7 +1596,7 @@ var indicatorView = function (model, options) {
       var template = _.template($("#item_template").html());
 
       if(!$('button#clear').length) {
-        $('<button id="clear" class="disabled">' + translations.indicator.clear_selections + ' <i class="fa fa-remove"></i></button>').insertBefore('#fields');
+        $('<button id="clear" aria-disabled="true" class="disabled">' + translations.indicator.clear_selections + ' <i class="fa fa-remove"></i></button>').insertBefore('#fields');
       }
 
       $('#fields').html(template({
@@ -1665,6 +1649,8 @@ var indicatorView = function (model, options) {
     view_obj._chartInstance.update(1000, true);
 
     $(this._legendElement).html(view_obj._chartInstance.generateLegend());
+
+    view_obj.updateChartDownloadButton(chartInfo.selectionsTable);
   };
 
 
@@ -1705,7 +1691,7 @@ var indicatorView = function (model, options) {
 
             _.each(chart.data.datasets, function(dataset, datasetIndex) {
               text.push('<li data-datasetindex="' + datasetIndex + '">');
-              text.push('<span class="swatch' + (dataset.borderDash ? ' dashed' : '') + '" style="background-color: ' + dataset.backgroundColor + '">');
+              text.push('<span class="swatch' + (dataset.borderDash ? ' dashed' : '') + '" style="background-color: ' + dataset.borderColor + '">');
               text.push('</span>');
               text.push(translations.t(dataset.label));
               text.push('</li>');
@@ -1888,18 +1874,34 @@ var indicatorView = function (model, options) {
         downloadKey = 'download_table';
       }
       var gaLabel = 'Download ' + name + ' CSV: ' + indicatorId.replace('indicator_', '');
-      $(el).append($('<a />').text(translations.indicator[downloadKey])
-      .attr(opensdg.autotrack('download_data_current', 'Downloads', 'Download CSV', gaLabel))
-      .attr({
-        'href': URL.createObjectURL(new Blob([this.toCsv(table)], {
-          type: 'text/csv'
-        })),
-        'download': indicatorId + '.csv',
-        'title': translations.indicator.download_csv_title,
-        'class': 'btn btn-primary btn-download',
-        'tabindex': 0
-      })
-      .data('csvdata', this.toCsv(table)));
+      var tableCsv = this.toCsv(table);
+      var fileName = indicatorId + '.csv';
+      var downloadButton = $('<a />').text(translations.indicator[downloadKey])
+        .attr(opensdg.autotrack('download_data_current', 'Downloads', 'Download CSV', gaLabel))
+        .attr({
+          'download': fileName,
+          'title': translations.indicator.download_csv_title,
+          'class': 'btn btn-primary btn-download',
+          'tabindex': 0
+        });
+      var blob = new Blob([tableCsv], {
+        type: 'text/csv'
+      });
+      if (window.navigator && window.navigator.msSaveBlob) {
+        // Special behavior for IE.
+        downloadButton.on('click.openSdgDownload', function(event) {
+          window.navigator.msSaveBlob(blob, fileName);
+        });
+      }
+      else {
+        downloadButton
+          .attr('href', URL.createObjectURL(blob))
+          .data('csvdata', tableCsv);
+      }
+      if (name == 'Chart') {
+        this._chartDownloadButton = downloadButton;
+      }
+      $(el).append(downloadButton);
     } else {
       var headlineId = indicatorId.replace('indicator', 'headline');
       var id = indicatorId.replace('indicator_', '');
@@ -1913,6 +1915,28 @@ var indicatorView = function (model, options) {
         'class': 'btn btn-primary btn-download',
         'tabindex': 0
       }));
+    }
+  }
+
+  this.updateChartDownloadButton = function(table) {
+    if (typeof this._chartDownloadButton !== 'undefined') {
+      var tableCsv = this.toCsv(table);
+      var blob = new Blob([tableCsv], {
+        type: 'text/csv'
+      });
+      var fileName = this._chartDownloadButton.attr('download');
+      if (window.navigator && window.navigator.msSaveBlob) {
+        // Special behavior for IE.
+        this._chartDownloadButton.off('click.openSdgDownload')
+        this._chartDownloadButton.on('click.openSdgDownload', function(event) {
+          window.navigator.msSaveBlob(blob, fileName);
+        });
+      }
+      else {
+        this._chartDownloadButton
+          .attr('href', URL.createObjectURL(blob))
+          .data('csvdata', tableCsv);
+      }
     }
   }
 
@@ -1933,12 +1957,6 @@ var indicatorView = function (model, options) {
 
     options = options || {};
     var that = this,
-    csv_path = options.csv_path,
-    allow_download = options.allow_download || false,
-    csv_options = options.csv_options || {
-      separator: ',',
-      delimiter: '"'
-    },
     table_class = options.table_class || 'table table-hover';
 
     // clear:
@@ -1946,9 +1964,8 @@ var indicatorView = function (model, options) {
 
     if(table && table.data.length) {
       var currentTable = $('<table />').attr({
-        'class': /*'table-responsive ' +*/ table_class,
+        'class': table_class,
         'width': '100%'
-        //'id': currentId
       });
 
       currentTable.append('<caption>' + that._model.chartTitle + '</caption>');
