@@ -13,13 +13,13 @@ url: ""
 data_dir: data
 environment: staging
 
-remote_data_prefix: "https://ONSdigital.github.io/sdg-data"
+remote_data_prefix: "http://sdgdev-813006012.eu-west-1.elb.amazonaws.com/data/opensdg1"
 remote_translations:
-  - https://open-sdg.github.io/sdg-translations/translations-0.8.2.json
+  - https://open-sdg.github.io/sdg-translations/translations.json
 create_indicators:
   layout: indicator
 create_goals:
-  layout: goal
+  layout: goal-by-target
 create_pages: true
 
 analytics:
@@ -72,10 +72,7 @@ languages:
 
 goal_image_base: https://open-sdg.github.io/sdg-translations/assets/img/goals
 
-# Use more accessible high contrast button
-contrast_type: long
-
-# Menu
+# Header Menu
 menu:
   # Use these to customise the main navigation.
   - path: /
@@ -93,6 +90,19 @@ menu:
   - path: /updates/
     translation_key: menu.updates
 
+# Footer Menu
+footer_menu:
+  - path: mailto:my-email-address@example.com
+    translation_key: menu.contact_us
+  - path: https://twitter.com/MyTwitterAccount
+    translation_key: general.twitter
+  - path: https://facebook.com/MyFacebookAccount
+    translation_key: general.facebook
+  - path: /about/cookies-and-privacy/
+    translation_key: menu.cookies
+  - path: /accessibility-statement/
+    translation_key: Accessibility statement
+
 # This makes sure that all pages have a language.
 defaults:
   -
@@ -105,7 +115,7 @@ plugins:
   - jekyll-remote-theme
   - jekyll-open-sdg-plugins
 
-remote_theme: open-sdg/open-sdg@0.10.0
+remote_theme: open-sdg/open-sdg@master
 
 # Apply any custom Javascript.
 custom_js:
@@ -158,3 +168,7 @@ map_layers:
     # link: https://hub.arcgis.com/datasets/b7507e654334481e8e0787f42c9028c1_3
 
 survey_url: https://www.surveymonkey.co.uk/r/XFJZGVL
+
+frontpage_introduction_banner:
+  title: 17 goals to transform our world
+  description: The Sustainable Development Goals (SDGs) are a universal call to action to end poverty, protect the planet and improve the lives and prospects of everyone, everywhere. The 17 Goals were adopted by all UN Member States in 2015, as part of the 2030 Agenda for Sustainable Development.
