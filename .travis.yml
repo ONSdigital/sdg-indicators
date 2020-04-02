@@ -13,8 +13,8 @@ env:
 before_script:
 - chmod +x ./scripts/*.sh
 - chmod +x ./scripts/deploy/*.sh
-script:
-- scripts/cibuild.sh
+# script:
+# - scripts/cibuild.sh
 # Deploy. Staging goes back to gh-pages here and prod to external repo
 deploy:
 - provider: script
