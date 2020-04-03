@@ -136,19 +136,22 @@ map_options:
     attribution: <a href="https://www.mapbox.com">Mapbox</a> | <a href="http://geoportal.statistics.gov.uk/">ONS</a>
   minZoom: 6
   
-#map_layers:
- # - min_zoom: 0
-  #  max_zoom: 5
-   # subfolder: country
-    #label: Country
-  #- min_zoom: 6
-   # max_zoom: 10
-    #subfolder: regions
-    #label: Regions
-  #- min_zoom: 10
-   # max_zoom: 20
-    #subfolder: local_authorities
-    #label: Local Authorities
+map_layers:
+  - min_zoom: 0
+    max_zoom: 5
+    staticBorders: true
+    subfolder: country
+    label: Country
+  - min_zoom: 6
+    max_zoom: 10
+    staticBorders: true
+    subfolder: regions
+    label: Regions
+  - min_zoom: 10
+    max_zoom: 20
+    staticBorders: true
+    subfolder: local_authorities
+    label: Local Authorities
 
 survey_url: https://www.surveymonkey.co.uk/r/XFJZGVL
 
