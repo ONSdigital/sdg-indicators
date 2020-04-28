@@ -34,4 +34,4 @@ We are aware of some issues:
 
 ## Reporting accessibility problems with this website
 
-Please contact us at: <sustainabledevelopment@ons.gov.uk> if you find any other problems on the site or you think the site does not meet accessibility requirements.
+Please contact us at <sustainabledevelopment@ons.gov.uk> if you find any other problems on the site or you think the site does not meet accessibility requirements.
