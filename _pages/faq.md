@@ -28,7 +28,7 @@ We will add data as soon as it has been sourced and checked. This includes new d
 
 
 ## How do I suggest new or different data sources?
-If you have feedback on the data sources we have used or have suggestions for new data sources then please contact us at: <sustainabledevelopment@ons.gov.uk>
+If you have feedback on the data sources we have used or have suggestions for new data sources then please contact us at <sustainabledevelopment@ons.gov.uk>
 
 
 ## What are you doing to fill data gaps?
