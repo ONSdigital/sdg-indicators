@@ -13,15 +13,15 @@ If you have any feedback on our publications, please contact us at <sustainabled
 The third report on our progress towards measuring the global Sustainable Development Goal indicators in the UK over the last year.
 
 <small>07 November 2019</small>
-
-
+<br>
+<br>
 [Voluntary National Review of progress towards the Sustainable Development Goals](https://www.gov.uk/government/publications/uks-voluntary-national-review-of-the-sustainable-development-goals)
 
 The UK’s first Voluntary National Review taking stock of progress towards the Sustainable Development Goals.
 
 <small>26 June 2019</small>
-
-
+<br>
+<br>
 [What is the difference between sex and gender?](https://www.ons.gov.uk/economy/environmentalaccounts/articles/whatisthedifferencebetweensexandgender/2019-02-21)
 
 We are exploring concepts that are important to the Sustainable Development Goals. This article explains the differences between sex and gender.
