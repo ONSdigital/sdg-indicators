@@ -4,9 +4,9 @@ permalink: /about/
 layout: page
 ---
 The [Sustainable Development Goals](http://www.un.org/sustainabledevelopment/sustainable-development-goals/) (SDGs) are a universal call to action to:
-<br>
+
   * end poverty
-  testing
+  
   * protect the planet
   
   * improve the lives and prospects of everyone, everywhere
