@@ -23,7 +23,7 @@ As one of the world leaders in providing data for the SDG indicators our aims in
   * promoting the SDG-related work we do
 
 ## About this site
-The site is based on the [Open SDG](https://open-sdg.readthedocs.io/en/latest/) platform. The Open SDG platform is the result of collaboration between the
+The site is based on the open source [Open SDG](https://open-sdg.readthedocs.io/en/latest/) platform. The Open SDG platform is the result of collaboration between the
   * UK [Office For National Statistics](https://www.ons.gov.uk/) (ONS) 
   * US government
   * [Center For Open Data Enterprise](http://opendataenterprise.org/) (CODE)
