@@ -7,12 +7,13 @@ layout: page
 - [How often will new data be added to this site?](#how-often-will-new-data-be-added-to-this-site)
 - [How do I suggest new or different data sources?](#how-do-i-suggest-new-or-different-data-sources)
 - [What are you doing to fill data gaps?](#what-are-you-doing-to-fill-data-gaps)
-- [Can other countries copy this website?](#can-other-countries-copy-this-website)
-- [Who uses this website?](#who-uses-this-website)
 - [What does the reporting status mean?](#what-does-the-reporting-status-mean)
 - [What do each of the three tiers mean?](#what-do-each-of-the-three-tiers-mean)
+- [Who uses this website?](#who-uses-this-website)
+- [Can other countries copy this website?](#can-other-countries-copy-this-website)
 - [How accessible is this website?](#how-accessible-is-this-website)
 - [What browsers can I use to view this website?](#what-browsers-can-i-use-to-view-this-website)
+
 
 ## How often will new data be added to this site?
 We will add data as soon as it has been sourced and checked. This includes new data as well as updates to data we have already published. We will continue to collect data from existing sources where possible, in cooperation with topic experts.
@@ -30,25 +31,11 @@ This means we need to look for new data sources, link existing ones, or model da
 We published [our response to the consultation on measuring and reporting SDGs in the UK](https://consultations.ons.gov.uk/sustainable-development-goals/ons-approach-to-measuring-reporting-sdgs-in-the-uk/) where we asked for your ideas on prioritising data development. Your feedback informed our [data development plans](https://www.ons.gov.uk/economy/environmentalaccounts/articles/ukdatagapsinclusivedataactionplantowardstheglobalsustainabledevelopmentgoalindicators/2018-03-19).
 
 
-## Can other countries copy this website?
-Yes. [See the Open SDG Quick Start guide](https://open-sdg.readthedocs.io/en/latest/quick-start/) for technical instructions on the quickest way to get a copy of the Open SDG platform up and running.
-
-
-## Who uses this website?
-An initial phase of user research has been carried out on the UK SDG data website. This research showed that the four main user types are:
-
-* concerned citizen
-* connected influencer
-* fact gatherer
-* involved analyst
-
-For more information about the user personas, see <a href="{{ site.baseurl }}{% link _pages/userpersonas.md %}">our page which outlines the different user types and their needs</a>.
-
 ## What does the reporting status mean?
 We have used two different types of reporting status for an indicator, which are also colour coded:
 
-* Reported online (green) – as a minimum the headline national data for this indicator is available on this website but the data might not be fully disaggregated yet. We are continuing to source additional disaggregations.
-* Exploring data sources (red) – we are still looking for a suitable data source for this indicator.
+* Reported online (black) – as a minimum the headline national data for this indicator is available on this website but the data might not be fully disaggregated yet. We are continuing to source additional disaggregations.
+* Exploring data sources (white) – we are still looking for a suitable data source for this indicator.
 
 Where there is additional information about the status of indicator data collection and reporting, this will be displayed at the top of the indicator page.
 
@@ -60,6 +47,21 @@ Each of the SDG indicators are assigned to one (or more) of the following tiers:
 - Tier 3: No internationally established methodology or standards are yet available for the indicator, but methodology/standards are being (or will be) developed or tested.
 
 For more information, [see the IAEG-SDGs Tier Classification for Global SDG Indicators](https://unstats.un.org/sdgs/iaeg-sdgs/tier-classification/)
+
+
+## Who uses this website?
+An initial phase of user research has been carried out on the UK SDG data website. This research showed that the four main user types are:
+
+  * concerned citizen
+  * connected influencer
+  * fact gatherer
+  * involved analyst
+
+For more information about these user personas, see our page which outlines the different [user types and their needs]({{ site.baseurl }}{% link _pages/userpersonas.md %}.
+
+
+## Can other countries copy this website?
+Yes. [See the Open SDG Quick Start guide](https://open-sdg.readthedocs.io/en/latest/quick-start/) for technical instructions on the quickest way to get a copy of the Open SDG platform up and running.
 
 
 ## How accessible is this website?
