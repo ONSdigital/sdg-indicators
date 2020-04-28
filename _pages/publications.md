@@ -14,15 +14,18 @@ The third report on our progress towards measuring the global Sustainable Develo
 
 <small>07 November 2019</small>
 
+
 [Voluntary National Review of progress towards the Sustainable Development Goals](https://www.gov.uk/government/publications/uks-voluntary-national-review-of-the-sustainable-development-goals)
 
 The UK’s first Voluntary National Review taking stock of progress towards the Sustainable Development Goals.
 
 <small>26 June 2019</small>
 
+
 [What is the difference between sex and gender?](https://www.ons.gov.uk/economy/environmentalaccounts/articles/whatisthedifferencebetweensexandgender/2019-02-21)
 
 We are exploring concepts that are important to the Sustainable Development Goals. This article explains the differences between sex and gender.
+
 
 <small>21 February 2019</small>
 
@@ -32,11 +35,13 @@ This is our second report summarising the progress made towards measuring the gl
 
 <small>06 November 2018</small>
 
+
 [Using innovative methods to report against the Sustainable Development Goals](https://www.ons.gov.uk/economy/environmentalaccounts/articles/usinginnovativemethodstoreportagainstthesustainabledevelopmentgoals/2018-10-22)
 
 The outcome of a project aimed at exploring new ways of producing and communicating geographical data.
 
 <small>22 October 2018</small>
+
 
 [Inclusive data charter action plan for the global Sustainable Development Goals](https://www.ons.gov.uk/economy/environmentalaccounts/methodologies/inclusivedatacharteractionplanfortheglobalsustainabledevelopmentgoals)
 
@@ -44,11 +49,13 @@ The Office for National Statistics has partnered with the Global Partnership for
 
 <small>13 July 2018</small>
 
+
 [UK data gaps: Inclusive Data Action Plan towards the global Sustainable Development Goal indicators](https://www.ons.gov.uk/economy/environmentalaccounts/articles/ukdatagapsinclusivedataactionplantowardstheglobalsustainabledevelopmentgoalindicators/2018-03-19)
 
 This is our first report on UK data gaps for reporting progress towards the global Sustainable Development Goal indicators.
 
 <small>19 March 2018</small>
+
 
 [Response to our consulation on the approach to measuring and reporting SDGs in the UK, 11 December 2017](https://consultations.ons.gov.uk/sustainable-development-goals/ons-approach-to-measuring-reporting-sdgs-in-the-uk/)
 
@@ -56,11 +63,13 @@ We ran a public consultation between 29 June and 29 September 2017 to look at ou
 
 <small>11 December 2017</small>
 
+
 [Sustainable Development Goals: progress and possibilities](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2017)
 
 This is our first report on the progress we’ve made towards measuring the global Sustainable Development Goal (SDG) indicators in the UK. It looks at the work we have been doing to be able to measure our progress and explains how we are already sharing the data we have.
 
 <small>09 November 2017</small>
+
 
 ## Goal 3 Good health and well-being
 
@@ -70,6 +79,7 @@ This short story looks at the two indicators (under five and neonatal mortality)
 
 <small>13 October 2017</small>
 
+
 ## Goal 5 Gender Equality
 
 [Eliminating violence against women and girls: Women most at risk of experiencing partner abuse](https://www.ons.gov.uk/releases/sustainabledevelopmentgoalsandachievingequalitywhichwomenarethemostvulnerableandatriskofexperiencingdomesticabusebyapartner)
@@ -77,6 +87,7 @@ This short story looks at the two indicators (under five and neonatal mortality)
 This analysis looks at personal and household characteristics such as age, disability, ethnicity, sexual identity, religion, employment, marital status and household income - it shows that some groups of women are more likely to be victims of abuse by a partner or ex-partner than others. 
 
 <small>31 May 2018</small>
+
 
 ## Goal 7 Affordable and clean energy
 
@@ -86,6 +97,7 @@ This SlideShare takes a look at renewable energy consumption in the UK which is 
 
 <small>22 November 2017</small>
 
+
 ## Goal 10 Reduced Inequalities 
 
 [Measuring Inequalities in the UK for the Sustainable Development Goals, 26th July 2018](https://www.ons.gov.uk/economy/nationalaccounts/uksectoraccounts/compendium/economicreview/july2018/measuringinequalitiesintheukforthesustainabledevelopmentgoals)
@@ -93,6 +105,7 @@ This SlideShare takes a look at renewable energy consumption in the UK which is 
 This article reports on economic inequality, measuring growth rates in income and expenditure in the UK, for all households and for the bottom 40%. It shows that the incomes of the bottom 40% in the UK have sustained a higher than average growth rate since the economic downturn in 2008, and identifies the employment and household characteristics of the bottom 40% of the income distribution.
 
 <small>26 July 2018</small>
+
 
 ## Goal 16 Peace and Justice 
 
