@@ -57,6 +57,6 @@ Please contact the [Open SDG GitHub](https://github.com/open-sdg/open-sdg) if yo
 Answers to some specific questions about this website are included on our [frequently asked questions]({{ site.baseurl }}{% link _pages/faq.md %}) page.
 
 ## Feedback
-For feedback on UK SDG data please contact us at: <sustainabledevelopment@ons.gov.uk>
+For feedback on UK SDG data please contact us at <sustainabledevelopment@ons.gov.uk>
 
 For feedback about this website, please complete our [feedback questionnaire](https://www.surveymonkey.co.uk/r/SDGfeedback)
