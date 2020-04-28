@@ -117,4 +117,4 @@ This analysis provides insight into ‘the proportion of people on remand in cus
 <small>03 August 2018</small>
 <br>
 <br>
-<div style="text-align: right;">[Back to top](#top)</div>
+[Back to top](#top)
