@@ -9,6 +9,7 @@ If you have any feedback on our publications, please contact us at <sustainabled
 
 ## All goals
 [Sustainable Development Goals in the UK: progress on monitoring and reporting data](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2019)
+
 The third report on our progress towards measuring the global Sustainable Development Goal indicators in the UK over the last year.
 
 <small>07 November 2019</small>
