@@ -7,7 +7,7 @@ permalink: /user-personas/
 ## Table of contents
 * [Our research](#our-research)
 
-* [What was found](#what-was-found)
+* [What was found?](#what-was-found)
 
 * [Concerned citizen](#concerned-citizen)
 
@@ -78,6 +78,7 @@ Concerned citizens might arrive to the site from other public facing websites an
 * put lots of methodology and usage notes in their way
 
 
+
 ## Connected influencer
 ### Who they are
 Someone non-statistical working in the not-for-profit space or for a private sector organisation looking to make money around sustainable development activities. Might be an individual attempting to challenge or guide on government policy
@@ -115,6 +116,7 @@ They have a good knowledge of the SDGs and use the SDGs to champion the themes t
 * force them to approach each indicator separately
 
 
+
 ## Fact gatherer
 ### Who they are
 Policy advisers in government departments who have been tasked with reporting on SDG progress and VNR, non-governmental organisations looking to understand what is going on in the UK and think tanks wanting to understand what the UK is doing and hold the government to account.
@@ -150,6 +152,7 @@ They come to the website quite often  and may copy data for use in reports, whic
 * expect them to find the source data with a generic link
 * populate the website with out-of-date website
 * hide facts and figures under complex levels of navigation
+
 
 
 ## Involved analyst
