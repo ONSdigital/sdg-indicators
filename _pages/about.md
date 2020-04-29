@@ -59,4 +59,4 @@ Answers to some specific questions about this website are included on our [frequ
 ## Feedback
 For feedback on UK SDG data please contact us at <sustainabledevelopment@ons.gov.uk>
 
-For feedback about this website, please complete our [feedback questionnaire](https://www.surveymonkey.co.uk/r/SDGfeedback)
+For feedback about this website, please complete our [feedback survey](https://www.surveymonkey.co.uk/r/SDGfeedback)
