@@ -89,5 +89,6 @@ For details about compatibility with tools and known issues, please see our [Acc
 
 ## What browsers can I use to view this website?
 We are developing and testing our site in line with the [Government Digital Service (GDS) guidance on designing for different browsers and devices](https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices). Our website works with most of the latest versions of the commonly used browsers listed in the ‘Browsers to test in’ section of the GDS guidance. There are some known issues with using the site on older versions of browsers e.g. IE8.
-
+<br>
+<br>
 [Back to top](#table-of-contents)
