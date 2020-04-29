@@ -5,28 +5,31 @@ permalink: /user-personas/
 ---
 
 ## Table of contents
-* [Our approach](#our-approach)
-* [What we found](#what-we-found)
+* [Our research](#our-research)
+* [What was found](#what-was-found)
 * [Concerned citizen](#concerned-citizen)
 * [Connected influencer](#connected-influencer)
 * [Fact gatherer](#fact-gatherer)
 * [Involved analyst](#involved-analyst)
 
-We want to provide a data site that is easy to use by everybody and has purpose. To achieve this, we want to understand more about who uses the site and what they need from the site.
-This year we have started to research who uses the data site and for which reasons. So far, over 50 people from a variety of organisations have taken part. The research involved interviewing people face-to-face or by telephone. We spoke to people across government, from academia and the private sector.
-We have also carried out some usability testing, too. We tasked people to use the site to find specific information. Then we asked them about their experience. This information has informed our decisions about how we develop the data site.
+## Our research
 
-Our research has not ended. We will continue our user research and our usability testing for the lifetime of the data site.
+We want to provide a data site that has purpose and is easy to use by everybody. To achieve this we want to understand more about who uses the site and what they need from the site.
 
-As this was an initial phase of user research with a small number of participants, we will carry out further research to validate the user types. Further research will be carried out with custodian agencies, concerned citizens, government SDG policy analysts, local authorities and master builders as well as other users.
+To do this, so far, we have undertaken user research to find out who uses the data site and what for? Over 50 people from a variety of organisations have taken part. The research involved interviewing people face-to-face or by telephone. We spoke to people across government, from academia, and the private sector.
 
-If you have any further questions about the user personas or our user research, or if you want to be involved with future user research, please contact us at <i class="fa fa-envelope"></i> [SustainableDevelopment@ons.gov.uk](mailto:SustainableDevelopment@ons.gov.uk).
+We have also carried out several usability testing sessions. In these sessions we tasked people to use the site to find specific information and asked them about their experience. This information has helped informed our decisions about how we develop the data site.
 
-Alternatively, please complete our [short survey](https://www.surveymonkey.co.uk/r/XFJZGVL) to give some feedback about the site.
+Our approach to user research is iterative and we will continue our user research and usability testing for the lifetime of this webiste. This will include further validating the user personas, and speaking to additional people within custodian agencies, local authorities, and the wider government.
 
-## What we found?
+If you have any further questions about the user personas or our user research, or if you want to be involved with future user research, please contact us at SustainableDevelopment@ons.gov.uk.
 
-We identified four main user types or personas:
+Alternatively, if you have specific feedback about this website, please complete our [feedback survey](https://www.surveymonkey.co.uk/r/SDGfeedback)
+
+
+## What was found?
+
+We identified four main user personas or types:
 
 <img src="https://sustainabledevelopment-uk.github.io/public/blog/user_personas.png" alt="Diagram showing summary of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst." height="300px">
 
@@ -40,7 +43,7 @@ Someone who has an personal interest in SDGs or related topics but may also have
 *"Tell me what the goals are and what is being done about them."*
 
 ### What motivates them
-They have either a personal and/or political interest in the SDGS and want to know what they are about and whether they will make a difference.
+They have either a personal and/or political interest in the SDGS, and want to know what they are about and whether they will make a difference.
 
 ### What they want
 Concerned citizens want to:
