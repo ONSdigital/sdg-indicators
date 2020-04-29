@@ -71,7 +71,7 @@ An initial phase of user research has been carried out on the UK SDG data websit
   
   * involved analyst
 
-For more information about these user personas, see our page which outlines the different [user types and their needs]({{ site.baseurl }}{% link _pages/userpersonas.md %}.
+For more information about these user personas, see our page which outlines the different [user types and their needs]({{ site.baseurl }}{% link _pages/userpersonas.md %}).
 
 
 ## Can other countries copy this website?
@@ -79,10 +79,9 @@ Yes. [See the Open SDG Quick Start guide](https://open-sdg.readthedocs.io/en/lat
 
 
 ## How accessible is this website?
+Our aim is to make this website as accessible and usable as possible for every user. We have recently achieved the AA level standard of the [Web Content Accessibility Guidelines (WCAG 2.1)](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag), with a [Digital Accessibility Centre Certificate of Accreditation](http://digitalaccessibilitycentre.org/index.php/office-for-national-statistics-sdg).
 
 ![DAC logo with two ticks indicating AA certification](https://sustainabledevelopment-uk.github.io/public/dac_logo_with_two_ticks.png)
-
-Our aim is to make this website as accessible and usable as possible for every user. We have recently achieved the AA level standard of the [Web Content Accessibility Guidelines (WCAG 2.1)](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag), with a [Digital Accessibility Centre Certificate of Accreditation](http://digitalaccessibilitycentre.org/index.php/office-for-national-statistics-sdg).
 
 For details about compatibility with tools and known issues, please see our [Accessibility statement]({{ site.baseurl }}{% link _pages/accessibilitystatement.md %}).
 
