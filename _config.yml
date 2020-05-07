@@ -22,19 +22,14 @@ create_goals:
   layout: goal-by-target
 create_pages: true
 
-analytics:
-  ga_prod: ''
-
 # Social media accounts.
 twitter: 'ONS'
 
-
-###################################################################################################
+# Email accounts
 email_contacts:
   questions: sustainabledevelopment@ons.gov.uk
   suggestions: sustainabledevelopment@ons.gov.uk
   functional: sustainabledevelopment@ons.gov.uk
-###################################################################################################
 
 # Github Repo for Data
 repo_name: sdg-data
@@ -44,6 +39,11 @@ org_name: ONSdigital
 # Build settings
 markdown: kramdown
 
+# Date format
+date_formats:
+  standard:
+    en: "%d %B %Y"
+    
 # Travis Support
 exclude: [vendor, scripts, remotedata]
 
