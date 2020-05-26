@@ -12,8 +12,6 @@ layout: page
 
 - [What does the reporting status mean?](#what-does-the-reporting-status-mean)
 
-- [What do each of the three tiers mean?](#what-do-each-of-the-three-tiers-mean)
-
 - [Who uses this website?](#who-uses-this-website)
 
 - [Can other countries copy this website?](#can-other-countries-copy-this-website)
@@ -21,6 +19,8 @@ layout: page
 - [How accessible is this website?](#how-accessible-is-this-website)
 
 - [What browsers can I use to view this website?](#what-browsers-can-i-use-to-view-this-website)
+
+- [What do each of the three tiers mean?](#what-do-each-of-the-three-tiers-mean)
 
 
 ## How often will new data be added to this site?
@@ -42,22 +42,11 @@ We published [our response to the consultation on measuring and reporting SDGs i
 ## What does the reporting status mean?
 We have used two different types of reporting status for an indicator, which are also colour coded:
 
- * Reported online (black) – as a minimum the headline national data for this indicator is available on this website but the data might not be fully disaggregated yet. We are continuing to source additional disaggregations
+ * Reported online – as a minimum the headline national data for this indicator is available on this website but the data might not be fully disaggregated yet. We are continuing to source additional disaggregation's
  
- * Exploring data sources (white) – we are still looking for a suitable data source for this indicator
+ * Exploring data sources – we are still looking for a suitable data source for this indicator
 
 Where there is additional information about the status of indicator data collection and reporting, this will be displayed at the top of the indicator page.
-
-
-## What do each of the three tiers mean? 
-Each of the SDG indicators are assigned to one (or more) of the following tiers:
- - Tier 1: Indicator is conceptually clear, has an internationally established methodology and standards are available, and data are regularly produced by countries for at least 50 per cent of countries and of the population in every region where the indicator is relevant
- 
- - Tier 2: Indicator is conceptually clear, has an internationally established methodology and standards are available, but data are not regularly produced by countries
- 
- - Tier 3: No internationally established methodology or standards are yet available for the indicator, but methodology/standards are being (or will be) developed or tested
-
-For more information, [see the IAEG-SDGs Tier Classification for Global SDG Indicators](https://unstats.un.org/sdgs/iaeg-sdgs/tier-classification/)
 
 
 ## Who uses this website?
@@ -89,7 +78,18 @@ For details about compatibility with tools and known issues, please see our [Acc
 
 
 ## What browsers can I use to view this website?
-We are developing and testing our site in line with the [Government Digital Service (GDS) guidance on designing for different browsers and devices](https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices). Our website works with most of the latest versions of the commonly used browsers listed in the ‘Browsers to test in’ section of the GDS guidance. There are some known issues with using the site on older versions of browsers e.g. IE8.
+We are developing and testing our site in line with the [Government Digital Service (GDS) guidance on designing for different browsers and devices](https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices). Our website works with most of the latest versions of the commonly used browsers listed in the ‘Browsers to test in’ section of the GDS guidance.
+
+
+## What do each of the three tiers mean? 
+Each of the SDG indicators are assigned to one (or more) of the following tiers:
+ - Tier 1: Indicator is conceptually clear, has an internationally established methodology and standards are available, and data are regularly produced by countries for at least 50 per cent of countries and of the population in every region where the indicator is relevant
+ 
+ - Tier 2: Indicator is conceptually clear, has an internationally established methodology and standards are available, but data are not regularly produced by countries
+ 
+ - Tier 3: No internationally established methodology or standards are yet available for the indicator, but methodology/standards are being (or will be) developed or tested
+
+For more information, [see the IAEG-SDGs Tier Classification for Global SDG Indicators](https://unstats.un.org/sdgs/iaeg-sdgs/tier-classification/)
 <br>
 <br>
 [Back to top](#table-of-contents)
