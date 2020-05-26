@@ -16,7 +16,7 @@ The 17 Goals were adopted by all UN Member States in 2015, as part of the [2030 
 ## ONS' role in the SDGs
 The [Office For National Statistics](https://www.ons.gov.uk/) (ONS) is the UK’s largest independent producer of official statistics and its recognised National Statistical Institute (NSI).
 
-In this role, we are coordinating and reporting on the global SDG indicators for the UK. Fulfilling the mandate placed on all countries by the United Nations General Assembly.
+In this role, we are coordinating and reporting on the global SDG indicators for the UK. This fulfils the mandate placed on all countries by the United Nations General Assembly.
 
 As one of the world leaders in providing data for the SDG indicators our aims include: 
 
@@ -24,11 +24,13 @@ As one of the world leaders in providing data for the SDG indicators our aims in
   
   * collaborating and coordinating with topic leads across the Government Statistical Service and beyond
   
-  * reporting data
+  * reporting UK SDG data
   
-  * shining a light on who is being ‘left behind’ - so policy makers can act 
+  * shining a light on who is being ‘left behind’ - so policy makers can take action 
   
   * promoting the SDG-related work we do
+  
+Cabinet Office and the Department for International Development (DfID) have responsibility for policy implementation. 
 
 ## About this site
 This site is based on the open source [Open SDG](https://open-sdg.readthedocs.io/en/latest/) platform. The Open SDG platform is the result of collaboration between the:
