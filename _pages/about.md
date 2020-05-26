@@ -40,23 +40,10 @@ This site is based on the open source [Open SDG](https://open-sdg.readthedocs.io
   * US government
   
   * [Center For Open Data Enterprise](http://opendataenterprise.org/) (CODE)
-  
-  View this <a href="{{site.baseurl}}/public/NRP VIDEO DEMO May2018.ppsx" onClick='ga("send", "event", "Guidance", "presentation", "view presentation")'>presentation</a> (.ppsx file 6.45Mb) to see the site's main features.
-  
-  
+    
 Other countries or organisations wishing to reuse the Open SDG reporting platform are welcome to do so for free. The [Open SDG Quick Start guide](https://open-sdg.readthedocs.io/en/latest/quick-start/) gives technical instructions on the quickest way to get a copy of the Open SDG platform up and running.
 
-Any Open SDG platform can be:
-
-  * built exclusively with open-source libraries and tools
-  
-  * hosted and maintained using free services
-  
-  * modified to fit a variety of user needs
-  
-  * customised
-
-Please contact the [Open SDG GitHub](https://github.com/open-sdg/open-sdg) if you have comments, feedback, or want to get involved with the Open SDG community.
+If you have comments, feedback, or want to get involved with the Open SDG community please email <opensdg@googlegroups.com> or contact the [Open SDG GitHub](https://github.com/open-sdg/open-sdg) .
 
 ## Need more info?
 Answers to some specific questions about this website are included on our [frequently asked questions]({{ site.baseurl }}{% link _pages/faq.md %}) page.
