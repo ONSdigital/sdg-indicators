@@ -13,28 +13,23 @@ url: ""
 data_dir: data
 environment: staging
 
+
 remote_data_prefix: "http://sdgdev-813006012.eu-west-1.elb.amazonaws.com/data/3-b-1-embed/"
-remote_translations:
-  - https://open-sdg.github.io/sdg-translations/translations-0.8.2.json
+
 create_indicators:
   layout: indicator
 create_goals:
-  layout: goal
+  layout: goal-by-target
 create_pages: true
-
-analytics:
-  ga_prod: ''
 
 # Social media accounts.
 twitter: 'ONS'
 
-
-###################################################################################################
+# Email accounts
 email_contacts:
   questions: sustainabledevelopment@ons.gov.uk
   suggestions: sustainabledevelopment@ons.gov.uk
   functional: sustainabledevelopment@ons.gov.uk
-###################################################################################################
 
 # Github Repo for Data
 repo_name: sdg-data
@@ -44,6 +39,11 @@ org_name: ONSdigital
 # Build settings
 markdown: kramdown
 
+# Date format
+date_formats:
+  standard:
+    en: "%d %B %Y"
+    
 # Travis Support
 exclude: [vendor, scripts, remotedata]
 
@@ -52,6 +52,10 @@ exclude: [vendor, scripts, remotedata]
 country:
   name: UK
   adjective: UK
+  
+# Extra search fields
+search_index_extra_fields:
+  - data_keywords
 
 # Pages
 collections:
@@ -72,10 +76,7 @@ languages:
 
 goal_image_base: https://open-sdg.github.io/sdg-translations/assets/img/goals
 
-# Use more accessible high contrast button
-contrast_type: long
-
-# Menu
+# Header Menu
 menu:
   # Use these to customise the main navigation.
   - path: /
@@ -93,6 +94,17 @@ menu:
   - path: /updates/
     translation_key: menu.updates
 
+# Footer Menu
+footer_menu:
+  - path: mailto:sustainabledevelopment@ons.gov.uk
+    translation_key: menu.contact_us
+  - path: https://twitter.com/ONS
+    translation_key: general.twitter
+  - path: /about/cookies-and-privacy/
+    translation_key: menu.cookies
+  - path: /accessibility-statement/
+    translation_key: Accessibility statement
+
 # This makes sure that all pages have a language.
 defaults:
   -
@@ -105,7 +117,7 @@ plugins:
   - jekyll-remote-theme
   - jekyll-open-sdg-plugins
 
-remote_theme: open-sdg/open-sdg@0.10.0
+remote_theme: open-sdg/open-sdg@1.0.0-dev
 
 # Apply any custom Javascript.
 custom_js:
@@ -115,6 +127,7 @@ custom_js:
 custom_css:
   - /assets/css/custom.css
 
+contrast_type: long
 
 # Mapping
 map_options:
@@ -123,38 +136,27 @@ map_options:
     id: mapbox.light
     accessToken: pk.eyJ1IjoibHVjeWphbmVnd2lsbCIsImEiOiJjazAyZ2phaGMwajhzM2hxb2czZmdrZ2szIn0.tcj-n08CcU-7tKXFqB-WuQ
     attribution: <a href="https://www.mapbox.com">Mapbox</a> | <a href="http://geoportal.statistics.gov.uk/">ONS</a>
-  minZoom: 6
+  minZoom: 4
+  
 map_layers:
-  #Country
-  #- min_zoom: 5
-    #max_zoom: 10
-    #serviceUrl: https://geoportal1-ons.opendata.arcgis.com/datasets/c362832ce5d14728a6fb2b079525be0b_4.geojson
-    #nameProperty: ctry17nm
-    #idProperty: ctry17cd
-    #staticBorders: true
-    # link: https://hub.arcgis.com/datasets/c362832ce5d14728a6fb2b079525be0b_4/data
-  #Region
-  - min_zoom: 5
-    max_zoom: 10
-    serviceUrl: https://geoportal1-ons.opendata.arcgis.com/datasets/4fcca2a47fed4bfaa1793015a18537ac_4.geojson
-    nameProperty: rgn17nm
-    idProperty: rgn17cd
+  - min_zoom: 4
+    max_zoom: 6
     staticBorders: true
-    # link: https://hub.arcgis.com/datasets/4fcca2a47fed4bfaa1793015a18537ac_4
-  #Local Authority
+    subfolder: country
+    label: Country
   - min_zoom: 6
-    max_zoom: 10
-    serviceUrl: https://geoportal1-ons.opendata.arcgis.com/datasets/686603e943f948acaa13fb5d2b0f1275_4.geojson
-    nameProperty: lad16nm
-    idProperty: lad16cd
-    staticBorders: false
-    # link: https://hub.arcgis.com/datasets/686603e943f948acaa13fb5d2b0f1275_4
-  #County
-  #- min_zoom: 8
-    #max_zoom: 9
-    #serviceUrl: https://geoportal1-ons.opendata.arcgis.com/datasets/b7507e654334481e8e0787f42c9028c1_3.geojson
-    #nameProperty: cty18nm
-    #idProperty: cty18cd
-    # link: https://hub.arcgis.com/datasets/b7507e654334481e8e0787f42c9028c1_3
+    max_zoom: 8
+    staticBorders: true
+    subfolder: regions
+    label: Regions
+  - min_zoom: 9
+    max_zoom: 12
+    staticBorders: true
+    subfolder: local_authorities
+    label: Local Authorities
 
 survey_url: https://www.surveymonkey.co.uk/r/XFJZGVL
+
+frontpage_introduction_banner:
+  title: 17 goals to transform our world
+  description: The Sustainable Development Goals (SDGs) are a universal call to action to end poverty, protect the planet and improve the lives and prospects of everyone, everywhere. The 17 Goals were adopted by all UN Member States in 2015, as part of the 2030 Agenda for Sustainable Development.

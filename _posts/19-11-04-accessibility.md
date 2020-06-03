@@ -7,6 +7,7 @@ excerpt:
 ---
 
 The commitment to “leave no one behind” is central to the Sustainable Development Goals (SDGs). It extends to making our digital content accessible and functional for all users regardless of any disability or physical impairment. 
+
  
 <img src="https://sustainabledevelopment-uk.github.io/public/blog/accessible-definition.png" alt="Image showing the dictionary definitions of the word accessible." height="300px">
 
