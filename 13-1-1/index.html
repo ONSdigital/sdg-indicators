@@ -139,7 +139,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20200605003942">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20200606004029">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -147,7 +147,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200605003942"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200606004029"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -297,7 +297,7 @@ var translations = {
       
 
       <div id="page-content">
-  <p>Select the following link to download this indicator data in an accessible format:<br /><a href="https://sustainabledevelopment-uk.github.io/sdg-data/data/13-1-1.csv">13.1.1 Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population (CSV 64.247 kB)</a></p>
+  <p>Select the following link to download this indicator data in an accessible format:<br /><a href="https://sustainabledevelopment-uk.github.io/sdg-data/data/13-1-1.csv">13.1.1 Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population (CSV 176.401 kB)</a></p>
 
 </div>
 
@@ -306,7 +306,7 @@ var translations = {
 
   <div class="row">
     <div class="col-xs-12">
-      <h2>Deaths from exposure to natural forces per million population</h2>
+      <h2>Deaths from exposure to natural forces per 100,000 population and number of deaths.</h2>
     </div>
   </div>
 
@@ -316,8 +316,8 @@ var translations = {
   
 
   <div class="row" id="indicatorData" data-indicatorid='indicator_13-1-1' data-id="13-1-1" data-country="England and Wales"
-  data-charttitle="Deaths from exposure to natural forces per million population" data-measurementunit="Rate per 1,000,000 population" data-datasource="Office for National Statistics (ONS)" data-copyright=""
-  data-geographicalarea="England and Wales" data-footnote="" data-showdata="true" data-graphtype="line"
+  data-charttitle="Deaths from exposure to natural forces per 100,000 population and number of deaths." data-measurementunit="" data-datasource="Office for National Statistics (ONS)" data-copyright=""
+  data-geographicalarea="England and Wales" data-footnote="1. Underlying cause of death was defined using the International Classification of Diseases, Tenth Revision (ICD-10) codes X30 to X39. 2. Figures are for persons usually resident in England and Wales, based on boundaries as of February 2020. 3. Figures are based on deaths registered, rather than deaths occurring between 2001 and 2018.  Figures only include deaths that were registered by 31 Dec 2018." data-showdata="true" data-graphtype="line"
   data-geocoderegex="" data-showmap="false" data-startvalues="">
     
     <div id="indicator-sidebar" class="col-md-3">
@@ -411,7 +411,7 @@ data-event-label="Change to Map tab"
     
     <div id="selectionsChart">
       <div id="chart-canvas">
-        <h3 class="chart-title">Deaths from exposure to natural forces per million population</h3>
+        <h3 class="chart-title">Deaths from exposure to natural forces per 100,000 population and number of deaths.</h3>
         <div id="chart" class="plot-container">
           
 <canvas></canvas>
@@ -509,7 +509,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            <p>Deaths from exposure to natural forces per million population</p>
+            <p>Number of deaths attributed to disasters per 100,000 population</p>
 
           
         </td>
@@ -551,7 +551,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            <p>Rate per 1,000,000 population</p>
+            
 
           
         </td>
@@ -593,7 +593,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>(Number of deaths from exposure to natural forces in sex and geography grouping / Population in sex and geography grouping) * 1,000,000</p>
+            
 
           
         </td>
@@ -607,7 +607,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>For more information, please see <a href="http://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/qmis/mortalitystatisticsinenglandandwalesqmi">Mortality Statistics Quality and Methodology Information</a>. This document contains important information on the strengths and limitations of the data, the quality of the output including the accuracy of the data, how it compares with related data, uses and users and how the output was created. This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has not been identified in collaboration with topic experts.</p>
+            <p>For more information, please see <a href="http://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/qmis/mortalitystatisticsinenglandandwalesqmi">Mortality Statistics Quality and Methodology Information</a>. This document contains important information on the strengths and limitations of the data, the quality of the output including the accuracy of the data, how it compares with related data, uses and users and how the output was created. This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -627,8 +627,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/b1a739d8f8cc117775173477aa6dc9aeaebf53df" target="_blank">
-                2020-03-17: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/2870b62f9ec500880cbb7de5f3e8658140cde873" target="_blank">
+                2020-06-05: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -654,8 +654,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/058fd25a2d70b20ae96c6cd7b24eaaa10c037caf" target="_blank">
-                2020-03-17: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/8355664f031410199e1b244179557e290506da29" target="_blank">
+                2020-06-05: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1047,8 +1047,6 @@ data-event-label="Change to Sources tab"
     
     <div class="col-md-6">
       
-        <h4>Source 1</h4>
-      
       <table class="table table-hover">
   
   
@@ -1120,7 +1118,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2013</p>
+            <p>2001</p>
 
           
         </td>
@@ -1154,8 +1152,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://www.nomisweb.co.uk/articles/960.aspx" target="_blank">
-                Nomis mortality <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/adhocs/11640numberofdeathsandcrudemortalityratesfromexposuretoforcesofnatureenglandandwales2001to2018" target="_blank">
+                Number of deaths and crude mortality rates from exposure to forces of nature, England and Wales - 2001 to 2018 <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1175,7 +1173,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            <p>06/08/2019</p>
+            <p>24/04/2020</p>
 
           
         </td>
@@ -1231,7 +1229,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            
+            <p>Please note the data source contains separate death rates per 100,000 population for England and for Wales, and death rates by cause of death and sex which have not been included here. This is because in some instances the number of deaths are very small (less than 10), meaning the rate is statistically unreliable. Therefore, death rates are only included here for combined England and Wales by sex, as there have been enough deaths to increase reliability of these figures. The absolute number of deaths has been reported for all other breakdowns.</p>
 
           
         </td>
@@ -1250,302 +1248,6 @@ data-event-label="Change to Sources tab"
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</table>
-
-    </div>
-    
-   
-    
-    <div class="col-md-6">
-      
-        <h4>Source 2</h4>
-      
-      <table class="table table-hover">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
-          
-            <p>Office for National Statistics (ONS)</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Periodicity </th>
-        <td>
-          
-            <p>Annual</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Earliest available data </th>
-        <td>
-          
-            <p>1838</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Geographical coverage </th>
-        <td>
-          
-            <p>United Kingdom</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Link to data source </th>
-        <td>
-          
-            
-            
-            
-            
-
-            
-              <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland" target="_blank">
-                Population Estimates for UK, England and Wales, Scotland and Northern Ireland <span class="visuallyhidden">opens in a new window</span>
-              </a>
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Release date </th>
-        <td>
-          
-            <p>26/06/2019</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Next release </th>
-        <td>
-          
-            <p>01/06/2020</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Statistical classification </th>
-        <td>
-          
-            <p>Official Statistic</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact details </th>
-        <td>
-          
-            <p>pop.info@ons.gov.uk</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Other information </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
   
   
   
@@ -1707,7 +1409,7 @@ data-event-label="Change to Sources tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20200605003942'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200605003942"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20200606004029'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200606004029"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
