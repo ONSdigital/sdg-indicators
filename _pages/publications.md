@@ -10,6 +10,7 @@ If you have any feedback on our publications, please contact us at <sustainabled
 ## Our annual updates
 We publish a yearly update on our progress towards measuring the global Sustainable Development Goal indicators in the UK:
 <br>
+<br>
 [2019 annual update](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2019)
 <br>
 <br>
