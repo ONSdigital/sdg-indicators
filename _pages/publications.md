@@ -8,23 +8,18 @@ Publications released by the ONS in relation to the Sustainable Development Goal
 If you have any feedback on our publications, please contact us at <sustainabledevelopment@ons.gov.uk>
 
 ## Our annual updates
-[Sustainable Development Goals in the UK: progress on monitoring and reporting data](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2019)
-
-The third report on our progress towards measuring the global Sustainable Development Goal indicators in the UK over the last year.
+We publish a yearly update on our progress towards measuring the global Sustainable Development Goal indicators in the UK:
+[2019 annual update](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2019)
 
 <small>07 November 2019</small>
 <br>
 <br>
-[Sustainable Development Goals in the UK: An update on progress](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2018)
-
-This is our second report summarising the progress made towards measuring the global Sustainable Development Goals over the past year.
+[2018 annual update](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2018)
 
 <small>06 November 2018</small>
 <br>
 <br>
-[Sustainable Development Goals: progress and possibilities](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2017)
-
-This is our first report on the progress we’ve made towards measuring the global Sustainable Development Goal (SDG) indicators in the UK.
+[2017 annual update](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2017)
 
 <small>09 November 2017</small>
 <br>
