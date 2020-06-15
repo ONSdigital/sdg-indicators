@@ -18,15 +18,12 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
-    - name: Build docker image
-      run: | 
-        docker build -t buildsite ./docker/build/.
-        docker run --rm -v $PWD:/site buildsite
-        docker run -d --rm -p 80:80 -v $PWD/_site:/usr/local/apache2/htdocs/sdg-indicators --name jekyllbuildserver httpd:2.4.41-alpine
+    -name: Install Pa11y
+    run: npm install -g pa11y-ci
 
-    # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+    # Runs a single command using the runners shell
+    # - name: Build docker image
+    #   run: | 
+    #     docker build -t buildsite ./docker/build/.
+    #     docker run --rm -v $PWD:/site buildsite
+    #     docker run -d --rm -p 80:80 -v $PWD/_site:/usr/local/apache2/htdocs/sdg-indicators --name jekyllbuildserver httpd:2.4.41-alpine
