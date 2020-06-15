@@ -1,21 +1,13 @@
-# This is a basic workflow to help you get started with Actions
+name: Accessibility testing
 
-name: CI
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on: [pull_request]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+
     - uses: actions/checkout@v2
 
     - name: Setup Node.js environment
@@ -24,9 +16,11 @@ jobs:
     - name: Install Pa11y
       run: npm install -g pa11y-ci
 
-    # Runs a single command using the runners shell
-    # - name: Build docker image
-    #   run: | 
-    #     docker build -t buildsite ./docker/build/.
-    #     docker run --rm -v $PWD:/site buildsite
-    #     docker run -d --rm -p 80:80 -v $PWD/_site:/usr/local/apache2/htdocs/sdg-indicators --name jekyllbuildserver httpd:2.4.41-alpine
+    - name: Build docker image
+      run: | 
+        docker build -t buildsite ./docker/build/.
+        docker run --rm -v $PWD:/site buildsite
+        docker run -d --rm -p 80:80 -v $PWD/_site:/usr/local/apache2/htdocs/sdg-indicators --name jekyllbuildserver httpd:2.4.41-alpine
+
+    - name: Run Pa11y tests
+      run: pa11y-ci --config ./docker/build/desktop.json 
