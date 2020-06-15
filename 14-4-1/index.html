@@ -1,23 +1,9 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en" class="no-js">
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -25,14 +11,12 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://ONSdigital.github.io/sdg-data',
+  remoteDataBaseUrl: 'https://ONSdigital.github.io/sdg-data/en',
 
-  // A hook which can be replaced to modify the configuration for Chart.js.
-  // To see where this is used, see indicatorView.js createPlot() and updatePlot().
-  // To see an example of replacing it, see binary.html.
-  chartConfigAlter: function(config) {
-    // Alterations go here.
-    return config;
+  chartConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Chart.js.
+  chartConfigAlter: function(callback) {
+    this.chartConfigAlterations.push(callback);
   },
 
   // A hook which can be replaced to alter whether/how the values that are
@@ -41,6 +25,8 @@ var opensdg = {
     // Alterations go here.
     return value;
   },
+
+  language: 'en',
 };
 
 // For backwards compatibility, some of these might need to be global.
@@ -103,13 +89,10 @@ var translations = {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Title and meta description
         ================================================== -->
-        
-
-        
 
         <title>
           
-            U.K. Indicators For The Sustainable Development Goals
+            Indicator 14.4.1 - Goal 14
           
         </title>
 
@@ -139,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20200615004509">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20200615175727">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -147,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200615004509"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200615175727"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -158,8 +141,9 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="alert alert-danger" role="alert">
+  <div class="disclaimer-alert" role="alert">
     <strong class="phase-tag">Alpha</strong>
+    
     This is a development website – your <a href="https://www.surveymonkey.co.uk/r/SDGfeedback">feedback</a> will help us to improve it.
   </div>
 </div>
@@ -189,6 +173,16 @@ var translations = {
         <li><span data-target="search">Search</span></li>
       </ul>
 
+      <div id="search" class="menu-target">
+  <form action="/sdg-indicators/search">
+    <input name="q" id="indicator_search" title="Search" />
+    <label for="indicator_search">
+      <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
+    </label>
+  </form>
+</div>
+
+      
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/sdg-indicators/">Goals</a>
           </li><li class="nav-link ">
@@ -205,23 +199,18 @@ var translations = {
             <a href="/sdg-indicators/updates/">Updates</a>
           </li></ul>
 
-      <div id="search" class="menu-target">
-  <input id="indicator_search" title="Indicator search" placeholder="Indicator search" data-url="/sdg-indicators/indicators.json" data-pageurl="/sdg-indicators/search/?q=" />
-  <label for="indicator_search">
-    <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Indicator search></i></button><span>Search:</span>
-  </label>
-</div>
-
+      
 
     </nav>
   </div>
 
 </header>
 
+
 <script type="text/template" id="item_template">
-  <% _.each(series, function(seriesItem) { %>
-    <div class="variable-selector<% if(allowedFields.indexOf(seriesItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=seriesItem.field%>">
-      <button class='accessBtn' tabindex='0' aria-expanded='false'><h5><%=translations.t(seriesItem.field)%><i class="fa fa-chevron-down"></i></h5></button>
+  <% _.each(fields, function(fieldItem) { %>
+    <div class="variable-selector<% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=fieldItem.field%>">
+      <button class='accessBtn' tabindex='0' aria-expanded='false'><h5><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></h5></button>
       <div class="bar">
         <div class="selected"></div>
       </div>
@@ -230,13 +219,15 @@ var translations = {
           <button data-type="select">Select all</button>
           <button data-type="clear">Clear all</button>
         </div>
-        <% _.each(seriesItem.values, function(item) { %>
-          <label><input type="checkbox" value="<%=item.value%>" data-field="<%=seriesItem.field%>" /><%=translations.t(item.value)%></label>
+        <% _.each(fieldItem.values, function(item) { %>
+          <label>
+            <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
+          </label>
         <% }); %>
       </div>
 
-      <% if(allowedFields.indexOf(seriesItem.field) == -1) { %>
-        <div class="variable-hint">Available when '<%= translations.t(_.findWhere(edges, { To: seriesItem.field }).From) %>' is selected
+      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        <div class="variable-hint">Available when '<%= translations.t(_.findWhere(edges, { To: fieldItem.field }).From) %>' is selected
         </div>
         <div class="no-data-hint">
           No options available because of filters above
@@ -249,7 +240,7 @@ var translations = {
 
 <script type="text/template" id="units_template">
   <% if(units.length) { %>
-    <h5>Units type</h5>
+    <h4>Units type</h4>
     <% _.each(units, function(unitsItem, index) { %>
       <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
       <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
@@ -257,26 +248,24 @@ var translations = {
   <% } %>
 </script>
 
-<script>translations['indicator'] = {"chart":"Chart","clear_all":"Clear all","clear_selections":"Clear selections","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_chart_image":"Download Chart Image","download_chart_image_title":"Download chart as image","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading_map":"Loading map","map":"Map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","no_data_hint":"No options available because of filters above","select_all":"Select all","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","sub_categories":"Sub-categories","table":"Table","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
+<script>translations['indicator'] = {"chart":"Chart","clear_all":"Clear all","clear_selections":"Clear selections","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_chart_image":"Download Chart Image","download_chart_image_title":"Download chart as image","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_geojson":"Download GeoJSON","download_geojson_title":"Download as GeoJSON","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading_map":"Loading map","map":"Map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","no_data_hint":"No options available because of filters above","select_all":"Select all","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","sub_categories":"Sub-categories","table":"Table","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
 
 <script>translations['data'] = null;</script>
 
 
-<div class="heading indicator goal-14">
+<div class="heading goal-banner indicator goal-14">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2">
+      <div class="col-xs-4 col-md-3 col-lg-2 goal-icon">
         <a href="/sdg-indicators/14" title="View this goal's indicator list">
           <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/14.png" alt="Life below water - Goal 14" />
         </a>
       </div>
-      <div class="col-xs-8 col-md-9 col-lg-10">
-        <h1>
-          <a href="/sdg-indicators/14">
-            <span class="hidden-sm hidden-md hidden-lg">Goal 14: </span>Conserve and sustainably use the oceans, seas and marine resources for sustainable development
-          </a>
-        </h1>
-        <h2>Indicator 14.4.1: Proportion of fish stocks within biologically sustainable levels</h2>
+      <div class="col-xs-8 col-md-9 col-lg-10 indicator-details">
+        <div>
+          <h1>Indicator 14.4.1</h1>
+          <p class="lead-copy">Proportion of fish stocks within biologically sustainable levels</p>
+        </div>
       </div>
     </div>
   </div>
@@ -285,72 +274,88 @@ var translations = {
 <div id="main-content" class="container goal-14">
   <ol class="breadcrumb">
   <li><a href="/sdg-indicators/">Home</a></li>
-  
-      <li><a href="/sdg-indicators/14" title="Conserve and sustainably use the oceans, seas and marine resources for sustainable development">Goal 14</a></li>
-      <li class="active">Indicator </li>
-  
+  <li><a href="/sdg-indicators/14" title="Conserve and sustainably use the oceans, seas and marine resources for sustainable development">Goal 14</a></li>
+  <li class="active">Indicator 14.4.1</li>
 </ol>
 
+  
 
-  <div class="row" id="page-content-row">
-    <div class="col-xs-12">
-      
-
-      <div id="page-content">
-  <h4 id="see-the-jncc-indicator-page-for-more-information-on-sustainable-fishing-a-fish-stock-of-which-abundance-is-at-or-greater-than-the-level-that-can-produce-the-maximum-sustainable-yield-msy-is-classified-as-biologically-sustainable-the-indicator-comprises-measures-of-a-stocks-harvested-and-b-biomass-remaining-a-when-the-percentage-of-fish-stocks-harvested-above-the-level-capable-of-producing-msy-decreases-the-sustainability-of-fish-stocks-can-be-said-to-have-improved-b-when-the-percentage-of-fish-stocks-with-biomass-above-levels-that-maintain-full-reproductive-capacity-increases-the-sustainability-of-fish-stocks-can-be-said-to-have-improved-this-is-the-trend-between-2006-and-2013select-the-following-link-to-download-this-indicator-data-in-an-accessible-format1441-proportion-of-fish-stocks-within-biologically-sustainable-levels-csv-18548-kb">See the <a href="http://jncc.defra.gov.uk/page-4244">JNCC indicator page</a> for more information on sustainable fishing. A fish stock of which abundance is at or greater than the level that can produce the maximum sustainable yield (MSY) is classified as biologically sustainable. The indicator comprises measures of A) stocks harvested and B) biomass remaining. (A) When the percentage of fish stocks harvested above the level capable of producing MSY decreases, the sustainability of fish stocks can be said to have improved. (B) When the percentage of fish stocks with biomass above levels that maintain full reproductive capacity increases, the sustainability of fish stocks can be said to have improved. This is the trend between 2006 and 2013.<br /><br />Select the following link to download this indicator data in an accessible format:<br /><a href="https://sustainabledevelopment-uk.github.io/sdg-data/data/14-4-1.csv">14.4.1 Proportion of fish stocks within biologically sustainable levels (CSV 18.548 kB)</a></h4>
-
+  
+<div class="row metadata-available-indicator">
+  <div class="col-xs-12">
+    <h2>Percentage of marine fish (quota) stocks of UK interest; A) harvested sustainably; B) with biomass at levels that maintain full reproductive capacity</h2>
+  </div>
 </div>
 
-    </div>
+
+  
+
+<div class="row" id="page-content">
+  <div class="col-xs-12">
+    <h4 id="see-the-jncc-indicator-page-for-more-information-on-sustainable-fishing-a-fish-stock-of-which-abundance-is-at-or-greater-than-the-level-that-can-produce-the-maximum-sustainable-yield-msy-is-classified-as-biologically-sustainable-the-indicator-comprises-measures-of-a-stocks-harvested-and-b-biomass-remaining-a-when-the-percentage-of-fish-stocks-harvested-above-the-level-capable-of-producing-msy-decreases-the-sustainability-of-fish-stocks-can-be-said-to-have-improved-b-when-the-percentage-of-fish-stocks-with-biomass-above-levels-that-maintain-full-reproductive-capacity-increases-the-sustainability-of-fish-stocks-can-be-said-to-have-improved-this-is-the-trend-between-2006-and-2013select-the-following-link-to-download-this-indicator-data-in-an-accessible-format1441-proportion-of-fish-stocks-within-biologically-sustainable-levels-csv-18548-kb">See the <a href="http://jncc.defra.gov.uk/page-4244">JNCC indicator page</a> for more information on sustainable fishing. A fish stock of which abundance is at or greater than the level that can produce the maximum sustainable yield (MSY) is classified as biologically sustainable. The indicator comprises measures of A) stocks harvested and B) biomass remaining. (A) When the percentage of fish stocks harvested above the level capable of producing MSY decreases, the sustainability of fish stocks can be said to have improved. (B) When the percentage of fish stocks with biomass above levels that maintain full reproductive capacity increases, the sustainability of fish stocks can be said to have improved. This is the trend between 2006 and 2013.<br /><br />Select the following link to download this indicator data in an accessible format:<br /><a href="https://sustainabledevelopment-uk.github.io/sdg-data/data/14-4-1.csv">14.4.1 Proportion of fish stocks within biologically sustainable levels (CSV 18.548 kB)</a></h4>
+
   </div>
+</div>
 
-  <div class="row">
-    <div class="col-xs-12">
-      <h2>Percentage of marine fish (quota) stocks of UK interest</h2>
-    </div>
+
+  
+
+
+
+
+
+
+
+<div class="row"
+  id="indicatorData"
+  data-indicatorid='indicator_14-4-1'
+  data-id="14-4-1"
+  data-country="United Kingdom"
+  data-charttitle="Percentage of marine fish (quota) stocks of UK interest"
+  data-charttitles="null"
+  data-measurementunit="Percentage (%)"
+  data-datasource="Department for Environment, Food and Rural Affairs (DEFRA)"
+  data-copyright=""
+  data-geographicalarea="United Kingdom"
+  data-footnote="Based on 57 stocks for which data are available, derived from stock assessment reports.  For spawning stock biomass (SSB) the final year will typically show an increase in ‘unknown’ status due to the cycle by which updates are made to stock assessments."
+  data-showdata="true"
+  data-graphtype="line"
+  data-geocoderegex=""
+  data-showmap="false"
+  data-startvalues="null"
+  data-graphlimits="null"
+  data-stackeddisaggregation=""
+>
+  
+  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
+    <div id="units"></div>
+<div id="toolbar">
+  <span id="series-help">
+    <h4>Sub-categories</h4>
+    <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+  </span>
+  <p id="legend-help">Click on the legend to remove individual lines from the chart.</p>
+  <div id="fields">
+    <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
   </div>
+</div>
 
-  
-  
-
-  
-
-  <div class="row" id="indicatorData" data-indicatorid='indicator_14-4-1' data-id="14-4-1" data-country="United Kingdom"
-  data-charttitle="Percentage of marine fish (quota) stocks of UK interest" data-measurementunit="Percentage (%)" data-datasource="Department for Environment, Food and Rural Affairs (DEFRA)" data-copyright=""
-  data-geographicalarea="United Kingdom" data-footnote="Based on 57 stocks for which data are available, derived from stock assessment reports.  For spawning stock biomass (SSB) the final year will typically show an increase in ‘unknown’ status due to the cycle by which updates are made to stock assessments." data-showdata="true" data-graphtype="line"
-  data-geocoderegex="" data-showmap="false" data-startvalues="">
+  </div>
+  <div id="indicator-main" class="indicator-main col-md-9">
     
-    <div id="indicator-sidebar" class="col-md-3">
-      <div id="toolbar">
-        <span id="series-help">
-          <h4>Sub-categories</h4>
-          <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
-        </span>
-        <p>Click on the legend to remove individual lines from the chart.</p>
-        <div id="fields">
-          <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
-        </div>
-      </div>
-      <div id="units"></div>
-    </div>
-    <div id="indicator-main" class="col-md-9">
-    
-
-      
-      
 
 
 <div id="headlineTable">
 
   <div id="datatables">
 
-    <a href="https://ONSdigital.github.io/sdg-data/headline/14-4-1.csv" class="btn btn-primary btn-download" download="indicator_14-4-1.csv" tabindex="0" role="button">Download Headline CSV</a>
+    <a href="https://ONSdigital.github.io/sdg-data/en/headline/14-4-1.csv" class="btn btn-primary btn-download" download="indicator_14-4-1.csv" tabindex="0" role="button">Download Headline CSV</a>
 
-    <a href="https://ONSdigital.github.io/sdg-data/data/14-4-1.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_14-4-1.csv' tabindex='0' role='button'>Download Source CSV</a>
+    <a href="https://ONSdigital.github.io/sdg-data/en/data/14-4-1.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_14-4-1.csv' tabindex='0' role='button'>Download Source CSV</a>
 
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption></caption>
+      <caption>Percentage of marine fish (quota) stocks of UK interest</caption>
       <thead>
         
       </thead>
@@ -362,47 +367,54 @@ var translations = {
 
   <div id="datatableFooter">
     
+    <p>Source: Department for Environment, Food and Rural Affairs (DEFRA)</p>
     
     
+    <p>Geographical Area: United Kingdom</p>
+    
+    
+    <p>Unit of Measurement: Percentage (%)</p>
+    
+    
+    <p>Footnote: Based on 57 stocks for which data are available, derived from stock assessment reports.  For spawning stock biomass (SSB) the final year will typically show an increase in ‘unknown’ status due to the cycle by which updates are made to stock assessments.</p>
     
   </div>
 
 </div>
 
-      
 
-      <section>
+<section>
 
-        
-        <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
-        <div class="async-loaded" style="display:none">
-          <ul class="nav nav-tabs data-view" role="tablist">
-            <li role="presentation" class="nav-item active">
-              <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
+  <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+
+  <div class="async-loaded spacer medium" style="display:none;">
+
+    <ul class="nav nav-tabs data-view" role="tablist">
+  <li role="presentation" class="nav-item active">
+    <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change data view"
 data-event-label="Change to Chart tab"
 >Chart</a>
-            </li>
-            <li role="presentation" class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
+  </li>
+  <li role="presentation" class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change data view"
 data-event-label="Change to Table tab"
 >Table</a>
-            </li>
-            <li role="presentation" class="nav-item map" style="display:none">
-              <a data-no-disagg="true" class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab" data-on="click"
+  </li>
+  <li role="presentation" class="nav-item map" style="display:none">
+    <a data-no-disagg="true" class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change data view"
 data-event-label="Change to Map tab"
 >Map</a>
-            </li></ul>
+  </li></ul>
 
-          <!-- Tab panes -->
-          <div class="tab-content data-view">
-            <div role="tabpanel" class="tab-pane active" id="chartview">
-              
+    <div class="tab-content data-view">
+  <div role="tabpanel" class="tab-pane active" id="chartview">
+    
 
     <div id="dataset-size-warning" style="display:none">
       <i class="fa fa-bolt"></i> There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
@@ -411,10 +423,36 @@ data-event-label="Change to Map tab"
     
     <div id="selectionsChart">
       <div id="chart-canvas">
-        <h3 class="chart-title">Percentage of marine fish (quota) stocks of UK interest</h3>
+        <h3 class="chart-title">
+          
+            Percentage of marine fish (quota) stocks of UK interest
+          
+        </h3>
         <div id="chart" class="plot-container">
           
 <canvas></canvas>
+<script>
+// Add a chart alteration to support the chart_graph_limits metadata field.
+opensdg.chartConfigAlter(function(config, info) {
+  if (info.graphLimits) {
+    var limit = _.findWhere(info.graphLimits, { unit: info.selectedUnit }) || info.graphLimits[0];
+    var overrides = {
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              min: limit.minimum,
+              max: limit.maximum,
+            }
+          }]
+        }
+      }
+    }
+    // Add these overrides onto the normal config.
+    $.extend(true, config, overrides);
+  }
+});
+</script>
 
 
         </div>
@@ -428,66 +466,70 @@ data-event-label="Change to Map tab"
 
 
 
-            </div>
-            <div role="tabpanel" class="tab-pane" id="tableview">
-              <div id="selectionsTable"></div>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="mapview" class="map">
-              <div id="map">
-                <img src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
-              </div>
-            </div>
-            
-          </div>
-        </div>
-        
+  </div>
+  <div role="tabpanel" class="tab-pane" id="tableview">
+    <div id="selectionsTable"></div>
 
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-        
-          <li role="presentation" class="nav-item active">
-            <a class="nav-link" data-toggle="tab" href="#national" aria-controls="national" role="tab" data-on="click"
+  </div>
+  <div role="tabpanel" class="tab-pane" id="mapview" class="map">
+    <div id="map">
+  <img src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
+</div>
+
+  </div>
+  
+</div>
+
+
+  </div>
+
+</section>
+
+  
+  <ul class="nav nav-tabs spacer medium" role="tablist">
+
+  <li role="presentation" class="nav-item active">
+  <a class="nav-link" data-toggle="tab" href="#national" aria-controls="national" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to National Metadata tab"
 >National Metadata</a>
-          </li>
-          <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#global" aria-controls="global" role="tab" data-on="click"
+</li>
+<li role="presentation" class="nav-item">
+  <a class="nav-link" data-toggle="tab" href="#global" aria-controls="global" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to Global Metadata tab"
 >Global Metadata</a>
-          </li>
-          <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab" data-on="click"
+</li>
+<li role="presentation" class="nav-item">
+  <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to Sources tab"
 >Sources</a>
-          </li>
-        
-          
-          <li role="presentation" class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#edit" aria-controls="edit" role="tab">Edit</a>
-          </li>
-          
-        </ul>
+</li>
 
-        <!-- Tab panes -->
-        <div class="tab-content">
-          
-          <div role="tabpanel" class="tab-pane active" id="national">
-            <!-- National Metadata -->
-            <div > <!-- formerly class="collapsible expanded" -->
-              <!-- <h3 tabindex='0'>National Metadata</h3> -->
-              <article>
-                <p>
-                  
-                  
-                  This table provides metadata for the actual indicator available from UK statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from UK statistics, this table should be consulted for information on national methodology and other UK-specific metadata information.
-                </p>
-                <table class="table table-hover">
+
+  
+  <li role="presentation" class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#edit" aria-controls="edit" role="tab">Edit</a>
+  </li>
+  
+</ul>
+
+<div class="tab-content">
+  
+    <div role="tabpanel" class="tab-pane active" id="national">
+  <!-- National Metadata -->
+  <div >
+    <article>
+      <p>
+        
+        
+        This table provides metadata for the actual indicator available from UK statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from UK statistics, this table should be consulted for information on national methodology and other UK-specific metadata information.
+      </p>
+      <table class="table">
   
   
   
@@ -654,8 +696,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/8c3cba5ebc8a59a9431e26201bc86f3e17beb9fb" target="_blank">
-                2020-04-23: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/18c0caca52d331412bf09473822facfdbd437f45" target="_blank">
+                2020-06-15: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -787,16 +829,15 @@ data-event-label="Change to Sources tab"
   
 </table>
 
-              </article>
-            </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="global">
-            <!-- Global Metadata -->
-            <div> <!-- formerly <div class="collapsible expanded"> -->
-              <!-- <h3 tabindex='0'>Global Metadata</h3> -->
-              <article>
-                <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href="https://unstats.un.org/sdgs/metadata/">Complete global metadata</a> is provided by the UN Statistics Division.</p>
-                <table class="table table-hover">
+    </article>
+  </div>
+</div>
+<div role="tabpanel" class="tab-pane" id="global">
+  <!-- Global Metadata -->
+  <div>
+    <article>
+      <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href="https://unstats.un.org/sdgs/metadata/">Complete global metadata</a> is provided by the UN Statistics Division.</p>
+      <table class="table">
   
   
   
@@ -808,7 +849,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator name </th>
         <td>
           
-            <p>14.4.1 Proportion of fish stocks within biologically sustainable levels</p>
+            <p>Proportion of fish stocks within biologically sustainable levels</p>
 
           
         </td>
@@ -824,7 +865,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Target name </th>
         <td>
           
-            <p>14.4 By 2020, effectively regulate harvesting and end overfishing, illegal, unreported and unregulated fishing and destructive fishing practices and implement science-based management plans, in order to restore fish stocks in the shortest time feasible, at least to levels that can produce maximum sustainable yield as determined by their biological characteristics</p>
+            <p>By 2020, effectively regulate harvesting and end overfishing, illegal, unreported and unregulated fishing and destructive fishing practices and implement science-based management plans, in order to restore fish stocks in the shortest time feasible, at least to levels that can produce maximum sustainable yield as determined by their biological characteristics</p>
 
           
         </td>
@@ -1032,22 +1073,22 @@ data-event-label="Change to Sources tab"
   
 </table>
 
-              </article>
-            </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="sources">
-            <!-- Count the non-empty sources (up to 5) -->
+    </article>
+  </div>
+</div>
+<div role="tabpanel" class="tab-pane" id="sources">
+  <!-- Count the non-empty sources (up to 5) -->
 
 
 
 
   <div class="row no-gutters">
   
-   
+    
     
     <div class="col-md-6">
       
-      <table class="table table-hover">
+      <table class="table">
   
   
   
@@ -1340,123 +1381,146 @@ data-event-label="Change to Sources tab"
   </div>
 
 
-          </div>
-          
-          
-          <div role="tabpanel" class="tab-pane" id="edit">
-            <div class="edit-container">
-              
+</div>
+
+  
+  
+  <div role="tabpanel" class="tab-pane" id="edit">
+    <div class="edit-container">
+  
+  <a class="btn btn-primary" href="http://prose.io/#ONSdigital/sdg-data/edit/develop/data/indicator_14-4-1.csv">Edit Data</a>
+  
+
+  
+  <a class="btn btn-primary" href="http://prose.io/#ONSdigital/sdg-data/edit/develop/meta/14-4-1.md">Edit Metadata</a>
+  
+</div>
+
+  </div>
+  
+</div>
 
 
-<a class="btn btn-primary" href="http://prose.io/#ONSdigital/sdg-data/edit/develop/data/indicator_14-4-1.csv">Edit Data</a>
-
-
-
-<a class="btn btn-primary" href="http://prose.io/#ONSdigital/sdg-data/edit/develop/meta/14-4-1.md">Edit Metadata</a>
-
-
-            </div>
-          </div>
-          
-        </div>
-      </section>
-    </div>
   </div>
 </div>
 
+</div>
+
 <footer role="contentinfo">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div id="footerLinks">
-            <ul>
-              <li><a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a></li>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div id="footerLinks">
+          <ul>
+            <li><a href="https://open-sdg.readthedocs.io/en/latest/">Built using Open SDG</a></li>
+            
               
-              <li><a class="twitter-follow-button" href="https://twitter.com/ONS" data-show-count="false">Twitter: @ONS</a></li>
+                <li>
+                
+                  <a href="mailto:sustainabledevelopment@ons.gov.uk" target="_blank">Contact us</a>
+                
+                </li>
               
+                <li>
+                
+                  <a href="https://twitter.com/ONS" target="_blank">Twitter</a>
+                
+                </li>
               
-              <li><a href="/sdg-indicators/faq/">FAQ</a></li>
-              <li><a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a></li>
-              <li><a href="/sdg-indicators/accessibility-statement/">Accessibility statement</a></li>
-            </ul>
-          </div>
+                <li>
+                <a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a>
+                
+                </li>
+              
+                <li>
+                <a href="/sdg-indicators/accessibility-statement/">Accessibility statement</a>
+                
+                </li>
+              
+            
+          </ul>
         </div>
       </div>
     </div>
-  </footer>
-  
-  <!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
-  <!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
-  <!-- Google Analytics -->
-  
-  <!-- /.container </div> -->
-  <script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  </div>
+</footer>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
+<!-- Google Analytics -->
+
+<!-- /.container </div> -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
-<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
-<script src="https://cdn.rawgit.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
-<script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
-<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
-<script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20200615004509'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200615004509"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20200615175727'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200615175727"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
 
-      $('.async-loading').each(function(i, obj) {
-          $(obj).append($('<img />').attr('src', $(obj).data('img')));
-      });
+      if (domData.showdata) {
 
-      $.ajax({
-        url: opensdg.remoteDataBaseUrl + '/comb/' + domData.id + '.json',
-        success: function(res) {
+        $('.async-loading').each(function(i, obj) {
+            $(obj).append($('<img />').attr('src', $(obj).data('img')));
+        });
 
-          $('.async-loading').remove();
-          $('.async-loaded').show();
-
-          var model = new indicatorModel({
-            data: res.data,
-            edgesData: res.edges,
-            geoCodeRegEx: domData.geocoderegex,
-            showMap: domData.showmap,
-            country: domData.country,
-            indicatorId: domData.indicatorid,
-            shortIndicatorId: domData.id,
-            chartTitle: domData.charttitle,
-            measurementUnit: domData.measurementunit,
-            copyright: domData.copyright,
-            dataSource: domData.datasource,
-            geographicalArea: domData.geographicalarea,
-            showData: domData.showdata,
-            footnote: domData.footnote,
-            graphType: domData.graphtype,
-            startValues: domData.startvalues
-          }),
-          view  = new indicatorView(model, {
-            rootElement: '#indicatorData',
-            legendElement: '#plotLegend',
-            maxChartHeight: 420,
-            tableColumnDefs: [
-              { maxCharCount: 25 }, // nowrap
-              { maxCharCount: 35, width: 200 },
-              { maxCharCount: Infinity, width: 250 }
-            ]
-          }),
-          controller = new indicatorController(model, view);
-          controller.initialise();
+        var remoteUrl = '/comb/' + domData.id + '.json';
+        if (opensdg.remoteDataBaseUrl !== '/') {
+          remoteUrl = opensdg.remoteDataBaseUrl + remoteUrl;
         }
-      });
+
+        $.ajax({
+          url: remoteUrl,
+          success: function(res) {
+
+            $('.async-loading').remove();
+            $('.async-loaded').show();
+
+            var model = new indicatorModel({
+              data: res.data,
+              edgesData: res.edges,
+              showMap: domData.showmap,
+              country: domData.country,
+              indicatorId: domData.indicatorid,
+              shortIndicatorId: domData.id,
+              chartTitle: domData.charttitle,
+              chartTitles: domData.charttitles,
+              measurementUnit: domData.measurementunit,
+              copyright: domData.copyright,
+              dataSource: domData.datasource,
+              geographicalArea: domData.geographicalarea,
+              showData: domData.showdata,
+              footnote: domData.footnote,
+              graphType: domData.graphtype,
+              startValues: domData.startvalues,
+              graphLimits: domData.graphlimits,
+              stackedDisaggregation: domData.stackeddisaggregation,
+            }),
+            view  = new indicatorView(model, {
+              rootElement: '#indicatorData',
+              legendElement: '#plotLegend',
+              maxChartHeight: 420,
+              tableColumnDefs: [
+                { maxCharCount: 25 }, // nowrap
+                { maxCharCount: 35, width: 200 },
+                { maxCharCount: Infinity, width: 250 }
+              ]
+            }),
+            controller = new indicatorController(model, view);
+            controller.initialise();
+          }
+        });
+      }
     }
 
     var switcher = new accessibilitySwitcher();
@@ -1465,10 +1529,9 @@ $(function() {
 });
 </script>
 
-  
-  
-  
-  </body>
-  </html>
-  
+
+
+
+</body>
+</html>
 

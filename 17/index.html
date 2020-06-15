@@ -1,14 +1,9 @@
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en" class="no-js">
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -16,14 +11,12 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://ONSdigital.github.io/sdg-data',
+  remoteDataBaseUrl: 'https://ONSdigital.github.io/sdg-data/en',
 
-  // A hook which can be replaced to modify the configuration for Chart.js.
-  // To see where this is used, see indicatorView.js createPlot() and updatePlot().
-  // To see an example of replacing it, see binary.html.
-  chartConfigAlter: function(config) {
-    // Alterations go here.
-    return config;
+  chartConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Chart.js.
+  chartConfigAlter: function(callback) {
+    this.chartConfigAlterations.push(callback);
   },
 
   // A hook which can be replaced to alter whether/how the values that are
@@ -32,6 +25,8 @@ var opensdg = {
     // Alterations go here.
     return value;
   },
+
+  language: 'en',
 };
 
 // For backwards compatibility, some of these might need to be global.
@@ -94,15 +89,10 @@ var translations = {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Title and meta description
         ================================================== -->
-        
-
-        
 
         <title>
           
-            
-        Goal 17 - Partnerships for the goals
-        
+            Goal 17 - Partnerships for the goals
           
         </title>
 
@@ -132,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20200615004509">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20200615175727">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -140,10 +130,10 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200615004509"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200615175727"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
-<body class="language-en layout-goal">
+<body class="language-en layout-goal-by-target">
 <!-- <div class="container"> -->
 
 <script>translations['header'] = {"disclaimer":"This is a development website – your <a href=\"https://www.surveymonkey.co.uk/r/SDGfeedback\">feedback</a> will help us to improve it.","tag_line":"17 Goals to Transform our World","alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content"};</script>
@@ -151,8 +141,9 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="alert alert-danger" role="alert">
+  <div class="disclaimer-alert" role="alert">
     <strong class="phase-tag">Alpha</strong>
+    
     This is a development website – your <a href="https://www.surveymonkey.co.uk/r/SDGfeedback">feedback</a> will help us to improve it.
   </div>
 </div>
@@ -182,6 +173,16 @@ var translations = {
         <li><span data-target="search">Search</span></li>
       </ul>
 
+      <div id="search" class="menu-target">
+  <form action="/sdg-indicators/search">
+    <input name="q" id="indicator_search" title="Search" />
+    <label for="indicator_search">
+      <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
+    </label>
+  </form>
+</div>
+
+      
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/sdg-indicators/">Goals</a>
           </li><li class="nav-link ">
@@ -198,13 +199,7 @@ var translations = {
             <a href="/sdg-indicators/updates/">Updates</a>
           </li></ul>
 
-      <div id="search" class="menu-target">
-  <input id="indicator_search" title="Indicator search" placeholder="Indicator search" data-url="/sdg-indicators/indicators.json" data-pageurl="/sdg-indicators/search/?q=" />
-  <label for="indicator_search">
-    <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Indicator search></i></button><span>Search:</span>
-  </label>
-</div>
-
+      
 
     </nav>
   </div>
@@ -212,7 +207,7 @@ var translations = {
 </header>
 
 
-<div class="heading goal-17">
+<div class="heading goal-banner goal-17">
   <div class="container">
     <div class="row">
       <div class="col-xs-4 col-md-3 col-lg-2">
@@ -227,743 +222,946 @@ var translations = {
   </div>
 </div>
 
-<div id="main-content" class="container goal-indicators goal-17">
+<div id="main-content" class="container goal-indicators goal-17 goal-by-target">
 
   
+
   <ol class="breadcrumb">
-  <li><a href="/sdg-indicators/">Home</a></li>
+    <li><a href="/sdg-indicators/">Home</a></li>
+    <li class="active">Goal 17</li>
+  </ol>
+
+  <div class="visible-md-block visible-lg-block">
+    <div class="col-md-6">
+      <h2>Targets</h2>
+    </div>
+    <div class="col-md-6">
+      <h2>Indicators</h2>
+    </div>
+  </div>
+
   
-      <li class="active">Goal 17</li>
   
-</ol>
+    
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        17.1
+      </span>
+      Strengthen domestic resource mobilization, including through international support to developing countries, to improve domestic capacity for tax and other revenue collection
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
+    
 
+      
+      
+      
+      
+      
+      
+      
+      
 
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-1-1">
+          <span>
+            17.1.1
+            <span class="status complete">
+              Reported online
+            </span>
+          </span>
+          Total government revenue as a proportion of GDP, by source
+          
+        </a>
+      </div>
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-1-2">
+          <span>
+            17.1.2
+            <span class="status complete">
+              Reported online
+            </span>
+          </span>
+          Proportion of domestic budget funded by domestic taxes
+          
+        </a>
+      </div>
+    
+    </div>
   
+    
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        17.2
+      </span>
+      Developed countries to implement fully their official development assistance commitments, including the commitment by many developed countries to achieve the target of 0.7 per cent of gross national income for official development assistance (ODA/GNI) to developing countries and 0.15 to 0.20 per cent of ODA/GNI to least developed countries; ODA providers are encouraged to consider setting a target to provide at least 0.20 per cent of ODA/GNI to least developed countries
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-2-1">
+          <span>
+            17.2.1
+            <span class="status complete">
+              Reported online
+            </span>
+          </span>
+          Net official development assistance, total and to least developed countries, as a proportion of the Organization for Economic Cooperation and Development (OECD) Development Assistance Committee donors’ gross national income (GNI)
+          
+        </a>
+      </div>
+    
+    </div>
   
-
     
-      
-      
-      
-      
-    
-    
-    
-
-    <div class="indicator-cards row no-gutters">
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-1-1">
-            <span>
-              17.1.1
-              <span class="status complete">
-                Reported online
-              </span>
-            </span>
-            Total government revenue as a proportion of GDP, by source
-            
-          </a>
-        </div>
-    
-    
-
-    
-      
-      
-      
-      
-    
-    
-    
-
-    
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-1-2">
-            <span>
-              17.1.2
-              <span class="status complete">
-                Reported online
-              </span>
-            </span>
-            Proportion of domestic budget funded by domestic taxes
-            
-          </a>
-        </div>
-    
-    
-
-    
-      
-      
-      
-      
-    
-    
-    
-
-    
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-2-1">
-            <span>
-              17.2.1
-              <span class="status complete">
-                Reported online
-              </span>
-            </span>
-            Net official development assistance, total and to least developed countries, as a proportion of the Organization for Economic Cooperation and Development (OECD) Development Assistance Committee donors’ gross national income (GNI)
-            
-          </a>
-        </div>
-    
-    
-
-    
-      
-      
-      
-      
-    
-    
-    
-
-    
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-3-1">
-            <span>
-              17.3.1
-              <span class="status notstarted">
-                Exploring data sources
-              </span>
-            </span>
-            Foreign direct investment (FDI), official development assistance and South-South cooperation as a proportion of total domestic budget
-            
-          </a>
-        </div>
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        17.3
+      </span>
+      Mobilize additional financial resources for developing countries from multiple sources
     </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
     
 
-    
       
       
       
       
-    
-    
-    
+      
+      
+      
+      
 
-    <div class="indicator-cards row no-gutters">
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-3-2">
-            <span>
-              17.3.2
-              <span class="status complete">
-                Reported online
-              </span>
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-3-1">
+          <span>
+            17.3.1
+            <span class="status notstarted">
+              Exploring data sources
             </span>
-            Volume of remittances (in United States dollars) as a proportion of total GDP
-            
-          </a>
-        </div>
-    
-    
-
-    
-      
-      
-      
-      
-    
-    
+          </span>
+          Foreign direct investment (FDI), official development assistance and South-South cooperation as a proportion of total domestic budget
+          
+        </a>
+      </div>
     
 
-    
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-4-1">
-            <span>
-              17.4.1
-              <span class="status notstarted">
-                Exploring data sources
-              </span>
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-3-2">
+          <span>
+            17.3.2
+            <span class="status complete">
+              Reported online
             </span>
-            Debt service as a proportion of exports of goods and services
-            
-          </a>
-        </div>
+          </span>
+          Volume of remittances (in United States dollars) as a proportion of total GDP
+          
+        </a>
+      </div>
     
-    
-
-    
-      
-      
-      
-      
-    
-    
-    
-
-    
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-5-1">
-            <span>
-              17.5.1
-              <span class="status notstarted">
-                Exploring data sources
-              </span>
-            </span>
-            Number of countries that adopt and implement investment promotion regimes for least developed countries
-            
-          </a>
-        </div>
-    
-    
-
-    
-      
-      
-      
-      
-    
-    
-    
-
-    
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-6-1">
-            <span>
-              17.6.1
-              <span class="status notstarted">
-                Exploring data sources
-              </span>
-            </span>
-            Number of science and/or technology cooperation agreements and programmes between countries, by type of cooperation
-            
-          </a>
-        </div>
     </div>
+  
     
-
-    
-      
-      
-      
-      
-    
-    
-    
-
-    <div class="indicator-cards row no-gutters">
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-6-2">
-            <span>
-              17.6.2
-              <span class="status complete">
-                Reported online
-              </span>
-            </span>
-            Fixed Internet broadband subscriptions per 100 inhabitants, by speed
-            
-          </a>
-        </div>
-    
-    
-
-    
-      
-      
-      
-      
-    
-    
-    
-
-    
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-7-1">
-            <span>
-              17.7.1
-              <span class="status notstarted">
-                Exploring data sources
-              </span>
-            </span>
-            Total amount of approved funding for developing countries to promote the development, transfer, dissemination and diffusion of environmentally sound technologies
-            
-          </a>
-        </div>
-    
-    
-
-    
-      
-      
-      
-      
-    
-    
-    
-
-    
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-8-1">
-            <span>
-              17.8.1
-              <span class="status complete">
-                Reported online
-              </span>
-            </span>
-            Proportion of individuals using the Internet
-            
-          </a>
-        </div>
-    
-    
-
-    
-      
-      
-      
-      
-    
-    
-    
-
-    
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-9-1">
-            <span>
-              17.9.1
-              <span class="status complete">
-                Reported online
-              </span>
-            </span>
-            Dollar value of financial and technical assistance (including through North-South, South‐South and triangular cooperation) committed to developing countries
-            
-          </a>
-        </div>
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        17.4
+      </span>
+      Assist developing countries in attaining long-term debt sustainability through coordinated policies aimed at fostering debt financing, debt relief and debt restructuring, as appropriate, and address the external debt of highly indebted poor countries to reduce debt distress
     </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
     
 
-    
       
       
       
       
-    
-    
-    
+      
+      
+      
+      
 
-    <div class="indicator-cards row no-gutters">
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-10-1">
-            <span>
-              17.10.1
-              <span class="status notstarted">
-                Exploring data sources
-              </span>
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-4-1">
+          <span>
+            17.4.1
+            <span class="status notstarted">
+              Exploring data sources
             </span>
-            Worldwide weighted tariff-average
-            
-          </a>
-        </div>
+          </span>
+          Debt service as a proportion of exports of goods and services
+          
+        </a>
+      </div>
     
-    
-
-    
-      
-      
-      
-      
-    
-    
-    
-
-    
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-11-1">
-            <span>
-              17.11.1
-              <span class="status complete">
-                Reported online
-              </span>
-            </span>
-            Developing countries’ and least developed countries’ share of global exports
-            
-          </a>
-        </div>
-    
-    
-
-    
-      
-      
-      
-      
-    
-    
-    
-
-    
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-12-1">
-            <span>
-              17.12.1
-              <span class="status notstarted">
-                Exploring data sources
-              </span>
-            </span>
-            Average tariffs faced by developing countries, least developed countries and small island developing States
-            
-          </a>
-        </div>
-    
-    
-
-    
-      
-      
-      
-      
-    
-    
-    
-
-    
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-13-1">
-            <span>
-              17.13.1
-              <span class="status complete">
-                Reported online
-              </span>
-            </span>
-            Macroeconomic Dashboard
-            
-          </a>
-        </div>
     </div>
+  
     
-
-    
-      
-      
-      
-      
-    
-    
-    
-
-    <div class="indicator-cards row no-gutters">
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-14-1">
-            <span>
-              17.14.1
-              <span class="status complete">
-                Reported online
-              </span>
-            </span>
-            Number of countries with mechanisms in place to enhance policy coherence of sustainable development
-            
-          </a>
-        </div>
-    
-    
-
-    
-      
-      
-      
-      
-    
-    
-    
-
-    
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-15-1">
-            <span>
-              17.15.1
-              <span class="status notstarted">
-                Exploring data sources
-              </span>
-            </span>
-            Extent of use of country-owned results frameworks and planning tools by providers of development cooperation
-            
-          </a>
-        </div>
-    
-    
-
-    
-      
-      
-      
-      
-    
-    
-    
-
-    
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-16-1">
-            <span>
-              17.16.1
-              <span class="status complete">
-                Reported online
-              </span>
-            </span>
-            Number of countries reporting progress in multi-stakeholder development effectiveness monitoring frameworks that support the achievement of the sustainable development goals
-            
-          </a>
-        </div>
-    
-    
-
-    
-      
-      
-      
-      
-    
-    
-    
-
-    
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-17-1">
-            <span>
-              17.17.1
-              <span class="status notstarted">
-                Exploring data sources
-              </span>
-            </span>
-            Amount of United States dollars committed to public-private and civil society partnerships
-            
-          </a>
-        </div>
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        17.5
+      </span>
+      Adopt and implement investment promotion regimes for least developed countries
     </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
     
 
-    
       
       
       
       
-    
-    
-    
+      
+      
+      
+      
 
-    <div class="indicator-cards row no-gutters">
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-18-1">
-            <span>
-              17.18.1
-              <span class="status notstarted">
-                Exploring data sources
-              </span>
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-5-1">
+          <span>
+            17.5.1
+            <span class="status notstarted">
+              Exploring data sources
             </span>
-            Proportion of sustainable development indicators produced at the national level with full disaggregation when relevant to the target, in accordance with the Fundamental Principles of Official Statistics
-            
-          </a>
-        </div>
+          </span>
+          Number of countries that adopt and implement investment promotion regimes for least developed countries
+          
+        </a>
+      </div>
     
-    
-
-    
-      
-      
-      
-      
-    
-    
-    
-
-    
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-18-2">
-            <span>
-              17.18.2
-              <span class="status complete">
-                Reported online
-              </span>
-            </span>
-            Number of countries that have national statistical legislation that complies with the Fundamental Principles of Official Statistics
-            
-          </a>
-        </div>
-    
-    
-
-    
-      
-      
-      
-      
-    
-    
-    
-
-    
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-18-3">
-            <span>
-              17.18.3
-              <span class="status complete">
-                Reported online
-              </span>
-            </span>
-            Number of countries with a national statistical plan that is fully funded and under implementation, by source of funding
-            
-          </a>
-        </div>
-    
-    
-
-    
-      
-      
-      
-      
-    
-    
-    
-
-    
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-19-1">
-            <span>
-              17.19.1
-              <span class="status complete">
-                Reported online
-              </span>
-            </span>
-            Dollar value of all resources made available to strengthen statistical capacity in developing countries
-            
-          </a>
-        </div>
     </div>
+  
+    
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        17.6
+      </span>
+      Enhance North-South, South-South and triangular regional and international cooperation on and access to science, technology and innovation and enhance knowledge-sharing on mutually agreed terms, including through improved coordination among existing mechanisms, in particular at the United Nations level, and through a global technology facilitation mechanism
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
     
 
-    
       
       
       
       
-    
-    
-    
+      
+      
+      
+      
 
-    <div class="indicator-cards row no-gutters">
-        <div class="col-md-6 col-lg-3 ">
-          <a href="/sdg-indicators/17-19-2">
-            <span>
-              17.19.2
-              <span class="status complete">
-                Reported online
-              </span>
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-6-1">
+          <span>
+            17.6.1
+            <span class="status notstarted">
+              Exploring data sources
             </span>
-            Proportion of countries that (a) have conducted at least one population and housing census in the last 10 years; and (b) have achieved 100 per cent birth registration and 80 per cent death registration
-            
-          </a>
-        </div>
+          </span>
+          Number of science and/or technology cooperation agreements and programmes between countries, by type of cooperation
+          
+        </a>
+      </div>
     
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-6-2">
+          <span>
+            17.6.2
+            <span class="status complete">
+              Reported online
+            </span>
+          </span>
+          Fixed Internet broadband subscriptions per 100 inhabitants, by speed
+          
+        </a>
+      </div>
     
-	 	
-		
-			</div>
-		
+    </div>
+  
+    
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        17.7
+      </span>
+      Promote the development, transfer, dissemination and diffusion of environmentally sound technologies to developing countries on favourable terms, including on concessional and preferential terms, as mutually agreed
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-7-1">
+          <span>
+            17.7.1
+            <span class="status notstarted">
+              Exploring data sources
+            </span>
+          </span>
+          Total amount of approved funding for developing countries to promote the development, transfer, dissemination and diffusion of environmentally sound technologies
+          
+        </a>
+      </div>
+    
+    </div>
+  
+    
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        17.8
+      </span>
+      Fully operationalize the technology bank and science, technology and innovation capacity-building mechanism for least developed countries by 2017 and enhance the use of enabling technology, in particular information and communications technology
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-8-1">
+          <span>
+            17.8.1
+            <span class="status complete">
+              Reported online
+            </span>
+          </span>
+          Proportion of individuals using the Internet
+          
+        </a>
+      </div>
+    
+    </div>
+  
+    
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        17.9
+      </span>
+      Enhance international support for implementing effective and targeted capacity-building in developing countries to support national plans to implement all the Sustainable Development Goals, including through North-South, South-South and triangular cooperation
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-9-1">
+          <span>
+            17.9.1
+            <span class="status complete">
+              Reported online
+            </span>
+          </span>
+          Dollar value of financial and technical assistance (including through North-South, South‐South and triangular cooperation) committed to developing countries
+          
+        </a>
+      </div>
+    
+    </div>
+  
+    
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        17.10
+      </span>
+      Promote a universal, rules-based, open, non‐discriminatory and equitable multilateral trading system under the World Trade Organization, including through the conclusion of negotiations under its Doha Development Agenda
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-10-1">
+          <span>
+            17.10.1
+            <span class="status notstarted">
+              Exploring data sources
+            </span>
+          </span>
+          Worldwide weighted tariff-average
+          
+        </a>
+      </div>
+    
+    </div>
+  
+    
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        17.11
+      </span>
+      Significantly increase the exports of developing countries, in particular with a view to doubling the least developed countries’ share of global exports by 2020
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-11-1">
+          <span>
+            17.11.1
+            <span class="status complete">
+              Reported online
+            </span>
+          </span>
+          Developing countries’ and least developed countries’ share of global exports
+          
+        </a>
+      </div>
+    
+    </div>
+  
+    
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        17.12
+      </span>
+      Realize timely implementation of duty-free and quota-free market access on a lasting basis for all least developed countries, consistent with World Trade Organization decisions, including by ensuring that preferential rules of origin applicable to imports from least developed countries are transparent and simple, and contribute to facilitating market access
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-12-1">
+          <span>
+            17.12.1
+            <span class="status notstarted">
+              Exploring data sources
+            </span>
+          </span>
+          Average tariffs faced by developing countries, least developed countries and small island developing States
+          
+        </a>
+      </div>
+    
+    </div>
+  
+    
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        17.13
+      </span>
+      Enhance global macroeconomic stability, including through policy coordination and policy coherence
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-13-1">
+          <span>
+            17.13.1
+            <span class="status complete">
+              Reported online
+            </span>
+          </span>
+          Macroeconomic Dashboard
+          
+        </a>
+      </div>
+    
+    </div>
+  
+    
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        17.14
+      </span>
+      Enhance policy coherence for sustainable development
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-14-1">
+          <span>
+            17.14.1
+            <span class="status complete">
+              Reported online
+            </span>
+          </span>
+          Number of countries with mechanisms in place to enhance policy coherence of sustainable development
+          
+        </a>
+      </div>
+    
+    </div>
+  
+    
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        17.15
+      </span>
+      Respect each country’s policy space and leadership to establish and implement policies for poverty eradication and sustainable development
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-15-1">
+          <span>
+            17.15.1
+            <span class="status notstarted">
+              Exploring data sources
+            </span>
+          </span>
+          Extent of use of country-owned results frameworks and planning tools by providers of development cooperation
+          
+        </a>
+      </div>
+    
+    </div>
+  
+    
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        17.16
+      </span>
+      Enhance the Global Partnership for Sustainable Development, complemented by multi-stakeholder partnerships that mobilize and share knowledge, expertise, technology and financial resources, to support the achievement of the Sustainable Development Goals in all countries, in particular developing countries
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-16-1">
+          <span>
+            17.16.1
+            <span class="status complete">
+              Reported online
+            </span>
+          </span>
+          Number of countries reporting progress in multi-stakeholder development effectiveness monitoring frameworks that support the achievement of the sustainable development goals
+          
+        </a>
+      </div>
+    
+    </div>
+  
+    
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        17.17
+      </span>
+      Encourage and promote effective public, public-private and civil society partnerships, building on the experience and resourcing strategies of partnerships
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-17-1">
+          <span>
+            17.17.1
+            <span class="status notstarted">
+              Exploring data sources
+            </span>
+          </span>
+          Amount of United States dollars committed to public-private and civil society partnerships
+          
+        </a>
+      </div>
+    
+    </div>
+  
+    
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        17.18
+      </span>
+      By 2020, enhance capacity-building support to developing countries, including for least developed countries and small island developing States, to increase significantly the availability of high-quality, timely and reliable data disaggregated by income, gender, age, race, ethnicity, migratory status, disability, geographic location and other characteristics relevant in national contexts
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-18-1">
+          <span>
+            17.18.1
+            <span class="status notstarted">
+              Exploring data sources
+            </span>
+          </span>
+          Proportion of sustainable development indicators produced at the national level with full disaggregation when relevant to the target, in accordance with the Fundamental Principles of Official Statistics
+          
+        </a>
+      </div>
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-18-2">
+          <span>
+            17.18.2
+            <span class="status complete">
+              Reported online
+            </span>
+          </span>
+          Number of countries that have national statistical legislation that complies with the Fundamental Principles of Official Statistics
+          
+        </a>
+      </div>
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-18-3">
+          <span>
+            17.18.3
+            <span class="status complete">
+              Reported online
+            </span>
+          </span>
+          Number of countries with a national statistical plan that is fully funded and under implementation, by source of funding
+          
+        </a>
+      </div>
+    
+    </div>
+  
+    
+    <div class="indicator-cards target col-md-6">
+      <span>
+        <label class="hidden-md hidden-lg">Target</label>
+        17.19
+      </span>
+      By 2030, build on existing initiatives to develop measurements of progress on sustainable development that complement gross domestic product, and support statistical capacity-building in developing countries
+    </div>
+    <div class="indicator-cards col-md-6 row no-gutters">
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-19-1">
+          <span>
+            17.19.1
+            <span class="status complete">
+              Reported online
+            </span>
+          </span>
+          Dollar value of all resources made available to strengthen statistical capacity in developing countries
+          
+        </a>
+      </div>
+    
+
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="col-md-12 ">
+        <a href="/sdg-indicators/17-19-2">
+          <span>
+            17.19.2
+            <span class="status complete">
+              Reported online
+            </span>
+          </span>
+          Proportion of countries that (a) have conducted at least one population and housing census in the last 10 years; and (b) have achieved 100 per cent birth registration and 80 per cent death registration
+          
+        </a>
+      </div>
+    
+    </div>
+  
 </div>
 
 <footer role="contentinfo">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div id="footerLinks">
-            <ul>
-              <li><a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a></li>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div id="footerLinks">
+          <ul>
+            <li><a href="https://open-sdg.readthedocs.io/en/latest/">Built using Open SDG</a></li>
+            
               
-              <li><a class="twitter-follow-button" href="https://twitter.com/ONS" data-show-count="false">Twitter: @ONS</a></li>
+                <li>
+                
+                  <a href="mailto:sustainabledevelopment@ons.gov.uk" target="_blank">Contact us</a>
+                
+                </li>
               
+                <li>
+                
+                  <a href="https://twitter.com/ONS" target="_blank">Twitter</a>
+                
+                </li>
               
-              <li><a href="/sdg-indicators/faq/">FAQ</a></li>
-              <li><a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a></li>
-              <li><a href="/sdg-indicators/accessibility-statement/">Accessibility statement</a></li>
-            </ul>
-          </div>
+                <li>
+                <a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a>
+                
+                </li>
+              
+                <li>
+                <a href="/sdg-indicators/accessibility-statement/">Accessibility statement</a>
+                
+                </li>
+              
+            
+          </ul>
         </div>
       </div>
     </div>
-  </footer>
-  
-  <!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
-  <!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
-  <!-- Google Analytics -->
-  
-  <!-- /.container </div> -->
-  <script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  </div>
+</footer>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
+<!-- Google Analytics -->
+
+<!-- /.container </div> -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
-<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
-<script src="https://cdn.rawgit.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
-<script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
-<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
-<script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20200615004509'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200615004509"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20200615175727'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200615175727"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
 
-      $('.async-loading').each(function(i, obj) {
-          $(obj).append($('<img />').attr('src', $(obj).data('img')));
-      });
+      if (domData.showdata) {
 
-      $.ajax({
-        url: opensdg.remoteDataBaseUrl + '/comb/' + domData.id + '.json',
-        success: function(res) {
+        $('.async-loading').each(function(i, obj) {
+            $(obj).append($('<img />').attr('src', $(obj).data('img')));
+        });
 
-          $('.async-loading').remove();
-          $('.async-loaded').show();
-
-          var model = new indicatorModel({
-            data: res.data,
-            edgesData: res.edges,
-            geoCodeRegEx: domData.geocoderegex,
-            showMap: domData.showmap,
-            country: domData.country,
-            indicatorId: domData.indicatorid,
-            shortIndicatorId: domData.id,
-            chartTitle: domData.charttitle,
-            measurementUnit: domData.measurementunit,
-            copyright: domData.copyright,
-            dataSource: domData.datasource,
-            geographicalArea: domData.geographicalarea,
-            showData: domData.showdata,
-            footnote: domData.footnote,
-            graphType: domData.graphtype,
-            startValues: domData.startvalues
-          }),
-          view  = new indicatorView(model, {
-            rootElement: '#indicatorData',
-            legendElement: '#plotLegend',
-            maxChartHeight: 420,
-            tableColumnDefs: [
-              { maxCharCount: 25 }, // nowrap
-              { maxCharCount: 35, width: 200 },
-              { maxCharCount: Infinity, width: 250 }
-            ]
-          }),
-          controller = new indicatorController(model, view);
-          controller.initialise();
+        var remoteUrl = '/comb/' + domData.id + '.json';
+        if (opensdg.remoteDataBaseUrl !== '/') {
+          remoteUrl = opensdg.remoteDataBaseUrl + remoteUrl;
         }
-      });
+
+        $.ajax({
+          url: remoteUrl,
+          success: function(res) {
+
+            $('.async-loading').remove();
+            $('.async-loaded').show();
+
+            var model = new indicatorModel({
+              data: res.data,
+              edgesData: res.edges,
+              showMap: domData.showmap,
+              country: domData.country,
+              indicatorId: domData.indicatorid,
+              shortIndicatorId: domData.id,
+              chartTitle: domData.charttitle,
+              chartTitles: domData.charttitles,
+              measurementUnit: domData.measurementunit,
+              copyright: domData.copyright,
+              dataSource: domData.datasource,
+              geographicalArea: domData.geographicalarea,
+              showData: domData.showdata,
+              footnote: domData.footnote,
+              graphType: domData.graphtype,
+              startValues: domData.startvalues,
+              graphLimits: domData.graphlimits,
+              stackedDisaggregation: domData.stackeddisaggregation,
+            }),
+            view  = new indicatorView(model, {
+              rootElement: '#indicatorData',
+              legendElement: '#plotLegend',
+              maxChartHeight: 420,
+              tableColumnDefs: [
+                { maxCharCount: 25 }, // nowrap
+                { maxCharCount: 35, width: 200 },
+                { maxCharCount: Infinity, width: 250 }
+              ]
+            }),
+            controller = new indicatorController(model, view);
+            controller.initialise();
+          }
+        });
+      }
     }
 
     var switcher = new accessibilitySwitcher();
@@ -972,10 +1170,9 @@ $(function() {
 });
 </script>
 
-  
-  
-  
-  </body>
-  </html>
-  
+
+
+
+</body>
+</html>
 

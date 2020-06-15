@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en" class="no-js">
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -12,14 +11,12 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://ONSdigital.github.io/sdg-data',
+  remoteDataBaseUrl: 'https://ONSdigital.github.io/sdg-data/en',
 
-  // A hook which can be replaced to modify the configuration for Chart.js.
-  // To see where this is used, see indicatorView.js createPlot() and updatePlot().
-  // To see an example of replacing it, see binary.html.
-  chartConfigAlter: function(config) {
-    // Alterations go here.
-    return config;
+  chartConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Chart.js.
+  chartConfigAlter: function(callback) {
+    this.chartConfigAlterations.push(callback);
   },
 
   // A hook which can be replaced to alter whether/how the values that are
@@ -28,6 +25,8 @@ var opensdg = {
     // Alterations go here.
     return value;
   },
+
+  language: 'en',
 };
 
 // For backwards compatibility, some of these might need to be global.
@@ -90,9 +89,6 @@ var translations = {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Title and meta description
         ================================================== -->
-        
-
-        
 
         <title>
           
@@ -126,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/default.css?v=20200615004509">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20200615175727">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -134,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200615004509"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200615175727"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-reportingstatus">
@@ -145,8 +141,9 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="alert alert-danger" role="alert">
+  <div class="disclaimer-alert" role="alert">
     <strong class="phase-tag">Alpha</strong>
+    
     This is a development website – your <a href="https://www.surveymonkey.co.uk/r/SDGfeedback">feedback</a> will help us to improve it.
   </div>
 </div>
@@ -176,6 +173,16 @@ var translations = {
         <li><span data-target="search">Search</span></li>
       </ul>
 
+      <div id="search" class="menu-target">
+  <form action="/sdg-indicators/search">
+    <input name="q" id="indicator_search" title="Search" />
+    <label for="indicator_search">
+      <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
+    </label>
+  </form>
+</div>
+
+      
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/sdg-indicators/">Goals</a>
           </li><li class="nav-link active">
@@ -192,23 +199,13 @@ var translations = {
             <a href="/sdg-indicators/updates/">Updates</a>
           </li></ul>
 
-      <div id="search" class="menu-target">
-  <input id="indicator_search" title="Indicator search" placeholder="Indicator search" data-url="/sdg-indicators/indicators.json" data-pageurl="/sdg-indicators/search/?q=" />
-  <label for="indicator_search">
-    <button id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false" aria-label=Indicator search></i></button><span>Search:</span>
-  </label>
-</div>
-
+      
 
     </nav>
   </div>
 
 </header>
-
-
-<div id="main-content" class="container reportingstatus">
-
-  <h1>Reporting Status</h1><div class="goal goal-overall">
+<div id="main-content" class="container reportingstatus"><h1>Reporting Status</h1><div class="goal goal-overall">
       <div class="details">
         <h2 class="status-goal">
             Overall Reporting Status <span class="total"><span>244</span> indicators</span>
@@ -221,23 +218,32 @@ var translations = {
             </div><br style="clear:both;">
           </div>
         </div>
-        <div class="goal-stats"><span class="complete" style="width:78.279%" title="Reported online: 78%"></span><span class="notstarted" style="width:21.721%" title="Exploring data sources: 22%"></span></div>
+        <div class="goal-stats">
+            
+            
+            <span class="complete" style="width:78.27868852459017%" title="Reported online: 78%"></span>
+            
+            
+            <span class="notstarted" style="width:21.721311475409834%" title="Exploring data sources: 22%"></span></div>
 
       </div>
-    <!--</li>-->
     <br style="clear:both;">
   </div>
 
-  <h2>Status by goal</h2><div class="goal">
+  
+  <h2>Status by goal</h2>
+  
+
+  <div class="goal">
         <div class="frame">
-          <a href="/sdg-indicators/1/">
+          <a href="/sdg-indicators/1">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/1.png" alt="No poverty - Goal 1" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-indicators/1/">No poverty</a>
-            <span class="total">14<span></span> indicators</span>
+            <a href="/sdg-indicators/1">No poverty</a>
+            <span class="total">14 indicators</span>
           </h3>
           <div class="summary">
             <div class="statuses"><div>
@@ -247,22 +253,27 @@ var translations = {
               </div><br style="clear:both;">
             </div>
           </div>
-          <div class="goal-stats"><span class="complete" style="width:57.143%" title="Reported online: 57%"></span><span class="notstarted" style="width:42.857%" title="Exploring data sources: 43%"></span></div>
+          <div class="goal-stats">
+          
+          
+            <span class="complete" style="width:57.14285714285714%" title="Reported online: 57%"></span>
+          
+          
+            <span class="notstarted" style="width:42.857142857142854%" title="Exploring data sources: 43%"></span></div>
           <div class="divider">
           </div>
         </div>
-      <!--</li>-->
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-indicators/2/">
+          <a href="/sdg-indicators/2">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/2.png" alt="Zero hunger - Goal 2" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-indicators/2/">Zero hunger</a>
-            <span class="total">13<span></span> indicators</span>
+            <a href="/sdg-indicators/2">Zero hunger</a>
+            <span class="total">13 indicators</span>
           </h3>
           <div class="summary">
             <div class="statuses"><div>
@@ -272,22 +283,27 @@ var translations = {
               </div><br style="clear:both;">
             </div>
           </div>
-          <div class="goal-stats"><span class="complete" style="width:69.231%" title="Reported online: 69%"></span><span class="notstarted" style="width:30.769%" title="Exploring data sources: 31%"></span></div>
+          <div class="goal-stats">
+          
+          
+            <span class="complete" style="width:69.23076923076923%" title="Reported online: 69%"></span>
+          
+          
+            <span class="notstarted" style="width:30.76923076923077%" title="Exploring data sources: 31%"></span></div>
           <div class="divider">
           </div>
         </div>
-      <!--</li>-->
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-indicators/3/">
+          <a href="/sdg-indicators/3">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/3.png" alt="Good health and well-being - Goal 3" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-indicators/3/">Good health and well-being</a>
-            <span class="total">27<span></span> indicators</span>
+            <a href="/sdg-indicators/3">Good health and well-being</a>
+            <span class="total">27 indicators</span>
           </h3>
           <div class="summary">
             <div class="statuses"><div>
@@ -297,22 +313,27 @@ var translations = {
               </div><br style="clear:both;">
             </div>
           </div>
-          <div class="goal-stats"><span class="complete" style="width:85.185%" title="Reported online: 85%"></span><span class="notstarted" style="width:14.815%" title="Exploring data sources: 15%"></span></div>
+          <div class="goal-stats">
+          
+          
+            <span class="complete" style="width:85.18518518518519%" title="Reported online: 85%"></span>
+          
+          
+            <span class="notstarted" style="width:14.814814814814815%" title="Exploring data sources: 15%"></span></div>
           <div class="divider">
           </div>
         </div>
-      <!--</li>-->
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-indicators/4/">
+          <a href="/sdg-indicators/4">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/4.png" alt="Quality education - Goal 4" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-indicators/4/">Quality education</a>
-            <span class="total">11<span></span> indicators</span>
+            <a href="/sdg-indicators/4">Quality education</a>
+            <span class="total">11 indicators</span>
           </h3>
           <div class="summary">
             <div class="statuses"><div>
@@ -322,22 +343,27 @@ var translations = {
               </div><br style="clear:both;">
             </div>
           </div>
-          <div class="goal-stats"><span class="complete" style="width:100.0%" title="Reported online: 100%"></span><span class="notstarted" style="width:0.0%" title="Exploring data sources: 0%"></span></div>
+          <div class="goal-stats">
+          
+          
+            <span class="complete" style="width:100.0%" title="Reported online: 100%"></span>
+          
+          
+            <span class="notstarted" style="width:0.0%" title="Exploring data sources: 0%"></span></div>
           <div class="divider">
           </div>
         </div>
-      <!--</li>-->
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-indicators/5/">
+          <a href="/sdg-indicators/5">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/5.png" alt="Gender equality - Goal 5" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-indicators/5/">Gender equality</a>
-            <span class="total">14<span></span> indicators</span>
+            <a href="/sdg-indicators/5">Gender equality</a>
+            <span class="total">14 indicators</span>
           </h3>
           <div class="summary">
             <div class="statuses"><div>
@@ -347,22 +373,27 @@ var translations = {
               </div><br style="clear:both;">
             </div>
           </div>
-          <div class="goal-stats"><span class="complete" style="width:100.0%" title="Reported online: 100%"></span><span class="notstarted" style="width:0.0%" title="Exploring data sources: 0%"></span></div>
+          <div class="goal-stats">
+          
+          
+            <span class="complete" style="width:100.0%" title="Reported online: 100%"></span>
+          
+          
+            <span class="notstarted" style="width:0.0%" title="Exploring data sources: 0%"></span></div>
           <div class="divider">
           </div>
         </div>
-      <!--</li>-->
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-indicators/6/">
+          <a href="/sdg-indicators/6">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/6.png" alt="Clean water and sanitation - Goal 6" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-indicators/6/">Clean water and sanitation</a>
-            <span class="total">11<span></span> indicators</span>
+            <a href="/sdg-indicators/6">Clean water and sanitation</a>
+            <span class="total">11 indicators</span>
           </h3>
           <div class="summary">
             <div class="statuses"><div>
@@ -372,22 +403,27 @@ var translations = {
               </div><br style="clear:both;">
             </div>
           </div>
-          <div class="goal-stats"><span class="complete" style="width:72.727%" title="Reported online: 73%"></span><span class="notstarted" style="width:27.273%" title="Exploring data sources: 27%"></span></div>
+          <div class="goal-stats">
+          
+          
+            <span class="complete" style="width:72.72727272727273%" title="Reported online: 73%"></span>
+          
+          
+            <span class="notstarted" style="width:27.27272727272727%" title="Exploring data sources: 27%"></span></div>
           <div class="divider">
           </div>
         </div>
-      <!--</li>-->
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-indicators/7/">
+          <a href="/sdg-indicators/7">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/7.png" alt="Affordable and clean energy - Goal 7" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-indicators/7/">Affordable and clean energy</a>
-            <span class="total">6<span></span> indicators</span>
+            <a href="/sdg-indicators/7">Affordable and clean energy</a>
+            <span class="total">6 indicators</span>
           </h3>
           <div class="summary">
             <div class="statuses"><div>
@@ -397,22 +433,27 @@ var translations = {
               </div><br style="clear:both;">
             </div>
           </div>
-          <div class="goal-stats"><span class="complete" style="width:100.0%" title="Reported online: 100%"></span><span class="notstarted" style="width:0.0%" title="Exploring data sources: 0%"></span></div>
+          <div class="goal-stats">
+          
+          
+            <span class="complete" style="width:100.0%" title="Reported online: 100%"></span>
+          
+          
+            <span class="notstarted" style="width:0.0%" title="Exploring data sources: 0%"></span></div>
           <div class="divider">
           </div>
         </div>
-      <!--</li>-->
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-indicators/8/">
+          <a href="/sdg-indicators/8">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/8.png" alt="Decent jobs and economic growth - Goal 8" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-indicators/8/">Decent jobs and economic growth</a>
-            <span class="total">17<span></span> indicators</span>
+            <a href="/sdg-indicators/8">Decent jobs and economic growth</a>
+            <span class="total">17 indicators</span>
           </h3>
           <div class="summary">
             <div class="statuses"><div>
@@ -422,22 +463,27 @@ var translations = {
               </div><br style="clear:both;">
             </div>
           </div>
-          <div class="goal-stats"><span class="complete" style="width:88.235%" title="Reported online: 88%"></span><span class="notstarted" style="width:11.765%" title="Exploring data sources: 12%"></span></div>
+          <div class="goal-stats">
+          
+          
+            <span class="complete" style="width:88.23529411764706%" title="Reported online: 88%"></span>
+          
+          
+            <span class="notstarted" style="width:11.76470588235294%" title="Exploring data sources: 12%"></span></div>
           <div class="divider">
           </div>
         </div>
-      <!--</li>-->
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-indicators/9/">
+          <a href="/sdg-indicators/9">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/9.png" alt="Industry, innovation and infrastructure - Goal 9" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-indicators/9/">Industry, innovation and infrastructure</a>
-            <span class="total">12<span></span> indicators</span>
+            <a href="/sdg-indicators/9">Industry, innovation and infrastructure</a>
+            <span class="total">12 indicators</span>
           </h3>
           <div class="summary">
             <div class="statuses"><div>
@@ -447,22 +493,27 @@ var translations = {
               </div><br style="clear:both;">
             </div>
           </div>
-          <div class="goal-stats"><span class="complete" style="width:91.667%" title="Reported online: 92%"></span><span class="notstarted" style="width:8.333%" title="Exploring data sources: 8%"></span></div>
+          <div class="goal-stats">
+          
+          
+            <span class="complete" style="width:91.66666666666666%" title="Reported online: 92%"></span>
+          
+          
+            <span class="notstarted" style="width:8.333333333333332%" title="Exploring data sources: 8%"></span></div>
           <div class="divider">
           </div>
         </div>
-      <!--</li>-->
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-indicators/10/">
+          <a href="/sdg-indicators/10">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/10.png" alt="Reduced inequalities - Goal 10" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-indicators/10/">Reduced inequalities</a>
-            <span class="total">11<span></span> indicators</span>
+            <a href="/sdg-indicators/10">Reduced inequalities</a>
+            <span class="total">11 indicators</span>
           </h3>
           <div class="summary">
             <div class="statuses"><div>
@@ -472,22 +523,27 @@ var translations = {
               </div><br style="clear:both;">
             </div>
           </div>
-          <div class="goal-stats"><span class="complete" style="width:63.636%" title="Reported online: 64%"></span><span class="notstarted" style="width:36.364%" title="Exploring data sources: 36%"></span></div>
+          <div class="goal-stats">
+          
+          
+            <span class="complete" style="width:63.63636363636364%" title="Reported online: 64%"></span>
+          
+          
+            <span class="notstarted" style="width:36.36363636363637%" title="Exploring data sources: 36%"></span></div>
           <div class="divider">
           </div>
         </div>
-      <!--</li>-->
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-indicators/11/">
-            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/11.png" alt="Sustainable cities & communities - Goal 11" width="100" height="100" />
+          <a href="/sdg-indicators/11">
+            <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/11.png" alt="Sustainable cities &amp; communities - Goal 11" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-indicators/11/">Sustainable cities & communities</a>
-            <span class="total">15<span></span> indicators</span>
+            <a href="/sdg-indicators/11">Sustainable cities & communities</a>
+            <span class="total">15 indicators</span>
           </h3>
           <div class="summary">
             <div class="statuses"><div>
@@ -497,22 +553,27 @@ var translations = {
               </div><br style="clear:both;">
             </div>
           </div>
-          <div class="goal-stats"><span class="complete" style="width:73.333%" title="Reported online: 73%"></span><span class="notstarted" style="width:26.667%" title="Exploring data sources: 27%"></span></div>
+          <div class="goal-stats">
+          
+          
+            <span class="complete" style="width:73.33333333333333%" title="Reported online: 73%"></span>
+          
+          
+            <span class="notstarted" style="width:26.666666666666664%" title="Exploring data sources: 27%"></span></div>
           <div class="divider">
           </div>
         </div>
-      <!--</li>-->
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-indicators/12/">
+          <a href="/sdg-indicators/12">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/12.png" alt="Responsible consumption and production - Goal 12" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-indicators/12/">Responsible consumption and production</a>
-            <span class="total">13<span></span> indicators</span>
+            <a href="/sdg-indicators/12">Responsible consumption and production</a>
+            <span class="total">13 indicators</span>
           </h3>
           <div class="summary">
             <div class="statuses"><div>
@@ -522,22 +583,27 @@ var translations = {
               </div><br style="clear:both;">
             </div>
           </div>
-          <div class="goal-stats"><span class="complete" style="width:76.923%" title="Reported online: 77%"></span><span class="notstarted" style="width:23.077%" title="Exploring data sources: 23%"></span></div>
+          <div class="goal-stats">
+          
+          
+            <span class="complete" style="width:76.92307692307693%" title="Reported online: 77%"></span>
+          
+          
+            <span class="notstarted" style="width:23.076923076923077%" title="Exploring data sources: 23%"></span></div>
           <div class="divider">
           </div>
         </div>
-      <!--</li>-->
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-indicators/13/">
+          <a href="/sdg-indicators/13">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/13.png" alt="Climate action - Goal 13" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-indicators/13/">Climate action</a>
-            <span class="total">8<span></span> indicators</span>
+            <a href="/sdg-indicators/13">Climate action</a>
+            <span class="total">8 indicators</span>
           </h3>
           <div class="summary">
             <div class="statuses"><div>
@@ -547,22 +613,27 @@ var translations = {
               </div><br style="clear:both;">
             </div>
           </div>
-          <div class="goal-stats"><span class="complete" style="width:100.0%" title="Reported online: 100%"></span><span class="notstarted" style="width:0.0%" title="Exploring data sources: 0%"></span></div>
+          <div class="goal-stats">
+          
+          
+            <span class="complete" style="width:100.0%" title="Reported online: 100%"></span>
+          
+          
+            <span class="notstarted" style="width:0.0%" title="Exploring data sources: 0%"></span></div>
           <div class="divider">
           </div>
         </div>
-      <!--</li>-->
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-indicators/14/">
+          <a href="/sdg-indicators/14">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/14.png" alt="Life below water - Goal 14" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-indicators/14/">Life below water</a>
-            <span class="total">10<span></span> indicators</span>
+            <a href="/sdg-indicators/14">Life below water</a>
+            <span class="total">10 indicators</span>
           </h3>
           <div class="summary">
             <div class="statuses"><div>
@@ -572,22 +643,27 @@ var translations = {
               </div><br style="clear:both;">
             </div>
           </div>
-          <div class="goal-stats"><span class="complete" style="width:60.0%" title="Reported online: 60%"></span><span class="notstarted" style="width:40.0%" title="Exploring data sources: 40%"></span></div>
+          <div class="goal-stats">
+          
+          
+            <span class="complete" style="width:60.0%" title="Reported online: 60%"></span>
+          
+          
+            <span class="notstarted" style="width:40.0%" title="Exploring data sources: 40%"></span></div>
           <div class="divider">
           </div>
         </div>
-      <!--</li>-->
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-indicators/15/">
+          <a href="/sdg-indicators/15">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/15.png" alt="Life on land - Goal 15" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-indicators/15/">Life on land</a>
-            <span class="total">14<span></span> indicators</span>
+            <a href="/sdg-indicators/15">Life on land</a>
+            <span class="total">14 indicators</span>
           </h3>
           <div class="summary">
             <div class="statuses"><div>
@@ -597,22 +673,27 @@ var translations = {
               </div><br style="clear:both;">
             </div>
           </div>
-          <div class="goal-stats"><span class="complete" style="width:78.571%" title="Reported online: 79%"></span><span class="notstarted" style="width:21.429%" title="Exploring data sources: 21%"></span></div>
+          <div class="goal-stats">
+          
+          
+            <span class="complete" style="width:78.57142857142857%" title="Reported online: 79%"></span>
+          
+          
+            <span class="notstarted" style="width:21.428571428571427%" title="Exploring data sources: 21%"></span></div>
           <div class="divider">
           </div>
         </div>
-      <!--</li>-->
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-indicators/16/">
+          <a href="/sdg-indicators/16">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/16.png" alt="Peace and justice - strong institutions - Goal 16" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-indicators/16/">Peace and justice - strong institutions</a>
-            <span class="total">23<span></span> indicators</span>
+            <a href="/sdg-indicators/16">Peace and justice - strong institutions</a>
+            <span class="total">23 indicators</span>
           </h3>
           <div class="summary">
             <div class="statuses"><div>
@@ -622,22 +703,27 @@ var translations = {
               </div><br style="clear:both;">
             </div>
           </div>
-          <div class="goal-stats"><span class="complete" style="width:78.261%" title="Reported online: 78%"></span><span class="notstarted" style="width:21.739%" title="Exploring data sources: 22%"></span></div>
+          <div class="goal-stats">
+          
+          
+            <span class="complete" style="width:78.2608695652174%" title="Reported online: 78%"></span>
+          
+          
+            <span class="notstarted" style="width:21.73913043478261%" title="Exploring data sources: 22%"></span></div>
           <div class="divider">
           </div>
         </div>
-      <!--</li>-->
       <br style="clear:both;">
     </div><div class="goal">
         <div class="frame">
-          <a href="/sdg-indicators/17/">
+          <a href="/sdg-indicators/17">
             <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/17.png" alt="Partnerships for the goals - Goal 17" width="100" height="100" />
           </a>
         </div>
         <div class="details">
           <h3 class="status-goal">
-            <a href="/sdg-indicators/17/">Partnerships for the goals</a>
-            <span class="total">25<span></span> indicators</span>
+            <a href="/sdg-indicators/17">Partnerships for the goals</a>
+            <span class="total">25 indicators</span>
           </h3>
           <div class="summary">
             <div class="statuses"><div>
@@ -647,108 +733,137 @@ var translations = {
               </div><br style="clear:both;">
             </div>
           </div>
-          <div class="goal-stats"><span class="complete" style="width:60.0%" title="Reported online: 60%"></span><span class="notstarted" style="width:40.0%" title="Exploring data sources: 40%"></span></div>
+          <div class="goal-stats">
+          
+          
+            <span class="complete" style="width:60.0%" title="Reported online: 60%"></span>
+          
+          
+            <span class="notstarted" style="width:40.0%" title="Exploring data sources: 40%"></span></div>
           <div class="divider">
           </div>
         </div>
-      <!--</li>-->
       <br style="clear:both;">
-    </div><!---->
+    </div>
+
+  <!---->
 
 </div>
 <footer role="contentinfo">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div id="footerLinks">
-            <ul>
-              <li><a href="mailto:sustainabledevelopment@ons.gov.uk">Contact us</a></li>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div id="footerLinks">
+          <ul>
+            <li><a href="https://open-sdg.readthedocs.io/en/latest/">Built using Open SDG</a></li>
+            
               
-              <li><a class="twitter-follow-button" href="https://twitter.com/ONS" data-show-count="false">Twitter: @ONS</a></li>
+                <li>
+                
+                  <a href="mailto:sustainabledevelopment@ons.gov.uk" target="_blank">Contact us</a>
+                
+                </li>
               
+                <li>
+                
+                  <a href="https://twitter.com/ONS" target="_blank">Twitter</a>
+                
+                </li>
               
-              <li><a href="/sdg-indicators/faq/">FAQ</a></li>
-              <li><a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a></li>
-              <li><a href="/sdg-indicators/accessibility-statement/">Accessibility statement</a></li>
-            </ul>
-          </div>
+                <li>
+                <a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a>
+                
+                </li>
+              
+                <li>
+                <a href="/sdg-indicators/accessibility-statement/">Accessibility statement</a>
+                
+                </li>
+              
+            
+          </ul>
         </div>
       </div>
     </div>
-  </footer>
-  
-  <!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
-  <!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
-  <!-- Google Analytics -->
-  
-  <!-- /.container </div> -->
-  <script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  </div>
+</footer>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
+<!-- Google Analytics -->
+
+<!-- /.container </div> -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
-<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
-<script src="https://cdn.rawgit.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
-<script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
-<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
-<script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20200615004509'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200615004509"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20200615175727'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200615175727"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
 
-      $('.async-loading').each(function(i, obj) {
-          $(obj).append($('<img />').attr('src', $(obj).data('img')));
-      });
+      if (domData.showdata) {
 
-      $.ajax({
-        url: opensdg.remoteDataBaseUrl + '/comb/' + domData.id + '.json',
-        success: function(res) {
+        $('.async-loading').each(function(i, obj) {
+            $(obj).append($('<img />').attr('src', $(obj).data('img')));
+        });
 
-          $('.async-loading').remove();
-          $('.async-loaded').show();
-
-          var model = new indicatorModel({
-            data: res.data,
-            edgesData: res.edges,
-            geoCodeRegEx: domData.geocoderegex,
-            showMap: domData.showmap,
-            country: domData.country,
-            indicatorId: domData.indicatorid,
-            shortIndicatorId: domData.id,
-            chartTitle: domData.charttitle,
-            measurementUnit: domData.measurementunit,
-            copyright: domData.copyright,
-            dataSource: domData.datasource,
-            geographicalArea: domData.geographicalarea,
-            showData: domData.showdata,
-            footnote: domData.footnote,
-            graphType: domData.graphtype,
-            startValues: domData.startvalues
-          }),
-          view  = new indicatorView(model, {
-            rootElement: '#indicatorData',
-            legendElement: '#plotLegend',
-            maxChartHeight: 420,
-            tableColumnDefs: [
-              { maxCharCount: 25 }, // nowrap
-              { maxCharCount: 35, width: 200 },
-              { maxCharCount: Infinity, width: 250 }
-            ]
-          }),
-          controller = new indicatorController(model, view);
-          controller.initialise();
+        var remoteUrl = '/comb/' + domData.id + '.json';
+        if (opensdg.remoteDataBaseUrl !== '/') {
+          remoteUrl = opensdg.remoteDataBaseUrl + remoteUrl;
         }
-      });
+
+        $.ajax({
+          url: remoteUrl,
+          success: function(res) {
+
+            $('.async-loading').remove();
+            $('.async-loaded').show();
+
+            var model = new indicatorModel({
+              data: res.data,
+              edgesData: res.edges,
+              showMap: domData.showmap,
+              country: domData.country,
+              indicatorId: domData.indicatorid,
+              shortIndicatorId: domData.id,
+              chartTitle: domData.charttitle,
+              chartTitles: domData.charttitles,
+              measurementUnit: domData.measurementunit,
+              copyright: domData.copyright,
+              dataSource: domData.datasource,
+              geographicalArea: domData.geographicalarea,
+              showData: domData.showdata,
+              footnote: domData.footnote,
+              graphType: domData.graphtype,
+              startValues: domData.startvalues,
+              graphLimits: domData.graphlimits,
+              stackedDisaggregation: domData.stackeddisaggregation,
+            }),
+            view  = new indicatorView(model, {
+              rootElement: '#indicatorData',
+              legendElement: '#plotLegend',
+              maxChartHeight: 420,
+              tableColumnDefs: [
+                { maxCharCount: 25 }, // nowrap
+                { maxCharCount: 35, width: 200 },
+                { maxCharCount: Infinity, width: 250 }
+              ]
+            }),
+            controller = new indicatorController(model, view);
+            controller.initialise();
+          }
+        });
+      }
     }
 
     var switcher = new accessibilitySwitcher();
@@ -757,10 +872,9 @@ $(function() {
 });
 </script>
 
-  
-  
-  
-  </body>
-  </html>
-  
+
+
+
+</body>
+</html>
 
