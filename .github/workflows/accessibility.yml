@@ -23,4 +23,6 @@ jobs:
         docker run -d --rm -p 80:80 -v $PWD/_site:/usr/local/apache2/htdocs/sdg-indicators --name jekyllbuildserver httpd:2.4.41-alpine
 
     - name: Run Pa11y tests
-      run: pa11y-ci --config ./docker/build/desktop.json 
+      run: |
+        pa11y-ci --config ./docker/build/desktop.json 
+        pa11y-ci --config ./docker/build/highContrast.json 
