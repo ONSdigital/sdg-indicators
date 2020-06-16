@@ -37,9 +37,8 @@ Alternatively, if you have specific feedback about this website, please complete
 We identified four main user personas or types:
 
 <img src="https://sustainabledevelopment-uk.github.io/public/blog/user_personas.png" alt="Diagram showing summary of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst." height="300px">
-
-
-
+<br>
+<br>
 ## Concerned citizen
 ### Who they are
 Someone who has an personal interest in SDGs or related topics but may also have a professional interest.
@@ -76,9 +75,9 @@ Concerned citizens might arrive to the site from other public facing websites an
 * use terminology and technical terms
 * expect them to go into individual indivators to get a view of performance
 * put lots of methodology and usage notes in their way
-<br>
-<br>
-<br>
+
+
+
 ## Connected influencer
 ### Who they are
 Someone non-statistical working in the not-for-profit space or for a private sector organisation looking to make money around sustainable development activities. Might be an individual attempting to challenge or guide on government policy
