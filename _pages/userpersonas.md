@@ -19,15 +19,15 @@ permalink: /user-personas/
 
 ## Our research
 
-We want to provide a website that has purpose and is easy to use by everybody. To achieve this we want to understand more about who uses this site and what they need from it.
+We want to provide a website that has purpose and is easy to use by everybody. To achieve this, we continue to understand more about who uses this site and what they need from it.
 
-So far, we have undertaken user research to find out who uses the data site and what for? Over 50 people from a variety of organisations have taken part. The research involved interviewing people face-to-face or by telephone. We spoke to people across government, from academia, and the private sector.
+Research undertaken includes:
+*	user research to find out who uses the website and what for
+*	usability testing to help inform our decisions about how we develop the website
 
-We have also carried out several usability testing sessions. In these sessions we tasked people to use the site to find specific information and asked them about their experience. This information has helped informed our decisions about how we develop the website. 
+Our approach to user research continues to be user focused and iterative. We will continue our user research and usability testing for the lifetime of this site.
 
-Our approach to user research is iterative and we will continue our user research and usability testing for the lifetime of this site. This will include further validating the user personas, and speaking to additional people within custodian agencies, local authorities, and the wider government.
-
-If you have any further questions about the user personas or our user research, or if you want to be involved with future user research sessions, please contact us at <SustainableDevelopment@ons.gov.uk<.
+If you have any further questions about our user research approach, or if you want to be involved in future user research sessions, please contact us at <SustainableDevelopment@ons.gov.uk<.
 
 Alternatively, if you have specific feedback about this website, please complete our [feedback survey](https://www.surveymonkey.co.uk/r/SDGfeedback)
 
