@@ -32,7 +32,7 @@ If you have any further questions about our user research approach, or if you wa
 Alternatively, if you have specific feedback about this website, please complete our [feedback survey](https://www.surveymonkey.co.uk/r/SDGfeedback)
 
 
-## User personas?
+## User personas
 
 We identified four main user personas or types:
 
