@@ -7,7 +7,7 @@ permalink: /user-personas/
 ## Table of contents
 * [Our research](#our-research)
 
-* [What was found?](#what-was-found)
+* [User personas](#user-personas)
 
 * [Concerned citizen](#concerned-citizen)
 
@@ -32,7 +32,7 @@ If you have any further questions about our user research approach, or if you wa
 Alternatively, if you have specific feedback about this website, please complete our [feedback survey](https://www.surveymonkey.co.uk/r/SDGfeedback)
 
 
-## What was found?
+## User personas?
 
 We identified four main user personas or types:
 
@@ -76,9 +76,9 @@ Concerned citizens might arrive to the site from other public facing websites an
 * use terminology and technical terms
 * expect them to go into individual indivators to get a view of performance
 * put lots of methodology and usage notes in their way
-
-
-
+<br>
+<br>
+<br>
 ## Connected influencer
 ### Who they are
 Someone non-statistical working in the not-for-profit space or for a private sector organisation looking to make money around sustainable development activities. Might be an individual attempting to challenge or guide on government policy
@@ -114,9 +114,9 @@ They have a good knowledge of the SDGs and use the SDGs to champion the themes t
 
 * expect them to get their answers through data manipulation
 * force them to approach each indicator separately
-
-
-
+<br>
+<br>
+<br>
 ## Fact gatherer
 ### Who they are
 Policy advisers in government departments who have been tasked with reporting on SDG progress and VNR, non-governmental organisations looking to understand what is going on in the UK and think tanks wanting to understand what the UK is doing and hold the government to account.
@@ -152,9 +152,9 @@ They come to the website quite often  and may copy data for use in reports, whic
 * expect them to find the source data with a generic link
 * populate the website with out-of-date website
 * hide facts and figures under complex levels of navigation
-
-
-
+<br>
+<br>
+<br>
 ## Involved analyst
 ### Who they are
 Involved analysts can be a range of different people, who usually work with international data:
