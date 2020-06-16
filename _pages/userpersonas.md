@@ -41,7 +41,6 @@ We identified four main user personas:
 <img src="https://sustainabledevelopment-uk.github.io/public/blog/user_personas.png" alt="Diagram showing summary of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst." height="300px">
 
 
-
 ## Concerned citizen
 ### Who they are
 Someone who has an personal interest in SDGs or related topics but may also have a professional interest.
