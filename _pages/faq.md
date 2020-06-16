@@ -60,7 +60,7 @@ An initial phase of user research has been carried out on the UK SDG data websit
   
   * involved analyst
 
-For more information about these user personas, see our page which outlines the different [user types and their needs]({{ site.baseurl }}{% link _pages/userpersonas.md %}).
+For more information about these user personas and our user research, see our page which outlines the different [user personas and their needs]({{ site.baseurl }}{% link _pages/userpersonas.md %}).
 
 
 ## Can other countries copy this website?
