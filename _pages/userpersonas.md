@@ -27,7 +27,7 @@ Research undertaken includes:
 
 Our approach to user research continues to be user focused and iterative. We will continue our user research and usability testing for the lifetime of this site.
 
-If you have any further questions about our user research approach, or if you want to be involved in future user research sessions, please contact us at <SustainableDevelopment@ons.gov.uk<.
+If you have any further questions about our user research approach, or if you want to be involved in future user research sessions, please contact us at <SustainableDevelopment@ons.gov.uk>.
 
 Alternatively, if you have specific feedback about this website, please complete our [feedback survey](https://www.surveymonkey.co.uk/r/SDGfeedback)
 
