@@ -113,9 +113,9 @@ They have a good knowledge of the SDGs and use the SDGs to champion the themes t
 
 * expect them to get their answers through data manipulation
 * force them to approach each indicator separately
-<br>
-<br>
-<br>
+
+
+
 ## Fact gatherer
 ### Who they are
 Policy advisers in government departments who have been tasked with reporting on SDG progress and VNR, non-governmental organisations looking to understand what is going on in the UK and think tanks wanting to understand what the UK is doing and hold the government to account.
@@ -151,9 +151,9 @@ They come to the website quite often  and may copy data for use in reports, whic
 * expect them to find the source data with a generic link
 * populate the website with out-of-date website
 * hide facts and figures under complex levels of navigation
-<br>
-<br>
-<br>
+
+
+
 ## Involved analyst
 ### Who they are
 Involved analysts can be a range of different people, who usually work with international data:
