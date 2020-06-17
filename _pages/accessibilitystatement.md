@@ -4,8 +4,6 @@ title: Accessibility Statement
 permalink: /accessibility-statement/
 ---
 
-## Accessibility accreditation
-
 We’re working to make this website as accessible and usable as possible for everybody. We follow the [Web Content Accessibility Guidelines (WCAG 2.1)](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag-20). This site has achieved [‘AA’ standard](http://digitalaccessibilitycentre.org/index.php/office-for-national-statistics-sdg).
 
 ## Compatibility with tools
@@ -34,4 +32,4 @@ We are aware of some issues:
 
 ## Reporting accessibility problems with this website
 
-Please [contact us if you find any other problems](mailto:SustainableDevelopment@ons.gov.uk) on the site or you think the site does not meet accessibility requirements.
+If you find any accessibility problems on this site, please let us know via our [feedback survey](https://www.surveymonkey.co.uk/r/SDGfeedback). Alternatively please contact us at <sustainabledevelopment@ons.gov.uk>. 

@@ -3,29 +3,52 @@ title: About
 permalink: /about/
 layout: page
 ---
-The [Sustainable Development Goals](http://www.un.org/sustainabledevelopment/sustainable-development-goals/) (SDGs) are a set of ambitious goals and targets designed to make the world a better place by ending poverty, halting climate change and reducing inequalities. This work programme is part of the country’s commitment to the agenda 2030 on sustainable development.
+The [Sustainable Development Goals](http://www.un.org/sustainabledevelopment/sustainable-development-goals/) (SDGs) are a universal call to action to:
 
-### ONS' role in the SDGs
-ONS are fulfilling the mandate placed on all NSIs by the UN General Assembly to coordinate and report on the global SDG indicators. We aim to shine a light on who is being ‘left behind’ so policy makers can take action, and we aim to support colleagues across the world develop capability.
+  * end poverty
+  
+  * protect the planet
+  
+  * improve the lives and prospects of everyone, everywhere
 
-Cabinet Office and the Department for International Development (DfID) have responsibility for policy implementation. Our role is to collaborate and coordinate with topic leads across the GSS and beyond,  to report data and to promote the SDG-related work we do. We are one of the world leaders in providing data for the SDG indicators.
+The 17 Goals were adopted by all UN Member States in 2015, as part of the [2030 Agenda for Sustainable Development](https://www.un.org/ga/search/view_doc.asp?symbol=A/RES/70/1&Lang=E).
 
-### About this site
-The site is based on the open source [Open SDG](https://open-sdg.readthedocs.io/en/latest/) platform. The Open SDG platform is the result of collaboration between the the UK [Office For National Statistics](https://www.ons.gov.uk/) (ONS), US government, and the non-profit [Center For Open Data Enterprise](http://opendataenterprise.org/) (CODE).
+## ONS' role in the SDGs
+The [Office For National Statistics](https://www.ons.gov.uk/) (ONS) is the UK’s largest independent producer of official statistics and its recognised National Statistical Institute (NSI).
 
-For more information about Open SDG and how you could create your own version of this website, see the [Guidance page]({{ site.baseurl }}{% link _pages/guidance.md %}).
+In this role, we are coordinating and reporting on the global SDG indicators for the UK. This fulfils the mandate placed on all countries by the United Nations General Assembly.
 
-After carrying out an initial phase of user research, we found that the four main users of this site are:
+As one of the world leaders in providing data for the SDG indicators our aims include: 
 
-* concerned citizen
-* connected influencer
-* fact gatherer
-* involved analyst
+  * supporting colleagues across the world develop capability
+  
+  * collaborating and coordinating with topic leads across the Government Statistical Service and beyond
+  
+  * reporting UK SDG data
+  
+  * shining a light on who is being ‘left behind’ - so policy makers can take action 
+  
+  * promoting the SDG-related work we do
+  
+Cabinet Office and the Department for International Development (DfID) have responsibility for policy implementation. 
 
-For more information about the user personas, see <a href="{{ site.baseurl }}{% link _pages/userpersonas.md %}">our page which outlines the different user types and their needs</a>.
+## About this site
+This site is based on the open source [Open SDG](https://open-sdg.readthedocs.io/en/latest/) platform. The Open SDG platform is the result of collaboration between the:
 
+  * UK [Office For National Statistics](https://www.ons.gov.uk/) (ONS)
+  
+  * US government
+  
+  * [Center For Open Data Enterprise](http://opendataenterprise.org/) (CODE)
+    
+Other countries or organisations wishing to reuse the Open SDG reporting platform are welcome to do so for free. The [Open SDG Quick Start Guide](https://open-sdg.readthedocs.io/en/latest/quick-start/) gives technical instructions on the quickest way to get a copy of the Open SDG platform up and running.
 
-### Need more info?
-The answers to some frequently asked questions are also available in the [Frequently Asked Questions]({{ site.baseurl }}{% link _pages/faq.md %}).
+If you have comments, feedback, or want to get involved with the Open SDG community please email <opensdg@googlegroups.com> or contact the [Open SDG GitHub](https://github.com/open-sdg/open-sdg) .
 
-If you have any feedback on this website or UK SDG data then please <i class="fa fa-envelope"></i> <a href="mailto:{{site.email_contacts.questions}}">email us at {{site.email_contacts.questions}}</a>.
+## Need more info?
+Answers to some specific questions about this website are included on our [frequently asked questions]({{ site.baseurl }}{% link _pages/faq.md %}) page.
+
+## Feedback
+For feedback on UK SDG data please contact us at <sustainabledevelopment@ons.gov.uk>
+
+For feedback about this website, please complete our [feedback survey](https://www.surveymonkey.co.uk/r/SDGfeedback)
