@@ -1,3 +1,5 @@
+services:
+  - docker
 language: ruby
 rvm:
 - 2.4.0
@@ -13,8 +15,11 @@ env:
 before_script:
 - chmod +x ./scripts/*.sh
 - chmod +x ./scripts/deploy/*.sh
+- docker build -t buildsite ./pa11ytest/.
 script:
 - scripts/cibuild.sh
+- docker run --rm -v $PWD:/site buildsite
+docker run -d --rm  -p 80:80  -v $PWD/_site:/usr/local/apache2/htdocs/sdg-indicators --name jekyllbuildserver httpd:2.4.41-alpine
 # Deploy. Staging goes back to gh-pages here and prod to external repo
 deploy:
 - provider: script
