@@ -122,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20200617004641">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20200617152534">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -130,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200617004641"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200617152534"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -308,12 +308,12 @@ var translations = {
   data-charttitle="Red List Index"
   data-charttitles="null"
   data-measurementunit="Red List Index"
-  data-datasource="Department for Environment, Food & Rural Affairs (Defra)"
+  data-datasource="United Nations"
   data-copyright=""
   data-geographicalarea="United Kingdom"
   data-footnote=""
   data-showdata="true"
-  data-graphtype="bar"
+  data-graphtype="line"
   data-geocoderegex=""
   data-showmap="false"
   data-startvalues="null"
@@ -361,7 +361,7 @@ var translations = {
 
   <div id="datatableFooter">
     
-    <p>Source: Department for Environment, Food & Rural Affairs (Defra)</p>
+    <p>Source: United Nations</p>
     
     
     <p>Geographical Area: United Kingdom</p>
@@ -446,35 +446,6 @@ opensdg.chartConfigAlter(function(config, info) {
 });
 </script>
 
-<script>
-opensdg.chartConfigAlter(function(config, info) {
-  if (info.stackedDisaggregation) {
-    var overrides = {
-      options: {
-        scales: {
-          xAxes: [{ stacked: true }],
-          yAxes: [{ stacked: true }],
-        }
-      }
-    };
-    // If we have stackedDisaggregation, we need to group datasets into stacks.
-    config.data.datasets.forEach(function(dataset) {
-      var disaggregation = $.extend({}, dataset.disaggregation);
-      // We're going to "stringify" each combination of disaggregations in order
-      // to place them in their own "stacks". To place "stacked" disaggregations
-      // into the same stack, we set them as "samestack" before stringifying.
-      // Note that the string "samestack" is completely arbitrary.
-      if (typeof disaggregation[info.stackedDisaggregation] !== 'undefined') {
-        disaggregation[info.stackedDisaggregation] = 'samestack';
-      }
-      // Use the disaggregation as a unique id for each stack.
-      dataset.stack = JSON.stringify(disaggregation);
-    });
-    // Add these overrides onto the normal config, and return it.
-    $.extend(true, config, overrides);
-  }
-});
-</script>
 
         </div>
         <div id="plotLegend"></div>
@@ -586,7 +557,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            
+            <p>Data presented are those provided by <a href="https://www.birdlife.org/redlist">BirdLife International<a></a> and the <a href="https://www.iucnredlist.org/">IUCN (2020)<a></a> to the UN. The Red List Index is based on global estimates of the extinction risk (IUCN Red List categories) of all mammals, birds, amphibians, corals and cycads, derived from local and national data, disaggregated to the national scale and weighted by the proportion of each species’s distribution in the country or region (in this case the UK).</a></a></p>
 
           
         </td>
@@ -628,7 +599,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>The Red List Index measures change in aggregate extinction risk across groups of species. It is based on genuine changes in the number of species in each category of extinction risk on The IUCN Red List of Threatened Species (IUCN 2015) is expressed as changes in an index ranging from 0 to 1.</p>
+            <p>IUCN - International Union for Conservation of Nature <p>IUCN Red List - The IUCN Red List of Threatened Species is internationally recognised as the most respected and robust inventory of global species conservation status.  It provides a standard and repeatable method for assessing the extinction risk status of thousands of animal, fungus and plant species.
+</p></p>
 
           
         </td>
@@ -656,7 +628,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>The Red List Index is calculated at a point in time by first multiplying the number of species in each Red List Category by a weight (ranging from 1 for ‘Near Threatened’ to 5 for ‘Extinct’ and ‘Extinct in the Wild’) and summing these values. This is then divided by a maximum threat score which is the total number of species multiplied by the weight assigned to the ‘Extinct’ category. This final value is subtracted from 1 to give the Red List Index value. Mathematically this calculation is expressed as - RLIt = 1 – [(Ss Wc(t,s) / (WEX * N), where Wc(t,s) is the weight for category (c) at time (t) for species (s) (the weight for ‘Critically Endangered’ = 4, ‘Endangered’ = 3, ‘Vulnerable’ = 2, ‘Near Threatened’ = 1, ‘Least Concern’ = 0. ‘Critically Endangered’ species tagged as ‘Possibly Extinct’ or ‘Possibly Extinct in the Wild’ are assigned a weight of 5); WEX = 5, the weight assigned to ‘Extinct’ or ‘Extinct in the Wild’ species; and N is the total number of assessed species, excluding those assessed as Data Deficient in the current time period, and those considered to be ‘Extinct’ in the year the set of species was first assessed.</p>
+            <p>No calculations were performed in the data acquisition of this indicator as appropriate data was readily available in the final format specified by this indicator. For detail on calculations made prior to acquisition see the <a href="https://unstats.un.org/sdgs/metadata/files/Metadata-15-05-01.pdf">global metadata</a>.</p>
 
           
         </td>
@@ -670,7 +642,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>The Red List Index formula requires that exactly the same set of species is included in all time periods, the only Red List Category changes are those resulting from genuine improvement or deterioration in status (i.e., excluding changes resulting from improved knowledge or taxonomic revisions), and Data Deficient species are excluded. In many cases, species lists will change slightly from one assessment to the next (e.g., owing to taxonomic revisions). The conditions can therefore be met by retrospectively adjusting earlier Red List categorizations using current information and taxonomy. This is achieved by assuming that the current Red List Categories for the taxa have applied since the set of species was first assessed for the Red List, unless there is information to the contrary that genuine status changes have occurred. Such information is often contextual (e.g., relating to the known history of habitat loss within the range of the species). If there is insufficient information available for a newly added species, it is not incorporated into the Red List Index until it is assessed for a second time, at which point earlier assessments are retrospectively corrected by extrapolating recent trends in population, range, habitat and threats, supported by additional information. To avoid spurious results from biased selection of species, Red List Indices are typically calculated only for taxonomic groups in which all species worldwide have been assessed for the Red List, or for samples of species that have been systematically or randomly selected. The methods and scientific basis for the Red List Index were described by Butchart et al. (2004, 2005, 2007, 2010). For further information, please refer to <a href="https://unstats.un.org/sdgs/metadata/files/Metadata-15-05-01.pdf">global metadata</a>. Over the past thirty years, numerous lists of conservation status have been produced - Red Lists, Biodiversity Action Plan Priority Lists, species listed on European Directives, species listed on the Schedules of the Wildlife &amp; Countryside Act, together with lists of rare and scarce species. There is considerable overlap between these and some species appear on several of them. For example, the otter Lutra lutra, and the marsh saxifrage Saxifraga hirculus have as many as six “badges”. JNCC has attempted to collate many of the current lists into one place and make this available to users as a <a href="http://jncc.defra.gov.uk/page-3408">downloadable spreadsheet of species designations</a>. JNCC will incorporate updates and corrections as necessary. If a source list, for example a red data book, has been reviewed in whole or in part, JNCC has had to decide whether or not to archive some or all of the content of the previous list. This has not always been straightforward, particularly in the case of some of the invertebrate red listings where some, but not all of the previously published list, have been reviewed and the status of the review is regarded by many as being “provisional”. Nevertheless, we wanted to avoid the confusing situation where, for example, a species was listed as being “vulnerable” on one listing and “critically endangered” on another listing with the same geographical focus. Re-use of information in the Conservation Designations Spreadsheet is subject to the terms of the Open Government Licence, which means it may be used and distributed freely with only a few conditions. If you re-use this information you must acknowledge the source of the information in your product or application by including or linking to the following attribution statement - “Contains JNCC/NE/NRW/SNH/NIEA data copyright and database right 2017”. Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.</p>
+            <p>The Red List Index value ranges from 1 (all species are categorised as ‘Least Concern’) to 0 (all species are categorised as ‘Extinct’), and so indicates how far the set of species has moved overall towards extinction. A downward trend in the Red List Index over time means that the expected rate of future species extinctions is worsening (i.e. the rate of biodiversity loss is increasing). An upward trend means that the expected rate of species extinctions is abating (i.e. the rate of biodiversity loss is decreasing), and a horizontal line means that the expected rate of species extinctions is remaining the same, although in each of these cases it does not mean that biodiversity loss has stopped. An upward Red List Index trend would indicate that the SDG Target 15.5 of reducing the degradation of natural habitats and protecting threatened species is on track. A Red List Index value of 1 would indicate that biodiversity loss has been halted.<p>The Red List Index reported here is based on global classifications for each species. In other words this Index does not indicate risk of extinction within the UK, but rather, risk of global extinction of species found within the UK.  <p>More detailed information on trends in UK Biodiversity, including information on the National Red List can be found in the <a href="https://nbn.org.uk/stateofnature2019/reports/">State of Nature Report</a>.<p>The Red List Index is based on quantitative objective categories and criteria. To avoid spurious results from biased selection of species, the Red List Index is calculated from taxonomic groups for which all species have been assessed and reassessed, and, for taxonomic groups that that do not fulfil this criteria, species that are representatively sampled. Changes between categories reflect geniune improvement or deterioration in status, not as a consequence of changes in taxonomy or knowledge. <p>The Red List Index is calculated on an annual basis, however, this does not reflect re-assessment of all species, as species are not assessed every year. The full methodology, and information on limitations can be found in the <a href="https://unstats.un.org/sdgs/metadata/files/Metadata-15-05-01.pdf">global metadata</a> and references therin.<p>  Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.
+</p></p></p></p></p></p>
 
           
         </td>
@@ -690,8 +663,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/254e81089efc9cb9c06405cd895afb3e1fe191b6" target="_blank">
-                2019-04-29: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/aa28e27c3646bd57e9906ce5d348d84b60ba063d" target="_blank">
+                2020-06-16: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -717,8 +690,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/18c0caca52d331412bf09473822facfdbd437f45" target="_blank">
-                2020-06-15: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/a2775afc7a6bfeaba000f6eda6091a3a0667057e" target="_blank">
+                2020-06-17: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1152,7 +1125,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Department for Environment, Food &amp; Rural Affairs (Defra)</p>
+            <p>United Nations</p>
 
           
         </td>
@@ -1166,7 +1139,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            <p>Discontinuous</p>
+            <p>Annual</p>
 
           
         </td>
@@ -1180,7 +1153,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2017</p>
+            <p>2000</p>
 
           
         </td>
@@ -1214,8 +1187,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="http://jncc.defra.gov.uk/page-3408" target="_blank">
-                Conservation Designations for UK Taxa <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://unstats.un.org/sdgs/indicators/database/" target="_blank">
+                UN SDG indicator database <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1235,7 +1208,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            <p>01/11/2017</p>
+            
 
           
         </td>
@@ -1263,7 +1236,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Official Statistic</p>
+            <p>Non-Official</p>
 
           
         </td>
@@ -1277,7 +1250,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>comment@jncc.gov.uk</p>
+            <p>statistics@un.org</p>
 
           
         </td>
@@ -1291,7 +1264,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Contains JNCC/NE/NRW/SNH/NIEA data copyright and database right 2017</p>
+            <p>To navigate to the data select ‘15.5’ from the Data Series, and ‘United Kingdom of Great Britain and Northern Ireland’ from Countries, then click ‘Show table’. Download the excel file using the button below the table for more information, including upper and lower bounds. The original data source is BirdLife International and IUCN (2020).</p>
 
           
         </td>
@@ -1484,7 +1457,7 @@ data-event-label="Change to Sources tab"
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-<script src='/sdg-indicators/assets/js/sdg.js?v=20200617004641'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200617004641"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20200617152534'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200617152534"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
