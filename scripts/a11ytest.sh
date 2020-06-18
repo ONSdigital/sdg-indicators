@@ -1,6 +1,6 @@
 docker build -t buildsite ./a11ytest/.
 docker run --rm -v $PWD:/site buildsite
-docker run --rm \
+docker run --rm -d \
     -p 80:80 \
     -v $PWD/_site:/usr/local/apache2/htdocs/sdg-indicators \
     --name jekyllbuildserver \
