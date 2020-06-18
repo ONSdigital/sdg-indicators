@@ -6,4 +6,5 @@ RUN export PATH="$HOME/gems/bin:$PATH"
 RUN gem install jekyll bundler
 RUN mkdir /site
 WORKDIR /site
+RUN bundle update --bundler
 CMD bundle install && bundle exec jekyll build
