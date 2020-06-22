@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Accessibility
 
 on: [pull_request]
@@ -11,10 +9,20 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Run a one-line script
-      run: echo Hello, world!
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v1.4.2
 
-    - name: Run a multi-line script
+    - name: Install Pa11y
+      run: npm install -g pa11y-ci
+
+    - name: Build and serve site
+      run: | 
+        docker build -t buildsite ./scripts/accessibility_testing/.
+        docker run --rm -v $PWD:/site buildsite
+        docker run -d --rm -p 80:80 -v $PWD/_site:/usr/local/apache2/htdocs/sdg-indicators --name jekyllbuildserver httpd:2.4.41-alpine
+
+    - name: Run Pa11y tests
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+        pa11y-ci --config ./scripts/accessibility_testing/configurations/desktop.json
+        pa11y-ci --config ./scripts/accessibility_testing/configurations/mobile.json
+        pa11y-ci --config ./scripts/accessibility_testing/configurations/high-contrast.json
