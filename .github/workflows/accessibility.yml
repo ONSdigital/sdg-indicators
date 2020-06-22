@@ -19,5 +19,5 @@ jobs:
         docker run -d --rm -p 80:80 -v $PWD/_site:/usr/local/apache2/htdocs/sdg-indicators --name jekyllbuildserver httpd:2.4.41-alpine
 
     - name: Run accessibility tests
-      run: ./scripts/accessibility_testing/test.sh
+      run: chmod ./scripts/accessibility_testing/test.sh && ./scripts/accessibility_testing/test.sh
         
