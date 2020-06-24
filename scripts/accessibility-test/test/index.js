@@ -9,7 +9,7 @@ var sites = [
 sites.forEach((site) => {
     describe(site, () => {
         it("Accessibility test should pass with no issues", (done) => {
-            await pa11y(site)
+            pa11y(site)
             .then((results) => {
                 var issues = results.issues
                 if(issues.length > 0){
