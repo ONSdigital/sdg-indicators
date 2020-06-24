@@ -2,8 +2,8 @@ const pa11y = require('pa11y');
 const assert = require("assert");
 
 var sites = [
-    "https://sustainabledevelopment-uk.github.io/",
-    "https://sustainabledevelopment-uk.github.io/1"
+    "http://localhost/sdg-indicators",
+    "http://localhost/sdg-indicators/1",
 ]
 
 var configurations = {
