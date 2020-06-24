@@ -30,6 +30,8 @@ jobs:
 
     - name: Run accessibility tests
       run: |
-        pa11y ./_site/index.html
-        pa11y --config ./scripts/config/mobile.json ./_site/index.html
-        pa11y --config ./scripts/config/high-contrast.json ./_site/index.html
+        chmod +x ./scripts/accessibility-test/run_tests.sh
+        ./scripts/accessibility-test/run_tests.sh
+        pagePath="1" ./scripts/accessibility-test/run_tests.sh
+        pagePath="about" ./scripts/accessibility-test/run_tests.sh
+        pagePath="reporting-status" ./scripts/accessibility-test/run_tests.sh
