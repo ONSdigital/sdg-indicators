@@ -11,3 +11,6 @@ jobs:
 
     - name: Setup Node.js environment
       uses: actions/setup-node@v1.4.2
+
+    - name: Run accessibility tests
+      run: cd ./scripts/accessibility-test && yarn && yarn test
