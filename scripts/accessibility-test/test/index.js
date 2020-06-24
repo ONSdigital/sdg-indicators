@@ -15,8 +15,8 @@ sites.forEach((site) => {
                 if(issues.length > 0){
                     console.log(issues);
                     assert.fail()
-                    done()
                 }
+                done()
             })
             .catch(done)
             
