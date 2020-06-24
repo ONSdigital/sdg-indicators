@@ -37,6 +37,9 @@ cd ..
 rm -rf out/**/* || exit 0
 cp -r _site/* out/
 
+# Create CNAME
+echo "sdgdata.gov.uk" > out/CNAME
+
 # Now let's go have some fun with the cloned repo
 cd out
 git config user.name "Travis CI"
