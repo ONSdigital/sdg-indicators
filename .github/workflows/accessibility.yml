@@ -14,6 +14,8 @@ jobs:
       
     - name: Setup Ruby, JRuby and TruffleRuby
       uses: ruby/setup-ruby@v1.38.0
+      with:
+        ruby-version: 2.7
       
     - name: Build site
       run: |
