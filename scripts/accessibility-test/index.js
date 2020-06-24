@@ -1,13 +1,11 @@
 const pa11y = require('pa11y');
+const assert = require("assert")
 
 async function runAccessibilityTests(){
     var results = await pa11y("http://example.com")
     var issues = results.issues
     
-    if(issues.length > 0){
-        console.log(issues);
-        throw new Error("Issues found while testing for accessibility")    
-    }
+    assert.deepEqual(issues.length, 0)
 }
 
 runAccessibilityTests()
