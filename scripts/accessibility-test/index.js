@@ -1,8 +1,14 @@
 const pa11y = require('pa11y');
 const assert = require("assert")
 
-pa11y("http://example.com").then((results) => {
-    var issues = results.issues
+describe("example.com", function(){
+    describe("Accesibility test", function(){
+        it("should pass with no issues", function(){
+            pa11y("http://example.com").then((results) => {
+                var issues = results.issues
 
-    assert.deepEqual(issues.length, 0)
+                assert.equal(issues.length, 0)
+            })
+        })
+    })
 })
