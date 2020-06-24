@@ -39,6 +39,7 @@ for (var i = 0; i < sites.length; i++) {
                     if(issues.length > 0){
                         console.log(issues)
                         assert.fail()
+                        done()
                     }
                     done()
                 })
