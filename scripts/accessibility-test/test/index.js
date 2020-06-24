@@ -11,10 +11,7 @@ var configurations = {
     "highContrast": {
         "actions": [
             "click element .navbar ul.navbar-nav li.contrast-high a"
-        ],
-        "chromeLaunchConfig": {
-            "args": ["--no-sandbox"]
-        }
+        ]
     },
     "mobile": {
         "viewport": {
