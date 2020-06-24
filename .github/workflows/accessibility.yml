@@ -1,0 +1,24 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@v2
+      
+    - name: Setup Ruby, JRuby and TruffleRuby
+      uses: ruby/setup-ruby@v1.38.0
+      
+    - name: Build site
+      run: |
+        gem install jekyll bundler
+        bundle install && bundle exec jekyll build
+
+    - name: List site files
+      run: ls _site
