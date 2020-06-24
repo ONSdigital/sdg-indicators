@@ -2,8 +2,8 @@ const pa11y = require('pa11y');
 const assert = require("assert");
 
 var sites = [
-    "http://example.com",
-    "https://sustainabledevelopment-uk.github.io/"
+    "https://sustainabledevelopment-uk.github.io/",
+    "https://sustainabledevelopment-uk.github.io/1"
 ]
 
 var configurations = {
