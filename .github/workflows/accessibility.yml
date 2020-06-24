@@ -1,0 +1,13 @@
+name: Accessibility
+
+on: [pull_request]
+
+jobs:
+  accessibility-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v1.4.2
