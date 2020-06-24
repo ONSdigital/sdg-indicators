@@ -8,13 +8,18 @@ var sites = [
 
 sites.forEach((site) => {
     describe(site, () => {
-        it("Accessibility test should pass with no issues", async () => {
-            var result = await pa11y(site)
-            var issues = result.issues
-    
-            if(issues.length > 0){
-                assert.fail()
-            }
+        it("Accessibility test should pass with no issues", (done) => {
+            await pa11y(site)
+            .then((results) => {
+                var issues = results.issues
+                if(issues.length > 0){
+                    console.log(issues);
+                    assert.fail()
+                    done()
+                }
+            })
+            .catch(done)
+            
         })
     })
 })
