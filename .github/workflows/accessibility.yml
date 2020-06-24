@@ -1,23 +1,21 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
+name: Accessibility
 
 on: [pull_request]
 
 jobs:
-  build:
+  accessibility-tests:
     runs-on: ubuntu-latest
 
     steps:
 
     - uses: actions/checkout@v2
       
-    - name: Setup Ruby, JRuby and TruffleRuby
+    - name: Setup Ruby
       uses: ruby/setup-ruby@v1.38.0
       with:
         ruby-version: 2.7
         
-    - name: Setup Node.js environment
+    - name: Setup NodeJS
       uses: actions/setup-node@v1.4.2
       
     - name: Build site
