@@ -1,5 +1,6 @@
 const pa11y = require('pa11y');
-const assert = require("assert")
+const assert = require("assert");
+const { doesNotMatch } = require('assert');
 
 describe("example.com", function(){
     describe("Accesibility test", function(){
@@ -11,6 +12,7 @@ describe("example.com", function(){
                 console.log(issues);
                 assert.fail()
             }
+            done()
         })
     })
 })
