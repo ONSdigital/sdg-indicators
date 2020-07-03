@@ -6,11 +6,6 @@
     {% if page.indicator.reporting_status == 'complete' and page.indicator.data_non_statistical == false %}
       <br>Select the following link to download this indicator data in an accessible format:<br><a href="{{ page.remote_data_prefix }}/data/{{ page.indicator.number | replace: ".", "-" }}.csv">{{ page.indicator.indicator_available }} (CSV {{ page.indicator.csv_size }})</a>
     {% endif %}
-    {% if page.indicator.reporting_status == 'notstarted' %}
-      <p><b>Exploring data sources</b>
-      We have not yet identified suitable data sources for this indicator.
-      The Sustainable Development Goals are a collaborative project, if you have any feedback or suggestions for data please contact us at <a href="mailto.SustainableDevelopment@ons.gov.uk">SustainableDevelopment@ons.gov.uk</a></p>
-    {% endif %}
   </div>
 </div>
 {% else %}
