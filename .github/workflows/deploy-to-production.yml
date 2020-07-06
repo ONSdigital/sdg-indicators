@@ -1,0 +1,49 @@
+# ****************************************************************************
+# NOTES:
+#
+# This is an example of a production deployment that uses GitHub Pages along
+# with a second "production" GitHub organisation. If you prefer to implement
+# your own workflow, or do not need production deployments, then you should
+# delete this file.
+#
+# In order for this to work, you must replace PRODUCTION_ORGANISATION below
+# with the name of your production GitHub organisation, under REPOSITORY_NAME.
+#
+# For example, if your production organisation is "my-stats-org", then use:
+#
+# REPOSITORY_NAME: my-stats-org/my-stats-org.github.io
+#
+# ****************************************************************************
+
+name: Deploy to production
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
+    - name: Build the site
+      run: |
+        gem install bundler
+        bundle config path vendor/bundle
+        bundle install
+        bundle exec jekyll build --config _config.yml,_config_prod.yml
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        REPOSITORY_NAME: sustainabledevelopment-uk/sustainabledevelopment-uk.github.io
+        ACCESS_TOKEN: ${{ secrets.token }}
+        BRANCH: master
+        FOLDER: _site
+        CLEAN: true
