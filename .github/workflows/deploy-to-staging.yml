@@ -1,0 +1,35 @@
+name: Deploy to staging
+
+on:
+  push:
+    branches:
+      - develop
+  schedule:
+    - cron: '10 0 * * *'
+  repository_dispatch:
+    types: rebuild-staging
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
+    - name: Build the site
+      run: |
+        gem install bundler
+        bundle config path vendor/bundle
+        bundle install
+        bundle exec jekyll build
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        ACCESS_TOKEN: ${{ secrets.token }}
+        BRANCH: gh-pages
+        FOLDER: _site
+        CLEAN: true
