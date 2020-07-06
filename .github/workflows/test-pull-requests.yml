@@ -1,0 +1,23 @@
+name: Test PRs
+
+on: [pull_request]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
+    - name: Build the site
+      run: |
+        gem install bundler
+        bundle config path vendor/bundle
+        bundle install
+        bundle exec jekyll build
+    - name: Test the HTML
+      run: bash scripts/test/html_proofer_staging.sh
