@@ -12,6 +12,8 @@ layout: page
 
 - [What does the reporting status mean?](#what-does-the-reporting-status-mean)
 
+- [How many indicators are disaggregated in some way?](#how-many-indicators-are-disaggregated-in-some-way)
+
 - [Who uses this website?](#who-uses-this-website)
 
 - [Can other countries copy this website?](#can-other-countries-copy-this-website)
@@ -47,6 +49,12 @@ We have used two different types of reporting status for an indicator, which are
  * Exploring data sources – we are still looking for a suitable data source for this indicator
 
 Where there is additional information about the status of indicator data collection and reporting, this will be displayed at the top of the indicator page.
+
+
+## How many indicators are disaggregated in some way?
+Some of the indicators reported display only headline data i.e. with no dissagregations. However the majority of the indicators reported on this website are disaggregated in some way.
+
+For a full breakdown of which indicators are disaggregated, see the [UK SDG data disggregation report](https://sdgdata.gov.uk/sdg-data/index.html).
 
 
 ## Who uses this website?
