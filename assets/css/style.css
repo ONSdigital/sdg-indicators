@@ -75,7 +75,8 @@ ul {
     border-bottom: 1pt solid black; }
 
 body {
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif; }
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-size: 16px; }
 
 h1 {
   font-size: 36px; }
@@ -85,9 +86,6 @@ h2 {
 
 h3 {
   font-size: 24px; }
-
-.normal-copy {
-  font-size: 16px; }
 
 .lead-copy {
   font-size: 22px; }
@@ -246,9 +244,12 @@ body.contrast-high .breadcrumb {
   margin-top: 1.5rem;
   margin-right: 0.8rem;
   border: none !important;
-  background: #0F8243 !important; }
+  background: #0F8243 !important;
+  color: white !important; }
   .btn-download:hover, .btn-download:active, .btn-download:focus {
     background: #0b5d30 !important; }
+  .btn-download:visited {
+    color: white !important; }
 
 h5.download {
   font-weight: bold; }
@@ -595,6 +596,9 @@ body.contrast-high #zip-download-info {
     background-color: rgba(150, 150, 150, 0.6);
     padding: 0;
     width: 300px; }
+    @media only screen and (max-width: 680px) {
+      #main-content #map .selection-legend {
+        display: none; } }
     #main-content #map .selection-legend .legend-swatches {
       height: 10px; }
       #main-content #map .selection-legend .legend-swatches .legend-swatch {
@@ -951,6 +955,9 @@ header .container {
     clear: both;
     float: right;
     margin-bottom: 20px; }
+    @media only screen and (max-width: 768px) {
+      .navbar #search {
+        margin-bottom: 0; } }
     .navbar #search label {
       position: absolute;
       top: 5px;
@@ -965,7 +972,7 @@ header .container {
       height: 34px;
       transition: width 0.4s;
       margin-top: 5px;
-      font-size: 15px; }
+      font-size: 16px; }
 
 #search-btn {
   height: 34px; }
@@ -1007,6 +1014,8 @@ header .container {
           color: #E5E6E7;
           display: block;
           padding: 15px; }
+          .navbar .top-level li span[data-target="search"] {
+            text-transform: capitalize; }
         .navbar .top-level li button {
           color: #E5E6E7;
           display: block;
@@ -1032,13 +1041,13 @@ header .container {
           padding: 6px 0 6px;
           color: #E5E6E7;
           font-size: 15px; }
-          .navbar ul.navbar-nav li a:hover {
+          .navbar ul.navbar-nav li a:hover, .navbar ul.navbar-nav li a:focus {
             color: #E5E6E7; }
-        .navbar ul.navbar-nav li.active a {
-          border: none;
+        .navbar ul.navbar-nav li.nav-link.active a {
           color: white;
+          background: #58595B;
           font-weight: bold; }
-          .navbar ul.navbar-nav li.active a:hover {
+          .navbar ul.navbar-nav li.nav-link.active a:hover {
             color: white; }
         .navbar ul.navbar-nav li:last-child {
           padding-bottom: 10px; }

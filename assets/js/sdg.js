@@ -117,6 +117,34 @@ opensdg.autotrack = function(preset, category, action, label) {
       this.map.fitBounds(layer.getBounds());
     },
 
+    // Build content for a tooltip.
+    getTooltipContent: function(feature) {
+      var tooltipContent = feature.properties.name;
+      var tooltipData = this.getData(feature.properties);
+      if (tooltipData) {
+        tooltipContent += ': ' + tooltipData;
+      }
+      return tooltipContent;
+    },
+
+    // Update a tooltip.
+    updateTooltip: function(layer) {
+      if (layer.getTooltip()) {
+        var tooltipContent = this.getTooltipContent(layer.feature);
+        layer.setTooltipContent(tooltipContent);
+      }
+    },
+
+    // Create tooltip.
+    createTooltip: function(layer) {
+      if (!layer.getTooltip()) {
+        var tooltipContent = this.getTooltipContent(layer.feature);
+        layer.bindTooltip(tooltipContent, {
+          permanent: true,
+        }).addTo(this.map);
+      }
+    },
+
     // Select a feature.
     highlightFeature: function(layer) {
       // Abort if the layer is not on the map.
@@ -126,16 +154,7 @@ opensdg.autotrack = function(preset, category, action, label) {
       // Update the style.
       layer.setStyle(this.options.styleHighlighted);
       // Add a tooltip if not already there.
-      if (!layer.getTooltip()) {
-        var tooltipContent = layer.feature.properties.name;
-        var tooltipData = this.getData(layer.feature.properties);
-        if (tooltipData) {
-          tooltipContent += ': ' + tooltipData;
-        }
-        layer.bindTooltip(tooltipContent, {
-          permanent: true,
-        }).addTo(this.map);
-      }
+      this.createTooltip(layer);
       if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
         layer.bringToFront();
       }
@@ -187,6 +206,14 @@ opensdg.autotrack = function(preset, category, action, label) {
             fillColor: plugin.getColor(feature.properties),
           }
         });
+      });
+    },
+
+    // Update the tooltips of the selected Features on the map.
+    updateTooltips: function() {
+      var plugin = this;
+      this.selectionLegend.selections.forEach(function(selection) {
+        plugin.updateTooltip(selection);
       });
     },
 
@@ -336,6 +363,7 @@ opensdg.autotrack = function(preset, category, action, label) {
           yearChangeCallback: function(e) {
             plugin.currentYear = new Date(e.time).getFullYear();
             plugin.updateColors();
+            plugin.updateTooltips();
             plugin.selectionLegend.update();
           }
         }));
@@ -1388,7 +1416,7 @@ function getBaseDataset() {
  * @return {string} Human-readable description of combo
  */
 function getCombinationDescription(combination, fallback) {
-  var keys = Object.keys(combination);
+  var keys = Object.keys(combination).sort();
   if (keys.length === 0) {
     return fallback;
   }
@@ -2003,7 +2031,7 @@ var indicatorView = function (model, options) {
 
   $(this._rootElement).on('click', '#fields label', function (e) {
 
-    if(!$(this).closest('.variable-options').hasClass('disallowed')) {
+    if(!$(this).closest('.variable-selector').hasClass('disallowed')) {
       $(this).find(':checkbox').trigger('click');
     }
 
@@ -2311,15 +2339,15 @@ var indicatorView = function (model, options) {
     $(this._legendElement).html(view_obj._chartInstance.generateLegend());
   };
 
-  this.getGridColor = function(contrast=null) {
+  this.getGridColor = function(contrast) {
     return this.isHighContrast(contrast) ? '#222' : '#ddd';
   };
 
-  this.getTickColor = function(contrast=null) {
+  this.getTickColor = function(contrast) {
     return this.isHighContrast(contrast) ? '#fff' : '#000';
   }
 
-  this.isHighContrast = function(contrast=null) {
+  this.isHighContrast = function(contrast) {
     if (contrast) {
       return contrast === 'high';
     }
@@ -2773,10 +2801,10 @@ $(function() {
     topLevelSearchLink.text('Search');
     $('.top-level li').removeClass('active');
     $('.top-level span').removeClass('open');
-  };  
-  
+  };
+
   var topLevelMenuToggle = document.querySelector("#menuToggle");
-  
+
   topLevelMenuToggle.addEventListener("click", function(){
     setTopLevelMenuAccessibilityActions();
   });
@@ -2818,16 +2846,16 @@ $(function() {
 
     if(target === 'search') {
       $(this).toggleClass('open');
-      
+
       if($(this).hasClass('open') || !wasVisible) {
-        $(this).text('Hide');
+        $(this).text(translations.general.hide);
       } else {
-        $(this).text('Search');
+        $(this).text(translations.search.search);
       }
     } else {
       // menu click, always hide search:
       topLevelSearchLink.removeClass('open');
-      topLevelSearchLink.text('Search');
+      topLevelSearchLink.text(translations.search.search);
     }
 
     if(!wasVisible) {
