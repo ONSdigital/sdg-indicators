@@ -17,9 +17,21 @@ remote_data_prefix: "https://ONSdigital.github.io/sdg-data"
 create_indicators:
   layout: indicator
 create_goals:
-  layout: goal-by-target
-create_pages: true
-
+  layout: goal-by-target-vertical
+create_pages:
+  pages:
+    - folder: /
+      layout: frontpage-alt
+    - folder: /goals
+      layout: goals
+    - folder: /reporting-status
+      layout: reportingstatus
+    - filename: indicators.json
+      folder: /
+      layout: indicator-json
+    - folder: /search
+      layout: search
+      
 # Social media accounts.
 twitter: 'ONS'
 
@@ -77,7 +89,7 @@ goal_image_base: https://open-sdg.github.io/sdg-translations/assets/img/goals
 # Header Menu
 menu:
   # Use these to customise the main navigation.
-  - path: /
+  - path: /goals
     translation_key: general.goals
   - path: /reporting-status/
     translation_key: menu.reporting_status
@@ -113,7 +125,7 @@ plugins:
   - jekyll-remote-theme
   - jekyll-open-sdg-plugins
 
-remote_theme: open-sdg/open-sdg@1.0.2
+remote_theme: open-sdg/open-sdg@809d28dbc111fcceded6918b0ac60c0acf279e1b
 
 # Apply any custom Javascript.
 custom_js:
@@ -153,6 +165,44 @@ map_layers:
 
 survey_url: https://www.surveymonkey.co.uk/r/XFJZGVL
 
+goals_page:
+    title: UK data for the Sustainable Development Goals
+    description: Click on each goal for UK Sustainable Development Goal global indicator data.
+
+reporting_status:
+    description: An overview of how much data the UK reports for Sustainable Development Goal global indicators.
+
 frontpage_introduction_banner:
   title: 17 goals to transform our world
   description: <a href="https://www.un.org/sustainabledevelopment/sustainable-development-goals/">The Sustainable Development Goals (SDGs)</a> are a universal call to action to end poverty, protect the planet and improve the lives and prospects of everyone, everywhere. The 17 Goals were adopted by all UN Member States in 2015, as part of the <a href="http://www.un.org/ga/search/view_doc.asp?symbol=A/RES/70/1&Lang=E">2030 Agenda for Sustainable Development</a>.
+
+
+# This controls the text that appears above the goals grid.
+frontpage_goals_grid:
+  title: UK data for the Sustainable Development Goals
+  description: Click on each goal for UK Sustainable Development Goal global indicator data.
+
+
+# This controls the three-column "cards" that appear below the goals grid.
+frontpage_cards:
+  - title: Download all data
+    # This "feature" is used for baked-in stuff like "bulk_download".
+    include: components/download-all-data.html
+    # Optionally control the color of the line above the card title.
+  - title: Publications
+    content: |
+    
+      [SDGs in the UK: Progress on monitoring and reporting data](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2019)
+      
+      [UK SDG Voluntary National Review](https://www.gov.uk/government/publications/uks-voluntary-national-review-of-the-sustainable-development-goals)
+      <br/><br/>
+      <a href="./publications" aria-label="More publications">More publications...</a>
+  - title: Useful resources
+    # Control the content of the card - can use Markdown.
+    content: |
+    
+      [The Global Goals](https://www.globalgoals.org/)
+      
+      [Implementing the Sustainable Development Goals](https://www.gov.uk/government/publications/implementing-the-sustainable-development-goals/implementing-the-sustainable-development-goals--2)
+      
+      [UN Department of Economic and Social Affairs](https://sustainabledevelopment.un.org/)
