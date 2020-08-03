@@ -122,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20200803133111">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20200803134023">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -130,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200803133111"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200803134023"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -407,12 +407,6 @@ data-event-category="Tab change"
 data-event-action="Change data view"
 data-event-label="Change to Map tab"
 >Map</a>
-  </li><li role="presentation" class="nav-item embedded-map">
-    <a data-no-disagg="true" class="nav-link" data-toggle="tab" href="#embeddedmapview" aria-controls="embeddedmapview" role="tab" data-on="click"
-data-event-category="Tab change"
-data-event-action="Change data view"
-data-event-label="Change to embedded item tab"
->Dashboard</a>
   </li></ul>
 
     <div class="tab-content data-view">
@@ -477,30 +471,6 @@ opensdg.chartConfigAlter(function(config, info) {
   <div role="tabpanel" class="tab-pane" id="mapview" class="map">
     <div id="map">
   <img src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
-</div>
-
-  </div>
-  
-  <div role="tabpanel" class="tab-pane" id="embeddedmapview" class="embedded-map">
-    <div class="row">
-  <div class="col-xs-12">
-    
-      <h3>Childhood Vaccination Coverage Statistics</h3>
-    
-    
-    
-      <div class="embedded-map" id="embeddedmapframe">
-         <iframe width="1110" style="width: 100%; height: calc(100vw*0.50);" title="Childhood Vaccination Coverage Statistics" src="https://app.powerbi.com/view?r=eyJrIjoiZTI3NWZhNzItMTIyZS00OWM2LTg0MzMtOGY5YTJjMGY0MjI1IiwidCI6IjUwZjYwNzFmLWJiZmUtNDAxYS04ODAzLTY3Mzc0OGU2MjllMiIsImMiOjh9" frameborder="0" allowFullScreen="true"></iframe>
-      </div>
-    
-    <div class="embedded-map" id="embeddedmapframe">
-    
-      <div id="embedfooter" class="table-footer-text">
-        <p><p>Source: <a href="https://app.powerbi.com/view?r=eyJrIjoiZTI3NWZhNzItMTIyZS00OWM2LTg0MzMtOGY5YTJjMGY0MjI1IiwidCI6IjUwZjYwNzFmLWJiZmUtNDAxYS04ODAzLTY3Mzc0OGU2MjllMiIsImMiOjh9">NHS Digital</a><br /> Geographical Area: United Kingdom<br />Footnote: The LA Coverage Map (page 2) relates most to this indicator. The data for this dashboard can be downloaded from the <a href="https://digital.nhs.uk/data-and-information/publications/statistical/nhs-immunisation-statistics/england-2018-19">Childhood Vaccination Coverage Statistics - England 2018-19 publication</a></p>
-</p>
-      </div>
-    
-  </div>
 </div>
 
   </div>
@@ -723,7 +693,7 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/3c41f6f621e2fff603eae17382c8025aca505383" target="_blank">
+              <a href="https://github.com/ONSdigital/sdg-data/commit/c507fb07a650c5f8c898e544104e350ba6ea806e" target="_blank">
                 2020-08-03: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
@@ -1799,7 +1769,7 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20200803133111'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200803133111"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20200803134023'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200803134023"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
