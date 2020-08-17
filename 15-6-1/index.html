@@ -122,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20200817005136">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20200817110512">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -130,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200817005136"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200817110512"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -281,7 +281,7 @@ var translations = {
   
 <div class="row metadata-available-indicator">
   <div class="col-xs-12">
-    <h2>Relevant UK policies on fair and equitable sharing of benefits</h2>
+    <h2>Relevant UK policies on fair and equitable sharing of benefits.</h2>
   </div>
 </div>
 
@@ -292,8 +292,21 @@ var translations = {
   <div class="col-xs-12">
     <p><strong>Non-statistical indicator</strong></p>
 
-<p>We have identified the following policies relevant to this indicator - <a href="https://www.gov.uk/guidance/abs">The Nagoya Protocol on access and benefit sharing (ABS)</a>.</p>
+<p>We have identified the following policies relevant to this indicator -</p>
 
+<ul>
+  <li>
+    <p><a href="https://www.gov.uk/guidance/abs">The Nagoya Protocol on access and benefit sharing (ABS)</a>, which entered into force for the United Kingdom in October 2014.</p>
+  </li>
+  <li>
+    <p><a href="https://www.gov.uk/government/publications/ts-no212015-international-treaty-on-plant-genetic-resources-for-food-and-agriculture-adopted-by-the-thirty-first-session-of-the-fao-conference-in">The International Treaty on Plant Genetic Resources for Food and Agriculture (2001)</a>, which entered into force for the United Kingdom on 29 June 2004.</p>
+  </li>
+</ul>
+
+    
+      
+        <br>Select the following link to download this indicator data in an accessible format:<br><a href="https://ONSdigital.github.io/sdg-data/en/data/15-6-1.csv">Relevant UK policies on fair and equitable sharing of benefits. (CSV 0.341 kB)</a>
+      
     
   </div>
 </div>
@@ -312,14 +325,14 @@ var translations = {
   data-indicatorid='indicator_15-6-1'
   data-id="15-6-1"
   data-country="UK"
-  data-charttitle="Number of countries that have adopted legislative, administrative and policy frameworks to ensure fair and equitable sharing of benefits"
+  data-charttitle="Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the UK"
   data-charttitles="null"
-  data-measurementunit=""
-  data-datasource=""
+  data-measurementunit="Number"
+  data-datasource="United Nations"
   data-copyright=""
-  data-geographicalarea=""
-  data-footnote=""
-  data-showdata="false"
+  data-geographicalarea="UK"
+  data-footnote="Values are cumulative."
+  data-showdata="true"
   data-graphtype="line"
   data-geocoderegex=""
   data-showmap="false"
@@ -328,7 +341,376 @@ var translations = {
   data-stackeddisaggregation=""
 >
   
-  <div id="indicator-main" class="indicator-main col-md-12">
+  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
+    <div id="units"></div>
+<div id="toolbar">
+  <span id="series-help">
+    <h4>Sub-categories</h4>
+    <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+  </span>
+  <p id="legend-help">Click on the legend to remove individual lines from the chart.</p>
+  <div id="fields">
+    <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+  </div>
+</div>
+
+  </div>
+  <div id="indicator-main" class="indicator-main col-md-9">
+    
+
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    <a href="https://ONSdigital.github.io/sdg-data/en/headline/15-6-1.csv" class="btn btn-primary btn-download" download="indicator_15-6-1.csv" tabindex="0" role="button">Download Headline CSV</a>
+
+    <a href="https://ONSdigital.github.io/sdg-data/en/data/15-6-1.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_15-6-1.csv' tabindex='0' role='button'>Download Source CSV</a>
+
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the UK</caption>
+      <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col">Value</th>
+        
+        
+        
+        <th scope="col">Observation status</th>
+        
+        
+        
+        <th scope="col">Unit multiplier</th>
+        
+        
+        
+        <th scope="col" class="table-value">Unit measure</th>
+        
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>395.0</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>480.0</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>566.0</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>663.0</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>752.0</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>885.0</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>980.0</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>1001.0</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <div id="datatableFooter">
+    
+    <p>Source: United Nations</p>
+    
+    
+    <p>Geographical Area: UK</p>
+    
+    
+    <p>Unit of Measurement: Number</p>
+    
+    
+    <p>Footnote: Values are cumulative.</p>
+    
+  </div>
+
+</div>
+
+
+<section>
+
+  <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+
+  <div class="async-loaded spacer medium" style="display:none;">
+
+    <ul class="nav nav-tabs data-view" role="tablist">
+  <li role="presentation" class="nav-item active">
+    <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+>Chart</a>
+  </li>
+  <li role="presentation" class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+>Table</a>
+  </li>
+  <li role="presentation" class="nav-item map" style="display:none">
+    <a data-no-disagg="true" class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Map tab"
+>Map</a>
+  </li></ul>
+
+    <div class="tab-content data-view">
+  <div role="tabpanel" class="tab-pane active" id="chartview">
+    
+
+    <div id="dataset-size-warning" style="display:none">
+      <i class="fa fa-bolt"></i> There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+    </div>
+
+    
+    <div id="selectionsChart">
+      <div id="chart-canvas">
+        <h3 class="chart-title">
+          
+            Total reported number of Standard Material Transfer Agreements (SMTAs) transferring plant genetic resources for food and agriculture to the UK
+          
+        </h3>
+        <div id="chart" class="plot-container">
+          
+<canvas></canvas>
+<script>
+// Add a chart alteration to support the chart_graph_limits metadata field.
+opensdg.chartConfigAlter(function(config, info) {
+  if (info.graphLimits) {
+    var limit = _.findWhere(info.graphLimits, { unit: info.selectedUnit }) || info.graphLimits[0];
+    var overrides = {
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              min: limit.minimum,
+              max: limit.maximum,
+            }
+          }]
+        }
+      }
+    }
+    // Add these overrides onto the normal config.
+    $.extend(true, config, overrides);
+  }
+});
+</script>
+
+
+        </div>
+        <div id="plotLegend"></div>
+      </div>
+      <button id="btnSave" title="Download chart as image" class='btn btn-primary btn-download'>
+        Download Chart Image
+      </button>
+    </div>
+    <div id="chartSelectionDownload"></div>
+
+
+
+  </div>
+  <div role="tabpanel" class="tab-pane" id="tableview">
+    <div id="selectionsTable"></div>
+
+  </div>
+  <div role="tabpanel" class="tab-pane" id="mapview" class="map">
+    <div id="map">
+  <img src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
+</div>
+
+  </div>
+  
+</div>
+
+
+  </div>
+
+</section>
+
   
   <ul class="nav nav-tabs spacer medium" role="tablist">
 
@@ -395,7 +777,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            <p>Relevant UK policies on fair and equitable sharing of benefits</p>
+            <p>Relevant UK policies on fair and equitable sharing of benefits.</p>
 
           
         </td>
@@ -423,7 +805,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            
+            <p>UK</p>
 
           
         </td>
@@ -437,7 +819,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            
+            <p>Number</p>
 
           
         </td>
@@ -493,7 +875,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
+            <p>Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -513,8 +895,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/73b118f174d4ad3a52a8ef201314d9d014be6dc2" target="_blank">
-                2019-04-18: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/d177659e5c04c3e6874a7563612d0ef7fa4311f8" target="_blank">
+                2020-08-12: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -540,8 +922,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/7141a1e8a904c110721f533c298255df0f43c841" target="_blank">
-                2020-07-03: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/2bbcef324a1eacde42152a805b29d650d17dce87" target="_blank">
+                2020-08-13: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -926,6 +1308,304 @@ data-event-label="Change to Sources tab"
 
 
 
+  <div class="row no-gutters">
+  
+    
+    
+    <div class="col-md-6">
+      
+      <table class="table">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>United Nations</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Annual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2012</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>United Kingdom</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://unstats.un.org/sdgs/indicators/database/" target="_blank">
+                UN SDG indicator database <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>TBC</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>official</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>statistics@un.org</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            <p>The original data source for these data are the ITPGRFA Secretariat</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </div>
+    
+  </div>
+
 
 </div>
 
@@ -1020,7 +1700,7 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20200817005136'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200817005136"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20200817110512'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200817110512"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
