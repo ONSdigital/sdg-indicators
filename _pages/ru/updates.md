@@ -1,7 +1,7 @@
 ---
 layout: news
 title: Updates
-permalink: /ru/updates
+permalink: /ru/updates/
 ---
 
 ## Updates
