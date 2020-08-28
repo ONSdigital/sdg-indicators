@@ -1,6 +1,6 @@
 ---
 layout: categories
-permalink: /categories/
+permalink: /ru/categories
 title: Categories
 ---
 ## Posts by Category
