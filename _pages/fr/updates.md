@@ -1,7 +1,7 @@
 ---
 layout: news
 title: Updates
-permalink: /updates/
+permalink: /fr/updates
 ---
 
 ## Updates
