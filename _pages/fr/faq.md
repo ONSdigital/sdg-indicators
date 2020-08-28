@@ -1,6 +1,6 @@
 ---
 title: Frequently Asked Questions (FAQ)
-permalink: /fr/faq
+permalink: /fr/faq/
 layout: page
 ---
 ## Table of contents
