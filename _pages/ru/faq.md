@@ -1,6 +1,6 @@
 ---
 title: Frequently Asked Questions (FAQ)
-permalink: /faq/
+permalink: /ru/faq
 layout: page
 ---
 ## Table of contents
