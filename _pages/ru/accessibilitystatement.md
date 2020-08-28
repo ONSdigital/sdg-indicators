@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Accessibility Statement
-permalink: /ru/accessibility-statement
+permalink: /ru/accessibility-statement/
 ---
 
 We’re working to make this website as accessible and usable as possible for everybody. We follow the [Web Content Accessibility Guidelines (WCAG 2.1)](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag-20). This site has achieved [‘AA’ standard](http://digitalaccessibilitycentre.org/index.php/office-for-national-statistics-sdg).
