@@ -1,6 +1,6 @@
 ---
 title: Publications
-permalink: /publications/
+permalink: /fr/publications
 layout: page
 ---
 Publications released by the ONS in relation to the Sustainable Development Goals.
