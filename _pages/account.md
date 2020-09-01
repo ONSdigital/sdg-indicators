@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Account
+title: Accounting Page
 permalink: /account/
 ---
 
