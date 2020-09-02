@@ -2,6 +2,7 @@
 layout: news
 title: Updates
 permalink: /fr/updates/
+language: fr
 ---
 
 ## Updates
