@@ -2,6 +2,7 @@
 title: Frequently Asked Questions (FAQ)
 permalink: /ru/faq/
 layout: page
+language: ru
 ---
 ## Table of contents
 - [How often will new data be added to this site?](#how-often-will-new-data-be-added-to-this-site)
