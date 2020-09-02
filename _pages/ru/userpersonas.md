@@ -2,6 +2,7 @@
 layout: page
 title: User Personas
 permalink: /ru/user-personas/
+language: ru
 ---
 
 ## Table of contents
