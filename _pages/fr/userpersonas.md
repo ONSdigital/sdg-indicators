@@ -2,6 +2,7 @@
 layout: page
 title: User Personas
 permalink: /fr/user-personas/
+language: fr
 ---
 
 ## Table of contents
