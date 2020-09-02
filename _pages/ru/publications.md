@@ -2,6 +2,7 @@
 title: Publications
 permalink: /ru/publications/
 layout: page
+language: ru
 ---
 Publications released by the ONS in relation to the Sustainable Development Goals.
 
