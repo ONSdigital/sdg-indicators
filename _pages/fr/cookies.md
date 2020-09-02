@@ -2,6 +2,7 @@
 layout: page
 title: Cookies and privacy
 permalink: /fr/about/cookies-and-privacy/
+language: fr
 ---
 The following is a description of what data is collected when you use this website and what it is used for.
 
