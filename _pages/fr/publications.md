@@ -2,6 +2,7 @@
 title: Publications
 permalink: /fr/publications/
 layout: page
+language: fr
 ---
 Publications released by the ONS in relation to the Sustainable Development Goals.
 
