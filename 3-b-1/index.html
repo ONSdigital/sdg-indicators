@@ -122,7 +122,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20200910005611">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20200910135338">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -130,7 +130,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200910005611"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20200910135338"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -407,12 +407,6 @@ data-event-category="Tab change"
 data-event-action="Change data view"
 data-event-label="Change to Map tab"
 >Map</a>
-  </li><li role="presentation" class="nav-item embedded-map">
-    <a data-no-disagg="true" class="nav-link" data-toggle="tab" href="#embeddedmapview" aria-controls="embeddedmapview" role="tab" data-on="click"
-data-event-category="Tab change"
-data-event-action="Change data view"
-data-event-label="Change to embedded item tab"
->Dashboard</a>
   </li></ul>
 
     <div class="tab-content data-view">
@@ -477,30 +471,6 @@ opensdg.chartConfigAlter(function(config, info) {
   <div role="tabpanel" class="tab-pane" id="mapview" class="map">
     <div id="map">
   <img src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
-</div>
-
-  </div>
-  
-  <div role="tabpanel" class="tab-pane" id="embeddedmapview" class="embedded-map">
-    <div class="row">
-  <div class="col-xs-12">
-    
-      <h3>Childhood Vaccination Coverage Statistics</h3>
-    
-    
-    
-      <div class="embedded-map" id="embeddedmapframe">
-         <iframe width="1110" style="width: 100%; height: calc(100vw*0.50);" title="Childhood Vaccination Coverage Statistics" src="https://app.powerbi.com/view?r=eyJrIjoiZTI3NWZhNzItMTIyZS00OWM2LTg0MzMtOGY5YTJjMGY0MjI1IiwidCI6IjUwZjYwNzFmLWJiZmUtNDAxYS04ODAzLTY3Mzc0OGU2MjllMiIsImMiOjh9" frameborder="0" allowFullScreen="true"></iframe>
-      </div>
-    
-    <div class="embedded-map" id="embeddedmapframe">
-    
-      <div id="embedfooter" class="table-footer-text">
-        <p><p>Source: <a href="https://app.powerbi.com/view?r=eyJrIjoiZTI3NWZhNzItMTIyZS00OWM2LTg0MzMtOGY5YTJjMGY0MjI1IiwidCI6IjUwZjYwNzFmLWJiZmUtNDAxYS04ODAzLTY3Mzc0OGU2MjllMiIsImMiOjh9">NHS Digital</a><br /> Geographical Area: United Kingdom<br />Footnote: The LA Coverage Map (page 2) relates most to this indicator. The data for this dashboard can be downloaded from the <a href="https://digital.nhs.uk/data-and-information/publications/statistical/nhs-immunisation-statistics/england-2018-19">Childhood Vaccination Coverage Statistics - England 2018-19 publication</a></p>
-</p>
-      </div>
-    
-  </div>
 </div>
 
   </div>
@@ -676,7 +646,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Please refer to the original sources, and to the <a href="https://files.digital.nhs.uk/73/F8B4BD/child-vacc-stat-eng-2018-19-appendices.pdf">quality statement for childhood vaccinations</a> and the <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/849992/HPV_2017_2018_annual_report.pdf">HPV annual report</a> for details on data collection (links are for 2018/2019 data, though previous years quality statements are also available). Figures for the HPV vaccination are given for females only. HPV vaccination for males in the UK started in September 2019. In September 2014 the routine HPV programme was changed from a three to two-dose schedule. The recommendation was to offer the first (priming) HPV vaccine dose in Year 8 (aged 12 to 13 years) and the second dose in Year 9 (aged 13 to 14 years), previous all three doses had been offered in year 8. However, in some areas the second dose was scheduled within the same school year, from six months after the first dose. Consequently, for the first year of the two-dose programme (2014/15) national-level data are only available for the priming dose, and are therefore not included in the chart above. National coverage for the completed course of HPV vaccination for the first cohort offered the two-dose schedule was published in 2015/16. An interactive dashboard that includes maps and time series for Local Authority childhood vaccinations can be found <a href="https://app.powerbi.com/view?r=eyJrIjoiZTI3NWZhNzItMTIyZS00OWM2LTg0MzMtOGY5YTJjMGY0MjI1IiwidCI6IjUwZjYwNzFmLWJiZmUtNDAxYS04ODAzLTY3Mzc0OGU2MjllMiIsImMiOjh9">here</a>. All figures shown are rounded to 1 decimal place. Please see the source data for caveats, full defintions, notes and figures to more decimal places. Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
+            <p>Please refer to the original sources, and to the <a href="https://files.digital.nhs.uk/73/F8B4BD/child-vacc-stat-eng-2018-19-appendices.pdf">quality statement for childhood vaccinations</a> and the <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/849992/HPV_2017_2018_annual_report.pdf">HPV annual report</a> for details on data collection (links are for 2018/2019 data, though previous years quality statements are also available). Figures for the HPV vaccination are given for females only. HPV vaccination for males in the UK started in September 2019. In September 2014 the routine HPV programme was changed from a three to two-dose schedule. The recommendation was to offer the first (priming) HPV vaccine dose in Year 8 (aged 12 to 13 years) and the second dose in Year 9 (aged 13 to 14 years), previous all three doses had been offered in year 8. However, in some areas the second dose was scheduled within the same school year, from six months after the first dose. Consequently, for the first year of the two-dose programme (2014/15) national-level data are only available for the priming dose, and are therefore not included in the chart above. National coverage for the completed course of HPV vaccination for the first cohort offered the two-dose schedule was published in 2015/16. NHS Digital provides an <a href="https://app.powerbi.com/view?r=eyJrIjoiZTI3NWZhNzItMTIyZS00OWM2LTg0MzMtOGY5YTJjMGY0MjI1IiwidCI6IjUwZjYwNzFmLWJiZmUtNDAxYS04ODAzLTY3Mzc0OGU2MjllMiIsImMiOjh9">interactive dashboard that includes maps and time series for Local Authority childhood vaccinations</a>. All figures shown are rounded to 1 decimal place. Please see the source data for caveats, full defintions, notes and figures to more decimal places. Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -723,8 +693,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/0a1cb85e906ae7d4601974dd8cd7053fb91e43e3" target="_blank">
-                2020-08-04: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/2b9f577d73267ce118dd068ca9c25a143e4037d0" target="_blank">
+                2020-09-10: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1799,7 +1769,7 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20200910005611'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200910005611"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20200910135338'></script><script src="/sdg-indicators/assets/js/custom.js?v=20200910135338"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
