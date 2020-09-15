@@ -23,11 +23,13 @@
         </div>
 
         <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
-          <div class="variable-hint" id="variable-hint-<%=fieldItem.field%>">
-            {%- capture var_hint_replacement -%}
-              {% raw %}<%= translations.t(_.findWhere(edges, { To: fieldItem.field }).From) %>{% endraw %}
-            {%- endcapture -%}
-            {{ page.t.indicator.variable_hint | replace_first: '%field', var_hint_replacement }}
+          <div class="variable-hint">
+            <p id="variable-hint-<%=fieldItem.field%>">
+              {%- capture var_hint_replacement -%}
+                {% raw %}<%= translations.t(_.findWhere(edges, { To: fieldItem.field }).From) %>{% endraw %}
+              {%- endcapture -%}
+              {{ page.t.indicator.variable_hint | replace_first: '%field', var_hint_replacement }}
+            </p>
           </div>
           <div class="no-data-hint">
             {{ page.t.indicator.no_data_hint }}
