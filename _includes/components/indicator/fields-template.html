@@ -30,9 +30,10 @@
           <div class="no-data-hint">
             {{ page.t.indicator.no_data_hint }}
           </div>
-        <% }
-        else {%>
-          <div class="variable-selector<% data-field="<%=fieldItem.field%>">
+        </div>
+      <% }
+      else {%>
+        <div class="variable-selector<% data-field="<%=fieldItem.field%>">
           <button class='accessBtn' tabindex='0' aria-expanded='false'>
             <h5><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></h5>
           </button>
@@ -50,9 +51,10 @@
               </label>
             <% }); %>
           </div>
-        <% } %>
+        </div>
+      <% } %>
 
-      </div>
+      
     </fieldset>
   <% }); %>
 </script>
