@@ -1,0 +1,62 @@
+{% include head.html %}
+{% include header.html %}
+
+<script type="text/template" class="results-template">
+  <% if(resultsCount) { %>
+    <p tabindex=-1 role="status"><%= resultsCount %> results found</p>
+    <% _.each(searchResults, function(result){ %>
+      <div class="row search-result">
+        <div class="col col-xs-12">
+          <a href="<%= result.url %>">
+            <h3 class="title"><%= result.title %></h3>
+            <span class="url">
+              <%= result.type %> &raquo; <%= result.url %>
+            </span>
+          </a>
+          <div class="content"><%= result.content %></div>
+        </div>
+      </div>
+    <% }); %>
+
+  <% } else { %>
+    <p tabindex=-1 role="status">
+      {{ page.t.search.no_results }}
+      <% if(didYouMean) { %>
+      - {{ page.t.search.did_you_mean }}:
+        <% _.each(didYouMean, function(searchTerm){ %>
+        <a href="{{ page.baseurl }}search?q=<%= searchTerm %>"><%= searchTerm %></a>
+        <% }); %>
+      <% } %>
+    </p>
+  <% } %>
+</script>
+<script>
+opensdg.searchItems = {{ site.data.search_items[page.language] | jsonify }};
+{% if site.search_index_boost %}
+opensdg.searchIndexBoost = {{ site.search_index_boost | jsonify }};
+{% else %}
+opensdg.searchIndexBoost = {};
+{% endif %}
+{% if site.search_index_extra_fields %}
+opensdg.searchIndexExtraFields = {{ site.search_index_extra_fields | jsonify }};
+{% else %}
+opensdg.searchIndexExtraFields = [];
+{% endif %}
+</script>
+
+<div id="main-content" class="container" role="main">
+  <h1>{{ page.t.search.search_results_for }} '<span id="search-term"></span>'</h1>
+  <form>
+    <input id="search-bar-on-page" type="text" name="q">
+    <input type="submit" value="{{ page.t.search.search }}">
+  </form>
+  {% include components/loading.html %}
+  <div id="search-results" class="results"></div>
+</div>
+
+<script src="https://unpkg.com/lunr/lunr.min.js"></script>
+{% if page.language != 'en' %}
+  <script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.4.0/lunr.stemmer.support.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.4.0/lunr.{{ page.language }}.js"></script>
+{% endif %}
+{% include footer.html %}
