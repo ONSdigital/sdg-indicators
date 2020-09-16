@@ -38,7 +38,7 @@ User personas are descriptions of typical users which represent people who’ll 
 
 We identified four main user personas:
 
-<img src="https://sustainabledevelopment-uk.github.io/public/blog/user_personas.png" alt="Diagram showing summary of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst." height="300px">
+<img src="{{ site.baseurl }}/assets/img/userpersonas-full.svg" alt="Diagram showing summary of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst." height="300px">
 
 
 ## Concerned citizen
