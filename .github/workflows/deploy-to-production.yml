@@ -30,7 +30,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Deploy
+      uses: actions/checkout@v2
+      with:
+        persist-credentials: false
     - name: Set up Ruby 2.6
       uses: actions/setup-ruby@v1
       with:
