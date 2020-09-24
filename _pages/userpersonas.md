@@ -78,6 +78,12 @@ span {
 .up-image {
   width: 100%;
   max-width: 1040px;
+  margin: 10px;
+}
+
+.up-datatype {
+  float:left;
+  margin:10px;
 }
 
 </style>
@@ -95,8 +101,8 @@ span {
 <img class="up-image" src="{{ site.baseurl }}/assets/img/userpersonas-arrow.svg" alt="Diagram of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst.">
 
 
-<div style="float:left;margin-left:10px;">Visual data</div>
-<div style="float:right;margin-right:10px;">Raw data</div>
+<div class="up-datatype">Visual data</div>
+<div class="up-datatype">Raw data</div>
 
 </html>
 
