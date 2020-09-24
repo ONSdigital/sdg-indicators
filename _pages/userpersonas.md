@@ -82,10 +82,10 @@ span {
 
 
 <div id="container" class="row" style="width:100%; overflow:hidden;">
-  <div class="column"><b>Concerned Citizen</b></br></br>“Tell me what the goals are and what is being done about them”<span>They use the website out of personal interest</span></div>
-  <div class="column"><b>Connected Influencer</b></br></br>“Give me a tool that will support my ambitions and give me a louder voice”<span>They use the website as it adds credibility to what they are doing</span></div>
-  <div class="column"><b>Fact Gatherer</b></br></br>“I just need to quickly see what progress is being made and check the facts”<span>They use the website because they need to check something</span></div>
-  <div class="column"><b>Involved Analyst</b></br></br>“I just want the data so I can do my own thing with it”<span>They use the website because they need to analyse the data</span></div>
+  <div class="column"><b>Concerned Citizen</b><p>“Tell me what the goals are and what is being done about them”</p><span>They use the website out of personal interest</span></div>
+  <div class="column"><b>Connected Influencer</b><p>“Give me a tool that will support my ambitions and give me a louder voice”</p><span>They use the website as it adds credibility to what they are doing</span></div>
+  <div class="column"><b>Fact Gatherer</b><p>“I just need to quickly see what progress is being made and check the facts”</p><span>They use the website because they need to check something</span></div>
+  <div class="column"><b>Involved Analyst</b><p>“I just want the data so I can do my own thing with it”</p><span>They use the website because they need to analyse the data</span></div>
 </div>
 
 </html>
