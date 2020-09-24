@@ -38,7 +38,57 @@ User personas are descriptions of typical users which represent people who’ll 
 
 We identified four main user personas:
 
-<img src="{{ site.baseurl }}/assets/img/userpersonas-small.svg" alt="Diagram showing summary of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst." height="150px">
+<style>
+
+span {
+    position: absolute;
+    margin: 4px 4px;
+    left: 0px;
+    bottom: 0px;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  position: relative;
+  float: left;
+  width: 25%;
+  max-width: 250px;
+  min-width: 154px;
+  min-height: 202px;
+  padding: 10px;
+  border:1px solid #000;
+  margin-left: 10px;
+  margin-top: 10px;
+  flex: 1;
+  text-align: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: flex;
+  clear: both;
+}
+
+
+</style>
+
+<html>
+
+
+<div id="container" class="row" style="width:100%; overflow:hidden;">
+  <div class="column"><b>Concerned Citizen</b></br></br>“Tell me what the goals are and what is being done about them”<span>They use the website out of personal interest</span></div>
+  <div class="column"><b>Connected Influencer</b></br></br>“Give me a tool that will support my ambitions and give me a louder voice”<span>They use the website as it adds credibility to what they are doing</span></div>
+  <div class="column"><b>Fact Gatherer</b></br></br>“I just need to quickly see what progress is being made and check the facts”<span>They use the website because they need to check something</span></div>
+  <div class="column"><b>Involved Analyst</b></br></br>“I just want the data so I can do my own thing with it”<span>They use the website because they need to analyse the data</span></div>
+</div>
+
+</html>
 
 
 ## Concerned citizen
