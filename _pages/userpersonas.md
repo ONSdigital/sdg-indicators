@@ -94,6 +94,9 @@ span {
 
 <img class="up-image" src="{{ site.baseurl }}/assets/img/userpersonas-arrow.svg" alt="Diagram of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst.">
 
+<div style="float:left;margin-left:10px;">Visual data</div>
+<div style="float:right;margin-right:10px;">Raw data</div>
+
 </html>
 
 
