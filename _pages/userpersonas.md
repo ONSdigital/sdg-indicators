@@ -62,16 +62,9 @@ span {
   border:1px solid;
   margin-left: 10px;
   margin-top: 10px;
-  flex: 1;
   text-align: center;
 }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: flex;
-  clear: both;
-}
 
 .up-image {
   width: 90%;
@@ -99,7 +92,7 @@ span {
 <html>
 
 <div>
-<div id="container" class="row" style="width:100%; overflow:hidden; margin: 0 auto; padding-top:10px;">
+<div id="container" class="row no-gutters" style="width:100%; overflow:hidden; margin: 0 auto; padding-top:10px;">
   <div class="up-column col-xs-6 col-sm-3 col-md-3"><b>Concerned Citizen</b><p>“Tell me what the goals are and what is being done about them”</p><span>They use the website out of personal interest</span></div>
   <div class="up-column col-xs-6 col-sm-3 col-md-3"><b>Connected Influencer</b><p>“Give me a tool that will support my ambitions and give me a louder voice”</p><span>They use the website as it adds credibility to what they are doing</span></div>
   <div class="up-column col-xs-6 col-sm-3 col-md-3"><b>Fact Gatherer</b><p>“I just need to quickly see what progress is being made and check the facts”</p><span>They use the website because they need to check something</span></div>
