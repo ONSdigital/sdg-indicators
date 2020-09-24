@@ -78,20 +78,20 @@ span {
 .up-image {
   width: 100%;
   max-width: 1040px;
-  margin: 10px;
+  margin: 5px;
 }
 
 .up-datatype {
   margin:10px;
-  .left {
-    float: left;
-  }
-  .right {
-    float: right;
-  }
 }
 
+.up-datatype.left {
+    float: left;
+}
 
+.up-datatype.right {
+    float: right;
+}
 
 </style>
 
