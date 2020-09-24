@@ -54,11 +54,9 @@ span {
 
 /* Create three equal columns that floats next to each other */
 .up-column {
-  position: relative;
   min-height: 270px;
   padding: 10px;
   border:1px solid;
-  margin-left: 10px;
   margin-top: 10px;
   text-align: center;
 }
