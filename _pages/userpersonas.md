@@ -81,6 +81,20 @@ span {
   margin: 5px;
 }
 
+.up-text {
+  display: none;
+}
+
+@media only screen and (max-width: 500px) {
+  .up-image {
+    display: none;
+  }
+  .up-text {
+    display: inline;
+  }
+}
+}
+
 
 </style>
 
@@ -96,6 +110,7 @@ span {
 
 <div id="container" class="row" style="width:100%; overflow:hidden; margin: 0 auto">
 <img class="up-image" src="{{ site.baseurl }}/assets/img/userpersonas-arrow.svg" alt="Diagram of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst.">
+    <p class="up-text">The different user personas need different types of data on a scale from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst.</p>
 </div>
 </div>
 </html>
