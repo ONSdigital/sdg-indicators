@@ -91,12 +91,17 @@ span {
 <div>
 <div class="row no-gutters">
   <div class="col-xs-6 col-sm-3 col-md-3">
-      <div class="up-column"><b>Concerned Citizen</b><p>“Tell me what the goals are and what is being done about them”</p><span>They use the website out of personal interest</span>
+      <div class="up-column"><b>Concerned Citizen</b><p>“Tell me what the goals are and what is being done about them”</p><span>They use the website out of personal interest</span></div>
   </div>
-</div>
-  <div class="up-column col-xs-6 col-sm-3 col-md-3"><b>Connected Influencer</b><p>“Give me a tool that will support my ambitions and give me a louder voice”</p><span>They use the website as it adds credibility to what they are doing</span></div>
-  <div class="up-column col-xs-6 col-sm-3 col-md-3"><b>Fact Gatherer</b><p>“I just need to quickly see what progress is being made and check the facts”</p><span>They use the website because they need to check something</span></div>
-  <div class="up-column col-xs-6 col-sm-3 col-md-3"><b>Involved Analyst</b><p>“I just want the data so I can do my own thing with it”</p><span>They use the website because they need to analyse the data</span></div>
+  <div class="col-xs-6 col-sm-3 col-md-3">
+      <div class="up-column"><b>Connected Influencer</b><p>“Give me a tool that will support my ambitions and give me a louder voice”</p><span>They use the website as it adds credibility to what they are doing</span></div>
+  </div>
+  <div class="col-xs-6 col-sm-3 col-md-3">
+      <div class="up-column"><b>Fact Gatherer</b><p>“I just need to quickly see what progress is being made and check the facts”</p><span>They use the website because they need to check something</span></div>
+  </div>
+  <div class="col-xs-6 col-sm-3 col-md-3">
+      <div class="up-column"><b>Involved Analyst</b><p>“I just want the data so I can do my own thing with it”</p><span>They use the website because they need to analyse the data</span></div>
+  </div>
 </div>
 
 <img class="up-image" src="{{ site.baseurl }}/assets/img/userpersonas-arrow.svg" alt="Diagram of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst.">
