@@ -94,8 +94,9 @@ span {
   <div class="up-column"><b>Involved Analyst</b><p>“I just want the data so I can do my own thing with it”</p><span>They use the website because they need to analyse the data</span></div>
 </div>
 
+<div id="container" class="row" style="width:100%; overflow:hidden; margin: 0 auto">
 <img class="up-image" src="{{ site.baseurl }}/assets/img/userpersonas-arrow.svg" alt="Diagram of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst.">
-
+</div>
 </html>
 
 
