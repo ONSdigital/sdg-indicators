@@ -91,7 +91,7 @@ span {
   <div class="up-column"><b>Involved Analyst</b><p>“I just want the data so I can do my own thing with it”</p><span>They use the website because they need to analyse the data</span></div>
 </div>
 
-<img class="up-image" src="{{ site.baseurl }}/assets/img/userpersonas-small.svg" alt="Diagram showing summary of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst." height="150px">
+<img class="up-image" src="{{ site.baseurl }}/assets/img/userpersonas-arrow.svg" alt="Diagram of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst.">
 
 </html>
 
