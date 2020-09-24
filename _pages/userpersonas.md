@@ -110,8 +110,8 @@ span {
 
 <div class="up-datatype left">Visual data</div>
 <div class="up-datatype right">Raw data</div>
-
 </html>
+
 
 
 ## Concerned citizen
