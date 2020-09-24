@@ -77,7 +77,7 @@ span {
 
 .up-image {
   width: 100%;
-  max-width: 1040px;
+  max-width: 1010px;
   margin: 5px;
 }
 
