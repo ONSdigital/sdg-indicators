@@ -83,8 +83,8 @@ span {
 
 @media only screen and (max-width: 500px) {
   .up-column{
-    min-width: 100px;
-    min-height: 370px;
+    min-width: 90px;
+    min-height: 400px;
   }
 }
 
