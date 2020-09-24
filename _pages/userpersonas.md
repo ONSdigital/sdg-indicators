@@ -85,7 +85,7 @@ span {
   display: none;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 590px) {
   .up-image {
     display: none;
   }
