@@ -56,7 +56,7 @@ span {
 .up-column {
   position: relative;
   float: left;
-  width: 25%;
+  width: 22%;
   max-width: 250px;
   min-width: 125px;
   min-height: 340px;
