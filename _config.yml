@@ -143,7 +143,9 @@ search_index_extra_fields:
   - data_keywords
 
 search_index_boost:
-    title: 10
+    - field: title
+      boost: 10
+
     
 # Mapping
 map_options:
