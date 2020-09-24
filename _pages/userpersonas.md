@@ -45,6 +45,7 @@ span {
     margin: 4px 4px;
     left: 0px;
     bottom: 0px;
+    padding: 5px
 }
 
 
@@ -58,6 +59,7 @@ span {
   padding: 10px;
   border:1px solid;
   text-align: center;
+  margin: 5px
 }
 
 
