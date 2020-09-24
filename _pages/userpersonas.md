@@ -58,8 +58,8 @@ span {
   float: left;
   width: 25%;
   max-width: 250px;
-  min-width: 154px;
-  min-height: 270px;
+  min-width: 125px;
+  min-height: 340px;
   padding: 10px;
   border:1px solid #000;
   margin-left: 10px;
