@@ -59,7 +59,7 @@ span {
   width: 25%;
   max-width: 250px;
   min-width: 154px;
-  min-height: 202px;
+  min-height: 270px;
   padding: 10px;
   border:1px solid #000;
   margin-left: 10px;
