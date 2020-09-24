@@ -81,13 +81,6 @@ span {
   margin: 5px;
 }
 
-@media only screen and (max-width: 500px) {
-  .up-column{
-    min-width: 90px;
-    min-height: 400px;
-  }
-}
-
 
 </style>
 
