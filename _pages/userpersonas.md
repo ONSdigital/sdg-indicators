@@ -71,7 +71,7 @@ span {
   display: none;
 }
 
-@media only screen and (max-width: 590px) {
+@media only screen and (max-width: 768px) {
   .up-image {
     display: none;
   }
