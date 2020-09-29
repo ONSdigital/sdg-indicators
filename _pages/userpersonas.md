@@ -94,7 +94,7 @@ span {
 <html>
 
 <div>
-<ol class="row no-gutters">
+<ol style="list-style-type:none;" class="row no-gutters">
   <li class="col-xs-6 col-sm-3 col-md-3">
       <div class="up-column"><h3>Concerned Citizen</h3><p>“Tell me what the goals are and what is being done about them”</p><span>They use the website out of personal interest</span></div>
   </li>
