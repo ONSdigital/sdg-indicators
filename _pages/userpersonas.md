@@ -65,6 +65,7 @@ span {
 .up-column h3 {
   font-size: 16px;
   font-weight: 700;
+  margin-top: 5px;
 }
 
 .up-image {
