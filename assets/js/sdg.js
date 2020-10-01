@@ -104,6 +104,14 @@ opensdg.autotrack = function(preset, category, action, label) {
       this.mapLayers[i] = $.extend(true, {}, mapLayerDefaults, options.mapLayers[i]);
     }
 
+    // Sort the map layers according to zoom levels.
+    this.mapLayers.sort(function(a, b) {
+      if (a.min_zoom === b.min_zoom) {
+        return a.max_zoom - b.max_zoom;
+      }
+      return a.min_zoom - b.min_zoom;
+    });
+
     this._defaults = defaults;
     this._name = 'sdgMap';
 
@@ -290,7 +298,37 @@ opensdg.autotrack = function(preset, category, action, label) {
           geoJsons = [geoJsons];
         }
 
+        // Do a quick loop through to see which layers actually have data.
         for (var i = 0; i < geoJsons.length; i++) {
+          var layerHasData = true;
+          if (typeof geoJsons[i][0].features === 'undefined') {
+            layerHasData = false;
+          }
+          else if (!plugin.featuresShouldDisplay(geoJsons[i][0].features)) {
+            layerHasData = false;
+          }
+          if (layerHasData === false) {
+            // If a layer has no data, we'll be skipping it.
+            plugin.mapLayers[i].skipLayer = true;
+            // We also need to alter a sibling layer's min_zoom or max_zoom.
+            var hasLayerBefore = i > 0;
+            var hasLayerAfter = i < (geoJsons.length - 1);
+            if (hasLayerBefore) {
+              plugin.mapLayers[i - 1].max_zoom = plugin.mapLayers[i].max_zoom;
+            }
+            else if (hasLayerAfter) {
+              plugin.mapLayers[i + 1].min_zoom = plugin.mapLayers[i].min_zoom;
+            }
+          }
+          else {
+            plugin.mapLayers[i].skipLayer = false;
+          }
+        }
+
+        for (var i = 0; i < geoJsons.length; i++) {
+          if (plugin.mapLayers[i].skipLayer) {
+            continue;
+          }
           // First add the geoJson as static (non-interactive) borders.
           if (plugin.mapLayers[i].staticBorders) {
             var staticLayer = L.geoJson(geoJsons[i][0], {
@@ -482,6 +520,15 @@ opensdg.autotrack = function(preset, category, action, label) {
       display = display && typeof feature.properties.disaggregations !== 'undefined';
       return display;
     },
+
+    featuresShouldDisplay: function(features) {
+      for (var i = 0; i < features.length; i++) {
+        if (this.featureShouldDisplay(features[i])) {
+          return true;
+        }
+      }
+      return false;
+    }
   };
 
   // A really lightweight plugin wrapper around the constructor,
@@ -542,6 +589,205 @@ Chart.plugins.register({
       chart.update();
     }
   }
+});
+function getTextLinesOnCanvas(ctx, text, maxWidth) {
+  var words = text.split(" ");
+  var lines = [];
+  var currentLine = words[0];
+
+  for (var i = 1; i < words.length; i++) {
+      var word = words[i];
+      var width = ctx.measureText(currentLine + " " + word).width;
+      if (width < maxWidth) {
+          currentLine += " " + word;
+      } else {
+          lines.push(currentLine);
+          currentLine = word;
+      }
+  }
+  lines.push(currentLine);
+  return lines;
+}
+
+// This plugin displays a message to the user whenever a chart has no data.
+Chart.plugins.register({
+  afterDraw: function(chart) {
+    if (chart.data.datasets.length === 0) {
+
+      // @deprecated start
+      if (typeof translations.indicator.data_not_available === 'undefined') {
+        translations.indicator.data_not_available = 'This data is not available. Please choose alternative data to display.';
+      }
+      // @deprecated end
+
+      var ctx = chart.chart.ctx;
+      var width = chart.chart.width;
+      var height = chart.chart.height
+      chart.clear();
+
+      ctx.save();
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.font = "normal 40px 'Open Sans', Helvetica, Arial, sans-serif";
+      var lines = getTextLinesOnCanvas(ctx, translations.indicator.data_not_available, chart.chart.width);
+      var numLines = lines.length;
+      var lineHeight = 50;
+      var xLine = width / 2;
+      var yLine = (height / 2) - ((lineHeight / 2) * numLines);
+      for (var i = 0; i < numLines; i++) {
+        ctx.fillText(lines[i], xLine, yLine);
+        yLine += lineHeight;
+      }
+      ctx.restore();
+
+      $('#selectionsChart').addClass('chart-has-no-data');
+    }
+    else {
+      $('#selectionsChart').removeClass('chart-has-no-data');
+    }
+  }
+});
+// This plugin allows users to cycle through tooltips by keyboard.
+Chart.plugins.register({
+    afterInit: function(chart) {
+        var plugin = this;
+        plugin.chart = chart;
+        plugin.currentTooltip = null;
+        plugin.initElements();
+        $(chart.canvas).keydown(function(e) {
+            switch (e.which) {
+                case 37:
+                    plugin.previousTooltip();
+                    e.preventDefault();
+                    break;
+                case 39:
+                    plugin.nextTooltip();
+                    e.preventDefault();
+                    break;
+            }
+        });
+    },
+    initElements: function() {
+        $('<span/>')
+            .addClass('sr-only')
+            .attr('id', 'chart-tooltip-status')
+            .attr('role', 'status')
+            .appendTo('#chart');
+        $('<span/>')
+            .css('display', 'none')
+            .attr('id', 'chart-keyboard')
+            .text(', Use arrow keys to browse data points.')
+            .appendTo('#chart');
+        var describedBy = $('#chart canvas').attr('aria-describedby');
+        $('#chart canvas')
+            .attr('role', 'application')
+            .attr('aria-describedby', 'chart-keyboard ' + describedBy);
+    },
+    afterDatasetsDraw: function() {
+        var plugin = this;
+        if (plugin.allTooltips == null) {
+            plugin.allTooltips = plugin.getAllTooltips();
+        }
+    },
+    afterUpdate: function() {
+        var plugin = this;
+        plugin.allTooltips = null;
+        plugin.currentTooltip = null;
+    },
+    getAllTooltips: function() {
+        var datasets = this.chart.data.datasets;
+        var allTooltips = [];
+        // For line charts, we group points into vertical tooltips.
+        if (this.chart.config.type == 'line') {
+            for (var pointIndex = 0; pointIndex < datasets[0].data.length; pointIndex++) {
+                var verticalTooltips = [];
+                for (var datasetIndex = 0; datasetIndex < datasets.length; datasetIndex++) {
+                    var meta = this.chart.getDatasetMeta(datasetIndex);
+                    if (meta.hidden) {
+                        continue;
+                    }
+                    if (datasets[datasetIndex].data[pointIndex] !== null) {
+                        verticalTooltips.push(meta.data[pointIndex]);
+                    }
+                }
+                if (verticalTooltips.length > 0) {
+                    allTooltips.push(verticalTooltips);
+                }
+            }
+        }
+        // For other charts, each point gets its own tooltip.
+        else {
+            for (var datasetIndex = 0; datasetIndex < datasets.length; datasetIndex++) {
+                var meta = this.chart.getDatasetMeta(datasetIndex);
+                if (meta.hidden) {
+                    continue;
+                }
+                for (var pointIndex = 0; pointIndex < datasets[datasetIndex].data.length; pointIndex++) {
+                    var singleTooltip = meta.data[pointIndex];
+                    allTooltips.push([singleTooltip]);
+                }
+            }
+        }
+        return allTooltips;
+    },
+    previousTooltip: function() {
+        var plugin = this,
+            newTooltip = 0;
+        if (plugin.currentTooltip !== null) {
+            newTooltip = plugin.currentTooltip - 1;
+        }
+        if (newTooltip < 0) {
+            newTooltip = plugin.allTooltips.length - 1;
+        }
+        plugin.activateTooltips(plugin.allTooltips[newTooltip]);
+        plugin.currentTooltip = newTooltip;
+    },
+    nextTooltip: function() {
+        var plugin = this,
+            newTooltip = 0;
+        if (plugin.currentTooltip !== null) {
+            newTooltip = plugin.currentTooltip + 1;
+        }
+        if (newTooltip >= plugin.allTooltips.length) {
+            newTooltip = 0;
+        }
+        plugin.activateTooltips(plugin.allTooltips[newTooltip]);
+        plugin.currentTooltip = newTooltip;
+    },
+    activateTooltips: function(tooltips) {
+        this.chart.tooltip._active = tooltips
+        this.chart.tooltip.update(true);
+        this.chart.draw();
+        this.announceTooltips(tooltips);
+    },
+    announceTooltips: function(tooltips) {
+        if (tooltips.length > 0) {
+            var labels = {};
+            for (var i = 0; i < tooltips.length; i++) {
+                var datasetIndex = tooltips[i]._datasetIndex,
+                    pointIndex = tooltips[i]._index,
+                    year = this.chart.data.labels[pointIndex],
+                    dataset = this.chart.data.datasets[datasetIndex],
+                    label = dataset.label,
+                    value = dataset.data[pointIndex];
+                if (typeof labels[year] === 'undefined') {
+                    labels[year] = [];
+                }
+                labels[year].push(label + ': ' + value);
+            }
+            var announcement = '';
+            Object.keys(labels).forEach(function(year) {
+                announcement += year + ' ';
+                labels[year].forEach(function(label) {
+                    announcement += label + ', ';
+                });
+            });
+            var currentAnnouncement = $('#chart-tooltip-status').text();
+            if (currentAnnouncement != announcement) {
+                $('#chart-tooltip-status').text(announcement);
+            }
+        }
+    }
 });
 function event(sender) {
   this._sender = sender;
@@ -620,11 +866,13 @@ var accessibilitySwitcher = function() {
 
   _.each(contrastIdentifiers, function(contrast) {
     var gaAttributes = opensdg.autotrack('switch_contrast', 'Accessibility', 'Change contrast setting', contrast);
+    var contrastTitle = getContrastToggleTitle(contrast);
     $('.contrast-switcher').append($('<li />').attr({
       'class': 'nav-link contrast contrast-' + contrast
     }).html($('<a />').attr(gaAttributes).attr({
       'href': 'javascript:void(0)',
-      'title': getContrastToggleTitle(contrast),
+      'title': contrastTitle,
+      'aria-label': contrastTitle,
       'data-contrast': contrast,
     }).html(getContrastToggleLabel(contrast).replace(" ", "<br/>")).click(function() {
       setActiveContrast($(this).data('contrast'));
@@ -726,10 +974,12 @@ var indicatorModel = function (options) {
  * Constants to be used in indicatorModel.js and helper functions.
  */
 var UNIT_COLUMN = 'Units';
+var SERIES_COLUMN = 'Series';
 var GEOCODE_COLUMN = 'GeoCode';
 var YEAR_COLUMN = 'Year';
 var VALUE_COLUMN = 'Value';
 var HEADLINE_COLOR = '#777777';
+var SERIES_TOGGLE = false;
 
   /**
  * Model helper functions with general utility.
@@ -740,11 +990,13 @@ var HEADLINE_COLOR = '#777777';
  * @param {Array} rows
  */
 function getUniqueValuesByProperty(prop, rows) {
-  return rows
-    .map(function(row) { return row[prop]; })
-    .filter(isElementUniqueInArray)
-    .filter(function(row) { return row; })
-    .sort();
+  var uniques = new Set();
+  rows.forEach(function(row) {
+    if (row[prop] != null) {
+      uniques.add(row[prop])
+    }
+  });
+  return Array.from(uniques).sort();
 }
 
 // Use as a callback to Array.prototype.filter to get unique elements
@@ -794,7 +1046,7 @@ function getFieldColumnsFromData(rows) {
  * All other data columns can be considered "field columns".
  */
 function nonFieldColumns() {
-  return [
+  var columns = [
     YEAR_COLUMN,
     VALUE_COLUMN,
     UNIT_COLUMN,
@@ -803,6 +1055,10 @@ function nonFieldColumns() {
     'Unit multiplier',
     'Unit measure',
   ];
+  if (SERIES_TOGGLE) {
+    columns.push(SERIES_COLUMN);
+  }
+  return columns;
 }
 
   /**
@@ -883,6 +1139,88 @@ function getFirstUnitInData(rows) {
 function getUnitFromStartValues(startValues) {
   var match = startValues.find(function(startValue) {
     return startValue.field === UNIT_COLUMN;
+  }, this);
+  return (match) ? match.value : false;
+}
+
+  /**
+ * Model helper functions related to serieses.
+ */
+
+/**
+ * @param {Array} rows
+ * @return {boolean}
+ */
+function dataHasSerieses(rows) {
+  return dataHasColumn(SERIES_COLUMN, rows);
+}
+
+/**
+ * @param {Array} fieldsUsedBySeries Field names
+ * @return {boolean}
+ */
+function dataHasSeriesSpecificFields(fieldsUsedBySeries) {
+  return !_.every(_.pluck(fieldsUsedBySeries, 'fields'), function(fields) {
+    return _.isEqual(_.sortBy(_.pluck(fieldsUsedBySeries, 'fields')[0]), _.sortBy(fields));
+  });
+}
+
+/**
+ * @param {Array} serieses
+ * @param {Array} rows
+ * @return {Array} Field names
+ */
+function fieldsUsedBySeries(serieses, rows) {
+  var fields = getFieldColumnsFromData(rows);
+  return serieses.map(function(series) {
+    return {
+      series: series,
+      fields: fields.filter(function(field) {
+        return fieldIsUsedInDataWithSeries(field, series, rows);
+      }, this),
+    }
+  }, this);
+}
+
+/**
+ * @param {string} field
+ * @param {string} series
+ * @param {Array} rows
+ */
+function fieldIsUsedInDataWithSeries(field, series, rows) {
+  return rows.some(function(row) {
+    return row[field] && row[SERIES_COLUMN] === series;
+  }, this);
+}
+
+/**
+ * @param {Array} rows
+ * @param {string} series
+ * @return {Array} Rows
+ */
+function getDataBySeries(rows, series) {
+  return rows.filter(function(row) {
+    return row[SERIES_COLUMN] === series;
+  }, this);
+}
+
+/**
+ * @param {Array} rows
+ * @return {string}
+ */
+function getFirstSeriesInData(rows) {
+  return rows.find(function(row) {
+    return row[SERIES_COLUMN];
+  }, this)[SERIES_COLUMN];
+}
+
+/**
+ * @param {Array} startValues Objects containing 'field' and 'value'
+ * @return {string|boolean} Series, or false if none were found
+ */
+function getSeriesFromStartValues(startValues) {
+  var match = startValues.find(function(startValue) {
+    return startValue.field === SERIES_COLUMN;
   }, this);
   return (match) ? match.value : false;
 }
@@ -1017,11 +1355,19 @@ function getChildFieldNames(edges) {
  * @param {Array} selectedFields Field items
  * @return {Array} Field item states
  */
-function fieldItemStatesForView(fieldItemStates, fieldsByUnit, selectedUnit, dataHasUnitSpecificFields, selectedFields) {
+function fieldItemStatesForView(fieldItemStates, fieldsByUnit, selectedUnit, dataHasUnitSpecificFields, fieldsBySeries, selectedSeries, dataHasSeriesSpecificFields, selectedFields) {
   var states = fieldItemStates.map(function(item) { return item; });
-  if (dataHasUnitSpecificFields) {
+  if (dataHasUnitSpecificFields && dataHasSeriesSpecificFields) {
+    states = fieldItemStatesForSeries(fieldItemStates, fieldsBySeries, selectedSeries);
+    states = fieldItemStatesForUnit(states, fieldsByUnit, selectedUnit);
+  }
+  else if (dataHasSeriesSpecificFields) {
+    states = fieldItemStatesForSeries(fieldItemStates, fieldsBySeries, selectedSeries);
+  }
+  else if (dataHasUnitSpecificFields) {
     states = fieldItemStatesForUnit(fieldItemStates, fieldsByUnit, selectedUnit);
   }
+
   if (selectedFields.length > 0) {
     states.forEach(function(fieldItem) {
       var selectedField = selectedFields.find(function(selectedItem) {
@@ -1052,6 +1398,21 @@ function fieldItemStatesForUnit(fieldItemStates, fieldsByUnit, selectedUnit) {
       return fieldByUnit.unit === selectedUnit;
     })[0];
     return fieldsBySelectedUnit.fields.includes(fis.field);
+  });
+}
+
+/**
+ * @param {Array} fieldItemStates
+ * @param {Array} fieldsBySeries Objects containing 'series' and 'fields'
+ * @param {string} selectedSeries
+ * @return {Array} Field item states
+ */
+function fieldItemStatesForSeries(fieldItemStates, fieldsBySeries, selectedSeries) {
+  return fieldItemStates.filter(function(fis) {
+    var fieldsBySelectedSeries = fieldsBySeries.filter(function(fieldBySeries) {
+      return fieldBySeries.series === selectedSeries;
+    })[0];
+    return fieldsBySelectedSeries.fields.includes(fis.field);
   });
 }
 
@@ -1267,13 +1628,29 @@ function getDataBySelectedFields(rows, selectedFields) {
  * @param {string} currentTitle
  * @param {Array} allTitles Objects containing 'unit' and 'title'
  * @param {String} selectedUnit
+ * @param {String} selectedSeries
  * @return {String} Updated title
  */
-function getChartTitle(currentTitle, allTitles, selectedUnit) {
+function getChartTitle(currentTitle, allTitles, selectedUnit, selectedSeries) {
   var newTitle = currentTitle;
   if (allTitles && allTitles.length > 0) {
-    var unitTitle = allTitles.find(function(title) { return title.unit === selectedUnit });
-    newTitle = (unitTitle) ? unitTitle.title : allTitles[0].title;
+    var matchedTitle;
+    if (selectedUnit && selectedSeries) {
+      matchedTitle = allTitles.find(function(title) {
+        return title.unit === selectedUnit && title.series === selectedSeries;
+      });
+    }
+    if (!matchedTitle && selectedSeries) {
+      matchedTitle = allTitles.find(function(title) {
+        return title.series === selectedSeries;
+      });
+    }
+    if (!matchedTitle && selectedUnit) {
+      matchedTitle = allTitles.find(function(title) {
+        return title.unit === selectedUnit;
+      });
+    }
+    newTitle = (matchedTitle) ? matchedTitle.title : allTitles[0].title;
   }
   return newTitle;
 }
@@ -1390,6 +1767,7 @@ function makeDataset(years, rows, combination, labelFallback, color, background,
     borderColor: color,
     backgroundColor: background,
     pointBorderColor: color,
+    pointBackgroundColor: background,
     borderDash: border,
     borderWidth: 2,
     data: prepareDataForDataset(years, rows),
@@ -1403,7 +1781,6 @@ function getBaseDataset() {
   return Object.assign({}, {
     fill: false,
     pointHoverRadius: 5,
-    pointBackgroundColor: '#FFFFFF',
     pointHoverBorderWidth: 1,
     tension: 0,
     spanGaps: true
@@ -1461,6 +1838,7 @@ function makeHeadlineDataset(years, rows, label) {
     borderColor: getHeadlineColor(),
     backgroundColor: getHeadlineColor(),
     pointBorderColor: getHeadlineColor(),
+    pointBackgroundColor: getHeadlineColor(),
     borderWidth: 4,
     data: prepareDataForDataset(years, rows),
   });
@@ -1593,21 +1971,27 @@ function sortData(rows, selectedUnit) {
 
   return {
     UNIT_COLUMN: UNIT_COLUMN,
+    SERIES_COLUMN: SERIES_COLUMN,
     GEOCODE_COLUMN: GEOCODE_COLUMN,
     YEAR_COLUMN: YEAR_COLUMN,
     VALUE_COLUMN: VALUE_COLUMN,
+    SERIES_TOGGLE: SERIES_TOGGLE,
     convertJsonFormatToRows: convertJsonFormatToRows,
     getUniqueValuesByProperty: getUniqueValuesByProperty,
     dataHasUnits: dataHasUnits,
     dataHasGeoCodes: dataHasGeoCodes,
+    dataHasSerieses: dataHasSerieses,
     getFirstUnitInData: getFirstUnitInData,
     getDataByUnit: getDataByUnit,
+    getDataBySeries: getDataBySeries,
     getDataBySelectedFields: getDataBySelectedFields,
     getUnitFromStartValues: getUnitFromStartValues,
     selectFieldsFromStartValues: selectFieldsFromStartValues,
     selectMinimumStartingFields: selectMinimumStartingFields,
     fieldsUsedByUnit: fieldsUsedByUnit,
+    fieldsUsedBySeries: fieldsUsedBySeries,
     dataHasUnitSpecificFields: dataHasUnitSpecificFields,
+    dataHasSeriesSpecificFields: dataHasSeriesSpecificFields,
     getInitialFieldItemStates: getInitialFieldItemStates,
     validParentsByChild: validParentsByChild,
     getFieldNames: getFieldNames,
@@ -1634,6 +2018,8 @@ function sortData(rows, selectedUnit) {
   this.onFieldsComplete = new event(this);
   this.onUnitsComplete = new event(this);
   this.onUnitsSelectedChanged = new event(this);
+  this.onSeriesesComplete = new event(this);
+  this.onSeriesesSelectedChanged = new event(this);
   this.onFieldsStatusUpdated = new event(this);
   this.onFieldsCleared = new event(this);
   this.onSelectionUpdate = new event(this);
@@ -1661,6 +2047,9 @@ function sortData(rows, selectedUnit) {
   this.selectedUnit = undefined;
   this.fieldsByUnit = undefined;
   this.dataHasUnitSpecificFields = false;
+  this.selectedSeries = undefined;
+  this.fieldsBySeries = undefined;
+  this.dataHasSeriesSpecificFields = false;
   this.fieldValueStatuses = [];
   this.validParentsByChild = {};
   this.hasGeoData = false;
@@ -1680,6 +2069,16 @@ function sortData(rows, selectedUnit) {
   }
   else {
     this.hasUnits = false;
+  }
+  if (helpers.SERIES_TOGGLE && helpers.dataHasSerieses(this.data)) {
+    this.hasSerieses = true;
+    this.serieses = helpers.getUniqueValuesByProperty(helpers.SERIES_COLUMN, this.data);
+    this.selectedSeries = this.serieses[0];
+    this.fieldsBySeries = helpers.fieldsUsedBySeries(this.serieses, this.data);
+    this.dataHasSeriesSpecificFields = helpers.dataHasSeriesSpecificFields(this.fieldsBySeries);
+  }
+  else {
+    this.hasSerieses = false;
   }
   this.fieldItemStates = helpers.getInitialFieldItemStates(this.data, this.edgesData);
   this.validParentsByChild = helpers.validParentsByChild(this.edgesData, this.fieldItemStates, this.data);
@@ -1713,28 +2112,46 @@ function sortData(rows, selectedUnit) {
   };
 
   this.updateChartTitle = function() {
-    this.chartTitle = helpers.getChartTitle(this.chartTitle, this.chartTitles, this.selectedUnit);
+    this.chartTitle = helpers.getChartTitle(this.chartTitle, this.chartTitles, this.selectedUnit, this.selectedSeries);
   }
 
   this.updateSelectedUnit = function(selectedUnit) {
     this.selectedUnit = selectedUnit;
-
-    // if fields are dependent on the unit, reset:
     this.getData({
-      unitsChangeSeries: this.dataHasUnitSpecificFields
+      updateFields: this.dataHasUnitSpecificFields
     });
-
     this.onUnitsSelectedChanged.notify(selectedUnit);
+  };
+
+  this.updateSelectedSeries = function(selectedSeries) {
+    this.selectedSeries = selectedSeries;
+    this.getData({
+      updateFields: this.dataHasSeriesSpecificFields
+    });
+    this.onSeriesesSelectedChanged.notify(selectedSeries);
   };
 
   this.getData = function(options) {
     options = Object.assign({
       initial: false,
-      unitsChangeSeries: false
+      updateFields: false
     }, options);
 
-    var headlineWithoutUnit = helpers.getHeadline(this.selectableFields, this.data);
-    var headline = this.hasUnits ? helpers.getDataByUnit(headlineWithoutUnit, this.selectedUnit) : headlineWithoutUnit;
+    var headlineUnfiltered = helpers.getHeadline(this.selectableFields, this.data);
+    var headline;
+    if (this.hasUnits && !this.hasSerieses) {
+      headline = helpers.getDataByUnit(headlineUnfiltered, this.selectedUnit);
+    }
+    else if (this.hasSerieses && !this.hasUnits) {
+      headline = helpers.getDataBySeries(headlineUnfiltered, this.selectedSeries);
+    }
+    else if (this.hasSerieses && this.hasUnits) {
+      headline = helpers.getDataByUnit(headlineUnfiltered, this.selectedUnit);
+      headline = helpers.getDataBySeries(headline, this.selectedSeries);
+    }
+    else {
+      headline = headlineUnfiltered;
+    }
 
     // If this is the initial load, check for special cases.
     var selectionUpdateNeeded = false;
@@ -1751,15 +2168,38 @@ function sortData(rows, selectedUnit) {
         else {
           // If our selected unit causes the headline to be empty, change it
           // to the first one available that would work.
-          if (headlineWithoutUnit.length > 0 && headline.length === 0) {
-            startingUnit = helpers.getFirstUnitInData(headlineWithoutUnit);
+          if (headlineUnfiltered.length > 0 && headline.length === 0) {
+            startingUnit = helpers.getFirstUnitInData(headlineUnfiltered);
           }
         }
         // Re-query the headline if needed.
         if (this.selectedUnit !== startingUnit) {
-          headline = helpers.getDataByUnit(headlineWithoutUnit, startingUnit);
+          headline = helpers.getDataByUnit(headlineUnfiltered, startingUnit);
         }
         this.selectedUnit = startingUnit;
+      }
+
+      // Decide on a starting series.
+      if (this.hasSerieses) {
+        var startingSeries = this.selectedSeries;
+        if (this.startValues) {
+          var seriesInStartValues = helpers.getSeriesFromStartValues(this.startValues);
+          if (seriesInStartValues) {
+            startingSeries = seriesInStartValues;
+          }
+        }
+        else {
+          // If our selected series causes the headline to be empty, change it
+          // to the first one available that would work.
+          if (headlineUnfiltered.length > 0 && headline.length === 0) {
+            startingSeries = helpers.getFirstSeriesInData(headlineUnfiltered);
+          }
+        }
+        // Re-query the headline if needed.
+        if (this.selectedSeries !== startingSeries) {
+          headline = helpers.getDataBySeries(headlineUnfiltered, startingSeries);
+        }
+        this.selectedSeries = startingSeries;
       }
 
       // Decide on starting field values.
@@ -1781,15 +2221,23 @@ function sortData(rows, selectedUnit) {
         units: this.units,
         selectedUnit: this.selectedUnit
       });
+
+      this.onSeriesesComplete.notify({
+        serieses: this.serieses,
+        selectedSeries: this.selectedSeries
+      });
     }
 
-    if (options.initial || options.unitsChangeSeries) {
+    if (options.initial || options.updateFields) {
       this.onFieldsComplete.notify({
         fields: helpers.fieldItemStatesForView(
           this.fieldItemStates,
           this.fieldsByUnit,
           this.selectedUnit,
           this.dataHasUnitSpecificFields,
+          this.fieldsBySeries,
+          this.selectedSeries,
+          this.dataHasSeriesSpecificFields,
           this.selectedFields
         ),
         allowedFields: this.allowedFields,
@@ -1807,6 +2255,9 @@ function sortData(rows, selectedUnit) {
     var filteredData = helpers.getDataBySelectedFields(this.data, this.selectedFields);
     if (this.hasUnits) {
       filteredData = helpers.getDataByUnit(filteredData, this.selectedUnit);
+    }
+    if (this.hasSerieses) {
+      filteredData = helpers.getDataBySeries(filteredData, this.selectedSeries);
     }
 
     filteredData = helpers.sortData(filteredData, this.selectedUnit);
@@ -1841,6 +2292,7 @@ function sortData(rows, selectedUnit) {
       indicatorId: this.indicatorId,
       shortIndicatorId: this.shortIndicatorId,
       selectedUnit: this.selectedUnit,
+      selectedSeries: this.selectedSeries,
       footerFields: this.footerFields,
       graphLimits: this.graphLimits,
       stackedDisaggregation: this.stackedDisaggregation,
@@ -1964,9 +2416,16 @@ var indicatorView = function (model, options) {
     view_obj.initialiseUnits(args);
   });
 
+  this._model.onSeriesesComplete.attach(function(sender, args) {
+    view_obj.initialiseSerieses(args);
+  });
+
   this._model.onFieldsCleared.attach(function(sender, args) {
     $(view_obj._rootElement).find(':checkbox').prop('checked', false);
-    $(view_obj._rootElement).find('#clear').addClass('disabled').attr('aria-disabled', 'true');
+    $(view_obj._rootElement).find('#clear')
+      .addClass('disabled')
+      .attr('aria-disabled', 'true')
+      .attr('disabled', 'disabled');
 
     // reset available/unavailable fields
     updateWithSelectedFields();
@@ -1976,10 +2435,16 @@ var indicatorView = function (model, options) {
 
   this._model.onSelectionUpdate.attach(function(sender, args) {
     if (args.selectedFields.length) {
-      $(view_obj._rootElement).find('#clear').removeClass('disabled').attr('aria-disabled', 'false');
+      $(view_obj._rootElement).find('#clear')
+        .removeClass('disabled')
+        .attr('aria-disabled', 'false')
+        .removeAttr('disabled');
     }
     else {
-      $(view_obj._rootElement).find('#clear').addClass('disabled').attr('aria-disabled', 'true');
+      $(view_obj._rootElement).find('#clear')
+        .addClass('disabled')
+        .attr('aria-disabled', 'true')
+        .attr('disabled', 'disabled');
     }
 
     // loop through the available fields:
@@ -1994,7 +2459,14 @@ var indicatorView = function (model, options) {
       $(element).find('.bar .selected').css('width', width);
 
       // is this an allowed field:
-      $(element)[_.contains(args.allowedFields, currentField) ? 'removeClass' : 'addClass']('disallowed');
+      if (_.contains(args.allowedFields, currentField)) {
+        $(element).removeClass('disallowed');
+        $(element).find('> button').removeAttr('aria-describedby');
+      }
+      else {
+        $(element).addClass('disallowed');
+        $(element).find('> button').attr('aria-describedby', 'variable-hint-' + currentField);
+      }
     });
   });
 
@@ -2041,6 +2513,10 @@ var indicatorView = function (model, options) {
 
   $(this._rootElement).on('change', '#units input', function() {
     view_obj._model.updateSelectedUnit($(this).val());
+  });
+
+  $(this._rootElement).on('change', '#serieses input', function() {
+    view_obj._model.updateSelectedSeries($(this).val());
   });
 
   // generic helper function, used by clear all/select all and individual checkbox changes:
@@ -2118,7 +2594,7 @@ var indicatorView = function (model, options) {
       var template = _.template($("#item_template").html());
 
       if(!$('button#clear').length) {
-        $('<button id="clear" aria-disabled="true" class="disabled">' + translations.indicator.clear_selections + ' <i class="fa fa-remove"></i></button>').insertBefore('#fields');
+        $('<button id="clear" disabled="disabled" aria-disabled="true" class="disabled">' + translations.indicator.clear_selections + ' <i class="fa fa-remove"></i></button>').insertBefore('#fields');
       }
 
       $('#fields').html(template({
@@ -2149,6 +2625,21 @@ var indicatorView = function (model, options) {
     }
   };
 
+  this.initialiseSerieses = function(args) {
+    var template = _.template($('#series_template').html()),
+        serieses = args.serieses || [],
+        selectedSeries = args.selectedSeries || null;
+
+    $('#serieses').html(template({
+      serieses: serieses,
+      selectedSeries: selectedSeries
+    }));
+
+    if(!serieses.length) {
+      $(this._rootElement).addClass('no-serieses');
+    }
+  };
+
   this.alterChartConfig = function(config, info) {
     opensdg.chartConfigAlterations.forEach(function(callback) {
       callback(config, info);
@@ -2162,6 +2653,7 @@ var indicatorView = function (model, options) {
   }
 
   this.updatePlot = function(chartInfo) {
+    this.updateIndicatorDataViewStatus(view_obj._chartInstance.data.datasets, chartInfo.datasets);
     view_obj._chartInstance.data.datasets = chartInfo.datasets;
 
     if(chartInfo.selectedUnit) {
@@ -2184,7 +2676,7 @@ var indicatorView = function (model, options) {
     view_obj._chartInstance.update(1000, true);
 
     $(this._legendElement).html(view_obj._chartInstance.generateLegend());
-
+    view_obj.addLegendClickBehavior(this._legendElement, view_obj._chartInstance);
     view_obj.updateChartDownloadButton(chartInfo.selectionsTable);
   };
 
@@ -2232,16 +2724,18 @@ var indicatorView = function (model, options) {
           }]
         },
         legendCallback: function(chart) {
-            var text = ['<ul id="legend">'];
+            var text = ['<p id="legend-help" class="hide-during-image-download">' + translations.indicator.legend_help + '</p>'];
+            text.push('<ul id="legend" aria-labelledby="legend-help">');
 
             _.each(chart.data.datasets, function(dataset, datasetIndex) {
               text.push('<li data-datasetindex="' + datasetIndex + '">');
+              text.push('<button aria-pressed="false" aria-label="Press to hide the data set' + ' ' + dataset.label + '">')
               text.push('<span class="swatch' + (dataset.borderDash ? ' dashed' : '') + '" style="background-color: ' + dataset.borderColor + '">');
               text.push('</span>');
               text.push(translations.t(dataset.label));
+              text.push('</button>');
               text.push('</li>');
             });
-
             text.push('</ul>');
             return text.join('');
         },
@@ -2276,7 +2770,6 @@ var indicatorView = function (model, options) {
         var $canvas = $(that._rootElement).find('canvas'),
         font = '12px Arial',
         canvas = $canvas.get(0),
-        textRowHeight = 20,
         ctx = canvas.getContext("2d");
 
         ctx.font = font;
@@ -2287,8 +2780,8 @@ var indicatorView = function (model, options) {
     });
 
     this.createTableFooter('selectionChartFooter', chartInfo.footerFields, '#chart-canvas');
-    this.createDownloadButton(chartInfo.selectionsTable, 'Chart', chartInfo.indicatorId, '#selectionsChart');
-    this.createSourceButton(chartInfo.shortIndicatorId, '#selectionsChart');
+    this.createDownloadButton(chartInfo.selectionsTable, 'Chart', chartInfo.indicatorId, '#chartSelectionDownload');
+    this.createSourceButton(chartInfo.shortIndicatorId, '#chartSelectionDownload');
 
     $("#btnSave").click(function() {
       var filename = chartInfo.indicatorId + '.png',
@@ -2337,7 +2830,15 @@ var indicatorView = function (model, options) {
     });
 
     $(this._legendElement).html(view_obj._chartInstance.generateLegend());
+    view_obj.addLegendClickBehavior(this._legendElement, view_obj._chartInstance);
   };
+
+  this.addLegendClickBehavior = function(legendElement, chartInstance) {
+    $(legendElement).find('li').click(function(e) {
+      var isBeingPressed = !($(this).hasClass('notshown'));
+      $(this).find('button').attr('aria-pressed', isBeingPressed);
+    })
+  }
 
   this.getGridColor = function(contrast) {
     return this.isHighContrast(contrast) ? '#222' : '#ddd';
@@ -2433,8 +2934,9 @@ var indicatorView = function (model, options) {
   this.createSelectionsTable = function(chartInfo) {
     this.createTable(chartInfo.selectionsTable, chartInfo.indicatorId, '#selectionsTable', true);
     this.createTableFooter('selectionTableFooter', chartInfo.footerFields, '#selectionsTable');
-    this.createDownloadButton(chartInfo.selectionsTable, 'Table', chartInfo.indicatorId, '#selectionsTable');
-    this.createSourceButton(chartInfo.shortIndicatorId, '#selectionsTable');
+    $('#selectionsTable').append('<div id="tableSelectionDownload" class="clearfix"></div>');
+    this.createDownloadButton(chartInfo.selectionsTable, 'Table', chartInfo.indicatorId, '#tableSelectionDownload');
+    this.createSourceButton(chartInfo.shortIndicatorId, '#tableSelectionDownload');
   };
 
 
@@ -2514,6 +3016,45 @@ var indicatorView = function (model, options) {
     }
   }
 
+  this.updateIndicatorDataViewStatus = function(oldDatasets, newDatasets) {
+    var status = '',
+        hasData = newDatasets.length > 0,
+        dataAdded = newDatasets.length > oldDatasets.length,
+        dataRemoved = newDatasets.length < oldDatasets.length,
+        getDatasetLabel = function(dataset) { return dataset.label; },
+        oldLabels = oldDatasets.map(getDatasetLabel),
+        newLabels = newDatasets.map(getDatasetLabel);
+
+    if (!hasData) {
+      status = 'Chart and table shows no data.';
+    }
+    else if (dataAdded) {
+      status = 'Chart and table updated to include data.';
+      var addedLabels = [];
+      newLabels.forEach(function(label) {
+        if (!oldLabels.includes(label)) {
+          addedLabels.push(label);
+        }
+      });
+      status += ' ' + addedLabels.join(', ');
+    }
+    else if (dataRemoved) {
+      status = 'Chart and table updated to exclude data.';
+      var removedLabels = [];
+      oldLabels.forEach(function(label) {
+        if (!newLabels.includes(label)) {
+          removedLabels.push(label);
+        }
+      });
+      status += ' ' + removedLabels.join(', ');
+    }
+
+    var current = $('#indicator-data-view-status').text();
+    if (current != status) {
+      $('#indicator-data-view-status').text(status);
+    }
+  }
+
   this.createSourceButton = function(indicatorId, el) {
     var gaLabel = 'Download Source CSV: ' + indicatorId;
     $(el).append($('<a />').text(translations.indicator.download_source)
@@ -2527,6 +3068,15 @@ var indicatorView = function (model, options) {
     }));
   }
 
+  this.tableHasData = function(table) {
+    for (var i = 0; i < table.data.length; i++) {
+      if (table.data[i].length > 1) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   this.createTable = function(table, indicatorId, el) {
 
     options = options || {};
@@ -2536,7 +3086,7 @@ var indicatorView = function (model, options) {
     // clear:
     $(el).html('');
 
-    if(table && table.data.length) {
+    if(table && this.tableHasData(table)) {
       var currentTable = $('<table />').attr({
         'class': table_class,
         'width': '100%'
@@ -2547,9 +3097,9 @@ var indicatorView = function (model, options) {
       var table_head = '<thead><tr>';
 
       var getHeading = function(heading, index) {
-        var span = '<span class="sort" />';
-        var span_heading = '<span>' + translations.t(heading) + '</span>';
-        return (!index || heading.toLowerCase() == 'units') ? span_heading + span : span + span_heading;
+        var arrows = '<span class="sort"><i class="fa fa-sort-down"></i><i class="fa fa-sort-up"></i></span>';
+        var button = '<span tabindex="0" role="button" aria-describedby="column-sort-info">' + translations.t(heading) + '</span>';
+        return (!index || heading.toLowerCase() == 'units') ? button + arrows : arrows + button;
       };
 
       table.headings.forEach(function (heading, index) {
@@ -2579,8 +3129,17 @@ var indicatorView = function (model, options) {
       // initialise data table
       initialiseDataTable(el);
 
+      $(el).removeClass('table-has-no-data');
+
+      $(el).find('th')
+        .removeAttr('tabindex')
+        .click(function() {
+          var sortDirection = $(this).attr('aria-sort');
+          $(this).find('span[role="button"]').attr('aria-sort', sortDirection);
+        });
     } else {
-      $(el).append($('<p />').text('There is no data for this breakdown.'));
+      $(el).append($('<h3 />').text(translations.indicator.data_not_available));
+      $(el).addClass('table-has-no-data');
     }
   };
 
@@ -2589,9 +3148,12 @@ var indicatorView = function (model, options) {
       'id': divid,
       'class': 'table-footer-text'
     });
+    var footList = $('<dl>');
+    footdiv.append(footList);
 
     _.each(footerFields, function(val, key) {
-      footdiv.append($('<p />').text(key + ': ' + val));
+      footList.append($('<dt />').text(key + ': '));
+      footList.append($('<dd />').text(val));
     });
 
     $(el).append(footdiv);
@@ -2622,6 +3184,98 @@ indicatorController.prototype = {
     this._model.initialise();
   }
 };
+$(document).ready(function() {
+    $('.nav-tabs').each(function() {
+        var tabsList = $(this);
+        var tabs = tabsList.find('li > a');
+        var panes = tabsList.parent().find('.tab-pane');
+
+        panes.attr({
+            'class': 'tabPanel',
+            'role': 'tabpanel',
+            'aria-hidden': 'true',
+        }).hide();
+
+        tabsList.attr({
+            'role': 'tablist',
+        });
+
+        tabs.each(function(idx) {
+            var tab = $(this);
+            var tabId = 'tab-' + tab.attr('href').slice(1);
+            var pane = tabsList.parent().find(tab.attr('href'));
+
+            tab.attr({
+                'id': tabId,
+                'role': 'tab',
+                'aria-selected': 'false',
+                'tabindex': '-1',
+            }).parent().attr('role', 'presentation');
+
+            tab.removeAttr('href');
+
+            pane.attr('aria-labelledby', tabId);
+
+            tab.click(function(e) {
+                e.preventDefault();
+
+                tabsList.find('> li.active')
+                    .removeClass('active')
+                    .find('> a')
+                    .attr({
+                        'aria-selected': 'false',
+                        'tabindex': '-1',
+                    });
+                
+                panes.filter(':visible').attr('aria-hidden', 'true').hide();
+
+                pane.attr('aria-hidden', 'false').show();
+
+                tab.attr({
+                    'aria-selected': 'true',
+                    'tabindex': '0',
+                }).parent().addClass('active');
+                tab.focus();
+            });
+        });
+
+        // Show the first tabPanel
+        panes.first().attr('aria-hidden', 'false').show();
+
+        // Set state for the first tabsList li
+        tabsList.find('li:first').addClass('active').find(' > a').attr({
+            'aria-selected': 'true',
+            'tabindex': '0',
+        });
+
+        // Set keydown events on tabList item for navigating tabs
+        tabsList.delegate('a', 'keydown', function(e) {
+            var tab = $(this);
+            switch (e.which) {
+                case 37:
+                    if (tab.parent().prev().length != 0) {
+                        tab.parent().prev().find('> a').click();
+                        e.preventDefault();
+                    }
+                    else {
+                        tabsList.find('li:last > a').click();
+                        e.preventDefault();
+                    }
+                    break;
+                case 39:
+                    if (tab.parent().next().length != 0) {
+                        tab.parent().next().find('> a').click();
+                        e.preventDefault();
+                    }
+                    else {
+                        tabsList.find('li:first > a').click();
+                        e.preventDefault();
+                    }
+                    break;
+            }
+        });
+    });
+});
 var indicatorSearch = function() {
 
   var urlParams = new URLSearchParams(window.location.search);
@@ -2768,8 +3422,19 @@ var indicatorSearch = function() {
   // Helper function to get a boost score, if any.
   function getSearchFieldOptions(field) {
     var opts = {}
-    if (opensdg.searchIndexBoost[field]) {
-      opts['boost'] = parseInt(opensdg.searchIndexBoost[field])
+    // @deprecated start
+    if (opensdg.searchIndexBoost && !Array.isArray(opensdg.searchIndexBoost)) {
+      if (opensdg.searchIndexBoost[field]) {
+        opts['boost'] = parseInt(opensdg.searchIndexBoost[field])
+      }
+      return opts;
+    }
+    // @deprecated end
+    var fieldBoost = opensdg.searchIndexBoost.find(function(boost) {
+      return boost.field === field;
+    });
+    if (fieldBoost) {
+      opts['boost'] = parseInt(fieldBoost.boost)
     }
     return opts
   }
@@ -2871,6 +3536,7 @@ $(function() {
       targetEl.show();
       $(".top-level li button[data-target='" + target + "']").attr("aria-expanded", "true");
       $(this).parent().addClass('active');
+      $('#indicator_search').focus();
     }
   });
 

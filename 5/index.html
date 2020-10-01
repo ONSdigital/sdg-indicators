@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -90,11 +90,10 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            Goal 5 - Gender equality
-          
-        </title>
+        
+    <title>Goal 5 - Gender equality - U.K. Indicators For The Sustainable Development Goals</title>
+
+
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -122,7 +121,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201001115619">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201001122536">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -130,7 +129,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201001115619"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201001122536"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-goal-by-target-vertical">
@@ -141,7 +140,7 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
+  <div class="disclaimer-alert">
     <strong class="phase-tag">Alpha</strong>
     
     This is a development website – your <a href="https://www.surveymonkey.co.uk/r/SDGfeedback">feedback</a> will help us to improve it.
@@ -153,36 +152,39 @@ var translations = {
 <header role="banner">
   <div class="container">
 
-    <a class="navbar-brand" href="/sdg-indicators/" id="home">
-      <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
-    </a>
+    <div class="logo-and-mobile-widgets">
+      <a class="navbar-brand" href="/sdg-indicators/" id="home">
+        <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+      </a>
 
-  <div class='hidden visible-xs float-right'>
-    <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
+      <div class="mobile-widgets">
+        <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
+    </div>
 
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
         <li id="menuToggle"
             aria-label="Menu toggle. Click to expand or collapse the menu."
-            aria-haspopup="true"
-            aria-expanded="false">
-          <span data-target="menu" tabindex="0"
-          role="navigation">Menu</span>
+            aria-haspopup="true">
+          <button data-target="menu" aria-expanded="false">Menu</button>
         </li>
-        <li><span data-target="search">Search</span></li>
+        <li id="searchToggle"
+            aria-label="Search toggle. Click to expand or collapse the search bar."
+            aria-haspopup="true">
+          <button data-target="search" aria-expanded="false">Search</button>
+        </li>
       </ul>
 
       <div id="search" class="menu-target">
   <form action="/sdg-indicators/search">
-    <input name="q" id="indicator_search" title="Search" />
-    <label for="indicator_search">
-      <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
-    </label>
+    <input type="text" name="q" id="indicator_search" title="Search" />
+    <label class="sr-only" for="indicator_search">Search</label>
+    <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
-      
+
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/sdg-indicators/goals">Goals</a>
           </li><li class="nav-link ">
@@ -197,19 +199,28 @@ var translations = {
             <a href="/sdg-indicators/updates/">Updates</a>
           </li></ul>
 
-      
-
     </nav>
   </div>
 
 </header>
+<div id="top" tabindex=-1></div>
 
+
+<div class="container">
+  <ol class="breadcrumb">
+  
+  <li><a href="/sdg-indicators/">Home</a></li>
+  <li class="active">Goal 5</li>
+  
+</ol>
+
+</div>
 
 <div class="heading goal-banner goal-5">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2">
-        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/5.png" alt="Gender equality - Goal 5" />
+      <div class="col-xs-4 col-md-3 col-lg-2 goal-tiles">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/5.svg" alt="Gender equality - Goal 5" id="goal-5"/>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
@@ -220,14 +231,9 @@ var translations = {
   </div>
 </div>
 
-<div id="main-content" class="container goal-indicators goal-5">
+<div id="main-content" class="container">
 
   
-
-  <ol class="breadcrumb">
-    <li><a href="/sdg-indicators/">Home</a></li>
-    <li class="active">Goal 5</li>
-  </ol>
 
   <div class="container">
     <h2>Targets and indicators</h2>
@@ -235,15 +241,12 @@ var translations = {
     
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          5.1
-        </div>
-        <div class="col-md-11">
-          End all forms of discrimination against all women and girls everywhere
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 5.1</span>
+        </h3>
+        <span class="target-name">End all forms of discrimination against all women and girls everywhere</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -254,30 +257,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">5.1.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/5-1-1">Whether or not legal frameworks are in place to promote, enforce and monitor equality and non‐discrimination on the basis of sex</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 5.1.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/5-1-1">Whether or not legal frameworks are in place to promote, enforce and monitor equality and non‐discrimination on the basis of sex</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          5.2
-        </div>
-        <div class="col-md-11">
-          Eliminate all forms of violence against all women and girls in the public and private spheres, including trafficking and sexual and other types of exploitation
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 5.2</span>
+        </h3>
+        <span class="target-name">Eliminate all forms of violence against all women and girls in the public and private spheres, including trafficking and sexual and other types of exploitation</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -288,19 +288,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">5.2.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/5-2-1">Proportion of ever-partnered women and girls aged 15 years and older subjected to physical, sexual or psychological violence by a current or former intimate partner in the previous 12 months, by form of violence and by age</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 5.2.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/5-2-1">Proportion of ever-partnered women and girls aged 15 years and older subjected to physical, sexual or psychological violence by a current or former intimate partner in the previous 12 months, by form of violence and by age</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -311,30 +310,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">5.2.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/5-2-2">Proportion of women and girls aged 15 years and older subjected to sexual violence by persons other than an intimate partner in the previous 12 months, by age and place of occurrence</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 5.2.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/5-2-2">Proportion of women and girls aged 15 years and older subjected to sexual violence by persons other than an intimate partner in the previous 12 months, by age and place of occurrence</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          5.3
-        </div>
-        <div class="col-md-11">
-          Eliminate all harmful practices, such as child, early and forced marriage and female genital mutilation
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 5.3</span>
+        </h3>
+        <span class="target-name">Eliminate all harmful practices, such as child, early and forced marriage and female genital mutilation</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -345,19 +341,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">5.3.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/5-3-1">Proportion of women aged 20–24 years who were married or in a union before age 15 and before age 18</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 5.3.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/5-3-1">Proportion of women aged 20–24 years who were married or in a union before age 15 and before age 18</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -368,30 +363,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">5.3.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/5-3-2">Proportion of girls and women aged 15–49 years who have undergone female genital mutilation/cutting, by age</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 5.3.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/5-3-2">Proportion of girls and women aged 15–49 years who have undergone female genital mutilation/cutting, by age</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          5.4
-        </div>
-        <div class="col-md-11">
-          Recognize and value unpaid care and domestic work through the provision of public services, infrastructure and social protection policies and the promotion of shared responsibility within the household and the family as nationally appropriate
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 5.4</span>
+        </h3>
+        <span class="target-name">Recognize and value unpaid care and domestic work through the provision of public services, infrastructure and social protection policies and the promotion of shared responsibility within the household and the family as nationally appropriate</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -402,30 +394,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">5.4.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/5-4-1">Proportion of time spent on unpaid domestic and care work, by sex, age and location</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 5.4.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/5-4-1">Proportion of time spent on unpaid domestic and care work, by sex, age and location</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          5.5
-        </div>
-        <div class="col-md-11">
-          Ensure women’s full and effective participation and equal opportunities for leadership at all levels of decision-making in political, economic and public life
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 5.5</span>
+        </h3>
+        <span class="target-name">Ensure women’s full and effective participation and equal opportunities for leadership at all levels of decision-making in political, economic and public life</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -436,19 +425,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">5.5.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/5-5-1">Proportion of seats held by women in (a) national parliaments and (b) local governments</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 5.5.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/5-5-1">Proportion of seats held by women in (a) national parliaments and (b) local governments</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -459,30 +447,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">5.5.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/5-5-2">Proportion of women in managerial positions</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 5.5.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/5-5-2">Proportion of women in managerial positions</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          5.6
-        </div>
-        <div class="col-md-11">
-          Ensure universal access to sexual and reproductive health and reproductive rights as agreed in accordance with the Programme of Action of the International Conference on Population and Development and the Beijing Platform for Action and the outcome documents of their review conferences
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 5.6</span>
+        </h3>
+        <span class="target-name">Ensure universal access to sexual and reproductive health and reproductive rights as agreed in accordance with the Programme of Action of the International Conference on Population and Development and the Beijing Platform for Action and the outcome documents of their review conferences</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -493,19 +478,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">5.6.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/5-6-1">Proportion of women aged 15–49 years who make their own informed decisions regarding sexual relations, contraceptive use and reproductive health care</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 5.6.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/5-6-1">Proportion of women aged 15–49 years who make their own informed decisions regarding sexual relations, contraceptive use and reproductive health care</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -516,30 +500,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">5.6.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/5-6-2">Number of countries with laws and regulations that guarantee full and equal access to women and men aged 15 years and older to sexual and reproductive health care, information and education</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 5.6.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/5-6-2">Number of countries with laws and regulations that guarantee full and equal access to women and men aged 15 years and older to sexual and reproductive health care, information and education</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          5.a
-        </div>
-        <div class="col-md-11">
-          Undertake reforms to give women equal rights to economic resources, as well as access to ownership and control over land and other forms of property, financial services, inheritance and natural resources, in accordance with national laws
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 5.a</span>
+        </h3>
+        <span class="target-name">Undertake reforms to give women equal rights to economic resources, as well as access to ownership and control over land and other forms of property, financial services, inheritance and natural resources, in accordance with national laws</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -550,19 +531,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">5.a.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/5-a-1">(a) Proportion of total agricultural population with ownership or secure rights over agricultural land, by sex; and (b) share of women among owners or rights-bearers of agricultural land, by type of tenure</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 5.a.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/5-a-1">(a) Proportion of total agricultural population with ownership or secure rights over agricultural land, by sex; and (b) share of women among owners or rights-bearers of agricultural land, by type of tenure</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -573,30 +553,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">5.a.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/5-a-2">Proportion of countries where the legal framework (including customary law) guarantees women’s equal rights to land ownership and/or control</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 5.a.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/5-a-2">Proportion of countries where the legal framework (including customary law) guarantees women’s equal rights to land ownership and/or control</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          5.b
-        </div>
-        <div class="col-md-11">
-          Enhance the use of enabling technology, in particular information and communications technology, to promote the empowerment of women
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 5.b</span>
+        </h3>
+        <span class="target-name">Enhance the use of enabling technology, in particular information and communications technology, to promote the empowerment of women</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -607,30 +584,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">5.b.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/5-b-1">Proportion of individuals who own a mobile telephone, by sex</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 5.b.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/5-b-1">Proportion of individuals who own a mobile telephone, by sex</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          5.c
-        </div>
-        <div class="col-md-11">
-          Adopt and strengthen sound policies and enforceable legislation for the promotion of gender equality and the empowerment of all women and girls at all levels
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 5.c</span>
+        </h3>
+        <span class="target-name">Adopt and strengthen sound policies and enforceable legislation for the promotion of gender equality and the empowerment of all women and girls at all levels</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -641,17 +615,17 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">5.c.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/5-c-1">Proportion of countries with systems to track and make public allocations for gender equality and women’s empowerment</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 5.c.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/5-c-1">Proportion of countries with systems to track and make public allocations for gender equality and women’s empowerment</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
@@ -689,8 +663,7 @@ var translations = {
                 
                 </li>
               
-            
-          </ul>
+            </ul>
           <div id="oglLicense">
             <br />
             <img alt="Open Government Licence logo" src="/sdg-indicators/assets/img/OGL_logo.png" width="35px">All data is available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>, except where otherwise stated
@@ -721,12 +694,12 @@ var translations = {
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script>translations['general'] = translations['general'] || {};
-    translations['general']['hide'] = '';</script>
+    translations['general']['hide'] = 'hide';</script>
 
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20201001115619'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201001115619"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20201001122536'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201001122536"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

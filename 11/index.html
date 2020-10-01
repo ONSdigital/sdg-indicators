@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -90,11 +90,10 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            Goal 11 - Sustainable cities &amp; communities
-          
-        </title>
+        
+    <title>Goal 11 - Sustainable cities &amp; communities - U.K. Indicators For The Sustainable Development Goals</title>
+
+
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -122,7 +121,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201001115619">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201001122536">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -130,7 +129,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201001115619"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201001122536"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-goal-by-target-vertical">
@@ -141,7 +140,7 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
+  <div class="disclaimer-alert">
     <strong class="phase-tag">Alpha</strong>
     
     This is a development website – your <a href="https://www.surveymonkey.co.uk/r/SDGfeedback">feedback</a> will help us to improve it.
@@ -153,36 +152,39 @@ var translations = {
 <header role="banner">
   <div class="container">
 
-    <a class="navbar-brand" href="/sdg-indicators/" id="home">
-      <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
-    </a>
+    <div class="logo-and-mobile-widgets">
+      <a class="navbar-brand" href="/sdg-indicators/" id="home">
+        <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+      </a>
 
-  <div class='hidden visible-xs float-right'>
-    <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
+      <div class="mobile-widgets">
+        <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
+    </div>
 
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
         <li id="menuToggle"
             aria-label="Menu toggle. Click to expand or collapse the menu."
-            aria-haspopup="true"
-            aria-expanded="false">
-          <span data-target="menu" tabindex="0"
-          role="navigation">Menu</span>
+            aria-haspopup="true">
+          <button data-target="menu" aria-expanded="false">Menu</button>
         </li>
-        <li><span data-target="search">Search</span></li>
+        <li id="searchToggle"
+            aria-label="Search toggle. Click to expand or collapse the search bar."
+            aria-haspopup="true">
+          <button data-target="search" aria-expanded="false">Search</button>
+        </li>
       </ul>
 
       <div id="search" class="menu-target">
   <form action="/sdg-indicators/search">
-    <input name="q" id="indicator_search" title="Search" />
-    <label for="indicator_search">
-      <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
-    </label>
+    <input type="text" name="q" id="indicator_search" title="Search" />
+    <label class="sr-only" for="indicator_search">Search</label>
+    <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
-      
+
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/sdg-indicators/goals">Goals</a>
           </li><li class="nav-link ">
@@ -197,19 +199,28 @@ var translations = {
             <a href="/sdg-indicators/updates/">Updates</a>
           </li></ul>
 
-      
-
     </nav>
   </div>
 
 </header>
+<div id="top" tabindex=-1></div>
 
+
+<div class="container">
+  <ol class="breadcrumb">
+  
+  <li><a href="/sdg-indicators/">Home</a></li>
+  <li class="active">Goal 11</li>
+  
+</ol>
+
+</div>
 
 <div class="heading goal-banner goal-11">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2">
-        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/11.png" alt="Sustainable cities &amp; communities - Goal 11" />
+      <div class="col-xs-4 col-md-3 col-lg-2 goal-tiles">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/11.svg" alt="Sustainable cities &amp; communities - Goal 11" id="goal-11"/>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
@@ -220,14 +231,9 @@ var translations = {
   </div>
 </div>
 
-<div id="main-content" class="container goal-indicators goal-11">
+<div id="main-content" class="container">
 
   
-
-  <ol class="breadcrumb">
-    <li><a href="/sdg-indicators/">Home</a></li>
-    <li class="active">Goal 11</li>
-  </ol>
 
   <div class="container">
     <h2>Targets and indicators</h2>
@@ -235,15 +241,12 @@ var translations = {
     
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          11.1
-        </div>
-        <div class="col-md-11">
-          By 2030, ensure access for all to adequate, safe and affordable housing and basic services and upgrade slums
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 11.1</span>
+        </h3>
+        <span class="target-name">By 2030, ensure access for all to adequate, safe and affordable housing and basic services and upgrade slums</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -254,30 +257,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">11.1.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/11-1-1">Proportion of urban population living in slums, informal settlements or inadequate housing</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 11.1.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/11-1-1">Proportion of urban population living in slums, informal settlements or inadequate housing</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          11.2
-        </div>
-        <div class="col-md-11">
-          By 2030, provide access to safe, affordable, accessible and sustainable transport systems for all, improving road safety, notably by expanding public transport, with special attention to the needs of those in vulnerable situations, women, children, persons with disabilities and older persons
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 11.2</span>
+        </h3>
+        <span class="target-name">By 2030, provide access to safe, affordable, accessible and sustainable transport systems for all, improving road safety, notably by expanding public transport, with special attention to the needs of those in vulnerable situations, women, children, persons with disabilities and older persons</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -288,30 +288,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">11.2.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/11-2-1">Proportion of population that has convenient access to public transport, by sex, age and persons with disabilities</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 11.2.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/11-2-1">Proportion of population that has convenient access to public transport, by sex, age and persons with disabilities</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status notstarted">
               Exploring data sources
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          11.3
-        </div>
-        <div class="col-md-11">
-          By 2030, enhance inclusive and sustainable urbanization and capacity for participatory, integrated and sustainable human settlement planning and management in all countries
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 11.3</span>
+        </h3>
+        <span class="target-name">By 2030, enhance inclusive and sustainable urbanization and capacity for participatory, integrated and sustainable human settlement planning and management in all countries</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -322,19 +319,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">11.3.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/11-3-1">Ratio of land consumption rate to population growth rate</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 11.3.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/11-3-1">Ratio of land consumption rate to population growth rate</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -345,30 +341,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">11.3.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/11-3-2">Proportion of cities with a direct participation structure of civil society in urban planning and management that operate regularly and democratically</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 11.3.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/11-3-2">Proportion of cities with a direct participation structure of civil society in urban planning and management that operate regularly and democratically</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status notstarted">
               Exploring data sources
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          11.4
-        </div>
-        <div class="col-md-11">
-          Strengthen efforts to protect and safeguard the world’s cultural and natural heritage
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 11.4</span>
+        </h3>
+        <span class="target-name">Strengthen efforts to protect and safeguard the world’s cultural and natural heritage</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -379,30 +372,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">11.4.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/11-4-1">Total expenditure (public and private) per capita spent on the preservation, protection and conservation of all cultural and natural heritage, by type of heritage (cultural, natural, mixed and World Heritage Centre designation), level of government (national, regional and local/municipal), type of expenditure (operating expenditure/investment) and type of private funding (donations in kind, private non-profit sector and sponsorship)</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 11.4.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/11-4-1">Total expenditure (public and private) per capita spent on the preservation, protection and conservation of all cultural and natural heritage, by type of heritage (cultural, natural, mixed and World Heritage Centre designation), level of government (national, regional and local/municipal), type of expenditure (operating expenditure/investment) and type of private funding (donations in kind, private non-profit sector and sponsorship)</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          11.5
-        </div>
-        <div class="col-md-11">
-          By 2030, significantly reduce the number of deaths and the number of people affected and substantially decrease the direct economic losses relative to global gross domestic product caused by disasters, including water-related disasters, with a focus on protecting the poor and people in vulnerable situations
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 11.5</span>
+        </h3>
+        <span class="target-name">By 2030, significantly reduce the number of deaths and the number of people affected and substantially decrease the direct economic losses relative to global gross domestic product caused by disasters, including water-related disasters, with a focus on protecting the poor and people in vulnerable situations</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -413,19 +403,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">11.5.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/11-5-1">Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 11.5.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/11-5-1">Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -436,30 +425,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">11.5.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/11-5-2">Direct economic loss in relation to global GDP, damage to critical infrastructure and number of disruptions to basic services, attributed to disasters</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 11.5.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/11-5-2">Direct economic loss in relation to global GDP, damage to critical infrastructure and number of disruptions to basic services, attributed to disasters</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status notstarted">
               Exploring data sources
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          11.6
-        </div>
-        <div class="col-md-11">
-          By 2030, reduce the adverse per capita environmental impact of cities, including by paying special attention to air quality and municipal and other waste management
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 11.6</span>
+        </h3>
+        <span class="target-name">By 2030, reduce the adverse per capita environmental impact of cities, including by paying special attention to air quality and municipal and other waste management</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -470,19 +456,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">11.6.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/11-6-1">Proportion of urban solid waste regularly collected and with adequate final discharge out of total urban solid waste generated, by cities</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 11.6.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/11-6-1">Proportion of urban solid waste regularly collected and with adequate final discharge out of total urban solid waste generated, by cities</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -493,30 +478,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">11.6.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/11-6-2">Annual mean levels of fine particulate matter (e.g. PM2.5 and PM10) in cities (population weighted)</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 11.6.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/11-6-2">Annual mean levels of fine particulate matter (e.g. PM2.5 and PM10) in cities (population weighted)</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          11.7
-        </div>
-        <div class="col-md-11">
-          By 2030, provide universal access to safe, inclusive and accessible, green and public spaces, in particular for women and children, older persons and persons with disabilities
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 11.7</span>
+        </h3>
+        <span class="target-name">By 2030, provide universal access to safe, inclusive and accessible, green and public spaces, in particular for women and children, older persons and persons with disabilities</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -527,19 +509,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">11.7.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/11-7-1">Average share of the built-up area of cities that is open space for public use for all, by sex, age and persons with disabilities</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 11.7.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/11-7-1">Average share of the built-up area of cities that is open space for public use for all, by sex, age and persons with disabilities</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -550,30 +531,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">11.7.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/11-7-2">Proportion of persons victim of physical or sexual harassment, by sex, age, disability status and place of occurrence, in the previous 12 months</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 11.7.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/11-7-2">Proportion of persons victim of physical or sexual harassment, by sex, age, disability status and place of occurrence, in the previous 12 months</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          11.a
-        </div>
-        <div class="col-md-11">
-          Support positive economic, social and environmental links between urban, peri-urban and rural areas by strengthening national and regional development planning
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 11.a</span>
+        </h3>
+        <span class="target-name">Support positive economic, social and environmental links between urban, peri-urban and rural areas by strengthening national and regional development planning</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -584,30 +562,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">11.a.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/11-a-1">Proportion of population living in cities that implement urban and regional development plans integrating population projections and resource needs, by size of city</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 11.a.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/11-a-1">Proportion of population living in cities that implement urban and regional development plans integrating population projections and resource needs, by size of city</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status notstarted">
               Exploring data sources
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          11.b
-        </div>
-        <div class="col-md-11">
-          By 2020, substantially increase the number of cities and human settlements adopting and implementing integrated policies and plans towards inclusion, resource efficiency, mitigation and adaptation to climate change, resilience to disasters, and develop and implement, in line with the Sendai Framework for Disaster Risk Reduction 2015–2030, holistic disaster risk management at all levels
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 11.b</span>
+        </h3>
+        <span class="target-name">By 2020, substantially increase the number of cities and human settlements adopting and implementing integrated policies and plans towards inclusion, resource efficiency, mitigation and adaptation to climate change, resilience to disasters, and develop and implement, in line with the Sendai Framework for Disaster Risk Reduction 2015–2030, holistic disaster risk management at all levels</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -618,19 +593,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">11.b.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/11-b-1">Number of countries that adopt and implement national disaster risk reduction strategies in line with the Sendai Framework for Disaster Risk Reduction 2015–2030</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 11.b.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/11-b-1">Number of countries that adopt and implement national disaster risk reduction strategies in line with the Sendai Framework for Disaster Risk Reduction 2015–2030</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -641,30 +615,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">11.b.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/11-b-2">Proportion of local governments that adopt and implement local disaster risk reduction strategies in line with national disaster risk reduction strategies</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 11.b.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/11-b-2">Proportion of local governments that adopt and implement local disaster risk reduction strategies in line with national disaster risk reduction strategies</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          11.c
-        </div>
-        <div class="col-md-11">
-          Support least developed countries, including through financial and technical assistance, in building sustainable and resilient buildings utilizing local materials
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 11.c</span>
+        </h3>
+        <span class="target-name">Support least developed countries, including through financial and technical assistance, in building sustainable and resilient buildings utilizing local materials</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -675,17 +646,17 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">11.c.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/11-c-1">Proportion of financial support to the least developed countries that is allocated to the construction and retrofitting of sustainable, resilient and resource-efficient buildings utilizing local materials</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 11.c.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/11-c-1">Proportion of financial support to the least developed countries that is allocated to the construction and retrofitting of sustainable, resilient and resource-efficient buildings utilizing local materials</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
@@ -723,8 +694,7 @@ var translations = {
                 
                 </li>
               
-            
-          </ul>
+            </ul>
           <div id="oglLicense">
             <br />
             <img alt="Open Government Licence logo" src="/sdg-indicators/assets/img/OGL_logo.png" width="35px">All data is available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>, except where otherwise stated
@@ -755,12 +725,12 @@ var translations = {
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script>translations['general'] = translations['general'] || {};
-    translations['general']['hide'] = '';</script>
+    translations['general']['hide'] = 'hide';</script>
 
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20201001115619'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201001115619"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20201001122536'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201001122536"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -90,11 +90,10 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            Goal 17 - Partnerships for the goals
-          
-        </title>
+        
+    <title>Goal 17 - Partnerships for the goals - U.K. Indicators For The Sustainable Development Goals</title>
+
+
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -122,7 +121,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201001115619">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201001122536">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -130,7 +129,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201001115619"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201001122536"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-goal-by-target-vertical">
@@ -141,7 +140,7 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
+  <div class="disclaimer-alert">
     <strong class="phase-tag">Alpha</strong>
     
     This is a development website – your <a href="https://www.surveymonkey.co.uk/r/SDGfeedback">feedback</a> will help us to improve it.
@@ -153,36 +152,39 @@ var translations = {
 <header role="banner">
   <div class="container">
 
-    <a class="navbar-brand" href="/sdg-indicators/" id="home">
-      <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
-    </a>
+    <div class="logo-and-mobile-widgets">
+      <a class="navbar-brand" href="/sdg-indicators/" id="home">
+        <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+      </a>
 
-  <div class='hidden visible-xs float-right'>
-    <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
+      <div class="mobile-widgets">
+        <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
+    </div>
 
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
         <li id="menuToggle"
             aria-label="Menu toggle. Click to expand or collapse the menu."
-            aria-haspopup="true"
-            aria-expanded="false">
-          <span data-target="menu" tabindex="0"
-          role="navigation">Menu</span>
+            aria-haspopup="true">
+          <button data-target="menu" aria-expanded="false">Menu</button>
         </li>
-        <li><span data-target="search">Search</span></li>
+        <li id="searchToggle"
+            aria-label="Search toggle. Click to expand or collapse the search bar."
+            aria-haspopup="true">
+          <button data-target="search" aria-expanded="false">Search</button>
+        </li>
       </ul>
 
       <div id="search" class="menu-target">
   <form action="/sdg-indicators/search">
-    <input name="q" id="indicator_search" title="Search" />
-    <label for="indicator_search">
-      <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
-    </label>
+    <input type="text" name="q" id="indicator_search" title="Search" />
+    <label class="sr-only" for="indicator_search">Search</label>
+    <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
-      
+
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/sdg-indicators/goals">Goals</a>
           </li><li class="nav-link ">
@@ -197,19 +199,28 @@ var translations = {
             <a href="/sdg-indicators/updates/">Updates</a>
           </li></ul>
 
-      
-
     </nav>
   </div>
 
 </header>
+<div id="top" tabindex=-1></div>
 
+
+<div class="container">
+  <ol class="breadcrumb">
+  
+  <li><a href="/sdg-indicators/">Home</a></li>
+  <li class="active">Goal 17</li>
+  
+</ol>
+
+</div>
 
 <div class="heading goal-banner goal-17">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2">
-        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/17.png" alt="Partnerships for the goals - Goal 17" />
+      <div class="col-xs-4 col-md-3 col-lg-2 goal-tiles">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/17.svg" alt="Partnerships for the goals - Goal 17" id="goal-17"/>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
@@ -220,14 +231,9 @@ var translations = {
   </div>
 </div>
 
-<div id="main-content" class="container goal-indicators goal-17">
+<div id="main-content" class="container">
 
   
-
-  <ol class="breadcrumb">
-    <li><a href="/sdg-indicators/">Home</a></li>
-    <li class="active">Goal 17</li>
-  </ol>
 
   <div class="container">
     <h2>Targets and indicators</h2>
@@ -235,15 +241,12 @@ var translations = {
     
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          17.1
-        </div>
-        <div class="col-md-11">
-          Strengthen domestic resource mobilization, including through international support to developing countries, to improve domestic capacity for tax and other revenue collection
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 17.1</span>
+        </h3>
+        <span class="target-name">Strengthen domestic resource mobilization, including through international support to developing countries, to improve domestic capacity for tax and other revenue collection</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -254,19 +257,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.1.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-1-1">Total government revenue as a proportion of GDP, by source</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.1.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-1-1">Total government revenue as a proportion of GDP, by source</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -277,30 +279,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.1.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-1-2">Proportion of domestic budget funded by domestic taxes</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.1.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-1-2">Proportion of domestic budget funded by domestic taxes</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          17.2
-        </div>
-        <div class="col-md-11">
-          Developed countries to implement fully their official development assistance commitments, including the commitment by many developed countries to achieve the target of 0.7 per cent of gross national income for official development assistance (ODA/GNI) to developing countries and 0.15 to 0.20 per cent of ODA/GNI to least developed countries; ODA providers are encouraged to consider setting a target to provide at least 0.20 per cent of ODA/GNI to least developed countries
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 17.2</span>
+        </h3>
+        <span class="target-name">Developed countries to implement fully their official development assistance commitments, including the commitment by many developed countries to achieve the target of 0.7 per cent of gross national income for official development assistance (ODA/GNI) to developing countries and 0.15 to 0.20 per cent of ODA/GNI to least developed countries; ODA providers are encouraged to consider setting a target to provide at least 0.20 per cent of ODA/GNI to least developed countries</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -311,30 +310,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.2.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-2-1">Net official development assistance, total and to least developed countries, as a proportion of the Organization for Economic Cooperation and Development (OECD) Development Assistance Committee donors’ gross national income (GNI)</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.2.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-2-1">Net official development assistance, total and to least developed countries, as a proportion of the Organization for Economic Cooperation and Development (OECD) Development Assistance Committee donors’ gross national income (GNI)</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          17.3
-        </div>
-        <div class="col-md-11">
-          Mobilize additional financial resources for developing countries from multiple sources
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 17.3</span>
+        </h3>
+        <span class="target-name">Mobilize additional financial resources for developing countries from multiple sources</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -345,19 +341,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.3.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-3-1">Foreign direct investment (FDI), official development assistance and South-South cooperation as a proportion of total domestic budget</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.3.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-3-1">Foreign direct investment (FDI), official development assistance and South-South cooperation as a proportion of total domestic budget</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status notstarted">
               Exploring data sources
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -368,30 +363,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.3.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-3-2">Volume of remittances (in United States dollars) as a proportion of total GDP</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.3.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-3-2">Volume of remittances (in United States dollars) as a proportion of total GDP</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          17.4
-        </div>
-        <div class="col-md-11">
-          Assist developing countries in attaining long-term debt sustainability through coordinated policies aimed at fostering debt financing, debt relief and debt restructuring, as appropriate, and address the external debt of highly indebted poor countries to reduce debt distress
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 17.4</span>
+        </h3>
+        <span class="target-name">Assist developing countries in attaining long-term debt sustainability through coordinated policies aimed at fostering debt financing, debt relief and debt restructuring, as appropriate, and address the external debt of highly indebted poor countries to reduce debt distress</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -402,30 +394,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.4.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-4-1">Debt service as a proportion of exports of goods and services</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.4.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-4-1">Debt service as a proportion of exports of goods and services</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status notstarted">
               Exploring data sources
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          17.5
-        </div>
-        <div class="col-md-11">
-          Adopt and implement investment promotion regimes for least developed countries
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 17.5</span>
+        </h3>
+        <span class="target-name">Adopt and implement investment promotion regimes for least developed countries</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -436,30 +425,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.5.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-5-1">Number of countries that adopt and implement investment promotion regimes for least developed countries</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.5.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-5-1">Number of countries that adopt and implement investment promotion regimes for least developed countries</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status notstarted">
               Exploring data sources
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          17.6
-        </div>
-        <div class="col-md-11">
-          Enhance North-South, South-South and triangular regional and international cooperation on and access to science, technology and innovation and enhance knowledge-sharing on mutually agreed terms, including through improved coordination among existing mechanisms, in particular at the United Nations level, and through a global technology facilitation mechanism
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 17.6</span>
+        </h3>
+        <span class="target-name">Enhance North-South, South-South and triangular regional and international cooperation on and access to science, technology and innovation and enhance knowledge-sharing on mutually agreed terms, including through improved coordination among existing mechanisms, in particular at the United Nations level, and through a global technology facilitation mechanism</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -470,19 +456,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.6.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-6-1">Number of science and/or technology cooperation agreements and programmes between countries, by type of cooperation</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.6.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-6-1">Number of science and/or technology cooperation agreements and programmes between countries, by type of cooperation</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status notstarted">
               Exploring data sources
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -493,30 +478,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.6.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-6-2">Fixed Internet broadband subscriptions per 100 inhabitants, by speed</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.6.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-6-2">Fixed Internet broadband subscriptions per 100 inhabitants, by speed</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          17.7
-        </div>
-        <div class="col-md-11">
-          Promote the development, transfer, dissemination and diffusion of environmentally sound technologies to developing countries on favourable terms, including on concessional and preferential terms, as mutually agreed
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 17.7</span>
+        </h3>
+        <span class="target-name">Promote the development, transfer, dissemination and diffusion of environmentally sound technologies to developing countries on favourable terms, including on concessional and preferential terms, as mutually agreed</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -527,30 +509,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.7.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-7-1">Total amount of approved funding for developing countries to promote the development, transfer, dissemination and diffusion of environmentally sound technologies</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.7.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-7-1">Total amount of approved funding for developing countries to promote the development, transfer, dissemination and diffusion of environmentally sound technologies</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status notstarted">
               Exploring data sources
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          17.8
-        </div>
-        <div class="col-md-11">
-          Fully operationalize the technology bank and science, technology and innovation capacity-building mechanism for least developed countries by 2017 and enhance the use of enabling technology, in particular information and communications technology
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 17.8</span>
+        </h3>
+        <span class="target-name">Fully operationalize the technology bank and science, technology and innovation capacity-building mechanism for least developed countries by 2017 and enhance the use of enabling technology, in particular information and communications technology</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -561,30 +540,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.8.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-8-1">Proportion of individuals using the Internet</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.8.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-8-1">Proportion of individuals using the Internet</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          17.9
-        </div>
-        <div class="col-md-11">
-          Enhance international support for implementing effective and targeted capacity-building in developing countries to support national plans to implement all the Sustainable Development Goals, including through North-South, South-South and triangular cooperation
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 17.9</span>
+        </h3>
+        <span class="target-name">Enhance international support for implementing effective and targeted capacity-building in developing countries to support national plans to implement all the Sustainable Development Goals, including through North-South, South-South and triangular cooperation</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -595,30 +571,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.9.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-9-1">Dollar value of financial and technical assistance (including through North-South, South‐South and triangular cooperation) committed to developing countries</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.9.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-9-1">Dollar value of financial and technical assistance (including through North-South, South‐South and triangular cooperation) committed to developing countries</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          17.10
-        </div>
-        <div class="col-md-11">
-          Promote a universal, rules-based, open, non‐discriminatory and equitable multilateral trading system under the World Trade Organization, including through the conclusion of negotiations under its Doha Development Agenda
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 17.10</span>
+        </h3>
+        <span class="target-name">Promote a universal, rules-based, open, non‐discriminatory and equitable multilateral trading system under the World Trade Organization, including through the conclusion of negotiations under its Doha Development Agenda</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -629,30 +602,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.10.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-10-1">Worldwide weighted tariff-average</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.10.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-10-1">Worldwide weighted tariff-average</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status notstarted">
               Exploring data sources
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          17.11
-        </div>
-        <div class="col-md-11">
-          Significantly increase the exports of developing countries, in particular with a view to doubling the least developed countries’ share of global exports by 2020
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 17.11</span>
+        </h3>
+        <span class="target-name">Significantly increase the exports of developing countries, in particular with a view to doubling the least developed countries’ share of global exports by 2020</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -663,30 +633,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.11.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-11-1">Developing countries’ and least developed countries’ share of global exports</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.11.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-11-1">Developing countries’ and least developed countries’ share of global exports</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          17.12
-        </div>
-        <div class="col-md-11">
-          Realize timely implementation of duty-free and quota-free market access on a lasting basis for all least developed countries, consistent with World Trade Organization decisions, including by ensuring that preferential rules of origin applicable to imports from least developed countries are transparent and simple, and contribute to facilitating market access
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 17.12</span>
+        </h3>
+        <span class="target-name">Realize timely implementation of duty-free and quota-free market access on a lasting basis for all least developed countries, consistent with World Trade Organization decisions, including by ensuring that preferential rules of origin applicable to imports from least developed countries are transparent and simple, and contribute to facilitating market access</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -697,30 +664,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.12.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-12-1">Average tariffs faced by developing countries, least developed countries and small island developing States</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.12.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-12-1">Average tariffs faced by developing countries, least developed countries and small island developing States</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status notstarted">
               Exploring data sources
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          17.13
-        </div>
-        <div class="col-md-11">
-          Enhance global macroeconomic stability, including through policy coordination and policy coherence
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 17.13</span>
+        </h3>
+        <span class="target-name">Enhance global macroeconomic stability, including through policy coordination and policy coherence</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -731,30 +695,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.13.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-13-1">Macroeconomic Dashboard</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.13.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-13-1">Macroeconomic Dashboard</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          17.14
-        </div>
-        <div class="col-md-11">
-          Enhance policy coherence for sustainable development
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 17.14</span>
+        </h3>
+        <span class="target-name">Enhance policy coherence for sustainable development</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -765,30 +726,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.14.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-14-1">Number of countries with mechanisms in place to enhance policy coherence of sustainable development</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.14.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-14-1">Number of countries with mechanisms in place to enhance policy coherence of sustainable development</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          17.15
-        </div>
-        <div class="col-md-11">
-          Respect each country’s policy space and leadership to establish and implement policies for poverty eradication and sustainable development
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 17.15</span>
+        </h3>
+        <span class="target-name">Respect each country’s policy space and leadership to establish and implement policies for poverty eradication and sustainable development</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -799,30 +757,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.15.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-15-1">Extent of use of country-owned results frameworks and planning tools by providers of development cooperation</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.15.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-15-1">Extent of use of country-owned results frameworks and planning tools by providers of development cooperation</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status notstarted">
               Exploring data sources
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          17.16
-        </div>
-        <div class="col-md-11">
-          Enhance the Global Partnership for Sustainable Development, complemented by multi-stakeholder partnerships that mobilize and share knowledge, expertise, technology and financial resources, to support the achievement of the Sustainable Development Goals in all countries, in particular developing countries
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 17.16</span>
+        </h3>
+        <span class="target-name">Enhance the Global Partnership for Sustainable Development, complemented by multi-stakeholder partnerships that mobilize and share knowledge, expertise, technology and financial resources, to support the achievement of the Sustainable Development Goals in all countries, in particular developing countries</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -833,30 +788,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.16.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-16-1">Number of countries reporting progress in multi-stakeholder development effectiveness monitoring frameworks that support the achievement of the sustainable development goals</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.16.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-16-1">Number of countries reporting progress in multi-stakeholder development effectiveness monitoring frameworks that support the achievement of the sustainable development goals</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          17.17
-        </div>
-        <div class="col-md-11">
-          Encourage and promote effective public, public-private and civil society partnerships, building on the experience and resourcing strategies of partnerships
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 17.17</span>
+        </h3>
+        <span class="target-name">Encourage and promote effective public, public-private and civil society partnerships, building on the experience and resourcing strategies of partnerships</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -867,30 +819,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.17.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-17-1">Amount of United States dollars committed to public-private and civil society partnerships</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.17.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-17-1">Amount of United States dollars committed to public-private and civil society partnerships</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status notstarted">
               Exploring data sources
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          17.18
-        </div>
-        <div class="col-md-11">
-          By 2020, enhance capacity-building support to developing countries, including for least developed countries and small island developing States, to increase significantly the availability of high-quality, timely and reliable data disaggregated by income, gender, age, race, ethnicity, migratory status, disability, geographic location and other characteristics relevant in national contexts
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 17.18</span>
+        </h3>
+        <span class="target-name">By 2020, enhance capacity-building support to developing countries, including for least developed countries and small island developing States, to increase significantly the availability of high-quality, timely and reliable data disaggregated by income, gender, age, race, ethnicity, migratory status, disability, geographic location and other characteristics relevant in national contexts</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -901,19 +850,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.18.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-18-1">Proportion of sustainable development indicators produced at the national level with full disaggregation when relevant to the target, in accordance with the Fundamental Principles of Official Statistics</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.18.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-18-1">Proportion of sustainable development indicators produced at the national level with full disaggregation when relevant to the target, in accordance with the Fundamental Principles of Official Statistics</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status notstarted">
               Exploring data sources
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -924,19 +872,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.18.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-18-2">Number of countries that have national statistical legislation that complies with the Fundamental Principles of Official Statistics</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.18.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-18-2">Number of countries that have national statistical legislation that complies with the Fundamental Principles of Official Statistics</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -947,30 +894,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.18.3</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-18-3">Number of countries with a national statistical plan that is fully funded and under implementation, by source of funding</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.18.3</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-18-3">Number of countries with a national statistical plan that is fully funded and under implementation, by source of funding</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          17.19
-        </div>
-        <div class="col-md-11">
-          By 2030, build on existing initiatives to develop measurements of progress on sustainable development that complement gross domestic product, and support statistical capacity-building in developing countries
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 17.19</span>
+        </h3>
+        <span class="target-name">By 2030, build on existing initiatives to develop measurements of progress on sustainable development that complement gross domestic product, and support statistical capacity-building in developing countries</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -981,19 +925,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.19.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-19-1">Dollar value of all resources made available to strengthen statistical capacity in developing countries</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.19.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-19-1">Dollar value of all resources made available to strengthen statistical capacity in developing countries</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -1004,17 +947,17 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">17.19.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/17-19-2">Proportion of countries that (a) have conducted at least one population and housing census in the last 10 years; and (b) have achieved 100 per cent birth registration and 80 per cent death registration</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 17.19.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/17-19-2">Proportion of countries that (a) have conducted at least one population and housing census in the last 10 years; and (b) have achieved 100 per cent birth registration and 80 per cent death registration</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
@@ -1052,8 +995,7 @@ var translations = {
                 
                 </li>
               
-            
-          </ul>
+            </ul>
           <div id="oglLicense">
             <br />
             <img alt="Open Government Licence logo" src="/sdg-indicators/assets/img/OGL_logo.png" width="35px">All data is available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>, except where otherwise stated
@@ -1084,12 +1026,12 @@ var translations = {
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script>translations['general'] = translations['general'] || {};
-    translations['general']['hide'] = '';</script>
+    translations['general']['hide'] = 'hide';</script>
 
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20201001115619'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201001115619"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20201001122536'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201001122536"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

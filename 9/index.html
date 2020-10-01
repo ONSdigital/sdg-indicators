@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -90,11 +90,10 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            Goal 9 - Industry, innovation and infrastructure
-          
-        </title>
+        
+    <title>Goal 9 - Industry, innovation and infrastructure - U.K. Indicators For The Sustainable Development Goals</title>
+
+
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -122,7 +121,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201001115619">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201001122536">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -130,7 +129,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201001115619"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201001122536"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-goal-by-target-vertical">
@@ -141,7 +140,7 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
+  <div class="disclaimer-alert">
     <strong class="phase-tag">Alpha</strong>
     
     This is a development website – your <a href="https://www.surveymonkey.co.uk/r/SDGfeedback">feedback</a> will help us to improve it.
@@ -153,36 +152,39 @@ var translations = {
 <header role="banner">
   <div class="container">
 
-    <a class="navbar-brand" href="/sdg-indicators/" id="home">
-      <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
-    </a>
+    <div class="logo-and-mobile-widgets">
+      <a class="navbar-brand" href="/sdg-indicators/" id="home">
+        <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+      </a>
 
-  <div class='hidden visible-xs float-right'>
-    <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
+      <div class="mobile-widgets">
+        <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
+    </div>
 
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
         <li id="menuToggle"
             aria-label="Menu toggle. Click to expand or collapse the menu."
-            aria-haspopup="true"
-            aria-expanded="false">
-          <span data-target="menu" tabindex="0"
-          role="navigation">Menu</span>
+            aria-haspopup="true">
+          <button data-target="menu" aria-expanded="false">Menu</button>
         </li>
-        <li><span data-target="search">Search</span></li>
+        <li id="searchToggle"
+            aria-label="Search toggle. Click to expand or collapse the search bar."
+            aria-haspopup="true">
+          <button data-target="search" aria-expanded="false">Search</button>
+        </li>
       </ul>
 
       <div id="search" class="menu-target">
   <form action="/sdg-indicators/search">
-    <input name="q" id="indicator_search" title="Search" />
-    <label for="indicator_search">
-      <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
-    </label>
+    <input type="text" name="q" id="indicator_search" title="Search" />
+    <label class="sr-only" for="indicator_search">Search</label>
+    <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
-      
+
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/sdg-indicators/goals">Goals</a>
           </li><li class="nav-link ">
@@ -197,19 +199,28 @@ var translations = {
             <a href="/sdg-indicators/updates/">Updates</a>
           </li></ul>
 
-      
-
     </nav>
   </div>
 
 </header>
+<div id="top" tabindex=-1></div>
 
+
+<div class="container">
+  <ol class="breadcrumb">
+  
+  <li><a href="/sdg-indicators/">Home</a></li>
+  <li class="active">Goal 9</li>
+  
+</ol>
+
+</div>
 
 <div class="heading goal-banner goal-9">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2">
-        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/9.png" alt="Industry, innovation and infrastructure - Goal 9" />
+      <div class="col-xs-4 col-md-3 col-lg-2 goal-tiles">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/9.svg" alt="Industry, innovation and infrastructure - Goal 9" id="goal-9"/>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
@@ -220,14 +231,9 @@ var translations = {
   </div>
 </div>
 
-<div id="main-content" class="container goal-indicators goal-9">
+<div id="main-content" class="container">
 
   
-
-  <ol class="breadcrumb">
-    <li><a href="/sdg-indicators/">Home</a></li>
-    <li class="active">Goal 9</li>
-  </ol>
 
   <div class="container">
     <h2>Targets and indicators</h2>
@@ -235,15 +241,12 @@ var translations = {
     
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          9.1
-        </div>
-        <div class="col-md-11">
-          Develop quality, reliable, sustainable and resilient infrastructure, including regional and transborder infrastructure, to support economic development and human well-being, with a focus on affordable and equitable access for all
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 9.1</span>
+        </h3>
+        <span class="target-name">Develop quality, reliable, sustainable and resilient infrastructure, including regional and transborder infrastructure, to support economic development and human well-being, with a focus on affordable and equitable access for all</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -254,19 +257,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">9.1.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/9-1-1">Proportion of the rural population who live within 2 km of an all-season road</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 9.1.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/9-1-1">Proportion of the rural population who live within 2 km of an all-season road</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -277,30 +279,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">9.1.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/9-1-2">Passenger and freight volumes, by mode of transport</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 9.1.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/9-1-2">Passenger and freight volumes, by mode of transport</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          9.2
-        </div>
-        <div class="col-md-11">
-          Promote inclusive and sustainable industrialization and, by 2030, significantly raise industry’s share of employment and gross domestic product, in line with national circumstances, and double its share in least developed countries
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 9.2</span>
+        </h3>
+        <span class="target-name">Promote inclusive and sustainable industrialization and, by 2030, significantly raise industry’s share of employment and gross domestic product, in line with national circumstances, and double its share in least developed countries</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -311,19 +310,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">9.2.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/9-2-1">Manufacturing value added as a proportion of GDP and per capita</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 9.2.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/9-2-1">Manufacturing value added as a proportion of GDP and per capita</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -334,30 +332,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">9.2.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/9-2-2">9.2.2 Manufacturing employment as a proportion of total employment</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 9.2.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/9-2-2">9.2.2 Manufacturing employment as a proportion of total employment</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          9.3
-        </div>
-        <div class="col-md-11">
-          Increase the access of small-scale industrial and other enterprises, in particular in developing countries, to financial services, including affordable credit, and their integration into value chains and markets
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 9.3</span>
+        </h3>
+        <span class="target-name">Increase the access of small-scale industrial and other enterprises, in particular in developing countries, to financial services, including affordable credit, and their integration into value chains and markets</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -368,19 +363,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">9.3.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/9-3-1">Proportion of small-scale industries in total industry value added</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 9.3.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/9-3-1">Proportion of small-scale industries in total industry value added</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -391,30 +385,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">9.3.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/9-3-2">Proportion of small-scale industries with a loan or line of credit</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 9.3.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/9-3-2">Proportion of small-scale industries with a loan or line of credit</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status notstarted">
               Exploring data sources
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          9.4
-        </div>
-        <div class="col-md-11">
-          By 2030, upgrade infrastructure and retrofit industries to make them sustainable, with increased resource-use efficiency and greater adoption of clean and environmentally sound technologies and industrial processes, with all countries taking action in accordance with their respective capabilities
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 9.4</span>
+        </h3>
+        <span class="target-name">By 2030, upgrade infrastructure and retrofit industries to make them sustainable, with increased resource-use efficiency and greater adoption of clean and environmentally sound technologies and industrial processes, with all countries taking action in accordance with their respective capabilities</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -425,30 +416,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">9.4.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/9-4-1">CO2 emission per unit of value added</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 9.4.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/9-4-1">CO2 emission per unit of value added</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          9.5
-        </div>
-        <div class="col-md-11">
-          Enhance scientific research, upgrade the technological capabilities of industrial sectors in all countries, in particular developing countries, including, by 2030, encouraging innovation and substantially increasing the number of research and development workers per 1 million people and public and private research and development spending
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 9.5</span>
+        </h3>
+        <span class="target-name">Enhance scientific research, upgrade the technological capabilities of industrial sectors in all countries, in particular developing countries, including, by 2030, encouraging innovation and substantially increasing the number of research and development workers per 1 million people and public and private research and development spending</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -459,19 +447,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">9.5.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/9-5-1">Research and development expenditure as a proportion of GDP</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 9.5.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/9-5-1">Research and development expenditure as a proportion of GDP</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -482,30 +469,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">9.5.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/9-5-2">Researchers (in full-time equivalent) per million inhabitants</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 9.5.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/9-5-2">Researchers (in full-time equivalent) per million inhabitants</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          9.a
-        </div>
-        <div class="col-md-11">
-          Facilitate sustainable and resilient infrastructure development in developing countries through enhanced financial, technological and technical support to African countries, least developed countries, landlocked developing countries and small island developing States
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 9.a</span>
+        </h3>
+        <span class="target-name">Facilitate sustainable and resilient infrastructure development in developing countries through enhanced financial, technological and technical support to African countries, least developed countries, landlocked developing countries and small island developing States</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -516,30 +500,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">9.a.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/9-a-1">Total official international support (official development assistance plus other official flows) to infrastructure</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 9.a.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/9-a-1">Total official international support (official development assistance plus other official flows) to infrastructure</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          9.b
-        </div>
-        <div class="col-md-11">
-          Support domestic technology development, research and innovation in developing countries, including by ensuring a conducive policy environment for, inter alia, industrial diversification and value addition to commodities
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 9.b</span>
+        </h3>
+        <span class="target-name">Support domestic technology development, research and innovation in developing countries, including by ensuring a conducive policy environment for, inter alia, industrial diversification and value addition to commodities</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -550,30 +531,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">9.b.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/9-b-1">Proportion of medium and high-tech industry value added in total value added</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 9.b.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/9-b-1">Proportion of medium and high-tech industry value added in total value added</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          9.c
-        </div>
-        <div class="col-md-11">
-          Significantly increase access to information and communications technology and strive to provide universal and affordable access to the Internet in least developed countries by 2020
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 9.c</span>
+        </h3>
+        <span class="target-name">Significantly increase access to information and communications technology and strive to provide universal and affordable access to the Internet in least developed countries by 2020</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -584,17 +562,17 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">9.c.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/9-c-1">Proportion of population covered by a mobile network, by technology</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 9.c.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/9-c-1">Proportion of population covered by a mobile network, by technology</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
@@ -632,8 +610,7 @@ var translations = {
                 
                 </li>
               
-            
-          </ul>
+            </ul>
           <div id="oglLicense">
             <br />
             <img alt="Open Government Licence logo" src="/sdg-indicators/assets/img/OGL_logo.png" width="35px">All data is available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>, except where otherwise stated
@@ -664,12 +641,12 @@ var translations = {
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script>translations['general'] = translations['general'] || {};
-    translations['general']['hide'] = '';</script>
+    translations['general']['hide'] = 'hide';</script>
 
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20201001115619'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201001115619"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20201001122536'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201001122536"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

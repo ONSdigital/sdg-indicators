@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -90,11 +90,10 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            Indicator 9.1.1 - Goal 9
-          
-        </title>
+        
+    <title>Indicator 9.1.1 - Proportion of the rural population who live within 2 km of an all-season road - U.K. Indicators For The Sustainable Development Goals</title>
+
+
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -122,7 +121,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201001115619">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201001122536">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -130,7 +129,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201001115619"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201001122536"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -141,7 +140,7 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
+  <div class="disclaimer-alert">
     <strong class="phase-tag">Alpha</strong>
     
     This is a development website – your <a href="https://www.surveymonkey.co.uk/r/SDGfeedback">feedback</a> will help us to improve it.
@@ -153,36 +152,39 @@ var translations = {
 <header role="banner">
   <div class="container">
 
-    <a class="navbar-brand" href="/sdg-indicators/" id="home">
-      <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
-    </a>
+    <div class="logo-and-mobile-widgets">
+      <a class="navbar-brand" href="/sdg-indicators/" id="home">
+        <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+      </a>
 
-  <div class='hidden visible-xs float-right'>
-    <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
+      <div class="mobile-widgets">
+        <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
+    </div>
 
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
         <li id="menuToggle"
             aria-label="Menu toggle. Click to expand or collapse the menu."
-            aria-haspopup="true"
-            aria-expanded="false">
-          <span data-target="menu" tabindex="0"
-          role="navigation">Menu</span>
+            aria-haspopup="true">
+          <button data-target="menu" aria-expanded="false">Menu</button>
         </li>
-        <li><span data-target="search">Search</span></li>
+        <li id="searchToggle"
+            aria-label="Search toggle. Click to expand or collapse the search bar."
+            aria-haspopup="true">
+          <button data-target="search" aria-expanded="false">Search</button>
+        </li>
       </ul>
 
       <div id="search" class="menu-target">
   <form action="/sdg-indicators/search">
-    <input name="q" id="indicator_search" title="Search" />
-    <label for="indicator_search">
-      <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
-    </label>
+    <input type="text" name="q" id="indicator_search" title="Search" />
+    <label class="sr-only" for="indicator_search">Search</label>
+    <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
-      
+
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/sdg-indicators/goals">Goals</a>
           </li><li class="nav-link ">
@@ -197,72 +199,108 @@ var translations = {
             <a href="/sdg-indicators/updates/">Updates</a>
           </li></ul>
 
-      
-
     </nav>
   </div>
 
 </header>
+<div id="top" tabindex=-1></div>
 
 
 <script type="text/template" id="item_template">
   <% _.each(fields, function(fieldItem) { %>
-    <div class="variable-selector<% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=fieldItem.field%>">
-      <button class='accessBtn' tabindex='0' aria-expanded='false'><h5><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></h5></button>
-      <div class="bar">
-        <div class="selected"></div>
-      </div>
-      <div class="variable-options">
-        <div>
-          <button data-type="select">Select all</button>
-          <button data-type="clear">Clear all</button>
+    <fieldset>
+      <legend class="sr-only">Sub-categories - <%=translations.t(fieldItem.field)%></legend>
+      <div class="variable-selector<% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=fieldItem.field%>">
+        <button class='accessBtn' tabindex='0' aria-expanded='false'
+          <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+          aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
+          <% }%>
+        >
+          <h5><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></h5>
+        </button>
+        <div class="bar">
+          <div class="selected"></div>
         </div>
-        <% _.each(fieldItem.values, function(item) { %>
-          <label>
-            <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
-          </label>
-        <% }); %>
-      </div>
+        <div class="variable-options">
+          <div>
+            <button data-type="select">Select all</button>
+            <button data-type="clear">Clear all</button>
+          </div>
+          <% _.each(fieldItem.values, function(item) { %>
+            <label>
+              <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
+            </label>
+          <% }); %>
+        </div>
 
-      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
-        <div class="variable-hint">Available when '<%= translations.t(_.findWhere(edges, { To: fieldItem.field }).From) %>' is selected
-        </div>
-        <div class="no-data-hint">
-          No options available because of filters above
-        </div>
-      <% }%>
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+          <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">Available when '<%= translations.t(_.findWhere(edges, { To: fieldItem.field }).From) %>' is selected
+          </div>
+          <div class="no-data-hint">
+            No options available because of filters above
+          </div>
+        <% }%>
 
-    </div>
+      </div>
+    </fieldset>
   <% }); %>
 </script>
 
 <script type="text/template" id="units_template">
   <% if(units.length) { %>
     <h4>Units type</h4>
-    <% _.each(units, function(unitsItem, index) { %>
-      <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
-      <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
-    <% }); %>
+    <fieldset>
+      <legend class="sr-only">Units type</legend>
+      <% _.each(units, function(unitsItem, index) { %>
+        <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
+        <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
+      <% }); %>
+    </fieldset>
   <% } %>
 </script>
 
-<script>translations['indicator'] = {"chart":"Chart","clear_all":"Clear all","clear_selections":"Clear selections","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_chart_image":"Download Chart Image","download_chart_image_title":"Download chart as image","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_geojson":"Download GeoJSON","download_geojson_title":"Download as GeoJSON","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading_map":"Loading map","map":"Map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","no_data_hint":"No options available because of filters above","select_all":"Select all","series":"Series","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","sub_categories":"Sub-categories","table":"Table","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
+<script type="text/template" id="series_template">
+  <% if(serieses.length) { %>
+    <h4>Series</h4>
+    <fieldset>
+      <legend class="sr-only">Series</legend>
+      <% _.each(serieses, function(seriesItem, index) { %>
+        <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
+      <% }); %>
+    </fieldset>
+  <% } %>
+</script>
+
+<script>translations['indicator'] = {"chart":"Chart","clear_all":"Clear all","clear_selections":"Clear selections","data_not_available":"This data is not available. Please choose alternative data to display.","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_chart_image":"Download Chart Image","download_chart_image_title":"Download chart as image","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_geojson":"Download GeoJSON","download_geojson_title":"Download as GeoJSON","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading":"Loading","loading_map":"Loading map","map":"Map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","no_data_hint":"No options available because of filters above","select_all":"Select all","series":"Series","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","sub_categories":"Sub-categories","table":"Table","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
 
 <script>translations['data'] = null;</script>
 
 
+<div class="container">
+  <ol class="breadcrumb">
+  
+  <li><a href="/sdg-indicators/">Home</a></li>
+  <li><a href="/sdg-indicators/9" title="Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation">Goal 9</a></li>
+  <li class="active">Indicator 9.1.1</li>
+  
+</ol>
+
+</div>
 <div class="heading goal-banner indicator goal-9">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2 goal-icon">
+      <div class="col-xs-4 col-md-3 col-lg-2 goal-icon goal-tiles">
         <a href="/sdg-indicators/9" title="View this goal's indicator list">
-          <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/9.png" alt="Industry, innovation and infrastructure - Goal 9" />
+          <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/9.svg" alt="Industry, innovation and infrastructure - Goal 9" id="goal-9"/>
         </a>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10 indicator-details">
         <div>
-          <h1>Indicator 9.1.1</h1>
-          <p class="lead-copy">Proportion of the rural population who live within 2 km of an all-season road</p>
+          <h1>
+            Indicator 9.1.1
+            <span class="lead-copy">Proportion of the rural population who live within 2 km of an all-season road</span>
+          </h1>
         </div>
       </div>
     </div>
@@ -270,12 +308,6 @@ var translations = {
 </div>
 
 <div id="main-content" class="container goal-9">
-  <ol class="breadcrumb">
-  <li><a href="/sdg-indicators/">Home</a></li>
-  <li><a href="/sdg-indicators/9" title="Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation">Goal 9</a></li>
-  <li class="active">Indicator 9.1.1</li>
-</ol>
-
   
 
   
@@ -292,11 +324,6 @@ var translations = {
   <div class="col-xs-12">
     <p>The data for this indicator were collected as part of a project aimed at increasing geographical data using innovative methods.  To see the full report, and additional data disaggregations, please <a href="https://www.ons.gov.uk/economy/environmentalaccounts/articles/usinginnovativemethodstoreportagainstthesustainabledevelopmentgoals/2018-10-22">click here</a>. We are currently working on a way to better visually communicate these disaggregations.</p>
 
-    
-      
-        <br>Select the following link to download this indicator data in an accessible format:<br><a href="https://ONSdigital.github.io/sdg-data/en/data/9-1-1.csv">Percentage of the rural population who live within 2 km of an all-season road (CSV 173.296 kB)</a>
-      
-    
   </div>
 </div>
 
@@ -330,14 +357,15 @@ var translations = {
   data-stackeddisaggregation=""
 >
   
+  <span role="status" class="sr-only" id="indicator-data-view-status"></span>
   <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
-    <div id="units"></div>
+    <div id="serieses"></div>
+<div id="units"></div>
 <div id="toolbar">
   <span id="series-help">
     <h4>Sub-categories</h4>
     <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
   </span>
-  <p id="legend-help">Click on the legend to remove individual lines from the chart.</p>
   <div id="fields">
     <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
   </div>
@@ -444,48 +472,49 @@ var translations = {
 
   <div class="async-loaded spacer medium" style="display:none;">
 
-    <ul class="nav nav-tabs data-view" role="tablist">
+    <div style="display: none;">
+  <span id="table-alternative">For tabular data alternative see Table tab.</span>
+</div>
+<ul class="nav nav-tabs data-view" role="tablist">
   <li role="presentation" class="nav-item active">
-    <a class="nav-link" data-toggle="tab" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
+    <a class="nav-link" data-toggle="tab" id="tab-chartview" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change data view"
 data-event-label="Change to Chart tab"
->Chart</a>
+ aria-describedby="table-alternative">Chart</a>
   </li>
   <li role="presentation" class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
+    <a class="nav-link" data-toggle="tab" id="tab-tableview" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change data view"
 data-event-label="Change to Table tab"
 >Table</a>
-  </li>
-  <li role="presentation" class="nav-item map" style="display:none">
-    <a data-no-disagg="true" class="nav-link" data-toggle="tab" href="#mapview" aria-controls="mapview" role="tab" data-on="click"
-data-event-category="Tab change"
-data-event-action="Change data view"
-data-event-label="Change to Map tab"
->Map</a>
   </li></ul>
 
     <div class="tab-content data-view">
   <div role="tabpanel" class="tab-pane active" id="chartview">
     
 
-    <div id="dataset-size-warning" style="display:none">
-      <i class="fa fa-bolt"></i> There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+    <div id="dataset-size-warning" style="display:none" role="alert">
+      <i class="fa fa-bolt"><span class="sr-only">Warning:</span></i>
+      There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
     </div>
 
     
+    
     <div id="selectionsChart">
-      <div id="chart-canvas">
-        <h3 class="chart-title">
-          
-            Proportion of rural population who live within 2km of an all-season road
-          
-        </h3>
-        <div id="chart" class="plot-container">
-          
-<canvas></canvas>
+      <figure role="group">
+        <div id="chart-canvas">
+          <h4 id="chart-heading" class="chart-title">Proportion of rural population who live within 2km of an all-season road</h4>
+          <div id="chart" class="plot-container">
+            
+<canvas 
+    role="img"
+    aria-labelledby="chart-heading"
+    aria-describedby="table-alternative legend-help"
+    tabindex="0"
+ ></canvas>
+
 <script>
 // Add a chart alteration to support the chart_graph_limits metadata field.
 opensdg.chartConfigAlter(function(config, info) {
@@ -539,29 +568,27 @@ opensdg.chartConfigAlter(function(config, info) {
 });
 </script>
 
+          </div>
+          <div id="plotLegend"></div>
         </div>
-        <div id="plotLegend"></div>
+      </figure>
+      <div id="chartSelectionDownload" class="clearfix">
+        <button id="btnSave" title="Download chart as image" class='btn btn-primary btn-download'>
+          Download Chart Image
+        </button>
       </div>
-      <button id="btnSave" title="Download chart as image" class='btn btn-primary btn-download'>
-        Download Chart Image
-      </button>
     </div>
-    <div id="chartSelectionDownload"></div>
 
 
 
   </div>
   <div role="tabpanel" class="tab-pane" id="tableview">
+    <div style="display: none;">
+      <span id="column-sort-info">Click to sort by this column</span>
+    </div>
     <div id="selectionsTable"></div>
 
   </div>
-  <div role="tabpanel" class="tab-pane" id="mapview" class="map">
-    <div id="map">
-  <img src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
-</div>
-
-  </div>
-  
 </div>
 
 
@@ -573,21 +600,21 @@ opensdg.chartConfigAlter(function(config, info) {
   <ul class="nav nav-tabs spacer medium" role="tablist">
 
   <li role="presentation" class="nav-item active">
-  <a class="nav-link" data-toggle="tab" href="#national" aria-controls="national" role="tab" data-on="click"
+  <a class="nav-link" data-toggle="tab" id="tab-national" href="#national" aria-controls="national" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to National Metadata tab"
 >National Metadata</a>
 </li>
 <li role="presentation" class="nav-item">
-  <a class="nav-link" data-toggle="tab" href="#global" aria-controls="global" role="tab" data-on="click"
+  <a class="nav-link" data-toggle="tab" id="tab-global" href="#global" aria-controls="global" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to Global Metadata tab"
 >Global Metadata</a>
 </li>
 <li role="presentation" class="nav-item">
-  <a class="nav-link" data-toggle="tab" href="#sources" aria-controls="sources" role="tab" data-on="click"
+  <a class="nav-link" data-toggle="tab" id="tab-sources" href="#sources" aria-controls="sources" role="tab" data-on="click"
 data-event-category="Tab change"
 data-event-action="Change metadata view"
 data-event-label="Change to Sources tab"
@@ -753,8 +780,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/2c984676bfaa10addeaa3768cbfa55ae15195931" target="_blank">
-                2020-09-30: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/e36ed00ba8018a09d4eeb250cba956259b4b44cc" target="_blank">
+                2020-10-01: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -780,8 +807,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/2c984676bfaa10addeaa3768cbfa55ae15195931" target="_blank">
-                2020-09-30: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/e36ed00ba8018a09d4eeb250cba956259b4b44cc" target="_blank">
+                2020-10-01: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -2115,8 +2142,7 @@ data-event-label="Change to Sources tab"
                 
                 </li>
               
-            
-          </ul>
+            </ul>
           <div id="oglLicense">
             <br />
             <img alt="Open Government Licence logo" src="/sdg-indicators/assets/img/OGL_logo.png" width="35px">All data is available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>, except where otherwise stated
@@ -2147,12 +2173,12 @@ data-event-label="Change to Sources tab"
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script>translations['general'] = translations['general'] || {};
-    translations['general']['hide'] = '';</script>
+    translations['general']['hide'] = 'hide';</script>
 
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20201001115619'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201001115619"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20201001122536'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201001122536"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

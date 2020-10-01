@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -90,11 +90,10 @@ var translations = {
         <!-- Title and meta description
         ================================================== -->
 
-        <title>
-          
-            Goal 15 - Life on land
-          
-        </title>
+        
+    <title>Goal 15 - Life on land - U.K. Indicators For The Sustainable Development Goals</title>
+
+
 
         <meta name="description" content="">
         <meta property="og:description" content="">
@@ -122,7 +121,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201001115619">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201001122536">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -130,7 +129,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201001115619"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201001122536"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-goal-by-target-vertical">
@@ -141,7 +140,7 @@ var translations = {
 <a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
   <div class="container">
-  <div class="disclaimer-alert" role="alert">
+  <div class="disclaimer-alert">
     <strong class="phase-tag">Alpha</strong>
     
     This is a development website – your <a href="https://www.surveymonkey.co.uk/r/SDGfeedback">feedback</a> will help us to improve it.
@@ -153,36 +152,39 @@ var translations = {
 <header role="banner">
   <div class="container">
 
-    <a class="navbar-brand" href="/sdg-indicators/" id="home">
-      <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
-    </a>
+    <div class="logo-and-mobile-widgets">
+      <a class="navbar-brand" href="/sdg-indicators/" id="home">
+        <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+      </a>
 
-  <div class='hidden visible-xs float-right'>
-    <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
+      <div class="mobile-widgets">
+        <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
+    </div>
 
     <nav class="navbar navbar-default" id="main-nav">
 
       <ul class="top-level">
         <li id="menuToggle"
             aria-label="Menu toggle. Click to expand or collapse the menu."
-            aria-haspopup="true"
-            aria-expanded="false">
-          <span data-target="menu" tabindex="0"
-          role="navigation">Menu</span>
+            aria-haspopup="true">
+          <button data-target="menu" aria-expanded="false">Menu</button>
         </li>
-        <li><span data-target="search">Search</span></li>
+        <li id="searchToggle"
+            aria-label="Search toggle. Click to expand or collapse the search bar."
+            aria-haspopup="true">
+          <button data-target="search" aria-expanded="false">Search</button>
+        </li>
       </ul>
 
       <div id="search" class="menu-target">
   <form action="/sdg-indicators/search">
-    <input name="q" id="indicator_search" title="Search" />
-    <label for="indicator_search">
-      <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button><span>Search:</span>
-    </label>
+    <input type="text" name="q" id="indicator_search" title="Search" />
+    <label class="sr-only" for="indicator_search">Search</label>
+    <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
   </form>
 </div>
 
-      
+
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
             <a href="/sdg-indicators/goals">Goals</a>
           </li><li class="nav-link ">
@@ -197,19 +199,28 @@ var translations = {
             <a href="/sdg-indicators/updates/">Updates</a>
           </li></ul>
 
-      
-
     </nav>
   </div>
 
 </header>
+<div id="top" tabindex=-1></div>
 
+
+<div class="container">
+  <ol class="breadcrumb">
+  
+  <li><a href="/sdg-indicators/">Home</a></li>
+  <li class="active">Goal 15</li>
+  
+</ol>
+
+</div>
 
 <div class="heading goal-banner goal-15">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-md-3 col-lg-2">
-        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/15.png" alt="Life on land - Goal 15" />
+      <div class="col-xs-4 col-md-3 col-lg-2 goal-tiles">
+        <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/15.svg" alt="Life on land - Goal 15" id="goal-15"/>
       </div>
       <div class="col-xs-8 col-md-9 col-lg-10">
         <h1>
@@ -220,14 +231,9 @@ var translations = {
   </div>
 </div>
 
-<div id="main-content" class="container goal-indicators goal-15">
+<div id="main-content" class="container">
 
   
-
-  <ol class="breadcrumb">
-    <li><a href="/sdg-indicators/">Home</a></li>
-    <li class="active">Goal 15</li>
-  </ol>
 
   <div class="container">
     <h2>Targets and indicators</h2>
@@ -235,15 +241,12 @@ var translations = {
     
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          15.1
-        </div>
-        <div class="col-md-11">
-          By 2020, ensure the conservation, restoration and sustainable use of terrestrial and inland freshwater ecosystems and their services, in particular forests, wetlands, mountains and drylands, in line with obligations under international agreements
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 15.1</span>
+        </h3>
+        <span class="target-name">By 2020, ensure the conservation, restoration and sustainable use of terrestrial and inland freshwater ecosystems and their services, in particular forests, wetlands, mountains and drylands, in line with obligations under international agreements</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -254,19 +257,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">15.1.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/15-1-1">Forest area as a proportion of total land area</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 15.1.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/15-1-1">Forest area as a proportion of total land area</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -277,30 +279,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">15.1.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/15-1-2">Proportion of important sites for terrestrial and freshwater biodiversity that are covered by protected areas, by ecosystem type</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 15.1.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/15-1-2">Proportion of important sites for terrestrial and freshwater biodiversity that are covered by protected areas, by ecosystem type</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status notstarted">
               Exploring data sources
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          15.2
-        </div>
-        <div class="col-md-11">
-          By 2020, promote the implementation of sustainable management of all types of forests, halt deforestation, restore degraded forests and substantially increase afforestation and reforestation globally
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 15.2</span>
+        </h3>
+        <span class="target-name">By 2020, promote the implementation of sustainable management of all types of forests, halt deforestation, restore degraded forests and substantially increase afforestation and reforestation globally</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -311,30 +310,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">15.2.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/15-2-1">Progress towards sustainable forest management</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 15.2.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/15-2-1">Progress towards sustainable forest management</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          15.3
-        </div>
-        <div class="col-md-11">
-          By 2030, combat desertification, restore degraded land and soil, including land affected by desertification, drought and floods, and strive to achieve a land degradation-neutral world
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 15.3</span>
+        </h3>
+        <span class="target-name">By 2030, combat desertification, restore degraded land and soil, including land affected by desertification, drought and floods, and strive to achieve a land degradation-neutral world</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -345,30 +341,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">15.3.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/15-3-1">Proportion of land that is degraded over total land area</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 15.3.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/15-3-1">Proportion of land that is degraded over total land area</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status notstarted">
               Exploring data sources
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          15.4
-        </div>
-        <div class="col-md-11">
-          By 2030, ensure the conservation of mountain ecosystems, including their biodiversity, in order to enhance their capacity to provide benefits that are essential for sustainable development
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 15.4</span>
+        </h3>
+        <span class="target-name">By 2030, ensure the conservation of mountain ecosystems, including their biodiversity, in order to enhance their capacity to provide benefits that are essential for sustainable development</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -379,19 +372,18 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">15.4.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/15-4-1">Coverage by protected areas of important sites for mountain biodiversity</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 15.4.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/15-4-1">Coverage by protected areas of important sites for mountain biodiversity</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status notstarted">
               Exploring data sources
             </span>
+            
           </div>
-          
-        </div>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -402,30 +394,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">15.4.2</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/15-4-2">Mountain Green Cover Index</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 15.4.2</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/15-4-2">Mountain Green Cover Index</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          15.5
-        </div>
-        <div class="col-md-11">
-          Take urgent and significant action to reduce the degradation of natural habitats, halt the loss of biodiversity and, by 2020, protect and prevent the extinction of threatened species
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 15.5</span>
+        </h3>
+        <span class="target-name">Take urgent and significant action to reduce the degradation of natural habitats, halt the loss of biodiversity and, by 2020, protect and prevent the extinction of threatened species</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -436,30 +425,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">15.5.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/15-5-1">Red List Index</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 15.5.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/15-5-1">Red List Index</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          15.6
-        </div>
-        <div class="col-md-11">
-          Promote fair and equitable sharing of the benefits arising from the utilization of genetic resources and promote appropriate access to such resources, as internationally agreed
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 15.6</span>
+        </h3>
+        <span class="target-name">Promote fair and equitable sharing of the benefits arising from the utilization of genetic resources and promote appropriate access to such resources, as internationally agreed</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -470,30 +456,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">15.6.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/15-6-1">Number of countries that have adopted legislative, administrative and policy frameworks to ensure fair and equitable sharing of benefits</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 15.6.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/15-6-1">Number of countries that have adopted legislative, administrative and policy frameworks to ensure fair and equitable sharing of benefits</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          15.7
-        </div>
-        <div class="col-md-11">
-          Take urgent action to end poaching and trafficking of protected species of flora and fauna and address both demand and supply of illegal wildlife products
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 15.7</span>
+        </h3>
+        <span class="target-name">Take urgent action to end poaching and trafficking of protected species of flora and fauna and address both demand and supply of illegal wildlife products</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -504,30 +487,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">15.7.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/15-7-1">Proportion of traded wildlife that was poached or illicitly trafficked</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 15.7.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/15-7-1">Proportion of traded wildlife that was poached or illicitly trafficked</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          15.8
-        </div>
-        <div class="col-md-11">
-          By 2020, introduce measures to prevent the introduction and significantly reduce the impact of invasive alien species on land and water ecosystems and control or eradicate the priority species
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 15.8</span>
+        </h3>
+        <span class="target-name">By 2020, introduce measures to prevent the introduction and significantly reduce the impact of invasive alien species on land and water ecosystems and control or eradicate the priority species</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -538,30 +518,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">15.8.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/15-8-1">Proportion of countries adopting relevant national legislation and adequately resourcing the prevention or control of invasive alien species</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 15.8.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/15-8-1">Proportion of countries adopting relevant national legislation and adequately resourcing the prevention or control of invasive alien species</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          15.9
-        </div>
-        <div class="col-md-11">
-          By 2020, integrate ecosystem and biodiversity values into national and local planning, development processes, poverty reduction strategies and accounts
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 15.9</span>
+        </h3>
+        <span class="target-name">By 2020, integrate ecosystem and biodiversity values into national and local planning, development processes, poverty reduction strategies and accounts</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -572,30 +549,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">15.9.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/15-9-1">Progress towards national targets established in accordance with Aichi Biodiversity Target 2 of the Strategic Plan for Biodiversity 2011–2020</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 15.9.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/15-9-1">Progress towards national targets established in accordance with Aichi Biodiversity Target 2 of the Strategic Plan for Biodiversity 2011–2020</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          15.a
-        </div>
-        <div class="col-md-11">
-          Mobilize and significantly increase financial resources from all sources to conserve and sustainably use biodiversity and ecosystems
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 15.a</span>
+        </h3>
+        <span class="target-name">Mobilize and significantly increase financial resources from all sources to conserve and sustainably use biodiversity and ecosystems</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -606,30 +580,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">15.a.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/15-a-1">Official development assistance and public expenditure on conservation and sustainable use of biodiversity and ecosystems</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 15.a.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/15-a-1">Official development assistance and public expenditure on conservation and sustainable use of biodiversity and ecosystems</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          15.b
-        </div>
-        <div class="col-md-11">
-          Mobilize significant resources from all sources and at all levels to finance sustainable forest management and provide adequate incentives to developing countries to advance such management, including for conservation and reforestation
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 15.b</span>
+        </h3>
+        <span class="target-name">Mobilize significant resources from all sources and at all levels to finance sustainable forest management and provide adequate incentives to developing countries to advance such management, including for conservation and reforestation</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -640,30 +611,27 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">15.b.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/15-b-1">Official development assistance and public expenditure on conservation and sustainable use of biodiversity and ecosystems</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 15.b.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/15-b-1">Official development assistance and public expenditure on conservation and sustainable use of biodiversity and ecosystems</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
       
-      <div class="row no-gutters goal-target">
-        <div class="col-md-1">
-          15.c
-        </div>
-        <div class="col-md-11">
-          Enhance global support for efforts to combat poaching and trafficking of protected species, including by increasing the capacity of local communities to pursue sustainable livelihood opportunities
-        </div>
+      <div class="row no-gutters goal-target-and-indicators">
+        <h3 class="goal-target">
+          <span class="target-number"><span class="sr-only">Target</span> 15.c</span>
+        </h3>
+        <span class="target-name">Enhance global support for efforts to combat poaching and trafficking of protected species, including by increasing the capacity of local communities to pursue sustainable livelihood opportunities</span>
         
-        <div class="row no-gutters goal-indicator indicator-cards">
 
           
           
@@ -674,17 +642,17 @@ var translations = {
           
           
 
-          <div class="col-md-1 col-md-offset-1">15.c.1</div>
-          <div class="col-md-8">
-            <a href="/sdg-indicators/15-c-1">Proportion of traded wildlife that was poached or illicitly trafficked</a>
-          </div>
-          <div class="col-md-2 status-column">
+          <div class="goal-indicator">
+            <h4>
+              <span class="indicator-number"><span class="sr-only">Indicator</span> 15.c.1</span>
+            </h4>
+            <span class="indicator-name"><a href="/sdg-indicators/15-c-1">Proportion of traded wildlife that was poached or illicitly trafficked</a></span>
+            <span class="sr-only">Indicator status</span>
             <span class="status complete">
               Reported online
             </span>
+            
           </div>
-          
-        </div>
         
       </div>
     
@@ -722,8 +690,7 @@ var translations = {
                 
                 </li>
               
-            
-          </ul>
+            </ul>
           <div id="oglLicense">
             <br />
             <img alt="Open Government Licence logo" src="/sdg-indicators/assets/img/OGL_logo.png" width="35px">All data is available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>, except where otherwise stated
@@ -754,12 +721,12 @@ var translations = {
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script>translations['general'] = translations['general'] || {};
-    translations['general']['hide'] = '';</script>
+    translations['general']['hide'] = 'hide';</script>
 
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20201001115619'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201001115619"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20201001122536'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201001122536"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
