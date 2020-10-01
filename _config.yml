@@ -22,15 +22,19 @@ create_pages:
   pages:
     - folder: /
       layout: frontpage-alt
+      title: 17 goals to transform our world
     - folder: /goals
       layout: goals
+      title: UK data for the Sustainable Development Goals
     - folder: /reporting-status
       layout: reportingstatus
+      title: Reporting Status
     - filename: indicators.json
       folder: /
       layout: indicator-json
     - folder: /search
       layout: search
+      title: Search results
       
 # Social media accounts.
 twitter: 'ONS'
@@ -79,12 +83,22 @@ collections:
     output: true
   goals:
     output: true
+    
+# Hide categories section of news page
+news:
+  category_links: false
 
 # The list of languages that are translated. The first one is the default.
 languages:
   - en
 
+# Goal image options
 goal_image_base: https://open-sdg.github.io/sdg-translations/assets/img/goals
+goal_image_extension: svg
+
+# Accessibility options
+accessible_tabs: true
+accessible_charts: true
 
 # Header Menu
 menu:
@@ -125,7 +139,7 @@ plugins:
   - jekyll-remote-theme
   - jekyll-open-sdg-plugins
 
-remote_theme: open-sdg/open-sdg@809d28dbc111fcceded6918b0ac60c0acf279e1b
+remote_theme: open-sdg/open-sdg@14f946b4e3d9468cc05b7bc8a8e6eb7d75d1ef2c
 
 # Apply any custom Javascript.
 custom_js:
