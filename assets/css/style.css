@@ -179,6 +179,7 @@ input[type="radio"]:focus, body.contrast-high input[type="radio"]:focus,
 input[type="checkbox"]:focus, body.contrast-high input[type="checkbox"]:focus {
   box-shadow: 0px 0px 0px 4px #ffdd00 !important; }
 
+.tabPanel:focus,
 input[type="text"]:focus,
 body.contrast-high input[type="text"]:focus {
   background-color: white !important;
@@ -345,14 +346,14 @@ h5 + .btn-download {
 .image-download-in-progress, .image-download-in-progress * {
   padding: 0;
   margin: 0; }
+.image-download-in-progress #chart-canvas {
+  margin-top: -30px; }
 .image-download-in-progress #selectionChartFooter {
   padding-left: 20px; }
   .image-download-in-progress #selectionChartFooter p {
     margin-bottom: 10px; }
 .image-download-in-progress .hide-during-image-download {
   display: none; }
-.image-download-in-progress #legend {
-  margin-top: -32px; }
 
 .zip-download-container {
   margin-top: 20px; }
@@ -800,15 +801,43 @@ footer #footerLinks .language-toggle-menu-footer {
     justify-content: center; }
     #main-content #map #loader-container img {
       height: auto; }
-  #main-content #map .leaflet-control .timecontrol-date {
-    min-width: 80px;
-    padding: 0 10px; }
-  @media only screen and (max-width: 680px) {
-    #main-content #map .leaflet-control .timecontrol-slider {
-      display: none; } }
-  #main-content #map .leaflet-control .download-geojson-button {
-    display: block;
-    cursor: pointer; }
+  #main-content #map .leaflet-control-search .search-button {
+    background-image: none;
+    font-size: 20px;
+    padding-left: 6px;
+    color: #0b0c0c; }
+  #main-content #map .leaflet-control-search .search-cancel {
+    background-image: none;
+    color: #0b0c0c;
+    font-size: 16px;
+    line-height: 16px;
+    height: 22px;
+    padding: 5px;
+    margin: 3px 1px; }
+  #main-content #map .leaflet-control-search .search-input {
+    color: #0b0c0c; }
+  #main-content #map .leaflet-bar-timecontrol {
+    border-color: #0b0c0c; }
+    #main-content #map .leaflet-bar-timecontrol .timecontrol-date {
+      min-width: 80px;
+      padding: 0 10px;
+      color: #0b0c0c;
+      text-align: center; }
+    @media only screen and (max-width: 680px) {
+      #main-content #map .leaflet-bar-timecontrol .timecontrol-slider {
+        display: none; } }
+    #main-content #map .leaflet-bar-timecontrol .timecontrol-slider .knob {
+      background-color: #869090;
+      border-color: #0b0c0c; }
+    #main-content #map .leaflet-bar-timecontrol .timecontrol-slider .slider {
+      border-color: #484f4f; }
+    #main-content #map .leaflet-bar-timecontrol.leaflet-control-attribution {
+      background: white; }
+      #main-content #map .leaflet-bar-timecontrol.leaflet-control-attribution a {
+        color: #1d70b8; }
+  #main-content #map .leaflet-control-fullscreen-button {
+    background-image: none;
+    font-size: 20px; }
   #main-content #map .disaggregation-select-container {
     background: white;
     padding: 5px;
@@ -825,6 +854,10 @@ footer #footerLinks .language-toggle-menu-footer {
         display: none; } }
     #main-content #map .selection-legend .legend-swatches {
       height: 10px; }
+      @media (-ms-high-contrast: active), (forced-colors: active) {
+        #main-content #map .selection-legend .legend-swatches {
+          -ms-high-contrast-adjust: none;
+          forced-color-adjust: none; } }
       #main-content #map .selection-legend .legend-swatches .legend-swatch {
         display: block;
         float: left;
@@ -833,6 +866,10 @@ footer #footerLinks .language-toggle-menu-footer {
       position: absolute;
       bottom: -10px;
       width: 100%; }
+      @media (-ms-high-contrast: active), (forced-colors: active) {
+        #main-content #map .selection-legend .legend-values {
+          -ms-high-contrast-adjust: none;
+          forced-color-adjust: none; } }
       #main-content #map .selection-legend .legend-values .arrow {
         width: 0;
         height: 0;
@@ -850,6 +887,7 @@ footer #footerLinks .language-toggle-menu-footer {
           right: 1px;
           box-shadow: 1px 1px 1px 0px #666; }
       #main-content #map .selection-legend .legend-values .legend-value {
+        color: #0b0c0c;
         padding: 0 4px;
         background: white;
         position: absolute;
@@ -1216,15 +1254,15 @@ body.contrast-high .navbar-brand:focus {
     float: right; }
   .navbar .top-level {
     display: none; }
-  .navbar #search {
+  .navbar #search, .navbar #search-mobile {
     position: relative;
     clear: both;
     float: right;
     margin-bottom: 20px; }
     @media only screen and (max-width: 768px) {
-      .navbar #search {
+      .navbar #search, .navbar #search-mobile {
         margin-bottom: 0; } }
-    .navbar #search input {
+    .navbar #search input, .navbar #search-mobile input {
       padding: 5px;
       padding-left: 5px;
       padding-right: 45px;
@@ -1233,7 +1271,7 @@ body.contrast-high .navbar-brand:focus {
       transition: width 0.4s;
       margin-top: 5px;
       font-size: 16px; }
-    .navbar #search button {
+    .navbar #search button, .navbar #search-mobile button {
       height: 34px;
       color: #0b0c0c;
       position: absolute;
@@ -1269,13 +1307,13 @@ body.contrast-high .navbar-brand:focus {
       -khtml-user-select: none;
       -webkit-user-select: none;
       -o-user-select: none; }
-      .navbar .top-level li {
+      .navbar .top-level > li {
         float: left;
         width: 50%;
         cursor: pointer; }
-        .navbar .top-level li.active {
+        .navbar .top-level > li.active {
           background: #58595B; }
-        .navbar .top-level li button {
+        .navbar .top-level > li > button {
           color: #E5E6E7;
           display: block;
           padding: 15px;
@@ -1283,43 +1321,46 @@ body.contrast-high .navbar-brand:focus {
           background-color: inherit;
           text-align: left;
           width: 100%; }
-          .navbar .top-level li button[data-target="search"] {
+          .navbar .top-level > li > button[data-target="search"] {
             text-transform: capitalize; }
     .navbar .menu-target {
       background: #58595B; }
-    .navbar ul.navbar-nav {
+    .navbar #menu-mobile {
       float: none;
       display: none;
       clear: left;
       margin: 0;
+      width: 200%;
       font-size: 0.938em; }
-      .navbar ul.navbar-nav li {
+      .navbar #menu-mobile li {
         cursor: pointer; }
-        .navbar ul.navbar-nav li a {
+        .navbar #menu-mobile li a {
           display: block;
           background: #58595B;
-          padding: 6px 0 6px;
+          padding: 6px 0 6px 15px;
+          margin-left: 0;
           color: #E5E6E7;
           font-size: 15px; }
-          .navbar ul.navbar-nav li a:hover, .navbar ul.navbar-nav li a:focus {
+          .navbar #menu-mobile li a:hover, .navbar #menu-mobile li a:focus {
             color: #E5E6E7; }
-        .navbar ul.navbar-nav li.nav-link.active a {
+        .navbar #menu-mobile li.nav-link.active a {
           color: white;
           background: #58595B;
           font-weight: bold; }
-          .navbar ul.navbar-nav li.nav-link.active a:hover {
+          .navbar #menu-mobile li.nav-link.active a:hover {
             color: white; }
-        .navbar ul.navbar-nav li:last-child {
+        .navbar #menu-mobile li:last-child {
           padding-bottom: 10px; }
-    .navbar #search {
+    .navbar #search-mobile {
       display: none;
-      width: 100%;
+      width: 200%;
+      margin-left: -100%;
       padding: 20px; }
-      .navbar #search input {
+      .navbar #search-mobile input {
         width: 100%;
         color: #0b0c0c;
         margin-top: 0; }
-      .navbar #search button {
+      .navbar #search-mobile button {
         right: 20px;
         bottom: 20px; } }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
@@ -1336,18 +1377,22 @@ header ul {
   padding-left: 0;
   list-style-type: none; }
 
-body.contrast-high .navbar li a {
+body.contrast-high .navbar #menu li a, body.contrast-high .navbar #menu-mobile li a {
   color: white; }
-  body.contrast-high .navbar li a:hover, body.contrast-high .navbar li a:focus {
+  body.contrast-high .navbar #menu li a:hover, body.contrast-high .navbar #menu li a:focus, body.contrast-high .navbar #menu-mobile li a:hover, body.contrast-high .navbar #menu-mobile li a:focus {
     color: yellow; }
-body.contrast-high .navbar li.active a {
+body.contrast-high .navbar #menu li.active a, body.contrast-high .navbar #menu-mobile li.active a {
   color: yellow;
   border-color: yellow; }
-  body.contrast-high .navbar li.active a:hover {
+  body.contrast-high .navbar #menu li.active a:hover, body.contrast-high .navbar #menu-mobile li.active a:hover {
     color: yellow; }
-  body.contrast-high .navbar li.active a:focus {
+  body.contrast-high .navbar #menu li.active a:focus, body.contrast-high .navbar #menu-mobile li.active a:focus {
     color: yellow; }
-body.contrast-high .navbar #search input, body.contrast-high .navbar #search button {
+body.contrast-high .navbar #menu-mobile li a {
+  background-color: black; }
+body.contrast-high .navbar #search input, body.contrast-high .navbar #search button, body.contrast-high .navbar #search-mobile input, body.contrast-high .navbar #search-mobile button {
+  color: black; }
+body.contrast-high .navbar .top-level > li.active button {
   color: black; }
 @media screen and (max-width: 768px) {
   body.contrast-high .navbar.navbar-default {
@@ -1361,6 +1406,12 @@ body.contrast-high .navbar #search input, body.contrast-high .navbar #search but
     background: black; }
   body.contrast-high .navbar ul.navbar-nav li a {
     background: black; } }
+
+#search, #menu {
+  display: none; }
+  @media screen and (min-width: 769px) {
+    #search, #menu {
+      display: block; } }
 
 footer {
   clear: left;
@@ -1395,14 +1446,9 @@ footer {
 #main-content #indicatorData.no-fields.no-units.no-serieses > .col-md-9 {
   width: 100%; }
 #main-content .indicator-sidebar-hidden {
-  padding: 0;
-  width: 0;
-  height: 0;
-  overflow: hidden; }
+  display: none; }
 #main-content .indicator-main-full {
   width: 100%; }
-#main-content #indicator-sidebar, #main-content #indicator-main {
-  transition: width 0.3s ease; }
 #main-content #toolbar button {
   width: 100%;
   background-color: white;
@@ -1460,11 +1506,12 @@ footer {
       color: white; }
       #main-content #fields label.excluded input {
         display: none; }
-  #main-content #fields h5 {
+  #main-content #fields h5, #main-content #fields h6 {
     padding-left: 7px;
     position: relative;
-    padding-right: 33px; }
-    #main-content #fields h5 i {
+    padding-right: 33px;
+    font-size: 14px; }
+    #main-content #fields h5 i, #main-content #fields h6 i {
       font-size: 0.875em;
       position: absolute;
       top: 0;
@@ -1589,29 +1636,20 @@ footer {
   #main-content #dataset-size-warning i {
     font-size: 1.2em; }
 #main-content .plot-container {
-  margin-bottom: 4.5rem;
   padding: 10px; }
 #main-content #chartSelectionDownload {
   margin-bottom: 10px;
   clear: left; }
 #main-content #legend {
   padding-left: 0;
-  text-align: center; }
-  #main-content #legend li {
+  text-align: center;
+  margin-bottom: 20px; }
+  #main-content #legend > li {
     font-size: 13px;
     list-style-type: none;
     display: inline-block;
     color: #666;
-    line-height: 18px;
-    cursor: pointer; }
-    #main-content #legend li button {
-      border: none;
-      background: none;
-      padding: 5px; }
-    #main-content #legend li:hover {
-      background: #eee; }
-    #main-content #legend li.notshown button {
-      text-decoration: line-through !important; }
+    padding: 5px; }
   #main-content #legend .swatch {
     display: inline-block;
     width: 45px;
@@ -1628,9 +1666,6 @@ footer {
     content: "";
     display: table;
     clear: both; }
-#main-content #legend-help {
-  text-align: center;
-  margin-top: -32px; }
 #main-content canvas {
   user-select: none;
   -moz-user-select: none;
@@ -1732,10 +1767,20 @@ footer {
       overflow-x: auto; }
   #main-content .tab-content h4 {
     margin-top: 2rem !important; }
+#main-content #selectionTableFooter, #main-content #mapFooter {
+  padding-left: 20px; }
+  #main-content #selectionTableFooter p, #main-content #mapFooter p {
+    font-size: 0.85em;
+    margin: 0 0 5px; }
+  #main-content #selectionTableFooter dl, #main-content #mapFooter dl {
+    font-size: 0.85em; }
+    #main-content #selectionTableFooter dl dd, #main-content #mapFooter dl dd {
+      margin: 0 0 5px; }
+#main-content #mapFooter {
+  margin-top: 30px;
+  padding-left: 0; }
 #main-content #selectionsTable {
   padding-bottom: 20px; }
-  #main-content #selectionsTable.table-has-no-data #selectionTableFooter {
-    display: none; }
   #main-content #selectionsTable div.dataTables_wrapper {
     overflow-x: auto; }
     #main-content #selectionsTable div.dataTables_wrapper .row {
@@ -1759,15 +1804,6 @@ footer {
       background-image: url(../img/sort_desc.png); }
   #main-content #selectionsTable table tbody th {
     font-weight: normal; }
-  #main-content #selectionsTable .table-footer-text {
-    padding-left: 20px; }
-    #main-content #selectionsTable .table-footer-text p {
-      font-size: 0.85em;
-      margin: 0 0 5px; }
-    #main-content #selectionsTable .table-footer-text dl {
-      font-size: 0.85em; }
-      #main-content #selectionsTable .table-footer-text dl dd {
-        margin: 0 0 5px; }
 #main-content #selectionsChart {
   padding-bottom: 20px; }
   #main-content #selectionsChart.chart-has-no-data #selectionChartFooter {

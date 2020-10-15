@@ -121,7 +121,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201015011004">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201015173535">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -129,7 +129,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201015011004"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201015173535"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -167,12 +167,34 @@ var translations = {
         <li id="menuToggle"
             aria-label="Menu toggle. Click to expand or collapse the menu."
             aria-haspopup="true">
-          <button data-target="menu" aria-expanded="false">Menu</button>
+          <button data-target="menu-mobile" aria-expanded="false">Menu</button>
+          <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link ">
+    <a href="/sdg-indicators/goals">Goals</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/reporting-status/">Reporting Status</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/about/">About</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/publications/">Publications</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/faq/">FAQ</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/updates/">Updates</a>
+    </li></ul>
+
         </li>
         <li id="searchToggle"
             aria-label="Search toggle. Click to expand or collapse the search bar."
             aria-haspopup="true">
-          <button data-target="search" aria-expanded="false">Search</button>
+          <button data-target="search-mobile" aria-expanded="false">Search</button>
+          <div id="search-mobile" class="menu-target">
+  <form action="/sdg-indicators/search">
+    <input type="text" name="q" id="indicator_search-mobile" title="Search" />
+    <label class="sr-only" for="indicator_search-mobile">Search</label>
+    <button aria-label="Search" id="search-mobile-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
+  </form>
+</div>
+
         </li>
       </ul>
 
@@ -186,18 +208,19 @@ var translations = {
 
 
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
-            <a href="/sdg-indicators/goals">Goals</a>
-          </li><li class="nav-link ">
-            <a href="/sdg-indicators/reporting-status/">Reporting Status</a>
-          </li><li class="nav-link ">
-            <a href="/sdg-indicators/about/">About</a>
-          </li><li class="nav-link ">
-            <a href="/sdg-indicators/publications/">Publications</a>
-          </li><li class="nav-link ">
-            <a href="/sdg-indicators/faq/">FAQ</a>
-          </li><li class="nav-link ">
-            <a href="/sdg-indicators/updates/">Updates</a>
-          </li></ul>
+    <a href="/sdg-indicators/goals">Goals</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/reporting-status/">Reporting Status</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/about/">About</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/publications/">Publications</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/faq/">FAQ</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/updates/">Updates</a>
+    </li></ul>
+
 
     </nav>
   </div>
@@ -216,7 +239,10 @@ var translations = {
           aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
           <% }%>
         >
-          <h5><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></h5>
+          <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
+            <span aria-hidden="true"><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></span>
+            <span class="sr-only">Show sub-categories: <%=translations.t(fieldItem.field)%></span>
+          <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
         </button>
         <div class="bar">
           <div class="selected"></div>
@@ -236,7 +262,7 @@ var translations = {
         <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
           <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">Available when '<%= translations.t(_.findWhere(edges, { To: fieldItem.field }).From) %>' is selected
           </div>
-          <div class="no-data-hint">
+          <div class="no-data-hint" id="no-data-hint-<%=fieldItem.field.replace(/ /g, '-')%>">
             No options available because of filters above
           </div>
         <% }%>
@@ -318,11 +344,6 @@ var translations = {
   
 
 
-
-
-
-
-
 <div class="row"
   id="indicatorData"
   data-indicatorid='indicator_11-a-1'
@@ -331,10 +352,6 @@ var translations = {
   data-charttitle="Proportion of population living in cities that implement urban and regional development plans integrating population projections and resource needs, by size of city"
   data-charttitles="null"
   data-measurementunit=""
-  data-datasource=""
-  data-copyright=""
-  data-geographicalarea=""
-  data-footnote=""
   data-showdata="false"
   data-graphtype="line"
   data-geocoderegex=""
@@ -1035,7 +1052,7 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20201015011004'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201015011004"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20201015173535'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201015173535"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();

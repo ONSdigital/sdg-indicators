@@ -393,7 +393,7 @@ opensdg.autotrack = function(preset, category, action, label) {
         plugin.map.addControl(L.Control.zoomHome());
 
         // Add full-screen functionality.
-        plugin.map.addControl(new L.Control.Fullscreen());
+        plugin.map.addControl(new L.Control.FullscreenAccessible());
 
         // Add the year slider.
         plugin.map.addControl(L.Control.yearSlider({
@@ -411,7 +411,9 @@ opensdg.autotrack = function(preset, category, action, label) {
         plugin.map.addControl(plugin.selectionLegend);
 
         // Add the search feature.
-        plugin.searchControl = new L.Control.Search({
+        plugin.searchControl = new L.Control.SearchAccessible({
+          textPlaceholder: 'Search map',
+          autoCollapseTime: 7000,
           layer: plugin.getAllLayers(),
           propertyName: 'name',
           marker: false,
@@ -422,7 +424,6 @@ opensdg.autotrack = function(preset, category, action, label) {
               plugin.selectionLegend.addSelection(latlng.layer);
             }
           },
-          autoCollapse: true,
         });
         plugin.map.addControl(plugin.searchControl);
         // The search plugin messes up zoomShowHide, so we have to reset that
@@ -430,6 +431,11 @@ opensdg.autotrack = function(preset, category, action, label) {
         var zoom = plugin.map.getZoom();
         plugin.map.setZoom(plugin.options.maxZoom);
         plugin.map.setZoom(zoom);
+
+        // Hide the loading image.
+        $('.map-loading-image').hide();
+        // Make the map unfocusable.
+        $('#map').removeAttr('tabindex');
 
         // The list of handlers to apply to each feature on a GeoJson layer.
         function onEachFeature(feature, layer) {
@@ -697,6 +703,9 @@ Chart.plugins.register({
     getAllTooltips: function() {
         var datasets = this.chart.data.datasets;
         var allTooltips = [];
+        if (datasets.length == 0) {
+            return allTooltips;
+        }
         // For line charts, we group points into vertical tooltips.
         if (this.chart.config.type == 'line') {
             for (var pointIndex = 0; pointIndex < datasets[0].data.length; pointIndex++) {
@@ -1352,10 +1361,14 @@ function getChildFieldNames(edges) {
  * @param {Array} fieldsByUnit Objects containing 'unit' and 'fields'
  * @param {string} selectedUnit
  * @param {boolean} dataHasUnitSpecificFields
+ * @param {Array} fieldsBySeries Objects containing 'series' and 'fields'
+ * @param {string} selectedSeries
+ * @param {boolean} dataHasSeriesSpecificFields
  * @param {Array} selectedFields Field items
+ * @param {Array} edges
  * @return {Array} Field item states
  */
-function fieldItemStatesForView(fieldItemStates, fieldsByUnit, selectedUnit, dataHasUnitSpecificFields, fieldsBySeries, selectedSeries, dataHasSeriesSpecificFields, selectedFields) {
+function fieldItemStatesForView(fieldItemStates, fieldsByUnit, selectedUnit, dataHasUnitSpecificFields, fieldsBySeries, selectedSeries, dataHasSeriesSpecificFields, selectedFields, edges) {
   var states = fieldItemStates.map(function(item) { return item; });
   if (dataHasUnitSpecificFields && dataHasSeriesSpecificFields) {
     states = fieldItemStatesForSeries(fieldItemStates, fieldsBySeries, selectedSeries);
@@ -1383,7 +1396,42 @@ function fieldItemStatesForView(fieldItemStates, fieldsByUnit, selectedUnit, dat
       }
     });
   }
+  sortFieldsForView(states, edges);
   return states;
+}
+
+/**
+ * @param {Array} fieldItemStates
+ * @param {Array} edges
+ */
+function sortFieldsForView(fieldItemStates, edges) {
+  var grandparents = [],
+      parents = [];
+  edges.forEach(function(edge) {
+    if (!parents.includes(edge.From)) {
+      parents.push(edge.From);
+    }
+  });
+  edges.forEach(function(edge) {
+    if (parents.includes(edge.To)) {
+      grandparents.push(edge.From);
+    }
+  });
+  fieldItemStates.sort(function(a, b) {
+    if (grandparents.includes(a.field) && !grandparents.includes(b.field)) {
+      return -1;
+    }
+    else if (grandparents.includes(b.field) && !grandparents.includes(a.field)) {
+      return 1;
+    }
+    else if (parents.includes(a.field) && !parents.includes(b.field)) {
+      return -1;
+    }
+    else if (parents.includes(b.field) && !parents.includes(a.field)) {
+      return 1;
+    }
+    return 0;
+  });
 }
 
 /**
@@ -1844,21 +1892,6 @@ function makeHeadlineDataset(years, rows, label) {
   });
 }
 
-/**
- * @param {Object} model
- * @return {Object} Translated footer fields keyed to values
- */
-function footerFields(model) {
-  var fields = {}
-  fields[translations.indicator.source] = model.dataSource;
-  fields[translations.indicator.geographical_area] = model.geographicalArea;
-  fields[translations.indicator.unit_of_measurement] = model.measurementUnit;
-  fields[translations.indicator.copyright] = model.copyright;
-  fields[translations.indicator.footnote] = model.footnote;
-  // Filter out the empty values.
-  return _.pick(fields, _.identity);
-}
-
   /**
  * Model helper functions related to tables.
  */
@@ -1997,7 +2030,6 @@ function sortData(rows, selectedUnit) {
     getFieldNames: getFieldNames,
     getInitialAllowedFields: getInitialAllowedFields,
     prepareData: prepareData,
-    footerFields: footerFields,
     getHeadline: getHeadline,
     sortData: sortData,
     getHeadlineTable: getHeadlineTable,
@@ -2036,10 +2068,6 @@ function sortData(rows, selectedUnit) {
   this.chartTitles = options.chartTitles;
   this.graphType = options.graphType;
   this.measurementUnit = options.measurementUnit;
-  this.copyright = options.copyright;
-  this.dataSource = options.dataSource;
-  this.geographicalArea = options.geographicalArea;
-  this.footnote = options.footnote;
   this.startValues = options.startValues;
   this.showData = options.showData;
   this.selectedFields = [];
@@ -2085,7 +2113,6 @@ function sortData(rows, selectedUnit) {
   this.selectableFields = helpers.getFieldNames(this.fieldItemStates);
   this.allowedFields = helpers.getInitialAllowedFields(this.selectableFields, this.edgesData);
   this.data = helpers.prepareData(this.data);
-  this.footerFields = helpers.footerFields(this);
   this.colors = opensdg.chartColors(this.indicatorId);
   this.maxDatasetCount = 2 * this.colors.length;
   this.hasStartValues = Array.isArray(this.startValues) && this.startValues.length > 0;
@@ -2238,7 +2265,8 @@ function sortData(rows, selectedUnit) {
           this.fieldsBySeries,
           this.selectedSeries,
           this.dataHasSeriesSpecificFields,
-          this.selectedFields
+          this.selectedFields,
+          this.edgesData
         ),
         allowedFields: this.allowedFields,
         edges: this.edgesData,
@@ -2293,7 +2321,6 @@ function sortData(rows, selectedUnit) {
       shortIndicatorId: this.shortIndicatorId,
       selectedUnit: this.selectedUnit,
       selectedSeries: this.selectedSeries,
-      footerFields: this.footerFields,
       graphLimits: this.graphLimits,
       stackedDisaggregation: this.stackedDisaggregation,
       chartTitle: this.chartTitle
@@ -2349,17 +2376,6 @@ var indicatorView = function (model, options) {
         $($.fn.dataTable.tables(true)).css('width', '100%');
         $($.fn.dataTable.tables(true)).DataTable().columns.adjust().draw();
       }
-    });
-
-    $(view_obj._legendElement).on('click', 'li', function(e) {
-      $(this).toggleClass('notshown');
-
-      var ci = view_obj._chartInstance,
-          index = $(this).data('datasetindex'),
-          meta = ci.getDatasetMeta(index);
-
-      meta.hidden = meta.hidden === null? !ci.data.datasets[index].hidden : null;
-      ci.update();
     });
 
     // Provide the hide/show functionality for the sidebar.
@@ -2483,6 +2499,15 @@ var indicatorView = function (model, options) {
       // Indicate whether the fieldGroup had any data.
       var fieldGroupElement = $(view_obj._rootElement).find('.variable-selector[data-field="' + fieldGroup.field + '"]');
       fieldGroupElement.attr('data-has-data', fieldGroup.hasData);
+      var fieldGroupButton = fieldGroupElement.find('> button'),
+          describedByCurrent = fieldGroupButton.attr('aria-describedby') || '',
+          noDataHintId = 'no-data-hint-' + fieldGroup.field.replace(/ /g, '-');
+      if (!fieldGroup.hasData && !describedByCurrent.includes(noDataHintId)) {
+        fieldGroupButton.attr('aria-describedby', describedByCurrent + ' ' + noDataHintId);
+      }
+      else {
+        fieldGroupButton.attr('aria-describedby', describedByCurrent.replace(noDataHintId, ''));
+      }
 
       // Re-sort the items.
       view_obj.sortFieldGroup(fieldGroupElement);
@@ -2676,7 +2701,6 @@ var indicatorView = function (model, options) {
     view_obj._chartInstance.update(1000, true);
 
     $(this._legendElement).html(view_obj._chartInstance.generateLegend());
-    view_obj.addLegendClickBehavior(this._legendElement, view_obj._chartInstance);
     view_obj.updateChartDownloadButton(chartInfo.selectionsTable);
   };
 
@@ -2724,16 +2748,13 @@ var indicatorView = function (model, options) {
           }]
         },
         legendCallback: function(chart) {
-            var text = ['<p id="legend-help" class="hide-during-image-download">' + translations.indicator.legend_help + '</p>'];
-            text.push('<ul id="legend" aria-labelledby="legend-help">');
-
-            _.each(chart.data.datasets, function(dataset, datasetIndex) {
-              text.push('<li data-datasetindex="' + datasetIndex + '">');
-              text.push('<button aria-pressed="false" aria-label="Press to hide the data set' + ' ' + dataset.label + '">')
+            var text = [];
+            text.push('<ul id="legend">');
+            _.each(chart.data.datasets, function(dataset) {
+              text.push('<li>');
               text.push('<span class="swatch' + (dataset.borderDash ? ' dashed' : '') + '" style="background-color: ' + dataset.borderColor + '">');
               text.push('</span>');
               text.push(translations.t(dataset.label));
-              text.push('</button>');
               text.push('</li>');
             });
             text.push('</ul>');
@@ -2779,7 +2800,6 @@ var indicatorView = function (model, options) {
       }
     });
 
-    this.createTableFooter('selectionChartFooter', chartInfo.footerFields, '#chart-canvas');
     this.createDownloadButton(chartInfo.selectionsTable, 'Chart', chartInfo.indicatorId, '#chartSelectionDownload');
     this.createSourceButton(chartInfo.shortIndicatorId, '#chartSelectionDownload');
 
@@ -2830,15 +2850,7 @@ var indicatorView = function (model, options) {
     });
 
     $(this._legendElement).html(view_obj._chartInstance.generateLegend());
-    view_obj.addLegendClickBehavior(this._legendElement, view_obj._chartInstance);
   };
-
-  this.addLegendClickBehavior = function(legendElement, chartInstance) {
-    $(legendElement).find('li').click(function(e) {
-      var isBeingPressed = !($(this).hasClass('notshown'));
-      $(this).find('button').attr('aria-pressed', isBeingPressed);
-    })
-  }
 
   this.getGridColor = function(contrast) {
     return this.isHighContrast(contrast) ? '#222' : '#ddd';
@@ -2927,14 +2939,14 @@ var indicatorView = function (model, options) {
     datatables_options.aaSorting = [];
 
     table.DataTable(datatables_options);
-
+    table.removeAttr('role');
+    table.find('thead th').removeAttr('rowspan').removeAttr('colspan');
     setDataTableWidth(table);
   };
 
   this.createSelectionsTable = function(chartInfo) {
     this.createTable(chartInfo.selectionsTable, chartInfo.indicatorId, '#selectionsTable', true);
-    this.createTableFooter('selectionTableFooter', chartInfo.footerFields, '#selectionsTable');
-    $('#selectionsTable').append('<div id="tableSelectionDownload" class="clearfix"></div>');
+    $('#tableSelectionDownload').empty();
     this.createDownloadButton(chartInfo.selectionsTable, 'Table', chartInfo.indicatorId, '#tableSelectionDownload');
     this.createSourceButton(chartInfo.shortIndicatorId, '#tableSelectionDownload');
   };
@@ -3130,6 +3142,7 @@ var indicatorView = function (model, options) {
       initialiseDataTable(el);
 
       $(el).removeClass('table-has-no-data');
+      $('#selectionTableFooter').show();
 
       $(el).find('th')
         .removeAttr('tabindex')
@@ -3140,25 +3153,9 @@ var indicatorView = function (model, options) {
     } else {
       $(el).append($('<h3 />').text(translations.indicator.data_not_available));
       $(el).addClass('table-has-no-data');
+      $('#selectionTableFooter').hide();
     }
   };
-
-  this.createTableFooter = function(divid, footerFields, el) {
-    var footdiv = $('<div />').attr({
-      'id': divid,
-      'class': 'table-footer-text'
-    });
-    var footList = $('<dl>');
-    footdiv.append(footList);
-
-    _.each(footerFields, function(val, key) {
-      footList.append($('<dt />').text(key + ': '));
-      footList.append($('<dd />').text(val));
-    });
-
-    $(el).append(footdiv);
-  };
-
 
   this.sortFieldGroup = function(fieldGroupElement) {
     var sortLabels = function(a, b) {
@@ -3227,9 +3224,15 @@ $(document).ready(function() {
                         'tabindex': '-1',
                     });
                 
-                panes.filter(':visible').attr('aria-hidden', 'true').hide();
+                panes.filter(':visible').attr({
+                    'aria-hidden': 'true',
+                    'tabindex': '-1',
+                }).hide();
 
-                pane.attr('aria-hidden', 'false').show();
+                pane.attr({
+                    'aria-hidden': 'false',
+                    'tabindex': '0',
+                }).show();
 
                 tab.attr({
                     'aria-selected': 'true',
@@ -3709,6 +3712,74 @@ $(function() {
     // Hijack the displayed date format.
     _getDisplayDateFormat: function(date){
       return date.getFullYear();
+    },
+
+    // Override the _createButton method to prevent the date from being a link.
+    _createButton: function(title, container) {
+      if (title === 'Date') {
+        var span = L.DomUtil.create('span', this.options.styleNS + ' timecontrol-' + title.toLowerCase(), container);
+        span.title = title;
+        return span;
+      }
+      else {
+        return L.Control.TimeDimension.prototype._createButton.call(this, title, container);
+      }
+    },
+
+    // Override the _createSliderTime method to give the slider accessibility features.
+    _createSliderTime: function(className, container) {
+      var knob = L.Control.TimeDimension.prototype._createSliderTime.call(this, className, container),
+          control = this,
+          times = this._timeDimension.getAvailableTimes(),
+          years = times.map(function(time) {
+            var date = new Date(time);
+            return control._getDisplayDateFormat(date);
+          }),
+          minYear = years[0],
+          maxYear = years[years.length - 1],
+          knobElement = knob._element;
+
+      knobElement.setAttribute('tabindex', '0');
+      knobElement.setAttribute('role', 'slider');
+      knobElement.setAttribute('aria-label', 'Year slider');
+      knobElement.setAttribute('aria-valuemin', minYear);
+      knobElement.setAttribute('aria-valuemax', maxYear);
+
+      function updateSliderAttributes() {
+        var yearIndex = 0;
+        if (knob.getValue()) {
+          yearIndex = knob.getValue();
+        }
+        knobElement.setAttribute('aria-valuenow', years[yearIndex]);
+      }
+      updateSliderAttributes();
+
+      // Give the slider left/right keyboard functionality.
+      knobElement.addEventListener('keydown', function(e) {
+        if (e.which === 37 || e.which === 40) {
+          var min = knob.getMinValue();
+          var value = knob.getValue();
+          value = value - 1;
+          if (value >= min) {
+            knob.setValue(value);
+            control._sliderTimeValueChanged(value);
+            updateSliderAttributes();
+          }
+          e.preventDefault();
+        }
+        else if (e.which === 39 || e.which === 38) {
+          var max = knob.getMaxValue();
+          var value = knob.getValue();
+          value = value + 1;
+          if (value <= max) {
+            knob.setValue(value);
+            control._sliderTimeValueChanged(value);
+            updateSliderAttributes();
+          }
+          e.preventDefault();
+        }
+      });
+      return knob;
     }
 
   });
@@ -3734,6 +3805,115 @@ $(function() {
     // Return the control.
     return new L.Control.YearSlider(options);
   };
+}());
+/*
+ * Leaflet fullscreenAccessible.
+ *
+ * This is an override of L.Control.Fullscreen for accessibility fixes.
+ * See here: https://github.com/Leaflet/Leaflet.fullscreen
+ */
+(function () {
+    "use strict";
+
+    if (typeof L === 'undefined') {
+        return;
+    }
+
+    L.Control.FullscreenAccessible = L.Control.Fullscreen.extend({
+        onAdd: function(map) {
+            var container = L.Control.Fullscreen.prototype.onAdd.call(this, map);
+            this.link.setAttribute('role', 'button');
+            this.link.setAttribute('aria-label', this.link.title);
+            this.link.innerHTML = '<i class="fa fa-expand" aria-hidden="true"></i>';
+            return container;
+        },
+        _toggleTitle: function() {
+            L.Control.Fullscreen.prototype._toggleTitle.call(this);
+            this.link.setAttribute('aria-label', this.link.title);
+            var faClass = this._map.isFullscreen() ? 'fa-compress' : 'fa-expand'
+            this.link.innerHTML = '<i class="fa ' + faClass + '" aria-hidden="true"></i>';
+        }
+    });
+
+  }());
+/*
+ * Leaflet search.
+ *
+ * This is customized version of L.Control.Search.
+ * See here: https://github.com/stefanocudini/leaflet-search
+ */
+(function () {
+  "use strict";
+
+  if (typeof L === 'undefined') {
+    return;
+  }
+
+  L.Control.SearchAccessible = L.Control.Search.extend({
+    onAdd: function(map) {
+      var container = L.Control.Search.prototype.onAdd.call(this, map);
+
+      this._input.setAttribute('aria-label', this._input.placeholder);
+
+      this._button.setAttribute('role', 'button');
+      this._accessibleCollapse();
+      this._button.innerHTML = '<i class="fa fa-search" aria-hidden="true"></i>';
+
+      this._cancel.setAttribute('role', 'button');
+      this._cancel.setAttribute('aria-label', this._cancel.title);
+      this._cancel.innerHTML = '<i class="fa fa-close" aria-hidden="true"></i>';
+
+      // Prevent the delayed collapse when tabbing out of the input box.
+      L.DomEvent.on(this._cancel, 'focus', this.collapseDelayedStop, this);
+
+      return container;
+    },
+    _accessibleExpand: function() {
+      this._accessibleDescription('Hide search');
+      this._button.setAttribute('aria-expanded', 'true');
+    },
+    _accessibleCollapse: function() {
+      this._accessibleDescription('Show search');
+      this._button.setAttribute('aria-expanded', 'false');
+    },
+    _accessibleDescription: function(description) {
+      this._button.title = description;
+      this._button.setAttribute('aria-label', description);
+    },
+    expand: function(toggle) {
+      L.Control.Search.prototype.expand.call(this, toggle);
+      this._accessibleExpand();
+      return this;
+    },
+    collapse: function() {
+      L.Control.Search.prototype.collapse.call(this);
+      this._accessibleCollapse();
+      return this;
+    },
+    cancel: function() {
+      L.Control.Search.prototype.cancel.call(this);
+      this._accessibleExpand();
+      return this;
+    },
+    showTooltip: function(records) {
+      L.Control.Search.prototype.showTooltip.call(this, records);
+      this._accessibleDescription('Search');
+      this._button.removeAttribute('aria-expanded');
+      return this._countertips;
+    },
+    _handleSubmit: function(e) {
+      // Prevent the enter key from immediately collapsing the search bar.
+      if ((typeof e === 'undefined' || e.type === 'keyup') && this._input.value === '') {
+        return;
+      }
+      L.Control.Search.prototype._handleSubmit.call(this, e);
+    },
+    _createAlert: function(className) {
+      var alert = L.Control.Search.prototype._createAlert.call(this, className);
+      alert.setAttribute('role', 'alert');
+      return alert;
+    }
+  });
 }());
 function initialiseGoogleAnalytics(){
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
