@@ -48,7 +48,7 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@3.6.1
       with:
         REPOSITORY_NAME: sustainabledevelopment-uk/sustainabledevelopment-uk.github.io
-        ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ACCESS_TOKEN: ${{ secrets.token }}
         BRANCH: master
         FOLDER: _site
         CLEAN: true
