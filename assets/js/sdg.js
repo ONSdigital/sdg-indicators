@@ -682,7 +682,7 @@ Chart.plugins.register({
         $('<span/>')
             .css('display', 'none')
             .attr('id', 'chart-keyboard')
-            .text(', Use arrow keys to browse data points.')
+            .text(', Use left and right arrow keys to browse data points.')
             .appendTo('#chart');
         var describedBy = $('#chart canvas').attr('aria-describedby');
         $('#chart canvas')
@@ -2749,6 +2749,7 @@ var indicatorView = function (model, options) {
         },
         legendCallback: function(chart) {
             var text = [];
+            text.push('<h5 class="sr-only">Plot legend: list of lines included in chart</h5>');
             text.push('<ul id="legend">');
             _.each(chart.data.datasets, function(dataset) {
               text.push('<li>');
@@ -2940,7 +2941,7 @@ var indicatorView = function (model, options) {
 
     table.DataTable(datatables_options);
     table.removeAttr('role');
-    table.find('thead th').removeAttr('rowspan').removeAttr('colspan');
+    table.find('thead th').removeAttr('rowspan').removeAttr('colspan').removeAttr('aria-label');
     setDataTableWidth(table);
   };
 
@@ -3191,6 +3192,7 @@ $(document).ready(function() {
             'class': 'tabPanel',
             'role': 'tabpanel',
             'aria-hidden': 'true',
+            'tabindex': '0',
         }).hide();
 
         tabsList.attr({
@@ -3223,15 +3225,13 @@ $(document).ready(function() {
                         'aria-selected': 'false',
                         'tabindex': '-1',
                     });
-                
+
                 panes.filter(':visible').attr({
                     'aria-hidden': 'true',
-                    'tabindex': '-1',
                 }).hide();
 
                 pane.attr({
                     'aria-hidden': 'false',
-                    'tabindex': '0',
                 }).show();
 
                 tab.attr({

@@ -121,7 +121,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201016125947">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201016155400">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -129,7 +129,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201016125947"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201016155400"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -231,23 +231,23 @@ var translations = {
 
 <script type="text/template" id="item_template">
   <% _.each(fields, function(fieldItem) { %>
-    <fieldset>
-      <legend class="sr-only">Sub-categories - <%=translations.t(fieldItem.field)%></legend>
-      <div class="variable-selector<% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=fieldItem.field%>">
-        <button class='accessBtn' tabindex='0' aria-expanded='false'
-          <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
-          aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
-          <% }%>
-        >
-          <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
-            <span aria-hidden="true"><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></span>
-            <span class="sr-only">Show sub-categories: <%=translations.t(fieldItem.field)%></span>
-          <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
-        </button>
-        <div class="bar">
-          <div class="selected"></div>
-        </div>
-        <div class="variable-options">
+    <div class="variable-selector<% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed child<% }%>" data-field="<%=fieldItem.field%>">
+      <button class='accessBtn' tabindex='0' aria-expanded='false'
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
+        <% }%>
+      >
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
+          <span aria-hidden="true"><%=translations.t(fieldItem.field)%><i class="fa fa-chevron-down"></i></span>
+          <span class="sr-only">Show sub-categories: <%=translations.t(fieldItem.field)%></span>
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
+      </button>
+      <div class="bar">
+        <div class="selected"></div>
+      </div>
+      <div class="variable-options">
+        <fieldset>
+          <legend class="sr-only">Sub-categories - <%=translations.t(fieldItem.field)%></legend>
           <div>
             <button data-type="select">Select all</button>
             <button data-type="clear">Clear all</button>
@@ -257,18 +257,18 @@ var translations = {
               <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
             </label>
           <% }); %>
-        </div>
-
-        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
-          <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">Available when '<%= translations.t(_.findWhere(edges, { To: fieldItem.field }).From) %>' is selected
-          </div>
-          <div class="no-data-hint" id="no-data-hint-<%=fieldItem.field.replace(/ /g, '-')%>">
-            No options available because of filters above
-          </div>
-        <% }%>
-
+        </fieldset>
       </div>
-    </fieldset>
+
+      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">Available when '<%= translations.t(_.findWhere(edges, { To: fieldItem.field }).From) %>' is selected
+        </div>
+        <div class="no-data-hint" id="no-data-hint-<%=fieldItem.field.replace(/ /g, '-')%>">
+          No options available because of filters above
+        </div>
+      <% }%>
+
+    </div>
   <% }); %>
 </script>
 
@@ -1594,7 +1594,7 @@ data-event-label="Change to Table tab"
     aria-labelledby="chart-heading"
     aria-describedby="table-alternative legend-help"
     tabindex="0"
- ></canvas>
+ >Line chart press enter to browse data points with left and right arrow keys</</canvas>
 
 <script>
 // Add a chart alteration to support the chart_graph_limits metadata field.
@@ -1663,6 +1663,7 @@ opensdg.chartConfigAlter(function(config, info) {
 
 
 <div id="selectionChartFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
     <dl>
         
         <dt>Source:</dt>
@@ -1710,6 +1711,7 @@ opensdg.chartConfigAlter(function(config, info) {
 
 
 <div id="selectionTableFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
     <dl>
         
         <dt>Source:</dt>
@@ -3031,7 +3033,7 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20201016125947'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201016125947"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20201016155400'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201016155400"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
