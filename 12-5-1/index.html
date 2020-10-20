@@ -121,7 +121,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201020011231">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201020115805">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -129,7 +129,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201020011231"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201020115805"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -359,6 +359,7 @@ var translations = {
   data-startvalues="null"
   data-graphlimits="null"
   data-stackeddisaggregation=""
+  data-graphannotations="null"
 >
   
   <span role="status" class="sr-only" id="indicator-data-view-status"></span>
@@ -708,12 +709,12 @@ data-event-label="Change to Table tab"
           <h4 id="chart-heading" class="chart-title">National recycling rate (as a proportion of waste collected)</h4>
           <div id="chart" class="plot-container">
             
-<canvas 
+<canvas
     role="img"
     aria-labelledby="chart-heading"
-    aria-describedby="table-alternative legend-help"
+    aria-describedby="table-alternative chart-annotations"
     tabindex="0"
- >Line chart press enter to browse data points with left and right arrow keys</</canvas>
+ ></canvas>
 
 <script>
 // Add a chart alteration to support the chart_graph_limits metadata field.
@@ -735,6 +736,169 @@ opensdg.chartConfigAlter(function(config, info) {
     // Add these overrides onto the normal config.
     $.extend(true, config, overrides);
   }
+});
+</script>
+
+<span style="display: none;" id="chart-annotations" role="status"></span>
+<script>
+opensdg.annotationPresets = {
+    common: {
+        // This "common" preset is applied to all annotations automatically.
+        borderColor: '#505a5f',
+        type: 'line',
+        label: {
+            backgroundColor: 'black',
+            fontColor: 'white',
+        },
+        // This "highContrast" overrides colors when in high-contrast mode.
+        highContrast: {
+            label: {
+                backgroundColor: 'white',
+                fontColor: 'black'
+            }
+        },
+        // This callback is used to generate a generic description for screenreaders.
+        // This can be overridden to be a more specific string, eg:
+        //
+        //     description: 'Chart annotation showing a 2030 target of 15%'
+        //
+        description: function() {
+            var descriptionParts = ['Chart annotation'];
+            if (this.label && this.label.content) {
+                descriptionParts.push(translations.t(this.label.content));
+            }
+            else {
+                // If there is no label, just specify whether it is a box or line.
+                if (this.type == 'line') {
+                    descriptionParts.push(this.mode + ' line');
+                }
+                if (this.type == 'box') {
+                    descriptionParts.push('box');
+                }
+            }
+            if (typeof this.value !== 'undefined') {
+                descriptionParts.push(this.value);
+            }
+            return descriptionParts.join(': ');
+        },
+    },
+    target_line: {
+        mode: 'horizontal',
+        borderDash: [5, 5],
+        label: {
+            position: 'right',
+            content: '2030 Target',
+        },
+    },
+};
+
+// Add a chart alteration to support the chart_annotations metadata field.
+opensdg.chartConfigAlter(function(config, info) {
+    if (info.graphAnnotations) {
+        var annotations = info.graphAnnotations.filter(function(annotation) {
+            var match = true;
+            if (match && info.selectedUnit) {
+                match = (info.selectedUnit === annotation.unit);
+            }
+            if (match && info.selectedSeries) {
+                match = (info.selectedSeries === annotation.series);
+            }
+            return match;
+        });
+        // Apply some helpers/fixes to the annotations.
+        annotations = annotations.map(function(annotation) {
+            // Apply the "common" preset.
+            if (opensdg.annotationPresets.common) {
+                annotation = $.extend(true, {}, opensdg.annotationPresets.common, annotation);
+            }
+            // Apply any specified presets.
+            if (annotation.preset) {
+                var preset = annotation.preset;
+                if (opensdg.annotationPresets[preset]) {
+                    annotation = $.extend(true, {}, opensdg.annotationPresets[preset], annotation);
+                }
+            }
+            // Default to horizontal lines.
+            if (!annotation.mode && annotation.type === 'line') {
+                annotation.mode = 'horizontal';
+            }
+            // Provide the obscure scaleID properties on user's behalf.
+            if (!annotation.scaleID && annotation.type === 'line') {
+                if (annotation.mode === 'horizontal') {
+                    annotation.scaleID = 'y-axis-0';
+                }
+                if (annotation.mode === 'vertical') {
+                    annotation.scaleID = 'x-axis-0';
+                }
+            }
+            if (!annotation.xScaleID && annotation.type === 'box') {
+                annotation.xScaleID = 'x-axis-0';
+            }
+            if (!annotation.yScaleID && annotation.type === 'box') {
+                annotation.yScaleID = 'y-axis-0';
+            }
+            // Provide the "enabled" label property on the user's behalf.
+            if (annotation.label && annotation.label.content) {
+                annotation.label.enabled = true;
+            }
+            // Translate any label content.
+            if (annotation.label && annotation.label.content) {
+                annotation.label.content = translations.t(annotation.label.content);
+            }
+            // Save some original values for later used when contrast mode is switched.
+            if (typeof annotation.defaultContrast === 'undefined') {
+                annotation.defaultContrast = {};
+                if (annotation.borderColor) {
+                    annotation.defaultContrast.borderColor = annotation.borderColor;
+                }
+                if (annotation.backgroundColor) {
+                    annotation.defaultContrast.backgroundColor = annotation.backgroundColor;
+                }
+                if (annotation.label) {
+                    annotation.defaultContrast.label = {};
+                    if (annotation.label.fontColor) {
+                        annotation.defaultContrast.label.fontColor = annotation.label.fontColor;
+                    }
+                    if (annotation.label.backgroundColor) {
+                        annotation.defaultContrast.label.backgroundColor = annotation.label.backgroundColor;
+                    }
+                }
+            }
+            return annotation;
+        });
+        if (annotations.length > 0) {
+            var overrides = {
+                options: {
+                    annotation: {
+                        drawTime: 'afterDatasetsDraw',
+                        annotations: annotations
+                    }
+                }
+            };
+            // Add these overrides onto the normal config.
+            $.extend(true, config, overrides);
+
+            // Update the chart annotations element.
+            var descriptions = annotations.map(function(annotation) {
+                var description = '';
+                if (annotation.description) {
+                    if (typeof annotation.description === 'function') {
+                        description = annotation.description.call(annotation);
+                    }
+                    else {
+                        description = translations.t(annotation.description);
+                    }
+                }
+                return description;
+            }).filter(function(description) { return description != ''; });
+
+            var currentDescription = $('#chart-annotations').text();
+            var newDescription = descriptions.join('. ');
+            if (currentDescription != newDescription) {
+                $('#chart-annotations').text(newDescription);
+            }
+        }
+    }
 });
 </script>
 
@@ -1854,7 +2018,7 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20201020011231'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201020011231"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20201020115805'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201020115805"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
