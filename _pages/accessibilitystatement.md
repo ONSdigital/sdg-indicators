@@ -6,7 +6,7 @@ permalink: /accessibility-statement/
 
 This accessibility statement applies to the Office for National Statitics (ONS) Sustainable Development Goals (SDG) website.
 
-This website is run by the Office for National Statistics. We want as many people as possible to be able to use this website. For example, that means you should be able to:
+This website is run by the ONS. We want as many people as possible to be able to use this website. For example, that means you should be able to:
 
 *	change colours, contrast levels and fonts
 *	zoom in up to 300% without the text spilling off the screen
