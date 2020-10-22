@@ -1,35 +1,58 @@
 ---
 layout: page
-title: Accessibility Statement
+title: Accessibility statement for the Office for National Statitics Sustainable Development Goals website
 permalink: /accessibility-statement/
 ---
 
-We’re working to make this website as accessible and usable as possible for everybody. We follow the [Web Content Accessibility Guidelines (WCAG 2.1)](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag-20). This site has achieved [‘AA’ standard](http://digitalaccessibilitycentre.org/index.php/office-for-national-statistics-sdg).
+This accessibility statement applies to the Office for National Statitics (ONS) Sustainable Development Goals (SDG) website.
 
-## Compatibility with tools
+This website is run by the Office for National Statistics. We want as many people as possible to be able to use this website. For example, that means you should be able to:
 
-This website should be compatible with recent versions of the following screen readers:
+*	change colours, contrast levels and fonts
+*	zoom in up to 300% without the text spilling off the screen
+*	navigate most of the website using just a keyboard
+*	navigate most of the website using speech recognition software
+*	listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA, ZoomText, TalkBack and VoiceOver)
 
-* Jaws (Windows)
-* NVDA (Windows)
-* ZoomText (Windows)
-* VoiceOver (iPhone; MacOS)
-* TalkBack (Android)
+We’ve also made the website text as simple as possible to understand.
 
-The site should also be compatible with:
+[AbilityNet](https://mcmw.abilitynet.org.uk/) has advice on making your device easier to use if you have a disability.
 
-* Basic operating system screen magnifiers
-* Speech recognition software, for example, Dragon Naturally Speaking
-* Operating system speech packages
+## How accessible this website is
 
-## Known issues
+We know some parts of this website are not fully accessible:
 
-We are aware of some issues:
+*	Assistive technology can’t read charts or maps on the site so please use the data table view instead
+*	If you are using Internet Explorer, you won’t be able to sort or filter data tables with keyboard navigation so please download the data files to sort and filter data
 
-* Assistive technology can’t read charts or maps on the site so please use the data table view instead
+## Feedback and contact information
 
-* If you are using Internet Explorer, you won't be able to sort or filter data tables with keyboard navigation so please download the data files to sort and filter data 
+If you need information on this website in a different format like accessible PDF, large print, easy read, audio recording or braille, [email sustainabledevelopment@ons.gov.uk](mailto:sustainabledevelopment@ons.gov.uk).
+
+We’ll consider your request and get back to you in 10 days.
 
 ## Reporting accessibility problems with this website
 
-If you find any accessibility problems on this site, please let us know via our [feedback survey](https://www.surveymonkey.co.uk/r/SDGfeedback). Alternatively please contact us at <sustainabledevelopment@ons.gov.uk>. 
+We’re always looking to improve the accessibility of this website. If you find any problems not listed on this page or think we’re not meeting accessibility requirements, please let us know via our [feedback survey](https://www.surveymonkey.co.uk/r/SDGfeedback). Alternatively please [contact us at sustainabledevelopment@ons.gov.uk](mailto:sustainabledevelopment@ons.gov.uk).
+
+## Enforcement procedure
+
+The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’). If you’re not happy with how we respond to your complaint, [contact the Equality Advisory and Support Service (EASS)](https://www.equalityadvisoryservice.com/).
+
+## Technical information about this website’s accessibility
+
+The ONS SDG team is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.
+
+## Compliance status
+
+This website is fully compliant with the [Web Content Accessibility Guidelines version 2.1](https://www.w3.org/TR/WCAG21/) [AA standard](http://digitalaccessibilitycentre.org/index.php/office-for-national-statistics-sdg). 
+
+## What we’re doing to improve accessibility
+
+The ONS SDG team is committed to making its website accessible; Annual AA accreditation is planned in addition to running automated accessibility testing within each development cycle, accessibility is embedded in our development processes.
+
+## Preparation of this accessibility statement
+
+This statement was prepared on 24.09.2020. It was last reviewed on 22.10.2020.
+
+This website was last tested on 20.10.2020. The test was carried out by the [Digital Accessibility Centre](http://digitalaccessibilitycentre.org/index.php/office-for-national-statistics-sdg).
