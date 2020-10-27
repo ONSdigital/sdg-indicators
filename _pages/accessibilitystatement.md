@@ -38,8 +38,6 @@ If you need information from the SDG website in a different format, please [cont
 
 We will reply within ten days to let you know when we will be able to provide the information. We will consider each request but may not be able to provide an alternative accessible format on every occasion.
 
-We’ll consider your request and get back to you in 10 days.
-
 ## Reporting accessibility problems
 
 We’re always looking to improve the accessibility of this website. If you experience any difficulty in accessing our website, please [contact us](mailto:sustainabledevelopment@ons.gov.uk).
