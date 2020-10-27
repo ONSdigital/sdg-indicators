@@ -52,7 +52,7 @@ The ONS SDG team is committed to making its website accessible, in accordance wi
 
 ## What we’re doing to improve accessibility
 
-The ONS SDG team is committed to making this website accessible. Ensuring accessibility is embedded in our development processes, including using automated accessibility testing. We commit to an annual assessment of accessibility of this website.
+Ensuring accessibility is embedded in our development processes, including using automated accessibility testing. We commit to an annual assessment of accessibility of this website.
 
 ## Preparation of this accessibility statement
 
