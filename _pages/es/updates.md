@@ -1,5 +1,6 @@
 ---
 layout: news
 title: Updates on Sustainable Development Goals
-permalink: /updates/
+permalink: /es/updates/
+language: es
 ---
