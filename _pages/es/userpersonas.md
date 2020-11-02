@@ -1,7 +1,8 @@
 ---
 layout: page
 title: User Personas
-permalink: /user-personas/
+permalink: /es/user-personas/
+language: es
 ---
 
 ## Table of contents
