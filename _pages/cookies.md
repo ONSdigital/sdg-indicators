@@ -1,61 +1,31 @@
 ---
 layout: page
-title: Cookies and privacy
-permalink: /about/cookies-and-privacy/
+title: Cookies on sdgdata.gov.uk
+permalink: /cookies/
 ---
-The following is a description of what data is collected when you use this website and what it is used for.
+Cookies are files saved on your phone, tablet or computer when you visit a website.
 
-## User information
-This website uses cookies and JavaScript tracking code to gather anonymous information about visitors' usage patterns, in order to improve the navigation of the site, the presentation of its content and the quality of its services.
+We use cookies to store information about how you use the sdgdata.gov.uk website, such as the pages you visit.
 
-The information collected does not include personal details such as your name, age, telephone number, postal address or email address, nor does it allow personal identification of a user.
+## Cookie settings
+We use 2 types of cookie. You can choose which cookies you're happy for us to use.
 
-## Cookies
-When we provide services, we want to make them easy, useful and reliable.
+### Cookies that measure website use
 
-Where services are delivered on the internet, this sometimes involves placing small amounts of information on your device, for example, computer or mobile phone.
+We use Google Analytics to measure how you use the website so we can improve it based on user needs. Google Analytics and set cookies that store anonymised information about:
 
-These include small files known as cookies. They cannot be used to identify you personally.
+- how you got to the site
+- the pages you visit on sdgdata.gov.uk and how long you spend on each page
+- what you click on while you are visiting the site
+- the way in which you interact with a page
 
-These pieces of information are used to improve services for you through, for example:
 
-- enabling a service to recognise your device so you don't have to give the same information several times during one task
-- recognising that you may already have given a username and password so you don't need to do it for every web page requested
-- measuring how many people are using services, so they can be made easier to use and there's enough capacity to ensure they are fast
+We do not allow Google to use or share the data about how you use this site.
 
-You can manage these small files yourself and learn more about them through [internet browser cookies – what they are and how to manage them](https://www.aboutcookies.org/).
+## Strictly necessary cookies
 
-## Our use of cookies
-Important information about this list of cookies:
+These essential cookies do things like remember your progress through a form.
 
-This list may not always be complete. It will be regularly updated as further information is gathered from other companies and organisations that we work with. 
+They always need to be on to allow the website to function properly.
 
-Cookies for overriding any security restrictions based on the IP address the visitor is coming from:
-
-- __cfduid
-
-Cookies for retaining active state of accessibility services:
-
-- contrast
-
-Cookies for measuring use of services:
-
-- _ga
-- _gid
-- _gat
-
-By understanding how people use our website, we can improve the information provided. We gather this data using Google Analytics.
-
-## Opt out
-You can [opt out of Google Analytics tracking by following these instructions](https://tools.google.com/dlpage/gaoptout).
-
-## External links
-This site may contain links to other sites.
-
-ONS is not responsible for the privacy practices or the content of such websites.
-
-## Security
-This website has security measures in place to protect the loss, misuse, and alteration of the information under our control.
-
-## Contacting the website
-If you have any questions about this privacy statement, the practices of this site, or your dealings with this website, you can contact us at <sustainabledevelopment@ons.gov.uk>.
+[Find out more about cookies on sdgdata.gov.uk](/help/cookies)
