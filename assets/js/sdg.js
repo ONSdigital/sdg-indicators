@@ -995,7 +995,7 @@ var GEOCODE_COLUMN = 'GeoCode';
 var YEAR_COLUMN = 'Year';
 var VALUE_COLUMN = 'Value';
 var HEADLINE_COLOR = '#777777';
-var SERIES_TOGGLE = false;
+var SERIES_TOGGLE = true;
 
   /**
  * Model helper functions with general utility.
