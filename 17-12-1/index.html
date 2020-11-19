@@ -121,7 +121,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201119005454">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201119090244">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -129,7 +129,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201119005454"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201119090244"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -337,6 +337,12 @@ var translations = {
   
 
   
+<div class="row metadata-available-indicator">
+  <div class="col-xs-12">
+    <h2>Average tariffs faced by developing countries, least developed countries and small island developing States</h2>
+  </div>
+</div>
+
 
   
 
@@ -351,18 +357,429 @@ var translations = {
   data-country="UK"
   data-charttitle="Average tariffs faced by developing countries, least developed countries and small island developing States"
   data-charttitles="null"
-  data-measurementunit=""
-  data-showdata="false"
+  data-measurementunit="Percentage"
+  data-showdata="true"
   data-graphtype="line"
   data-geocoderegex=""
-  data-showmap=""
+  data-showmap="false"
   data-startvalues="null"
   data-graphlimits="null"
   data-stackeddisaggregation=""
   data-graphannotations="null"
 >
   
-  <div id="indicator-main" class="indicator-main col-md-12">
+  <span role="status" class="sr-only" id="indicator-data-view-status"></span>
+  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
+    <div id="serieses"></div>
+<div id="units"></div>
+<div id="toolbar">
+  <span id="series-help">
+    <h4>Sub-categories</h4>
+    <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+  </span>
+  <div id="fields">
+    <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+  </div>
+</div>
+
+  </div>
+  <div id="indicator-main" class="indicator-main col-md-9">
+    
+
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    <a href="https://ONSdigital.github.io/sdg-data/en/headline/17-12-1.csv" class="btn btn-primary btn-download" download="indicator_17-12-1.csv" tabindex="0" role="button">Download Headline CSV</a>
+
+    <a href="https://ONSdigital.github.io/sdg-data/en/data/17-12-1.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_17-12-1.csv' tabindex='0' role='button'>Download Source CSV</a>
+
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>Average tariffs faced by developing countries, least developed countries and small island developing States</caption>
+      <thead>
+        
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <div id="datatableFooter">
+    
+    <p>Source: Eurostat</p>
+    
+    
+    
+    <p>Unit of Measurement: Percentage</p>
+    
+    
+    <p>Footnote: AGRI = Agriculture; FISH = Fish; NAMA = Non-Agricultural Market Access; PAP = Processed Agricultural Products</p>
+    
+  </div>
+
+</div>
+
+
+<section>
+
+  <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+
+  <div class="async-loaded spacer medium" style="display:none;">
+
+    <div style="display: none;">
+  <span id="table-alternative">For tabular data alternative see Table tab.</span>
+</div>
+<ul class="nav nav-tabs data-view" role="tablist">
+  <li role="presentation" class="nav-item active">
+    <a class="nav-link" data-toggle="tab" id="tab-chartview" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+ aria-describedby="table-alternative">Chart</a>
+  </li>
+  <li role="presentation" class="nav-item">
+    <a class="nav-link" data-toggle="tab" id="tab-tableview" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+>Table</a>
+  </li></ul>
+
+    <div class="tab-content data-view">
+  <div role="tabpanel" class="tab-pane active" id="chartview">
+    
+
+    <div id="dataset-size-warning" style="display:none" role="alert">
+      <i class="fa fa-bolt"><span class="sr-only">Warning:</span></i>
+      There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+    </div>
+
+    
+    
+    <div id="selectionsChart">
+      <figure role="group">
+        <div id="chart-canvas">
+          <h4 id="chart-heading" class="chart-title">Average tariffs faced by developing countries, least developed countries and small island developing States</h4>
+          <div id="chart" class="plot-container">
+            
+<canvas
+    role="img"
+    aria-labelledby="chart-heading"
+    aria-describedby="table-alternative chart-annotations"
+    tabindex="0"
+ ></canvas>
+
+<script>
+// Add a chart alteration to support the chart_graph_limits metadata field.
+opensdg.chartConfigAlter(function(config, info) {
+  if (info.graphLimits) {
+    var limit = _.findWhere(info.graphLimits, { unit: info.selectedUnit }) || info.graphLimits[0];
+    var overrides = {
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              min: limit.minimum,
+              max: limit.maximum,
+            }
+          }]
+        }
+      }
+    }
+    // Add these overrides onto the normal config.
+    $.extend(true, config, overrides);
+  }
+});
+</script>
+
+<span style="display: none;" id="chart-annotations" role="status"></span>
+<script>
+opensdg.annotationPresets = {
+    common: {
+        // This "common" preset is applied to all annotations automatically.
+        borderColor: '#505a5f',
+        type: 'line',
+        label: {
+            backgroundColor: 'black',
+            fontColor: 'white',
+        },
+        // This "highContrast" overrides colors when in high-contrast mode.
+        highContrast: {
+            label: {
+                backgroundColor: 'white',
+                fontColor: 'black'
+            }
+        },
+        // This callback is used to generate a generic description for screenreaders.
+        // This can be overridden to be a more specific string, eg:
+        //
+        //     description: 'Chart annotation showing a 2030 target of 15%'
+        //
+        description: function() {
+            var descriptionParts = ['Chart annotation'];
+            if (this.label && this.label.content) {
+                descriptionParts.push(translations.t(this.label.content));
+            }
+            else {
+                // If there is no label, just specify whether it is a box or line.
+                if (this.type == 'line') {
+                    descriptionParts.push(this.mode + ' line');
+                }
+                if (this.type == 'box') {
+                    descriptionParts.push('box');
+                }
+            }
+            if (typeof this.value !== 'undefined') {
+                descriptionParts.push(this.value);
+            }
+            return descriptionParts.join(': ');
+        },
+    },
+    target_line: {
+        mode: 'horizontal',
+        borderDash: [5, 5],
+        label: {
+            position: 'right',
+            content: '2030 Target',
+        },
+    },
+};
+
+// Add a chart alteration to support the chart_annotations metadata field.
+opensdg.chartConfigAlter(function(config, info) {
+    if (info.graphAnnotations) {
+        var annotations = info.graphAnnotations.filter(function(annotation) {
+            var match = true;
+            if (match && info.selectedUnit) {
+                match = (info.selectedUnit === annotation.unit);
+            }
+            if (match && info.selectedSeries) {
+                match = (info.selectedSeries === annotation.series);
+            }
+            return match;
+        });
+        // Apply some helpers/fixes to the annotations.
+        annotations = annotations.map(function(annotation) {
+            // Apply the "common" preset.
+            if (opensdg.annotationPresets.common) {
+                annotation = $.extend(true, {}, opensdg.annotationPresets.common, annotation);
+            }
+            // Apply any specified presets.
+            if (annotation.preset) {
+                var preset = annotation.preset;
+                if (opensdg.annotationPresets[preset]) {
+                    annotation = $.extend(true, {}, opensdg.annotationPresets[preset], annotation);
+                }
+            }
+            // Default to horizontal lines.
+            if (!annotation.mode && annotation.type === 'line') {
+                annotation.mode = 'horizontal';
+            }
+            // Provide the obscure scaleID properties on user's behalf.
+            if (!annotation.scaleID && annotation.type === 'line') {
+                if (annotation.mode === 'horizontal') {
+                    annotation.scaleID = 'y-axis-0';
+                }
+                if (annotation.mode === 'vertical') {
+                    annotation.scaleID = 'x-axis-0';
+                }
+            }
+            if (!annotation.xScaleID && annotation.type === 'box') {
+                annotation.xScaleID = 'x-axis-0';
+            }
+            if (!annotation.yScaleID && annotation.type === 'box') {
+                annotation.yScaleID = 'y-axis-0';
+            }
+            // Provide the "enabled" label property on the user's behalf.
+            if (annotation.label && annotation.label.content) {
+                annotation.label.enabled = true;
+            }
+            // Translate any label content.
+            if (annotation.label && annotation.label.content) {
+                annotation.label.content = translations.t(annotation.label.content);
+            }
+            // Save some original values for later used when contrast mode is switched.
+            if (typeof annotation.defaultContrast === 'undefined') {
+                annotation.defaultContrast = {};
+                if (annotation.borderColor) {
+                    annotation.defaultContrast.borderColor = annotation.borderColor;
+                }
+                if (annotation.backgroundColor) {
+                    annotation.defaultContrast.backgroundColor = annotation.backgroundColor;
+                }
+                if (annotation.label) {
+                    annotation.defaultContrast.label = {};
+                    if (annotation.label.fontColor) {
+                        annotation.defaultContrast.label.fontColor = annotation.label.fontColor;
+                    }
+                    if (annotation.label.backgroundColor) {
+                        annotation.defaultContrast.label.backgroundColor = annotation.label.backgroundColor;
+                    }
+                }
+            }
+            return annotation;
+        });
+        if (annotations.length > 0) {
+            var overrides = {
+                options: {
+                    annotation: {
+                        drawTime: 'afterDatasetsDraw',
+                        annotations: annotations
+                    }
+                }
+            };
+            // Add these overrides onto the normal config.
+            $.extend(true, config, overrides);
+
+            // Update the chart annotations element.
+            var descriptions = annotations.map(function(annotation) {
+                var description = '';
+                if (annotation.description) {
+                    if (typeof annotation.description === 'function') {
+                        description = annotation.description.call(annotation);
+                    }
+                    else {
+                        description = translations.t(annotation.description);
+                    }
+                }
+                return description;
+            }).filter(function(description) { return description != ''; });
+
+            var currentDescription = $('#chart-annotations').text();
+            var newDescription = descriptions.join('. ');
+            if (currentDescription != newDescription) {
+                $('#chart-annotations').text(newDescription);
+            }
+        }
+    }
+});
+</script>
+
+<script>
+// For line charts, add the vertical line hover functionality.
+opensdg.chartConfigAlter(function(config, info) {
+    var overrides = {
+        options: {
+            tooltips: {
+                intersect: false,
+                axis: 'x'
+            },
+        },
+        plugins: [{
+            beforeDatasetsDraw: function(chart) {
+                if (chart.tooltip._active && chart.tooltip._active.length) {
+                    var activePoint = chart.tooltip._active[0],
+                        ctx = chart.ctx,
+                        x = activePoint.tooltipPosition().x,
+                        topY = chart.scales['y-axis-0'].top,
+                        bottomY = chart.scales['y-axis-0'].bottom;
+
+                    // draw line
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.moveTo(x, topY);
+                    ctx.lineTo(x, bottomY);
+                    ctx.lineWidth = 2;
+                    ctx.strokeStyle = '#07C';
+                    ctx.stroke();
+                    ctx.restore();
+                }
+            }
+        }],
+    };
+    // Add these overrides onto the normal config, and return it.
+    $.extend(true, config, overrides);
+});
+</script>
+
+          </div>
+          <div id="plotLegend"></div>
+          
+
+
+
+<div id="selectionChartFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>Eurostat</dd>
+        
+
+        
+
+        
+        <dt>Unit of Measurement:</dt>
+        <dd>Percentage</dd>
+        
+
+        
+
+        
+        <dt>Footnote:</dt>
+        <dd>AGRI = Agriculture; FISH = Fish; NAMA = Non-Agricultural Market Access; PAP = Processed Agricultural Products</dd>
+        
+    <dl>
+</div>
+
+        </div>
+      </figure>
+      <div id="chartSelectionDownload" class="clearfix">
+        <button id="btnSave" title="Download chart as image" class='btn btn-primary btn-download'>
+          Download Chart Image
+        </button>
+      </div>
+    </div>
+
+
+
+  </div>
+  <div role="tabpanel" class="tab-pane" id="tableview">
+    <div style="display: none;">
+      <span id="column-sort-info">Click to sort by this column</span>
+    </div>
+    <div id="selectionsTable"></div>
+
+
+
+
+<div id="selectionTableFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>Eurostat</dd>
+        
+
+        
+
+        
+        <dt>Unit of Measurement:</dt>
+        <dd>Percentage</dd>
+        
+
+        
+
+        
+        <dt>Footnote:</dt>
+        <dd>AGRI = Agriculture; FISH = Fish; NAMA = Non-Agricultural Market Access; PAP = Processed Agricultural Products</dd>
+        
+    <dl>
+</div>
+
+<div id="tableSelectionDownload" class="clearfix"></div>'
+
+  </div>
+</div>
+
+
+  </div>
+
+</section>
+
   
   <ul class="nav nav-tabs spacer medium" role="tablist">
 
@@ -429,7 +846,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            
+            <p>Average tariffs faced by developing countries, least developed countries and small island developing States</p>
 
           
         </td>
@@ -471,7 +888,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            
+            <p>Percentage</p>
 
           
         </td>
@@ -485,7 +902,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            
+            <p>The average tariffs are reported overall and separately for four main product sectors - AGRI (Agriculture), FISH (Fish), NAMA (Non-Agricultural Market Access), and PAP (Processed Agricultural Products). The breakdown into country group is based on classifications by the Organisation for Economic Co-operation and Development (OECD) - OECD DAC list of Developing and Least Developed countries for 2020, and the Small Island Developing countries within the OECD DAC list. AVE stands for ad valorem equivalent, defined by the World Trade Organization as a tariff estimated as a percentage of the price. AVEs are necessary to create an equivalent means of calculating tariff related outcomes between goods with different forms of tariffs applied to them (for example, specific tariffs vs ad valorem tariffs).</p>
 
           
         </td>
@@ -513,7 +930,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            
+            <p>Calculations were performed by topic experts from Department for International Trade and are in line with the methodology outlined in the UN global metadata. Average tariffs are the simple average of AVE (ad valorem equivalent) rates for a given sector imported in the relevant year. For more information refer to the global metadata specified by the United Nations.</p>
 
           
         </td>
@@ -527,7 +944,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            
+            <p>The indicator is focused on Trade in Goods. Imports are assigned to a product sector based on their 6 digit code, rather than the 8 digit code provided on the database. This is because at 8 digit level codes are frequently altered. Therefore, when mapping sectors using the most recently updated tariff schedule, import product codes from prior years will not be captured in instances where they have been updated. To overcome this, sectors are assigned to one 6 digit code only. Other caveats to consider - AVEs are calculated on the basis of trade between the UK and the EU between 2017-2018. This may not fully reflect the trading relationship between the UK and Developing nations, Least Developed nations and Small Island Developing Nations. To this end, the use of EU imports (as opposed to Rest of the World) could yield AVE inflationary effects, as EU imports are generally of higher quantity and higher price than imports from Rest of World. Where no trade has been recorded in 2017-18 between the UK-EU no AVE estimates have been derived for these goods in the sample. Additionally, missing values for both AVE rates and sectors arising from product code alterations affect the sample size. For AVEs, some of these missing values are overcome by 0% allocation where imports belong to regimes U10 (MFN Zero), U20 (GSP Zero) or U30 (Preference Zero). However, since such replacements cannot be made for non-zero tariff rate regimes, samples may contain disproportionate amounts of 0% rate tariffs, in turn, potentially yielding underestimating effects on average tariffs calculations. Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -547,8 +964,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/9e01123e02c41997cb6b93770e7bf852fc4e30ff" target="_blank">
-                2020-11-18: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/cc40db1f901c69d3f51d4fb85df0cf70e3f63342" target="_blank">
+                2020-11-19: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -574,8 +991,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/9e01123e02c41997cb6b93770e7bf852fc4e30ff" target="_blank">
-                2020-11-18: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://github.com/ONSdigital/sdg-data/commit/cc40db1f901c69d3f51d4fb85df0cf70e3f63342" target="_blank">
+                2020-11-19: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -960,6 +1377,304 @@ data-event-label="Change to Sources tab"
 
 
 
+  <div class="row no-gutters">
+  
+    
+    
+    <div class="col-md-6">
+      
+      <table class="table">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>Eurostat</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Monthly</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2005</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>United Kingdom</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://appsso.eurostat.ec.europa.eu/nui/show.do?query=BOOKMARK_DS-059042_QID_-C92D93E_UID_-3F171EB0&layout=PERIOD,L,X,0;DECLARANT,L,Y,0;PARTNER,L,Z,0;PRODUCT,C,Z,1;STAT_REGIME,L,Z,2;IMPORT_REGIME,L,Z,3;ELIGIBILITY,L,Z,4;INDICATORS,C,Z,5;&zSelection=DS-059042STAT_REGIME,1;DS-059042PARTNER,EU_EXTRA;DS-059042IMPORT_REGIME,U10;DS-059042INDICATORS,VALUE_IN_EUROS;DS-059042PRODUCT,TOTAL;DS-059042ELIGIBILITY,E1;&rankName1=PARTNER_1_2_-1_2&rankName2=INDICATORS_1_2_-1_2&rankName3=PRODUCT_1_2_-1_2&rankName4=STAT-REGIME_1_2_0_1&rankName5=ELIGIBILITY_1_2_0_1&rankName6=IMPORT-REGIME_1_2_0_0&rankName7=PERIOD_1_0_0_0&rankName8=DECLARANT_1_2_0_1&sortC=ASC_-1_FIRST&rStp=&cStp=&rDCh=&cDCh=&rDM=true&cDM=true&footnes=false&empty=true&wai=false&time_mode=NONE&time_most_recent=false&lang=EN&cfo=%23%23%23%2C%23%23%23.%23%23%23&cxt_bm=1&lang=en" target="_blank">
+                Adjusted EU-EXTRA imports by tariff regime, by CN8 <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            <p>16/10/2020</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>TBA</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>Official</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>Conor.Mccormack@trade.gov.uk</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            <p>The source publication is of monthly frequency, but the calculations for this indicator are done on annual basis</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </div>
+    
+  </div>
+
 
 </div>
 
@@ -1053,7 +1768,7 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20201119005454'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201119005454"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20201119090244'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201119090244"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
