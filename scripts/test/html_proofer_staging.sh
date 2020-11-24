@@ -5,7 +5,7 @@
 # Figure out the Jekyll baseurl. If this doesn't work for some reason, you can
 # just hardcode it, eg: JEKYLL_BASEURL="/my-baseurl"
 JEKYLL_BASEURL=$(
-  grep "^baseurl: " _config.yml | # Look for 'baseurl' in the Jekyll config.
+  grep "^baseurl: " site_config.yml | # Look for 'baseurl' in the Jekyll config.
   head -n1                      | # Only use the first one.
   awk '{ print $2}'             | # Use the value part, after the colon.
   sed -e 's/^"//' -e 's/"$//'     # Strip any quotes.
