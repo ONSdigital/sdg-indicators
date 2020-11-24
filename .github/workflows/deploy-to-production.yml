@@ -43,7 +43,7 @@ jobs:
         gem install bundler
         bundle config path vendor/bundle
         bundle install
-        bundle exec jekyll build --config _config.yml,_config_prod.yml
+        bundle exec jekyll build --config site_config.yml,_config_prod.yml
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@3.6.1
       with:
