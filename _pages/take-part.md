@@ -14,7 +14,7 @@ If you’d like to take part, please click the button below and complete our bri
 
 You have to be 18 or over.
 
-<a class="btn btn-primary btn-download" href="{https://www.surveymonkey.co.uk/r/SDG-take-part" style="display: block; margin-left: auto; margin-right: auto; width: 8em;">Take part</a>
+<a class="btn btn-primary btn-download" href="https://www.surveymonkey.co.uk/r/SDG-take-part" style="display: block; margin-left: auto; margin-right: auto; width: 8em;">Take part</a>
 
 
 If you have specific feedback about this website please complete our [feedback questionnaire](https://www.surveymonkey.co.uk/r/SDGfeedback)
