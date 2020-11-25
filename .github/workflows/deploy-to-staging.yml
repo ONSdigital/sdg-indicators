@@ -27,7 +27,7 @@ jobs:
         bundle install
         bundle exec jekyll build
     - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@releases/v3
+      uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
         ACCESS_TOKEN: ${{ secrets.token }}
         BRANCH: gh-pages
