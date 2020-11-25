@@ -1,0 +1,25 @@
+# Replace this title as needed.
+title: U.K. Indicators For The Sustainable Development Goals
+
+# Replace the baseurl with the name of this repository.
+baseurl: "/sdg-indicators"
+url: ""
+
+# Build settings
+markdown: kramdown
+
+plugins:
+  - jekyll-open-sdg-plugins
+  
+# Pages
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+  posts:
+    output: true
+    permalink: /news/:day/:month/:year/:title.html
+  indicators:
+    output: true
+  goals:
+    output: true
