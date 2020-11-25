@@ -46,7 +46,7 @@ Other countries or organisations wishing to reuse the Open SDG reporting platfor
 If you have comments, feedback, or want to get involved with the Open SDG community please email <opensdg@googlegroups.com> or contact the [Open SDG GitHub](https://github.com/open-sdg/open-sdg) .
 
 ## Need more info?
-Answers to some specific questions about this website are included on our [frequently asked questions]({{ site.baseurl }}{% link _pages/faq.md %}) page.
+Answers to some specific questions about this website are included on our [frequently asked questions]({% link _pages/faq.md %}) page.
 
 ## Feedback
 For feedback on UK SDG data please contact us at <sustainabledevelopment@ons.gov.uk>
