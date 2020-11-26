@@ -121,7 +121,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201126134426">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20201126165639">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -129,7 +129,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201126134426"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20201126165639"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -337,6 +337,12 @@ var translations = {
   
 
   
+<div class="row metadata-available-indicator">
+  <div class="col-xs-12">
+    <h2>Coverage of treatment interventions for people with alcohol dependence</h2>
+  </div>
+</div>
+
 
   
 
@@ -348,21 +354,1260 @@ var translations = {
   id="indicatorData"
   data-indicatorid='indicator_3-5-1'
   data-id="3-5-1"
-  data-country="UK"
-  data-charttitle="Coverage of treatment interventions (pharmacological, psychosocial and rehabilitation and aftercare services) for substance use disorders"
-  data-charttitles="null"
+  data-country="England"
+  data-charttitle="Dependent drinkers"
+  data-charttitles="[{&quot;unit&quot;:&quot;Estimated prevalence&quot;,&quot;title&quot;:&quot;Alcohol dependence prevalence&quot;},{&quot;unit&quot;:&quot;Met need (%)&quot;,&quot;title&quot;:&quot;Proportion of people with alcohol dependence who are in treatment&quot;},{&quot;unit&quot;:&quot;Number of people in treatment&quot;,&quot;title&quot;:&quot;Number of people in treatment for alcohol dependence&quot;}]"
   data-measurementunit=""
-  data-showdata="false"
+  data-showdata="true"
   data-graphtype="line"
   data-geocoderegex=""
-  data-showmap=""
-  data-startvalues="null"
+  data-showmap="false"
+  data-startvalues="[{&quot;field&quot;:&quot;Units&quot;,&quot;value&quot;:&quot;Met need (%)&quot;}]"
   data-graphlimits="null"
   data-stackeddisaggregation=""
   data-graphannotations="null"
 >
   
-  <div id="indicator-main" class="indicator-main col-md-12">
+  <span role="status" class="sr-only" id="indicator-data-view-status"></span>
+  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
+    <div id="serieses"></div>
+<div id="units"></div>
+<div id="toolbar">
+  <span id="series-help">
+    <h4>Sub-categories</h4>
+    <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+  </span>
+  <div id="fields">
+    <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+  </div>
+</div>
+
+  </div>
+  <div id="indicator-main" class="indicator-main col-md-9">
+    
+
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    <a href="https://ONSdigital.github.io/sdg-data/en/headline/3-5-1.csv" class="btn btn-primary btn-download" download="indicator_3-5-1.csv" tabindex="0" role="button">Download Headline CSV</a>
+
+    <a href="https://ONSdigital.github.io/sdg-data/en/data/3-5-1.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_3-5-1.csv' tabindex='0' role='button'>Download Source CSV</a>
+
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>Dependent drinkers</caption>
+      <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col">Value</th>
+        
+        
+        
+        <th scope="col">Units</th>
+        
+        
+        
+        <th scope="col">GeoCode</th>
+        
+        
+        
+        <th scope="col">Unit multiplier</th>
+        
+        
+        
+        <th scope="col" class="table-value">Unit measure</th>
+        
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          
+          <td>2010/11</td>
+          
+          
+          
+          <td>580974.0</td>
+          
+          
+          
+          <td>Estimated prevalence</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011/12</td>
+          
+          
+          
+          <td>580095.0</td>
+          
+          
+          
+          <td>Estimated prevalence</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012/13</td>
+          
+          
+          
+          <td>578498.0</td>
+          
+          
+          
+          <td>Estimated prevalence</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013/14</td>
+          
+          
+          
+          <td>596394.0</td>
+          
+          
+          
+          <td>Estimated prevalence</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014/15</td>
+          
+          
+          
+          <td>595132.0</td>
+          
+          
+          
+          <td>Estimated prevalence</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015/16</td>
+          
+          
+          
+          <td>595856.0</td>
+          
+          
+          
+          <td>Estimated prevalence</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015/16</td>
+          
+          
+          
+          <td>595859.0</td>
+          
+          
+          
+          <td>Estimated prevalence</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016/17</td>
+          
+          
+          
+          <td>589101.0</td>
+          
+          
+          
+          <td>Estimated prevalence</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017/18</td>
+          
+          
+          
+          <td>586780.0</td>
+          
+          
+          
+          <td>Estimated prevalence</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018/19</td>
+          
+          
+          
+          <td>590578.6667</td>
+          
+          
+          
+          <td>Estimated prevalence</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010/11</td>
+          
+          
+          
+          <td>20.0082964126</td>
+          
+          
+          
+          <td>Met need (%)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011/12</td>
+          
+          
+          
+          <td>19.6774666218</td>
+          
+          
+          
+          <td>Met need (%)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012/13</td>
+          
+          
+          
+          <td>19.9086254404</td>
+          
+          
+          
+          <td>Met need (%)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013/14</td>
+          
+          
+          
+          <td>20.2084528013</td>
+          
+          
+          
+          <td>Met need (%)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014/15</td>
+          
+          
+          
+          <td>19.6989911482</td>
+          
+          
+          
+          <td>Met need (%)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015/16</td>
+          
+          
+          
+          <td>19.0015708493</td>
+          
+          
+          
+          <td>Met need (%)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015/16</td>
+          
+          
+          
+          <td>19.0014751812</td>
+          
+          
+          
+          <td>Met need (%)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016/17</td>
+          
+          
+          
+          <td>18.4511654199</td>
+          
+          
+          
+          <td>Met need (%)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017/18</td>
+          
+          
+          
+          <td>17.6336957633</td>
+          
+          
+          
+          <td>Met need (%)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018/19</td>
+          
+          
+          
+          <td>17.63575386</td>
+          
+          
+          
+          <td>Met need (%)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010/11</td>
+          
+          
+          
+          <td>116243.0</td>
+          
+          
+          
+          <td>Number of people in treatment</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Count</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011/12</td>
+          
+          
+          
+          <td>114148.0</td>
+          
+          
+          
+          <td>Number of people in treatment</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Count</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012/13</td>
+          
+          
+          
+          <td>115171.0</td>
+          
+          
+          
+          <td>Number of people in treatment</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Count</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013/14</td>
+          
+          
+          
+          <td>120522.0</td>
+          
+          
+          
+          <td>Number of people in treatment</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Count</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014/15</td>
+          
+          
+          
+          <td>117235.0</td>
+          
+          
+          
+          <td>Number of people in treatment</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Count</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015/16</td>
+          
+          
+          
+          <td>113222.0</td>
+          
+          
+          
+          <td>Number of people in treatment</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Count</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016/17</td>
+          
+          
+          
+          <td>108696.0</td>
+          
+          
+          
+          <td>Number of people in treatment</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Count</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017/18</td>
+          
+          
+          
+          <td>103471.0</td>
+          
+          
+          
+          <td>Number of people in treatment</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Count</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018/19</td>
+          
+          
+          
+          <td>104153.0</td>
+          
+          
+          
+          <td>Number of people in treatment</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Count</td>
+          
+          
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <div id="datatableFooter">
+    
+    <p>Source: Public Health England</p>
+    
+    
+    <p>Geographical Area: England</p>
+    
+    
+    
+  </div>
+
+</div>
+
+
+<section>
+
+  <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+
+  <div class="async-loaded spacer medium" style="display:none;">
+
+    <div style="display: none;">
+  <span id="table-alternative">For tabular data alternative see Table tab.</span>
+</div>
+<ul class="nav nav-tabs data-view" role="tablist">
+  <li role="presentation" class="nav-item active">
+    <a class="nav-link" data-toggle="tab" id="tab-chartview" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+ aria-describedby="table-alternative">Chart</a>
+  </li>
+  <li role="presentation" class="nav-item">
+    <a class="nav-link" data-toggle="tab" id="tab-tableview" href="#tableview" aria-controls="tableview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+>Table</a>
+  </li></ul>
+
+    <div class="tab-content data-view">
+  <div role="tabpanel" class="tab-pane active" id="chartview">
+    
+
+    <div id="dataset-size-warning" style="display:none" role="alert">
+      <i class="fa fa-bolt"><span class="sr-only">Warning:</span></i>
+      There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+    </div>
+
+    
+    
+    <div id="selectionsChart">
+      <figure role="group">
+        <div id="chart-canvas">
+          <h4 id="chart-heading" class="chart-title">Alcohol dependence prevalence</h4>
+          <div id="chart" class="plot-container">
+            
+<canvas
+    role="img"
+    aria-labelledby="chart-heading"
+    aria-describedby="table-alternative chart-annotations"
+    tabindex="0"
+ ></canvas>
+
+<script>
+// Add a chart alteration to support the chart_graph_limits metadata field.
+opensdg.chartConfigAlter(function(config, info) {
+  if (info.graphLimits) {
+    var limit = _.findWhere(info.graphLimits, { unit: info.selectedUnit }) || info.graphLimits[0];
+    var overrides = {
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              min: limit.minimum,
+              max: limit.maximum,
+            }
+          }]
+        }
+      }
+    }
+    // Add these overrides onto the normal config.
+    $.extend(true, config, overrides);
+  }
+});
+</script>
+
+<span style="display: none;" id="chart-annotations" role="status"></span>
+<script>
+opensdg.annotationPresets = {
+    common: {
+        // This "common" preset is applied to all annotations automatically.
+        borderColor: '#505a5f',
+        type: 'line',
+        label: {
+            backgroundColor: 'black',
+            fontColor: 'white',
+        },
+        // This "highContrast" overrides colors when in high-contrast mode.
+        highContrast: {
+            label: {
+                backgroundColor: 'white',
+                fontColor: 'black'
+            }
+        },
+        // This callback is used to generate a generic description for screenreaders.
+        // This can be overridden to be a more specific string, eg:
+        //
+        //     description: 'Chart annotation showing a 2030 target of 15%'
+        //
+        description: function() {
+            var descriptionParts = ['Chart annotation'];
+            if (this.label && this.label.content) {
+                descriptionParts.push(translations.t(this.label.content));
+            }
+            else {
+                // If there is no label, just specify whether it is a box or line.
+                if (this.type == 'line') {
+                    descriptionParts.push(this.mode + ' line');
+                }
+                if (this.type == 'box') {
+                    descriptionParts.push('box');
+                }
+            }
+            if (typeof this.value !== 'undefined') {
+                descriptionParts.push(this.value);
+            }
+            return descriptionParts.join(': ');
+        },
+    },
+    target_line: {
+        mode: 'horizontal',
+        borderDash: [5, 5],
+        label: {
+            position: 'right',
+            content: '2030 Target',
+        },
+    },
+};
+
+// Add a chart alteration to support the chart_annotations metadata field.
+opensdg.chartConfigAlter(function(config, info) {
+    if (info.graphAnnotations) {
+        var annotations = info.graphAnnotations.filter(function(annotation) {
+            var match = true;
+            if (match && info.selectedUnit) {
+                match = (info.selectedUnit === annotation.unit);
+            }
+            if (match && info.selectedSeries) {
+                match = (info.selectedSeries === annotation.series);
+            }
+            return match;
+        });
+        // Apply some helpers/fixes to the annotations.
+        annotations = annotations.map(function(annotation) {
+            // Apply the "common" preset.
+            if (opensdg.annotationPresets.common) {
+                annotation = $.extend(true, {}, opensdg.annotationPresets.common, annotation);
+            }
+            // Apply any specified presets.
+            if (annotation.preset) {
+                var preset = annotation.preset;
+                if (opensdg.annotationPresets[preset]) {
+                    annotation = $.extend(true, {}, opensdg.annotationPresets[preset], annotation);
+                }
+            }
+            // Default to horizontal lines.
+            if (!annotation.mode && annotation.type === 'line') {
+                annotation.mode = 'horizontal';
+            }
+            // Provide the obscure scaleID properties on user's behalf.
+            if (!annotation.scaleID && annotation.type === 'line') {
+                if (annotation.mode === 'horizontal') {
+                    annotation.scaleID = 'y-axis-0';
+                }
+                if (annotation.mode === 'vertical') {
+                    annotation.scaleID = 'x-axis-0';
+                }
+            }
+            if (!annotation.xScaleID && annotation.type === 'box') {
+                annotation.xScaleID = 'x-axis-0';
+            }
+            if (!annotation.yScaleID && annotation.type === 'box') {
+                annotation.yScaleID = 'y-axis-0';
+            }
+            // Provide the "enabled" label property on the user's behalf.
+            if (annotation.label && annotation.label.content) {
+                annotation.label.enabled = true;
+            }
+            // Translate any label content.
+            if (annotation.label && annotation.label.content) {
+                annotation.label.content = translations.t(annotation.label.content);
+            }
+            // Save some original values for later used when contrast mode is switched.
+            if (typeof annotation.defaultContrast === 'undefined') {
+                annotation.defaultContrast = {};
+                if (annotation.borderColor) {
+                    annotation.defaultContrast.borderColor = annotation.borderColor;
+                }
+                if (annotation.backgroundColor) {
+                    annotation.defaultContrast.backgroundColor = annotation.backgroundColor;
+                }
+                if (annotation.label) {
+                    annotation.defaultContrast.label = {};
+                    if (annotation.label.fontColor) {
+                        annotation.defaultContrast.label.fontColor = annotation.label.fontColor;
+                    }
+                    if (annotation.label.backgroundColor) {
+                        annotation.defaultContrast.label.backgroundColor = annotation.label.backgroundColor;
+                    }
+                }
+            }
+            return annotation;
+        });
+        if (annotations.length > 0) {
+            var overrides = {
+                options: {
+                    annotation: {
+                        drawTime: 'afterDatasetsDraw',
+                        annotations: annotations
+                    }
+                }
+            };
+            // Add these overrides onto the normal config.
+            $.extend(true, config, overrides);
+
+            // Update the chart annotations element.
+            var descriptions = annotations.map(function(annotation) {
+                var description = '';
+                if (annotation.description) {
+                    if (typeof annotation.description === 'function') {
+                        description = annotation.description.call(annotation);
+                    }
+                    else {
+                        description = translations.t(annotation.description);
+                    }
+                }
+                return description;
+            }).filter(function(description) { return description != ''; });
+
+            var currentDescription = $('#chart-annotations').text();
+            var newDescription = descriptions.join('. ');
+            if (currentDescription != newDescription) {
+                $('#chart-annotations').text(newDescription);
+            }
+        }
+    }
+});
+</script>
+
+<script>
+// For line charts, add the vertical line hover functionality.
+opensdg.chartConfigAlter(function(config, info) {
+    var overrides = {
+        options: {
+            tooltips: {
+                intersect: false,
+                axis: 'x'
+            },
+        },
+        plugins: [{
+            beforeDatasetsDraw: function(chart) {
+                if (chart.tooltip._active && chart.tooltip._active.length) {
+                    var activePoint = chart.tooltip._active[0],
+                        ctx = chart.ctx,
+                        x = activePoint.tooltipPosition().x,
+                        topY = chart.scales['y-axis-0'].top,
+                        bottomY = chart.scales['y-axis-0'].bottom;
+
+                    // draw line
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.moveTo(x, topY);
+                    ctx.lineTo(x, bottomY);
+                    ctx.lineWidth = 2;
+                    ctx.strokeStyle = '#07C';
+                    ctx.stroke();
+                    ctx.restore();
+                }
+            }
+        }],
+    };
+    // Add these overrides onto the normal config, and return it.
+    $.extend(true, config, overrides);
+});
+</script>
+
+          </div>
+          <div id="plotLegend"></div>
+          
+
+
+
+<div id="selectionChartFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>Public Health England, Public Health England & the University of Manchester</dd>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>England</dd>
+        
+
+        
+
+        
+
+        
+    <dl>
+</div>
+
+        </div>
+      </figure>
+      <div id="chartSelectionDownload" class="clearfix">
+        <button id="btnSave" title="Download chart as image" class='btn btn-primary btn-download'>
+          Download Chart Image
+        </button>
+      </div>
+    </div>
+
+
+
+  </div>
+  <div role="tabpanel" class="tab-pane" id="tableview">
+    <div style="display: none;">
+      <span id="column-sort-info">Click to sort by this column</span>
+    </div>
+    <div id="selectionsTable"></div>
+
+
+
+
+<div id="selectionTableFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>Public Health England, Public Health England & the University of Manchester</dd>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>England</dd>
+        
+
+        
+
+        
+
+        
+    <dl>
+</div>
+
+<div id="tableSelectionDownload" class="clearfix"></div>'
+
+  </div>
+</div>
+
+
+  </div>
+
+</section>
+
   
   <ul class="nav nav-tabs spacer medium" role="tablist">
 
@@ -429,7 +1674,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            
+            <p>Coverage of treatment interventions for people with alcohol dependence</p>
 
           
         </td>
@@ -443,7 +1688,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            
+            <p>Proportion of people with alcohol dependence in treatment</p>
 
           
         </td>
@@ -457,7 +1702,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            
+            <p>England</p>
 
           
         </td>
@@ -485,7 +1730,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            
+            <p>Deprivation decile - Deciles of the <a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019">2019 Index of Multiple Deprivation</a></p>
+<p>The indices rank each upper tier Local Authority in England from most deprived to least deprived. Decile 10 represents the most deprived ten percent of upper tier Local Authorities in England whereas decile 1 represents the least deprived ten percent.</p>
 
           
         </td>
@@ -499,7 +1745,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Available disaggregations </th>
         <td>
           
-            
+            <p>PHE data is available in the <a href="https://www.gov.uk/government/collections/alcohol-and-drug-misuse-and-treatment-statistics#alcohol-and-drug-treatment-statistics:-adults">PHE Alcohol and drug misuse and treatment statistics</a> for the number and percentage of adults (18+) and young people in treatment for substance use disorders (drug use disorders and alcohol use disorders) including by substance, sex, age, ethnicity, and disability status. This information is not presented here as we do not have estimates of prevalence of substance use disorders for these groups.</p>
+<p>Proportion of people with alcohol dependence in treatment by deprivation decile is currently only available for 2018/2019.</p>
 
           
         </td>
@@ -513,7 +1760,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            
+            <p>Proportion of dependent drinkers in treatment  = (number of adults in treatment / estimated prevalence) x 100</p>
 
           
         </td>
@@ -527,7 +1774,12 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            
+            <p>Treatment centres from across England submitted their data to Public Health England (PHE). These treatment centres include community-based specialist drug and alcohol services, primary care services, residential rehabilition centres and inpatient units.</p>
+<p>Double counting in the treatment figures may have occurred if individuals changed their Local Authority of residence during the year.</p>
+<p>Data for Local Authories on the ViewIt platform are rounded to the nearest 5, so may not exactly sum to UK figures.</p>
+<p>The <a href="https://www.gov.uk/government/publications/alcohol-dependence-prevalence-in-england">Prevalence, trends and amenability to treatment report</a> published by the University of Sheffield explains how alcohol prevalence estimates were calculated.</p>
+<p>Data were collected from 1st April to 31st March each year.</p>
+<p>Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -547,7 +1799,7 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/d7fb4bdf3047b6027c8c0834cb62ab84cae94a97" target="_blank">
+              <a href="https://github.com/ONSdigital/sdg-data/commit/9b8f8f128704a072c0d2b83fef2acf2c7f8a7beb" target="_blank">
                 2020-11-26: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
@@ -574,7 +1826,7 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/d7fb4bdf3047b6027c8c0834cb62ab84cae94a97" target="_blank">
+              <a href="https://github.com/ONSdigital/sdg-data/commit/9b8f8f128704a072c0d2b83fef2acf2c7f8a7beb" target="_blank">
                 2020-11-26: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
@@ -806,7 +2058,7 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://unstats.un.org/sdgs/tierIII-indicators/" target="_blank">
+              <a href="https://unstats.un.org/sdgs/metadata/files/Metadata-03-05-01.pdf" target="_blank">
                 United Nations Sustainable Development Goals Metadata (PDF 4.0 MB) <span class="visuallyhidden">opens in a new window</span>
               </a>
             
@@ -960,6 +2212,902 @@ data-event-label="Change to Sources tab"
 
 
 
+  <div class="row no-gutters">
+  
+    
+    
+    <div class="col-md-6">
+      
+        <h4>Source 1</h4>
+      
+      <table class="table">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>Public Health England</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Annual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2005/06</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>England</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://www.gov.uk/government/collections/alcohol-and-drug-misuse-and-treatment-statistics" target="_blank">
+                Alcohol and drug treatment statistics - adults <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            <p>30/01/2020</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>TBC</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>Official</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>enquiries@phe.gov.uk</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            <p>Data were collected from 1st April to 31st March.</p>
+<p>Treatment centres from across England submitted the data to Public Health England (PHE). These treatment centres include - community-based specialist drug and alcohol services, primary care services, residential rehabilition centres and inpatient units.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </div>
+    
+    
+    
+    <div class="col-md-6">
+      
+        <h4>Source 2</h4>
+      
+      <table class="table">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>Public Health England</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Annual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2018/19</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>England</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://healthierlives.phe.org.uk/topic/public-health-dashboard/comparisons#par/E92000001/ati/202/iid/93010/sexId/-1/gid/1938133162/pat/202" target="_blank">
+                Public Health Dashboard <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            <p>04/02/2020</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>Official</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            <p>These data give estimates for unmet need for 2018/19. To calculate met need from these data we subtracted unmet need from 100.<p>To navigate to data select Alcohol treatment - Proportion of dependent drinkers not in treatment (%) Current method</p><p>Alternatively download Public Health Dashboard data for England. </p>
+</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </div>
+    
+    
+    
+    <div class="col-md-6">
+      
+        <h4>Source 3</h4>
+      
+      <table class="table">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>Public Health England &amp; the University of Manchester</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Annual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2010</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>England</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://www.ndtms.net/ViewIt/Adult" target="_blank">
+                National Drug Treatment Monitoring System - ViewIt <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>EvidenceApplicationteam@phe.gov.uk</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            <p>This source is used for Local Authority level data on number of people in treatment.</p>
+<p>To download data for all Local Authorities use the 'all indicators for all local authorities' button in the top right. Alternatively, individual LAs can be selected using the drop down menus
+</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </div>
+    
+  </div>
+
 
 </div>
 
@@ -1053,7 +3201,7 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20201126134426'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201126134426"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20201126165639'></script><script src="/sdg-indicators/assets/js/custom.js?v=20201126165639"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
