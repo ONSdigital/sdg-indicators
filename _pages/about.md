@@ -50,7 +50,7 @@ Answers to some specific questions about this website are included on our [frequ
 
 ## Take part
 
-Help us shape the UK Sustainable Development Goals (SDG) data website and ensure it meets your needs.
+Help us shape the UK SDG data website and ensure it meets your needs.
 
 We’re looking for volunteers to [take part in our user research activities]({{ site.baseurl }}{% link _pages/take-part.md %}).
 
