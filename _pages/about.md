@@ -11,7 +11,7 @@ The [Sustainable Development Goals](http://www.un.org/sustainabledevelopment/sus
   
   * improve the lives and prospects of everyone, everywhere
 
-The 17 Goals were adopted by all UN Member States in 2015, as part of the [2030 Agenda for Sustainable Development](https://www.un.org/ga/search/view_doc.asp?symbol=A/RES/70/1&Lang=E).
+The 17 Goals were adopted by all UN Member States in 2015, as part of the [2030 Agenda for Sustainable Development](https://sustainabledevelopment.un.org/post2015/transformingourworld).
 
 ## ONS' role in the SDGs
 The [Office For National Statistics](https://www.ons.gov.uk/) (ONS) is the UK’s largest independent producer of official statistics and its recognised National Statistical Institute (NSI).
