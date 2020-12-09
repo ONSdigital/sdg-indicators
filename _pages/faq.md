@@ -29,7 +29,7 @@ layout: page
 We will add data as soon as it has been sourced and checked. This includes new data as well as updates to data we have already published. We will continue to collect data from existing sources where possible, in cooperation with topic experts.
 
 ## What disaggregations are available?
-Our aim is to source disaggregated data to help identify the people and places at risk of being left behind. We report many disaggregations. For details about all disaggregations, see the [UK disaggregation report]({{ site.baseurl }}/sdg-data). 
+Our aim is to source disaggregated data to help identify the people and places at risk of being left behind. We report many disaggregations. For details about all disaggregations, see the [UK disaggregation report]({{ site.remote_data_prefix }}/disaggregations.html). 
 
 We provide an overview of the [disaggregation status]({{ site.baseurl }}/reporting-status) which is currently based on the disaggregations which are mentioned in the indicator name. This ensures those disaggregations deemed most important by the UN are reported and disseminated on this site. 
 
