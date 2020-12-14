@@ -4,5 +4,5 @@ gem "jekyll", "3.8.5"
 gem "html-proofer"
 gem "jekyll-remote-theme"
 gem "deep_merge"
-gem "jekyll-open-sdg-plugins", "1.2.0.pre.beta3"
+gem 'jekyll-open-sdg-plugins', git: 'https://github.com/brockfanning/jekyll-open-sdg-plugins.git', branch: 'goal-content-configuration'
 gem "jekyll-redirect-from"
