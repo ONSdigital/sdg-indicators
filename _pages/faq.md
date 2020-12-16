@@ -55,17 +55,17 @@ Many Sustainable Development Goals (SDG) indicators require specific breakdowns,
 
 Initially our aim is to report the disaggregations which are listed within the title of the indicator. For example, indicator 8.5.2 specifies unemployment rate ‘…by sex, age and persons with disabilities’.
 
-We show how much progress we have made on reporting these disaggregations on the ‘Disaggregation status' tab of our [Reporting status page]({{ site.baseurl }}/reporting-status).
+We show how much progress we have made on reporting these disaggregations on the ‘Disaggregation status' tab of our [Reporting Status page]({{ site.baseurl }}/reporting-status).
 
-The different reporting status we use are:
+The different disaggregation statuses we use are:
 
-* Fully disaggregated: All disaggregations specified in indicator title are reported
+* Fully disaggregated: All disaggregations specified in the indicator title are reported
 
-* Partially Disaggregated: Some of the disaggregations specified in indicator title are reported
+* Partially disaggregated: Some of the disaggregations specified in the indicator title are reported
 
-* Not disaggregated: None of the disaggregations specified in indicator title are reported
+* Not disaggregated: None of the disaggregations specified in the indicator title are reported
 
-* Out of scope: indicators where no disaggregation is specified in the indicator title
+* Out of scope: Indicators where no disaggregation is specified in the indicator title
 
 
 ## Who uses this website?
