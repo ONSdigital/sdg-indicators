@@ -43,15 +43,15 @@ We published [our response to the consultation on measuring and reporting SDGs i
 ## What does the reporting status mean?
 We have used two different types of reporting status for an indicator, which are also colour coded:
 
- * Reported online – as a minimum the headline national data for this indicator is available on this website but the data might not be fully disaggregated yet. We are continuing to source additional disaggregation's
+ * Reported online: As a minimum the headline national data for this indicator is available on this website but the data might not be fully disaggregated yet. We are continuing to source additional disaggregation's
  
- * Exploring data sources – we are still looking for a suitable data source for this indicator
+ * Exploring data sources: We are still looking for a suitable data source for this indicator
 
 Where there is additional information about the status of indicator data collection and reporting, this will be displayed at the top of the indicator page.
 
 
 ## What does the disaggregation status mean?
-Many Sustainable Development Goals (SDG) indicators require specific breakdowns, or disaggregations. below the headline figure.
+Many Sustainable Development Goals (SDG) indicators require specific breakdowns, or disaggregations, below the headline figure.
 
 Initially our aim is to report the disaggregations which are listed within the title of the indicator. For example, indicator 8.5.2 specifies unemployment rate ‘…by sex, age and persons with disabilities’.
 
