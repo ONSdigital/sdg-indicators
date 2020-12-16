@@ -6,13 +6,13 @@ layout: page
 ## Table of contents
 - [How often will new data be added to this site?](#how-often-will-new-data-be-added-to-this-site)
 
-- [What disaggregations are available?](#what-disaggregations-are-available)
-
 - [How do I suggest new or different data sources?](#how-do-i-suggest-new-or-different-data-sources)
 
 - [What are you doing to fill data gaps?](#what-are-you-doing-to-fill-data-gaps)
 
 - [What does the reporting status mean?](#what-does-the-reporting-status-mean)
+
+- [What does the disaggregation status mean?](#what-does-the-disaggregation-status-mean)
 
 - [Who uses this website?](#who-uses-this-website)
 
@@ -27,12 +27,6 @@ layout: page
 
 ## How often will new data be added to this site?
 We will add data as soon as it has been sourced and checked. This includes new data as well as updates to data we have already published. We will continue to collect data from existing sources where possible, in cooperation with topic experts.
-
-## What disaggregations are available?
-Our aim is to source disaggregated data to help identify the people and places at risk of being left behind. We report many disaggregations. For details about all disaggregations, see the [UK disaggregation report]({{ site.remote_data_prefix }}/disaggregations.html). 
-
-We provide an overview of the [disaggregation status]({{ site.baseurl }}/reporting-status) which is currently based on the disaggregations which are mentioned in the indicator name. This ensures those disaggregations deemed most important by the UN are reported and disseminated on this site. 
-
 
 ## How do I suggest new or different data sources?
 If you have feedback on the data sources we have used or have suggestions for new data sources then please contact us at <sustainabledevelopment@ons.gov.uk>
@@ -49,11 +43,29 @@ We published [our response to the consultation on measuring and reporting SDGs i
 ## What does the reporting status mean?
 We have used two different types of reporting status for an indicator, which are also colour coded:
 
- * Reported online – as a minimum the headline national data for this indicator is available on this website but the data might not be fully disaggregated yet. We are continuing to source additional disaggregation's
+ * Reported online: As a minimum the headline national data for this indicator is available on this website but the data might not be fully disaggregated yet. We are continuing to source additional disaggregation's
  
- * Exploring data sources – we are still looking for a suitable data source for this indicator
+ * Exploring data sources: We are still looking for a suitable data source for this indicator
 
 Where there is additional information about the status of indicator data collection and reporting, this will be displayed at the top of the indicator page.
+
+
+## What does the disaggregation status mean?
+Many Sustainable Development Goals (SDG) indicators require specific breakdowns, or disaggregations, below the headline figure.
+
+Initially our aim is to report the disaggregations which are listed within the title of the indicator. For example, indicator 8.5.2 specifies unemployment rate ‘…by sex, age and persons with disabilities’.
+
+We show how much progress we have made on reporting these disaggregations on the ‘Disaggregation status' tab of our [Reporting status page]({{ site.baseurl }}/reporting-status).
+
+The different reporting status we use are:
+
+* Fully disaggregated: All disaggregations specified in indicator title are reported
+
+* Partially Disaggregated: Some of the disaggregations specified in indicator title are reported
+
+* Not disaggregated: None of the disaggregations specified in indicator title are reported
+
+* Out of scope: indicators where no disaggregation is specified in the indicator title
 
 
 ## Who uses this website?
