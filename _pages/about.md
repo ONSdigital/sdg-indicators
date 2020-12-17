@@ -55,6 +55,6 @@ Help us shape the UK SDG data website and ensure it meets your needs.
 We’re looking for volunteers to [take part in our user research activities]({{ site.baseurl }}{% link _pages/take-part.md %}).
 
 ## Feedback
-For feedback on UK SDG data please contact us at <sustainabledevelopment@ons.gov.uk>
+To provide feedback on UK SDG data please contact us at <sustainabledevelopment@ons.gov.uk>
 
-For feedback about this website, please complete our [feedback survey](https://www.surveymonkey.co.uk/r/SDGfeedback)
+To provide feedback about this website, please complete our [feedback survey](https://www.surveymonkey.co.uk/r/SDGfeedback)
