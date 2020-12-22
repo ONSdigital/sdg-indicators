@@ -2,6 +2,7 @@
 title: Take part in our user research
 permalink: /take-part/
 layout: page
+hide_my_button: true
 ---
 
 Your views matter. Help us shape the UK Sustainable Development Goals (SDG) data website and ensure it meets your needs.
