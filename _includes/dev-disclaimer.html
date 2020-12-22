@@ -3,5 +3,6 @@
     <strong class="phase-tag">{{ site.disclaimer.phase | default: page.t.header.alpha | t }}</strong>
     {% assign disclaimer_message_default = page.t.header.disclaimer | replace_first: '%email_address', site.email_contacts.suggestions %}
     {{ site.disclaimer.message | default: disclaimer_message_default | t }}
+    {% unless page.hide_my_button %}<a id="takepartButton" aria-labelledby="takepartButton" href="https://sdgdata.gov.uk/take-part" class="btn btn-primary btn-download btn-takepart" role="link">Take part in user research</a>{% endunless %}
   </div>
 </div>
