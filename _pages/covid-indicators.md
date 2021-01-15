@@ -4,7 +4,7 @@ layout: standalone-indicators
 permalink: /covid-19-indicators/
 language: en
 standalone_indicators:
-    - covid-indicator-15
+    - covid-indicator-1
     - d-standalone
     - h-standalone
 ---
