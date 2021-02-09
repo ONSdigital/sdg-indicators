@@ -121,7 +121,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20210209112320">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20210209112809">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -129,7 +129,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20210209112320"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20210209112809"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -441,7 +441,7 @@ var translations = {
     <div style="display: none;">
   <span id="table-alternative">For tabular data alternative see Table tab.</span>
 </div>
-<ul class="nav nav-tabs data-view" role="tablist">
+<ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
   <li role="presentation" class="nav-item active">
     <a class="nav-link" data-toggle="tab" id="tab-chartview" href="#chartview" aria-controls="chartview" role="tab" data-on="click"
 data-event-category="Tab change"
@@ -484,7 +484,7 @@ data-event-label="Change to Table tab"
 <script>
 // Add a chart alteration to support the chart_graph_limits metadata field.
 opensdg.chartConfigAlter(function(config, info) {
-  if (info.graphLimits) {
+  if (info.graphLimits && info.graphLimits.length > 0) {
     var limit = _.findWhere(info.graphLimits, { unit: info.selectedUnit }) || info.graphLimits[0];
     var overrides = {
       options: {
@@ -559,7 +559,7 @@ opensdg.annotationPresets = {
 
 // Add a chart alteration to support the chart_annotations metadata field.
 opensdg.chartConfigAlter(function(config, info) {
-    if (info.graphAnnotations) {
+    if (info.graphAnnotations && info.graphAnnotations.length > 0) {
         var annotations = info.graphAnnotations.filter(function(annotation) {
             var match = true;
             if (match && info.selectedUnit) {
@@ -772,7 +772,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
 </div>
 
-<div id="tableSelectionDownload" class="clearfix"></div>'
+<div id="tableSelectionDownload" class="clearfix"></div>
 
   </div>
 </div>
@@ -1691,6 +1691,8 @@ data-event-label="Change to Sources tab"
   
   <a class="btn btn-primary" href="http://prose.io/#ONSdigital/sdg-data/edit/develop/meta/1-4-2.md">Edit Metadata</a>
   
+
+  
 </div>
 
   </div>
@@ -1770,7 +1772,7 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20210209112320'></script><script src="/sdg-indicators/assets/js/custom.js?v=20210209112320"></script><script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20210209112809'></script><script src="/sdg-indicators/assets/js/custom.js?v=20210209112809"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
