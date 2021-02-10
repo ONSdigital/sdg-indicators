@@ -2389,7 +2389,7 @@ var mapView = function () {
     $('.map').show();
     $('#map').sdgMap({
       indicatorId: indicatorId,
-      mapOptions: {"tileURL":"https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}","tileOptions":{"id":"mapbox.light","accessToken":"pk.eyJ1IjoibHVjeWphbmVnd2lsbCIsImEiOiJjazAyZ2phaGMwajhzM2hxb2czZmdrZ2szIn0.tcj-n08CcU-7tKXFqB-WuQ","attribution":"<a href=\"https://www.mapbox.com\">Mapbox</a> | <a href=\"http://geoportal.statistics.gov.uk/\">ONS</a>"},"minZoom":4},
+      mapOptions: {"tileURL":"https://{s}.tile.jawg.io/{id}/{z}/{x}/{y}{r}.png?access-token={accessToken}","tileOptions":{"id":"jawg-light","accessToken":"lCtbMZiG4tbVWl7uq9EEch1yphnuLx9JyZL2qZwoQJ26wAu73oK1NkU4K50AALkp","attribution":"<a href=\"http://jawg.io\" title=\"Tiles Courtesy of Jawg Maps\" target=\"_blank\">&copy; <b>Jawg</b>Maps</a> &copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors | <a href=\"http://geoportal.statistics.gov.uk/\">ONS</a>"},"minZoom":4},
       mapLayers: [{"min_zoom":4,"max_zoom":6,"staticBorders":true,"subfolder":"country","label":"Country"},{"min_zoom":6,"max_zoom":8,"staticBorders":true,"subfolder":"regions","label":"Regions"},{"min_zoom":9,"max_zoom":12,"staticBorders":true,"subfolder":"local_authorities","label":"Local Authorities"}],
     });
   };
