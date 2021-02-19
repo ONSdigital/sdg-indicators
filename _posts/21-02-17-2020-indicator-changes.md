@@ -20,7 +20,7 @@ Details of changes are in the following tables.
 
 ### Goal 1
 
-<table>
+<table class="table">
 <tbody>
 <tr>
 <td>Old Indicator</td>
