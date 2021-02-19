@@ -18,6 +18,25 @@ The ONS' SDG team have begun a project to put in place the required changes to t
 
 Details of changes are in the following tables.
 
+### Table of contents
+- [Goal 1](#goal-1)
+- [Goal 2](#goal-2)
+- [Goal 3](#goal-3)
+- [Goal 4](#goal-4)
+- [Goal 5](#goal-5)
+- [Goal 6](#goal-6)
+- [Goal 7](#goal-7)
+- [Goal 8](#goal-8)
+- [Goal 9](#goal-9)
+- [Goal 10](#goal-10)
+- [Goal 12](#goal-11)
+- [Goal 13](#goal-13)
+- [Goal 14](#goal-14)
+- [Goal 15](#goal-15)
+- [Goal 16](#goal-16)
+- [Goal 17](#goal-17)
+
+
 ### Goal 1
 
 <table class="table">
