@@ -23,12 +23,11 @@ Details of changes are in the following tables.
 <table style="width: 95%;" border="1">
 <thead>
 <tr>
-<tr>
 <th style="width: 40%;">Old Indicator</td>
 <th style="width: 40%;">New indicator</td>
 <th style="width: 15%;">Action</td>
 </tr>
-</tr>
+</thead>
 <tbody>
 <tr>
 <td style="width: 40%;">1.a.3: Sum of total grants and non-debt-creating inflows directly allocated to poverty reduction programmes as a proportion of GDP</td>
