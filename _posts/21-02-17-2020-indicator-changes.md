@@ -20,29 +20,27 @@ Details of changes are in the following tables.
 
 ### Goal 1
 
-<table style="width: 95%;" border="1">
-<thead>
-<tr>
-<th style="width: 40%;">Old Indicator</td>
-<th style="width: 40%;">New indicator</td>
-<th style="width: 15%;">Action</td>
-</tr>
-</thead>
+<table>
 <tbody>
 <tr>
-<td style="width: 40%;">1.a.3: Sum of total grants and non-debt-creating inflows directly allocated to poverty reduction programmes as a proportion of GDP</td>
-<td style="width: 40%;">1.a.1: Total official development assistance grants from all donors that focus on poverty reduction as a share of the recipient country’s gross national income</td>
-<td style="width: 15%;">Replaced</td>
+<td>Old Indicator</td>
+<td>New indicator</td>
+<td>Action</td>
 </tr>
 <tr>
-<td style="width: 40%;">1.a.1: Proportion of domestically generated resources allocated by the government directly to poverty reduction programmes</td>
-<td style="width: 40%;">&nbsp;</td>
-<td style="width: 15%;">Deleted</td>
+<td>1.a.3: Sum of total grants and non-debt-creating inflows directly allocated to poverty reduction programmes as a proportion of GDP</td>
+<td>1.a.1: Total official development assistance grants<br /> from all donors that focus on poverty reduction as a share of the recipient country's gross national income</td>
+<td>Replaced</td>
 </tr>
 <tr>
-<td style="width: 40%;">1.b.1: Proportion of government recurrent and capital spending to sectors that disproportionately benefit women, the poor and vulnerable groups</td>
-<td style="width: 40%;">1.b.1: Pro-poor public social spending</td>
-<td style="width: 15%;">Replaced</td>
+<td>1.a.1: Proportion of domestically generated resources allocated by the government directly to poverty reduction programmes</td>
+<td>&nbsp;</td>
+<td>Deleted</td>
+</tr>
+<tr>
+<td>1.b.1: Proportion of government recurrent and capital spending to sectors that disproportionately benefit women, the poor and vulnerable groups</td>
+<td>1.b.1: Pro-poor public social spending</td>
+<td>Replaced</td>
 </tr>
 </tbody>
 </table>
