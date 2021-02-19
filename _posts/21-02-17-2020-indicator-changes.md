@@ -21,6 +21,11 @@ Details of changes are in the following tables.
 ### Goal 1
 
 <table class="table">
+<colgroup>
+<col class="fourtyfive" />
+<col class="fourtyfive" />
+<col class="ten" />
+</colgroup>
 <thead>
 <tr>
 <th>Old Indicator</th>
