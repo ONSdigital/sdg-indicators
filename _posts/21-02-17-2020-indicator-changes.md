@@ -71,9 +71,9 @@ No changes
 ### Goal 10 
 |Old Indicator|New Indicator|Action|
 |-------------|-------------|------|
-|10.4: Adopt policies, especially fiscal, wage and social protection policies, and progressively achieve greater equality|10.4.2: Redistributive impact of fiscal policy|New|
-|10.7: Facilitate orderly, safe, regular and responsible migration and mobility of people, including through the implementation of planned and well-managed migration policies|10.7.3: Number of migrants killed while attempting to cross maritime, land and air borders|New|
-|10.7: Facilitate orderly, safe, regular and responsible migration and mobility of people, including through the implementation of planned and well-managed migration policies|10.7.4: Proportion of the population who are refugees, by country of origin|New|
+|New indicator 10.4.2|10.4.2: Redistributive impact of fiscal policy|New|
+|New indicator 10.7.3|10.7.3: Number of migrants killed while attempting to cross maritime, land and air borders|New|
+|New indicator 10.7.4|10.7.4: Proportion of the population who are refugees, by country of origin|New|
 
 
 ### Goal 11	
