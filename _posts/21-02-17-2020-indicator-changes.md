@@ -23,9 +23,9 @@ Details of changes are in the following tables.
 <table class="table">
 <thead>
 <tr>
-<td>Old Indicator</td>
-<td>New indicator</td>
-<td>Action</td>
+<th>Old Indicator</th>
+<th>New indicator</th>
+<th>Action</th>
 </tr>
 </thead>
 <tbody>
