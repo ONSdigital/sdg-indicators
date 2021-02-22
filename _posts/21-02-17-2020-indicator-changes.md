@@ -252,7 +252,7 @@ Details of changes are in the following tables.
   </thead>
   <tbody>
     <tr>
-      <td>8.3.1: Proportion of informal employment in non agriculture employment, by sex</td>
+      <td>8.3.1: Proportion of informal employment in non-agriculture employment, by sex</td>
       <td>8.3.1: Proportion of informal employment in total employment, by sector and sex</td>
       <td>Changed</td>
     </tr>
@@ -403,6 +403,11 @@ No changes
       <td>New indicator 13.2.2</td>
       <td>13.2.2: Total greenhouse gas emissions per year</td>
       <td>New</td>
+    </tr>
+    <tr>
+      <td>13.3.2: Number of countries that have communicated the strengthening of institutional, systemic and individual capacity-building to implement adaptation, mitigation and technology transfer, and development actions</td>
+      <td></td>
+      <td>Deleted</td>
     </tr>
   </tbody>
 </table>
