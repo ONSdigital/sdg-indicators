@@ -91,7 +91,7 @@ Details of changes are in the following tables.
   <tbody>
     <tr>
       <td>2.4.1: Proportion of agricultural area under productive and sustainable agriculture</td>
-      <td>Revision of metadata: Change in “use of biodiversity supporting practices” subindicator</td>
+      <td>Revision of metadata: Change in “use of biodiversity supporting practices” sub-indicator</td>
       <td>Changed</td>
     </tr>
     <tr>
