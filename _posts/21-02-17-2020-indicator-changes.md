@@ -2,7 +2,8 @@
 layout: post
 title: 2020 indicator changes
 author: SDGs team
-category: ""
+category: "Indicator changes"
+exerpt: "The UN has recommended 36 changes to the Sustainable Development Goal (SDG) indicators. This was one of the findings of the UN's [2020 Comprehensive Review Process](https://unstats.un.org/sdgs/iaeg-sdgs/2020-comp-rev/). The changes include replacing, deleting, refining or adjusting existing indicators. In a few instances, the review proposed additional indicators."
 ---
 
 The UN has recommended 36 changes to the Sustainable Development Goal (SDG) indicators. This was one of the findings of the UN's [2020 Comprehensive Review Process](https://unstats.un.org/sdgs/iaeg-sdgs/2020-comp-rev/). The changes include replacing, deleting, refining or adjusting existing indicators. In a few instances, the review proposed additional indicators. Within these four groups, the breakdown of changes amounts to:
