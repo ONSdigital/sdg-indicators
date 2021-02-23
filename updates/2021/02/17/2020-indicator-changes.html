@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet"></script>
+<script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
+
+        <script>
+// This is where we initialise any global variables, namespaced in "opensdg".
+var opensdg = {
+
+  // A base URL for asynchronous calls to SDG data.
+  remoteDataBaseUrl: 'https://ONSdigital.github.io/sdg-data/en',
+
+  chartConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Chart.js.
+  chartConfigAlter: function(callback) {
+    this.chartConfigAlterations.push(callback);
+  },
+
+  // A hook which can be replaced to alter whether/how the values that are
+  // displayed on indicator tables/graphs get rounded.
+  dataRounding: function(value) {
+    // Alterations go here.
+    return value;
+  },
+
+  language: 'en',
+};
+
+// For backwards compatibility, some of these might need to be global.
+// @TODO: Remove these eventually.
+var remoteDataBaseUrl = opensdg.remoteDataBaseUrl;
+
+</script>
+
+        <script>
+// JavaScript container for translation data.
+var translations = {
+  //Javascript version of the "t" filter from jekyll-open-sdg-plugins.
+  t: function(key) {
+
+    if (!key || typeof key !== 'string') {
+      return '';
+    }
+
+    // The majority of uses of this function are to translate disaggregation
+    // data. To spare data providers of needing to enter "data." in front of
+    // their disaggregation data, we specifically look for that here.
+    if (typeof this.data === 'object' && this.data !== null && this.data[key]) {
+      return this.data[key];
+    }
+
+    var originalKey = key;
+    var drilled = this;
+    var levelsDrilled = 0;
+    var levels = key.split('.');
+
+    for (var level in levels) {
+      // If we have drilled down to soon, abort.
+      if (typeof drilled !== 'object') {
+        break;
+      }
+
+      if (levels[level] in drilled) {
+        drilled = drilled[levels[level]];
+        levelsDrilled += 1;
+      }
+    }
+
+    // If we didn't drill the right number of levels, return the original string.
+    if (levels.length != levelsDrilled) {
+      return originalKey;
+    }
+
+    // Otherwise we must have drilled all the way.
+    return drilled;
+  },
+};
+</script>
+
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Title and meta description
+        ================================================== -->
+
+        
+    <title>2020 indicator changes - U.K. Indicators For The Sustainable Development Goals</title>
+
+
+
+        <meta name="description" content="">
+        <meta property="og:description" content="">
+        
+        <meta name="robots" content="noindex, nofollow">
+        
+        <link rel="canonical" href="/">
+
+        
+
+        <!--[if IE 9]>
+        <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
+        <![endif]-->
+
+        <!-- Favicons ================================================== -->
+        <!-- 128x128 -->
+        <link rel="shortcut icon" type="image/ico" href="/sdg-indicators/assets/img/favicons/favicon.ico">
+        <link rel="icon" type="image/png" href="/sdg-indicators/assets/img/favicons/favicon.png"><!-- 192x192, as recommended for Android
+        http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+        -->
+
+        
+
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20210223161339">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
+        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
+        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20210223161339"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+
+    </head>
+<body class="language-en layout-post">
+<!-- <div class="container"> -->
+
+<script>translations['header'] = {"alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","disclaimer":"This is a development website. We welcome your <a href=\"mailto:%email_address\">feedback</a>.","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content","tag_line":"17 Goals to Transform our World","toggle_menu":"Menu toggle. Click to expand or collapse the menu.","toggle_search":"Search toggle. Click to expand or collapse the search bar."};</script>
+
+<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+<div id="disclaimer">
+  <div class="container">
+  <div class="disclaimer-alert">
+    <strong class="phase-tag">BETA</strong>
+    
+    This website is in development – your <a href="https://www.surveymonkey.co.uk/r/SDGfeedback">feedback</a> will help us to improve it
+    <a id="takepartButton" aria-labelledby="takepartButton" href="/sdg-indicators/take-part" class="btn btn-primary btn-download btn-takepart" role="link">Take part in user research</a>
+  </div>
+</div>
+
+</div>
+
+<header role="banner">
+  <div class="container">
+
+    <div class="logo-and-mobile-widgets">
+      <a class="navbar-brand" href="/sdg-indicators/" id="home">
+        <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+      </a>
+
+      <div class="mobile-widgets">
+        <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
+    </div>
+
+    <nav class="navbar navbar-default" id="main-nav">
+
+      <ul class="top-level">
+        <li id="menuToggle"
+            aria-label="Menu toggle. Click to expand or collapse the menu."
+            aria-haspopup="true">
+          <button data-target="menu-mobile" aria-expanded="false">Menu</button>
+          <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link ">
+    <a href="/sdg-indicators/goals">Goals</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/reporting-status/">Reporting Status</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/about/">About</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/publications/">Publications</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/faq/">FAQ</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/updates/">Updates</a>
+    </li></ul>
+
+        </li>
+        <li id="searchToggle"
+            aria-label="Search toggle. Click to expand or collapse the search bar."
+            aria-haspopup="true">
+          <button data-target="search-mobile" aria-expanded="false">Search</button>
+          <div id="search-mobile" class="menu-target">
+  <form action="/sdg-indicators/search">
+    <input type="text" name="q" id="indicator_search-mobile" title="Search" />
+    <label class="sr-only" for="indicator_search-mobile">Search</label>
+    <button aria-label="Search" id="search-mobile-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
+  </form>
+</div>
+
+        </li>
+      </ul>
+
+      <div id="search" class="menu-target">
+  <form action="/sdg-indicators/search">
+    <input type="text" name="q" id="indicator_search" title="Search" />
+    <label class="sr-only" for="indicator_search">Search</label>
+    <button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
+  </form>
+</div>
+
+
+      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
+    <a href="/sdg-indicators/goals">Goals</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/reporting-status/">Reporting Status</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/about/">About</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/publications/">Publications</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/faq/">FAQ</a>
+    </li><li class="nav-link ">
+    <a href="/sdg-indicators/updates/">Updates</a>
+    </li></ul>
+
+
+    </nav>
+  </div>
+
+</header>
+<div id="top" tabindex=-1></div>
+
+<div class="container">
+  
+
+</div>
+
+
+<div id="main-content" class="container" role="main">
+  <div class="row">
+    <div class="col-md-12">
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="post-title" itemprop="name headline">2020 indicator changes</h1>
+        <p><time datetime="2021-02-17T00:00:00+00:00" itemprop="datePublished">17 February 2021</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">SDGs team</span></span></p>
+
+        <div class="post-content" itemprop="articleBody">
+          <p>The UN has recommended 36 changes to the Sustainable Development Goal (SDG) indicators. This was one of the findings of the UN’s <a href="https://unstats.un.org/sdgs/iaeg-sdgs/2020-comp-rev/">2020 Comprehensive Review Process</a>. The changes include replacing, deleting, refining or adjusting existing indicators. In a few instances, the review proposed additional indicators. Within these four groups, the breakdown of changes amounts to:</p>
+
+<ul>
+  <li>14 proposals for replacements of existing indicators</li>
+  <li>8 proposals for revisions of existing indicators</li>
+  <li>8 proposals for additional indicators</li>
+  <li>6 proposals for deleting indicators, including the partial deletion of 4.2.1</li>
+</ul>
+
+<p><a href="https://unstats.un.org/sdgs/iaeg-sdgs/2020-comprev/UNSC-proposal/">The UN has detailed more information on these proposals</a>.</p>
+
+<p>The ONS’ SDG team have begun a project to put in place the required changes to the indicator set. We anticipate that work will be completed at the end of March 2021. We aim to prioritise changes made on the live website, and will then work to fill the new indicator gaps. When complete, you will still be able to access the old indicators and their data in a separate archived area.</p>
+
+<p>Details of changes are in the following tables.</p>
+
+<h3 id="table-of-contents">Table of contents</h3>
+<ul>
+  <li><a href="#goal-1">Goal 1</a></li>
+  <li><a href="#goal-2">Goal 2</a></li>
+  <li><a href="#goal-3">Goal 3</a></li>
+  <li><a href="#goal-4">Goal 4</a></li>
+  <li><a href="#goal-5">Goal 5</a></li>
+  <li><a href="#goal-6">Goal 6</a></li>
+  <li><a href="#goal-7">Goal 7</a></li>
+  <li><a href="#goal-8">Goal 8</a></li>
+  <li><a href="#goal-9">Goal 9</a></li>
+  <li><a href="#goal-10">Goal 10</a></li>
+  <li><a href="#goal-11">Goal 12</a></li>
+  <li><a href="#goal-13">Goal 13</a></li>
+  <li><a href="#goal-14">Goal 14</a></li>
+  <li><a href="#goal-15">Goal 15</a></li>
+  <li><a href="#goal-16">Goal 16</a></li>
+  <li><a href="#goal-17">Goal 17</a></li>
+</ul>
+
+<h3 id="goal-1">Goal 1</h3>
+
+<table class="table">
+  <colgroup>
+    <col class="fourtyfive" />
+    <col class="fourtyfive" />
+    <col class="ten" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Old Indicator</th>
+      <th>New indicator</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1.a.3: Sum of total grants and non-debt-creating inflows directly allocated to poverty reduction programmes as a proportion of GDP</td>
+      <td>1.a.1: Total official development assistance grants<br /> from all donors that focus on poverty reduction as a share of the recipient country's gross national income</td>
+      <td>Replaced</td>
+    </tr>
+    <tr>
+      <td>1.a.1: Proportion of domestically generated resources allocated by the government directly to poverty reduction programmes</td>
+      <td></td>
+      <td>Deleted</td>
+    </tr>
+    <tr>
+      <td>1.b.1: Proportion of government recurrent and capital spending to sectors that disproportionately benefit women, the poor and vulnerable groups</td>
+      <td>1.b.1: Pro-poor public social spending</td>
+      <td>Replaced</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="goal-2">Goal 2</h3>
+
+<table class="table">
+  <colgroup>
+    <col class="fourtyfive" />
+    <col class="fourtyfive" />
+    <col class="ten" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Old Indicator</th>
+      <th>New indicator</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2.4.1: Proportion of agricultural area under productive and sustainable agriculture</td>
+      <td>Revision of metadata: Change in “use of biodiversity supporting practices” sub-indicator</td>
+      <td>Changed</td>
+    </tr>
+    <tr>
+      <td>2.5.2: Proportion of local breeds classified as being at risk, not at risk or at unknown level of risk of extinction</td>
+      <td>2.5.2: Proportion of local breeds classified as being at risk of extinction</td>
+      <td>Changed</td>
+    </tr>
+    <tr>
+      <td>New indicator 2.2.3</td>
+      <td>2.2.3: Prevalence of anaemia in women aged 15 to 49 years, by pregnancy status (percentage)</td>
+      <td>New</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="goal-3">Goal 3</h3>
+
+<table class="table">
+  <colgroup>
+    <col class="fourtyfive" />
+    <col class="fourtyfive" />
+    <col class="ten" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Old Indicator</th>
+      <th>New indicator</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>New indicator 3.d.2</td>
+      <td>3.d.2: Percentage of bloodstream infections due to selected antimicrobial-resistant organisms</td>
+      <td>New</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="goal-4">Goal 4</h3>
+
+<table class="table">
+  <colgroup>
+    <col class="fourtyfive" />
+    <col class="fourtyfive" />
+    <col class="ten" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Old Indicator</th>
+      <th>New indicator</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>New indicator 4.1.2</td>
+      <td>4.1.2: Completion rate (primary education, lower secondary education, upper secondary education)</td>
+      <td>New</td>
+    </tr>
+    <tr>
+      <td>4.2.1: Proportion of children under 5 years of age who are developmentally on track in health, learning and psychosocial well-being, by sex</td>
+      <td>It is proposed that the portion of the indicator that measures progress for children between 0 and 23 months of age, which is currently in tier III, be deleted</td>
+      <td>Changed / part deleted</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="goal-5">Goal 5</h3>
+
+<table class="table">
+  <colgroup>
+    <col class="fourtyfive" />
+    <col class="fourtyfive" />
+    <col class="ten" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Old Indicator</th>
+      <th>New indicator</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>5.a.2: Proportion of countries where the legal framework (including customary law) guarantees women’s equal rights to land ownership and/or control</td>
+      <td>Revision of metadata: Proxies D and F may be considered conditional measures and therefore would not need to be reported if and when de facto gender equality in land ownership has already been achieved</td>
+      <td>Changed</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="goal-6">Goal 6</h3>
+
+<table class="table">
+  <colgroup>
+    <col class="fourtyfive" />
+    <col class="fourtyfive" />
+    <col class="ten" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Old Indicator</th>
+      <th>New indicator</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>6.3.1: Proportion of wastewater safely treated</td>
+      <td>6.3.1: Proportion of domestic and industrial wastewater flows safely treated</td>
+      <td>Changed</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="goal-7">Goal 7</h3>
+
+<table class="table">
+  <colgroup>
+    <col class="fourtyfive" />
+    <col class="fourtyfive" />
+    <col class="ten" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Old Indicator</th>
+      <th>New indicator</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>7.b.1: Investments in energy efficiency as a proportion of GDP and the amount of foreign direct investment in financial transfer for infrastructure and technology to sustainable development services</td>
+      <td>7.b.1: Installed renewable energy-generating capacity in developing countries (in watts per capita) (repeated in the proposed replacement for indicator 12.a.1)</td>
+      <td>Replaced</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="goal-8">Goal 8</h3>
+
+<table class="table">
+  <colgroup>
+    <col class="fourtyfive" />
+    <col class="fourtyfive" />
+    <col class="ten" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Old Indicator</th>
+      <th>New indicator</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>8.3.1: Proportion of informal employment in non-agriculture employment, by sex</td>
+      <td>8.3.1: Proportion of informal employment in total employment, by sector and sex</td>
+      <td>Changed</td>
+    </tr>
+    <tr>
+      <td>8.9.2: Proportion of jobs in sustainable tourism industries out of total tourism jobs</td>
+      <td></td>
+      <td>Deleted</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="goal-9">Goal 9</h3>
+<p>No changes</p>
+
+<h3 id="goal-10">Goal 10</h3>
+
+<table class="table">
+  <colgroup>
+    <col class="fourtyfive" />
+    <col class="fourtyfive" />
+    <col class="ten" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Old Indicator</th>
+      <th>New indicator</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>New indicator 10.4.2</td>
+      <td>10.4.2: Redistributive impact of fiscal policy</td>
+      <td>New</td>
+    </tr>
+    <tr>
+      <td>New indicator 10.7.3</td>
+      <td>10.7.3: Number of migrants killed while attempting to cross maritime, land and air borders</td>
+      <td>New</td>
+    </tr>
+    <tr>
+      <td>New indicator 10.7.4</td>
+      <td>10.7.4: Proportion of the population who are refugees, by country of origin</td>
+      <td>New</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="goal-11">Goal 11</h3>
+
+<table class="table">
+  <colgroup>
+    <col class="fourtyfive" />
+    <col class="fourtyfive" />
+    <col class="ten" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Old Indicator</th>
+      <th>New indicator</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>11.a.1: Proportion of population living in cities that implement urban and regional development plans integrating population projections and resource needs, by size of city</td>
+      <td>11.a.1: Number of countries that have national urban policies or regional development plans that (a) respond to population dynamics; (b) ensure balanced territorial development; and (c) increase local fiscal space</td>
+      <td>Replaced</td>
+    </tr>
+    <tr>
+      <td>11.6.1: Proportion of urban solid waste regularly collected and with adequate final discharge out of total urban solid waste generated, by cities</td>
+      <td>11.6.1: Proportion of municipal solid waste collected and managed in controlled facilities out of total municipal waste generated, by cities</td>
+      <td>Changed</td>
+    </tr>
+    <tr>
+      <td>11.c.1: Proportion of financial support to the least developed countries that is allocated to the construction and retrofitting of sustainable, resilient and resource-efficient buildings utilizing local materials</td>
+      <td></td>
+      <td>Deleted</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="goal-12">Goal 12</h3>
+
+<table class="table">
+  <colgroup>
+    <col class="fourtyfive" />
+    <col class="fourtyfive" />
+    <col class="ten" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Old Indicator</th>
+      <th>New indicator</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>12.a.1: Amount of support to developing countries on research and development for sustainable consumption and production and environmentally sound technologies</td>
+      <td>12.a.1: Installed renewable energy-generating capacity in developing countries (in watts per capita) (repeat of the proposed replacement for indicator 7.b.1)</td>
+      <td>Replaced</td>
+    </tr>
+    <tr>
+      <td>12.b.1: Number of sustainable tourism strategies or policies and implemented action plans with agreed monitoring and evaluation tools</td>
+      <td>12.b.1: Implementation of standard accounting tools to monitor the economic and environmental aspects of tourism sustainability</td>
+      <td>Replaced</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="goal-13">Goal 13</h3>
+<table class="table">
+  <colgroup>
+    <col class="fourtyfive" />
+    <col class="fourtyfive" />
+    <col class="ten" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Old Indicator</th>
+      <th>New indicator</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>13.2.1: Number of countries that have communicated the establishment or operationalization of an integrated policy/strategy/plan which increases their ability to adapt to the adverse impacts of climate change, and foster climate resilience and low greenhouse gas emissions development in a manner that does not threaten food production (including a national adaptation plan, nationally determined contribution, national communication, biennial update report or other)</td>
+      <td>13.2.1: Number of countries with nationally determined contributions, long-term strategies, national adaptation plans, strategies as reported in adaptation communications and national communications (repeated with a slight amendment in the proposed replacement for indicator 13.b.1)</td>
+      <td>Replaced</td>
+    </tr>
+    <tr>
+      <td>13.3.1: Number of countries that have integrated mitigation, adaptation, impact reduction and early warning into primary, secondary and tertiary curricula</td>
+      <td>13.3.1: Extent to which (i) global citizenship education and (ii) education for sustainable development are mainstreamed in (a) national education policies; (b) curricula; (c) teacher education; and (d) student assessment (repeated in the refinement to be made to indicators 4.7.1 and 12.8.1)</td>
+      <td>Replaced</td>
+    </tr>
+    <tr>
+      <td>13.a.1: Mobilized amount of United States dollars per year between 2020 and 2025 accountable towards the $100 billion commitment</td>
+      <td>13.a.1: Amounts provided and mobilized in United States dollars per year in relation to the continued existing collective mobilization goal of the $100 billion commitment through to 2025</td>
+      <td>Replaced</td>
+    </tr>
+    <tr>
+      <td>13.b.1: Number of least developed countries and small island developing States that are receiving specialized support, and amount of support, including finance, technology and capacity-building, for mechanisms for raising capacities for effective climate change-related planning and management, including focusing on women, youth and local and marginalized communities</td>
+      <td>13.b.1: Number of least developed countries and small island developing States with nationally determined contributions long-term strategies, national adaptation plans, strategies as reported in adaptation communications and national communications (repeat of the proposed replacement for indicator 13.2.1, with a slight amendment)</td>
+      <td>Replaced</td>
+    </tr>
+    <tr>
+      <td>New indicator 13.2.2</td>
+      <td>13.2.2: Total greenhouse gas emissions per year</td>
+      <td>New</td>
+    </tr>
+    <tr>
+      <td>13.3.2: Number of countries that have communicated the strengthening of institutional, systemic and individual capacity-building to implement adaptation, mitigation and technology transfer, and development actions</td>
+      <td></td>
+      <td>Deleted</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="goal-14">Goal 14</h3>
+<p>No changes</p>
+
+<h3 id="goal-15">Goal 15</h3>
+<table class="table">
+  <colgroup>
+    <col class="fourtyfive" />
+    <col class="fourtyfive" />
+    <col class="ten" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Old Indicator</th>
+      <th>New indicator</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>15.b.1: Official development assistance and public expenditure on conservation and sustainable use of biodiversity and ecosystems</td>
+      <td>15.a.1 and 15.b.1 (a) Official development assistance on conservation and sustainable use of biodiversity; and (b) revenue generated and finance mobilized from biodiversity-relevant economic instruments</td>
+      <td>Replaced</td>
+    </tr>
+    <tr>
+      <td>15.9.1: Progress towards national targets established in accordance with Aichi Biodiversity Target 2 of the Strategic Plan for Biodiversity 2011–2020</td>
+      <td>15.9.1: (a) Number of countries that have established national targets in accordance with or similar to Aichi Biodiversity Target 2 of the Strategic Plan for Biodiversity 2011–2020 in their national biodiversity strategy and action plans and the progress reported towards these targets; and (b) integration of biodiversity into national accounting and reporting systems, defined as implementation of the System of Environmental-Economic Accounting</td>
+      <td>Changed</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="goal-16">Goal 16</h3>
+
+<table class="table">
+  <colgroup>
+    <col class="fourtyfive" />
+    <col class="fourtyfive" />
+    <col class="ten" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Old Indicator</th>
+      <th>New indicator</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>New indicator 16.3.3</td>
+      <td>16.3.3: Proportion of the population who have experienced a dispute in the past two years and who accessed a formal or informal dispute resolution mechanism, by type of mechanism</td>
+      <td>New</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="goal-17">Goal 17</h3>
+
+<table class="table">
+  <colgroup>
+    <col class="fourtyfive" />
+    <col class="fourtyfive" />
+    <col class="ten" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Old Indicator</th>
+      <th>New indicator</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>17.3.1: Foreign direct investment (FDI), official development assistance and South-South cooperation as a proportion of total domestic budget</td>
+      <td>17.3.1: Foreign direct investment, official development assistance and South-South cooperation as a proportion of gross national income</td>
+      <td>Replaced</td>
+    </tr>
+    <tr>
+      <td>17.17.1: Amount of United States dollars committed to (a) public-private partnerships and (b) civil society partnerships</td>
+      <td>17.17.1: Amount in United States dollars committed to public-private partnerships for infrastructure</td>
+      <td>Replaced</td>
+    </tr>
+    <tr>
+      <td>17.18.1: Proportion of sustainable development indicators produced at the national level with full disaggregation when relevant to the target, in accordance with the Fundamental Principles of Official Statistics</td>
+      <td>17.18.1: Statistical capacity indicator for Sustainable Development Goal monitoring</td>
+      <td>Replaced</td>
+    </tr>
+    <tr>
+      <td>17.5.1: Number of countries that adopt and implement investment promotion regimes for least developed countries</td>
+      <td>17.5.1: Number of countries that adopt and implement investment promotion regimes for developing countries, including the least developed countries</td>
+      <td>Changed</td>
+    </tr>
+    <tr>
+      <td>17.6.1: Number of science and/or technology cooperation agreements and programmes between countries, by type of cooperation</td>
+      <td></td>
+      <td>Deleted</td>
+    </tr>
+  </tbody>
+</table>
+
+
+        </div>
+
+        
+        <ul class="post-categories">
+          
+          <li class="warning">
+            
+            Indicator changes
+            
+          </li>
+          
+        </ul>
+        
+      </article>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div id="footerLinks">
+          <ul>
+            <li><a href="https://open-sdg.org">Built using Open SDG</a></li>
+            
+              
+                <li>
+                
+                  <a href="mailto:sustainabledevelopment@ons.gov.uk" target="_blank">Contact us</a>
+                
+                </li>
+              
+                <li>
+                
+                  <a href="https://twitter.com/ONS" target="_blank">Twitter</a>
+                
+                </li>
+              
+                <li>
+                <a href="/sdg-indicators/about/cookies-and-privacy/">Cookies</a>
+                
+                </li>
+              
+                <li>
+                <a href="/sdg-indicators/accessibility-statement/">Accessibility statement</a>
+                
+                </li>
+              
+            </ul>
+          <div id="oglLicense">
+            <br />
+            <img alt="Open Government Licence logo" src="/sdg-indicators/assets/img/OGL_logo.png" width="35px">All data is available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>, except where otherwise stated
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<!-- <script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script> -->
+<!-- Google Analytics -->
+
+<!-- /.container </div> -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+<script>translations['general'] = translations['general'] || {};
+    translations['general']['hide'] = 'hide';</script>
+
+<script>translations['search'] = translations['search'] || {};
+    translations['search']['search'] = 'Search';</script>
+
+<script src='/sdg-indicators/assets/js/sdg.js?v=20210223161339'></script>
+<script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
+
+    
+    
+    <script src="/sdg-indicators/assets/js/custom.js?v=20210223161339"></script><script>
+$(function() {
+    if($('#indicatorData').length) {
+      var domData = $('#indicatorData').data();
+
+      if (domData.showdata) {
+
+        $('.async-loading').each(function(i, obj) {
+            $(obj).append($('<img />').attr('src', $(obj).data('img')).attr('alt', translations.indicator.loading));
+        });
+
+        var remoteUrl = '/comb/' + domData.id + '.json';
+        if (opensdg.remoteDataBaseUrl !== '/') {
+          remoteUrl = opensdg.remoteDataBaseUrl + remoteUrl;
+        }
+
+        $.ajax({
+          url: remoteUrl,
+          success: function(res) {
+
+            $('.async-loading').remove();
+            $('.async-loaded').show();
+
+            var model = new indicatorModel({
+              data: res.data,
+              edgesData: res.edges,
+              showMap: domData.showmap,
+              country: domData.country,
+              indicatorId: domData.indicatorid,
+              shortIndicatorId: domData.id,
+              chartTitle: domData.charttitle,
+              chartTitles: domData.charttitles,
+              measurementUnit: domData.measurementunit,
+              showData: domData.showdata,
+              graphType: domData.graphtype,
+              startValues: domData.startvalues,
+              graphLimits: domData.graphlimits,
+              stackedDisaggregation: domData.stackeddisaggregation,
+              graphAnnotations: domData.graphannotations,
+              indicatorDownloads: domData.indicatordownloads,
+            }),
+            view  = new indicatorView(model, {
+              rootElement: '#indicatorData',
+              legendElement: '#plotLegend',
+              maxChartHeight: 420,
+              tableColumnDefs: [
+                { maxCharCount: 25 }, // nowrap
+                { maxCharCount: 35, width: 200 },
+                { maxCharCount: Infinity, width: 250 }
+              ]
+            }),
+            controller = new indicatorController(model, view);
+            controller.initialise();
+          }
+        });
+      }
+    }
+
+    var switcher = new accessibilitySwitcher();
+
+
+});
+</script>
+
+
+
+
+</body>
+</html>
+
