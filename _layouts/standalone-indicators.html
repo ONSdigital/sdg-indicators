@@ -17,7 +17,7 @@
     {% assign indicator_objects = indicator_objects | sort: 'sort' %}
     {% for indicator in indicator_objects %}
 
-    {% assign status_css = indicator.reporting_status | slugify %}
+      {% assign status_css = indicator.reporting_status | slugify %}
       {% if indicator.reporting_status == 'notapplicable' %}
         {% assign status_desc = page.t.status.not_applicable %}
       {% endif %}
@@ -39,7 +39,7 @@
       {% endif %}
       {% assign tag_classes = tag_classes | join: " " %}
       {% assign indicator_number_archived_split = indicator.number | split: "." %}
-        
+       
       <div class="layout-goal-by-target-vertical goal-indicator">
         <span class="layout-goal-by-target-vertical indicator-number"><span class="sr-only">{{ page.t.general.indicator }}</span>{{ indicator_number_archived_split[0] }}.{{ indicator_number_archived_split[1] }}.{{ indicator_number_archived_split[2] }} ({{ indicator_number_archived_split[3] }})</span>
         <span class="layout-goal-by-target-vertical indicator-name"><a href="{{ indicator.url }}">{{ indicator.name }}</a></span>
