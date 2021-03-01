@@ -17,18 +17,18 @@
   {% for indicator in indicator_objects %}
 
     {% assign status_css = indicator.reporting_status | slugify %}
-      {% if indicator.reporting_status == 'notapplicable' %}
-        {% assign status_desc = page.t.status.not_applicable %}
-      {% endif %}
-      {% if indicator.reporting_status == 'notstarted' %}
-        {% assign status_desc = page.t.status.exploring_data_sources %}
-      {% endif %}
-      {% if indicator.reporting_status == 'inprogress' %}
-        {% assign status_desc = page.t.status.statistics_in_progress %}
-      {% endif %}
-      {% if indicator.reporting_status == 'complete' %}
-        {% assign status_desc = page.t.status.reported_online %}
-      {% endif %}
+    {% if indicator.reporting_status == 'notapplicable' %}
+      {% assign status_desc = page.t.status.not_applicable %}
+    {% endif %}
+    {% if indicator.reporting_status == 'notstarted' %}
+      {% assign status_desc = page.t.status.exploring_data_sources %}
+    {% endif %}
+    {% if indicator.reporting_status == 'inprogress' %}
+      {% assign status_desc = page.t.status.statistics_in_progress %}
+    {% endif %}
+    {% if indicator.reporting_status == 'complete' %}
+      {% assign status_desc = page.t.status.reported_online %}
+    {% endif %}
     {% assign tag_classes = "" | split: "," %}
     {% if indicator.tags %}
       {% for tag in indicator.tags %}
@@ -38,30 +38,26 @@
     {% endif %}
     {% assign tag_classes = tag_classes | join: " " %}
 
-    {% cycle 'add row' : '<div class="indicator-cards row no-gutters">', '', '', '' %}
-	<div class="col-md-6 col-lg-3 {{ tag_classes }} goal-indicator">	
-	  <li>
-	    <a href="{{ indicator.url }}">
-	      <span class="indicator-card-number">
-		{{ indicator.number }}
-		<span class="status {{ status_css }}">
-		  {{ status_desc }}
-		</span>
-	      </span>
-	      {{ indicator.name }}
-	      {% if indicator.tags %}
-		<ul class="tags">
-		{% for tag in indicator.tags %}
-		  {% assign tag_class = tag | slugify %}
-		  <li class="tag-{{ tag_class }} warning">{{ tag | t }}</li>
-		{% endfor %}
-		</ul>
-	      {% endif %}
-	    </a>
-	  </li>
-    {% cycle 'end row' : '', '', '', '</div>' %}
-	    {% endfor %}
-	</ul>
-      </div>
+    <div class="goal-indicator">
+      <h4>
+        <span class="indicator-number"><span class="sr-only">{{ page.t.general.indicator }}</span> {{ indicator.number }}</span>
+      </h4>
+      <span class="indicator-name"><a href="{{ indicator.url }}">{{ indicator.name }}</a></span>
+      <span class="sr-only">{{ page.t.indicator.status }}</span>
+      <span class="status {{ status_css }}">
+        {{ status_desc }}
+      </span>
+      {% if indicator.tags %}
+        <ul class="tags">
+        {% for tag in indicator.tags %}
+	  {% assign tag_class = tag | slugify %}
+	  <li class="tag-{{ tag_class }} warning">{{ tag | t }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+</div>
 
 {% include footer.html %}
