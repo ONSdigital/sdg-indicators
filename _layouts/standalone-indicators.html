@@ -4,39 +4,45 @@
 <div id="main-content" class="container goal-indicators">
   <h1>{{ page.title | t }}</h1>
   {{ content }}
+  
+  <div class="row no-gutters goal-target-and-indicators">
+    <h3 class="goal-target">
+      <span class="target-number"><span class="sr-only">{{ page.t.general.target }}</span> {{ target.number }}</span>
+    </h3>
+    <span class="target-name">{{ target.name }}</span>
 
-  {% assign indicator_objects = '' | split: ',' %}
-  {% for indicator_number in page.standalone_indicators %}
-    {% assign indicator = indicator_number | sdg_lookup %}
-    {% if indicator and indicator.sort %}
-      {% assign indicator_objects = indicator_objects | push: indicator %}
-    {% endif %}
-  {% endfor %}
-  {% assign indicator_objects = indicator_objects | sort: 'sort' %}
-  {% for indicator in indicator_objects %}
+    {% assign indicator_objects = '' | split: ',' %}
+    {% for indicator_number in page.standalone_indicators %}
+      {% assign indicator = indicator_number | sdg_lookup %}
+      {% if indicator and indicator.sort %}
+        {% assign indicator_objects = indicator_objects | push: indicator %}
+      {% endif %}
+    {% endfor %}
+    {% assign indicator_objects = indicator_objects | sort: 'sort' %}
+    {% for indicator in indicator_objects %}
 
-  {% assign status_css = indicator.reporting_status | slugify %}
-    {% if indicator.reporting_status == 'notapplicable' %}
-      {% assign status_desc = page.t.status.not_applicable %}
-    {% endif %}
-    {% if indicator.reporting_status == 'notstarted' %}
-      {% assign status_desc = page.t.status.exploring_data_sources %}
-    {% endif %}
-    {% if indicator.reporting_status == 'inprogress' %}
-      {% assign status_desc = page.t.status.statistics_in_progress %}
-    {% endif %}
-    {% if indicator.reporting_status == 'complete' %}
-      {% assign status_desc = page.t.status.reported_online %}
-    {% endif %}
-    {% assign tag_classes = "" | split: "," %}
-    {% if indicator.tags %}
-      {% for tag in indicator.tags %}
-        {% assign tag_slug = "indicator-" | append: tag | slugify %}
-        {% assign tag_classes = tag_classes | push: tag_slug %}
-      {% endfor %}
-    {% endif %}
-    {% assign tag_classes = tag_classes | join: " " %}
-    <div class="layout-goal-by-target-vertical .goal-indicator">
+    {% assign status_css = indicator.reporting_status | slugify %}
+      {% if indicator.reporting_status == 'notapplicable' %}
+        {% assign status_desc = page.t.status.not_applicable %}
+      {% endif %}
+      {% if indicator.reporting_status == 'notstarted' %}
+        {% assign status_desc = page.t.status.exploring_data_sources %}
+      {% endif %}
+      {% if indicator.reporting_status == 'inprogress' %}
+        {% assign status_desc = page.t.status.statistics_in_progress %}
+      {% endif %}
+      {% if indicator.reporting_status == 'complete' %}
+        {% assign status_desc = page.t.status.reported_online %}
+      {% endif %}
+      {% assign tag_classes = "" | split: "," %}
+      {% if indicator.tags %}
+        {% for tag in indicator.tags %}
+          {% assign tag_slug = "indicator-" | append: tag | slugify %}
+          {% assign tag_classes = tag_classes | push: tag_slug %}
+        {% endfor %}
+      {% endif %}
+      {% assign tag_classes = tag_classes | join: " " %}
+    <div class="layout-goal-by-target-vertical goal-indicator">
       <span class="layout-goal-by-target-vertical indicator-number"><span class="sr-only">{{ page.t.general.indicator }}</span> {{ indicator.number }}</span>
       <span class="layout-goal-by-target-vertical indicator-name"><a href="{{ indicator.url }}">{{ indicator.name }}</a></span>
       <span class="sr-only">{{ page.t.indicator.status }}</span>
