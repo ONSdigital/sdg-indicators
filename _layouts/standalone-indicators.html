@@ -4,9 +4,17 @@
 <div id="main-content" class="container goal-indicators">
   <h1>{{ page.title | t }}</h1>
   {{ content }}
+  <ul class="standalone-indicator-list">
 
-  {% assign goal_indicators = page.indicators | where: 'goal_number', page.goal.number %}
-  {% for indicator in goal_indicators %}
+  {% assign indicator_objects = '' | split: ',' %}
+  {% for indicator_number in page.standalone_indicators %}
+    {% assign indicator = indicator_number | sdg_lookup %}
+    {% if indicator and indicator.sort %}
+      {% assign indicator_objects = indicator_objects | push: indicator %}
+    {% endif %}
+  {% endfor %}
+  {% assign indicator_objects = indicator_objects | sort: 'sort' %}
+  {% for indicator in indicator_objects %}
 
     {% assign status_css = indicator.reporting_status | slugify %}
       {% if indicator.reporting_status == 'notapplicable' %}
@@ -31,38 +39,29 @@
     {% assign tag_classes = tag_classes | join: " " %}
 
     {% cycle 'add row' : '<div class="indicator-cards row no-gutters">', '', '', '' %}
-	<div class="col-md-6 col-lg-3 {{ tag_classes }} goal-indicator">
-		<ul class="standalone-indicator-list">
-		{% assign indicator_objects = '' | split: ',' %}
-		{% for indicator_number in page.standalone_indicators %}
-		  {% assign indicator = indicator_number | sdg_lookup %}
-		  {% if indicator and indicator.sort %}
-		    {% assign indicator_objects = indicator_objects | push: indicator %}
-		  {% endif %}
+	<div class="col-md-6 col-lg-3 {{ tag_classes }} goal-indicator">	
+	  <li>
+	    <a href="{{ indicator.url }}">
+	      <span class="indicator-card-number">
+		{{ indicator.number }}
+		<span class="status {{ status_css }}">
+		  {{ status_desc }}
+		</span>
+	      </span>
+	      {{ indicator.name }}
+	      {% if indicator.tags %}
+		<ul class="tags">
+		{% for tag in indicator.tags %}
+		  {% assign tag_class = tag | slugify %}
+		  <li class="tag-{{ tag_class }} warning">{{ tag | t }}</li>
 		{% endfor %}
-		{% assign indicator_objects = indicator_objects | sort: 'sort' %}
-		{% for indicator in indicator_objects %}
-		  <li>
-		    <a href="{{ indicator.url }}">
-		      <span class="indicator-card-number">
-			{{ indicator.number }}
-			<span class="status {{ status_css }}">
-			  {{ status_desc }}
-			</span>
-		      </span>
-		      {{ indicator.name }}
-		      {% if indicator.tags %}
-			<ul class="tags">
-			{% for tag in indicator.tags %}
-			  {% assign tag_class = tag | slugify %}
-			  <li class="tag-{{ tag_class }} warning">{{ tag | t }}</li>
-			{% endfor %}
-			</ul>
-		      {% endif %}
-		    </a>
-		  </li>
-		      {% endfor %}
 		</ul>
-	</div>
+	      {% endif %}
+	    </a>
+	  </li>
+    {% cycle 'end row' : '', '', '', '</div>' %}
+	    {% endfor %}
+	</ul>
+      </div>
 
 {% include footer.html %}
