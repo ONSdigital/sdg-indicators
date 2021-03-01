@@ -38,7 +38,9 @@
     {% assign tag_classes = tag_classes | join: " " %}
 
     <div class="layout-goal-by-target-vertical goal-indicator">
-      <span class="layout-goal-by-target-vertical indicator-number"><span class="sr-only">{{ page.t.general.indicator }}</span> {{ indicator.number }}</span>
+      <h4>
+        <span class="layout-goal-by-target-vertical indicator-number"><span class="sr-only">{{ page.t.general.indicator }}</span> {{ indicator.number }}</span>
+      </h4>
       <span class="layout-goal-by-target-vertical indicator-name"><a href="{{ indicator.url }}">{{ indicator.name }}</a></span>
       <span class="sr-only">{{ page.t.indicator.status }}</span>
       <span class="layout-goal-by-target-vertical status {{ status_css }}">
