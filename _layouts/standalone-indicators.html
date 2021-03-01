@@ -6,10 +6,6 @@
   {{ content }}
   
   <div class="row no-gutters goal-target-and-indicators">
-    <h3 class="goal-target">
-      <span class="target-number"><span class="sr-only">{{ page.t.general.target }}</span> {{ target.number }}</span>
-    </h3>
-    <span class="target-name">{{ target.name }}</span>
 
     {% assign indicator_objects = '' | split: ',' %}
     {% for indicator_number in page.standalone_indicators %}
