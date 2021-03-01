@@ -4,7 +4,6 @@
 <div id="main-content" class="container goal-indicators">
   <h1>{{ page.title | t }}</h1>
   {{ content }}
-  <ul class="standalone-indicator-list">
 
   {% assign indicator_objects = '' | split: ',' %}
   {% for indicator_number in page.standalone_indicators %}
@@ -55,9 +54,8 @@
         {% endfor %}
         </ul>
       {% endif %}
-    </li>
+    </div>
   {% endfor %}
-</ul>
 </div>
 
 {% include footer.html %}
