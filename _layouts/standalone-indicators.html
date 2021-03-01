@@ -38,9 +38,7 @@
     {% assign tag_classes = tag_classes | join: " " %}
 
     <div class="goal-indicator">
-      <h4>
-        <span class="indicator-number"><span class="sr-only">{{ page.t.general.indicator }}</span> {{ indicator.number }}</span>
-      </h4>
+      <span class="indicator-number"><span class="sr-only">{{ page.t.general.indicator }}</span> {{ indicator.number }}</span>
       <span class="indicator-name"><a href="{{ indicator.url }}">{{ indicator.name }}</a></span>
       <span class="sr-only">{{ page.t.indicator.status }}</span>
       <span class="status {{ status_css }}">
