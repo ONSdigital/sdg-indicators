@@ -16,6 +16,12 @@
   {% for indicator in indicator_objects %}
     <li>
       <a href="{{ indicator.url }}">
+	<span class="indicator-card-number">
+          {{ indicator.number }}
+          <span class="status {{ status_css }}">
+            {{ status_desc }}
+          </span>
+        </span>
         {{ indicator.name }}
         {% if indicator.tags %}
           <ul class="tags">
