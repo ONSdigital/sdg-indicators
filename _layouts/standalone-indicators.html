@@ -15,7 +15,7 @@
   {% assign indicator_objects = indicator_objects | sort: 'sort' %}
   {% for indicator in indicator_objects %}
 
-    {% assign status_css = indicator.reporting_status | slugify %}
+  {% assign status_css = indicator.reporting_status | slugify %}
     {% if indicator.reporting_status == 'notapplicable' %}
       {% assign status_desc = page.t.status.not_applicable %}
     {% endif %}
@@ -46,14 +46,7 @@
       <span class="status {{ status_css }}">
         {{ status_desc }}
       </span>
-      {% if indicator.tags %}
-        <ul class="tags">
-        {% for tag in indicator.tags %}
-	  {% assign tag_class = tag | slugify %}
-	  <li class="tag-{{ tag_class }} warning">{{ tag | t }}</li>
-        {% endfor %}
-        </ul>
-      {% endif %}
+      {% include components/indicator/tags.html tags=indicator.tags %}
     </div>
   {% endfor %}
 </div>
