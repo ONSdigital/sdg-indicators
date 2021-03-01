@@ -41,7 +41,9 @@
       {% assign indicator_number_archived_split = indicator.number | split: "." %}
        
       <div class="layout-goal-by-target-vertical goal-indicator">
-        <span class="layout-goal-by-target-vertical indicator-number"><span class="sr-only">{{ page.t.general.indicator }}</span>{{ indicator_number_archived_split[0] }}.{{ indicator_number_archived_split[1] }}.{{ indicator_number_archived_split[2] }} ({{ indicator_number_archived_split[3] }})</span>
+        <h4>
+          <span class="layout-goal-by-target-vertical indicator-number"><span class="sr-only">{{ page.t.general.indicator }}</span>{{ indicator_number_archived_split[0] }}.{{ indicator_number_archived_split[1] }}.{{ indicator_number_archived_split[2] }} ({{ indicator_number_archived_split[3] }})</span>
+        </h4>
         <span class="layout-goal-by-target-vertical indicator-name"><a href="{{ indicator.url }}">{{ indicator.name }}</a></span>
         <span class="sr-only">{{ page.t.indicator.status }}</span>
         <span class="layout-goal-by-target-vertical status {{ status_css }}">
