@@ -1,23 +1,40 @@
-.panel {
-  box-sizing: border-box;
-  clear: both;
-  border-left-style: solid;
-  border-color: #bfc1c3;
-  padding: 0.2em 0.7em;
-  margin-bottom: 0.78947em;
+.danger {
+  background-color: $color-danger;
+}
+.warning {
+  background-color: $color-warning;
+}
+.success {
+  background-color: $color-success;
+}
+.error {
+  background-colour: #ffffff
 }
 
-h2.govuk-heading-s {
-	font-size: 22px;
-	margin-bottom: 0.6em;
-	margin-top: 0.6em;
+.data-notice {
+  display: inline-block;
+  margin-left: 20px;
 }
 
-.panel-border-wide {
-  border-left-width: 10px;
-}
+body.contrast-high {
 
-.panel-border-wide.alert-warning {
-  border-color: #c42b2b !default;
-  background-color: #f3dede !default;
+  #page-content {
+    .alert {
+      div {
+        p, h4 {
+          color: $color-dark-highContrast;
+	      }
+      }
+    }
+  }
+
+  .danger {
+    background-color: $color-danger-highContrast;
+  }
+  .warning {
+    background-color: $color-highlight-highContrast;
+  }
+  .success {
+    background-color: $color-success-highContrast;
+  }
 }
