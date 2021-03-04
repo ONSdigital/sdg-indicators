@@ -39,10 +39,11 @@
       {% endif %}
       {% assign tag_classes = tag_classes | join: " " %}
       {% assign indicator_number_archived_split = indicator.number | split: "." %}
+      {% assign archived_info = indicator.data_notice_text | split: "-" %}
        
       <div class="layout-goal-by-target-vertical goal-indicator">
         <h4>
-          <span class="layout-goal-by-target-vertical indicator-number"><span class="sr-only">{{ page.t.general.indicator }}</span>{{ indicator_number_archived_split[0] }}.{{ indicator_number_archived_split[1] }}.{{ indicator_number_archived_split[2] }}</span>
+          <span class="layout-goal-by-target-vertical indicator-number"><span class="sr-only">{{ page.t.general.indicator }}</span>{{ indicator_number_archived_split[0] }}.{{ indicator_number_archived_split[1] }}.{{ indicator_number_archived_split[2] }} ({{ archived_info[0] }})</span>
         </h4>
         <span class="layout-goal-by-target-vertical indicator-name"><a href="{{ indicator.url }}">{{ indicator.name }}</a></span>
         <span class="sr-only">{{ page.t.indicator.status }}</span>
