@@ -4,7 +4,7 @@ layout: standalone-indicators
 permalink: /archived-indicators/
 language: en
 standalone_indicators:
-    - 1-a-1-archived
+    - archived-1-a-1
 ---
 
 EXPLANATION OF THIS PAGE GOES HERE
