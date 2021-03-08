@@ -38,8 +38,12 @@
         {% endfor %}
       {% endif %}
       {% assign tag_classes = tag_classes | join: " " %}
-      {% assign indicator_number_archived_split = indicator.number | split: "." %}
-      {% assign archived_info = indicator.data_notice_text | split: "-" %}
+      {% if indicator.data_notice_text %}
+        {% assign indicator_number_archived_split = indicator.number | split: "." %}
+      {% endif %}
+      {% if indicator.data_notice_text %}
+        {% assign archived_info = indicator.data_notice_text | split: "-" %}
+      {% endif %}
        
       <div class="layout-goal-by-target-vertical goal-indicator">
         <h4>
