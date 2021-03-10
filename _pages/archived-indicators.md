@@ -4,6 +4,6 @@ layout: standalone-indicators
 permalink: /archived-indicators
 language: en
 standalone_indicators:
-    - archived-1-1-1
+    - archived-1-a-1
 ---
 EXPLANATION
