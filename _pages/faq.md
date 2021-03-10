@@ -14,6 +14,8 @@ layout: page
 
 - [What does the disaggregation status mean?](#what-does-the-disaggregation-status-mean)
 
+- [What disaggregations are available?](#what-disaggregations-are-available)
+
 - [Who uses this website?](#who-uses-this-website)
 
 - [Can other countries copy this website?](#can-other-countries-copy-this-website)
@@ -67,6 +69,10 @@ The different disaggregation statuses we use are:
 
 * Out of scope: Indicators where no disaggregation is specified in the indicator title
 
+## What disaggregations are available?
+We report many other disaggregations beyond the ones that are required, regardless of any reference in the indicator title.
+
+For details about all disaggregations, see the [UK disaggregation report](https://sdgdata.gov.uk/sdg-data/disaggregations.html).
 
 ## Who uses this website?
 An initial phase of user research has been carried out on the UK SDG data website. This research showed that the four main user types are:
