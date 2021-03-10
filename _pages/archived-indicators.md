@@ -7,4 +7,4 @@ standalone_indicators:
     - archived-1-a-1
 ---
 
-EXPLANATION OF THIS PAGE GOES HERE
+This page shows the original indicators that were revised, replaced, or deleted following [indicator changes]({{ site.baseurl}}/updates/2021/02/17/2020-indicator-changes.html) from the 2020 Comprehensive Review.
