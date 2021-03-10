@@ -30,7 +30,6 @@
       {% if indicator.reporting_status == 'complete' %}
         {% assign status_desc = page.t.status.reported_online %}
       {% endif %}
-      {% assign indicator_number_archived_split = indicator.permalink | split: "-" %}
        
       <div class="layout-goal-by-target-vertical goal-indicator">
         <h4>
