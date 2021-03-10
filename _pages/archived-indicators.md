@@ -1,7 +1,7 @@
 ---
 title: Archived indicators
 layout: standalone-indicators
-permalink: /archived-indicators
+permalink: /archived-indicators/
 language: en
 standalone_indicators:
     - archived-a
