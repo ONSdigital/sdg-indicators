@@ -31,7 +31,7 @@
         {% assign status_desc = page.t.status.reported_online %}
       {% endif %}
       {% assign indicator_number_archived_split = indicator.permalink | split: "-" %}
-      {% assign archived_info = indicator.data_notice_text | split: "-" %}
+      {% assign archived_info = indicator.data_notice_text | split: " -" | downcase %}
        
       <div class="layout-goal-by-target-vertical goal-indicator">
         <h4>
