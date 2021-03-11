@@ -4,7 +4,7 @@
     <div class="alert {{ page.indicator.data_notice_class }}">
       <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
       <div class="data-notice">
-        <p class="notice-heading" role="alert">{{ page.indicator.data_notice_heading }}</p>
+        <p class="notice-heading" role="alert">{{ page.indicator.data_notice_heading | markdownify }}</p>
         <p>{{ page.indicator.data_notice_text | markdownify }}</p>
       </div>
     </div>
