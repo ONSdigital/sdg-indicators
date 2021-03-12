@@ -30,10 +30,8 @@ Friday, 9am to 4pm
 
 Closed Saturday and Sunday
 
-<p style="font-size: 12px;">
-Calls to (0)345 cost the same as calling 01 and 02 within your call package.
-  
-You will be charged for calls outside your package. Please check these charges with your provider.
+<p style="font-size: 14px;">
+Calls to (0)345 cost the same as calling 01 and 02 within your call package.<br>You will be charged for calls outside your package. Please check these charges with your provider.
 </p>
 
 ## Address
