@@ -35,25 +35,18 @@ Calls to (0)345 cost the same as calling 01 and 02 within your call package.<br>
 </p>
 
 ## Address
-Customer Contact Centre
-
-Office for National Statistics
-
-Room D265
-
-Government Buildings
-
-Cardiff Road
-
-Newport
-
-South Wales
-
-NP10 8XG
+<p style="margin-bottom: 0px;">Customer Contact Centre</p>
+<p style="margin-bottom: 0px;">Office for National Statistics</p>
+<p style="margin-bottom: 0px;">Room D265</p>
+<p style="margin-bottom: 0px;">Government Buildings</p>
+<p style="margin-bottom: 0px;">Cardiff Road</p>
+<p style="margin-bottom: 0px;">Newport</p>
+<p style="margin-bottom: 0px;">South Wales</p>
+<p style="margin-bottom: 0px;">NP10 8XG</p>
 
 Croesawn ohebiaeth yn y Gymraeg. We welcome correspondence in Welsh.
 
 ## Social media
 You can use Twitter to get general help. Please do not give any personal details.
 
-Twitter: @ONS
+Twitter: [@ONS](https://twitter.com/ons)
