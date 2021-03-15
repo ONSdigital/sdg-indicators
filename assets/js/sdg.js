@@ -110,6 +110,8 @@ opensdg.autotrack = function(preset, category, action, label) {
     this.options = $.extend(true, {}, defaults, options.mapOptions);
     this.mapLayers = [];
     this.indicatorId = options.indicatorId;
+    this._precision = options.precision;
+    this._decimalSeparator = options.decimalSeparator;
     this.currentDisaggregation = 0;
 
     // Require at least one geoLayer.
@@ -149,7 +151,7 @@ opensdg.autotrack = function(preset, category, action, label) {
       var tooltipContent = feature.properties.name;
       var tooltipData = this.getData(feature.properties);
       if (tooltipData) {
-        tooltipContent += ': ' + tooltipData;
+        tooltipContent += ': ' + this.alterData(tooltipData);
       }
       return tooltipContent;
     },
@@ -244,10 +246,24 @@ opensdg.autotrack = function(preset, category, action, label) {
       });
     },
 
+    // Alter data before displaying it.
+    alterData: function(value) {
+      opensdg.dataDisplayAlterations.forEach(function(callback) {
+        value = callback(value);
+      });
+      if (this._precision || this._precision === 0) {
+        value = Number.parseFloat(value).toFixed(this._precision);
+      }
+      if (this._decimalSeparator) {
+        value = value.toString().replace('.', this._decimalSeparator);
+      }
+      return value;
+    },
+
     // Get the data from a feature's properties, according to the current year.
     getData: function(props) {
       if (props.values && props.values.length && props.values[this.currentDisaggregation][this.currentYear]) {
-        return props.values[this.currentDisaggregation][this.currentYear];
+        return opensdg.dataRounding(props.values[this.currentDisaggregation][this.currentYear]);
       }
       return false;
     },
@@ -420,7 +436,7 @@ opensdg.autotrack = function(preset, category, action, label) {
         plugin.map.addControl(L.Control.yearSlider({
           years: plugin.years,
           yearChangeCallback: function(e) {
-            plugin.currentYear = new Date(e.time).getFullYear();
+            plugin.currentYear = plugin.years[e.target._currentTimeIndex];
             plugin.updateColors();
             plugin.updateTooltips();
             plugin.selectionLegend.update();
@@ -593,7 +609,7 @@ Chart.plugins.register({
       return meta && meta.visible;
     });
 
-    var ranges = _.chain(datasets).pluck('allData').map(function (data) {
+    var ranges = _.chain(datasets).map('allData').map(function (data) {
       return {
         min: _.findIndex(data, function(val) { return val !== null }),
         max: _.findLastIndex(data, function(val) { return val !== null })
@@ -601,8 +617,8 @@ Chart.plugins.register({
     }).value();
 
     var dataRange = ranges.length ? {
-      min: _.chain(ranges).pluck('min').min().value(),
-      max: _.chain(ranges).pluck('max').max().value()
+      min: _.chain(ranges).map('min').min().value(),
+      max: _.chain(ranges).map('max').max().value()
     } : undefined;
 
     if (dataRange) {
@@ -714,7 +730,7 @@ Chart.plugins.register({
             $(this.chart.canvas)
                 .attr('role', 'application')
                 .attr('aria-describedby', 'chart-keyboard ' + describedBy)
-                .text('Chart. ' + keyboardInstructions)
+                .html('<span class="hide-during-image-download">Chart. ' + keyboardInstructions + '</span>')
         }
     },
     afterDatasetsDraw: function() {
@@ -952,11 +968,28 @@ var accessibilitySwitcher = function() {
 
 
   function imageFix(contrast) {
+    var doNotSwitchTheseSuffixes = ['.svg'];
+    var doNotSwitchThesePrefixes = ['https://platform-cdn.sharethis.com/'];
     if (contrast == 'high')  {
-      _.each($('img:not([src*=high-contrast])'), function(goalImage){
-        if ($(goalImage).attr('src').slice(0, 35) != "https://platform-cdn.sharethis.com/") {
-        $(goalImage).attr('src', $(goalImage).attr('src').replace('img/', 'img/high-contrast/'));
-        }})
+      _.each($('img:not([src*=high-contrast])'), function(image) {
+        var src = $(image).attr('src').toLowerCase();
+        var switchThisImage = true;
+        for (var i = 0; i < doNotSwitchTheseSuffixes.length; i++) {
+          var suffix = doNotSwitchTheseSuffixes[i];
+          if (src.slice(0 - suffix.length) === suffix) {
+            switchThisImage = false;
+          }
+        }
+        for (var i = 0; i < doNotSwitchThesePrefixes.length; i++) {
+          var prefix = doNotSwitchThesePrefixes[i];
+          if (src.slice(0, prefix.length) === prefix) {
+            switchThisImage = false;
+          }
+        }
+        if (switchThisImage) {
+          $(image).attr('src', $(image).attr('src').replace('img/', 'img/high-contrast/'));
+        }
+      });
     } else {
       // Remove high-contrast
       _.each($('img[src*=high-contrast]'), function(goalImage){
@@ -967,7 +1000,7 @@ var accessibilitySwitcher = function() {
 
 };
 opensdg.chartColors = function(indicatorId) {
-  var colorSet = null;
+  var colorSet = "accessible";
   var numberOfColors = null;
   var customColorList = null;
 
@@ -992,7 +1025,8 @@ opensdg.chartColors = function(indicatorId) {
   this.colorSets = {'default':['7e984f', '8d73ca', 'aaa533', 'c65b8a', '4aac8d', 'c95f44'],
                   'sdg':['e5243b', 'dda63a', '4c9f38', 'c5192d', 'ff3a21', '26bde2', 'fcc30b', 'a21942', 'fd6925', 'dd1367','fd9d24','bf8b2e','3f7e44','0a97d9','56c02b','00689d','19486a'],
                   'goal': this.goalColors[this.goalNumber-1],
-                  'custom': customColorList};
+                  'custom': customColorList,
+                  'accessible': ['cd7a00', '339966', '9966cc', '8d4d57', 'A33600', '054ce6']};
   if(Object.keys(this.colorSets).indexOf(colorSet) == -1 || (colorSet=='custom' && customColorList == null)){
     return this.colorSets['default'];
   }
@@ -1015,6 +1049,7 @@ var SERIES_COLUMN = 'Series';
 var GEOCODE_COLUMN = 'GeoCode';
 var YEAR_COLUMN = 'Year';
 var VALUE_COLUMN = 'Value';
+// Note this headline color is overridden in indicatorView.js.
 var HEADLINE_COLOR = '#777777';
 var SERIES_TOGGLE = true;
 
@@ -1042,20 +1077,11 @@ function isElementUniqueInArray(element, index, arr) {
 }
 
 /**
- * @param {Array} rows
+ * @param {Array} columns
  * @return {boolean}
  */
-function dataHasGeoCodes(rows) {
-  return dataHasColumn(GEOCODE_COLUMN, rows);
-}
-
-/**
- * @param {string} column
- * @param {Array} rows
- * @return {boolean}
- */
-function dataHasColumn(column, rows) {
-  return getColumnsFromData(rows).includes(column);
+function dataHasGeoCodes(columns) {
+  return columns.includes(GEOCODE_COLUMN);
 }
 
 /**
@@ -1063,16 +1089,18 @@ function dataHasColumn(column, rows) {
  * @return {Array} Columns from first row
  */
 function getColumnsFromData(rows) {
-  return Object.keys(rows[0]);
+  return Object.keys(rows.reduce(function(result, obj) {
+    return Object.assign(result, obj);
+  }, {}));
 }
 
 /**
- * @param {Array} rows
- * @return {Array} Columns from first row, omitting non-fields
+ * @param {Array} columns
+ * @return {Array} Columns without non-fields
  */
-function getFieldColumnsFromData(rows) {
+function getFieldColumnsFromData(columns) {
   var omitColumns = nonFieldColumns();
-  return getColumnsFromData(rows).filter(function(col) {
+  return columns.filter(function(col) {
     return !omitColumns.includes(col);
   });
 }
@@ -1098,6 +1126,98 @@ function nonFieldColumns() {
   return columns;
 }
 
+/**
+ * @param {Array} items Objects optionally containing 'unit' and/or 'series'
+ * @param {String} selectedUnit
+ * @param {String} selectedSeries
+ * @return {object|false} The first match given the selected unit/series, or false
+ */
+function getMatchByUnitSeries(items, selectedUnit, selectedSeries) {
+  var matches = getMatchesByUnitSeries(items, selectedUnit, selectedSeries);
+  return (matches.length > 0) ? matches[0] : false;
+}
+
+/**
+ * @param {Array} items Objects optionally containing 'unit' and/or 'series'
+ * @param {String} selectedUnit
+ * @param {String} selectedSeries
+ * @return {Array} All matches given the selected unit/series, if any.
+ */
+function getMatchesByUnitSeries(items, selectedUnit, selectedSeries) {
+  if (!items || items.length === 0) {
+    return [];
+  }
+  if (!selectedUnit && !selectedSeries) {
+    return items;
+  }
+  // First pass to find any exact matches.
+  var matches = items.filter(function(item) {
+    var seriesMatch = item.series === selectedSeries,
+        unitMatch = item.unit === selectedUnit;
+    if (selectedUnit && selectedSeries) {
+      return seriesMatch && unitMatch;
+    }
+    else if (selectedUnit) {
+      return unitMatch;
+    }
+    else if (selectedSeries) {
+      return seriesMatch;
+    }
+  });
+  // Second pass to find any partial matches with unspecified unit/series.
+  if (matches.length === 0) {
+    matches = items.filter(function(item) {
+      var seriesMatch = item.series === selectedSeries && item.series && !item.unit,
+          unitMatch = item.unit === selectedUnit && item.unit && !item.series;
+      if (selectedUnit && selectedSeries) {
+        return seriesMatch || unitMatch;
+      }
+      else if (selectedUnit) {
+        return unitMatch;
+      }
+      else if (selectedSeries) {
+        return seriesMatch;
+      }
+    });
+  }
+  // Third pass to catch cases where nothing at all was specified.
+  if (matches.length === 0) {
+    matches = items.filter(function(item) {
+      var nothingSpecified = !item.unit && !item.series;
+      return nothingSpecified;
+    });
+  }
+  return matches;
+}
+
+/**
+ * Move an item from one position in an array to another, in place.
+ */
+function arrayMove(arr, fromIndex, toIndex) {
+  while (fromIndex < 0) {
+    fromIndex += arr.length;
+  }
+  while (toIndex < 0) {
+    toIndex += arr.length;
+  }
+  var paddingAdded = [];
+  if (toIndex >= arr.length) {
+    var k = toIndex - arr.length;
+    while ((k--) + 1) {
+      arr.push(undefined);
+      paddingAdded.push(arr.length - 1);
+    }
+  }
+  arr.splice(toIndex, 0, arr.splice(fromIndex, 1)[0]);
+
+  // Get rid of the undefined elements that were added.
+  paddingAdded.sort();
+  while (paddingAdded.length > 0) {
+    var paddingIndex = paddingAdded.pop() - 1;
+    arr.splice(paddingIndex, 1);
+  }
+}
+
   /**
  * Model helper functions related to units.
  */
@@ -1106,8 +1226,8 @@ function nonFieldColumns() {
  * @param {Array} rows
  * @return {boolean}
  */
-function dataHasUnits(rows) {
-  return dataHasColumn(UNIT_COLUMN, rows);
+function dataHasUnits(columns) {
+  return columns.includes(UNIT_COLUMN);
 }
 
 /**
@@ -1115,8 +1235,8 @@ function dataHasUnits(rows) {
  * @return {boolean}
  */
 function dataHasUnitSpecificFields(fieldsUsedByUnit) {
-  return !_.every(_.pluck(fieldsUsedByUnit, 'fields'), function(fields) {
-    return _.isEqual(_.sortBy(_.pluck(fieldsUsedByUnit, 'fields')[0]), _.sortBy(fields));
+  return !_.every(_.map(fieldsUsedByUnit, 'fields'), function(fields) {
+    return _.isEqual(_.sortBy(_.map(fieldsUsedByUnit, 'fields')[0]), _.sortBy(fields));
   });
 }
 
@@ -1125,8 +1245,8 @@ function dataHasUnitSpecificFields(fieldsUsedByUnit) {
  * @param {Array} rows
  * @return {Array} Field names
  */
-function fieldsUsedByUnit(units, rows) {
-  var fields = getFieldColumnsFromData(rows);
+function fieldsUsedByUnit(units, rows, columns) {
+  var fields = getFieldColumnsFromData(columns);
   return units.map(function(unit) {
     return {
       unit: unit,
@@ -1185,11 +1305,11 @@ function getUnitFromStartValues(startValues) {
  */
 
 /**
- * @param {Array} rows
+ * @param {Array} columns
  * @return {boolean}
  */
-function dataHasSerieses(rows) {
-  return dataHasColumn(SERIES_COLUMN, rows);
+function dataHasSerieses(columns) {
+  return columns.includes(SERIES_COLUMN);
 }
 
 /**
@@ -1197,8 +1317,8 @@ function dataHasSerieses(rows) {
  * @return {boolean}
  */
 function dataHasSeriesSpecificFields(fieldsUsedBySeries) {
-  return !_.every(_.pluck(fieldsUsedBySeries, 'fields'), function(fields) {
-    return _.isEqual(_.sortBy(_.pluck(fieldsUsedBySeries, 'fields')[0]), _.sortBy(fields));
+  return !_.every(_.map(fieldsUsedBySeries, 'fields'), function(fields) {
+    return _.isEqual(_.sortBy(_.map(fieldsUsedBySeries, 'fields')[0]), _.sortBy(fields));
   });
 }
 
@@ -1207,8 +1327,8 @@ function dataHasSeriesSpecificFields(fieldsUsedBySeries) {
  * @param {Array} rows
  * @return {Array} Field names
  */
-function fieldsUsedBySeries(serieses, rows) {
-  var fields = getFieldColumnsFromData(rows);
+function fieldsUsedBySeries(serieses, rows, columns) {
+  var fields = getFieldColumnsFromData(columns);
   return serieses.map(function(series) {
     return {
       series: series,
@@ -1271,8 +1391,8 @@ function getSeriesFromStartValues(startValues) {
  * @param {Array} edges
  * @return {Array} Field item states
  */
-function getInitialFieldItemStates(rows, edges) {
-  var initial = getFieldColumnsFromData(rows).map(function(field) {
+function getInitialFieldItemStates(rows, edges, columns) {
+  var initial = getFieldColumnsFromData(columns).map(function(field) {
     return {
       field: field,
       hasData: true,
@@ -1394,9 +1514,10 @@ function getChildFieldNames(edges) {
  * @param {boolean} dataHasSeriesSpecificFields
  * @param {Array} selectedFields Field items
  * @param {Array} edges
- * @return {Array} Field item states
+ * @param {string} compositeBreakdownLabel Alternate label for COMPOSITE_BREAKDOWN fields
+ * @return {Array} Field item states (with additional "label" properties)
  */
-function fieldItemStatesForView(fieldItemStates, fieldsByUnit, selectedUnit, dataHasUnitSpecificFields, fieldsBySeries, selectedSeries, dataHasSeriesSpecificFields, selectedFields, edges) {
+function fieldItemStatesForView(fieldItemStates, fieldsByUnit, selectedUnit, dataHasUnitSpecificFields, fieldsBySeries, selectedSeries, dataHasSeriesSpecificFields, selectedFields, edges, compositeBreakdownLabel) {
   var states = fieldItemStates.map(function(item) { return item; });
   if (dataHasUnitSpecificFields && dataHasSeriesSpecificFields) {
     states = fieldItemStatesForSeries(fieldItemStates, fieldsBySeries, selectedSeries);
@@ -1425,7 +1546,13 @@ function fieldItemStatesForView(fieldItemStates, fieldsByUnit, selectedUnit, dat
     });
   }
   sortFieldsForView(states, edges);
-  return states;
+  return states.map(function(item) {
+    item.label = item.field;
+    if (item.field === 'COMPOSITE_BREAKDOWN' && compositeBreakdownLabel !== '') {
+      item.label = compositeBreakdownLabel;
+    }
+    return item;
+  });
 }
 
 /**
@@ -1433,35 +1560,18 @@ function fieldItemStatesForView(fieldItemStates, fieldsByUnit, selectedUnit, dat
  * @param {Array} edges
  */
 function sortFieldsForView(fieldItemStates, edges) {
-  var grandparents = [],
-      parents = [];
-  if (edges) {
+  if (edges.length > 0 && fieldItemStates.length > 0) {
     edges.forEach(function(edge) {
-      if (!parents.includes(edge.From)) {
-        parents.push(edge.From);
-      }
-    });
-    edges.forEach(function(edge) {
-      if (parents.includes(edge.To)) {
-        grandparents.push(edge.From);
-      }
+      // This makes sure children are right after their parents.
+      var parentIndex = fieldItemStates.findIndex(function(fieldItem) {
+        return fieldItem.field == edge.From;
+      });
+      var childIndex = fieldItemStates.findIndex(function(fieldItem) {
+        return fieldItem.field == edge.To;
+      });
+      arrayMove(fieldItemStates, childIndex, parentIndex + 1);
     });
   }
-  fieldItemStates.sort(function(a, b) {
-    if (grandparents.includes(a.field) && !grandparents.includes(b.field)) {
-      return -1;
-    }
-    else if (grandparents.includes(b.field) && !grandparents.includes(a.field)) {
-      return 1;
-    }
-    else if (parents.includes(a.field) && !parents.includes(b.field)) {
-      return -1;
-    }
-    else if (parents.includes(b.field) && !parents.includes(a.field)) {
-      return 1;
-    }
-    return 0;
-  });
 }
 
 /**
@@ -1471,10 +1581,10 @@ function sortFieldsForView(fieldItemStates, edges) {
  * @return {Array} Field item states
  */
 function fieldItemStatesForUnit(fieldItemStates, fieldsByUnit, selectedUnit) {
+  var fieldsBySelectedUnit = fieldsByUnit.filter(function(fieldByUnit) {
+    return fieldByUnit.unit === selectedUnit;
+  })[0];
   return fieldItemStates.filter(function(fis) {
-    var fieldsBySelectedUnit = fieldsByUnit.filter(function(fieldByUnit) {
-      return fieldByUnit.unit === selectedUnit;
-    })[0];
     return fieldsBySelectedUnit.fields.includes(fis.field);
   });
 }
@@ -1486,10 +1596,10 @@ function fieldItemStatesForUnit(fieldItemStates, fieldsByUnit, selectedUnit) {
  * @return {Array} Field item states
  */
 function fieldItemStatesForSeries(fieldItemStates, fieldsBySeries, selectedSeries) {
+  var fieldsBySelectedSeries = fieldsBySeries.filter(function(fieldBySeries) {
+    return fieldBySeries.series === selectedSeries;
+  })[0];
   return fieldItemStates.filter(function(fis) {
-    var fieldsBySelectedSeries = fieldsBySeries.filter(function(fieldBySeries) {
-      return fieldBySeries.series === selectedSeries;
-    })[0];
     return fieldsBySelectedSeries.fields.includes(fis.field);
   });
 }
@@ -1590,6 +1700,10 @@ function selectMinimumStartingFields(rows, selectableFieldNames, selectedUnit) {
   // rows. In other words we want the row with the fewest number of fields.
   filteredData = _.sortBy(filteredData, function(row) { return Object.keys(row).length; });
 
+  if (filteredData.length === 0) {
+    return [];
+  }
+
   // Convert to an array of objects with 'field' and 'values' keys, omitting
   // any non-field columns.
   return Object.keys(filteredData[0]).filter(function(key) {
@@ -1607,6 +1721,9 @@ function selectMinimumStartingFields(rows, selectableFieldNames, selectedUnit) {
  * @param {Array} fieldItemStates
  * @param {Array} rows
  * @return {Object} Arrays of parents keyed to children
+ *
+ * @TODO: This function can be a bottleneck in large datasets with a lot of
+ * disaggregation values. Can this be further optimized?
  */
 function validParentsByChild(edges, fieldItemStates, rows) {
   var parentFields = getParentFieldNames(edges);
@@ -1620,18 +1737,17 @@ function validParentsByChild(edges, fieldItemStates, rows) {
       return value.value;
     });
     var parentField = parentFields[fieldIndex];
+    var childRows = rows.filter(function(row) {
+      var childNotEmpty = row[childField];
+      var parentNotEmpty = row[parentField];
+      return childNotEmpty && parentNotEmpty;
+    })
     validParentsByChild[childField] = {};
     childValues.forEach(function(childValue) {
-      var rowsWithParentValues = rows.filter(function(row) {
-        var childMatch = row[childField] == childValue;
-        var parentNotEmpty = row[parentField];
-        return childMatch && parentNotEmpty;
+      var rowsWithParentValues = childRows.filter(function(row) {
+        return row[childField] == childValue;
       });
-      var parentValues = rowsWithParentValues.map(function(row) {
-        return row[parentField];
-      });
-      parentValues = parentValues.filter(isElementUniqueInArray);
-      validParentsByChild[childField][childValue] = parentValues;
+      validParentsByChild[childField][childValue] = getUniqueValuesByProperty(parentField, rowsWithParentValues);
     });
   });
   return validParentsByChild;
@@ -1710,27 +1826,28 @@ function getDataBySelectedFields(rows, selectedFields) {
  * @return {String} Updated title
  */
 function getChartTitle(currentTitle, allTitles, selectedUnit, selectedSeries) {
-  var newTitle = currentTitle;
-  if (allTitles && allTitles.length > 0) {
-    var matchedTitle;
-    if (selectedUnit && selectedSeries) {
-      matchedTitle = allTitles.find(function(title) {
-        return title.unit === selectedUnit && title.series === selectedSeries;
-      });
-    }
-    if (!matchedTitle && selectedSeries) {
-      matchedTitle = allTitles.find(function(title) {
-        return title.series === selectedSeries;
-      });
-    }
-    if (!matchedTitle && selectedUnit) {
-      matchedTitle = allTitles.find(function(title) {
-        return title.unit === selectedUnit;
-      });
-    }
-    newTitle = (matchedTitle) ? matchedTitle.title : allTitles[0].title;
-  }
-  return newTitle;
+  var match = getMatchByUnitSeries(allTitles, selectedUnit, selectedSeries);
+  return (match) ? match.title : currentTitle;
+}
+
+/**
+ * @param {Array} graphLimits Objects containing 'unit' and 'title'
+ * @param {String} selectedUnit
+ * @param {String} selectedSeries
+ * @return {Object|false} Graph limit object, if any
+ */
+function getGraphLimits(graphLimits, selectedUnit, selectedSeries) {
+  return getMatchByUnitSeries(graphLimits, selectedUnit, selectedSeries);
+}
+
+/**
+ * @param {Array} graphAnnotations Objects containing 'unit' or 'series' or more
+ * @param {String} selectedUnit
+ * @param {String} selectedSeries
+ * @return {Array} Graph annotations objects, if any
+ */
+function getGraphAnnotations(graphAnnotations, selectedUnit, selectedSeries) {
+  return getMatchesByUnitSeries(graphAnnotations, selectedUnit, selectedSeries);
 }
 
 /**
@@ -1741,27 +1858,86 @@ function getChartTitle(currentTitle, allTitles, selectedUnit, selectedSeries) {
  * @param {string} defaultLabel
  * @param {Array} colors
  * @param {Array} selectableFields Field names
+ * @param {Array} colorAssignments Color/striping assignments for disaggregation combinations
  * @return {Array} Datasets suitable for Chart.js
  */
-function getDatasets(headline, data, combinations, years, defaultLabel, colors, selectableFields) {
-  var datasets = [], index = 0, dataset, color, background, border;
+function getDatasets(headline, data, combinations, years, defaultLabel, colors, selectableFields, colorAssignments) {
+  var datasets = [], index = 0, dataset, colorIndex, color, background, border, striped, excess, combinationKey, colorAssignment;
+  var numColors = colors.length,
+      maxColorAssignments = numColors * 2;
+
+  prepareColorAssignments(colorAssignments, maxColorAssignments);
+  setAllColorAssignmentsReadyForEviction(colorAssignments);
+
   combinations.forEach(function(combination) {
     var filteredData = getDataMatchingCombination(data, combination, selectableFields);
     if (filteredData.length > 0) {
-      color = getColor(index, colors);
-      background = getBackground(index, colors);
-      border = getBorderDash(index, colors);
-      dataset = makeDataset(years, filteredData, combination, defaultLabel, color, background, border);
+      excess = (index >= maxColorAssignments);
+      if (excess) {
+        // This doesn't really matter: excess datasets won't be displayed.
+        color = getHeadlineColor();
+        striped = false;
+      }
+      else {
+        combinationKey = JSON.stringify(combination);
+        colorAssignment = getColorAssignmentByCombination(colorAssignments, combinationKey);
+        if (colorAssignment !== undefined) {
+          colorIndex = colorAssignment.colorIndex;
+          striped = colorAssignment.striped;
+          colorAssignment.readyForEviction = false;
+        }
+        else {
+          if (colorAssignmentsAreFull(colorAssignments)) {
+            evictColorAssignment(colorAssignments);
+          }
+          var openColorInfo = getOpenColorInfo(colorAssignments, colors);
+          colorIndex = openColorInfo.colorIndex;
+          striped = openColorInfo.striped;
+          colorAssignment = getAvailableColorAssignment(colorAssignments);
+          assignColor(colorAssignment, combinationKey, colorIndex, striped);
+        }
+      }
+
+      color = getColor(colorIndex, colors);
+      background = getBackground(color, striped);
+      border = getBorderDash(striped);
+
+      dataset = makeDataset(years, filteredData, combination, defaultLabel, color, background, border, excess);
       datasets.push(dataset);
       index++;
     }
   }, this);
-  datasets.sort(function(a, b) { return a.label > b.label; });
+
+  datasets.sort(function(a, b) { return (a.label > b.label) ? 1 : -1; });
   if (headline.length > 0) {
     dataset = makeHeadlineDataset(years, headline, defaultLabel);
     datasets.unshift(dataset);
   }
   return datasets;
+}
+
+/**
+ * @param {Array} colorAssignments
+ * @param {int} maxColorAssignments
+ */
+function prepareColorAssignments(colorAssignments, maxColorAssignments) {
+  while (colorAssignments.length < maxColorAssignments) {
+    colorAssignments.push({
+      combination: null,
+      colorIndex: null,
+      striped: false,
+      readyForEviction: false,
+    });
+  }
+}
+
+/**
+ * @param {Array} colorAssignments
+ */
+function setAllColorAssignmentsReadyForEviction(colorAssignments) {
+  for (var i = 0; i < colorAssignments.length; i++) {
+    colorAssignments[i].readyForEviction = true;
+  }
 }
 
 /**
@@ -1779,32 +1955,113 @@ function getDataMatchingCombination(data, combination, selectableFields) {
 }
 
 /**
- * @param {int} datasetIndex
- * @param {Array} colors
- * @return Color from a list
+ * @param {Array} colorAssignments
+ * @param {string} combination
+ * @return {Object|undefined} Color assignment object if found.
  */
-function getColor(datasetIndex, colors) {
-  if (datasetIndex >= colors.length) {
-    // Support double the number of colors, because we'll use striped versions.
-    return '#' + colors[datasetIndex - colors.length];
-  } else {
-    return '#' + colors[datasetIndex];
-  }
+function getColorAssignmentByCombination(colorAssignments, combination) {
+  return colorAssignments.find(function(assignment) {
+    return assignment.combination === combination;
+  });
 }
 
 /**
- * @param {int} datasetIndex
+ * @param {Array} colorAssignments
+ * @return {boolean}
+ */
+function colorAssignmentsAreFull(colorAssignments) {
+  for (var i = 0; i < colorAssignments.length; i++) {
+    if (colorAssignments[i].combination === null) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/**
+ * @param {Array} colorAssignments
+ */
+function evictColorAssignment(colorAssignments) {
+  for (var i = 0; i < colorAssignments.length; i++) {
+    if (colorAssignments[i].readyForEviction) {
+      colorAssignments[i].combination = null;
+      colorAssignments[i].colorIndex = null;
+      colorAssignments[i].striped = false;
+      colorAssignments[i].readyForEviction = false;
+      return;
+    }
+  }
+  throw 'Could not evict color assignment';
+}
+
+/**
+ * @param {Array} colorAssignments
  * @param {Array} colors
+ * @return {Object} Object with 'colorIndex' and 'striped' properties.
+ */
+function getOpenColorInfo(colorAssignments, colors) {
+  // First look for normal colors, then striped.
+  var stripedStates = [false, true];
+  for (var i = 0; i < stripedStates.length; i++) {
+    var stripedState = stripedStates[i];
+    var assignedColors = colorAssignments.filter(function(colorAssignment) {
+      return colorAssignment.striped === stripedState && colorAssignment.colorIndex !== null;
+    }).map(function(colorAssignment) {
+      return colorAssignment.colorIndex;
+    });
+    if (assignedColors.length < colors.length) {
+      for (var colorIndex = 0; colorIndex < colors.length; colorIndex++) {
+        if (!(assignedColors.includes(colorIndex))) {
+          return {
+            colorIndex: colorIndex,
+            striped: stripedState,
+          }
+        }
+      }
+    }
+  }
+  throw 'Could not find open color';
+}
+
+/**
+ * @param {Array} colorAssignments
+ * @return {Object|undefined} Color assignment object if found.
+ */
+function getAvailableColorAssignment(colorAssignments) {
+  return colorAssignments.find(function(assignment) {
+    return assignment.combination === null;
+  });
+}
+
+/**
+ * @param {Object} colorAssignment
+ * @param {string} combination
+ * @param {int} colorIndex
+ * @param {boolean} striped
+ */
+function assignColor(colorAssignment, combination, colorIndex, striped) {
+  colorAssignment.combination = combination;
+  colorAssignment.colorIndex = colorIndex;
+  colorAssignment.striped = striped;
+  colorAssignment.readyForEviction = false;
+}
+
+/**
+ * @param {int} colorIndex
+ * @param {Array} colors
+ * @return Color from a list
+ */
+function getColor(colorIndex, colors) {
+  return '#' + colors[colorIndex];
+}
+
+/**
+ * @param {string} color
+ * @param {boolean} striped
  * @return Background color or pattern
  */
-function getBackground(datasetIndex, colors) {
-  var color = getColor(datasetIndex, colors);
-
-  if (datasetIndex >= colors.length) {
-    color = getStripes(color);
-  }
-
-  return color;
+function getBackground(color, striped) {
+  return striped ? getStripes(color) : color;
 }
 
 /**
@@ -1819,12 +2076,11 @@ function getStripes(color) {
 }
 
 /**
- * @param {int} datasetIndex
- * @param {Array} colors
+ * @param {boolean} striped
  * @return {Array|undefined} An array produces dashed lines on the chart
  */
-function getBorderDash(datasetIndex, colors) {
-  return datasetIndex >= colors.length ? [5, 5] : undefined;
+function getBorderDash(striped) {
+  return striped ? [5, 5] : undefined;
 }
 
 /**
@@ -1837,7 +2093,7 @@ function getBorderDash(datasetIndex, colors) {
  * @param {Array} border
  * @return {Object} Dataset object for Chart.js
  */
-function makeDataset(years, rows, combination, labelFallback, color, background, border) {
+function makeDataset(years, rows, combination, labelFallback, color, background, border, excess) {
   var dataset = getBaseDataset();
   return Object.assign(dataset, {
     label: getCombinationDescription(combination, labelFallback),
@@ -1849,6 +2105,7 @@ function makeDataset(years, rows, combination, labelFallback, color, background,
     borderDash: border,
     borderWidth: 2,
     data: prepareDataForDataset(years, rows),
+    excess: excess,
   });
 }
 
@@ -1970,7 +2227,7 @@ function convertJsonFormatToRows(data) {
   }
 
   return data[keys[0]].map(function(item, index) {
-    return _.object(keys, keys.map(function(key) {
+    return _.zipObject(keys, keys.map(function(key) {
       return data[key][index];
     }));
   });
@@ -1988,7 +2245,7 @@ function getHeadline(selectableFields, rows) {
     });
   }).map(function (row) {
     // Remove null fields in each row.
-    return _.pick(row, function(val) { return val !== null });
+    return _.pickBy(row, function(val) { return val !== null });
   });
 }
 
@@ -2029,6 +2286,17 @@ function prepareData(rows) {
 function sortData(rows, selectedUnit) {
   var column = selectedUnit ? UNIT_COLUMN : YEAR_COLUMN;
   return _.sortBy(rows, column);
+}
+
+/**
+ * @param {Array} precisions Objects containing 'unit' and 'title'
+ * @param {String} selectedUnit
+ * @param {String} selectedSeries
+ * @return {int|false} number of decimal places, if any
+ */
+function getPrecision(precisions, selectedUnit, selectedSeries) {
+  var match = getMatchByUnitSeries(precisions, selectedUnit, selectedSeries);
+  return (match) ? match.decimals : false;
 }
 
 
@@ -2078,6 +2346,10 @@ function sortData(rows, selectedUnit) {
     getCombinationData: getCombinationData,
     getDatasets: getDatasets,
     tableDataFromDatasets: tableDataFromDatasets,
+    getPrecision: getPrecision,
+    getGraphLimits: getGraphLimits,
+    getGraphAnnotations: getGraphAnnotations,
+    getColumnsFromData: getColumnsFromData,
     // Backwards compatibility.
     footerFields: deprecated('helpers.footerFields'),
   }
@@ -2125,38 +2397,60 @@ function sortData(rows, selectedUnit) {
   this.stackedDisaggregation = options.stackedDisaggregation;
   this.graphAnnotations = options.graphAnnotations;
   this.indicatorDownloads = options.indicatorDownloads;
+  this.compositeBreakdownLabel = options.compositeBreakdownLabel;
+  this.precision = options.precision;
+
+  this.initialiseUnits = function() {
+    if (this.hasUnits) {
+      this.units = helpers.getUniqueValuesByProperty(helpers.UNIT_COLUMN, this.data);
+      this.selectedUnit = this.units[0];
+      this.fieldsByUnit = helpers.fieldsUsedByUnit(this.units, this.data, this.allColumns);
+      this.dataHasUnitSpecificFields = helpers.dataHasUnitSpecificFields(this.fieldsByUnit);
+    }
+  }
+
+  this.refreshSeries = function() {
+    if (this.hasSerieses) {
+      this.data = helpers.getDataBySeries(this.allData, this.selectedSeries);
+      this.years = helpers.getUniqueValuesByProperty(helpers.YEAR_COLUMN, this.data);
+      this.fieldsBySeries = helpers.fieldsUsedBySeries(this.serieses, this.data, this.allColumns);
+      this.dataHasSeriesSpecificFields = helpers.dataHasSeriesSpecificFields(this.fieldsBySeries);
+    }
+  }
+
+  this.initialiseFields = function() {
+    this.fieldItemStates = helpers.getInitialFieldItemStates(this.data, this.edgesData, this.allColumns);
+    this.validParentsByChild = helpers.validParentsByChild(this.edgesData, this.fieldItemStates, this.data);
+    this.selectableFields = helpers.getFieldNames(this.fieldItemStates);
+    this.allowedFields = helpers.getInitialAllowedFields(this.selectableFields, this.edgesData);
+  }
+
+  // Before continuing, we may need to filter by Series, so set up all the Series stuff.
+  this.allData = helpers.prepareData(this.data);
+  this.allColumns = helpers.getColumnsFromData(this.allData);
+  this.hasSerieses = helpers.SERIES_TOGGLE && helpers.dataHasSerieses(this.allColumns);
+  this.serieses = this.hasSerieses ? helpers.getUniqueValuesByProperty(helpers.SERIES_COLUMN, this.allData) : [];
+  this.hasStartValues = Array.isArray(this.startValues) && this.startValues.length > 0;
+  if (this.hasSerieses) {
+    this.selectedSeries = this.serieses[0];
+    if (this.hasStartValues) {
+      this.selectedSeries = helpers.getSeriesFromStartValues(this.startValues) || this.selectedSeries;
+    }
+    this.refreshSeries();
+  }
+  else {
+    this.data = this.allData;
+    this.years = helpers.getUniqueValuesByProperty(helpers.YEAR_COLUMN, this.data);
+  }
 
   // calculate some initial values:
-  this.years = helpers.getUniqueValuesByProperty(helpers.YEAR_COLUMN, this.data);
-  this.hasGeoData = helpers.dataHasGeoCodes(this.data);
-  if (helpers.dataHasUnits(this.data)) {
-    this.hasUnits = true;
-    this.units = helpers.getUniqueValuesByProperty(helpers.UNIT_COLUMN, this.data);
-    this.selectedUnit = this.units[0];
-    this.fieldsByUnit = helpers.fieldsUsedByUnit(this.units, this.data);
-    this.dataHasUnitSpecificFields = helpers.dataHasUnitSpecificFields(this.fieldsByUnit);
-  }
-  else {
-    this.hasUnits = false;
-  }
-  if (helpers.SERIES_TOGGLE && helpers.dataHasSerieses(this.data)) {
-    this.hasSerieses = true;
-    this.serieses = helpers.getUniqueValuesByProperty(helpers.SERIES_COLUMN, this.data);
-    this.selectedSeries = this.serieses[0];
-    this.fieldsBySeries = helpers.fieldsUsedBySeries(this.serieses, this.data);
-    this.dataHasSeriesSpecificFields = helpers.dataHasSeriesSpecificFields(this.fieldsBySeries);
-  }
-  else {
-    this.hasSerieses = false;
-  }
-  this.fieldItemStates = helpers.getInitialFieldItemStates(this.data, this.edgesData);
-  this.validParentsByChild = helpers.validParentsByChild(this.edgesData, this.fieldItemStates, this.data);
-  this.selectableFields = helpers.getFieldNames(this.fieldItemStates);
-  this.allowedFields = helpers.getInitialAllowedFields(this.selectableFields, this.edgesData);
-  this.data = helpers.prepareData(this.data);
+  this.hasGeoData = helpers.dataHasGeoCodes(this.allColumns);
+  this.hasUnits = helpers.dataHasUnits(this.allColumns);
+  this.initialiseUnits();
+  this.initialiseFields();
   this.colors = opensdg.chartColors(this.indicatorId);
   this.maxDatasetCount = 2 * this.colors.length;
-  this.hasStartValues = Array.isArray(this.startValues) && this.startValues.length > 0;
+  this.colorAssignments = [];
 
   this.clearSelectedFields = function() {
     this.selectedFields = [];
@@ -2192,17 +2486,22 @@ function sortData(rows, selectedUnit) {
   };
 
   this.updateSelectedSeries = function(selectedSeries) {
+    // Updating the Series is akin to loading a whole new indicator, so
+    // here we re-initialise most everything on the page.
     this.selectedSeries = selectedSeries;
-    this.getData({
-      updateFields: this.dataHasSeriesSpecificFields
-    });
+    this.refreshSeries();
+    this.clearSelectedFields();
+    this.initialiseUnits();
+    this.initialiseFields();
+    this.getData({ updateFields: true, changingSeries: true });
     this.onSeriesesSelectedChanged.notify(selectedSeries);
   };
 
   this.getData = function(options) {
     options = Object.assign({
       initial: false,
-      updateFields: false
+      updateFields: false,
+      changingSeries: false,
     }, options);
 
     var headlineUnfiltered = helpers.getHeadline(this.selectableFields, this.data);
@@ -2223,7 +2522,7 @@ function sortData(rows, selectedUnit) {
 
     // If this is the initial load, check for special cases.
     var selectionUpdateNeeded = false;
-    if (options.initial) {
+    if (options.initial || options.changingSeries) {
       // Decide on a starting unit.
       if (this.hasUnits) {
         var startingUnit = this.selectedUnit;
@@ -2248,7 +2547,7 @@ function sortData(rows, selectedUnit) {
       }
 
       // Decide on a starting series.
-      if (this.hasSerieses) {
+      if (this.hasSerieses && !options.changingSeries) {
         var startingSeries = this.selectedSeries;
         if (this.hasStartValues) {
           var seriesInStartValues = helpers.getSeriesFromStartValues(this.startValues);
@@ -2307,26 +2606,25 @@ function sortData(rows, selectedUnit) {
           this.selectedSeries,
           this.dataHasSeriesSpecificFields,
           this.selectedFields,
-          this.edgesData
+          this.edgesData,
+          this.compositeBreakdownLabel
         ),
         allowedFields: this.allowedFields,
         edges: this.edgesData,
         hasGeoData: this.hasGeoData,
         indicatorId: this.indicatorId,
         showMap: this.showMap,
+        precision: helpers.getPrecision(this.precision, this.selectedUnit, this.selectedSeries),
       });
     }
 
-    if (selectionUpdateNeeded || options.unitsChangeSeries) {
+    if (selectionUpdateNeeded || options.updateFields) {
       this.updateFieldStates(this.selectedFields);
     }
 
     var filteredData = helpers.getDataBySelectedFields(this.data, this.selectedFields);
     if (this.hasUnits) {
       filteredData = helpers.getDataByUnit(filteredData, this.selectedUnit);
-    }
-    if (this.hasSerieses) {
-      filteredData = helpers.getDataBySeries(filteredData, this.selectedSeries);
     }
 
     filteredData = helpers.sortData(filteredData, this.selectedUnit);
@@ -2335,7 +2633,7 @@ function sortData(rows, selectedUnit) {
     }
 
     var combinations = helpers.getCombinationData(this.selectedFields);
-    var datasets = helpers.getDatasets(headline, filteredData, combinations, this.years, this.country, this.colors, this.selectableFields);
+    var datasets = helpers.getDatasets(headline, filteredData, combinations, this.years, this.country, this.colors, this.selectableFields, this.colorAssignments);
     var selectionsTable = helpers.tableDataFromDatasets(datasets, this.years);
 
     var datasetCountExceedsMax = false;
@@ -2354,7 +2652,7 @@ function sortData(rows, selectedUnit) {
 
     this.onDataComplete.notify({
       datasetCountExceedsMax: datasetCountExceedsMax,
-      datasets: datasetCountExceedsMax ? datasets.slice(0, this.maxDatasetCount) : datasets,
+      datasets: datasets.filter(function(dataset) { return dataset.excess !== true }),
       labels: this.years,
       headlineTable: helpers.getHeadlineTable(headline, this.selectedUnit),
       selectionsTable: selectionsTable,
@@ -2362,11 +2660,12 @@ function sortData(rows, selectedUnit) {
       shortIndicatorId: this.shortIndicatorId,
       selectedUnit: this.selectedUnit,
       selectedSeries: this.selectedSeries,
-      graphLimits: this.graphLimits,
+      graphLimits: helpers.getGraphLimits(this.graphLimits, this.selectedUnit, this.selectedSeries),
       stackedDisaggregation: this.stackedDisaggregation,
-      graphAnnotations: this.graphAnnotations,
+      graphAnnotations: helpers.getGraphAnnotations(this.graphAnnotations, this.selectedUnit, this.selectedSeries),
       chartTitle: this.chartTitle,
       indicatorDownloads: this.indicatorDownloads,
+      precision: helpers.getPrecision(this.precision, this.selectedUnit, this.selectedSeries),
     });
   };
 };
@@ -2385,12 +2684,14 @@ var mapView = function () {
 
   "use strict";
 
-  this.initialise = function(indicatorId) {
+  this.initialise = function(indicatorId, precision, decimalSeparator) {
     $('.map').show();
     $('#map').sdgMap({
       indicatorId: indicatorId,
       mapOptions: {"tileURL":"https://{s}.tile.jawg.io/{id}/{z}/{x}/{y}{r}.png?access-token={accessToken}","tileOptions":{"id":"jawg-light","accessToken":"lCtbMZiG4tbVWl7uq9EEch1yphnuLx9JyZL2qZwoQJ26wAu73oK1NkU4K50AALkp","attribution":"<a href=\"http://jawg.io\" title=\"Tiles Courtesy of Jawg Maps\" target=\"_blank\">&copy; <b>Jawg</b>Maps</a> &copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors | <a href=\"http://geoportal.statistics.gov.uk/\">ONS</a>"},"minZoom":4},
       mapLayers: [{"min_zoom":4,"max_zoom":6,"staticBorders":true,"subfolder":"country","label":"Country"},{"min_zoom":6,"max_zoom":8,"staticBorders":true,"subfolder":"regions","label":"Regions"},{"min_zoom":9,"max_zoom":12,"staticBorders":true,"subfolder":"local_authorities","label":"Local Authorities"}],
+      precision: precision,
+      decimalSeparator: decimalSeparator,
     });
   };
 };
@@ -2406,6 +2707,8 @@ var indicatorView = function (model, options) {
   this._tableColumnDefs = options.tableColumnDefs;
   this._mapView = undefined;
   this._legendElement = options.legendElement;
+  this._precision = undefined;
+  this._decimalSeparator = options.decimalSeparator;
 
   var chartHeight = screen.height < options.maxChartHeight ? screen.height : options.maxChartHeight;
 
@@ -2446,6 +2749,8 @@ var indicatorView = function (model, options) {
 
   this._model.onDataComplete.attach(function (sender, args) {
 
+    view_obj._precision = args.precision;
+
     if(view_obj._model.showData) {
 
       $('#dataset-size-warning')[args.datasetCountExceedsMax ? 'show' : 'hide']();
@@ -2467,7 +2772,7 @@ var indicatorView = function (model, options) {
 
     if(args.hasGeoData && args.showMap) {
       view_obj._mapView = new mapView();
-      view_obj._mapView.initialise(args.indicatorId);
+      view_obj._mapView.initialise(args.indicatorId, args.precision, view_obj._decimalSeparator);
     }
   });
 
@@ -2513,14 +2818,14 @@ var indicatorView = function (model, options) {
       var currentField = $(element).data('field');
 
       // any info?
-      var match = _.findWhere(args.selectedFields, { field : currentField });
+      var match = _.find(args.selectedFields, { field : currentField });
       var element = $(view_obj._rootElement).find('.variable-selector[data-field="' + currentField + '"]');
       var width = match ? (Number(match.values.length / element.find('.variable-options label').length) * 100) + '%' : '0';
 
       $(element).find('.bar .selected').css('width', width);
 
       // is this an allowed field:
-      if (_.contains(args.allowedFields, currentField)) {
+      if (args.allowedFields.includes(currentField)) {
         $(element).removeClass('disallowed');
         $(element).find('> button').removeAttr('aria-describedby');
       }
@@ -2599,7 +2904,7 @@ var indicatorView = function (model, options) {
     })).groupBy('field').map(function(value, key) {
       return {
         field: key,
-        values: _.pluck(value, 'value')
+        values: _.map(value, 'value')
       };
     }).value());
   }
@@ -2660,7 +2965,10 @@ var indicatorView = function (model, options) {
   }
 
   this.initialiseFields = function(args) {
-    if(args.fields.length) {
+    var fieldsContainValues = args.fields.some(function(field) {
+      return field.values.length > 0;
+    });
+    if (fieldsContainValues) {
       var template = _.template($("#item_template").html());
 
       if(!$('button#clear').length) {
@@ -2719,6 +3027,42 @@ var indicatorView = function (model, options) {
     });
   };
 
+  this.alterTableConfig = function(config, info) {
+    opensdg.tableConfigAlterations.forEach(function(callback) {
+      callback(config, info);
+    });
+  };
+
+  this.alterDataDisplay = function(value, info, context) {
+    // If value is empty, we will not alter it.
+    if (value == null) {
+      return value;
+    }
+    // Before passing to user-defined dataDisplayAlterations, let's
+    // do our best to ensure that it starts out as a number.
+    var altered = value;
+    if (typeof altered !== 'number') {
+      altered = Number(value);
+    }
+    // If that gave us a non-number, return original.
+    if (isNaN(altered)) {
+      return value;
+    }
+    // Now go ahead with user-defined alterations.
+    opensdg.dataDisplayAlterations.forEach(function(callback) {
+      altered = callback(altered, info, context);
+    });
+    // Now apply our custom precision control if needed.
+    if (view_obj._precision || view_obj._precision === 0) {
+      altered = Number.parseFloat(altered).toFixed(view_obj._precision);
+    }
+    // Now apply our custom decimal separator if needed.
+    if (view_obj._decimalSeparator) {
+      altered = altered.toString().replace('.', view_obj._decimalSeparator);
+    }
+    return altered;
+  }
+
   this.updateChartTitle = function(chartTitle) {
     if (typeof chartTitle !== 'undefined') {
       $('.chart-title').text(chartTitle);
@@ -2728,6 +3072,10 @@ var indicatorView = function (model, options) {
   this.updatePlot = function(chartInfo) {
     this.updateIndicatorDataViewStatus(view_obj._chartInstance.data.datasets, chartInfo.datasets);
     view_obj._chartInstance.data.datasets = chartInfo.datasets;
+    view_obj._chartInstance.data.labels = chartInfo.labels;
+    this.updateHeadlineColor(this.isHighContrast() ? 'high' : 'default', view_obj._chartInstance);
+    // TODO: Investigate assets/js/chartjs/rescaler.js and why "allLabels" is needed.
+    view_obj._chartInstance.data.allLabels = chartInfo.labels;
 
     if(chartInfo.selectedUnit) {
       view_obj._chartInstance.options.scales.yAxes[0].scaleLabel.labelString = translations.t(chartInfo.selectedUnit);
@@ -2774,7 +3122,8 @@ var indicatorView = function (model, options) {
           xAxes: [{
             maxBarThickness: 150,
             gridLines: {
-              color: gridColor,
+              color: 'transparent',
+              zeroLineColor: '#757575',
             },
             ticks: {
               fontColor: tickColor,
@@ -2783,10 +3132,15 @@ var indicatorView = function (model, options) {
           yAxes: [{
             gridLines: {
               color: gridColor,
+              zeroLineColor: '#757575',
+              drawBorder: false,
             },
             ticks: {
               suggestedMin: 0,
               fontColor: tickColor,
+              callback: function(value) {
+                return view_obj.alterDataDisplay(value, undefined, 'chart y-axis tick');
+              },
             },
             scaleLabel: {
               display: this._model.selectedUnit ? translations.t(this._model.selectedUnit) : this._model.measurementUnit,
@@ -2817,12 +3171,29 @@ var indicatorView = function (model, options) {
         },
         plugins: {
           scaler: {}
+        },
+        tooltips: {
+          callbacks: {
+            label: function(tooltipItems, data) {
+              return tooltipItems.label + ': ' + view_obj.alterDataDisplay(tooltipItems.yLabel, data, 'chart tooltip');
+            },
+            afterBody: function() {
+              var unit = view_obj._model.selectedUnit ? translations.t(view_obj._model.selectedUnit) : view_obj._model.measurementUnit;
+              if (typeof unit !== 'undefined' && unit !== '') {
+                return '\n' + translations.indicator.unit + ': ' + unit;
+              }
+            }
+          }
         }
       }
     };
     this.alterChartConfig(chartConfig, chartInfo);
     if (this.isHighContrast()) {
       this.updateGraphAnnotationColors('high', chartConfig);
+      this.updateHeadlineColor('high', chartConfig);
+    }
+    else {
+      this.updateHeadlineColor('default', chartConfig);
     }
 
     this._chartInstance = new Chart($(this._rootElement).find('canvas'), chartConfig);
@@ -2830,13 +3201,14 @@ var indicatorView = function (model, options) {
     window.addEventListener('contrastChange', function(e) {
       var gridColor = that.getGridColor(e.detail);
       var tickColor = that.getTickColor(e.detail);
+      that.updateHeadlineColor(e.detail, view_obj._chartInstance);
       that.updateGraphAnnotationColors(e.detail, view_obj._chartInstance);
       view_obj._chartInstance.options.scales.yAxes[0].scaleLabel.fontColor = tickColor;
       view_obj._chartInstance.options.scales.yAxes[0].gridLines.color = gridColor;
       view_obj._chartInstance.options.scales.yAxes[0].ticks.fontColor = tickColor;
-      view_obj._chartInstance.options.scales.xAxes[0].gridLines.color = gridColor;
       view_obj._chartInstance.options.scales.xAxes[0].ticks.fontColor = tickColor;
       view_obj._chartInstance.update();
+      $(view_obj._legendElement).html(view_obj._chartInstance.generateLegend());
     });
 
     Chart.pluginService.register({
@@ -2906,6 +3278,10 @@ var indicatorView = function (model, options) {
     $(this._legendElement).html(view_obj._chartInstance.generateLegend());
   };
 
+  this.getHeadlineColor = function(contrast) {
+    return this.isHighContrast(contrast) ? '#FFDD00' : '#00006a';
+  }
+
   this.getGridColor = function(contrast) {
     return this.isHighContrast(contrast) ? '#222' : '#ddd';
   };
@@ -2935,6 +3311,20 @@ var indicatorView = function (model, options) {
       });
     }
   };
+
+  this.updateHeadlineColor = function(contrast, chartInfo) {
+    if (chartInfo.data.datasets.length > 0) {
+      var firstDataset = chartInfo.data.datasets[0];
+      var isHeadline = (typeof firstDataset.disaggregation === 'undefined');
+      if (isHeadline) {
+        var newColor = this.getHeadlineColor(contrast);
+        firstDataset.backgroundColor = newColor;
+        firstDataset.borderColor = newColor;
+        firstDataset.pointBackgroundColor = newColor;
+        firstDataset.pointBorderColor = newColor;
+      }
+    }
+  }
 
   this.toCsv = function (tableData) {
     var lines = [],
@@ -2993,18 +3383,31 @@ var indicatorView = function (model, options) {
     }
   };
 
-  var initialiseDataTable = function(el) {
+  var initialiseDataTable = function(el, info) {
+    var nonYearColumns = [];
+    for (var i = 1; i < info.table.headings.length; i++) {
+      nonYearColumns.push(i);
+    }
     var datatables_options = options.datatables_options || {
       paging: false,
       bInfo: false,
       bAutoWidth: false,
       searching: false,
       responsive: false,
-      order: [[0, 'asc']]
+      order: [[0, 'asc']],
+      columnDefs: [
+        {
+          targets: nonYearColumns,
+          createdCell: function(td, cellData, rowData, row, col) {
+            $(td).text(view_obj.alterDataDisplay(cellData, rowData, 'table cell'));
+          },
+        },
+      ],
     }, table = $(el).find('table');
 
     datatables_options.aaSorting = [];
 
+    view_obj.alterTableConfig(datatables_options, info);
     table.DataTable(datatables_options);
     table.removeAttr('role');
     table.find('thead th').removeAttr('rowspan').removeAttr('colspan').removeAttr('aria-label');
@@ -3200,11 +3603,11 @@ var indicatorView = function (model, options) {
       var getHeading = function(heading, index) {
         var arrows = '<span class="sort"><i class="fa fa-sort-down"></i><i class="fa fa-sort-up"></i></span>';
         var button = '<span tabindex="0" role="button" aria-describedby="column-sort-info">' + translations.t(heading) + '</span>';
-        return (!index || heading.toLowerCase() == 'units') ? button + arrows : arrows + button;
+        return (!index) ? button + arrows : arrows + button;
       };
 
       table.headings.forEach(function (heading, index) {
-        table_head += '<th' + (!index || heading.toLowerCase() == 'units' ? '': ' class="table-value"') + ' scope="col">' + getHeading(heading, index) + '</th>';
+        table_head += '<th' + (!index ? '': ' class="table-value"') + ' scope="col">' + getHeading(heading, index) + '</th>';
       });
 
       table_head += '</tr></thead>';
@@ -3215,11 +3618,10 @@ var indicatorView = function (model, options) {
         var row_html = '<tr>';
         table.headings.forEach(function (heading, index) {
           // For accessibility set the Year column to a "row" scope th.
-          var isYear = (index == 0 || heading.toLowerCase() == 'year');
-          var isUnits = (heading.toLowerCase() == 'units');
+          var isYear = (index == 0);
           var cell_prefix = (isYear) ? '<th scope="row"' : '<td';
           var cell_suffix = (isYear) ? '</th>' : '</td>';
-          row_html += cell_prefix + (isYear || isUnits ? '' : ' class="table-value"') + '>' + (data[index] !== null ? data[index] : '-') + cell_suffix;
+          row_html += cell_prefix + (isYear ? '' : ' class="table-value"') + '>' + (data[index] !== null ? data[index] : '-') + cell_suffix;
         });
         row_html += '</tr>';
         currentTable.find('tbody').append(row_html);
@@ -3227,8 +3629,12 @@ var indicatorView = function (model, options) {
 
       $(el).append(currentTable);
 
-      // initialise data table
-      initialiseDataTable(el);
+      // initialise data table and provide some info for alterations.
+      var alterationInfo = {
+        table: table,
+        indicatorId: indicatorId,
+      };
+      initialiseDataTable(el, alterationInfo);
 
       $(el).removeClass('table-has-no-data');
       $('#selectionTableFooter').show();
@@ -3402,6 +3808,14 @@ var indicatorSearch = function() {
       }
     }
 
+    // Recognize an indicator id as a special case that does not need Lunr.
+    var searchWords = searchTermsToUse.split(' '),
+        indicatorIdParts = searchWords[0].split('.'),
+        isIndicatorSearch = (searchWords.length === 1 && indicatorIdParts.length >= 3);
+    if (isIndicatorSearch) {
+      useLunr = false;
+    }
+
     var results = [];
     var alternativeSearchTerms = [];
 
@@ -3500,6 +3914,9 @@ var indicatorSearch = function() {
       resultsCount: resultItems.length,
       didYouMean: (alternativeSearchTerms.length > 0) ? alternativeSearchTerms : false,
     }));
+
+    // Hide the normal header search.
+    $('#search').css('visibility', 'hidden');
   }
 
   // Helper function to make a search query "fuzzier", using the ~ syntax.
@@ -3721,8 +4138,8 @@ $(function() {
       }).join('');
       var div = L.DomUtil.create('div', 'selection-legend');
       div.innerHTML = L.Util.template(controlTpl, {
-        lowValue: this.plugin.valueRange[0],
-        highValue: this.plugin.valueRange[1],
+        lowValue: this.plugin.alterData(opensdg.dataRounding(this.plugin.valueRange[0])),
+        highValue: this.plugin.alterData(opensdg.dataRounding(this.plugin.valueRange[1])),
         legendSwatches: swatches,
       });
       return div;
@@ -3756,7 +4173,7 @@ $(function() {
           name: selection.feature.properties.name,
           valueStatus: valueStatus,
           percentage: percentage,
-          value: value,
+          value: plugin.alterData(opensdg.dataRounding(value)),
         });
       }).join('');
 
@@ -3811,7 +4228,14 @@ $(function() {
 
     // Hijack the displayed date format.
     _getDisplayDateFormat: function(date){
-      return date.getFullYear();
+      var time = date.toISOString().slice(0, 10);
+      var match = this.options.years.find(function(y) { return y.time == time; });
+      if (match) {
+        return match.display;
+      }
+      else {
+        return date.getFullYear();
+      }
     },
 
     // Override the _createButton method to prevent the date from being a link.
@@ -3886,6 +4310,7 @@ $(function() {
 
   // Helper function to compose the full widget.
   L.Control.yearSlider = function(options) {
+    var years = getYears(options.years);
     // Extend the defaults.
     options = L.Util.extend(defaultOptions, options);
     // Hardcode the timeDimension to year intervals.
@@ -3893,8 +4318,8 @@ $(function() {
       // We pad our years to at least January 2nd, so that timezone issues don't
       // cause any problems. This converts the array of years into a comma-
       // delimited string of YYYY-MM-DD dates.
-      times: options.years.join('-01-02,') + '-01-02',
-      currentTime: new Date(options.years[0] + '-01-02').getTime(),
+      times: years.map(function(y) { return y.time }).join(','),
+      currentTime: new Date(years[0].time).getTime(),
     });
     // Create the player.
     options.player = new L.TimeDimension.Player(options.playerOptions, options.timeDimension);
@@ -3902,9 +4327,46 @@ $(function() {
     if (typeof options.yearChangeCallback === 'function') {
       options.timeDimension.on('timeload', options.yearChangeCallback);
     };
+    // Pass in our years for later use.
+    options.years = years;
     // Return the control.
     return new L.Control.YearSlider(options);
   };
+
+  function isYear(year) {
+    var parsedInt = parseInt(year, 10);
+    return /^\d+$/.test(year) && parsedInt > 1900 && parsedInt < 3000;
+  }
+
+  function getYears(years) {
+    // Support an array of years or an array of strings starting with years.
+    var day = 2;
+    return years.map(function(year) {
+      var mapped = {
+        display: year,
+        time: year,
+      };
+      // Usually this is a year.
+      if (isYear(year)) {
+        mapped.time = year + '-01-02';
+        // Start over that day variable.
+        day = 2;
+      }
+      // Otherwise we get the year from the beginning of the string.
+      else {
+        var delimiters = ['-', '.', ' ', '/'];
+        for (var i = 0; i < delimiters.length; i++) {
+          var parts = year.split(delimiters[i]);
+          if (parts.length > 1 && isYear(parts[0])) {
+            mapped.time = parts[0] + '-01-0' + day;
+            day += 1;
+            break;
+          }
+        }
+      }
+      return mapped;
+    });
+  }
 }());
 /*
  * Leaflet fullscreenAccessible.
