@@ -13,7 +13,8 @@ url: ""
 data_dir: data
 environment: staging
 
-remote_data_prefix: "http://sdgdev-813006012.eu-west-1.elb.amazonaws.com/data/languages/"
+remote_data_prefix: "https://ONSdigital.github.io/sdg-data"
+
 create_indicators:
   layout: indicator
 create_goals:
@@ -22,18 +23,26 @@ create_pages:
   pages:
     - folder: /
       layout: frontpage-alt
+      title: 17 goals to transform our world
     - folder: /goals
       layout: goals
+      title: UK data for the Sustainable Development Goals
     - folder: /reporting-status
       layout: reportingstatus
+      title: Reporting Status
     - filename: indicators.json
       folder: /
       layout: indicator-json
     - folder: /search
       layout: search
+      title: Search results
       
 # Social media accounts.
 twitter: 'ONS'
+
+disclaimer:
+  phase: BETA
+  message: This website is in development – your <a href="https://www.surveymonkey.co.uk/r/SDGfeedback">feedback</a> will help us to improve it
 
 # Email accounts
 email_contacts:
@@ -79,6 +88,10 @@ collections:
     output: true
   goals:
     output: true
+    
+# Hide categories section of news page
+news:
+  category_links: false
 
 # The list of languages that are translated. The first one is the default.
 languages:
@@ -86,7 +99,20 @@ languages:
   - ru
   - fr
 
+# Goal image options
 goal_image_base: https://open-sdg.github.io/sdg-translations/assets/img/goals
+goal_image_extension: svg
+
+# Accessibility options
+accessible_tabs: true
+accessible_charts: true
+
+# Use radio buttons for Series instead of dropdown
+series_toggle: true
+
+#Header 
+header:
+    include: header-menu-left-aligned.html
 
 # Header Menu
 menu:
@@ -121,7 +147,7 @@ plugins:
   - jekyll-remote-theme
   - jekyll-open-sdg-plugins
 
-remote_theme: brockfanning/open-sdg@language-toggle-non-dropdown
+remote_theme: open-sdg/open-sdg@1.3.0
 
 # Apply any custom Javascript.
 custom_js:
@@ -139,13 +165,16 @@ search_index_extra_fields:
 header_language_toggle: links
 footer_language_toggle: dropdown
 
+# Graphs
+graph_color_set: accessible
+
 # Mapping
 map_options:
-  tileURL: https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}
+  tileURL: https://{s}.tile.jawg.io/{id}/{z}/{x}/{y}{r}.png?access-token={accessToken}
   tileOptions:
-    id: mapbox.light
-    accessToken: pk.eyJ1IjoibHVjeWphbmVnd2lsbCIsImEiOiJjazAyZ2phaGMwajhzM2hxb2czZmdrZ2szIn0.tcj-n08CcU-7tKXFqB-WuQ
-    attribution: <a href="https://www.mapbox.com">Mapbox</a> | <a href="http://geoportal.statistics.gov.uk/">ONS</a>
+    id: jawg-light
+    accessToken: lCtbMZiG4tbVWl7uq9EEch1yphnuLx9JyZL2qZwoQJ26wAu73oK1NkU4K50AALkp
+    attribution:  <a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | <a href="http://geoportal.statistics.gov.uk/">ONS</a>
   minZoom: 4
   
 map_layers:
@@ -172,11 +201,21 @@ goals_page:
     description: Click on each goal for UK Sustainable Development Goal global indicator data.
 
 reporting_status:
-    description: An overview of how much data the UK reports for Sustainable Development Goal global indicators.
+    disaggregation_tabs: true
+    description: | 
+      
+      Reporting status provides an overview of how much Sustainable Development Goal (SDG) data the UK reports. For more information, see [What does the reporting status mean?](https://onsdigital.github.io/sdg-indicators/faq/#what-does-the-reporting-status-mean)
+      
+      Disaggregation status provides an overview of how many of the SDG indicators are disaggregated. For more information, see [What does the disaggregation status mean?](https://onsdigital.github.io/sdg-indicators/faq/#what-does-the-disaggregation-status-mean)
+      
+      For details about all available disaggregations and how each indicator is disaggregated, see the [UK disaggregation report](https://onsdigital.github.io/sdg-data/disaggregations.html).
+      
+      Note: These percentages have been rounded. As a result, adding them together may not equal exactly 100%.
+
 
 frontpage_introduction_banner:
   title: 17 goals to transform our world
-  description: <a href="https://www.un.org/sustainabledevelopment/sustainable-development-goals/">The Sustainable Development Goals (SDGs)</a> are a universal call to action to end poverty, protect the planet and improve the lives and prospects of everyone, everywhere. The 17 Goals were adopted by all UN Member States in 2015, as part of the <a href="http://www.un.org/ga/search/view_doc.asp?symbol=A/RES/70/1&Lang=E">2030 Agenda for Sustainable Development</a>.
+  description: <a href="https://www.un.org/sustainabledevelopment/sustainable-development-goals/">The Sustainable Development Goals (SDGs)</a> are a universal call to action to end poverty, protect the planet and improve the lives and prospects of everyone, everywhere. The 17 Goals were adopted by all UN Member States in 2015, as part of the <a href="https://sustainabledevelopment.un.org/post2015/transformingourworld">2030 Agenda for Sustainable Development</a>.
 
 
 # This controls the text that appears above the goals grid.
@@ -194,7 +233,7 @@ frontpage_cards:
   - title: Publications
     content: |
     
-      [SDGs in the UK: Progress on monitoring and reporting data](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2019)
+      [SDGs in the UK: Progress on monitoring and reporting data](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/december2020)
       
       [UK SDG Voluntary National Review](https://www.gov.uk/government/publications/uks-voluntary-national-review-of-the-sustainable-development-goals)
       <br/><br/>

@@ -38,7 +38,84 @@ User personas are descriptions of typical users which represent people who’ll 
 
 We identified four main user personas:
 
-<img src="https://sustainabledevelopment-uk.github.io/public/blog/user_personas.png" alt="Diagram showing summary of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst." height="300px">
+<style>
+
+span {
+    position: absolute;
+    margin: 4px 4px;
+    left: 0px;
+    bottom: 0px;
+    padding: 5px
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.up-column {
+  min-height: 270px;
+  padding: 10px;
+  border:1px solid;
+  text-align: center;
+  margin: 5px
+}
+
+.up-column h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.up-image {
+  width: 100%;
+}
+
+.up-text {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .up-column {
+  min-height: 320px;
+  }
+  .up-image {
+    display: none;
+  }
+  .up-text {
+    display: inline;
+  }
+}
+}
+
+
+</style>
+
+<html>
+
+<div>
+<ol style="list-style-type:none;" class="row no-gutters">
+  <li class="col-xs-6 col-sm-3 col-md-3">
+      <div class="up-column"><h3>Concerned Citizen</h3><p>“Tell me what the goals are and what is being done about them”</p><span>They use the website out of personal interest</span></div>
+  </li>
+  <li class="col-xs-6 col-sm-3 col-md-3">
+      <div class="up-column"><h3>Connected Influencer</h3><p>“Give me a tool that will support my ambitions and give me a louder voice”</p><span>They use the website as it adds credibility to what they are doing</span></div>
+  </li>
+  <li class="col-xs-6 col-sm-3 col-md-3">
+      <div class="up-column"><h3>Fact Gatherer</h3><p>“I just need to quickly see what progress is being made and check the facts”</p><span>They use the website because they need to check something</span></div>
+  </li>
+  <li class="col-xs-6 col-sm-3 col-md-3">
+      <div class="up-column"><h3>Involved Analyst</h3><p>“I just want the data so I can do my own thing with it”</p><span>They use the website because they need to analyse the data</span></div>
+  </li>
+</ol>
+
+<img class="row no-gutters up-image" src="{{ site.baseurl }}/assets/img/userpersonas-arrow.svg" alt="Diagram of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst.">
+    <p class="up-text">The different user personas need different types of data on a scale from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst.</p>
+
+</div>
+</html>
+
 
 
 ## Concerned citizen
@@ -46,7 +123,7 @@ We identified four main user personas:
 Someone who has an personal interest in SDGs or related topics but may also have a professional interest.
 
 ### Likely to say
-*"Tell me what the goals are and what is being done about them."*
+"Tell me what the goals are and what is being done about them."
 
 ### What motivates them
 They have either a personal and/or political interest in the SDGS, and want to know what they are about and whether they will make a difference.
@@ -85,7 +162,7 @@ Concerned citizens might arrive to the site from other public facing websites an
 Someone non-statistical working in the not-for-profit space or for a private sector organisation looking to make money around sustainable development activities. Might be an individual attempting to challenge or guide on government policy
 
 ### Likely to say
-*"Give me a tool that will support my ambitions and give me a louder voice."*
+"Give me a tool that will support my ambitions and give me a louder voice."
 
 ### What motivates them
 Connected influencers understand the SDGs but don't necessarily allign to them. The SDGs provide a higher framework for them to align their work to
@@ -123,7 +200,7 @@ They have a good knowledge of the SDGs and use the SDGs to champion the themes t
 Policy advisers in government departments who have been tasked with reporting on SDG progress and VNR, non-governmental organisations looking to understand what is going on in the UK and think tanks wanting to understand what the UK is doing and hold the government to account.
 
 ### Likely to say
-*"I just need to quickly see what progress is being made and check the facts."*
+"I just need to quickly see what progress is being made and check the facts."
 
 ### What motivates them
 They need somewhere that gives them a view of UK progress which doesn't involve hunting through lots of data.
@@ -167,7 +244,7 @@ Involved analysts can be a range of different people, who usually work with inte
 * Custodian ageny analysts
 
 ### Likely to say
-*"I just want the data so I can do my own thing with it."*
+"I just want the data so I can do my own thing with it."
 
 ### What motivates them
 They need somewhere to get some or all of the SDG data so they can answer questions for themselves or others.

@@ -11,7 +11,7 @@ The [Sustainable Development Goals](http://www.un.org/sustainabledevelopment/sus
   
   * improve the lives and prospects of everyone, everywhere
 
-The 17 Goals were adopted by all UN Member States in 2015, as part of the [2030 Agenda for Sustainable Development](https://www.un.org/ga/search/view_doc.asp?symbol=A/RES/70/1&Lang=E).
+The 17 Goals were adopted by all UN Member States in 2015, as part of the [2030 Agenda for Sustainable Development](https://sustainabledevelopment.un.org/post2015/transformingourworld).
 
 ## ONS' role in the SDGs
 The [Office For National Statistics](https://www.ons.gov.uk/) (ONS) is the UK’s largest independent producer of official statistics and its recognised National Statistical Institute (NSI).
@@ -43,12 +43,18 @@ This site is based on the open source [Open SDG](https://open-sdg.readthedocs.io
     
 Other countries or organisations wishing to reuse the Open SDG reporting platform are welcome to do so for free. The [Open SDG Quick Start Guide](https://open-sdg.readthedocs.io/en/latest/quick-start/) gives technical instructions on the quickest way to get a copy of the Open SDG platform up and running.
 
-If you have comments, feedback, or want to get involved with the Open SDG community please email <opensdg@googlegroups.com> or contact the [Open SDG GitHub](https://github.com/open-sdg/open-sdg) .
+If you have comments, feedback, or want to get involved with the Open SDG community please email <opensdg@googlegroups.com> or contact the [Open SDG GitHub](https://github.com/open-sdg/open-sdg).
 
 ## Need more info?
 Answers to some specific questions about this website are included on our [frequently asked questions]({{ site.baseurl }}{% link _pages/faq.md %}) page.
 
-## Feedback
-For feedback on UK SDG data please contact us at <sustainabledevelopment@ons.gov.uk>
+## Take part
 
-For feedback about this website, please complete our [feedback survey](https://www.surveymonkey.co.uk/r/SDGfeedback)
+Help us shape the UK SDG data website and ensure it meets your needs.
+
+We’re looking for volunteers to [take part in our user research activities]({{ site.baseurl }}{% link _pages/take-part.md %}).
+
+## Feedback
+To provide feedback on UK SDG data please contact us at <sustainabledevelopment@ons.gov.uk>
+
+To provide feedback about this website, please complete our [feedback survey](https://www.surveymonkey.co.uk/r/SDGfeedback)

@@ -1,9 +1,5 @@
 ---
 layout: news
-title: Updates
+title: Updates on Sustainable Development Goals
 permalink: /updates/
 ---
-
-## Updates
-
-### Updates on Sustainable Development Goals
