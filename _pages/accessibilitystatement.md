@@ -30,7 +30,7 @@ Even though this website is AA compliant, we are aware of some issues at a highe
 
 ## How to request content in an accessible format
 
-If you need information from the SDG website in a different format, please email us at sustainabledevelopment@ons.gov.uk, or call +44 (0)345 601 3034 and tell us:
+If you need information from the SDG website in a different format, please email us at [sustainabledevelopment@ons.gov.uk](mailto:sustainabledevelopment@ons.gov.uk), or call +44 (0)345 601 3034 and tell us:
 
 - the web address (URL) of the content
 - your name and email address
@@ -40,7 +40,7 @@ We will reply within ten days to let you know when we will be able to provide th
 
 ## Reporting accessibility problems
 
-We’re always looking to improve the accessibility of this website. If you experience any difficulty in accessing our website, please email us at sustainabledevelopment@ons.gov.uk, or call +44 (0)345 601 3034.
+We’re always looking to improve the accessibility of this website. If you experience any difficulty in accessing our website, please email us at [sustainabledevelopment@ons.gov.uk](mailto:sustainabledevelopment@ons.gov.uk), or call +44 (0)345 601 3034.
 
 ## Enforcement procedure
 
