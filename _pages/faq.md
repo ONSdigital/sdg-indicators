@@ -31,7 +31,7 @@ layout: page
 We will add data as soon as it has been sourced and checked. This includes new data as well as updates to data we have already published. We will continue to collect data from existing sources where possible, in cooperation with topic experts.
 
 ## How do I suggest new or different data sources?
-If you have feedback on the data sources we have used or have suggestions for new data sources then please contact us at <sustainabledevelopment@ons.gov.uk>
+If you have feedback on the data sources we have used or have suggestions for new data sources then please [contact us]({{ site.baseurl }}/contact-us)
 
 
 ## What are you doing to fill data gaps?
@@ -117,7 +117,7 @@ Each of the SDG indicators are assigned to one (or more) of the following tiers:
 For more information, [see the IAEG-SDGs Tier Classification for Global SDG Indicators](https://unstats.un.org/sdgs/iaeg-sdgs/tier-classification/)
 <br>
 <br>
-For further questions about the UK SDG data site please [contact us at sustainabledevelopment@ons.gov.uk](mailto:sustainabledevelopment@ons.gov.uk)
+For further questions about the UK SDG data site please [contact us]({{ site.baseurl }}/contact-us)
 <br>
 <br>
 [Back to top](#table-of-contents)

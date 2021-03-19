@@ -5,7 +5,7 @@ layout: page
 ---
 Publications released by the ONS in relation to the Sustainable Development Goals.
 
-If you have any feedback on our publications, please contact us at <sustainabledevelopment@ons.gov.uk>
+If you have any feedback on our publications, please [contact us]({{ site.baseurl }}/contact-us)
 
 ## Our annual updates
 We publish a yearly update on our progress towards measuring the global Sustainable Development Goal indicators in the UK:
