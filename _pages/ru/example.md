@@ -1,7 +1,7 @@
 ---
 title: Это мой пример названия
 language: ru
-permalink: /ru/my-example-page
+permalink: /ru/my-example-page/
 layout: page
 ---
 

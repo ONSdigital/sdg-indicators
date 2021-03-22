@@ -1,7 +1,7 @@
 ---
 title: Ceci est mon titre d'exemple
 language: fr
-permalink: /fr/my-example-page
+permalink: /fr/my-example-page/
 layout: page
 ---
 
