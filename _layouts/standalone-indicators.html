@@ -1,0 +1,49 @@
+{% include head.html %}
+{% include header.html %}
+
+<div id="main-content" class="container goal-indicators">
+  <h1>{{ page.title | t }}</h1>
+  {{ content }}
+
+  <div class="row no-gutters layout-goal-by-target-vertical goal-target-and-indicators">
+
+    {% assign indicator_objects = '' | split: ',' %}
+    {% for indicator_number in page.standalone_indicators %}
+      {% assign indicator = indicator_number | sdg_lookup %}
+      {% if indicator and indicator.sort %}
+        {% assign indicator_objects = indicator_objects | push: indicator %}
+      {% endif %}
+    {% endfor %}
+    {% assign indicator_objects = indicator_objects | sort: 'sort' %}
+    {% for indicator in indicator_objects %}
+
+      {% assign status_css = indicator.reporting_status | slugify %}
+      {% if indicator.reporting_status == 'notapplicable' %}
+        {% assign status_desc = page.t.status.not_applicable %}
+      {% endif %}
+      {% if indicator.reporting_status == 'notstarted' %}
+        {% assign status_desc = page.t.status.exploring_data_sources %}
+      {% endif %}
+      {% if indicator.reporting_status == 'inprogress' %}
+        {% assign status_desc = page.t.status.statistics_in_progress %}
+      {% endif %}
+      {% if indicator.reporting_status == 'complete' %}
+        {% assign status_desc = page.t.status.reported_online %}
+      {% endif %}
+
+      <div class="layout-goal-by-target-vertical goal-indicator">
+        <h4>
+          <span class="layout-goal-by-target-vertical indicator-number"><span class="sr-only">{{ page.t.general.indicator }}</span>{{ indicator.indicator_number }}</span>
+        </h4>
+        <span class="layout-goal-by-target-vertical indicator-name"><a href="{{ indicator.url }}">{{ indicator.name }}</a> ({{ indicator.archive_type }})</span>
+        <span class="sr-only">{{ page.t.indicator.status }}</span>
+        <span class="layout-goal-by-target-vertical status {{ status_css }}">
+          {{ status_desc }}
+        </span>
+        {% include components/indicator/tags.html tags=indicator.tags %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% include footer.html %}
