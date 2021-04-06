@@ -36,4 +36,6 @@ standalone_indicators:
 
 ---
 
-For transparency in our reporting, this page shows the original indicators that were revised, replaced, or deleted following [indicator changes]({{ site.baseurl}}/updates/2021/02/17/2020-indicator-changes.html) from the 2020 Comprehensive Review. These indicators were archived on XX/XX/XXXX and are no longer being updated. For the latest indicator data available see the [goals page]({{ site.baseurl}}/goals).
+For transparency in our reporting, this page shows the original indicators that were revised, replaced, or deleted following [indicator changes]({{ site.baseurl}}/updates/2021/02/17/2020-indicator-changes.html) from the 2020 Comprehensive Review.
+
+These indicators were archived on XX/XX/XXXX and are no longer being updated. For the latest indicator data available see the [goals page]({{ site.baseurl}}/goals).
