@@ -319,14 +319,14 @@ No changes
   </thead>
   <tbody>
     <tr>
-      <td>11.a.1: Proportion of population living in cities that implement urban and regional development plans integrating population projections and resource needs, by size of city</td>
-      <td>11.a.1: Number of countries that have national urban policies or regional development plans that (a) respond to population dynamics; (b) ensure balanced territorial development; and (c) increase local fiscal space</td>
-      <td>Replaced</td>
-    </tr>
-    <tr>
       <td>11.6.1: Proportion of urban solid waste regularly collected and with adequate final discharge out of total urban solid waste generated, by cities</td>
       <td>11.6.1: Proportion of municipal solid waste collected and managed in controlled facilities out of total municipal waste generated, by cities</td>
       <td>Changed</td>
+    </tr>
+    <tr>
+      <td>11.a.1: Proportion of population living in cities that implement urban and regional development plans integrating population projections and resource needs, by size of city</td>
+      <td>11.a.1: Number of countries that have national urban policies or regional development plans that (a) respond to population dynamics; (b) ensure balanced territorial development; and (c) increase local fiscal space</td>
+      <td>Replaced</td>
     </tr>
     <tr>
       <td>11.c.1: Proportion of financial support to the least developed countries that is allocated to the construction and retrofitting of sustainable, resilient and resource-efficient buildings utilizing local materials</td>
