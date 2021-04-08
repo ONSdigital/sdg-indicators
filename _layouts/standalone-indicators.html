@@ -5,7 +5,7 @@
   <h1>{{ page.title | t }}</h1>
   {{ content }}
 
-  <div class="row no-gutters goal-target-and-indicators">
+  <div class="row no-gutters goal-target-and-indicators layout-goal-by-target-vertical">
 
     {% assign indicator_objects = '' | split: ',' %}
     {% for indicator_number in page.standalone_indicators %}
