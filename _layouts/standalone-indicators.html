@@ -5,7 +5,7 @@
   <h1>{{ page.title | t }}</h1>
   {{ content }}
 
-  <div class="row no-gutters layout-goal-by-target-vertical goal-target-and-indicators">
+  <div class="row no-gutters goal-target-and-indicators layout-goal-by-target-vertical">
 
     {% assign indicator_objects = '' | split: ',' %}
     {% for indicator_number in page.standalone_indicators %}
@@ -31,13 +31,13 @@
         {% assign status_desc = page.t.status.reported_online %}
       {% endif %}
 
-      <div class="layout-goal-by-target-vertical goal-indicator">
+      <div class="goal-indicator">
         <h4>
-          <span class="layout-goal-by-target-vertical indicator-number"><span class="sr-only">{{ page.t.general.indicator }}</span>{{ indicator.indicator_number }}</span>
+          <span class="indicator-number"><span class="sr-only">{{ page.t.general.indicator }}</span>{{ indicator.indicator_number }}</span>
         </h4>
-        <span class="layout-goal-by-target-vertical indicator-name"><a href="{{ indicator.url }}">{{ indicator.name }}</a> ({{ indicator.archive_type }})</span>
+        <span class="indicator-name"><a href="{{ indicator.url }}">{{ indicator.name }}</a> ({{ indicator.archive_type }})</span>
         <span class="sr-only">{{ page.t.indicator.status }}</span>
-        <span class="layout-goal-by-target-vertical status {{ status_css }}">
+        <span class="status {{ status_css }}">
           {{ status_desc }}
         </span>
         {% include components/indicator/tags.html tags=indicator.tags %}
