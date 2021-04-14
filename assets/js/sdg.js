@@ -248,11 +248,6 @@ opensdg.autotrack = function(preset, category, action, label) {
 
     // Alter data before displaying it.
     alterData: function(value) {
-      // @deprecated start
-      if (typeof opensdg.dataDisplayAlterations === 'undefined') {
-        opensdg.dataDisplayAlterations = [];
-      }
-      // @deprecated end
       opensdg.dataDisplayAlterations.forEach(function(callback) {
         value = callback(value);
       });
@@ -1057,7 +1052,6 @@ var VALUE_COLUMN = 'Value';
 // Note this headline color is overridden in indicatorView.js.
 var HEADLINE_COLOR = '#777777';
 var SERIES_TOGGLE = true;
-var GRAPH_TITLE_FROM_SERIES = true;
 
   /**
  * Model helper functions with general utility.
@@ -2278,6 +2272,9 @@ function prepareData(rows) {
     });
 
     return item;
+  }, this).filter(function(item) {
+    // Remove anything without a value (allowing for zero as a value).
+    return item[VALUE_COLUMN] || item[VALUE_COLUMN] === 0;
   }, this);
 }
 
@@ -2316,7 +2313,6 @@ function getPrecision(precisions, selectedUnit, selectedSeries) {
     YEAR_COLUMN: YEAR_COLUMN,
     VALUE_COLUMN: VALUE_COLUMN,
     SERIES_TOGGLE: SERIES_TOGGLE,
-    GRAPH_TITLE_FROM_SERIES: GRAPH_TITLE_FROM_SERIES,
     convertJsonFormatToRows: convertJsonFormatToRows,
     getUniqueValuesByProperty: getUniqueValuesByProperty,
     dataHasUnits: dataHasUnits,
@@ -2415,9 +2411,6 @@ function getPrecision(precisions, selectedUnit, selectedSeries) {
 
   this.refreshSeries = function() {
     if (this.hasSerieses) {
-      if (helpers.GRAPH_TITLE_FROM_SERIES) {
-        this.chartTitle = this.selectedSeries;
-      }
       this.data = helpers.getDataBySeries(this.allData, this.selectedSeries);
       this.years = helpers.getUniqueValuesByProperty(helpers.YEAR_COLUMN, this.data);
       this.fieldsBySeries = helpers.fieldsUsedBySeries(this.serieses, this.data, this.allColumns);
@@ -3035,11 +3028,6 @@ var indicatorView = function (model, options) {
   };
 
   this.alterTableConfig = function(config, info) {
-    // deprecated start
-    if (typeof opensdg.tableConfigAlterations === 'undefined') {
-      opensdg.tableConfigAlterations = [];
-    }
-    // deprecated end
     opensdg.tableConfigAlterations.forEach(function(callback) {
       callback(config, info);
     });
@@ -3047,7 +3035,7 @@ var indicatorView = function (model, options) {
 
   this.alterDataDisplay = function(value, info, context) {
     // If value is empty, we will not alter it.
-    if (value == null || value == undefined) {
+    if (value == null) {
       return value;
     }
     // Before passing to user-defined dataDisplayAlterations, let's
@@ -3061,11 +3049,6 @@ var indicatorView = function (model, options) {
       return value;
     }
     // Now go ahead with user-defined alterations.
-    // @deprecated start
-    if (typeof opensdg.dataDisplayAlterations === 'undefined') {
-      opensdg.dataDisplayAlterations = [];
-    }
-    // @deprecated end
     opensdg.dataDisplayAlterations.forEach(function(callback) {
       altered = callback(altered, info, context);
     });
@@ -3192,7 +3175,7 @@ var indicatorView = function (model, options) {
         tooltips: {
           callbacks: {
             label: function(tooltipItems, data) {
-              return data.datasets[tooltipItems.datasetIndex].label + ': ' + view_obj.alterDataDisplay(tooltipItems.yLabel, data, 'chart tooltip');
+              return tooltipItems.label + ': ' + view_obj.alterDataDisplay(tooltipItems.yLabel, data, 'chart tooltip');
             },
             afterBody: function() {
               var unit = view_obj._model.selectedUnit ? translations.t(view_obj._model.selectedUnit) : view_obj._model.measurementUnit;
@@ -3638,7 +3621,7 @@ var indicatorView = function (model, options) {
           var isYear = (index == 0);
           var cell_prefix = (isYear) ? '<th scope="row"' : '<td';
           var cell_suffix = (isYear) ? '</th>' : '</td>';
-          row_html += cell_prefix + (isYear ? '' : ' class="table-value"') + '>' + (data[index] !== null && data[index] !== undefined ? data[index] : '-') + cell_suffix;
+          row_html += cell_prefix + (isYear ? '' : ' class="table-value"') + '>' + (data[index] !== null ? data[index] : '-') + cell_suffix;
         });
         row_html += '</tr>';
         currentTable.find('tbody').append(row_html);
@@ -3683,11 +3666,6 @@ var indicatorView = function (model, options) {
     .appendTo(fieldGroupElement.find('#indicatorData .variable-options'));
   }
 };
-// @deprecated start
-// Some backwards compatibiliy code after Lodash migration.
-_.findWhere = _.find;
-// @deprecated end
-
 var indicatorController = function (model, view) {
   this._model = model;
   this._view = view;
