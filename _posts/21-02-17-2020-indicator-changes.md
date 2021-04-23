@@ -3,10 +3,10 @@ layout: post
 title: 2020 indicator changes
 author: SDGs team
 category: "Indicator changes"
-excerpt: "The UN has recommended 36 changes to the Sustainable Development Goal (SDG) indicators. This was one of the findings of the UN's [2020 Comprehensive Review Process](https://unstats.un.org/sdgs/iaeg-sdgs/2020-comp-rev/). The changes include replacing, deleting, refining or adjusting existing indicators. In a few instances, the review proposed additional indicators."
+excerpt: "The UN has recommended 36 changes to the Sustainable Development Goal (SDG) indicators. This was one of the findings of the UN's [2020 Comprehensive Review Process](https://unstats.un.org/sdgs/iaeg-sdgs/2020-comp-rev/). The changes include replacing, revising, adding or deleting existing indicators."
 ---
 
-The UN has recommended 36 changes to the Sustainable Development Goal (SDG) indicators. This was one of the findings of the UN's [2020 Comprehensive Review Process](https://unstats.un.org/sdgs/iaeg-sdgs/2020-comp-rev/). The changes include replacing, deleting, refining or adjusting existing indicators. In a few instances, the review proposed additional indicators. Within these four groups, the breakdown of changes amounts to:
+The UN has recommended 36 changes to the Sustainable Development Goal (SDG) indicators. This was one of the findings of the UN's [2020 Comprehensive Review Process](https://unstats.un.org/sdgs/iaeg-sdgs/2020-comp-rev/). Within these four groups, the breakdown of changes amounts to:
 
 - 14 proposals for replacements of existing indicators
 - 8 proposals for revisions of existing indicators
@@ -15,7 +15,10 @@ The UN has recommended 36 changes to the Sustainable Development Goal (SDG) indi
 
 [The UN has detailed more information on these proposals](https://unstats.un.org/sdgs/iaeg-sdgs/2020-comprev/UNSC-proposal/).
 
-The ONS' SDG team have begun a project to put in place the required changes to the indicator set. We anticipate that work will be completed at the end of March 2021. We aim to prioritise changes made on the live website, and will then work to fill the new indicator gaps. When complete, you will still be able to access the old indicators and their data in a separate archived area.
+**Update (08/04/2021)**
+The planned indicator updates have now been completed, and the current information on the SDG platform is aligned with the UN’s 2020 Comprehensive Review.
+
+As a result of these changes, there is an overall drop in the reporting percentage from 81% to 79%. This reduction is only temporary, and the SDG team is in the process of quality assuring data sources which will fill the new indicator gaps. It is anticipated that the reporting status will be updated with an increased percentage by the end of April 2021.
 
 Details of changes are in the following tables.
 
@@ -30,6 +33,7 @@ Details of changes are in the following tables.
 - [Goal 8](#goal-8)
 - [Goal 9](#goal-9)
 - [Goal 10](#goal-10)
+- [Goal 11](#goal-11)
 - [Goal 12](#goal-11)
 - [Goal 13](#goal-13)
 - [Goal 14](#goal-14)
