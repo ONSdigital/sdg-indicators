@@ -16,6 +16,7 @@ The UN has recommended 36 changes to the Sustainable Development Goal (SDG) indi
 [The UN has detailed more information on these proposals](https://unstats.un.org/sdgs/iaeg-sdgs/2020-comprev/UNSC-proposal/).
 
 **Update (08/04/2021)**
+
 The planned indicator updates have now been completed, and the current information on the SDG platform is aligned with the UN’s 2020 Comprehensive Review.
 
 As a result of these changes, there is an overall drop in the reporting percentage from 81% to 79%. This reduction is only temporary, and the SDG team is in the process of quality assuring data sources which will fill the new indicator gaps. It is anticipated that the reporting status will be updated with an increased percentage by the end of April 2021.
