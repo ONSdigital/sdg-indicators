@@ -55,14 +55,14 @@ Details of changes are in the following tables.
   </thead>
   <tbody>
     <tr>
-      <td>1.a.3: Sum of total grants and non-debt-creating inflows directly allocated to poverty reduction programmes as a proportion of GDP</td>
-      <td>1.a.1: Total official development assistance grants<br /> from all donors that focus on poverty reduction as a share of the recipient country's gross national income</td>
-      <td>Replaced</td>
-    </tr>
-    <tr>
       <td>1.a.1: Proportion of domestically generated resources allocated by the government directly to poverty reduction programmes</td>
       <td></td>
       <td>Deleted</td>
+    </tr>
+    <tr>
+      <td>1.a.3: Sum of total grants and non-debt-creating inflows directly allocated to poverty reduction programmes as a proportion of GDP</td>
+      <td>1.a.1: Total official development assistance grants<br /> from all donors that focus on poverty reduction as a share of the recipient country's gross national income</td>
+      <td>Replaced</td>
     </tr>
     <tr>
       <td>1.b.1: Proportion of government recurrent and capital spending to sectors that disproportionately benefit women, the poor and vulnerable groups</td>
@@ -90,6 +90,11 @@ Details of changes are in the following tables.
   </thead>
   <tbody>
     <tr>
+      <td>New indicator 2.2.3</td>
+      <td>2.2.3: Prevalence of anaemia in women aged 15 to 49 years, by pregnancy status (percentage)</td>
+      <td>New</td>
+    </tr>
+    <tr>
       <td>2.4.1: Proportion of agricultural area under productive and sustainable agriculture</td>
       <td>Revision of metadata: Change in “use of biodiversity supporting practices” sub-indicator</td>
       <td>Changed</td>
@@ -99,11 +104,7 @@ Details of changes are in the following tables.
       <td>2.5.2: Proportion of local breeds classified as being at risk of extinction</td>
       <td>Changed</td>
     </tr>
-    <tr>
-      <td>New indicator 2.2.3</td>
-      <td>2.2.3: Prevalence of anaemia in women aged 15 to 49 years, by pregnancy status (percentage)</td>
-      <td>New</td>
-    </tr>
+    
   </tbody>
 </table>
 
@@ -318,14 +319,14 @@ No changes
   </thead>
   <tbody>
     <tr>
-      <td>11.a.1: Proportion of population living in cities that implement urban and regional development plans integrating population projections and resource needs, by size of city</td>
-      <td>11.a.1: Number of countries that have national urban policies or regional development plans that (a) respond to population dynamics; (b) ensure balanced territorial development; and (c) increase local fiscal space</td>
-      <td>Replaced</td>
-    </tr>
-    <tr>
       <td>11.6.1: Proportion of urban solid waste regularly collected and with adequate final discharge out of total urban solid waste generated, by cities</td>
       <td>11.6.1: Proportion of municipal solid waste collected and managed in controlled facilities out of total municipal waste generated, by cities</td>
       <td>Changed</td>
+    </tr>
+    <tr>
+      <td>11.a.1: Proportion of population living in cities that implement urban and regional development plans integrating population projections and resource needs, by size of city</td>
+      <td>11.a.1: Number of countries that have national urban policies or regional development plans that (a) respond to population dynamics; (b) ensure balanced territorial development; and (c) increase local fiscal space</td>
+      <td>Replaced</td>
     </tr>
     <tr>
       <td>11.c.1: Proportion of financial support to the least developed countries that is allocated to the construction and retrofitting of sustainable, resilient and resource-efficient buildings utilizing local materials</td>
@@ -385,9 +386,19 @@ No changes
       <td>Replaced</td>
     </tr>
     <tr>
+      <td>New indicator 13.2.2</td>
+      <td>13.2.2: Total greenhouse gas emissions per year</td>
+      <td>New</td>
+    </tr>
+    <tr>
       <td>13.3.1: Number of countries that have integrated mitigation, adaptation, impact reduction and early warning into primary, secondary and tertiary curricula</td>
       <td>13.3.1: Extent to which (i) global citizenship education and (ii) education for sustainable development are mainstreamed in (a) national education policies; (b) curricula; (c) teacher education; and (d) student assessment (repeated in the refinement to be made to indicators 4.7.1 and 12.8.1)</td>
       <td>Replaced</td>
+    </tr>
+    <tr>
+      <td>13.3.2: Number of countries that have communicated the strengthening of institutional, systemic and individual capacity-building to implement adaptation, mitigation and technology transfer, and development actions</td>
+      <td></td>
+      <td>Deleted</td>
     </tr>
     <tr>
       <td>13.a.1: Mobilized amount of United States dollars per year between 2020 and 2025 accountable towards the $100 billion commitment</td>
@@ -398,16 +409,6 @@ No changes
       <td>13.b.1: Number of least developed countries and small island developing States that are receiving specialized support, and amount of support, including finance, technology and capacity-building, for mechanisms for raising capacities for effective climate change-related planning and management, including focusing on women, youth and local and marginalized communities</td>
       <td>13.b.1: Number of least developed countries and small island developing States with nationally determined contributions long-term strategies, national adaptation plans, strategies as reported in adaptation communications and national communications (repeat of the proposed replacement for indicator 13.2.1, with a slight amendment)</td>
       <td>Replaced</td>
-    </tr>
-    <tr>
-      <td>New indicator 13.2.2</td>
-      <td>13.2.2: Total greenhouse gas emissions per year</td>
-      <td>New</td>
-    </tr>
-    <tr>
-      <td>13.3.2: Number of countries that have communicated the strengthening of institutional, systemic and individual capacity-building to implement adaptation, mitigation and technology transfer, and development actions</td>
-      <td></td>
-      <td>Deleted</td>
     </tr>
   </tbody>
 </table>
@@ -431,14 +432,14 @@ No changes
   </thead>
   <tbody>
     <tr>
-      <td>15.b.1: Official development assistance and public expenditure on conservation and sustainable use of biodiversity and ecosystems</td>
-      <td>15.a.1 and 15.b.1 (a) Official development assistance on conservation and sustainable use of biodiversity; and (b) revenue generated and finance mobilized from biodiversity-relevant economic instruments</td>
-      <td>Replaced</td>
-    </tr>
-    <tr>
       <td>15.9.1: Progress towards national targets established in accordance with Aichi Biodiversity Target 2 of the Strategic Plan for Biodiversity 2011–2020</td>
       <td>15.9.1: (a) Number of countries that have established national targets in accordance with or similar to Aichi Biodiversity Target 2 of the Strategic Plan for Biodiversity 2011–2020 in their national biodiversity strategy and action plans and the progress reported towards these targets; and (b) integration of biodiversity into national accounting and reporting systems, defined as implementation of the System of Environmental-Economic Accounting</td>
       <td>Changed</td>
+    </tr>
+    <tr>
+      <td>15.b.1: Official development assistance and public expenditure on conservation and sustainable use of biodiversity and ecosystems</td>
+      <td>15.a.1 and 15.b.1 (a) Official development assistance on conservation and sustainable use of biodiversity; and (b) revenue generated and finance mobilized from biodiversity-relevant economic instruments</td>
+      <td>Replaced</td>
     </tr>
   </tbody>
 </table>
@@ -489,16 +490,6 @@ No changes
       <td>Replaced</td>
     </tr>
     <tr>
-      <td>17.17.1: Amount of United States dollars committed to (a) public-private partnerships and (b) civil society partnerships</td>
-      <td>17.17.1: Amount in United States dollars committed to public-private partnerships for infrastructure</td>
-      <td>Replaced</td>
-    </tr>
-    <tr>
-      <td>17.18.1: Proportion of sustainable development indicators produced at the national level with full disaggregation when relevant to the target, in accordance with the Fundamental Principles of Official Statistics</td>
-      <td>17.18.1: Statistical capacity indicator for Sustainable Development Goal monitoring</td>
-      <td>Replaced</td>
-    </tr>
-    <tr>
       <td>17.5.1: Number of countries that adopt and implement investment promotion regimes for least developed countries</td>
       <td>17.5.1: Number of countries that adopt and implement investment promotion regimes for developing countries, including the least developed countries</td>
       <td>Changed</td>
@@ -507,6 +498,16 @@ No changes
       <td>17.6.1: Number of science and/or technology cooperation agreements and programmes between countries, by type of cooperation</td>
       <td></td>
       <td>Deleted</td>
+    </tr>
+    <tr>
+      <td>17.17.1: Amount of United States dollars committed to (a) public-private partnerships and (b) civil society partnerships</td>
+      <td>17.17.1: Amount in United States dollars committed to public-private partnerships for infrastructure</td>
+      <td>Replaced</td>
+    </tr>
+    <tr>
+      <td>17.18.1: Proportion of sustainable development indicators produced at the national level with full disaggregation when relevant to the target, in accordance with the Fundamental Principles of Official Statistics</td>
+      <td>17.18.1: Statistical capacity indicator for Sustainable Development Goal monitoring</td>
+      <td>Replaced</td>
     </tr>
   </tbody>
 </table>
