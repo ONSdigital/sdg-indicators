@@ -19,7 +19,9 @@ The UN has recommended 36 changes to the Sustainable Development Goal (SDG) indi
 
 The planned indicator updates have now been completed, and the current information on the SDG platform is aligned with the UN’s 2020 Comprehensive Review.
 
-As a result of these changes, there is an overall drop in the reporting percentage from 81% to 79%. This reduction is only temporary, and the SDG team is in the process of quality assuring data sources which will fill the new indicator gaps. It is anticipated that the reporting status will be updated with an increased percentage by the end of April 2021.
+The indicators that were revised or deleted as part of the updates have been [archived](https://sdgdata.gov.uk/archived-indicators/).
+
+As a result of these changes, there is an overall drop in the reporting percentage from 81% to 79%. This reduction is only temporary, and the SDG team is in the process of quality assuring data sources which will fill the new indicator gaps. It is anticipated that the reporting status will be updated with an increased percentage with the next couple of months.
 
 Details of changes are in the following tables.
 
@@ -35,7 +37,7 @@ Details of changes are in the following tables.
 - [Goal 9](#goal-9)
 - [Goal 10](#goal-10)
 - [Goal 11](#goal-11)
-- [Goal 12](#goal-11)
+- [Goal 12](#goal-12)
 - [Goal 13](#goal-13)
 - [Goal 14](#goal-14)
 - [Goal 15](#goal-15)
