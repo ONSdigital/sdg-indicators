@@ -21,7 +21,7 @@ The planned indicator updates have now been completed, and the current informati
 
 The indicators that were revised or deleted as part of the updates have been [archived](https://sdgdata.gov.uk/archived-indicators/).
 
-As a result of these changes, there is an overall drop in the reporting percentage from 81% to 79%. This reduction is only temporary, and the SDG team is in the process of quality assuring data sources which will fill the new indicator gaps. It is anticipated that the reporting status will be updated with an increased percentage with the next couple of months.
+As a result of these changes, there is an overall drop in the reporting percentage from 81% to 79%. This reduction is only temporary, and the SDG team is in the process of quality assuring data sources which will fill the new indicator gaps. It is anticipated that the reporting status will be updated with an increased percentage within the next couple of months.
 
 Details of changes are in the following tables.
 
