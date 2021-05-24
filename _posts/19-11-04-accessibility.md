@@ -8,9 +8,6 @@ excerpt:
 
 The commitment to “leave no one behind” is central to the Sustainable Development Goals (SDGs). It extends to making our digital content accessible and functional for all users regardless of any disability or physical impairment.
 
- 
-<img src="https://sustainabledevelopment-uk.github.io/public/blog/accessible-definition.png" alt="Image showing the dictionary definitions of the word accessible." height="300px">
-
 Our SDG data site is still in a testing phase, so we are using the ‘alpha’ label. We want to move the site to the next phase known as ‘beta’. Before we can label the site as beta it has to reach the Web Content Accessibility Guidelines (WCAG) ‘AA’ standard, as well as other Government Digital Service criteria. This is a universally-recognised standard, designed to guarantee that assessed websites reach the predetermined accessibility criteria. 
 
 We updated some of the site’s features before it was tested, including:
