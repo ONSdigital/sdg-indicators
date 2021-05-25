@@ -248,11 +248,6 @@ opensdg.autotrack = function(preset, category, action, label) {
 
     // Alter data before displaying it.
     alterData: function(value) {
-      // @deprecated start
-      if (typeof opensdg.dataDisplayAlterations === 'undefined') {
-        opensdg.dataDisplayAlterations = [];
-      }
-      // @deprecated end
       opensdg.dataDisplayAlterations.forEach(function(callback) {
         value = callback(value);
       });
@@ -1057,7 +1052,6 @@ var VALUE_COLUMN = 'Value';
 // Note this headline color is overridden in indicatorView.js.
 var HEADLINE_COLOR = '#777777';
 var SERIES_TOGGLE = true;
-var GRAPH_TITLE_FROM_SERIES = false;
 
   /**
  * Model helper functions with general utility.
@@ -1567,19 +1561,6 @@ function fieldItemStatesForView(fieldItemStates, fieldsByUnit, selectedUnit, dat
  */
 function sortFieldsForView(fieldItemStates, edges) {
   if (edges.length > 0 && fieldItemStates.length > 0) {
-
-    // We need to sort the edges so that we process parents before children.
-    var parents = edges.map(function(edge) { return edge.From; });
-    edges.sort(function(a, b) {
-      if (!parents.includes(a.To) && parents.includes(b.To)) {
-        return 1;
-      }
-      if (!parents.includes(b.To) && parents.includes(a.To)) {
-        return -1;
-      }
-      return 0;
-    });
-
     edges.forEach(function(edge) {
       // This makes sure children are right after their parents.
       var parentIndex = fieldItemStates.findIndex(function(fieldItem) {
@@ -1639,41 +1620,28 @@ function getCombinationData(fieldItems) {
     });
   });
 
-  // Now compute all combinations of those.
-  var getAllSubsets = function(combinationSet) {
-    if (combinationSet.length == 0) {
-      return [];
-    }
-    var subsets = [combinationSet];
-    if (combinationSet.length == 1) {
-      return subsets;
-    }
-    for (var i = 0; i < combinationSet.length; i++) {
-      var subset = combinationSet.filter(function(item, index) {
-        return index !== i;
-      });
-      if (subset.length > 0) {
-        subsets = subsets.concat(getAllSubsets(subset));
-      }
-    }
-    return subsets;
-  }
-  var allSubsets = getAllSubsets(fieldValuePairs);
+  // Next get a list of each single pair combined with every other.
   var fieldValuePairCombinations = {};
-  allSubsets.forEach(function(subset) {
-    var combinedSubset = {};
-    subset.forEach(function(keyValue) {
-      Object.assign(combinedSubset, keyValue);
+  fieldValuePairs.forEach(function(fieldValuePair) {
+    var combinationsForCurrentPair = Object.assign({}, fieldValuePair);
+    fieldValuePairs.forEach(function(fieldValuePairToAdd) {
+      // The following conditional reflects that we're not interested in combinations
+      // within the same field. (Eg, not interested in combination of Female and Male).
+      if (Object.keys(fieldValuePair)[0] !== Object.keys(fieldValuePairToAdd)[0]) {
+        Object.assign(combinationsForCurrentPair, fieldValuePairToAdd);
+        var combinationKeys = Object.keys(combinationsForCurrentPair).sort();
+        var combinationValues = Object.values(combinationsForCurrentPair).sort();
+        var combinationUniqueId = JSON.stringify(combinationKeys.concat(combinationValues));
+        if (!(combinationUniqueId in fieldValuePairCombinations)) {
+          fieldValuePairCombinations[combinationUniqueId] = Object.assign({}, combinationsForCurrentPair);
+        }
+      }
     });
-    var combinationKeys = Object.keys(combinedSubset).sort();
-    var combinationValues = Object.values(combinedSubset).sort();
-    var combinationUniqueId = JSON.stringify(combinationKeys.concat(combinationValues));
-    if (!(combinationUniqueId in fieldValuePairCombinations)) {
-      fieldValuePairCombinations[combinationUniqueId] = combinedSubset;
-    }
   });
+  fieldValuePairCombinations = Object.values(fieldValuePairCombinations);
 
-  return Object.values(fieldValuePairCombinations);
+  // Return a combination of both.
+  return fieldValuePairs.concat(fieldValuePairCombinations);
 }
 
 /**
@@ -2160,7 +2128,7 @@ function getBaseDataset() {
  * @return {string} Human-readable description of combo
  */
 function getCombinationDescription(combination, fallback) {
-  var keys = Object.keys(combination);
+  var keys = Object.keys(combination).sort();
   if (keys.length === 0) {
     return fallback;
   }
@@ -2342,7 +2310,6 @@ function getPrecision(precisions, selectedUnit, selectedSeries) {
     YEAR_COLUMN: YEAR_COLUMN,
     VALUE_COLUMN: VALUE_COLUMN,
     SERIES_TOGGLE: SERIES_TOGGLE,
-    GRAPH_TITLE_FROM_SERIES: GRAPH_TITLE_FROM_SERIES,
     convertJsonFormatToRows: convertJsonFormatToRows,
     getUniqueValuesByProperty: getUniqueValuesByProperty,
     dataHasUnits: dataHasUnits,
@@ -2441,9 +2408,6 @@ function getPrecision(precisions, selectedUnit, selectedSeries) {
 
   this.refreshSeries = function() {
     if (this.hasSerieses) {
-      if (helpers.GRAPH_TITLE_FROM_SERIES) {
-        this.chartTitle = this.selectedSeries;
-      }
       this.data = helpers.getDataBySeries(this.allData, this.selectedSeries);
       this.years = helpers.getUniqueValuesByProperty(helpers.YEAR_COLUMN, this.data);
       this.fieldsBySeries = helpers.fieldsUsedBySeries(this.serieses, this.data, this.allColumns);
@@ -2849,7 +2813,13 @@ var indicatorView = function (model, options) {
     // loop through the available fields:
     $('.variable-selector').each(function(index, element) {
       var currentField = $(element).data('field');
+
+      // any info?
+      var match = _.find(args.selectedFields, { field : currentField });
       var element = $(view_obj._rootElement).find('.variable-selector[data-field="' + currentField + '"]');
+      var width = match ? (Number(match.values.length / element.find('.variable-options label').length) * 100) + '%' : '0';
+
+      $(element).find('.bar .selected').css('width', width);
 
       // is this an allowed field:
       if (args.allowedFields.includes(currentField)) {
@@ -2864,6 +2834,9 @@ var indicatorView = function (model, options) {
   });
 
   this._model.onFieldsStatusUpdated.attach(function (sender, args) {
+
+    // reset:
+    $(view_obj._rootElement).find('label').removeClass('selected possible excluded');
 
     _.each(args.data, function(fieldGroup) {
       _.each(fieldGroup.values, function(fieldItem) {
@@ -2885,6 +2858,14 @@ var indicatorView = function (model, options) {
 
       // Re-sort the items.
       view_obj.sortFieldGroup(fieldGroupElement);
+    });
+
+    _.each(args.selectionStates, function(ss) {
+      // find the appropriate 'bar'
+      var element = $(view_obj._rootElement).find('.variable-selector[data-field="' + ss.field + '"]');
+      element.find('.bar .default').css('width', ss.fieldSelection.defaultState + '%');
+      element.find('.bar .possible').css('width', ss.fieldSelection.possibleState + '%');
+      element.find('.bar .excluded').css('width', ss.fieldSelection.excludedState + '%');
     });
   });
 
@@ -2945,8 +2926,8 @@ var indicatorView = function (model, options) {
 
   $(this._rootElement).on('click', ':checkbox', function(e) {
 
-    // don't permit disallowed selections:
-    if ($(this).closest('.variable-selector').hasClass('disallowed')) {
+    // don't permit excluded selections:
+    if($(this).parent().hasClass('excluded') || $(this).closest('.variable-selector').hasClass('disallowed')) {
       return;
     }
 
@@ -2956,21 +2937,29 @@ var indicatorView = function (model, options) {
   });
 
   $(this._rootElement).on('click', '.variable-selector', function(e) {
+    var currentSelector = e.target;
 
-    var $button = $(e.target).closest('button');
-    var $options = $(this).find('.variable-options');
+    var currentButton = getCurrentButtonFromCurrentSelector(currentSelector);
 
-    if ($options.is(':visible')) {
-      $options.hide();
-      $button.attr('aria-expanded', 'false');
-    }
-    else {
-      $options.show();
-      $button.attr('aria-expanded', 'true');
-    }
+    var options = $(this).find('.variable-options');
+    var optionsAreVisible = options.is(':visible');
+    $(options)[optionsAreVisible ? 'hide' : 'show']();
+    currentButton.setAttribute("aria-expanded", optionsAreVisible ? "true" : "false");
+
+    var optionsVisibleAfterClick = options.is(':visible');
+    currentButton.setAttribute("aria-expanded", optionsVisibleAfterClick ? "true" : "false");
 
     e.stopPropagation();
   });
+
+  function getCurrentButtonFromCurrentSelector(currentSelector){
+    if(currentSelector.tagName === "H5"){
+      return currentSelector.parentElement;
+    }
+    else if(currentSelector.tagName === "BUTTON"){
+      return currentSelector;
+    }
+  }
 
   this.initialiseFields = function(args) {
     var fieldsContainValues = args.fields.some(function(field) {
@@ -3036,11 +3025,6 @@ var indicatorView = function (model, options) {
   };
 
   this.alterTableConfig = function(config, info) {
-    // deprecated start
-    if (typeof opensdg.tableConfigAlterations === 'undefined') {
-      opensdg.tableConfigAlterations = [];
-    }
-    // deprecated end
     opensdg.tableConfigAlterations.forEach(function(callback) {
       callback(config, info);
     });
@@ -3062,11 +3046,6 @@ var indicatorView = function (model, options) {
       return value;
     }
     // Now go ahead with user-defined alterations.
-    // @deprecated start
-    if (typeof opensdg.dataDisplayAlterations === 'undefined') {
-      opensdg.dataDisplayAlterations = [];
-    }
-    // @deprecated end
     opensdg.dataDisplayAlterations.forEach(function(callback) {
       altered = callback(altered, info, context);
     });
@@ -3684,11 +3663,6 @@ var indicatorView = function (model, options) {
     .appendTo(fieldGroupElement.find('#indicatorData .variable-options'));
   }
 };
-// @deprecated start
-// Some backwards compatibiliy code after Lodash migration.
-_.findWhere = _.find;
-// @deprecated end
-
 var indicatorController = function (model, view) {
   this._model = model;
   this._view = view;
