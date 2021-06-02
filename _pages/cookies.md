@@ -29,7 +29,7 @@ These essential cookies do things like remember your site contrast settings.
 
 They always need to be on to allow the website to function properly.
 
-[Find out more about cookies on sdgdata.gov.uk](/help/cookies)
+[Find out more about cookies on sdgdata.gov.uk]({{ site.baseurl }}{% link _pages/cookies-details.md %})
 
 ## Contacting the website
 If you have any questions about this cookies statement, the practices of this site, or your dealings with this website, you can contact us at <sustainabledevelopment@ons.gov.uk>.
