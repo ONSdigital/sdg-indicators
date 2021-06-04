@@ -14,6 +14,7 @@ data_dir: data
 environment: staging
 
 remote_data_prefix: "https://ONSdigital.github.io/sdg-data"
+
 create_indicators:
   layout: indicator
 create_goals:
@@ -38,6 +39,10 @@ create_pages:
       
 # Social media accounts.
 twitter: 'ONS'
+
+disclaimer:
+  phase: BETA
+  message: This website is in development – your <a href="https://www.surveymonkey.co.uk/r/SDGfeedback">feedback</a> will help us to improve it
 
 # Email accounts
 email_contacts:
@@ -100,6 +105,13 @@ goal_image_extension: svg
 accessible_tabs: true
 accessible_charts: true
 
+# Use radio buttons for Series instead of dropdown
+series_toggle: true
+
+#Header 
+header:
+    include: header-menu-left-aligned.html
+
 # Header Menu
 menu:
   # Use these to customise the main navigation.
@@ -118,7 +130,7 @@ menu:
 
 # Footer Menu
 footer_menu:
-  - path: mailto:sustainabledevelopment@ons.gov.uk
+  - path: /contact-us
     translation_key: menu.contact_us
   - path: https://twitter.com/ONS
     translation_key: general.twitter
@@ -139,7 +151,7 @@ plugins:
   - jekyll-remote-theme
   - jekyll-open-sdg-plugins
 
-remote_theme: open-sdg/open-sdg@07a121a626fd75cebfed0454d16d3a0c1177d9a7
+remote_theme: open-sdg/open-sdg@1.3.1
 
 # Apply any custom Javascript.
 custom_js:
@@ -154,14 +166,16 @@ search_index_extra_fields:
   - graph_title
   - data_keywords
 
+# Graphs
+graph_color_set: accessible
 
 # Mapping
 map_options:
-  tileURL: https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}
+  tileURL: https://{s}.tile.jawg.io/{id}/{z}/{x}/{y}{r}.png?access-token={accessToken}
   tileOptions:
-    id: mapbox.light
-    accessToken: pk.eyJ1IjoibHVjeWphbmVnd2lsbCIsImEiOiJjazAyZ2phaGMwajhzM2hxb2czZmdrZ2szIn0.tcj-n08CcU-7tKXFqB-WuQ
-    attribution: <a href="https://www.mapbox.com">Mapbox</a> | <a href="http://geoportal.statistics.gov.uk/">ONS</a>
+    id: jawg-light
+    accessToken: lCtbMZiG4tbVWl7uq9EEch1yphnuLx9JyZL2qZwoQJ26wAu73oK1NkU4K50AALkp
+    attribution:  <a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | <a href="http://geoportal.statistics.gov.uk/">ONS</a>
   minZoom: 4
   
 map_layers:
@@ -188,7 +202,17 @@ goals_page:
     description: Click on each goal for UK Sustainable Development Goal global indicator data.
 
 reporting_status:
-    description: An overview of how much data the UK reports for Sustainable Development Goal global indicators.
+    disaggregation_tabs: true
+    description: | 
+      
+      Reporting status provides an overview of how much Sustainable Development Goal (SDG) data the UK reports. For more information, see [What does the reporting status mean?](https://onsdigital.github.io/sdg-indicators/faq/#what-does-the-reporting-status-mean)
+      
+      Disaggregation status provides an overview of how many of the SDG indicators are disaggregated. For more information, see [What does the disaggregation status mean?](https://onsdigital.github.io/sdg-indicators/faq/#what-does-the-disaggregation-status-mean)
+      
+      For details about all available disaggregations and how each indicator is disaggregated, see the [UK disaggregation report](https://onsdigital.github.io/sdg-data/disaggregations.html).
+      
+      Note: These percentages have been rounded. As a result, adding them together may not equal exactly 100%.
+
 
 frontpage_introduction_banner:
   title: 17 goals to transform our world
@@ -210,7 +234,7 @@ frontpage_cards:
   - title: Publications
     content: |
     
-      [SDGs in the UK: Progress on monitoring and reporting data](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2019)
+      [SDGs in the UK: Progress on monitoring and reporting data](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/december2020)
       
       [UK SDG Voluntary National Review](https://www.gov.uk/government/publications/uks-voluntary-national-review-of-the-sustainable-development-goals)
       <br/><br/>

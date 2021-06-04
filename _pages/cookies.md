@@ -103,4 +103,6 @@ We will set cookies so that your computer remembers which version of the site yo
 |contrast|Retains active state of accessibility services|1 year|
 
 ## Contacting the website
-If you have any questions about this cookies statement, the practices of this site, or your dealings with this website, you can [contact us at sustainabledevelopment@ons.gov.uk](mailto:sustainabledevelopment@ons.gov.uk).
+
+If you have any questions about this privacy statement, the practices of this site, or your dealings with this website, you can [contact us]({{ site.baseurl }}/contact-us)
+

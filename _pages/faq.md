@@ -12,6 +12,10 @@ layout: page
 
 - [What does the reporting status mean?](#what-does-the-reporting-status-mean)
 
+- [What does the disaggregation status mean?](#what-does-the-disaggregation-status-mean)
+
+- [What disaggregations are available?](#what-disaggregations-are-available)
+
 - [Who uses this website?](#who-uses-this-website)
 
 - [Can other countries copy this website?](#can-other-countries-copy-this-website)
@@ -26,9 +30,8 @@ layout: page
 ## How often will new data be added to this site?
 We will add data as soon as it has been sourced and checked. This includes new data as well as updates to data we have already published. We will continue to collect data from existing sources where possible, in cooperation with topic experts.
 
-
 ## How do I suggest new or different data sources?
-If you have feedback on the data sources we have used or have suggestions for new data sources then please contact us at <sustainabledevelopment@ons.gov.uk>
+If you have feedback on the data sources we have used or have suggestions for new data sources then please [contact us]({{ site.baseurl }}/contact-us)
 
 
 ## What are you doing to fill data gaps?
@@ -42,12 +45,34 @@ We published [our response to the consultation on measuring and reporting SDGs i
 ## What does the reporting status mean?
 We have used two different types of reporting status for an indicator, which are also colour coded:
 
- * Reported online – as a minimum the headline national data for this indicator is available on this website but the data might not be fully disaggregated yet. We are continuing to source additional disaggregation's
+ * Reported online: As a minimum the headline national data for this indicator is available on this website but the data might not be fully disaggregated yet. We are continuing to source additional disaggregation's
  
- * Exploring data sources – we are still looking for a suitable data source for this indicator
+ * Exploring data sources: We are still looking for a suitable data source for this indicator
 
 Where there is additional information about the status of indicator data collection and reporting, this will be displayed at the top of the indicator page.
 
+
+## What does the disaggregation status mean?
+Many Sustainable Development Goals (SDG) indicators require specific breakdowns, or disaggregations, below the headline figure.
+
+Initially our aim is to report the disaggregations which are listed within the title of the indicator. For example, indicator 8.5.2 specifies unemployment rate ‘…by sex, age and persons with disabilities’.
+
+We show how much progress we have made on reporting these disaggregations on the ‘Disaggregation status' tab of our [Reporting Status page]({{ site.baseurl }}/reporting-status).
+
+The different disaggregation statuses we use are:
+
+* Fully disaggregated: All disaggregations specified in the indicator title are reported
+
+* Partially disaggregated: Some of the disaggregations specified in the indicator title are reported
+
+* Not disaggregated: None of the disaggregations specified in the indicator title are reported
+
+* Out of scope: Indicators where no disaggregation is specified in the indicator title
+
+## What disaggregations are available?
+We report many other disaggregations beyond the ones that are required, regardless of any reference in the indicator title.
+
+For details about all disaggregations, see the [UK disaggregation report](https://sdgdata.gov.uk/sdg-data/disaggregations.html).
 
 ## Who uses this website?
 An initial phase of user research has been carried out on the UK SDG data website. This research showed that the four main user types are:
@@ -90,6 +115,9 @@ Each of the SDG indicators are assigned to one (or more) of the following tiers:
  - Tier 3: No internationally established methodology or standards are yet available for the indicator, but methodology/standards are being (or will be) developed or tested
 
 For more information, [see the IAEG-SDGs Tier Classification for Global SDG Indicators](https://unstats.un.org/sdgs/iaeg-sdgs/tier-classification/)
+<br>
+<br>
+For further questions about the UK SDG data site please [contact us]({{ site.baseurl }}/contact-us)
 <br>
 <br>
 [Back to top](#table-of-contents)

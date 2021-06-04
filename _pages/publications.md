@@ -5,10 +5,13 @@ layout: page
 ---
 Publications released by the ONS in relation to the Sustainable Development Goals.
 
-If you have any feedback on our publications, please contact us at <sustainabledevelopment@ons.gov.uk>
+If you have any feedback on our publications, please [contact us]({{ site.baseurl }}/contact-us)
 
 ## Our annual updates
 We publish a yearly update on our progress towards measuring the global Sustainable Development Goal indicators in the UK:
+<br>
+<br>
+[2020 annual update](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/december2020)
 <br>
 <br>
 [2019 annual update](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/november2019)

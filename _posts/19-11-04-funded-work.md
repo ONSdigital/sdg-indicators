@@ -63,4 +63,4 @@ We are also sourcing data and analysing geographic data to tackle Goal 15 (indic
 
 We carried out exploratory work on marine protected areas for SDG target 14.5 (indicator 14.5.1). We have also worked on national exclusive economic zones managed using ecosystem-based approaches for SDG target 14.2 (indicator 14.2.1).
 
-For more information about the work we are doing with other departments, please <i class="fa fa-envelope"></i> [email us at SustainableDevelopment@ons.gov.uk](mailto:SustainableDevelopment@ons.gov.uk).
+For more information about the work we are doing with other departments, please [contact us]({{ site.baseurl }}/contact-us).
