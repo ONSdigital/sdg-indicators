@@ -12,14 +12,15 @@ We use 2 types of cookie.
 
 ### Cookies that measure website use
 
-We use Google Analytics to measure how you use the website so we can improve it based on user needs. Google Analytics and set cookies that store anonymised information about:
+We use Google Analytics and Hotjar to measure how you use the website so we can improve it based on user needs. Google Analytics and Hotjar set cookies that store anonymised information about:
 
 - how you got to the site
 - the pages you visit on sdgdata.gov.uk and how long you spend on each page
 - what you click on while you are visiting the site
 - the way in which you interact with a page
+- whether you have participated in a Hotjar survey
 
-We do not allow Google to use or share the data about how you use this site.
+We do not allow Google or Hotjar to use or share the data about how you use this site.
 
 You can [opt out of Google Analytics tracking by following these instructions](https://tools.google.com/dlpage/gaoptout).
 
@@ -32,4 +33,4 @@ They always need to be on to allow the website to function properly.
 [Find out more about cookies on sdgdata.gov.uk]({{ site.baseurl }}/help/cookies)
 
 ## Contacting the website
-If you have any questions about this cookies statement, the practices of this site, or your dealings with this website, you can contact us at <sustainabledevelopment@ons.gov.uk>.
+If you have any questions about this cookies statement, the practices of this site, or your dealings with this website, you can [contact us at sustainabledevelopment@ons.gov.uk](mailto:sustainabledevelopment@ons.gov.uk).
