@@ -3,30 +3,96 @@ layout: page
 title: Cookies on sdgdata.gov.uk
 permalink: /cookies/
 ---
-Cookies are files saved on your phone, tablet or computer when you visit a website.
+Cookies are small files saved on your phone, tablet or computer when you visit a website.
 
-We use cookies to store information about how you use the sdgdata.gov.uk website, such as the pages you visit.
+We use cookies to make sdgdata.gov.uk work and collect information about how you use our service.
 
 We use 2 types of cookie:
-- [Cookies that measure website use](#cookies-that-measure-website-use)
-- [Strictly necessary cookies](#strictly-necessary-cookies)
+- [Essential cookies](#essential-cookies)
+- [Functional cookies](#functional-cookies)
+- [Analytics cookies (optional)](#analytics-cookies)
 
-## Cookies that measure website use
+## Essential cookies
 
-We use Google Analytics and Hotjar software to collect anonymised information about how you use sdgdata.gov.uk. We do this to help make sure the site is meeting the needs of its users and to help us make improvements to the site.
+Essential cookies keep your information secure while you use sdgdata.gov.uk and remember your site contrast settings. We do not need to ask permission to use them as they are required to allow the website to function properly.
 
-We do not allow Google or Hotjar to use or share the data about how you use this site.
+### Cloudflare
+
+Cloudflare is used to protect the website and improve performance and reliability.
+
+Cloudflare stores information about:
+
+- how frequently a user makes requests
+- whether a user has been identified as making malicious requests
+
+<table class="table">
+  <colgroup>
+    <col class="twenty" />
+    <col class="fourtyfive" />
+    <col class="ten" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Purpose</th>
+      <th>Expires</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>_cfduid</td>
+      <td>Help us detect malicious visitors to our website and minimises blocking of legitimate users</td>
+      <td>30 days</td>
+    </tr>
+  </tbody>
+</table>
+
+For further details, please see [Cloudflare's privacy policy](https://www.cloudflare.com/en-gb/privacypolicy/).
+
+### Contrast setting
+
+When visiting sdgdata.gov.uk, you can choose to view the website in high contrast mode.
+
+We will set cookies so that your computer remembers which version of the site you want to use.
+
+<table class="table">
+  <colgroup>
+    <col class="twenty" />
+    <col class="fourtyfive" />
+    <col class="ten" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Purpose</th>
+      <th>Expires</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>contrast</td>
+      <td>Retains active state of accessibility services</td>
+      <td>1 year</td>
+    </tr>
+  </tbody>
+</table>
+
+## Analytics cookies (optional)
 
 ### Google Analytics
 
-Google Analytics stores information about:
+With your permission, we use Google Analytics to collect data about how you use sdgdata.gov.uk.
 
-- how you got to the site
+This information helps us to improve our service.
+
+Google is not allowed to use or share our analytics data with anyone.
+
+Google Analytics stores anonymised information about:
+
+- how you got to sdgdata.gov.uk
 - the pages you visit and how long you spend on them
 - what you click on while you are visiting
 - the way in which you interact with a page
-
-#### Cookies set by Google Analytics
 
 <table class="table">
   <colgroup>
@@ -66,13 +132,17 @@ You can [opt out of Google Analytics tracking by following these instructions](h
 
 ### Hotjar
 
-Hotjar stores information about:
+With your permission, we use Hotjar to collect data about how you use sdgdata.gov.uk.
+
+This information helps us to improve our service.
+
+Hotjar is not allowed to use or share our analytics data with anyone.
+
+Hotjar stores anonymised information about:
 
 - whether you have participated in a Hotjar survey
 - the way in which you interact with a page
 - what you click on while you are visiting the site
-
-#### Cookies set by Hotjar
 
 <table class="table">
   <colgroup>
@@ -154,78 +224,6 @@ Hotjar stores information about:
 For further details, please see [Hotjar’s privacy policy](https://www.hotjar.com/privacy).
 
 You can [opt out of Hotjar tracking by following these instructions](https://www.hotjar.com/legal/policies/do-not-track/).
-
-## Strictly necessary cookies
-
-These essential cookies do things like remember your site contrast settings.
-
-They always need to be on to allow the website to function properly.
-
-### Cloudflare
-
-Cloudflare is used to protect the website and improve performance and reliability.
-
-Cloudflare stores information about:
-
-- how frequently a user makes requests
-- whether a user has been identified as making malicious requests
-
-#### Cookies set by Cloudflare
-
-<table class="table">
-  <colgroup>
-    <col class="twenty" />
-    <col class="fourtyfive" />
-    <col class="ten" />
-  </colgroup>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Purpose</th>
-      <th>Expires</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>_cfduid</td>
-      <td>Help us detect malicious visitors to our website and minimises blocking of legitimate users</td>
-      <td>30 days</td>
-    </tr>
-  </tbody>
-</table>
-
-
-For further details, please see [Cloudflare's privacy policy](https://www.cloudflare.com/en-gb/privacypolicy/).
-
-### Contrast setting
-
-When visiting sdgdata.gov.uk, you can choose to view the website in high contrast mode.
-
-We will set cookies so that your computer remembers which version of the site you want to use.
-
-#### Cookies set by sdgdata.gov.uk
-
-<table class="table">
-  <colgroup>
-    <col class="twenty" />
-    <col class="fourtyfive" />
-    <col class="ten" />
-  </colgroup>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Purpose</th>
-      <th>Expires</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>contrast</td>
-      <td>Retains active state of accessibility services</td>
-      <td>1 year</td>
-    </tr>
-  </tbody>
-</table>
 
 ## Contacting the website
 If you have any questions about this cookies statement, the practices of this site, or your dealings with this website, you can [contact us at sustainabledevelopment@ons.gov.uk](mailto:sustainabledevelopment@ons.gov.uk).
