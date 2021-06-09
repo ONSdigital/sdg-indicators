@@ -138,7 +138,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20210609145038">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20210609161844">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20210609145038"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20210609161844"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
     </head>
 <body class="language-en layout-indicator">
@@ -382,12 +382,12 @@ var translations = {
   id="indicatorData"
   data-indicatorid='indicator_5-4-1'
   data-id="5-4-1"
-  data-country="United Kingdom"
-  data-charttitle="Percentage of time spent on unpaid domestic and care work, by sex"
+  data-country="Great Britain"
+  data-charttitle="Proportion of people who are unpaid carers"
   data-charttitles="null"
   data-measurementunit="Percentage (%)"
   data-showdata="true"
-  data-graphtype="line"
+  data-graphtype="bar"
   data-geocoderegex=""
   data-showmap="false"
   data-startvalues="null"
@@ -428,103 +428,11 @@ var translations = {
 
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>Percentage of time spent on unpaid domestic and care work, by sex</caption>
+      <caption>Proportion of people who are unpaid carers</caption>
       <thead>
-        
-        
-        <th scope="col">Year</th>
-        
-        
-        
-        <th scope="col">Value</th>
-        
-        
-        
-        <th scope="col">Observation status</th>
-        
-        
-        
-        <th scope="col">Unit multiplier</th>
-        
-        
-        
-        <th scope="col" class="table-value">Unit measure</th>
-        
         
       </thead>
       <tbody>
-        
-        <tr>
-          
-          
-          <td>2000</td>
-          
-          
-          
-          <td>15.8555296834</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2005</td>
-          
-          
-          
-          <td>14.2832617695</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2015</td>
-          
-          
-          
-          <td>13.7612196802</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
         
       </tbody>
     </table>
@@ -532,16 +440,16 @@ var translations = {
 
   <div id="datatableFooter">
     
-    <p>Source: Office for National Statistics (ONS)</p>
+    <p>Source: Office for National Statistics</p>
     
     
-    <p>Geographical Area: United Kingdom</p>
+    <p>Geographical Area: Great Britain</p>
     
     
     <p>Unit of Measurement: Percentage (%)</p>
     
     
-    <p>Footnote: Data are only available for the years 2000, 2005, and 2015, which are the years used on the X axis. Data were recorded between the periods June 2000 to September 2001, February 2005 to November 2005, and April 2014 to November 2015 respectively</p>
+    <p>Footnote: The data were collected between 31 March and 25 April 2021. During this period the “rule of 6” was in place in England (29 March), “stay local” restrictions were lifted in Wales (from 27 March), and “stay home” rules in Scotland were replaced by “stay local” rules (2 April).</p>
     
   </div>
 
@@ -587,7 +495,7 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Percentage of time spent on unpaid domestic and care work, by sex</h4>
+          <h4 id="chart-heading" class="chart-title">Proportion of people who are unpaid carers</h4>
           <div id="chart" class="plot-container">
             
 <canvas
@@ -776,40 +684,32 @@ opensdg.chartConfigAlter(function(config, info) {
 </script>
 
 <script>
-// For line charts, add the vertical line hover functionality.
 opensdg.chartConfigAlter(function(config, info) {
+  if (info.stackedDisaggregation) {
     var overrides = {
-        options: {
-            tooltips: {
-                intersect: false,
-                axis: 'x'
-            },
-        },
-        plugins: [{
-            beforeDatasetsDraw: function(chart) {
-                if (chart.tooltip._active && chart.tooltip._active.length) {
-                    var activePoint = chart.tooltip._active[0],
-                        ctx = chart.ctx,
-                        x = activePoint.tooltipPosition().x,
-                        topY = chart.scales['y-axis-0'].top,
-                        bottomY = chart.scales['y-axis-0'].bottom;
-
-                    // draw line
-                    ctx.save();
-                    ctx.beginPath();
-                    ctx.moveTo(x, topY);
-                    ctx.lineTo(x, bottomY);
-                    ctx.lineWidth = 2;
-                    ctx.strokeStyle = '#757575';
-                    ctx.setLineDash([5, 2]);
-                    ctx.stroke();
-                    ctx.restore();
-                }
-            }
-        }],
+      options: {
+        scales: {
+          xAxes: [{ stacked: true }],
+          yAxes: [{ stacked: true }],
+        }
+      }
     };
+    // If we have stackedDisaggregation, we need to group datasets into stacks.
+    config.data.datasets.forEach(function(dataset) {
+      var disaggregation = $.extend({}, dataset.disaggregation);
+      // We're going to "stringify" each combination of disaggregations in order
+      // to place them in their own "stacks". To place "stacked" disaggregations
+      // into the same stack, we set them as "samestack" before stringifying.
+      // Note that the string "samestack" is completely arbitrary.
+      if (typeof disaggregation[info.stackedDisaggregation] !== 'undefined') {
+        disaggregation[info.stackedDisaggregation] = 'samestack';
+      }
+      // Use the disaggregation as a unique id for each stack.
+      dataset.stack = JSON.stringify(disaggregation);
+    });
     // Add these overrides onto the normal config, and return it.
     $.extend(true, config, overrides);
+  }
 });
 </script>
 
@@ -824,12 +724,12 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>Office for National Statistics (ONS)</dd>
+        <dd>Office for National Statistics</dd>
         
 
         
         <dt>Geographical Area:</dt>
-        <dd>United Kingdom</dd>
+        <dd>Great Britain</dd>
         
 
         
@@ -841,7 +741,7 @@ opensdg.chartConfigAlter(function(config, info) {
 
         
         <dt>Footnote:</dt>
-        <dd>Data are only available for the years 2000, 2005, and 2015, which are the years used on the X axis. Data were recorded between the periods June 2000 to September 2001, February 2005 to November 2005, and April 2014 to November 2015 respectively</dd>
+        <dd>The data were collected between 31 March and 25 April 2021. During this period the “rule of 6” was in place in England (29 March), “stay local” restrictions were lifted in Wales (from 27 March), and “stay home” rules in Scotland were replaced by “stay local” rules (2 April).</dd>
         
     <dl>
 </div>
@@ -872,12 +772,12 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>Office for National Statistics (ONS)</dd>
+        <dd>Office for National Statistics</dd>
         
 
         
         <dt>Geographical Area:</dt>
-        <dd>United Kingdom</dd>
+        <dd>Great Britain</dd>
         
 
         
@@ -889,7 +789,7 @@ opensdg.chartConfigAlter(function(config, info) {
 
         
         <dt>Footnote:</dt>
-        <dd>Data are only available for the years 2000, 2005, and 2015, which are the years used on the X axis. Data were recorded between the periods June 2000 to September 2001, February 2005 to November 2005, and April 2014 to November 2015 respectively</dd>
+        <dd>The data were collected between 31 March and 25 April 2021. During this period the “rule of 6” was in place in England (29 March), “stay local” restrictions were lifted in Wales (from 27 March), and “stay home” rules in Scotland were replaced by “stay local” rules (2 April).</dd>
         
     <dl>
 </div>
@@ -984,7 +884,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            
+            <p>Proportion of the population who are unpaid carers, by time spent on unpaid care, disability status, age and sex.</p>
 
           
         </td>
@@ -998,7 +898,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            <p>United Kingdom</p>
+            <p>Great Britain</p>
 
           
         </td>
@@ -1026,7 +926,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>An activity is said to be productive or to fall within the “general production boundary” if it satisfies the third-person criterion (the activity can be delegated to another person and yield the same desired results). Productive activities can be further classified based on the ILO framework for work statistics (included in the 19th ICLS resolution) into - i) Own-use production work (activities to produce goods and services for own final use; the intended destination of the output is mainly for final use of the producer in the form of capital formation, or final consumption by household members or by family members living in other households; in the case of agricultural, fishing, hunting or gathering goods intended mainly for own consumption, a part or surplus may nevertheless be sold or bartered); ii) Employment (activities to produce goods or provide services for pay or profit); ii) Unpaid trainee work (any unpaid activity to produce goods or provide services for others, in order to acquire workplace experience or skills in a trade or profession); iv) Volunteer work (any unpaid, non-compulsory activity to produce goods or provide services for others); v) Other forms of work. The own-use production work can be differentiated based on whether goods or services are produced. Indicator 5.4.1 only considers the own-use production work of services, or in other words, the activities related to unpaid domestic services and unpaid caregiving services undertaken by households for their own use. These activities are listed in ICATUS 2016 under the major divisions “3. Unpaid domestic services for household and family members” and “4. Unpaid caregiving services for household and family members”. As much as possible, statistics compiled by UNSD are based on the International Classification of Activities for Time Use Statistics 2016 (ICATUS 2016), which classifies activities undertaken by persons during the survey period. ICATUS 2016 was adopted by the United Nations Statistical Commission for use as an international statistical classification at its 48th session, 7-10 March 2017.</p>
+            <p> A person is considered an “unpaid-carer” if they provide support/care to an individual who has needs due to physical or mental health condition(s) or illness(es), or problems related to old age. This definition is consistent with the Government Statistical Service (GSS) harmonised “core” definition </p>
+<p> Unpaid carers are self-reported as everyone who answered "Yes" or "No" to the question -  "In the past seven days, did you look after or give any help or support to, anyone inside or outside your household because they have - long-term physical or mental health conditions or illnesses, or problems related to old age?" </p>
+<p> A person is considered to have a disability if they have a self-reported long-standing illness, condition or impairment which causes difficulty with day-to-day activities. This definition is consistent with the Equality Act 2010. </p>
 
           
         </td>
@@ -1040,7 +942,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Available disaggregations </th>
         <td>
           
-            
+            <p>Age, Sex, Disability, Numbers of hours spent</p>
 
           
         </td>
@@ -1054,7 +956,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>Data presented for this indicator are expressed as a proportion of time in a day. Weekly data is averaged over seven days of the week to obtain the daily average time. Proportion of time spent on unpaid domestic and care work is calculated by dividing the daily average number of hours spent on unpaid domestic and care work by 24 hours.</p>
+            
 
           
         </td>
@@ -1068,7 +970,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
+            <p>The data were collected between 31 March and 25 April 2021. During this period the “rule of 6” was in place in England (29 March), “stay local” restrictions were lifted in Wales (from 27 March), and “stay home” rules in Scotland were replaced by “stay local” rules (2 April).</p>
+<p> This indicator previously showed data from the time use survey. As this  data is discontinues it has been replaced by data from the OPN, currently displayed </p>
+<p>This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -1088,7 +992,7 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/a6da18ca0d2cd9ebe17dd4d94096cba73275b1b3" target="_blank">
+              <a href="https://github.com/ONSdigital/sdg-data/commit/f11faf2ca6a4ce12926a6285825f8c7b24625593" target="_blank">
                 2021-06-09: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
@@ -1115,7 +1019,7 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://github.com/ONSdigital/sdg-data/commit/a6da18ca0d2cd9ebe17dd4d94096cba73275b1b3" target="_blank">
+              <a href="https://github.com/ONSdigital/sdg-data/commit/f11faf2ca6a4ce12926a6285825f8c7b24625593" target="_blank">
                 2021-06-09: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
               </a>
             
@@ -1507,8 +1411,6 @@ data-event-label="Change to Sources tab"
     
     <div class="col-md-6">
       
-        <h4>Source 1</h4>
-      
       <table class="table">
   
   
@@ -1552,7 +1454,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Office for National Statistics (ONS)</p>
+            <p>Office for National Statistics</p>
 
           
         </td>
@@ -1566,7 +1468,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            <p>Discontinuous</p>
+            <p>N/A</p>
 
           
         </td>
@@ -1580,7 +1482,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2000</p>
+            <p>2021</p>
 
           
         </td>
@@ -1594,7 +1496,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            <p>United Kingdom</p>
+            <p>Great Britain</p>
 
           
         </td>
@@ -1614,10 +1516,6 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://discover.ukdataservice.ac.uk/catalogue/?sn=4504&type=Data%20catalogue" target="_blank">
-                United Kingdom Time Use Survey, 2000 <span class="visuallyhidden">opens in a new window</span>
-              </a>
-            
 
           
         </td>
@@ -1635,623 +1533,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            <p>16/01/2017</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Next release </th>
-        <td>
-          
-            <p>11/10/2011</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Statistical classification </th>
-        <td>
-          
-            <p>Official Statistic</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact details </th>
-        <td>
-          
-            <p>https://www.ukdataservice.ac.uk/help/get-in-touch</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Other information </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</table>
-
-    </div>
-    
-    
-    
-    <div class="col-md-6">
-      
-        <h4>Source 2</h4>
-      
-      <table class="table">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
-          
-            <p>Office for National Statistics (ONS)</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Periodicity </th>
-        <td>
-          
-            <p>Discontinuous</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Earliest available data </th>
-        <td>
-          
-            <p>2005</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Geographical coverage </th>
-        <td>
-          
-            <p>United Kingdom</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Link to data source </th>
-        <td>
-          
-            
-            
-            
-            
-
-            
-              <a href="https://discover.ukdataservice.ac.uk/catalogue/?sn=5592" target="_blank">
-                ONS Omnibus Survey, Time Use Module, February, June, September and November 2005 <span class="visuallyhidden">opens in a new window</span>
-              </a>
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Release date </th>
-        <td>
-          
-            <p>11/10/2011</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Next release </th>
-        <td>
-          
-            <p>16/01/2017</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Statistical classification </th>
-        <td>
-          
-            <p>Official Statistic</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact details </th>
-        <td>
-          
-            <p>help@ukdataservice.ac.uk</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Other information </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</table>
-
-    </div>
-    
-    
-    
-    <div class="col-md-6">
-      
-        <h4>Source 3</h4>
-      
-      <table class="table">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
-          
-            <p>Office for National Statistics (ONS)</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Periodicity </th>
-        <td>
-          
-            <p>Discontinuous</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Earliest available data </th>
-        <td>
-          
-            <p>2015</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Geographical coverage </th>
-        <td>
-          
-            <p>United Kingdom</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Link to data source </th>
-        <td>
-          
-            
-            
-            
-            
-
-            
-              <a href="https://discover.ukdataservice.ac.uk/catalogue?sn=8128" target="_blank">
-                United Kingdom Time Use Survey, 2014-2015 <span class="visuallyhidden">opens in a new window</span>
-              </a>
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Release date </th>
-        <td>
-          
-            <p>16/01/2017</p>
+            <p>10/06/2021</p>
 
           
         </td>
@@ -2279,7 +1561,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Official Statistic</p>
+            <p>Official statistics</p>
 
           
         </td>
@@ -2293,7 +1575,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>help@ukdataservice.ac.uk</p>
+            <p>Social.Care@ons.gov.uk</p>
 
           
         </td>
@@ -2314,6 +1596,30 @@ data-event-label="Change to Sources tab"
         </tr>
         
       
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -2487,12 +1793,12 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20210609145038'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20210609161844'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20210609145038"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20210609161844"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
