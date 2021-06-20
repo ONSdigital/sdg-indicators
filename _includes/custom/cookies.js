@@ -39,11 +39,11 @@ if ($cookieForm.length > 0) {
       $analyticsYes = $('#analytics-cookies'),
       saveCookieSettings = function(e) {
         e.preventDefault();
-          if (typeof consents['google-analytics'] !== 'undefined') {
-            consents['google-analytics'] = Boolean($analyticsYes.prop('checked'));
-          }
-          manager.saveAndApplyConsents();
-          alert('Confirmation message TBD');
+        if (typeof consents['google-analytics'] !== 'undefined') {
+          consents['google-analytics'] = Boolean($analyticsYes.prop('checked'));
+        }
+        manager.saveAndApplyConsents();
+        alert('Confirmation message TBD');
       };
 
   // Set pre-selected options.
