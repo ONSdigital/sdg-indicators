@@ -55,3 +55,11 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET }}
           SOURCE_DIR: _site
           DEST_DIR: ${{ env.GITHUB_REF_SLUG }}
+      - uses: act10ns/slack@v1
+        with: 
+          status: ${{ job.status }}
+          args: '{"text":"http://uk-sdg-feature-branches.s3-website.eu-west-2.amazonaws.com/${{ env.GITHUB_REF_SLUG }}"}'
+        if: always()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          channel: '#feature-branches'
