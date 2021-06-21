@@ -61,4 +61,4 @@ jobs:
         with:
           slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
           slack-channel: CP95DHDLY
-          slack-text: Your feature branch is available at http://uk-sdg-feature-branches.s3-website.eu-west-2.amazonaws.com/"${{ env.GITHUB_REF_SLUG }}"
+          slack-text: Your feature branch is available at http://uk-sdg-feature-branches.s3-website.eu-west-2.amazonaws.com/${{ env.GITHUB_REF_SLUG }}
