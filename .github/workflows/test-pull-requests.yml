@@ -4,10 +4,10 @@ on:
   pull_request:
     types: [ assigned, opened, synchronize, reopened ]
   push:
-    branches-ignore: 
+    branches-ignore:
       - develop
       - master
-  
+
 
 jobs:
   test:
@@ -24,7 +24,7 @@ jobs:
       run: |
         gem install bundler
         bundle config path vendor/bundle
-        bundle install
-        bundle exec jekyll build
+        make install
+        make build.staging
     - name: Test the HTML
       run: bash scripts/test/html_proofer_staging.sh
