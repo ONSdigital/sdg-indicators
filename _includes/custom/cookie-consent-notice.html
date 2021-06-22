@@ -1,0 +1,69 @@
+<div id="cookie-notice" class="govuk-cookie-banner" style="display: none;">
+  <form novalidate>
+    <div class="container" role="region" aria-label="Cookies on [name of service]">
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>Cookies on [name of service]</h2>
+          <div>
+            <p>We use some essential cookies to make this service work.</p>
+            <p>We’d also like to use analytics cookies so we can understand how you use the service and make improvements.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="btn btn-primary btn-download" id="cookie-accept" type="button">
+            Accept analytics cookies
+          </button>
+          <button class="btn btn-primary btn-download" id="cookie-reject" type="button">
+            Reject analytics cookies
+          </button>
+          <a class="view-cookies-link" href="{{ site.baseurl }}/cookies">View cookies</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div id="cookie-notice-accept" class="govuk-cookie-banner" style="display: none;">
+  <form novalidate>
+    <div class="container" role="region" aria-label="Cookies on [name of service]">
+      <div class="row">
+        <div class="col-xs-12">
+          <div>
+            <p>You've accepted analytics cookies. You can <a href="{{ site.baseurl }}/cookies">change your cookie settings</a> at any time.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <button id="hide-accept" class="btn btn-primary btn-download" type="button">
+            Hide this message
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div id="cookie-notice-reject" class="govuk-cookie-banner" style="display: none;">
+  <form novalidate>
+    <div class="container" role="region" aria-label="Cookies on [name of service]">
+      <div class="row">
+        <div class="col-xs-12">
+          <div>
+            <p>You've rejected analytics cookies. You can <a href="{{ site.baseurl }}/cookies">change your cookie settings</a> at any time.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <button id="hide-reject" class="btn btn-primary btn-download" type="button">
+            Hide this message
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

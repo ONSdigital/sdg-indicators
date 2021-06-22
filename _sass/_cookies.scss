@@ -1,0 +1,32 @@
+/*
+_cookies.scss
+
+These styles are tweaks to help the cookie notice and cookie form
+look correct in Open SDG.
+*/
+
+.govuk-cookie-banner {
+    margin-top: -15px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    background: #f3f2f1 url("../img/sdgbg.png") bottom left repeat-x;
+
+    h2 {
+        margin-top: 10px;
+    }
+
+    .btn, .view-cookies-link {
+        @media only screen and (max-width: 768px) {
+            width: 100%;
+        }
+    }
+    .view-cookies-link {
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: 1em;
+    }
+}
+
+.cookie-form {
+    margin-bottom: 40px;
+}
