@@ -1,231 +1,61 @@
 ---
 layout: page
-title: Cookies on sdgdata.gov.uk
-permalink: /cookies/
+title: Cookies and privacy
+permalink: /about/cookies-and-privacy/
 ---
-Cookies are files saved on your phone, tablet or computer when you visit a website.
+The following is a description of what data is collected when you use this website and what it is used for.
 
-We use cookies to store information about how you use the sdgdata.gov.uk website, such as the pages you visit.
+## User information
+This website uses cookies and JavaScript tracking code to gather anonymous information about visitors' usage patterns, in order to improve the navigation of the site, the presentation of its content and the quality of its services.
 
-We use 2 types of cookie:
-- [Cookies that measure website use](#cookies-that-measure-website-use)
-- [Strictly necessary cookies](#strictly-necessary-cookies)
+The information collected does not include personal details such as your name, age, telephone number, postal address or email address, nor does it allow personal identification of a user.
 
-## Cookies that measure website use
+## Cookies
+When we provide services, we want to make them easy, useful and reliable.
 
-We use Google Analytics and Hotjar software to collect anonymised information about how you use sdgdata.gov.uk. We do this to help make sure the site is meeting the needs of its users and to help us make improvements to the site.
+Where services are delivered on the internet, this sometimes involves placing small amounts of information on your device, for example, computer or mobile phone.
 
-We do not allow Google or Hotjar to use or share the data about how you use this site.
+These include small files known as cookies. They cannot be used to identify you personally.
 
-### Google Analytics
+These pieces of information are used to improve services for you through, for example:
 
-Google Analytics stores information about:
+- enabling a service to recognise your device so you don't have to give the same information several times during one task
+- recognising that you may already have given a username and password so you don't need to do it for every web page requested
+- measuring how many people are using services, so they can be made easier to use and there's enough capacity to ensure they are fast
 
-- how you got to the site
-- the pages you visit and how long you spend on them
-- what you click on while you are visiting
-- the way in which you interact with a page
+You can manage these small files yourself and learn more about them through [internet browser cookies – what they are and how to manage them](https://www.aboutcookies.org/).
 
-#### Cookies set by Google Analytics
+## Our use of cookies
+Important information about this list of cookies:
 
-<table class="table">
-  <colgroup>
-    <col class="twenty" />
-    <col class="fourtyfive" />
-    <col class="ten" />
-  </colgroup>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Purpose</th>
-      <th>Expires</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>_ga</td>
-      <td>Help us count how many people visit the website by tracking if you have visited before</td>
-      <td>2 years</td>
-    </tr>
-    <tr>
-      <td>_gid</td>
-      <td>Help us count how many people visit the website by tracking if you have visited before</td>
-      <td>24 hours</td>
-    </tr>
-    <tr>
-      <td>_gat</td>
-      <td>Used to throttle the request rate to limit the colllection of data</td>
-      <td>1 minute</td>
-    </tr>
-  </tbody>
-</table>
+This list may not always be complete. It will be regularly updated as further information is gathered from other companies and organisations that we work with. 
 
-For further details, please see [Google’s privacy policy](https://www.google.com/policies/privacy/).
+Cookies for overriding any security restrictions based on the IP address the visitor is coming from:
 
+- __cfduid
+
+Cookies for retaining active state of accessibility services:
+
+- contrast
+
+Cookies for measuring use of services:
+
+- _ga
+- _gid
+- _gat
+
+By understanding how people use our website, we can improve the information provided. We gather this data using Google Analytics.
+
+## Opt out
 You can [opt out of Google Analytics tracking by following these instructions](https://tools.google.com/dlpage/gaoptout).
 
-### Hotjar
+## External links
+This site may contain links to other sites.
 
-Hotjar stores information about:
+ONS is not responsible for the privacy practices or the content of such websites.
 
-- whether you have participated in a Hotjar survey
-- the way in which you interact with a page
-- what you click on while you are visiting the site
-
-#### Cookies set by Hotjar
-
-<table class="table">
-  <colgroup>
-    <col class="twenty" />
-    <col class="fourtyfive" />
-    <col class="ten" />
-  </colgroup>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Purpose</th>
-      <th>Expires</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>_hjClosedSurveyInvites</td>
-      <td>Tell us whether a Hotjar survey invite has been closed to stop it displaying again</td>
-      <td>1 year</td>
-    </tr>
-    <tr>
-      <td>_hjDonePolls</td>
-      <td>Tell us whether a Hotjar feedback poll has been completed to stop the same poll reappearing</td>
-      <td>1 year</td>
-    </tr>
-    <tr>
-      <td>_hjMinimizedPolls</td>
-      <td>Keep Hotjar feedback poll widgets minimised (once minimised by the user) when the user navigates through the website</td>
-      <td>1 year</td>
-    </tr>
-    <tr>
-      <td>_hjDoneTestersWidgets</td>
-      <td>Set when a user submits information in the Hotjar recruit user testers widget. They stop the form reappearing once it has been completed</td>
-      <td>1 year</td>
-    </tr>
-    <tr>
-      <td>_hjIncludedInSample</td>
-      <td>Lets Hotjar know whether a user is included in the sample for tracking user journeys to important pages on the website</td>
-      <td>1 year</td>
-    </tr>
-    <tr>
-      <td>_hjShownFeedbackMessage</td>
-      <td>Set when a user minimises or completes a Hotjar feedback survey. The survey will stay minimised if the user navigates to a page where it is set to show</td>
-      <td>1 year</td>
-    </tr>
-    <tr>
-      <td>_hjid</td>
-      <td>Help us track users who visit the website multiple times. A unique Hotjar user ID is used to link their visits together</td>
-      <td>1 year</td>
-    </tr>
-    <tr>
-      <td>_hjRecordingLastActivity</td>
-      <td>Updated when a user recording starts and when a user performs an action on a page that Hotjar records. Found in sessionStorage rather than cookies</td>
-      <td>Per session</td>
-    </tr>
-    <tr>
-      <td>hjTLDTest</td>
-      <td>Stored temporarily and used to determine the root (or top-level) domain so that tracking works on all pages</td>
-      <td>Per session</td>
-    </tr>
-    <tr>
-      <td>_hjUserAttributesHash</td>
-      <td>Store user attributes during a user’s browser session so Hotjar knows when an attribute has changed and needs to be updated</td>
-      <td>Per session</td>
-    </tr>
-    <tr>
-      <td>_hjCachedUserAttributes</td>
-      <td>Store user attributes that are sent through the Hotjar identify API whenever the user is not in the sample. Attributes are only saved if the user interacts with a feedback tool</td>
-      <td>Per session</td>
-    </tr>
-    <tr>
-      <td>_hjLocalStorageTest</td>
-      <td>Used to check if the Hotjar tracking script can use local browser storage</td>
-      <td>Per session</td>
-    </tr>
-  </tbody>
-</table>
-
-For further details, please see [Hotjar’s privacy policy](https://www.hotjar.com/privacy).
-
-You can [opt out of Hotjar tracking by following these instructions](https://www.hotjar.com/legal/policies/do-not-track/).
-
-## Strictly necessary cookies
-
-These essential cookies do things like remember your site contrast settings.
-
-They always need to be on to allow the website to function properly.
-
-### Cloudflare
-
-Cloudflare is used to protect the website and improve performance and reliability.
-
-Cloudflare stores information about:
-
-- how frequently a user makes requests
-- whether a user has been identified as making malicious requests
-
-#### Cookies set by Cloudflare
-
-<table class="table">
-  <colgroup>
-    <col class="twenty" />
-    <col class="fourtyfive" />
-    <col class="ten" />
-  </colgroup>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Purpose</th>
-      <th>Expires</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>_cfduid</td>
-      <td>Help us detect malicious visitors to our website and minimises blocking of legitimate users</td>
-      <td>30 days</td>
-    </tr>
-  </tbody>
-</table>
-
-
-For further details, please see [Cloudflare's privacy policy](https://www.cloudflare.com/en-gb/privacypolicy/).
-
-### Contrast setting
-
-When visiting sdgdata.gov.uk, you can choose to view the website in high contrast mode.
-
-We will set cookies so that your computer remembers which version of the site you want to use.
-
-#### Cookies set by sdgdata.gov.uk
-
-<table class="table">
-  <colgroup>
-    <col class="twenty" />
-    <col class="fourtyfive" />
-    <col class="ten" />
-  </colgroup>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Purpose</th>
-      <th>Expires</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>contrast</td>
-      <td>Retains active state of accessibility services</td>
-      <td>1 year</td>
-    </tr>
-  </tbody>
-</table>
+## Security
+This website has security measures in place to protect the loss, misuse, and alteration of the information under our control.
 
 ## Contacting the website
-If you have any questions about this cookies statement, the practices of this site, or your dealings with this website, you can [contact us at sustainabledevelopment@ons.gov.uk](mailto:sustainabledevelopment@ons.gov.uk).
+If you have any questions about this privacy statement, the practices of this site, or your dealings with this website, you can [contact us]({{ site.baseurl }}/contact-us)
