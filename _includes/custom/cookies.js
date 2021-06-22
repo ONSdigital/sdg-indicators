@@ -11,6 +11,9 @@ if (!manager.confirmed) {
     if (typeof consents['google-analytics'] !== 'undefined') {
       consents['google-analytics'] = true;
     }
+    if (typeof consents['hotjar'] !== 'undefined') {
+      consents['hotjar'] = true;
+    }
     manager.saveAndApplyConsents();
     $cookieBanner.hide();
     $confirmationAccept.show();
@@ -18,6 +21,9 @@ if (!manager.confirmed) {
   $('#cookie-reject').click(function() {
     if (typeof consents['google-analytics'] !== 'undefined') {
       consents['google-analytics'] = false;
+    }
+    if (typeof consents['hotjar'] !== 'undefined') {
+      consents['hotjar'] = false;
     }
     manager.saveAndApplyConsents();
     $cookieBanner.hide();
@@ -39,8 +45,12 @@ if ($cookiePageSubmit.length > 0) {
       $cookiePageGoBack = $('#cookie-page-go-back'),
       saveCookieSettings = function(e) {
         e.preventDefault();
+        var choice = Boolean($analyticsYes.prop('checked'));
         if (typeof consents['google-analytics'] !== 'undefined') {
-          consents['google-analytics'] = Boolean($analyticsYes.prop('checked'));
+          consents['google-analytics'] = choice;
+        }
+        if (typeof consents['hotjar'] !== 'undefined') {
+          consents['hotjar'] = choice;
         }
         manager.saveAndApplyConsents();
         $cookiePageSuccess.show();
@@ -50,8 +60,9 @@ if ($cookiePageSubmit.length > 0) {
       };
 
   // Set pre-selected options.
-  if (typeof consents['google-analytics'] !== 'undefined') {
-    $analyticsYes.prop('checked', Boolean(consents['google-analytics']));
+  if (typeof consents['google-analytics'] !== 'undefined' || typeof consents['hotjar'] !== 'undefined') {
+    var preselected = Boolean(consents['google-analytics']) || Boolean(consents['hotjar']);
+    $analyticsYes.prop('checked', preselected);
   }
 
   $cookiePageSubmit.click(saveCookieSettings);

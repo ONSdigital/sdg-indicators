@@ -23,5 +23,28 @@ var klaroConfig = {
             },
         },
         {% endif %}
+        {
+            name: 'hotjar',
+            cookies: [
+                '_hjClosedSurveyInvites',
+                '_hjDonePolls',
+                '_hjMinimizedPolls',
+                '_hjDoneTestersWidgets',
+                '_hjIncludedInSample',
+                '_hjShownFeedbackMessage',
+                '_hjid',
+                '_hjRecordingLastActivity',
+                '_hjTLDTest',
+                '_hjUserAttributesHash',
+                '_hjCachedUserAttributes',
+                '_hjLocalStorageTest',
+            ],
+            callback: function(consent, service) {
+                if (consent) {
+                    console.log('Debug: Sending analytics to Hotjar...');
+                    initialiseHotjar();
+                }
+            },
+        }
     ],
 };
