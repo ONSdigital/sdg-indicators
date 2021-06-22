@@ -1,0 +1,25 @@
+{% comment %}{% raw %}
+Instructions for use:
+
+1. Use the {% capture %} and {% endcapture %} tags to assign your content
+   to a variable.
+2. Include this file, passing a "label" parameter and a "content" parameter.
+
+Example:
+
+{% capture my_content %}
+This is any content. *Markdown works here.* <span>HTML works also.</span>
+{% endcapture %}
+{% include custom/details.html label="My label" content=my_content %}
+
+{% endraw %}{% endcomment %}
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      {{ include.label }}
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    {{ include.content | markdownify }}
+  </div>
+</details>
