@@ -43,7 +43,7 @@ jobs:
           gem install bundler
           bundle config path vendor/bundle
           make install
-          make build
+          make build.staging
       - uses: jakejarvis/s3-sync-action@master
         with:
           args: --acl public-read --follow-symlinks --delete
