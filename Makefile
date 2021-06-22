@@ -1,5 +1,3 @@
-.PHONY: install build serve
-
 install:
 	npm install
 	bundle install
