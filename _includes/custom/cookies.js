@@ -59,6 +59,9 @@ if ($cookiePageSubmit.length > 0) {
         }, 500, 'swing', function() { $cookiePageGoBack.focus(); });
       };
 
+    // We want the confirmation to be above the H1.
+    $cookiePageSuccess.prependTo($cookiePageSuccess.parent().parent());
+
   // Set pre-selected options.
   if (typeof consents['google-analytics'] !== 'undefined' || typeof consents['hotjar'] !== 'undefined') {
     var preselected = Boolean(consents['google-analytics']) || Boolean(consents['hotjar']);
