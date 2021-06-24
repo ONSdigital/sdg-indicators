@@ -9,7 +9,7 @@ Cookies are small files saved on your phone, tablet or computer when you visit a
 
 We use cookies to store information about how you use this website, such as the pages you visit.
 
-We use 2 types of cookies. You can choose which cookies you’re happy for us to use.
+We use two types of cookies. You can choose which cookies you’re happy for us to use.
 
 ## Cookies that measure website use (analytics cookies)
 
@@ -52,7 +52,7 @@ We do not allow Google or Hotjar to use or share the information about how you u
     </tr>
     <tr>
       <td>_gat</td>
-      <td>Used to throttle the request rate to limit the colllection of data</td>
+      <td>Used to manage the rate at which page view requests are made</td>
       <td>1 minute</td>
     </tr>
     <tr>
@@ -92,11 +92,11 @@ We do not allow Google or Hotjar to use or share the information about how you u
     </tr>
     <tr>
       <td>_hjRecordingLastActivity</td>
-      <td>Updated when a user recording starts and when a user performs an action on a page that Hotjar records. Found in sessionStorage rather than cookies</td>
+      <td>Updated when a user recording starts and when a user performs an action on a page that Hotjar records. Found in session storage rather than cookies</td>
       <td>Per session</td>
     </tr>
     <tr>
-      <td>hjTLDTest</td>
+      <td>_hjTLDTest</td>
       <td>Stored temporarily and used to determine the root (or top-level) domain so that tracking works on all pages</td>
       <td>Per session</td>
     </tr>
@@ -124,7 +124,7 @@ We do not allow Google or Hotjar to use or share the information about how you u
 
 ## Essential cookies
 
-Essential cookies keep your information secure whilst you use the website.
+Essential cookies keep your information secure, and do things like remember your preferences and the choices you make whilst you use the website.
 
 They always need to be on.
 
@@ -144,13 +144,13 @@ They always need to be on.
   </thead>
   <tbody>
     <tr>
-      <td>contrast</td>
-      <td>Retains active state of accessibility services</td>
+      <td>cookie_settings</td>
+      <td>Saves your cookie consent settings</td>
       <td>1 year</td>
     </tr>
     <tr>
-      <td>cookie_settings</td>
-      <td>Retains choices from this form to save your cookie preferences</td>
+      <td>contrast</td>
+      <td>Retains active state of accessibility services</td>
       <td>1 year</td>
     </tr>
   </tbody>
