@@ -29,7 +29,7 @@ jobs:
           updateFile: 'true'
       - name: Update the remote_data_prefix
         uses: fjogeleit/yaml-update-action@master
-        if: github.event.ref_type == 'branch' && startsWith(github.event.ref, 'feature-site-') == false
+        if: startsWith(github.event.ref, 'feature-site-') == false
         with:
           # Update this if your 'remote_data_prefix' setting is in a different file.
           valueFile: '_config.yml'
