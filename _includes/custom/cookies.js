@@ -81,3 +81,9 @@ if ($cookiePageSubmit.length > 0) {
     window.history.back();
   });
 }
+
+// Update any Cookies links.
+$('a[href*="cookies-no-javascript"]').each(function() {
+  var href = $(this).attr('href');
+  $(this).attr('href', href.replace('cookies-no-javascript', 'cookies'));
+});

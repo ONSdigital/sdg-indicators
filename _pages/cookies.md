@@ -9,8 +9,6 @@ Cookies are small files saved on your phone, tablet or computer when you visit a
 
 We use cookies to store information about how you use this website, such as the pages you visit.
 
-{% include custom/cookie-page-no-javascript.html %}
-
 We use two types of cookies. You can choose which cookies you’re happy for us to use.
 
 ## Cookies that measure website use (analytics cookies)

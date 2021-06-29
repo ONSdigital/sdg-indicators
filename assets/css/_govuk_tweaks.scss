@@ -10,8 +10,15 @@ html {
     background: #f3f2f1 url("../img/sdgbg.png") bottom left repeat-x;
 }
 
-.js-enabled .cookie-page-no-javascript {
-    display: none;
+body.js-enabled {
+    .js-disabled-only {
+        display: none;
+    }
+}
+body:not(.js-enabled) {
+    .js-enabled-only {
+        display: none;
+    }
 }
 
 .govuk-fieldset__legend {
