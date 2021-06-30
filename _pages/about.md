@@ -33,7 +33,7 @@ As one of the world leaders in providing data for the SDG indicators our aims in
 Cabinet Office and the Department for International Development (DfID) have responsibility for policy implementation. 
 
 ## About this site
-This site is based on the open source [Open SDG](https://open-sdg.readthedocs.io/en/latest/) platform. The Open SDG platform is the result of collaboration between the:
+This site is based on the open source [Open SDG](https://open-sdg.org) platform. The Open SDG platform is the result of collaboration between the:
 
   * UK [Office For National Statistics](https://www.ons.gov.uk/) (ONS)
   
