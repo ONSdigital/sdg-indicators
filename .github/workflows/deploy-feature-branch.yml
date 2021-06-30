@@ -29,7 +29,7 @@ jobs:
           updateFile: 'true'
       - name: Update the remote_data_prefix
         uses: fjogeleit/yaml-update-action@master
-        if: github.event.ref_type == 'branch' && startsWith(github.event.ref, 'feature-site-') == false
+        if: startsWith(github.ref, 'refs/heads/feature-site-') == false
         with:
           # Update this if your 'remote_data_prefix' setting is in a different file.
           valueFile: '_config.yml'
@@ -63,5 +63,3 @@ jobs:
           slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
           slack-channel: CP95DHDLY
           slack-text: Your feature branch is available at http://uk-sdg-feature-branches.s3-website.eu-west-2.amazonaws.com/${{ env.GITHUB_REF_SLUG }}
-      - name: Result from "Send Message"
-        run: echo "The result was ${{ steps.notify.outputs.slack-result }}"
