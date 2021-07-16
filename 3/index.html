@@ -114,8 +114,6 @@ var translations = {
         
         <link rel="canonical" href="/">
 
-        
-
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
         <![endif]-->
@@ -128,12 +126,10 @@ var translations = {
         -->
 
         
-
-        
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20210716110038">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20210716111120">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -141,10 +137,14 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20210716110038"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20210716111120"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+
+        
 
     </head>
-<body class="language-en layout-goal-by-target-vertical">
+<body class="language-en
+layout-goal-by-target-vertical
+">
 <!-- <div class="container"> -->
 
 
@@ -171,12 +171,41 @@ var translations = {
     <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
 </a>
       <div class="mobile-widgets">
-    <ul id='accessibility-nav' class='contrast-switcher'></ul></div>
+    <ul id='accessibility-nav' class='contrast-switcher'>
+        
+
+    <li class="nav-link contrast contrast-default contrast-type-default">
+        <a title="Disable high contrast"
+           aria-label="Disable high contrast"
+           data-contrast-switch-to="default"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="default"
+
+        >A</a>
+    </li>
+    <li class="nav-link contrast contrast-high contrast-type-default">
+        <a title="Enable high contrast"
+           aria-label="Enable high contrast"
+           data-contrast-switch-to="high"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="high"
+
+        >A</a>
+    </li>
+
+
+    </ul></div>
     </div>
 
     <div class="search-and-desktop-widgets">
       <div id="search" class="menu-target">
-  <form action="/sdg-indicators/search">
+  <form action="/sdg-indicators/search/">
     <label class="sr-only" for="indicator_search">Search</label>
     <input type="text" name="q" id="indicator_search" title="Search" /><!--
     --><button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
@@ -184,7 +213,35 @@ var translations = {
 </div>
 
       <div class="navbar navbar-default widgets-without-menu">
-        <ul class="nav navbar-nav contrast-switcher"></ul>
+        <ul class="nav navbar-nav contrast-switcher">
+
+    <li class="nav-link contrast contrast-default contrast-type-default">
+        <a title="Disable high contrast"
+           aria-label="Disable high contrast"
+           data-contrast-switch-to="default"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="default"
+
+        >A</a>
+    </li>
+    <li class="nav-link contrast contrast-high contrast-type-default">
+        <a title="Enable high contrast"
+           aria-label="Enable high contrast"
+           data-contrast-switch-to="high"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="high"
+
+        >A</a>
+    </li>
+
+
+        </ul>
       </div>
     </div>
 
@@ -207,6 +264,36 @@ var translations = {
 </li><li class="nav-link ">
     <a href="/sdg-indicators/updates/">Updates</a>
 </li>
+
+
+
+    <li class="nav-link contrast contrast-default contrast-type-default">
+        <a title="Disable high contrast"
+           aria-label="Disable high contrast"
+           data-contrast-switch-to="default"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="default"
+
+        >A</a>
+    </li>
+    <li class="nav-link contrast contrast-high contrast-type-default">
+        <a title="Enable high contrast"
+           aria-label="Enable high contrast"
+           data-contrast-switch-to="high"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="high"
+
+        >A</a>
+    </li>
+
+
+
 </ul>
 
     </li>
@@ -215,7 +302,7 @@ var translations = {
         aria-haspopup="true">
         <button data-target="search-mobile" aria-expanded="false">Search</button>
         <div id="search-mobile" class="menu-target">
-  <form action="/sdg-indicators/search">
+  <form action="/sdg-indicators/search/">
     <label class="sr-only" for="indicator_search-mobile">Search</label>
     <input type="text" name="q" id="indicator_search-mobile" title="Search" /><!--
     --><button aria-label="Search" id="search-mobile-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
@@ -237,6 +324,7 @@ var translations = {
 </li><li class="nav-link ">
     <a href="/sdg-indicators/updates/">Updates</a>
 </li>
+
 </ul>
 
     </div>
@@ -275,6 +363,7 @@ var translations = {
   </div>
 </div>
 
+
 <div id="main-content" class="container" role="main">
 
   
@@ -297,11 +386,6 @@ var translations = {
           
           
           
-          
-          
-          
-          
-          
 
           <div class="goal-indicator">
             <h4>
@@ -309,19 +393,18 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-1-1">Maternal mortality ratio</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
         
 
-          
-          
-          
-          
-          
           
           
           
@@ -332,9 +415,13 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-1-2">Proportion of births attended by skilled health personnel</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
@@ -352,11 +439,6 @@ var translations = {
           
           
           
-          
-          
-          
-          
-          
 
           <div class="goal-indicator">
             <h4>
@@ -364,19 +446,18 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-2-1">Under‐5 mortality rate</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
         
 
-          
-          
-          
-          
-          
           
           
           
@@ -387,9 +468,13 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-2-2">Neonatal mortality rate</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
@@ -407,11 +492,6 @@ var translations = {
           
           
           
-          
-          
-          
-          
-          
 
           <div class="goal-indicator">
             <h4>
@@ -419,19 +499,18 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-3-1">Number of new HIV infections per 1,000 uninfected population, by sex, age and key populations</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
         
 
-          
-          
-          
-          
-          
           
           
           
@@ -442,19 +521,18 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-3-2">Tuberculosis incidence per 100,000 population</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
         
 
-          
-          
-          
-          
-          
           
           
           
@@ -465,19 +543,18 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-3-3">Malaria incidence per 1,000 population</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
         
 
-          
-          
-          
-          
-          
           
           
           
@@ -488,19 +565,18 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-3-4">Hepatitis B incidence per 100,000 population</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
         
 
-          
-          
-          
-          
-          
           
           
           
@@ -511,9 +587,13 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-3-5">Number of people requiring interventions against neglected tropical diseases</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
@@ -531,11 +611,6 @@ var translations = {
           
           
           
-          
-          
-          
-          
-          
 
           <div class="goal-indicator">
             <h4>
@@ -543,19 +618,18 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-4-1">Mortality rate attributed to cardiovascular disease, cancer, diabetes or chronic respiratory disease</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
         
 
-          
-          
-          
-          
-          
           
           
           
@@ -566,9 +640,13 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-4-2">Suicide mortality rate</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
@@ -586,11 +664,6 @@ var translations = {
           
           
           
-          
-          
-          
-          
-          
 
           <div class="goal-indicator">
             <h4>
@@ -598,19 +671,18 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-5-1">Coverage of treatment interventions (pharmacological, psychosocial and rehabilitation and aftercare services) for substance use disorders</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
         
 
-          
-          
-          
-          
-          
           
           
           
@@ -621,9 +693,13 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-5-2">Alcohol per capita consumption (aged 15 years and older) within a calendar year in litres of pure alcohol</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
@@ -641,11 +717,6 @@ var translations = {
           
           
           
-          
-          
-          
-          
-          
 
           <div class="goal-indicator">
             <h4>
@@ -653,9 +724,13 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-6-1">Death rate due to road traffic injuries</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
@@ -673,11 +748,6 @@ var translations = {
           
           
           
-          
-          
-          
-          
-          
 
           <div class="goal-indicator">
             <h4>
@@ -685,19 +755,18 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-7-1">Proportion of women of reproductive age (aged 15–49 years) who have their need for family planning satisfied with modern methods</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
         
 
-          
-          
-          
-          
-          
           
           
           
@@ -708,9 +777,13 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-7-2">Adolescent birth rate (aged 10–14 years; aged 15–19 years) per 1,000 women in that age group</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
@@ -728,11 +801,6 @@ var translations = {
           
           
           
-          
-          
-          
-          
-          
 
           <div class="goal-indicator">
             <h4>
@@ -740,19 +808,18 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-8-1">Coverage of essential health services</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+            
+
+
+<span class="status notstarted">
+    Exploring data sources
+</span>
+
             
 
           </div>
         
 
-          
-          
-          
-          
-          
           
           
           
@@ -763,9 +830,13 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-8-2">Proportion of population with large household expenditures on health as a share of total household expenditure or income</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
@@ -783,11 +854,6 @@ var translations = {
           
           
           
-          
-          
-          
-          
-          
 
           <div class="goal-indicator">
             <h4>
@@ -795,19 +861,18 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-9-1">Mortality rate attributed to household and ambient air pollution</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
         
 
-          
-          
-          
-          
-          
           
           
           
@@ -818,19 +883,18 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-9-2">Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene (exposure to unsafe Water, Sanitation and Hygiene for All (WASH) services)</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
         
 
-          
-          
-          
-          
-          
           
           
           
@@ -841,9 +905,13 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-9-3">Mortality rate attributed to unintentional poisoning</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
@@ -861,11 +929,6 @@ var translations = {
           
           
           
-          
-          
-          
-          
-          
 
           <div class="goal-indicator">
             <h4>
@@ -873,9 +936,13 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-a-1">Age-standardized prevalence of current tobacco use among persons aged 15 years and older</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
@@ -893,11 +960,6 @@ var translations = {
           
           
           
-          
-          
-          
-          
-          
 
           <div class="goal-indicator">
             <h4>
@@ -905,19 +967,18 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-b-1">Proportion of the target population covered by all vaccines included in their national programme</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
         
 
-          
-          
-          
-          
-          
           
           
           
@@ -928,19 +989,18 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-b-2">Total net official development assistance to medical research and basic health sectors</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
         
 
-          
-          
-          
-          
-          
           
           
           
@@ -951,9 +1011,13 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-b-3">Proportion of health facilities that have a core set of relevant essential medicines available and affordable on a sustainable basis</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+            
+
+
+<span class="status notstarted">
+    Exploring data sources
+</span>
+
             
 
           </div>
@@ -971,11 +1035,6 @@ var translations = {
           
           
           
-          
-          
-          
-          
-          
 
           <div class="goal-indicator">
             <h4>
@@ -983,9 +1042,13 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-c-1">Health worker density and distribution</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
@@ -1003,11 +1066,6 @@ var translations = {
           
           
           
-          
-          
-          
-          
-          
 
           <div class="goal-indicator">
             <h4>
@@ -1015,19 +1073,18 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-d-1">International Health Regulations (IHR) capacity and health emergency preparedness</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status complete">
-              Reported online
-            </span>
+            
+
+
+<span class="status complete">
+    Reported
+</span>
+
             
 
           </div>
         
 
-          
-          
-          
-          
-          
           
           
           
@@ -1038,9 +1095,13 @@ var translations = {
             </h4>
             <span class="indicator-name"><a href="/sdg-indicators/3-d-2">Percentage of bloodstream infections due to selected antimicrobial-resistant organisms</a></span>
             <span class="sr-only">Indicator status</span>
-            <span class="status notstarted">
-              Exploring data sources
-            </span>
+            
+
+
+<span class="status notstarted">
+    Exploring data sources
+</span>
+
             
 
           </div>
@@ -1097,7 +1158,6 @@ var translations = {
 
 <!-- /.container </div> -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
@@ -1116,12 +1176,12 @@ var translations = {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20210716110038'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20210716111120'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20210716110038"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20210716111120"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
@@ -1161,6 +1221,7 @@ $(function() {
               stackedDisaggregation: domData.stackeddisaggregation,
               graphAnnotations: domData.graphannotations,
               indicatorDownloads: domData.indicatordownloads,
+              dataSchema: domData.dataschema,
               compositeBreakdownLabel: domData.compositebreakdownlabel,
               precision: domData.precision,
             }),
