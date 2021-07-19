@@ -6,6 +6,17 @@ on:
       - 'feature-*'
 
 jobs:
+  pre_job:
+    # continue-on-error: true # Uncomment once integration is finished
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel all existing duplicate workflows on branch
+        uses: fkirc/skip-duplicate-actions@master
+        with:
+          # All of these options are optional, so you can remove them if you are happy with the defaults
+          skip_after_successful_duplicate: 'false'
+          cancel_others: 'true'
+          
   deploy:
     runs-on: ubuntu-latest
 
