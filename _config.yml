@@ -15,6 +15,9 @@ environment: staging
 
 remote_data_prefix: "https://ONSdigital.github.io/sdg-data"
 
+cookie_consent_form:
+  enabled: true
+
 create_indicators:
   layout: indicator
 create_goals:
@@ -150,7 +153,7 @@ plugins:
   - jekyll-remote-theme
   - jekyll-open-sdg-plugins
 
-remote_theme: open-sdg/open-sdg@1.4.0
+remote_theme: brockfanning/open-sdg@cookies
 
 # Apply any custom Javascript.
 custom_js:
