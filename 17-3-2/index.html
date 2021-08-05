@@ -134,7 +134,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20210805002103">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20210805090152">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -142,7 +142,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20210805002103"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20210805090152"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
         
 
@@ -445,7 +445,7 @@ data-event-label="high"
   data-stackeddisaggregation=""
   data-graphannotations="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;},{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Volume of remittances as a proportion of total GDP&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Percentage (%)&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;},{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -491,15 +491,19 @@ data-event-label="high"
         
         
         
+        <th scope="col">Units</th>
+        
+        
+        
+        <th scope="col">Series</th>
+        
+        
+        
         <th scope="col">Observation status</th>
         
         
         
-        <th scope="col">Unit multiplier</th>
-        
-        
-        
-        <th scope="col" class="table-value">Unit measure</th>
+        <th scope="col" class="table-value">Unit multiplier</th>
         
         
       </thead>
@@ -516,15 +520,19 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -540,15 +548,19 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -564,15 +576,19 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -588,15 +604,19 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -612,15 +632,19 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -636,15 +660,19 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -660,15 +688,19 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -684,15 +716,19 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -704,19 +740,23 @@ data-event-label="high"
           
           
           
-          <td>0.1042904537</td>
+          <td>0.104288123</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -728,19 +768,23 @@ data-event-label="high"
           
           
           
-          <td>0.1004301117</td>
+          <td>0.1004278978</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -752,19 +796,23 @@ data-event-label="high"
           
           
           
-          <td>0.1057597902</td>
+          <td>0.1058192402</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -776,19 +824,23 @@ data-event-label="high"
           
           
           
-          <td>0.0843543445</td>
+          <td>0.0842804999</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -800,19 +852,23 @@ data-event-label="high"
           
           
           
-          <td>0.3237628332</td>
+          <td>0.3238061157</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -824,19 +880,23 @@ data-event-label="high"
           
           
           
-          <td>0.3060874979</td>
+          <td>0.3060179516</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -848,19 +908,23 @@ data-event-label="high"
           
           
           
-          <td>0.3021252315</td>
+          <td>0.3024182336</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -872,19 +936,23 @@ data-event-label="high"
           
           
           
-          <td>0.2933677591</td>
+          <td>0.2940915012</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -896,19 +964,23 @@ data-event-label="high"
           
           
           
-          <td>0.2770828154</td>
+          <td>0.277366474</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -920,19 +992,23 @@ data-event-label="high"
           
           
           
-          <td>0.2456957375</td>
+          <td>0.246193485</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -944,19 +1020,23 @@ data-event-label="high"
           
           
           
-          <td>0.2381224132</td>
+          <td>0.2386755669</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -968,19 +1048,23 @@ data-event-label="high"
           
           
           
-          <td>0.224991499</td>
+          <td>0.2256346295</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -992,19 +1076,23 @@ data-event-label="high"
           
           
           
-          <td>0.2114345214</td>
+          <td>0.2119454373</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -1016,19 +1104,23 @@ data-event-label="high"
           
           
           
-          <td>0.2051242982</td>
+          <td>0.2052110327</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -1040,19 +1132,23 @@ data-event-label="high"
           
           
           
-          <td>0.2174690177</td>
+          <td>0.2173356022</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -1064,19 +1160,23 @@ data-event-label="high"
           
           
           
-          <td>0.2000370117</td>
+          <td>0.1995263405</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -1088,19 +1188,23 @@ data-event-label="high"
           
           
           
-          <td>0.1917415933</td>
+          <td>0.1917003609</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -1112,19 +1216,23 @@ data-event-label="high"
           
           
           
-          <td>0.1828067063</td>
+          <td>0.1828655497</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -1136,19 +1244,23 @@ data-event-label="high"
           
           
           
-          <td>0.1724502142</td>
+          <td>0.1726219539</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -1160,19 +1272,23 @@ data-event-label="high"
           
           
           
-          <td>0.1610934092</td>
+          <td>0.161003135</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -1184,19 +1300,23 @@ data-event-label="high"
           
           
           
-          <td>0.1708464406</td>
+          <td>0.1706021379</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -1208,19 +1328,23 @@ data-event-label="high"
           
           
           
-          <td>0.170074317</td>
+          <td>0.1701397134</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -1232,19 +1356,23 @@ data-event-label="high"
           
           
           
-          <td>0.1616097375</td>
+          <td>0.1618370645</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -1256,19 +1384,23 @@ data-event-label="high"
           
           
           
-          <td>0.1534532709</td>
+          <td>0.1536332486</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -1280,19 +1412,51 @@ data-event-label="high"
           
           
           
-          <td>0.1440478805</td>
+          <td>0.1488905767</td>
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Volume of remittances as a proportion of total GDP</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>0.1221341846</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Volume of remittances as a proportion of total GDP</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -1817,7 +1981,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            
+            <p>No calculations were performed, data is obtained is a ready format from the source</p>
 
           
         </td>
@@ -1831,7 +1995,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
+            <p>Data is represents World Bank staff estimates based on IMF balance of payments data, and World Bank and OECD GDP estimates Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -1845,7 +2009,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            04 August 2021
+            05 August 2021
           
         </td>
         </tr>
@@ -1858,7 +2022,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            04 August 2021
+            05 August 2021
           
         </td>
         </tr>
@@ -2364,7 +2528,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            15 October 2020
+            21 July 2021
           
         </td>
         </tr>
@@ -2377,7 +2541,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>TBC</p>
+            <p>Check source link</p>
 
           
         </td>
@@ -2391,7 +2555,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Non-official</p>
+            <p>Not classified</p>
 
           
         </td>
@@ -2623,12 +2787,12 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20210805002103'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20210805090152'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20210805002103"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20210805090152"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
