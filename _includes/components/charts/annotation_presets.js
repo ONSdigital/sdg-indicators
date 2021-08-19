@@ -11,8 +11,8 @@ opensdg.annotationPresets = {
         highContrast: {
             label: {
                 backgroundColor: 'white',
-                fontColor: 'black',
-            },
+                fontColor: 'black'
+            }
         },
         // This callback is used to generate a generic description for screenreaders.
         // This can be overridden to be a more specific string, eg:
@@ -54,16 +54,12 @@ opensdg.annotationPresets = {
       borderWidth: 2,
       highContrast: {
           borderColor: 'white',
-          label: {
-            backgroundColor: 'black',
-            fontColor: 'white',
-        },
       },
       label: {
           position: 'left',
           content: "series break: see footnote for details",
-          backgroundColor: 'white',
-          fontColor: '#666',
+          color: '#666',
+          backgroundColor: '#FFF'
       },
     },
 };
