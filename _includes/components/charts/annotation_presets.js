@@ -53,12 +53,16 @@ opensdg.annotationPresets = {
       borderDash: [10, 5],
       highContrast: {
           borderColor: 'white',
+          label: {
+            backgroundColor: 'black',
+            fontColor: 'white',
+        },
       },
       label: {
           position: 'top',
           content: "series break: see footnote for details",
           backgroundColor: 'white',
-          fontColor: '#333333',
+          fontColor: 'black',
       },
     },
 };
