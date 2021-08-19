@@ -51,6 +51,7 @@ opensdg.annotationPresets = {
       mode: 'vertical',
       borderColor: '#949494',
       borderDash: [10, 5],
+      borderWidth: 2,
       highContrast: {
           borderColor: 'white',
           label: {
