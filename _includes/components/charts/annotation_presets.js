@@ -37,7 +37,7 @@ opensdg.annotationPresets = {
                 descriptionParts.push(this.value);
             }
             return descriptionParts.join(': ');
-        },
+        }
     },
     target_line: {
         mode: 'horizontal',
@@ -45,7 +45,7 @@ opensdg.annotationPresets = {
         label: {
             position: 'right',
             content: translations.indicator.annotation_2030_target,
-        },
+        }
     },
     series_break: {
       mode: 'vertical',
@@ -59,7 +59,7 @@ opensdg.annotationPresets = {
           position: 'top',
           content: 'series break: see footnote for details',
           fontColor: '#666',
-          backgroundColor: 'rgba(255,255,255,1)',
-      },
-    },
+          backgroundColor: 'rgba(255,255,255,1)'
+      }
+    }
 };
