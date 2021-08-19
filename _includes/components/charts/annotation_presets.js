@@ -58,7 +58,8 @@ opensdg.annotationPresets = {
       label: {
           position: 'left',
           content: "series break: see footnote for details",
-          color: '#666',
-      },
-    },
+          fontColor: '#666',
+          backgroundColor: '#fff'
+      }
+    }
 };
