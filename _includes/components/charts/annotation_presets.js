@@ -57,7 +57,7 @@ opensdg.annotationPresets = {
       },
       label: {
           content: 'series break: see footnote for details',
-          yAdjust: -5,
+          yAdjust: 100,
           backgroundColor: 'red'
       }
     }
