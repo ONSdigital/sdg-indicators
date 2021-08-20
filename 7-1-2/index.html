@@ -134,7 +134,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20210819102120">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20210820002120">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet" crossorigin="">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -142,7 +142,7 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20210819102120"><!-- ShareThis BEGIN --><!-- ShareThis END -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin=""><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20210820002120"><!-- ShareThis BEGIN --><!-- ShareThis END -->
 
         
 
@@ -445,7 +445,7 @@ data-event-label="high"
   data-stackeddisaggregation=""
   data-graphannotations="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;},{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Urban/Rural&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Rural&quot;,&quot;Urban&quot;]},&quot;title&quot;:&quot;Urban/Rural&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;},{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -913,13 +913,85 @@ data-event-label="high"
           
         </tr>
         
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>100.0</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>100.0</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>100.0</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
       </tbody>
     </table>
   </div>
 
   <div id="datatableFooter">
     
-    <p>Source: World Bank (WB)</p>
+    <p>Source: World Health Organisation</p>
     
     
     <p>Geographical Area: United Kingdom</p>
@@ -1209,7 +1281,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank (WB)</dd>
+        <dd>World Health Organisation</dd>
         
 
         
@@ -1254,7 +1326,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank (WB)</dd>
+        <dd>World Health Organisation</dd>
         
 
         
@@ -1405,7 +1477,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Access to clean fuels and technologies for cooking is the proportion of total population primarily using clean cooking fuels and technologies for cooking. Under WHO guidelines, kerosene is excluded from clean cooking fuels.</p>
+            <p>Access to clean fuels and technologies for cooking is the proportion of total population primarily using clean cooking fuels and technologies for cooking. “Clean” is defined by the emission rate targets and specific fuel recommendations (i.e. against unprocessed coal and kerosene) included in the normative guidance <a href="https://www.who.int/publications/i/item/9789241548885">WHO guidelines for indoor air quality: household fuel combustion.</a></p>
 
           
         </td>
@@ -1897,7 +1969,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>World Bank (WB)</p>
+            <p>World Health Organisation</p>
 
           
         </td>
@@ -1959,7 +2031,7 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://data.worldbank.org/indicator/EG.CFT.ACCS.ZS" target="_blank">
+              <a href="https://apps.who.int/gho/data/view.main.HHAIRFUELSCLEANCOUNTRYv" target="_blank">
                 Access to clean fuels and technologies for cooking (% of population) <span class="visuallyhidden">opens in a new window</span>
               </a>
             
@@ -1980,7 +2052,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            N/A
+            06 July 2021
           
         </td>
         </tr>
@@ -2021,7 +2093,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>http://www.worldbank.org/</p>
+            <p>sdg7@who.int</p>
 
           
         </td>
@@ -2239,12 +2311,12 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20210819102120'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20210820002120'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20210819102120"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20210820002120"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
