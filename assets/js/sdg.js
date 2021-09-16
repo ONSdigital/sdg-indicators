@@ -421,6 +421,11 @@ opensdg.autotrack = function(preset, category, action, label) {
         }
 
         // Calculate the ranges of values, years and colors.
+        function isMapValueInvalid(val) {
+          return _.isNaN(val) || val === '';
+        }
+        minimumValues = _.reject(minimumValues, isMapValueInvalid);
+        maximumValues = _.reject(maximumValues, isMapValueInvalid);
         plugin.valueRange = [_.min(minimumValues), _.max(maximumValues)];
         plugin.colorScale = chroma.scale(plugin.options.colorRange)
           .domain(plugin.valueRange)
@@ -995,7 +1000,6 @@ var accessibilitySwitcher = function() {
 
   function imageFix(contrast) {
     var doNotSwitchTheseSuffixes = ['.svg'];
-    var doNotSwitchThesePrefixes = ['https://platform-cdn.sharethis.com/'];
     if (contrast == 'high')  {
       _.each($('img:not([src*=high-contrast])'), function(image) {
         var src = $(image).attr('src').toLowerCase();
@@ -1003,12 +1007,6 @@ var accessibilitySwitcher = function() {
         for (var i = 0; i < doNotSwitchTheseSuffixes.length; i++) {
           var suffix = doNotSwitchTheseSuffixes[i];
           if (src.slice(0 - suffix.length) === suffix) {
-            switchThisImage = false;
-          }
-        }
-        for (var i = 0; i < doNotSwitchThesePrefixes.length; i++) {
-          var prefix = doNotSwitchThesePrefixes[i];
-          if (src.slice(0, prefix.length) === prefix) {
             switchThisImage = false;
           }
         }
@@ -1961,8 +1959,44 @@ function getGraphLimits(graphLimits, selectedUnit, selectedSeries) {
  * @param {String} selectedSeries
  * @return {Array} Graph annotations objects, if any
  */
-function getGraphAnnotations(graphAnnotations, selectedUnit, selectedSeries) {
-  return getMatchesByUnitSeries(graphAnnotations, selectedUnit, selectedSeries);
+function getGraphAnnotations(graphAnnotations, selectedUnit, selectedSeries, graphTargetLines, graphSeriesBreaks) {
+  var annotations = getMatchesByUnitSeries(graphAnnotations, selectedUnit, selectedSeries);
+  if (graphTargetLines) {
+    annotations = annotations.concat(getGraphTargetLines(graphTargetLines, selectedUnit, selectedSeries));
+  }
+  if (graphSeriesBreaks) {
+    annotations = annotations.concat(getGraphSeriesBreaks(graphSeriesBreaks, selectedUnit, selectedSeries));
+  }
+  return annotations;
+}
+
+/**
+ * @param {Array} graphTargetLines Objects containing 'unit' or 'series' or more
+ * @param {String} selectedUnit
+ * @param {String} selectedSeries
+ * @return {Array} Graph annotations objects, if any
+ */
+function getGraphTargetLines(graphTargetLines, selectedUnit, selectedSeries) {
+  return getMatchesByUnitSeries(graphTargetLines, selectedUnit, selectedSeries).map(function(targetLine) {
+    targetLine.preset = 'target_line';
+    targetLine.label = { content: targetLine.label_content };
+    return targetLine;
+  });
+
+}
+
+/**
+ * @param {Array} graphSeriesBreaks Objects containing 'unit' or 'series' or more
+ * @param {String} selectedUnit
+ * @param {String} selectedSeries
+ * @return {Array} Graph annotations objects, if any
+ */
+function getGraphSeriesBreaks(graphSeriesBreaks, selectedUnit, selectedSeries) {
+  return getMatchesByUnitSeries(graphSeriesBreaks, selectedUnit, selectedSeries).map(function(seriesBreak) {
+    seriesBreak.preset = 'series_break';
+    seriesBreak.label = { content: seriesBreak.label_content };
+    return seriesBreak;
+  });
 }
 
 /**
@@ -2498,6 +2532,7 @@ function getPrecision(precisions, selectedUnit, selectedSeries) {
   this.chartTitles = options.chartTitles;
   this.graphType = options.graphType;
   this.measurementUnit = options.measurementUnit;
+  this.xAxisLabel = options.xAxisLabel;
   this.startValues = options.startValues;
   this.showData = options.showData;
   this.selectedFields = [];
@@ -2515,6 +2550,8 @@ function getPrecision(precisions, selectedUnit, selectedSeries) {
   this.graphLimits = options.graphLimits;
   this.stackedDisaggregation = options.stackedDisaggregation;
   this.graphAnnotations = options.graphAnnotations;
+  this.graphTargetLines = options.graphTargetLines;
+  this.graphSeriesBreaks = options.graphSeriesBreaks;
   this.indicatorDownloads = options.indicatorDownloads;
   this.compositeBreakdownLabel = options.compositeBreakdownLabel;
   this.precision = options.precision;
@@ -2787,7 +2824,7 @@ function getPrecision(precisions, selectedUnit, selectedSeries) {
       selectedSeries: this.selectedSeries,
       graphLimits: helpers.getGraphLimits(this.graphLimits, this.selectedUnit, this.selectedSeries),
       stackedDisaggregation: this.stackedDisaggregation,
-      graphAnnotations: helpers.getGraphAnnotations(this.graphAnnotations, this.selectedUnit, this.selectedSeries),
+      graphAnnotations: helpers.getGraphAnnotations(this.graphAnnotations, this.selectedUnit, this.selectedSeries, this.graphTargetLines, this.graphSeriesBreaks),
       chartTitle: this.chartTitle,
       indicatorDownloads: this.indicatorDownloads,
       precision: helpers.getPrecision(this.precision, this.selectedUnit, this.selectedSeries),
@@ -3098,7 +3135,9 @@ var indicatorView = function (model, options) {
       selectedUnit: selectedUnit
     }));
 
-    if(!units.length) {
+    
+    if (units.length <= 1) {
+    
       $(this._rootElement).addClass('no-units');
     }
   };
@@ -3115,7 +3154,9 @@ var indicatorView = function (model, options) {
         selectedSeries: selectedSeries
       }));
 
-      if(!serieses.length) {
+      
+      if (serieses.length <= 1) {
+      
         $(this._rootElement).addClass('no-serieses');
       }
     }
@@ -3238,6 +3279,13 @@ var indicatorView = function (model, options) {
             ticks: {
               fontColor: tickColor,
             },
+            scaleLabel: {
+              display: this._model.xAxisLabel ? true : false,
+              labelString: this._model.xAxisLabel,
+              fontColor: tickColor,
+              fontSize: 14,
+              fontFamily: "'Open Sans', Helvetica, Arial, sans-serif",
+            }
           }],
           yAxes: [{
             gridLines: {
@@ -3256,6 +3304,8 @@ var indicatorView = function (model, options) {
               display: this._model.selectedUnit ? translations.t(this._model.selectedUnit) : this._model.measurementUnit,
               labelString: this._model.selectedUnit ? translations.t(this._model.selectedUnit) : this._model.measurementUnit,
               fontColor: tickColor,
+              fontSize: 14,
+              fontFamily: "'Open Sans', Helvetica, Arial, sans-serif",
             }
           }]
         },
@@ -3284,6 +3334,7 @@ var indicatorView = function (model, options) {
           scaler: {}
         },
         tooltips: {
+          backgroundColor: 'rgba(0,0,0,0.7)',
           callbacks: {
             label: function(tooltipItems, data) {
               return data.datasets[tooltipItems.datasetIndex].label + ': ' + view_obj.alterDataDisplay(tooltipItems.yLabel, data, 'chart tooltip');
@@ -4104,6 +4155,9 @@ $(function() {
   if (typeof translations.general === 'undefined') {
     translations.general = { hide: 'Hide' };
   }
+  if (typeof translations.cookies === 'undefined') {
+    translations.cookies = { cookie_settings: 'Cookie settings' };
+  }
   // @deprecated end
 
   var topLevelSearchLink = $('.top-level span:eq(1), .top-level button:eq(1)');
@@ -4194,6 +4248,9 @@ $(function() {
     // update the viewport width:
     $('body').data('vwidth', viewportWidth);
   });
+
+  // Add the cookie settings link in the footer.
+  
 });
 /*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js */
 "document"in self&&("classList"in document.createElement("_")&&(!document.createElementNS||"classList"in document.createElementNS("http://www.w3.org/2000/svg","g"))||!function(t){"use strict";if("Element"in t){var e="classList",n="prototype",i=t.Element[n],s=Object,r=String[n].trim||function(){return this.replace(/^\s+|\s+$/g,"")},o=Array[n].indexOf||function(t){for(var e=0,n=this.length;n>e;e++)if(e in this&&this[e]===t)return e;return-1},a=function(t,e){this.name=t,this.code=DOMException[t],this.message=e},c=function(t,e){if(""===e)throw new a("SYNTAX_ERR","An invalid or illegal string was specified");if(/\s/.test(e))throw new a("INVALID_CHARACTER_ERR","String contains an invalid character");return o.call(t,e)},l=function(t){for(var e=r.call(t.getAttribute("class")||""),n=e?e.split(/\s+/):[],i=0,s=n.length;s>i;i++)this.push(n[i]);this._updateClassName=function(){t.setAttribute("class",""+this)}},u=l[n]=[],h=function(){return new l(this)};if(a[n]=Error[n],u.item=function(t){return this[t]||null},u.contains=function(t){return t+="",-1!==c(this,t)},u.add=function(){var t,e=arguments,n=0,i=e.length,s=!1;do t=e[n]+"",-1===c(this,t)&&(this.push(t),s=!0);while(++n<i);s&&this._updateClassName()},u.remove=function(){var t,e,n=arguments,i=0,s=n.length,r=!1;do for(t=n[i]+"",e=c(this,t);-1!==e;)this.splice(e,1),r=!0,e=c(this,t);while(++i<s);r&&this._updateClassName()},u.toggle=function(t,e){t+="";var n=this.contains(t),i=n?e!==!0&&"remove":e!==!1&&"add";return i&&this[i](t),e===!0||e===!1?e:!n},u.toString=function(){return this.join(" ")},s.defineProperty){var f={get:h,enumerable:!0,configurable:!0};try{s.defineProperty(i,e,f)}catch(g){(void 0===g.number||-2146823252===g.number)&&(f.enumerable=!1,s.defineProperty(i,e,f))}}else s[n].__defineGetter__&&i.__defineGetter__(e,h)}}(self),function(){"use strict";var t=document.createElement("_");if(t.classList.add("c1","c2"),!t.classList.contains("c2")){var e=function(t){var e=DOMTokenList.prototype[t];DOMTokenList.prototype[t]=function(t){var n,i=arguments.length;for(n=0;i>n;n++)t=arguments[n],e.call(this,t)}};e("add"),e("remove")}if(t.classList.toggle("c3",!1),t.classList.contains("c3")){var n=DOMTokenList.prototype.toggle;DOMTokenList.prototype.toggle=function(t,e){return 1 in arguments&&!this.contains(t)==!e?e:n.call(this,t)}}t=null}());/*! modernizr 3.5.0 (Custom Build) | MIT *
@@ -4641,28 +4698,6 @@ $(function() {
     }
   });
 }());
-function initialiseGoogleAnalytics(){
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    sendPageviewToGoogleAnalytics();
-}
-
-function sendPageviewToGoogleAnalytics(){
-    ga('create', '', 'auto');
-    ga('require', 'eventTracker', {
-        attributePrefix: 'data-'
-    });
-    // anonymize user IPs (chops off the last IP triplet)
-    ga('set', 'anonymizeIp', true);
-    // forces SSL even if the page were somehow loaded over http://
-    ga('set', 'forceSSL', true);
-    ga('send', 'pageview');
-}
-
-
 $(document).ready(function() {
     $('a[href="#top"]').prepend('<i class="fa fa-arrow-up"></i>');
 });
