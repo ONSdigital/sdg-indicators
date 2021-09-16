@@ -164,6 +164,6 @@ We use [SurveyMonkey](https://www.surveymonkey.co.uk/) to collect feedback about
 
 ## How we use the information we collect
 
-To find out how we collect, store and use information about you or your visit, see our privacy policy.
+To find out how we collect, store and use information about you or your visit, see our [privacy notice]({{ site.baseurl }}/privacy-notice).
 
 <br>{% include custom/cookie-page-submit.html %}
