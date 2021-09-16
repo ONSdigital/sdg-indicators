@@ -24,6 +24,13 @@ We publish a yearly update on our progress towards measuring the global Sustaina
 <br>
 <br>
 ## All goals
+[UK Sustainable Development Goals: use of non-official sources](https://www.ons.gov.uk/economy/environmentalaccounts/methodologies/uksustainabledevelopmentgoalsuseofnonofficialsources)
+
+We outline our approach to assessing the quality and suitability of non-official sources for reporting the UK’s progress towards the Sustainable Development Goals.
+
+<small>8 July 2021</small>
+<br>
+<br>
 [UK SDG Voluntary National Review](https://www.gov.uk/government/publications/uks-voluntary-national-review-of-the-sustainable-development-goals)
 
 The UK’s first Voluntary National Review taking stock of progress towards the Sustainable Development Goals.
