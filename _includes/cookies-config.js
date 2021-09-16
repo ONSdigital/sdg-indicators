@@ -1,3 +1,6 @@
+{% assign analytics_ga_prod = site.analytics.ga_prod and site.analytics.ga_prod != '' %}
+{% assign analytics_ua = site.analytics.ua and site.analytics.ua != '' %}
+{% assign analytics_gtag = site.analytics.gtag and site.analytics.gtag != '' %}
 var klaroConfig = {
     noAutoLoad: true, // no autoload because we have a custom notice and form
     storageMethod: 'cookie',
@@ -11,16 +14,14 @@ var klaroConfig = {
             cookies: ['contrast'],
             required: true,
         },
-        {% if site.analytics.ga_prod and site.analytics.ga_prod != '' %}
+        {% if analytics_ga_prod or analytics_ua or analytics_gtag  %}
         {
             name: 'google-analytics',
-            cookies: ['_gat', '_gid', 'ga'],
-            callback: function(consent, service) {
-                if (consent) {
-                    console.log('Debug: Sending analytics to Google...');
-                    initialiseGoogleAnalytics();
-                }
-            },
+            {% if site.analytics.extra_cookies %}
+            cookies: [].concat(['_gat', '_gid', '_ga'], {{ site.analytics.extra_cookies | jsonify }}),
+            {% else %}
+            cookies: ['_gat', '_gid', '_ga'],
+            {% endif %}
         },
         {% endif %}
         {
@@ -38,13 +39,10 @@ var klaroConfig = {
                 '_hjUserAttributesHash',
                 '_hjCachedUserAttributes',
                 '_hjLocalStorageTest',
+                '_hjAbsoluteSessionInProgress',
+                '_hjFirstSeen',
+                '_hjIncludedInPageviewSample',
             ],
-            callback: function(consent, service) {
-                if (consent) {
-                    console.log('Debug: Sending analytics to Hotjar...');
-                    initialiseHotjar();
-                }
-            },
         }
     ],
 };
