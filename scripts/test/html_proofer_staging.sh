@@ -15,5 +15,5 @@ JEKYLL_BASEURL=$(
 mkdir -p ./_test$JEKYLL_BASEURL &&
 cp -r ./_site/* ./_test$JEKYLL_BASEURL/ &&
 touch ./_test/index.html &&
-bundle exec htmlproofer --disable-external ./_test &&
+bundle exec htmlproofer --allow-hash-href --disable-external ./_test &&
 rm -rf ./_test
