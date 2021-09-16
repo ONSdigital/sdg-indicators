@@ -24,6 +24,7 @@ var klaroConfig = {
             {% endif %}
         },
         {% endif %}
+        {% if site.hotjar %}
         {
             name: 'hotjar',
             cookies: [
@@ -43,6 +44,7 @@ var klaroConfig = {
                 '_hjFirstSeen',
                 '_hjIncludedInPageviewSample',
             ],
-        }
+        },
+        {% endif %}
     ],
 };
