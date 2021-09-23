@@ -138,7 +138,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20210923002153">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20210923135023">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20210923002153">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20210923135023">
         
 
         <link rel="stylesheet" href="/sdg-indicators/assets/css/govuk.css">
@@ -541,7 +541,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Marine protected area extent&quot;,&quot;Proportion of marine protected area&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;},{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Marine protected area extent&quot;,&quot;Proportion of marine protected area&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Hectares&quot;,&quot;Percentage (%)&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;},{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -591,15 +591,15 @@ data-event-label="high"
         
         
         
+        <th scope="col">Series</th>
+        
+        
+        
         <th scope="col">Observation status</th>
         
         
         
-        <th scope="col">Unit multiplier</th>
-        
-        
-        
-        <th scope="col" class="table-value">Unit measure</th>
+        <th scope="col" class="table-value">Unit multiplier</th>
         
         
       </thead>
@@ -616,7 +616,11 @@ data-event-label="high"
           
           
           
-          <td>Marine protected area extent</td>
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Proportion of marine protected area</td>
           
           
           
@@ -624,11 +628,7 @@ data-event-label="high"
           
           
           
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -644,7 +644,11 @@ data-event-label="high"
           
           
           
-          <td>Marine protected area extent</td>
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Proportion of marine protected area</td>
           
           
           
@@ -652,11 +656,7 @@ data-event-label="high"
           
           
           
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -672,1907 +672,7 @@ data-event-label="high"
           
           
           
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1953</td>
-          
-          
-          
-          <td>0.02</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1954</td>
-          
-          
-          
-          <td>0.04</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1955</td>
-          
-          
-          
-          <td>0.04</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1956</td>
-          
-          
-          
-          <td>0.07</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1957</td>
-          
-          
-          
-          <td>0.08</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1958</td>
-          
-          
-          
-          <td>0.08</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1959</td>
-          
-          
-          
-          <td>0.08</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1960</td>
-          
-          
-          
-          <td>0.08</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1961</td>
-          
-          
-          
-          <td>0.08</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1962</td>
-          
-          
-          
-          <td>0.08</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1963</td>
-          
-          
-          
-          <td>0.08</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1964</td>
-          
-          
-          
-          <td>0.09</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1965</td>
-          
-          
-          
-          <td>0.09</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1966</td>
-          
-          
-          
-          <td>0.11</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1967</td>
-          
-          
-          
-          <td>0.11</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1968</td>
-          
-          
-          
-          <td>0.11</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1969</td>
-          
-          
-          
-          <td>0.11</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1970</td>
-          
-          
-          
-          <td>0.11</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1971</td>
-          
-          
-          
-          <td>0.12</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1972</td>
-          
-          
-          
-          <td>0.19</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1973</td>
-          
-          
-          
-          <td>0.19</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1974</td>
-          
-          
-          
-          <td>0.2</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1975</td>
-          
-          
-          
-          <td>0.2</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1976</td>
-          
-          
-          
-          <td>0.23</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1977</td>
-          
-          
-          
-          <td>0.23</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1978</td>
-          
-          
-          
-          <td>0.23</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1979</td>
-          
-          
-          
-          <td>0.23</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1980</td>
-          
-          
-          
-          <td>0.23</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1981</td>
-          
-          
-          
-          <td>0.23</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1982</td>
-          
-          
-          
-          <td>0.23</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1983</td>
-          
-          
-          
-          <td>0.23</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1984</td>
-          
-          
-          
-          <td>0.23</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1985</td>
-          
-          
-          
-          <td>0.25</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1986</td>
-          
-          
-          
-          <td>0.27</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1987</td>
-          
-          
-          
-          <td>0.27</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1988</td>
-          
-          
-          
-          <td>0.27</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1989</td>
-          
-          
-          
-          <td>0.27</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1990</td>
-          
-          
-          
-          <td>0.3</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1991</td>
-          
-          
-          
-          <td>0.3</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1992</td>
-          
-          
-          
-          <td>0.3</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1993</td>
-          
-          
-          
-          <td>0.31</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1994</td>
-          
-          
-          
-          <td>0.35</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1995</td>
-          
-          
-          
-          <td>0.35</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1996</td>
-          
-          
-          
-          <td>0.96</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1997</td>
-          
-          
-          
-          <td>1.1</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1998</td>
-          
-          
-          
-          <td>1.13</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1999</td>
-          
-          
-          
-          <td>1.16</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2000</td>
-          
-          
-          
-          <td>1.17</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2001</td>
-          
-          
-          
-          <td>1.21</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2002</td>
-          
-          
-          
-          <td>1.22</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2003</td>
-          
-          
-          
-          <td>1.3</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2004</td>
-          
-          
-          
-          <td>1.3</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2005</td>
-          
-          
-          
-          <td>1.3</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2006</td>
-          
-          
-          
-          <td>1.36</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2007</td>
-          
-          
-          
-          <td>1.41</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2008</td>
-          
-          
-          
-          <td>1.68</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2009</td>
-          
-          
-          
-          <td>1.87</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2010</td>
-          
-          
-          
-          <td>3.79</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2011</td>
-          
-          
-          
-          <td>5.04</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2012</td>
-          
-          
-          
-          <td>7.5</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2013</td>
-          
-          
-          
-          <td>8.41</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2014</td>
-          
-          
-          
-          <td>14.47</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2015</td>
-          
-          
-          
-          <td>14.48</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2016</td>
-          
-          
-          
-          <td>16.69</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2017</td>
-          
-          
-          
-          <td>20.78</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2018</td>
-          
-          
-          
-          <td>20.94</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2019</td>
-          
-          
-          
-          <td>21.84</td>
-          
-          
-          
-          <td>Marine protected area extent</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Million</td>
-          
-          
-          
-          <td class="table-value">Hectares</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1950</td>
-          
-          
-          
-          <td>0.0</td>
+          <td>Percentage (%)</td>
           
           
           
@@ -2584,67 +684,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1951</td>
-          
-          
-          
-          <td>0.01</td>
-          
-          
-          
-          <td>Proportion of marine protected area</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1952</td>
-          
-          
-          
-          <td>0.02</td>
-          
-          
-          
-          <td>Proportion of marine protected area</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -2660,6 +700,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -2668,11 +712,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -2688,6 +728,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -2696,11 +740,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -2716,6 +756,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -2724,11 +768,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -2744,6 +784,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -2752,11 +796,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -2772,6 +812,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -2780,11 +824,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -2800,6 +840,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -2808,11 +852,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -2828,6 +868,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -2836,11 +880,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -2856,6 +896,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -2864,11 +908,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -2884,6 +924,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -2892,11 +936,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -2912,6 +952,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -2920,11 +964,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -2940,6 +980,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -2948,11 +992,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -2968,6 +1008,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -2976,11 +1020,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -2996,6 +1036,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3004,11 +1048,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3024,6 +1064,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3032,11 +1076,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3052,6 +1092,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3060,11 +1104,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3080,6 +1120,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3088,11 +1132,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3108,6 +1148,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3116,11 +1160,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3136,6 +1176,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3144,11 +1188,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3164,6 +1204,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3172,11 +1216,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3192,6 +1232,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3200,11 +1244,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3220,6 +1260,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3228,11 +1272,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3248,6 +1288,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3256,11 +1300,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3276,6 +1316,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3284,11 +1328,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3304,6 +1344,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3312,11 +1356,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3332,6 +1372,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3340,11 +1384,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3360,6 +1400,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3368,11 +1412,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3388,6 +1428,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3396,11 +1440,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3416,6 +1456,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3424,11 +1468,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3444,6 +1484,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3452,11 +1496,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3472,6 +1512,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3480,11 +1524,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3500,6 +1540,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3508,11 +1552,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3528,6 +1568,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3536,11 +1580,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3556,6 +1596,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3564,11 +1608,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3584,6 +1624,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3592,11 +1636,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3612,6 +1652,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3620,11 +1664,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3640,6 +1680,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3648,11 +1692,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3668,6 +1708,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3676,11 +1720,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3696,6 +1736,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3704,11 +1748,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3724,6 +1764,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3732,11 +1776,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3752,6 +1792,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3760,11 +1804,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3780,6 +1820,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3788,11 +1832,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3808,6 +1848,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3816,11 +1860,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3836,6 +1876,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3844,11 +1888,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3864,6 +1904,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3872,11 +1916,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3892,6 +1932,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3900,11 +1944,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3920,6 +1960,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3928,11 +1972,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3948,6 +1988,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3956,11 +2000,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -3976,6 +2016,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -3984,11 +2028,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -4004,6 +2044,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -4012,11 +2056,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -4032,6 +2072,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -4040,11 +2084,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -4060,6 +2100,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -4068,11 +2112,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -4088,6 +2128,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -4096,11 +2140,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -4116,6 +2156,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -4124,11 +2168,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -4144,6 +2184,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -4152,11 +2196,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -4172,6 +2212,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -4180,11 +2224,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -4200,6 +2240,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -4208,11 +2252,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -4228,6 +2268,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -4236,11 +2280,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -4256,6 +2296,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -4264,11 +2308,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -4284,6 +2324,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -4292,11 +2336,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -4312,6 +2352,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -4320,11 +2364,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -4340,6 +2380,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -4348,11 +2392,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -4368,6 +2408,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -4376,11 +2420,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -4396,6 +2436,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -4404,11 +2448,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -4424,6 +2464,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -4432,11 +2476,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -4452,6 +2492,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -4460,11 +2504,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -4480,6 +2520,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -4488,11 +2532,7 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
+          <td class="table-value">Unit</td>
           
           
         </tr>
@@ -4508,6 +2548,10 @@ data-event-label="high"
           
           
           
+          <td>Percentage (%)</td>
+          
+          
+          
           <td>Proportion of marine protected area</td>
           
           
@@ -4516,11 +2560,1967 @@ data-event-label="high"
           
           
           
-          <td>Unit</td>
+          <td class="table-value">Unit</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1950</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>0.0</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1951</td>
+          
+          
+          
+          <td>0.01</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1952</td>
+          
+          
+          
+          <td>0.02</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1953</td>
+          
+          
+          
+          <td>0.02</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1954</td>
+          
+          
+          
+          <td>0.04</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1955</td>
+          
+          
+          
+          <td>0.04</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1956</td>
+          
+          
+          
+          <td>0.07</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1957</td>
+          
+          
+          
+          <td>0.08</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1958</td>
+          
+          
+          
+          <td>0.08</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1959</td>
+          
+          
+          
+          <td>0.08</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1960</td>
+          
+          
+          
+          <td>0.08</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1961</td>
+          
+          
+          
+          <td>0.08</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1962</td>
+          
+          
+          
+          <td>0.08</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1963</td>
+          
+          
+          
+          <td>0.08</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1964</td>
+          
+          
+          
+          <td>0.09</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1965</td>
+          
+          
+          
+          <td>0.09</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1966</td>
+          
+          
+          
+          <td>0.11</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1967</td>
+          
+          
+          
+          <td>0.11</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1968</td>
+          
+          
+          
+          <td>0.11</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1969</td>
+          
+          
+          
+          <td>0.11</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1970</td>
+          
+          
+          
+          <td>0.11</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1971</td>
+          
+          
+          
+          <td>0.12</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1972</td>
+          
+          
+          
+          <td>0.19</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1973</td>
+          
+          
+          
+          <td>0.19</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1974</td>
+          
+          
+          
+          <td>0.2</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1975</td>
+          
+          
+          
+          <td>0.2</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1976</td>
+          
+          
+          
+          <td>0.23</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1977</td>
+          
+          
+          
+          <td>0.23</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1978</td>
+          
+          
+          
+          <td>0.23</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1979</td>
+          
+          
+          
+          <td>0.23</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1980</td>
+          
+          
+          
+          <td>0.23</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1981</td>
+          
+          
+          
+          <td>0.23</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1982</td>
+          
+          
+          
+          <td>0.23</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1983</td>
+          
+          
+          
+          <td>0.23</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1984</td>
+          
+          
+          
+          <td>0.23</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1985</td>
+          
+          
+          
+          <td>0.25</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1986</td>
+          
+          
+          
+          <td>0.27</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1987</td>
+          
+          
+          
+          <td>0.27</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1988</td>
+          
+          
+          
+          <td>0.27</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1989</td>
+          
+          
+          
+          <td>0.27</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1990</td>
+          
+          
+          
+          <td>0.3</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1991</td>
+          
+          
+          
+          <td>0.3</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1992</td>
+          
+          
+          
+          <td>0.3</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1993</td>
+          
+          
+          
+          <td>0.31</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1994</td>
+          
+          
+          
+          <td>0.35</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1995</td>
+          
+          
+          
+          <td>0.35</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1996</td>
+          
+          
+          
+          <td>0.96</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1997</td>
+          
+          
+          
+          <td>1.1</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1998</td>
+          
+          
+          
+          <td>1.13</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1999</td>
+          
+          
+          
+          <td>1.16</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2000</td>
+          
+          
+          
+          <td>1.17</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2001</td>
+          
+          
+          
+          <td>1.21</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2002</td>
+          
+          
+          
+          <td>1.22</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2003</td>
+          
+          
+          
+          <td>1.3</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2004</td>
+          
+          
+          
+          <td>1.3</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2005</td>
+          
+          
+          
+          <td>1.3</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2006</td>
+          
+          
+          
+          <td>1.36</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2007</td>
+          
+          
+          
+          <td>1.41</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2008</td>
+          
+          
+          
+          <td>1.68</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2009</td>
+          
+          
+          
+          <td>1.87</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>3.79</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>5.04</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>7.5</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>8.41</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>14.47</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>14.48</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>16.69</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>20.78</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>20.94</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>21.84</td>
+          
+          
+          
+          <td>Hectares</td>
+          
+          
+          
+          <td>Marine protected area extent</td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Million</td>
           
           
         </tr>
@@ -5087,7 +5087,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            22 September 2021
+            23 September 2021
           
         </td>
         </tr>
@@ -5100,7 +5100,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            22 September 2021
+            23 September 2021
           
         </td>
         </tr>
@@ -5999,7 +5999,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20210923002153'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20210923135023'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -6007,7 +6007,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20210923002153"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20210923135023"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
