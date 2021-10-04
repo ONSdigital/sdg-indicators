@@ -173,7 +173,7 @@ progress_status:
         label: status.approaching_target
         image: assets/img/progress/approachingtarget.png
         alt: status.approaching_target
-
+        
 # Apply any custom Javascript.
 custom_js:
   - /assets/js/custom.js
@@ -228,16 +228,26 @@ goals_page:
     description: Click on each goal for UK Sustainable Development Goal global indicator data.
 
 reporting_status:
-    disaggregation_tabs: true
-    description: |
+  status_types:
+    - value: notstarted
+      label: status.exploring_data_sources
+      hide_on_goal_pages: false
+    - value: complete
+      label: status.reported_online
+      hide_on_goal_pages: true
+    - value: notapplicable
+      label: status.not_applicable
+      hide_on_goal_pages: false
+  disaggregation_tabs: true
+  description: |
 
-      Reporting status provides an overview of how much Sustainable Development Goal (SDG) data the UK reports. For more information, see [What does the reporting status mean?](https://onsdigital.github.io/sdg-indicators/faq/#what-does-the-reporting-status-mean)
+    Reporting status provides an overview of how much Sustainable Development Goal (SDG) data the UK reports. For more information, see [What does the reporting status mean?](https://onsdigital.github.io/sdg-indicators/faq/#what-does-the-reporting-status-mean)
 
-      Disaggregation status provides an overview of how many of the SDG indicators are disaggregated. For more information, see [What does the disaggregation status mean?](https://onsdigital.github.io/sdg-indicators/faq/#what-does-the-disaggregation-status-mean)
+    Disaggregation status provides an overview of how many of the SDG indicators are disaggregated. For more information, see [What does the disaggregation status mean?](https://onsdigital.github.io/sdg-indicators/faq/#what-does-the-disaggregation-status-mean)
 
-      For details about all available disaggregations and how each indicator is disaggregated, see the [UK disaggregation report](https://onsdigital.github.io/sdg-data/disaggregations.html).
+    For details about all available disaggregations and how each indicator is disaggregated, see the [UK disaggregation report](https://onsdigital.github.io/sdg-data/disaggregations.html).
 
-      Note: These percentages have been rounded. As a result, adding them together may not equal exactly 100%.
+    Note: These percentages have been rounded. As a result, adding them together may not equal exactly 100%.
 
 
 frontpage_introduction_banner:
