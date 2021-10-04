@@ -148,20 +148,20 @@ languages:
 languages_public: []
 logos: []
 map_layers:
-  - min_zoom: 4
+  - subfolder: country
+    min_zoom: 4
     max_zoom: 6
     staticBorders: true
-    subfolder: country
     label: Country
-  - min_zoom: 6
+  - subfolder: regions
+    min_zoom: 6
     max_zoom: 8
     staticBorders: true
-    subfolder: regions
     label: Regions
-  - min_zoom: 9
+  - subfolder: local_authorities
+    min_zoom: 9
     max_zoom: 12
     staticBorders: true
-    subfolder: local_authorities
     label: Local Authorities
   map_options:
   tileURL: https://{s}.tile.jawg.io/{id}/{z}/{x}/{y}{r}.png?access-token={accessToken}
