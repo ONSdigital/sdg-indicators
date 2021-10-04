@@ -152,7 +152,27 @@ plugins:
   - jekyll-remote-theme
   - jekyll-open-sdg-plugins
 
-remote_theme: open-sdg/open-sdg@1.5.0
+remote_theme: brockfanning/open-sdg@reporting-progress-mvp
+
+progress_status:
+    status_heading: Progress status for 2021
+    status_types:
+      - value: notavailable
+        label: status.not_available
+        image: assets/img/progress/notavailable.png
+        alt: status.not_available
+      - value: targetachieved
+        label: status.target_achieved
+        image: assets/img/progress/targetachieved.png
+        alt: status.target_achieved
+      - value: progressneeded
+        label: status.progress_needed
+        image: assets/img/progress/progressneeded.png
+        alt: status.progress_needed
+      - value: approachingtarget
+        label: status.approaching_target
+        image: assets/img/progress/approachingtarget.png
+        alt: status.approaching_target
 
 # Apply any custom Javascript.
 custom_js:
