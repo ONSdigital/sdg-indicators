@@ -1,0 +1,440 @@
+accessible_charts: true
+accessible_tabs: true
+analytics:
+  ua: ''
+  gtag: ''
+  gtm: ''
+  ga_prod: ''
+breadcrumbs:
+  goal:
+    - path: /
+      label: general.home
+    - path: /goals
+      label: general.goals
+  indicator:
+    - path: /
+      label: general.home
+    - path: /goals
+      label: general.goals
+  post:
+    - path: /
+      label: general.home
+    - path: /news
+      label: menu.updates
+contrast_type: single
+cookie_consent_form:
+  enabled: true
+country:
+  name: UK
+  adjective: UK
+create_goals:
+  layout: goal-by-target-vertical
+  previous_next_links: false
+  goals: []
+create_indicators:
+  layout: indicator
+  previous_next_links: false
+create_pages:
+  - filename: ''
+    folder: /
+    layout: frontpage-alt
+    title: 17 goals to transform our world
+  - filename: ''
+    folder: /goals
+    layout: goals
+    title: UK data for the Sustainable Development Goals
+  - filename: ''
+    folder: /reporting-status
+    layout: reportingstatus
+    title: Reporting Status
+  - filename: indicators.json
+    folder: /
+    layout: indicator-json
+    title: ''
+  - filename: ''
+    folder: /search
+    layout: search
+    title: Search results
+custom_css:
+  - /assets/css/custom.css
+custom_js:
+  - /assets/js/custom.js
+data_edit_url: ''
+data_fields:
+  units: ''
+  series: ''
+date_formats:
+  standard:
+    en: "%d %B %Y"
+disclaimer:
+  phase: BETA
+  message: This website is in development – your <a href="https://www.surveymonkey.co.uk/r/SDGfeedback">feedback</a> will help us to improve it
+email_contacts:
+  questions: sustainabledevelopment@ons.gov.uk
+  suggestions: sustainabledevelopment@ons.gov.uk
+  functional: sustainabledevelopment@ons.gov.uk
+environment: staging
+favicons: favicon.io
+footer_language_toggle: none
+footer_menu:
+  - path: /contact-us
+    translation_key: menu.contact_us
+  - path: https://twitter.com/ONS
+    translation_key: general.twitter
+  - path: /cookies-no-javascript/
+    translation_key: menu.cookies
+  - path: /privacy-notice/
+    translation_key: Privacy
+  - path: /accessibility-statement/
+    translation_key: Accessibility statement
+frontpage_cards:
+  - title: Download all data
+    # This "feature" is used for baked-in stuff like "bulk_download".
+    include: components/download-all-data.html
+    # Optionally control the color of the line above the card title.
+  - title: Publications
+    content: |
+
+      [SDGs in the UK: Progress on monitoring and reporting data](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/december2020)
+
+      [UK SDG Voluntary National Review](https://www.gov.uk/government/publications/uks-voluntary-national-review-of-the-sustainable-development-goals)
+      <br/><br/>
+      <a href="./publications" aria-label="More publications">More publications...</a>
+  - title: Useful resources
+    # Control the content of the card - can use Markdown.
+    content: |
+
+      [The Global Goals](https://www.globalgoals.org/)
+
+      [Implementing the Sustainable Development Goals](https://www.gov.uk/government/publications/implementing-the-sustainable-development-goals/implementing-the-sustainable-development-goals--2)
+
+      [UN Department of Economic and Social Affairs](https://sustainabledevelopment.un.org/)
+frontpage_goals_grid:
+  title: UK data for the Sustainable Development Goals
+  description: Click on each goal for UK Sustainable Development Goal global indicator data.
+goal_image_base: https://open-sdg.github.io/sdg-translations/assets/img/goals
+goal_image_extension: svg
+goals_page:
+  title: UK data for the Sustainable Development Goals
+  description: Click on each goal for UK Sustainable Development Goal global indicator data.
+graph_color_headline: '#004466'
+graph_color_headline_high_contrast: '#55a6e5'
+graph_color_set: accessible
+graph_color_list: []
+graph_title_from_series: true
+header:
+  include: header-menu-left-aligned.html
+hide_single_series: true
+hide_single_unit: true
+indicator_config_form:
+  enabled: false
+  dropdowns: []
+  repository_link: ''
+  translation_link: ''
+indicator_data_form:
+  enabled: false
+  repository_link: ''
+indicator_metadata_form:
+  enabled: false
+  dropdowns: []
+  repository_link: ''
+  translation_link: ''
+  language: ''
+  scopes: []
+  exclude_fields: []
+  translated: false
+languages:
+  - en
+languages_public: []
+logos: []
+map_layers:
+  - min_zoom: 4
+    max_zoom: 6
+    staticBorders: true
+    subfolder: country
+    label: Country
+  - min_zoom: 6
+    max_zoom: 8
+    staticBorders: true
+    subfolder: regions
+    label: Regions
+  - min_zoom: 9
+    max_zoom: 12
+    staticBorders: true
+    subfolder: local_authorities
+    label: Local Authorities
+  map_options:
+  tileURL: https://{s}.tile.jawg.io/{id}/{z}/{x}/{y}{r}.png?access-token={accessToken}
+  tileOptions:
+    id: jawg-light
+    accessToken: lCtbMZiG4tbVWl7uq9EEch1yphnuLx9JyZL2qZwoQJ26wAu73oK1NkU4K50AALkp
+    attribution:  <a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | <a href="http://geoportal.statistics.gov.uk/">ONS</a>
+  minZoom: 4
+menu:
+  - path: /goals
+    translation_key: general.goals
+  - path: /reporting-status/
+    translation_key: menu.reporting_status
+  - path: /about/
+    translation_key: menu.about
+  - path: /publications/
+    translation_key: menu.publications
+  - path: /faq/
+    translation_key: menu.faq
+  - path: /updates/
+    translation_key: menu.updates
+  metadata_edit_url: ''
+metadata_tabs: []
+news:
+  category_links: false
+non_global_metadata: indicator.national_metadata
+remote_data_prefix: 'https://ONSdigital.github.io/sdg-data'
+reporting_status:
+  disaggregation_tabs: true
+  description: |
+    Reporting status provides an overview of how much Sustainable Development Goal (SDG) data the UK reports. For more information, see [What does the reporting status mean?](https://onsdigital.github.io/sdg-indicators/faq/#what-does-the-reporting-status-mean)
+
+    Disaggregation status provides an overview of how many of the SDG indicators are disaggregated. For more information, see [What does the disaggregation status mean?](https://onsdigital.github.io/sdg-indicators/faq/#what-does-the-disaggregation-status-mean)
+
+    For details about all available disaggregations and how each indicator is disaggregated, see the [UK disaggregation report](https://onsdigital.github.io/sdg-data/disaggregations.html).
+
+    Note: These percentages have been rounded. As a result, adding them together may not equal exactly 100%.
+repository_url_data: 'https://github.com/onsdigital/sdg-data'
+repository_url_site: 'https://github.com/onsdigital/sdg-indicators'
+search_index_boost: []
+search_index_extra_fields:
+  - indicator_available
+  - graph_title
+  - data_keywords
+site_config_form:
+  enabled: true
+  dropdowns: []
+  repository_link: '/tree/develop/_data'
+  translation_link: ''
+
+accessible_charts: true
+accessible_tabs: true
+analytics:
+  ua: ''
+  gtag: ''
+  gtm: ''
+  ga_prod: ''
+breadcrumbs:
+  goal:
+    - path: /
+      label: general.home
+    - path: /goals
+      label: general.goals
+  indicator:
+    - path: /
+      label: general.home
+    - path: /goals
+      label: general.goals
+  post:
+    - path: /
+      label: general.home
+    - path: /news
+      label: menu.updates
+contrast_type: default
+cookie_consent_form:
+  enabled: false
+country:
+  name: Australia
+  adjective: Australian
+create_goals:
+  layout: goal-by-target-vertical
+  previous_next_links: false
+  goals: []
+create_indicators:
+  layout: indicator
+  previous_next_links: false
+create_pages:
+  - filename: ''
+    folder: /
+    layout: frontpage-alt
+    title: ''
+  - filename: ''
+    folder: /goals
+    layout: goals
+    title: ''
+  - filename: ''
+    folder: /reporting-status
+    layout: reportingstatus
+    title: ''
+  - filename: indicators.json
+    folder: /
+    layout: indicator-json
+    title: ''
+  - filename: ''
+    folder: /search
+    layout: search
+    title: ''
+custom_css: []
+custom_js:
+  - /assets/js/custom.js
+data_edit_url: ''
+data_fields:
+  units: ''
+  series: ''
+date_formats: []
+disclaimer:
+  phase: ''
+  message: ''
+email_contacts:
+  questions: test@example.com
+  suggestions: test@example.com
+  functional: test@example.com
+environment: staging
+favicons: favicon.io
+footer_language_toggle: none
+footer_menu:
+  - path: /contact-us
+    translation_key: menu.contact_us
+  - path: 'https://twitter.com/MyTwitterAccount'
+    translation_key: general.twitter
+  - path: 'https://facebook.com/MyFacebookAccount'
+    translation_key: general.facebook
+  - path: /about/cookies-and-privacy/
+    translation_key: menu.cookies
+frontpage_cards:
+  - title: frontpage.download_all
+    content: ''
+    include: components/download-all-data.html
+    button_label: ''
+    button_link: ''
+    rule_color: ''
+  - title: Lorem ipsum
+    content: |
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi mollis
+      cursus est sed dapibus.
+    include: ''
+    button_label: Read more
+    button_link: 'https://example.com'
+    rule_color: ''
+  - title: Nam vestibulum
+    content: |
+      Nam vestibulum, purus quis porttitor imperdiet, nisl sem mollis nisl, a
+      interdum risus enim vitae tortor. Donec feugiat accumsan rutrum.
+    include: ''
+    button_label: Read more
+    button_link: 'https://example.com'
+    rule_color: ''
+frontpage_goals_grid:
+  title: Our data for Sustainable Development Goal indicators
+  description: >-
+    Click on each goal for our Sustainable Development Goal global indicator
+    data.
+frontpage_heading: ''
+frontpage_instructions: ''
+frontpage_introduction_banner:
+  title: 17 goals to transform our world
+  description: <a href="https://www.un.org/sustainabledevelopment/sustainable-development-goals/">The Sustainable Development Goals (SDGs)</a> are a universal call to action to end poverty, protect the planet and improve the lives and prospects of everyone, everywhere. The 17 Goals were adopted by all UN Member States in 2015, as part of the <a href="https://sustainabledevelopment.un.org/post2015/transformingourworld">2030 Agenda for Sustainable Development</a>.
+goal_image_base: 'https://open-sdg.org/sdg-translations/assets/img/goals'
+goal_image_extension: ''
+goals_page:
+  title: general.goals
+  description: goal.description
+graph_color_headline: '#004466'
+graph_color_headline_high_contrast: '#55a6e5'
+graph_color_set: accessible
+graph_color_list: []
+graph_color_number: 0
+graph_title_from_series: false
+header:
+  include: header-menu-left-aligned.html
+header_language_toggle: dropdown
+hide_empty_metadata: true
+hide_single_series: true
+hide_single_unit: true
+indicator_config_form:
+  enabled: true
+  dropdowns: []
+  repository_link: '/tree/develop/indicator-config'
+  translation_link: ''
+indicator_data_form:
+  enabled: true
+  repository_link: '/tree/develop/data'
+indicator_metadata_form:
+  enabled: true
+  dropdowns: []
+  repository_link: '/tree/develop/meta'
+  translation_link: ''
+  language: ''
+  scopes:
+    - national
+    - global
+  exclude_fields: []
+  translated: false
+languages:
+  - en
+  - es
+languages_public: []
+logos: []
+map_layers: []
+map_options:
+  minZoom: 5
+  maxZoom: 10
+  tileURL: ''
+  tileOptions:
+    id: ''
+    accessToken: ''
+    attribution: ''
+  colorRange: chroma.brewer.BuGn
+  noValueColor: '#f0f0f0'
+  styleNormal:
+    weight: 1
+    opacity: 1
+    fillOpacity: 0.7
+    color: '#888888'
+    dashArray: ''
+  styleHighlighted:
+    weight: 1
+    opacity: 1
+    fillOpacity: 0.7
+    color: '#111111'
+    dashArray: ''
+  styleStatic:
+    weight: 2
+    opacity: 1
+    fillOpacity: 0
+    color: '#172d44'
+    dashArray: '5,5'
+menu:
+  - path: /goals
+    translation_key: general.goals
+    dropdown: []
+  - path: /reporting-status
+    translation_key: menu.reporting_status
+    dropdown: []
+  - path: /about
+    translation_key: menu.about
+    dropdown: []
+  - path: /faq
+    translation_key: menu.faq
+    dropdown: []
+  - path: /news
+    translation_key: menu.updates
+    dropdown: []
+metadata_edit_url: ''
+metadata_tabs: []
+news:
+  category_links: false
+non_global_metadata: indicator.national_metadata
+remote_data_prefix: 'https://open-sdg.org/open-sdg-data-starter'
+reporting_status:
+  title: status.reporting_status
+  description: status.description
+  disaggregation_tabs: false
+repository_url_data: 'https://github.com/open-sdg/open-sdg-data-starter'
+repository_url_site: ''
+search_index_boost: []
+search_index_extra_fields: []
+series_toggle: true
+sharethis_property: ''
+site_config_form:
+  enabled: true
+  dropdowns: []
+  repository_link: '/tree/develop/_data'
+  translation_link: ''
+
+series_toggle: true
