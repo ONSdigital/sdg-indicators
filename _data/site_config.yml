@@ -180,19 +180,33 @@ languages:
 languages_public: []
 logos: []
 map_layers:
-  - subfolder: ''
-    label: ''
-    min_zoom: 0
-    max_zoom: 0
-    staticBorders: false
+  - subfolder: country
+    label: Country
+    min_zoom: 4
+    max_zoom: 6
+    staticBorders: true
+  - subfolder: regions
+    label: Regions
+    min_zoom: 6
+    max_zoom: 8
+    staticBorders: true
+  - subfolder: local_authorities
+    label: Local Authorities
+    min_zoom: 9
+    max_zoom: 12
+    staticBorders: true
 map_options:
-  minZoom: 5
-  maxZoom: 10
-  tileURL: ''
+  minZoom: 4
+  maxZoom: 12
+  tileURL: 'https://{s}.tile.jawg.io/{id}/{z}/{x}/{y}{r}.png?access-token={accessToken}'
   tileOptions:
-    id: ''
-    accessToken: ''
-    attribution: ''
+    id: jawg-light
+    accessToken: lCtbMZiG4tbVWl7uq9EEch1yphnuLx9JyZL2qZwoQJ26wAu73oK1NkU4K50AALkp
+    attribution: >-
+      <a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps"
+      target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a
+      href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>
+      contributors | <a href="http://geoportal.statistics.gov.uk/">ONS</a>
   colorRange: chroma.brewer.BuGn
   noValueColor: '#f0f0f0'
   styleNormal:
@@ -270,7 +284,7 @@ sharethis_property: ''
 site_config_form:
   enabled: true
   dropdowns: []
-  repository_link: /tree/develop/_data
+  repository_link: 'https://github.com/onsdigital/sdg-indicators/tree/develop/_data'
   translation_link: ''
 validate_indicator_config: false
 validate_site_config: false
