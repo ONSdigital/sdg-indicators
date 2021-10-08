@@ -155,24 +155,24 @@ plugins:
 remote_theme: brockfanning/open-sdg@reporting-progress-mvp
 
 progress_status:
-    status_heading: 'Progress status for 2021:'
-    status_types:
-      - value: notavailable
-        label: status.not_available
-        image: assets/img/progress/notavailable.png
-        alt: status.not_available
-      - value: targetachieved
-        label: status.target_achieved
-        image: assets/img/progress/targetachieved.png
-        alt: status.target_achieved
-      - value: progressneeded
-        label: status.progress_needed
-        image: assets/img/progress/progressneeded.png
-        alt: status.progress_needed
-      - value: approachingtarget
-        label: status.approaching_target
-        image: assets/img/progress/approachingtarget.png
-        alt: status.approaching_target
+  status_heading: 'Progress status for 2021:'
+  status_types:
+    - value: not_available
+      image: assets/img/progress/notavailable.png
+      label: status.progress_not_available
+      alt: status.progress_not_available
+    - value: challenges_remain
+      image: assets/img/progress/progressneeded.png
+      label: status.progress_challenges_remain
+      alt: status.progress_challenges_remain
+    - value: approaching_target
+      image: assets/img/progress/approachingtarget.png
+      label: status.progress_approaching_target
+      alt: status.progress_approaching_target
+    - value: target_achieved
+      image: assets/img/progress/targetachieved.png
+      label: status.progress_target_achieved
+      alt: status.progress_target_achieved
         
 # Apply any custom Javascript.
 custom_js:
