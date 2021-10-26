@@ -138,7 +138,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20211026002138">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20211026084407">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20211026002138">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20211026084407">
         
 
         <link rel="stylesheet" href="/sdg-indicators/assets/css/govuk.css">
@@ -520,7 +520,7 @@ data-event-label="high"
   data-showdata="true"
   data-graphtype="line"
   data-geocoderegex=""
-  data-showmap="false"
+  data-showmap="true"
   data-startvalues="null"
   data-graphlimits="null"
   data-stackeddisaggregation=""
@@ -528,7 +528,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Mountain elevation&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;5.0&quot;,&quot;6.0&quot;]},&quot;title&quot;:&quot;Mountain elevation&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;},{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Mountain elevation&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;5.0&quot;,&quot;6.0&quot;]},&quot;title&quot;:&quot;Mountain elevation&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Mountain Green Cover Index&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Percentage (%)&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;},{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -574,15 +574,19 @@ data-event-label="high"
         
         
         
+        <th scope="col">Units</th>
+        
+        
+        
+        <th scope="col">Series</th>
+        
+        
+        
         <th scope="col">Observation status</th>
         
         
         
-        <th scope="col">Unit multiplier</th>
-        
-        
-        
-        <th scope="col" class="table-value">Unit measure</th>
+        <th scope="col" class="table-value">Unit multiplier</th>
         
         
       </thead>
@@ -599,15 +603,19 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Mountain Green Cover Index</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -623,15 +631,19 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Mountain Green Cover Index</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -647,15 +659,19 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Mountain Green Cover Index</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -671,15 +687,19 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Units</td>
+          <td>Mountain Green Cover Index</td>
           
           
           
-          <td class="table-value">Percentage (%)</td>
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -729,6 +749,12 @@ data-event-category="Tab change"
 data-event-action="Change data view"
 data-event-label="Change to Table tab"
 >Table</a>
+  </li><li role="presentation" class="nav-item map" style="display:none">
+    <a data-no-disagg="true" class="nav-link" data-toggle="tab" id="tab-mapview" href="#mapview" aria-controls="mapview" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Map tab"
+ aria-describedby="table-alternative">Map</a>
   </li></ul>
 
     <div class="tab-content data-view">
@@ -1068,6 +1094,44 @@ opensdg.chartConfigAlter(function(config, info) {
 
 <div id="tableSelectionDownload" class="clearfix"></div>
 
+  </div><div role="tabpanel" class="tab-pane" id="mapview" class="map">
+    
+<h4 id="map-heading" class="chart-title">Mountain Green Cover Index</h4>
+<div id="map" aria-describedby="table-alternative">
+  <img class="map-loading-image" src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
+</div>
+
+
+
+
+<div id="mapFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>Food & Agriculture Organisation (FAO)</dd>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>United Kingdom</dd>
+        
+
+        
+        <dt>Unit of Measurement:</dt>
+        <dd>Square Km, Index</dd>
+        
+
+        
+
+        
+        <dt>Footnote:</dt>
+        <dd>FAO estimate.</dd>
+        
+    <dl>
+</div>
+
+
   </div>
 </div>
 
@@ -1255,7 +1319,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            25 October 2021
+            26 October 2021
           
         </td>
         </tr>
@@ -1268,7 +1332,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            25 October 2021
+            26 October 2021
           
         </td>
         </tr>
@@ -1801,7 +1865,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            
+            <p>Official international</p>
 
           
         </td>
@@ -2024,6 +2088,15 @@ data-event-label="Change to Sources tab"
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
 
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
+<script src="https://cdn.rawgit.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
+<script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
@@ -2167,7 +2240,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20211026002138'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20211026084407'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2175,7 +2248,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20211026002138"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20211026084407"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
