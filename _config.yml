@@ -154,6 +154,26 @@ plugins:
 
 remote_theme: open-sdg/open-sdg@1.6.0-beta1
 
+progress_status:
+  status_heading: 'Progress status for 2021:'
+  status_types:
+    - value: not_available
+      image: assets/img/progress/not-available.png
+      label: status.progress_not_available
+      alt: Progress status for 2021 is not available
+    - value: challenges_remain
+      image: assets/img/progress/challenges-remain.png
+      label: status.progress_challenges_remain
+      alt: Progress bar showing progress status for 2021 at level one out of three - Challenges remain
+    - value: approaching_target
+      image: assets/img/progress/approaching-target.png
+      label: status.progress_approaching_target
+      alt: Progress bar showing progress status for 2021 at level two out of three - Approaching target
+    - value: target_achieved
+      image: assets/img/progress/target-achieved.png
+      label: status.progress_target_achieved
+      alt: Progress bar showing progress status for 2021 at level three out of three - Target achieve
+
 # Apply any custom Javascript.
 custom_js:
   - /assets/js/custom.js
