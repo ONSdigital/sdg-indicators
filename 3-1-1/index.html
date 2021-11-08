@@ -138,7 +138,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20211108002120">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20211108161054">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20211108002120">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/sdg-indicators/assets/css/custom.css?v=20211108161054">
         
 
         <link rel="stylesheet" href="/sdg-indicators/assets/css/govuk.css">
@@ -500,23 +500,12 @@ data-event-label="high"
   
 <div class="row metadata-available-indicator">
   <div class="col-xs-12">
-    <h2>Maternal mortality rate per 100,000 maternities</h2>
+    <h2>Maternal mortality rate per 100,000 maternities, and maternal mortality ratio.</h2>
   </div>
 </div>
 
 
   
-
-<div class="row" id="page-content">
-  <div class="col-xs-12">
-    <p>Maternal mortality in the UK is measured as a rate per 100,000 maternities (defined as women who give birth to a live infant or a stillborn infant at 24 weeks or greater gestation), and <em>not</em> a ratio per 100,000 live births, in order to provide a closer approximation of the risk associated with pregnancy.</p>
-
-<p>Maternal deaths are identified through a variety of sources by the MBRRACE-UK collaboration at the NPEU, University of Oxford. Further details of ascertainment methods, additional disaggregations, details of causes of death and recommendations for improving care can be found in the <a href="https://www.npeu.ox.ac.uk/mbrrace-uk/reports">MBRRACE-UK Saving Lives, Improving Mothers’ Care reports</a>.</p>
-
-<p>The maternal mortality ratio for the UK, following the UN specification, can also be found in the MBRRACE-UK reports using the link above.</p>
-
-  </div>
-</div>
 
 
   
@@ -529,23 +518,23 @@ data-event-label="high"
   id="indicatorData"
   data-indicatorid='indicator_3-1-1'
   data-id="3-1-1"
-  data-country="UK"
-  data-charttitle="Maternal mortality per 100,000 maternities"
-  data-charttitles="null"
-  data-measurementunit="Rate per 100,000 maternities"
+  data-country="United Kingdom"
+  data-charttitle="Maternal mortality ratio"
+  data-charttitles="[{&quot;series&quot;:&quot;Maternal mortality rate&quot;,&quot;title&quot;:&quot;Maternal mortality rate per 100,000 maternities&quot;},{&quot;series&quot;:&quot;Maternal mortality ratio&quot;,&quot;title&quot;:&quot;Maternal mortality ratio (maternal mortality rate per 100,000 live births)&quot;}]"
+  data-measurementunit="Rate per 100,000 maternities, Rate per 100,000 live births"
   data-xaxislabel=""
   data-showdata="true"
   data-graphtype="line"
   data-geocoderegex=""
   data-showmap="false"
-  data-startvalues="null"
+  data-startvalues="[{&quot;field&quot;:&quot;Series&quot;,&quot;value&quot;:&quot;Maternal mortality rate&quot;},{&quot;field&quot;:&quot;Units&quot;,&quot;value&quot;:&quot;Rate per 100,000 maternities&quot;}]"
   data-graphlimits="null"
   data-stackeddisaggregation=""
   data-graphannotations="null"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;19 and under&quot;,&quot;20 to 24&quot;,&quot;25 to 29&quot;,&quot;30 to 34&quot;,&quot;35 to 39&quot;,&quot;40 and over&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Country of birth&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Born in UK&quot;,&quot;Not born in UK&quot;]},&quot;title&quot;:&quot;Country of birth&quot;},{&quot;name&quot;:&quot;Death classification&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Direct&quot;,&quot;Indirect&quot;]},&quot;title&quot;:&quot;Death classification&quot;},{&quot;name&quot;:&quot;Deprivation quintile&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Quintile 1 (least deprived)&quot;,&quot;Quintile 2&quot;,&quot;Quintile 3&quot;,&quot;Quintile 4&quot;,&quot;Quintile 5 (most deprived)&quot;]},&quot;title&quot;:&quot;Deprivation quintile&quot;},{&quot;name&quot;:&quot;Ethnicity&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Asian&quot;,&quot;Black&quot;,&quot;Chinese or other&quot;,&quot;Mixed/multiple ethnic groups&quot;,&quot;White (inc. not known)&quot;]},&quot;title&quot;:&quot;Ethnicity&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;},{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;19 and under&quot;,&quot;20 to 24&quot;,&quot;25 to 29&quot;,&quot;30 to 34&quot;,&quot;35 to 39&quot;,&quot;40 and over&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;England&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Country of birth&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Born in UK&quot;,&quot;Not born in UK&quot;]},&quot;title&quot;:&quot;Country of birth&quot;},{&quot;name&quot;:&quot;Death classification&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Direct&quot;,&quot;Indirect&quot;]},&quot;title&quot;:&quot;Death classification&quot;},{&quot;name&quot;:&quot;Deprivation quintile&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Quintile 1 (least deprived)&quot;,&quot;Quintile 2&quot;,&quot;Quintile 3&quot;,&quot;Quintile 4&quot;,&quot;Quintile 5 (most deprived)&quot;]},&quot;title&quot;:&quot;Deprivation quintile&quot;},{&quot;name&quot;:&quot;Ethnicity&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Asian&quot;,&quot;Black&quot;,&quot;Chinese or other&quot;,&quot;Mixed/multiple ethnic groups&quot;,&quot;White (inc. not known)&quot;]},&quot;title&quot;:&quot;Ethnicity&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Maternal mortality rate&quot;,&quot;Maternal mortality ratio&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Rate per 100,000 live births&quot;,&quot;Rate per 100,000 maternities&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;},{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -579,7 +568,7 @@ data-event-label="high"
 
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>Maternal mortality per 100,000 maternities</caption>
+      <caption>Maternal mortality ratio</caption>
       <thead>
         
         
@@ -591,7 +580,27 @@ data-event-label="high"
         
         
         
-        <th scope="col" class="table-value">Observation status</th>
+        <th scope="col">Units</th>
+        
+        
+        
+        <th scope="col">Series</th>
+        
+        
+        
+        <th scope="col">GeoCode</th>
+        
+        
+        
+        <th scope="col">Observation status</th>
+        
+        
+        
+        <th scope="col">Unit multiplier</th>
+        
+        
+        
+        <th scope="col" class="table-value">Unit measure</th>
         
         
       </thead>
@@ -600,7 +609,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2003 - 05</td>
+          <td>2003-05</td>
           
           
           
@@ -608,7 +617,27 @@ data-event-label="high"
           
           
           
-          <td class="table-value">Undefined</td>
+          <td>Rate per 100,000 maternities</td>
+          
+          
+          
+          <td>Maternal mortality rate</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Definition differs</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -616,7 +645,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2004 - 06</td>
+          <td>2004-06</td>
           
           
           
@@ -624,7 +653,27 @@ data-event-label="high"
           
           
           
-          <td class="table-value">Undefined</td>
+          <td>Rate per 100,000 maternities</td>
+          
+          
+          
+          <td>Maternal mortality rate</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Definition differs</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -632,7 +681,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2005 - 07</td>
+          <td>2005-07</td>
           
           
           
@@ -640,7 +689,27 @@ data-event-label="high"
           
           
           
-          <td class="table-value">Undefined</td>
+          <td>Rate per 100,000 maternities</td>
+          
+          
+          
+          <td>Maternal mortality rate</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Definition differs</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -648,7 +717,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2006 - 08</td>
+          <td>2006-08</td>
           
           
           
@@ -656,7 +725,27 @@ data-event-label="high"
           
           
           
-          <td class="table-value">Undefined</td>
+          <td>Rate per 100,000 maternities</td>
+          
+          
+          
+          <td>Maternal mortality rate</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Definition differs</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -664,7 +753,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2007 - 09</td>
+          <td>2007-09</td>
           
           
           
@@ -672,7 +761,27 @@ data-event-label="high"
           
           
           
-          <td class="table-value">Undefined</td>
+          <td>Rate per 100,000 maternities</td>
+          
+          
+          
+          <td>Maternal mortality rate</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Definition differs</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -680,7 +789,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2008 - 10</td>
+          <td>2008-10</td>
           
           
           
@@ -688,7 +797,27 @@ data-event-label="high"
           
           
           
-          <td class="table-value">Undefined</td>
+          <td>Rate per 100,000 maternities</td>
+          
+          
+          
+          <td>Maternal mortality rate</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Definition differs</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -696,7 +825,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2009 - 11</td>
+          <td>2009-11</td>
           
           
           
@@ -704,7 +833,27 @@ data-event-label="high"
           
           
           
-          <td class="table-value">Undefined</td>
+          <td>Rate per 100,000 maternities</td>
+          
+          
+          
+          <td>Maternal mortality rate</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Definition differs</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -712,7 +861,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2010 - 12</td>
+          <td>2010-12</td>
           
           
           
@@ -720,7 +869,27 @@ data-event-label="high"
           
           
           
-          <td class="table-value">Undefined</td>
+          <td>Rate per 100,000 maternities</td>
+          
+          
+          
+          <td>Maternal mortality rate</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Definition differs</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -728,7 +897,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2011 - 13</td>
+          <td>2011-13</td>
           
           
           
@@ -736,7 +905,27 @@ data-event-label="high"
           
           
           
-          <td class="table-value">Undefined</td>
+          <td>Rate per 100,000 maternities</td>
+          
+          
+          
+          <td>Maternal mortality rate</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Definition differs</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -744,7 +933,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2012 - 14</td>
+          <td>2012-14</td>
           
           
           
@@ -752,7 +941,27 @@ data-event-label="high"
           
           
           
-          <td class="table-value">Undefined</td>
+          <td>Rate per 100,000 maternities</td>
+          
+          
+          
+          <td>Maternal mortality rate</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Definition differs</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -760,7 +969,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2013 - 15</td>
+          <td>2013-15</td>
           
           
           
@@ -768,7 +977,27 @@ data-event-label="high"
           
           
           
-          <td class="table-value">Undefined</td>
+          <td>Rate per 100,000 maternities</td>
+          
+          
+          
+          <td>Maternal mortality rate</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Definition differs</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -776,7 +1005,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2014 - 16</td>
+          <td>2014-16</td>
           
           
           
@@ -784,7 +1013,27 @@ data-event-label="high"
           
           
           
-          <td class="table-value">Undefined</td>
+          <td>Rate per 100,000 maternities</td>
+          
+          
+          
+          <td>Maternal mortality rate</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Definition differs</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -792,7 +1041,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2015 - 17</td>
+          <td>2015-17</td>
           
           
           
@@ -800,7 +1049,459 @@ data-event-label="high"
           
           
           
-          <td class="table-value">Undefined</td>
+          <td>Rate per 100,000 maternities</td>
+          
+          
+          
+          <td>Maternal mortality rate</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Definition differs</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016-18</td>
+          
+          
+          
+          <td>9.71</td>
+          
+          
+          
+          <td>Rate per 100,000 maternities</td>
+          
+          
+          
+          <td>Maternal mortality rate</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Definition differs</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1985-87</td>
+          
+          
+          
+          <td>7.67</td>
+          
+          
+          
+          <td>Rate per 100,000 live births</td>
+          
+          
+          
+          <td>Maternal mortality ratio</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1988-90</td>
+          
+          
+          
+          <td>7.24</td>
+          
+          
+          
+          <td>Rate per 100,000 live births</td>
+          
+          
+          
+          <td>Maternal mortality ratio</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1991-93</td>
+          
+          
+          
+          <td>6.48</td>
+          
+          
+          
+          <td>Rate per 100,000 live births</td>
+          
+          
+          
+          <td>Maternal mortality ratio</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1994-96</td>
+          
+          
+          
+          <td>7.19</td>
+          
+          
+          
+          <td>Rate per 100,000 live births</td>
+          
+          
+          
+          <td>Maternal mortality ratio</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1997-99</td>
+          
+          
+          
+          <td>6.03</td>
+          
+          
+          
+          <td>Rate per 100,000 live births</td>
+          
+          
+          
+          <td>Maternal mortality ratio</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2000-02</td>
+          
+          
+          
+          <td>6.81</td>
+          
+          
+          
+          <td>Rate per 100,000 live births</td>
+          
+          
+          
+          <td>Maternal mortality ratio</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2003-05</td>
+          
+          
+          
+          <td>7.05</td>
+          
+          
+          
+          <td>Rate per 100,000 live births</td>
+          
+          
+          
+          <td>Maternal mortality ratio</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2006-08</td>
+          
+          
+          
+          <td>6.76</td>
+          
+          
+          
+          <td>Rate per 100,000 live births</td>
+          
+          
+          
+          <td>Maternal mortality ratio</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2009-11</td>
+          
+          
+          
+          <td>5.57</td>
+          
+          
+          
+          <td>Rate per 100,000 live births</td>
+          
+          
+          
+          <td>Maternal mortality ratio</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012-14</td>
+          
+          
+          
+          <td>4.65</td>
+          
+          
+          
+          <td>Rate per 100,000 live births</td>
+          
+          
+          
+          <td>Maternal mortality ratio</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015-17</td>
+          
+          
+          
+          <td>4.1</td>
+          
+          
+          
+          <td>Rate per 100,000 live births</td>
+          
+          
+          
+          <td>Maternal mortality ratio</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -814,13 +1515,11 @@ data-event-label="high"
     <p>Source: National Perinatal Epidemiology Unit (NPEU)</p>
     
     
-    <p>Geographical Area: UK</p>
+    <p>Geographical Area: United Kingdom</p>
     
     
-    <p>Unit of Measurement: Rate per 100,000 maternities</p>
+    <p>Unit of Measurement: Rate per 100,000 maternities, Rate per 100,000 live births</p>
     
-    
-    <p>Footnote: Please note, disaggregation by ethnicity and IMD quintile is only available for England.</p>
     
   </div>
 
@@ -866,7 +1565,7 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Maternal mortality per 100,000 maternities</h4>
+          <h4 id="chart-heading" class="chart-title">Maternal mortality rate per 100,000 maternities</h4>
           <div id="chart" class="plot-container">
             
 <canvas
@@ -1122,19 +1821,16 @@ opensdg.chartConfigAlter(function(config, info) {
 
         
         <dt>Geographical Area:</dt>
-        <dd>UK</dd>
+        <dd>United Kingdom</dd>
         
 
         
         <dt>Unit of Measurement:</dt>
-        <dd>Rate per 100,000 maternities</dd>
+        <dd>Rate per 100,000 maternities, Rate per 100,000 live births</dd>
         
 
         
 
-        
-        <dt>Footnote:</dt>
-        <dd>Please note, disaggregation by ethnicity and IMD quintile is only available for England.</dd>
         
     <dl>
 </div>
@@ -1170,19 +1866,16 @@ opensdg.chartConfigAlter(function(config, info) {
 
         
         <dt>Geographical Area:</dt>
-        <dd>UK</dd>
+        <dd>United Kingdom</dd>
         
 
         
         <dt>Unit of Measurement:</dt>
-        <dd>Rate per 100,000 maternities</dd>
+        <dd>Rate per 100,000 maternities, Rate per 100,000 live births</dd>
         
 
         
 
-        
-        <dt>Footnote:</dt>
-        <dd>Please note, disaggregation by ethnicity and IMD quintile is only available for England.</dd>
         
     <dl>
 </div>
@@ -1263,7 +1956,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            <p>Maternal mortality rate per 100,000 maternities</p>
+            <p>Maternal mortality rate per 100,000 maternities, and maternal mortality ratio.</p>
 
           
         </td>
@@ -1277,7 +1970,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            
+            <p>Maternal mortality rate per 100,000 maternities is the recommended series for UK data. Maternal mortality ratio is included as internationally comparable data. Maternal mortality ratio uses number of live births as the denominator.</p>
 
           
         </td>
@@ -1291,7 +1984,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            <p>UK</p>
+            <p>United Kingdom</p>
 
           
         </td>
@@ -1305,7 +1998,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            <p>Rate per 100,000 maternities</p>
+            <p>Rate per 100,000 maternities, Rate per 100,000 live births</p>
 
           
         </td>
@@ -1319,7 +2012,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>A maternal death is the death of a woman while pregnant or within 42 days of termination of pregnancy, irrespective of the duration and the site of the pregnancy, from any cause related to or aggravated by the pregnancy or its management, but not from accidental or incidental causes. IMD - Index of Multiple Deprivation.</p>
+            <p>Maternities - Women who give birth to a live infant or a stillborn infant at 24 weeks or greater gestation</p>
+<p>Maternal death - The death of a woman while pregnant or within 42 days of the end of pregnancy, irrespective of the duration and the site of the pregnancy, from any cause related to or aggravated by the pregnancy or its management, but not from accidental or incidental causes.  </p>
+<p>Deprivation quintile - Deprivation is measured using the Index of Multiple Deprivation (IMD). This is the official measure of relative deprivation in England. For more information see the <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/835115/IoD2019_Statistical_Release.pdf">The English Indices of Deprivation (PDF, 2.18MB)</a>.</p>
 
           
         </td>
@@ -1333,7 +2028,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Available disaggregations </th>
         <td>
           
-            
+            <p>Ethnicity and deprivation quintile are only available when England is selected.</p>
+<p>Further data on frequency of maternal mortality by other characteristics are available in the source data. Maternal mortality rate per 100,000 maternities is also available for specific country of birth for some countries, and can be found in table 2.12 in the source data.</p>
 
           
         </td>
@@ -1347,7 +2043,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>Maternal mortality rate = (Number of maternal mortalities / total number maternities) * 100,000</p>
+            <p>No calculations on the source data were required.</p>
 
           
         </td>
@@ -1361,7 +2057,15 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.</p>
+            <h3>Maternal mortality rate</h3>
+<p>Maternal mortality in the UK is measured as a rate per 100,000 maternities, rather than as a ratio per 100,000 live births. Maternal mortality rate provides a closer approximation of the risk associated with pregnancy than maternal mortality ratio.</p>
+<p>Maternal deaths are identified through a variety of sources by the MBRRACE-UK collaboration at the NPEU, University of Oxford. Further details of ascertainment methods, additional disaggregations, details of causes of death and recommendations for improving care can be found in the <a href="https://www.npeu.ox.ac.uk/mbrrace-uk/reports">MBRRACE-UK Saving Lives, Improving Mothers’ Care</a> report. The report includes confidence intervals (a measure of reliability) and analysis, including statistical significance of the data.</p>
+<h3>Maternal mortality ratio</h3>
+<p>Maternal mortality ratio (MMR) is estimated for the UK using routinely reported data. It is included as a series here for international comparability only. The data for MMR is originally sourced from Office for National Statistics, General Register Office for Scotland, and Northern Ireland Statistics and Research Agency.</p>
+<p>MMR is much lower (about half) than the actual rates as identified through the UK CEMD, which uses multiple sources of death identification. This emphasises the importance of the additional case identification and checking undertaken by the MBRRACE-UK team to give an accurate maternal mortality estimate.</p>
+<p>New figures are not reported, as, at the time of publication  there had not been a complete triennium since these ratios were calculated.</p>
+<p> Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.
+</p>
 
           
         </td>
@@ -1375,7 +2079,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            05 November 2021
+            08 November 2021
           
         </td>
         </tr>
@@ -1388,7 +2092,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            05 November 2021
+            08 November 2021
           
         </td>
         </tr>
@@ -1839,7 +2543,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2003</p>
+            <p>2009</p>
 
           
         </td>
@@ -1874,7 +2578,7 @@ data-event-label="Change to Sources tab"
 
             
               <a href="https://www.npeu.ox.ac.uk/mbrrace-uk/reports" target="_blank">
-                Lessons learned to inform maternity care from the UK and Ireland Confidential Enquiries into Maternal Deaths and Morbidity 2015–17 <span class="visuallyhidden">opens in a new window</span>
+                MBRRACE-UK - Saving Lives, Improving Mothers' Care 2020 - Lessons learned to inform maternity care from the UK and Ireland Confidential Enquiries in Maternal Death and Morbidity 2016–18 <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1894,7 +2598,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            13 December 2019
+            01 December 2020
           
         </td>
         </tr>
@@ -1949,7 +2653,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>The underlying data from the report has been sourced directly from NPEU. Please note - Disaggregations for IMD quintile and ethnicity are only available for England.</p>
+            <p>The most recent data are in MBRRACE-UK - Saving Lives, Improving Mothers' Care 2020 - Lessons learned to inform maternity care from the UK and Ireland Confidential Enquiries in Maternal Death and Morbidity 2016–18.</p>
+<p>Quality and methodology information are available in the report.</p>
+<p>Maternal mortality rate data are originally sourced from the Office for National Statistics, General Register Office for Scotland, and Northern Ireland Statistics and Research Agency.</p>
 
           
         </td>
@@ -2287,7 +2993,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20211108002120'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20211108161054'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2295,7 +3001,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20211108002120"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20211108161054"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
