@@ -1215,41 +1215,7 @@ function getMatchesByUnitSeries(items, selectedUnit, selectedSeries) {
   return matches;
 }
 
-/**
- * Move an item from one position in an array to another, in place.
- */
-function arrayMove(arr, fromIndex, toIndex) {
-
-  // if moving something "forwards", then the toIndex needs to be 1 less,
-  // because after removing the fromIndex, the array will be 1 shorter.
-  if (toIndex > fromIndex) {
-    toIndex -= 1;
-  }
-
-  while (fromIndex < 0) {
-    fromIndex += arr.length;
-  }
-  while (toIndex < 0) {
-    toIndex += arr.length;
-  }
-  var paddingAdded = [];
-  if (toIndex >= arr.length) {
-    var k = toIndex - arr.length;
-    while ((k--) + 1) {
-      arr.push(undefined);
-      paddingAdded.push(arr.length - 1);
-    }
-  }
-  arr.splice(toIndex, 0, arr.splice(fromIndex, 1)[0]);
-
-  // Get rid of the undefined elements that were added.
-  paddingAdded.sort();
-  while (paddingAdded.length > 0) {
-    var paddingIndex = paddingAdded.pop() - 1;
-    arr.splice(paddingIndex, 1);
-  }
-}
-
+  var arrayMove = deprecated('utils.arrayMove');
   /**
  * Model helper functions related to units.
  */
@@ -1600,27 +1566,60 @@ function fieldItemStatesForView(fieldItemStates, fieldsByUnit, selectedUnit, dat
 function sortFieldsForView(fieldItemStates, edges) {
   if (edges.length > 0 && fieldItemStates.length > 0) {
 
-    // We need to sort the edges so that we process parents before children.
     var parents = edges.map(function(edge) { return edge.From; });
-    edges.sort(function(a, b) {
-      if (!parents.includes(a.To) && parents.includes(b.To)) {
-        return 1;
+    var children = edges.map(function(edge) { return edge.To; });
+    var topLevelParents = [];
+    parents.forEach(function(parent) {
+      if (!(children.includes(parent)) && !(topLevelParents.includes(parent))) {
+        topLevelParents.push(parent);
       }
-      if (!parents.includes(b.To) && parents.includes(a.To)) {
-        return -1;
-      }
-      return 0;
     });
 
-    edges.forEach(function(edge) {
-      // This makes sure children are right after their parents.
-      var parentIndex = fieldItemStates.findIndex(function(fieldItem) {
-        return fieldItem.field == edge.From;
+    var topLevelParentsByChild = {};
+    children.forEach(function(child) {
+      var currentParent = edges.find(function(edge) { return edge.To === child; }),
+          currentChild = child;
+      while (currentParent) {
+        currentParent = edges.find(function(edge) { return edge.To === currentChild; });
+        if (currentParent) {
+          currentChild = currentParent.From;
+          topLevelParentsByChild[child] = currentParent.From;
+        }
+      }
+    });
+    fieldItemStates.forEach(function(fieldItem) {
+      if (topLevelParents.includes(fieldItem.field) || typeof topLevelParentsByChild[fieldItem.field] === 'undefined') {
+        fieldItem.topLevelParent = '';
+      }
+      else {
+        fieldItem.topLevelParent = topLevelParentsByChild[fieldItem.field];
+      }
+    });
+
+    // As an intermediary step, create a hierarchical structure grouped
+    // by the top-level parent.
+    var tempHierarchy = [];
+    var tempHierarchyHash = {};
+    fieldItemStates.forEach(function(fieldItem) {
+      if (fieldItem.topLevelParent === '') {
+        fieldItem.children = [];
+        tempHierarchyHash[fieldItem.field] = fieldItem;
+        tempHierarchy.push(fieldItem);
+      }
+    });
+    fieldItemStates.forEach(function(fieldItem) {
+      if (fieldItem.topLevelParent !== '') {
+        tempHierarchyHash[fieldItem.topLevelParent].children.push(fieldItem);
+      }
+    });
+
+    // Now we clear out the field items and add them back as a flat list.
+    fieldItemStates.length = 0;
+    tempHierarchy.forEach(function(fieldItem) {
+      fieldItemStates.push(fieldItem);
+      fieldItem.children.forEach(function(child) {
+        fieldItemStates.push(child);
       });
-      var childIndex = fieldItemStates.findIndex(function(fieldItem) {
-        return fieldItem.field == edge.To;
-      });
-      arrayMove(fieldItemStates, childIndex, parentIndex + 1);
     });
   }
 }
@@ -2497,8 +2496,8 @@ function getPrecision(precisions, selectedUnit, selectedSeries) {
     getCombinationData: getCombinationData,
     getDatasets: getDatasets,
     tableDataFromDatasets: tableDataFromDatasets,
-    sortFieldNames: sortFieldNames,
-    sortFieldValueNames: sortFieldValueNames,
+    sortFieldNames: typeof sortFieldNames !== 'undefined' ? sortFieldNames : function() {},
+    sortFieldValueNames: typeof sortFieldValueNames !== 'undefined' ? sortFieldValueNames : function() {},
     getPrecision: getPrecision,
     getGraphLimits: getGraphLimits,
     getGraphAnnotations: getGraphAnnotations,
@@ -3115,6 +3114,7 @@ var indicatorView = function (model, options) {
       $('#fields').html(template({
         fields: args.fields,
         allowedFields: args.allowedFields,
+        childFields: _.uniq(args.edges.map(function(edge) { return edge.To })),
         edges: args.edges
       }));
 
@@ -3582,11 +3582,30 @@ var indicatorView = function (model, options) {
   this.createSelectionsTable = function(chartInfo) {
     this.createTable(chartInfo.selectionsTable, chartInfo.indicatorId, '#selectionsTable', true);
     $('#tableSelectionDownload').empty();
+    this.createTableTargetLines(chartInfo.graphAnnotations);
     this.createDownloadButton(chartInfo.selectionsTable, 'Table', chartInfo.indicatorId, '#tableSelectionDownload');
     this.createSourceButton(chartInfo.shortIndicatorId, '#tableSelectionDownload');
     this.createIndicatorDownloadButtons(chartInfo.indicatorDownloads, chartInfo.shortIndicatorId, '#tableSelectionDownload');
   };
 
+  this.createTableTargetLines = function(graphAnnotations) {
+    var targetLines = graphAnnotations.filter(function(a) { return a.preset === 'target_line'; });
+    var $targetLines = $('#tableTargetLines');
+    $targetLines.empty();
+    targetLines.forEach(function(targetLine) {
+      var targetLineLabel = targetLine.label.content;
+      if (!targetLineLabel) {
+        targetLineLabel = opensdg.annotationPresets.target_line.label.content;
+      }
+      $targetLines.append('<dt>' + targetLineLabel + '</dt><dd>' + targetLine.value + '</dd>');
+    });
+    if (targetLines.length === 0) {
+      $targetLines.hide();
+    }
+    else {
+      $targetLines.show();
+    }
+  }
 
   this.createDownloadButton = function(table, name, indicatorId, el) {
     if(window.Modernizr.blobconstructor) {
@@ -4234,6 +4253,7 @@ $(function() {
     $(".top-level li button[data-target='" + target + "']").attr("aria-expanded", "false");
 
     if(target === 'search') {
+      // TODO: This is never used and needs to be revisited.
       $(this).toggleClass('open');
 
       if($(this).hasClass('open') || !wasVisible) {
@@ -4241,6 +4261,9 @@ $(function() {
       } else {
         $(this).text(translations.search.search);
       }
+    } else if (target === 'search-mobile') {
+      topLevelMenuToggle.setAttribute('aria-expanded', false);
+      $(topLevelMenuToggle).find('> button').attr('aria-expanded', false);
     } else {
       // menu click, always hide search:
       topLevelSearchLink.removeClass('open');

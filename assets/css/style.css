@@ -1166,6 +1166,12 @@ body.contrast-high #main-content .nav-tabs {
 .card .btn {
   white-space: normal; }
 
+ul.tags {
+  list-style: none;
+  padding-left: 0; }
+  ul.tags > li {
+    display: inline; }
+
 .contrast-high .tags .tag {
   color: black; }
 
@@ -1315,7 +1321,7 @@ body.long #accessibility-nav li.contrast {
 body.contrast-high .site-intro .description {
   color: white; }
 
-body.contrast-high #main-content .no-gutters img:not(#goal-18):hover {
+body.contrast-high #main-content .no-gutters a > img:not(#goal-18):hover {
   box-shadow: 0px 0px 0px 5px #FFDD00; }
 
 body.contrast-high #disclaimer .phase-tag {
@@ -1347,6 +1353,20 @@ body.contrast-high #map .selection-legend .legend-values li, body.contrast-high 
 .klaro .cookie-notice .cn-body .cn-changes {
   text-decoration: none !important;
   font-weight: bold; }
+
+.progress-status {
+  font-size: 14px; }
+  .progress-status img {
+    width: 70px;
+    max-width: 100%; }
+
+.progress-status-heading {
+  float: left;
+  margin-right: 20px; }
+
+.indicator-progress {
+  margin-bottom: 20px;
+  margin-top: 20px; }
 
 body {
   background: white url("../img/sdgbg.png") top left repeat-x;
@@ -2166,6 +2186,16 @@ footer {
       background-image: url(../img/sort_desc.png); }
   #main-content #selectionsTable table tbody th {
     font-weight: normal; }
+#main-content #tableTargetLines {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px; }
+  #main-content #tableTargetLines dt {
+    float: left;
+    font-weight: normal;
+    max-width: 80%; }
+  #main-content #tableTargetLines dd {
+    text-align: right; }
 #main-content #selectionsChart {
   padding-bottom: 20px; }
   #main-content #selectionsChart.chart-has-no-data #selectionChartFooter {
@@ -2902,6 +2932,218 @@ body.contrast-high.layout-search form input, body.contrast-high.layout-search fo
   background: repeating-linear-gradient(135deg, #757575, white 10px, #757575 10px, white 20px);
   color: black !important; }
   .layout-goal-by-target-vertical.contrast-high .status.notapplicable .status-inner {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    color: black !important; }
+
+.layout-goal-with-progress #page-content {
+  margin-top: -20px;
+  margin-bottom: 10px; }
+.layout-goal-with-progress .goal-target, .layout-goal-with-progress .goal-indicator {
+  font-size: 16px;
+  font-weight: normal;
+  clear: both;
+  display: inline-block; }
+.layout-goal-with-progress #main-content .goal-indicator h4 {
+  margin-top: 0;
+  margin-bottom: 0; }
+.layout-goal-with-progress .goal-target-and-indicators {
+  margin-bottom: 20px; }
+  .layout-goal-with-progress .goal-target-and-indicators::after {
+    height: 1px;
+    width: calc(100% - 60px);
+    border-bottom: 1px solid #ccc;
+    margin-left: 60px;
+    margin-top: 20px; }
+.layout-goal-with-progress .goal-indicator {
+  margin-top: 10px; }
+  .layout-goal-with-progress .goal-indicator .goal-with-progress-left, .layout-goal-with-progress .goal-indicator .goal-with-progress-right {
+    clear: both; }
+  @media screen and (min-width: 769px) {
+    .layout-goal-with-progress .goal-indicator {
+      margin-left: 60px;
+      position: relative;
+      width: calc(100% - 60px); }
+      .layout-goal-with-progress .goal-indicator .goal-with-progress-left {
+        float: left;
+        clear: none;
+        width: 80%; }
+      .layout-goal-with-progress .goal-indicator .goal-with-progress-right {
+        float: right;
+        clear: none;
+        width: 20%; }
+      .layout-goal-with-progress .goal-indicator .progress-status {
+        margin-top: 0; } }
+  @media screen and (min-width: 992px) {
+    .layout-goal-with-progress .goal-indicator {
+      min-height: auto; }
+      .layout-goal-with-progress .goal-indicator .status {
+        width: auto; } }
+.layout-goal-with-progress .target-number, .layout-goal-with-progress .target-name, .layout-goal-with-progress .indicator-number, .layout-goal-with-progress .indicator-name {
+  display: block; }
+.layout-goal-with-progress .target-number, .layout-goal-with-progress .indicator-number {
+  margin-top: 3px; }
+.layout-goal-with-progress .target-name {
+  margin-bottom: 10px; }
+.layout-goal-with-progress .indicator-number {
+  font-size: 16px; }
+.layout-goal-with-progress .goal-target, .layout-goal-with-progress .goal-indicator h4 {
+  clear: left;
+  float: left;
+  margin-top: 0; }
+.layout-goal-with-progress .target-name, .layout-goal-with-progress .indicator-name {
+  margin-left: 60px;
+  box-decoration-break: clone; }
+.layout-goal-with-progress .status {
+  display: block;
+  float: left;
+  clear: left;
+  color: #0b0c0c;
+  font-weight: normal;
+  border: none;
+  padding: 4px;
+  font-size: 12px;
+  margin-top: 10px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  padding: 1px; }
+  .layout-goal-with-progress .status .status-inner {
+    padding: 0 2px;
+    border-radius: 5px; }
+  .layout-goal-with-progress .status.complete {
+    color: white;
+    border: 1px solid transparent;
+    background-color: #2B2B2B;
+    background: #2B2B2B; }
+    .layout-goal-with-progress .status.complete .status-inner {
+      background-color: #2B2B2B;
+      background: #2B2B2B; }
+  .layout-goal-with-progress .status.inprogress {
+    color: white;
+    border: 1px solid transparent;
+    background-color: #757575;
+    background: #757575; }
+    .layout-goal-with-progress .status.inprogress .status-inner {
+      background-color: #757575;
+      background: #757575; }
+  .layout-goal-with-progress .status.notstarted {
+    color: #0b0c0c;
+    border: 1px solid #0b0c0c;
+    background-color: white;
+    background: white; }
+    .layout-goal-with-progress .status.notstarted .status-inner {
+      background-color: white;
+      background: white; }
+  .layout-goal-with-progress .status.notapplicable {
+    color: #0b0c0c;
+    border: 1px solid #0b0c0c;
+    background-color: repeating-linear-gradient(135deg, #757575, white 10px, #757575 10px, white 20px);
+    background: repeating-linear-gradient(135deg, #757575, white 10px, #757575 10px, white 20px); }
+    .layout-goal-with-progress .status.notapplicable .status-inner {
+      background-color: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.8); }
+.layout-goal-with-progress .tags {
+  display: inline-block;
+  clear: left;
+  margin-bottom: 0; }
+  .layout-goal-with-progress .tags .tag {
+    color: #0b0c0c;
+    font-weight: normal;
+    border: none;
+    padding: 4px;
+    font-size: 12px;
+    margin-right: 6px;
+    color: #0b0c0c;
+    border: 1px solid transparent;
+    background: #ffdc8e;
+    white-space: nowrap; }
+    .layout-goal-with-progress .tags .tag .status-inner {
+      padding: 0 2px;
+      border-radius: 5px; }
+    .layout-goal-with-progress .tags .tag.complete {
+      color: white;
+      border: 1px solid transparent;
+      background-color: #2B2B2B;
+      background: #2B2B2B; }
+      .layout-goal-with-progress .tags .tag.complete .status-inner {
+        background-color: #2B2B2B;
+        background: #2B2B2B; }
+    .layout-goal-with-progress .tags .tag.inprogress {
+      color: white;
+      border: 1px solid transparent;
+      background-color: #757575;
+      background: #757575; }
+      .layout-goal-with-progress .tags .tag.inprogress .status-inner {
+        background-color: #757575;
+        background: #757575; }
+    .layout-goal-with-progress .tags .tag.notstarted {
+      color: #0b0c0c;
+      border: 1px solid #0b0c0c;
+      background-color: white;
+      background: white; }
+      .layout-goal-with-progress .tags .tag.notstarted .status-inner {
+        background-color: white;
+        background: white; }
+    .layout-goal-with-progress .tags .tag.notapplicable {
+      color: #0b0c0c;
+      border: 1px solid #0b0c0c;
+      background-color: repeating-linear-gradient(135deg, #757575, white 10px, #757575 10px, white 20px);
+      background: repeating-linear-gradient(135deg, #757575, white 10px, #757575 10px, white 20px); }
+      .layout-goal-with-progress .tags .tag.notapplicable .status-inner {
+        background-color: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.8); }
+    .layout-goal-with-progress .tags .tag a {
+      color: #0b0c0c;
+      text-decoration: underline; }
+  .layout-goal-with-progress .tags .tag {
+    display: block;
+    float: left;
+    margin-top: 10px;
+    padding: 1px 3px; }
+.layout-goal-with-progress .progress-status {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+  @media screen and (min-width: 769px) {
+    .layout-goal-with-progress .progress-status {
+      margin-bottom: 0; } }
+.layout-goal-with-progress .tags, .layout-goal-with-progress .progress-status {
+  margin-left: 60px; }
+@media screen and (min-width: 769px) {
+  .layout-goal-with-progress .progress-status {
+    margin-left: 20px; } }
+.layout-goal-with-progress.contrast-high .status.complete {
+  border: 1px solid transparent;
+  background-color: white;
+  background: white;
+  color: black !important; }
+  .layout-goal-with-progress.contrast-high .status.complete .status-inner {
+    background-color: white !important;
+    background: white !important;
+    color: black !important; }
+.layout-goal-with-progress.contrast-high .status.inprogress {
+  border: 1px solid transparent;
+  background-color: #767676;
+  background: #767676;
+  color: white; }
+  .layout-goal-with-progress.contrast-high .status.inprogress .status-inner {
+    background-color: #767676 !important;
+    background: #767676 !important;
+    color: white; }
+.layout-goal-with-progress.contrast-high .status.notstarted {
+  border: 1px solid white;
+  background-color: black;
+  background: black;
+  color: white !important; }
+  .layout-goal-with-progress.contrast-high .status.notstarted .status-inner {
+    background-color: black !important;
+    background: black !important;
+    color: white !important; }
+.layout-goal-with-progress.contrast-high .status.notapplicable {
+  border: 1px solid white;
+  background-color: repeating-linear-gradient(135deg, #757575, white 10px, #757575 10px, white 20px);
+  background: repeating-linear-gradient(135deg, #757575, white 10px, #757575 10px, white 20px);
+  color: black !important; }
+  .layout-goal-with-progress.contrast-high .status.notapplicable .status-inner {
     background-color: rgba(255, 255, 255, 0.8) !important;
     background: rgba(255, 255, 255, 0.8) !important;
     color: black !important; }
