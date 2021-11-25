@@ -4,6 +4,8 @@ title: User Personas
 permalink: /user-personas/
 ---
 
+We want to provide a website that has purpose and is easy to use by everybody. To achieve this, we continue to understand more about who uses this site and what they need from it.
+
 ## Table of contents
 * [Our research](#our-research)
 
@@ -18,8 +20,6 @@ permalink: /user-personas/
 * [Involved analyst](#involved-analyst)
 
 ## Our research
-
-We want to provide a website that has purpose and is easy to use by everybody. To achieve this, we continue to understand more about who uses this site and what they need from it.
 
 Research undertaken includes:
 *	user research to find out who uses the website and what for
