@@ -1,6 +1,6 @@
 ---
 layout: page
-title: User Personas
+title: User personas and their needs
 permalink: /user-personas/
 ---
 
