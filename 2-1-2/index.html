@@ -138,7 +138,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20211202130948">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20211202132209">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -508,7 +508,7 @@ data-event-label="high"
   
 <div class="row metadata-available-indicator">
   <div class="col-xs-12">
-    <h2>Estimated prevalence of low and very low food security in the population of England, Wales and Northern Ireland aged 16 and over</h2>
+    <h2>Estimated prevalence of low and very low food security in households in the United Kingdom</h2>
   </div>
 </div>
 
@@ -516,6 +516,19 @@ data-event-label="high"
   
 
   
+
+<div class="row" id="page-content">
+  <div class="col-xs-12">
+    <p>The data presented in the chart and table are from the Department for Work and Pension’s Family Resources Survey (FRS), which uses questions asked of the past 30 days. A new series of questions was added to the 2019/20 FRS on the topic of food security.  This series of questions is asked of the person in the household who knows the most about food purchasing and preparation. There are a range of questions, asking about the household,adults within the household, and the person answering the questions. The questions do not directly ask about the food security status of children. </p>
+<p>The question set is based on the Adult Food Security Survey Module from the United States Department of Agriculture. The 30 day time reference period has been used as it was more appropriate in the context of the Family Resources Survey, which focuses on respondent’s circumstances at the time of the interview and uses time reference period of a week or a month on other questions.</p>
+<p> The FRS has a large sample size, and covers the whole of the UK. Other surveys in the UK also collect information on food security status, but due to differences in methodology, responses cannot be compared between the surveys.</p>
+<p>- <a href="https://www.food.gov.uk/research/food-and-you">Food and You</a> was previously used for this indicator. It is run by the Food Standards Agency. The Food and You Survey was replaced in 2020 by <a href="https://www.food.gov.uk/research/food-and-you-2/food-and-you-2-wave-1">Food and You 2</a>  At the time of writing this, food security data are available for England, Wales, and Northern Ireland for 2016 (wave 2), 2018 (wave 5) of Food and You, and 2020 for Food and You 2. The Food and You surveys use the same set of questions as the data presented here (from the FRS). However, questions are asked of the past 12 months.</p>
+<p>- The <a href="https://www.gov.scot/publications/scottish-health-survey-2019-summary-report/pages/8/">Scottish Health Survey</a> provides data on food insecurity for Scotland based on three questions asked of the past 12 months.</p>
+<p>
+</p>
+
+  </div>
+</div>
 
 
   
@@ -528,8 +541,8 @@ data-event-label="high"
   id="indicatorData"
   data-indicatorid='indicator_2-1-2'
   data-id="2-1-2"
-  data-country="England, Wales and Northern Ireland"
-  data-charttitle="Estimated prevalence of low and very low food security in England, Wales and Northern Ireland"
+  data-country="United Kingdom"
+  data-charttitle="Estimated prevalence of low and very low food security"
   data-charttitles="null"
   data-measurementunit="Percentage (%)"
   data-xaxislabel=""
@@ -544,7 +557,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Sex&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Male&quot;,&quot;Female&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Sex&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;16 to 24&quot;,&quot;25 to 34&quot;,&quot;35 to 44&quot;,&quot;45 to 54&quot;,&quot;55 to 64&quot;,&quot;65 to 74&quot;,&quot;75 and over&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;England&quot;,&quot;Wales&quot;,&quot;Northern Ireland&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Household size&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5 or more&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household size&quot;},{&quot;name&quot;:&quot;Children under 16 in the household&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Yes&quot;,&quot;No&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Children under 16 in the household&quot;},{&quot;name&quot;:&quot;Children under 6 in the household&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Yes&quot;,&quot;No&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Children under 6 in the household&quot;},{&quot;name&quot;:&quot;Working Status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;In work&quot;,&quot;Retired&quot;,&quot;Unemployed&quot;,&quot;Other&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Working Status&quot;},{&quot;name&quot;:&quot;Household income&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;£10,399 or less&quot;,&quot;£10,400 to £25,999&quot;,&quot;£26,000 to £51,999&quot;,&quot;£52,000 or more&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household income&quot;},{&quot;name&quot;:&quot;Food insecurity category&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Low or very low food security&quot;,&quot;Very low food security&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Food insecurity category&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Food security level&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Low&quot;,&quot;Very low&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Food security level&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;16 to 24&quot;,&quot;25 to 34&quot;,&quot;35 to 44&quot;,&quot;45 to 54&quot;,&quot;55 to 59&quot;,&quot;60 to 64&quot;,&quot;65 to 74&quot;,&quot;75 to 84&quot;,&quot;85 or over&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Age group&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Working age&quot;,&quot;State Pension age&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age group&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;England&quot;,&quot;Great Britain&quot;,&quot;Northern Ireland&quot;,&quot;Scotland&quot;,&quot;Wales&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;East&quot;,&quot;East Midlands&quot;,&quot;Inner London&quot;,&quot;London&quot;,&quot;North East&quot;,&quot;North West&quot;,&quot;Outer London&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;West Midlands&quot;,&quot;Yorkshire and The Humber&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Ethnic group&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;White&quot;,&quot;Mixed/multiple ethnic groups&quot;,&quot;Asian/Asian British&quot;,&quot;Black/African/Caribbean/Black British&quot;,&quot;Other ethnic group&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnic group&quot;},{&quot;name&quot;:&quot;Ethnicity&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Indian&quot;,&quot;Pakistani&quot;,&quot;Bangladeshi&quot;,&quot;Chinese&quot;,&quot;Any other Asian background&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnicity&quot;},{&quot;name&quot;:&quot;Highest qualification&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Entry level&quot;,&quot;Level 1&quot;,&quot;Level 2&quot;,&quot;Level 3&quot;,&quot;Level 4 or higher&quot;,&quot;Other qualification&quot;,&quot;No reported qualifications&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Highest qualification&quot;},{&quot;name&quot;:&quot;Household composition - children&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;without children&quot;,&quot;with children&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household composition - children&quot;},{&quot;name&quot;:&quot;Number of adults&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;One adult&quot;,&quot;Two adults&quot;,&quot;Three or more adults&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Number of adults&quot;},{&quot;name&quot;:&quot;Number of children&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;one child&quot;,&quot;two children&quot;,&quot;three or more children&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Number of children&quot;},{&quot;name&quot;:&quot;Household composition - adults over State Pension age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;One or more adults over State Pension age&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household composition - adults over State Pension age&quot;},{&quot;name&quot;:&quot;Household composition - disabled adults&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;No disabled adults&quot;,&quot;One or more disabled adults&quot;,&quot;One or more disabled adults under State Pension age&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household composition - disabled adults&quot;},{&quot;name&quot;:&quot;Household composition - unemployed adults&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;One or more unemployed adults under State Pension age&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household composition - unemployed adults&quot;},{&quot;name&quot;:&quot;State support&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;In receipt of state support (benefit and/or Tax Credits)&quot;,&quot;In receipt of benefit&quot;,&quot;In receipt of Tax Credits&quot;,&quot;&quot;]},&quot;title&quot;:&quot;State support&quot;},{&quot;name&quot;:&quot;State support detail&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Income-related benefit&quot;,&quot;Non-income-related benefit&quot;,&quot;Working Tax Credit&quot;,&quot;Child Tax Credit&quot;,&quot;&quot;]},&quot;title&quot;:&quot;State support detail&quot;},{&quot;name&quot;:&quot;Total gross weekly income&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Less than £200&quot;,&quot;£200 but less than £400&quot;,&quot;£400 but less than £600&quot;,&quot;£600 but less than £800&quot;,&quot;£800 but less than £1,000&quot;,&quot;£1,000 or more&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Total gross weekly income&quot;},{&quot;name&quot;:&quot;Tenure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Occupier owned&quot;,&quot;Social rented&quot;,&quot;Private rented&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Tenure&quot;},{&quot;name&quot;:&quot;Tenure sub-category&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Owned outright&quot;,&quot;Buying with a mortgage&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Tenure sub-category&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -578,11 +591,55 @@ data-event-label="high"
 
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>Estimated prevalence of low and very low food security in England, Wales and Northern Ireland</caption>
+      <caption>Estimated prevalence of low and very low food security</caption>
       <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col">Value</th>
+        
+        
+        
+        <th scope="col">Units</th>
+        
+        
+        
+        <th scope="col">GeoCode</th>
+        
+        
+        
+        <th scope="col" class="table-value">Observation status</th>
+        
         
       </thead>
       <tbody>
+        
+        <tr>
+          
+          
+          <td>2019/2020</td>
+          
+          
+          
+          <td>8.0</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td class="table-value"></td>
+          
+          
+        </tr>
         
       </tbody>
     </table>
@@ -590,16 +647,16 @@ data-event-label="high"
 
   <div id="datatableFooter">
     
-    <p>Source: Food Standards Agency</p>
+    <p>Source: Department for Work and Pensions</p>
     
     
-    <p>Geographical Area: England, Wales and Northern Ireland</p>
+    <p>Geographical Area: United Kingdom</p>
     
     
     <p>Unit of Measurement: Percentage (%)</p>
     
     
-    <p>Footnote: Please note that figures representing unemployed females in 2018 were calculated based on responses from a sample size smaller than 50 so are potentially unreliable.</p>
+    <p>Footnote: <p>1. Data for Chinese and Bangladeshi ethnicities are not available due to small sample sizes (Less than 100).</p><p>2. For respondents in Great Britain, 'Gypsy or Irish traveller ' is included in the 'White' ethnic category. For Northern Ireland respondents, 'Irish traveller' is included in the 'Other ethnic group' category.</p><p>3. The data in this report was collected throughout the financial year 2019-20, during which the State Pension age for both men and women increased from 65 years 2 months to 65 years 8 months</p>
     
   </div>
 
@@ -645,7 +702,7 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Estimated prevalence of low and very low food security in England, Wales and Northern Ireland</h4>
+          <h4 id="chart-heading" class="chart-title">Estimated prevalence of low and very low food security</h4>
           <div id="chart" class="plot-container">
             
 <canvas
@@ -889,12 +946,12 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>Food Standards Agency</dd>
+        <dd>Department for Work and Pensions</dd>
         
 
         
         <dt>Geographical Area:</dt>
-        <dd>England, Wales and Northern Ireland</dd>
+        <dd>United Kingdom</dd>
         
 
         
@@ -906,7 +963,7 @@ opensdg.chartConfigAlter(function(config, info) {
 
         
         <dt>Footnote:</dt>
-        <dd>Please note that figures representing unemployed females in 2018 were calculated based on responses from a sample size smaller than 50 so are potentially unreliable.</dd>
+        <dd><p>1. Data for Chinese and Bangladeshi ethnicities are not available due to small sample sizes (Less than 100).</p><p>2. For respondents in Great Britain, 'Gypsy or Irish traveller ' is included in the 'White' ethnic category. For Northern Ireland respondents, 'Irish traveller' is included in the 'Other ethnic group' category.</p><p>3. The data in this report was collected throughout the financial year 2019-20, during which the State Pension age for both men and women increased from 65 years 2 months to 65 years 8 months</dd>
         
     <dl>
 </div>
@@ -938,12 +995,12 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>Food Standards Agency</dd>
+        <dd>Department for Work and Pensions</dd>
         
 
         
         <dt>Geographical Area:</dt>
-        <dd>England, Wales and Northern Ireland</dd>
+        <dd>United Kingdom</dd>
         
 
         
@@ -955,7 +1012,7 @@ opensdg.chartConfigAlter(function(config, info) {
 
         
         <dt>Footnote:</dt>
-        <dd>Please note that figures representing unemployed females in 2018 were calculated based on responses from a sample size smaller than 50 so are potentially unreliable.</dd>
+        <dd><p>1. Data for Chinese and Bangladeshi ethnicities are not available due to small sample sizes (Less than 100).</p><p>2. For respondents in Great Britain, 'Gypsy or Irish traveller ' is included in the 'White' ethnic category. For Northern Ireland respondents, 'Irish traveller' is included in the 'Other ethnic group' category.</p><p>3. The data in this report was collected throughout the financial year 2019-20, during which the State Pension age for both men and women increased from 65 years 2 months to 65 years 8 months</dd>
         
     <dl>
 </div>
@@ -1036,7 +1093,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            <p>Estimated prevalence of low and very low food security in the population of England, Wales and Northern Ireland aged 16 and over</p>
+            <p>Estimated prevalence of low and very low food security in households in the United Kingdom</p>
 
           
         </td>
@@ -1050,7 +1107,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            <p>The proportion of the population of England, Wales and Northern Ireland that are classified and having low or very low food security based on the USDA measure and suite of 10 questions</p>
+            <p>The proportion of households in the United Kingdom that are classified and having low or very low food security. The questions used are based on a suite of food security questions developed by the <a href="https://www.ers.usda.gov/topics/food-nutrition-assistance/food-security-in-the- us/survey-tools/#household">US Department of Agriculture (USDA)</a>. Questions are asked of the ‘last 30 days’. This is an important difference to the UN metadata and other UK measures of food insecurity, which use questions based on ‘the last 12 months’. The question set is presented in table 9.10 of the source data.</p>
 
           
         </td>
@@ -1064,7 +1121,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            <p>England, Wales and Northern Ireland</p>
+            <p>United Kingdom</p>
 
           
         </td>
@@ -1092,9 +1149,15 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Low food security - Reports of reduced quality, variety, or desirability of diet. Little or no indication of reduced food intake. </p>
-<p>Very low food security - Reports of multiple indications of disrupted eating patterns and reduced food intake.
-</p>
+            <p>Low food security - The household reduced the quality, variety, and desirability of their diets, but the quantity of food intake and normal eating patterns were not substantially disrupted.</p>
+<p>Very low food security - At times during the last 30 days, eating patterns of one or more household members were disrupted and food intake reduced because the household lacked money and other resources for food.</p>
+<p>Household - One person living alone or a group of people (not necessarily related) living at the same address. These people share cooking facilities and share a living room, sitting room, or dining area, but it is clear who the head of the household is.</p>
+<p>Households being shared on an equal basis are not included. For example, a house shared by a group of professionals is not included. However, households where adult children are living with their parents or where there are lodgers, but the owner lives in the household are included.</p>
+<p>Head of household - The sole householder (i.e. the person who owns or rents the accommodation). Or if there are multiple householders, the person with the highest personal income from all sources. Or if multiple householders have the same income, the eldest.</p>
+<p>Disability Status - The <a href="https://gss.civilservice.gov.uk/policy-store/measuring-disability-for-the-equality-act-2010">(GSS) harmonised "core" definition</a> identifies a person as disabled if they have a physical or mental health condition or illness that has lasted or is expected to last 12 months or more. It must reduce their ability to carry-out day-to-day activities. It is important to note that a person who has a long-term illness that does not reduce their ability to carry-out day- to-day activities is not disabled under the definition. The GSS harmonised questions are asked of the respondent in the survey, meaning that disability status is self-reported. The GSS definition is designed to reflect the definitions that appear in legal terms in the Disability Discrimination Act 1995 (DDA) for Northern Ireland and the 2010 Equality Act for Great Britain.</p>
+<p>State Pension age - From 6 April 2010, the State Pension age has been increasing gradually for women, and since December 2018 has been increasing for both men and women. These data for 2019/20  were collected throughout the financial year 2019-20, during which the State Pension age for both men and women increased from 65 years 2 months to 65 years 8 months.</p>
+<p>Highest qualification - Educational attainment is measured by the highest level of qualification achieved. England, Wales and Northern Ireland use a range from Entry Level to Level 8. Scottish qualifications use a range from 1 to 12, but have been converted to the England, Wales and Northern Ireland system using an <a href="https://www.sqa.org.uk/sqa/64561.html">equivalency chart</a>. Entry level includes qualifications such as Entry Level Awards and Entry Level Functional Skills.  Level 1 includes qualifications such as GCSEs (grades 1-3/G-D) and Scottish National 4 qualifications. Level 2 includes qualifications such as GCSEs (grade 4/C and above) and Scottish National 5 qualifications. Level 3  includes qualifications such as A levels and Scottish Highers. Level 4 or higher covers a range of further education and university qualifications, including undergraduate degrees (such as BA, BSc, LLB), Master's degrees, doctoral qualifications (such as PhDs), most professional medical qualifications and PGCEs. No reported qualifications covers qualifications where the exact type or level could not be established during the interview.</p>
+<p>Ethnic group - Sample sizes for 'Gypsy, Traveller or Irish Traveller' are small, so for Northern Ireland, 'Irish Traveller' is included in 'Other ethnic group'. For England, Wales and Scotland, 'Gypsy or Irish Traveller' is included in 'White'. It is not possible to disaggregate Mixed/multiple ethnic group due to differences in data collection of the country specific questions. 'Arab' has been included in 'Other ethnic group' due to small sample sizes.</p>
 
           
         </td>
@@ -1108,7 +1171,18 @@ data-event-label="Change to Sources tab"
         <th scope="row">Available disaggregations </th>
         <td>
           
-            
+            <p>All breakdowns are available by food security level. The source dataset also gives data for high and moderate food security</p>
+<p>Age - The age group of the head of the household. Whether the head of household is above or below State Pension age is also available in 'Tenure by age'. Number of adults above and below State Pension age for households without children is also available in the source dataset </p>
+<p> Age group – Whether the head of household is working age or State Pension age. Age group by Tenure is available.</p>
+<p>Sex – Sex is not shown here as data are collected at the household level. However, some data on sex is available in the source data for single adult households without children.</p>
+<p>Country and Region – Country and region of residence. Region is only available when England is selected for Country.</p>
+<p>Ethnic group and Ethnicity – Ethnic group and (for the Asian/Asian British ethnic group) Ethnicity of the head of the household</p>
+<p>Highest qualification – the highest qualification level of the head of the household.</p>
+<p>Household composition breakdowns – These give the presence or absence of key groups (children, adults over the State Pension age, disabled adults, and unemployed adults under State Pension age). 'Household composition – disabled adults', also gives the number of disabled adults present.</p>
+<p>Number of adults and Number of children – these are only available when 'Household composition – children present' is selected.</p>
+<p>State support – This relates to the household being in receipt of any state support. Further breakdowns of State support are available in the source data. </p>
+<p>Tenure – Tenure is available in conjunction with Age group.</p>
+<p>Total Household gross weekly income - This includes all income for the household. </p>
 
           
         </td>
@@ -1122,7 +1196,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            
+            <p>No calculations on the source data were required.</p>
 
           
         </td>
@@ -1136,9 +1210,12 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Data presented here come from the Food and You Survey run by the Food Standards Agency. This includes a suite of food insecurity questions developed by the US Department of Agriculture (USDA). Data is available for England, Wales and Northern Ireland.</p>
-<p>Fieldwork for Wave 4 of the Food and You Survey was conducted between 27 May and 30 September 2016. Fieldwork for Wave 5 was conducted between 18 June and 31 December 2018.</p>
-<p>This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.</p>
+            <p>It should be noted that the Family Resources Survey (FRS) Household Food Security questions cover the 30 days prior to interview, not the previous 12 months, as is the case in many other surveys. Direct comparisons cannot be made between these data and those based on questions asked of a 12 month period.The question set is based on the Adult Food Security Survey Module from the United States Department of Agriculture. The 30 day time reference period has been used as it was more appropriate in the context of the Family Resources Survey, which focuses on respondent’s circumstances at the time of the interview and uses time reference period of a week or a month on other questions</p>
+<p>The USDA set of questions is very similar to the FIES (Food Insecurity Experience Scale) set, which is used for international comparisons.</p>
+<p>Questions on food security are answered by the person in the household who knows the most about food purchasing and preparation. There are a range of questions, asking about the adults within the household. The questions do not directly ask about the food security status of children.</p>
+<p>Further information on the questions posed can be found in the 'Guidance' and table 9.10 tabs of the source data, and in the Background Information &amp; Methodology.</p>
+<p> This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.
+</p>
 
           
         </td>
@@ -1588,7 +1665,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Food Standards Agency</p>
+            <p>Department for Work and Pensions</p>
 
           
         </td>
@@ -1602,7 +1679,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            <p>Biennial</p>
+            <p>Annual</p>
 
           
         </td>
@@ -1616,7 +1693,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2016</p>
+            <p>2019/2020</p>
 
           
         </td>
@@ -1630,7 +1707,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            <p>England, Wales and Northern Ireland</p>
+            <p>United Kingdom</p>
 
           
         </td>
@@ -1650,8 +1727,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://www.food.gov.uk/research/food-and-you" target="_blank">
-                Food and You Survey <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.gov.uk/government/statistics/family-resources-survey-financial-year-2019-to-2020" target="_blank">
+                Family Resources Survey <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1671,7 +1748,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            25 March 2019
+            25 March 2021
           
         </td>
         </tr>
@@ -1684,7 +1761,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>TBC</p>
+            <p>March 2022</p>
 
           
         </td>
@@ -1698,7 +1775,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Official statistic</p>
+            <p>National Statistics</p>
 
           
         </td>
@@ -1712,7 +1789,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>foodandyou@food.gov.uk</p>
+            <p>team.frs@dwp.gov.uk</p>
 
           
         </td>
@@ -1726,7 +1803,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Data for 2016 is from the wave 4 survey and data for 2018 is from the wave 5 survey.</p>
+            <p>Data are in the ‘Household Food Security’ files</p>
 
           
         </td>
@@ -2060,7 +2137,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20211202130948'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20211202132209'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2068,7 +2145,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20211202130948"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20211202132209"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
