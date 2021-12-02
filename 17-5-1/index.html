@@ -138,7 +138,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20211202142852">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20211202143704">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -529,7 +529,7 @@ data-event-label="high"
   data-country="United Kingdom"
   data-charttitle="Total amount of money spent on Manufacturing Africa project "
   data-charttitles="null"
-  data-measurementunit="Pounds (£Millions)"
+  data-measurementunit="GBP (£ Millions)"
   data-xaxislabel=""
   data-showdata="true"
   data-graphtype="line"
@@ -542,7 +542,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;GBP (£ Millions)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -588,6 +588,10 @@ data-event-label="high"
         
         
         
+        <th scope="col">Units</th>
+        
+        
+        
         <th scope="col">Observation status</th>
         
         
@@ -606,6 +610,10 @@ data-event-label="high"
           
           
           <td>3.217895</td>
+          
+          
+          
+          <td>GBP (£ Millions)</td>
           
           
           
@@ -629,6 +637,10 @@ data-event-label="high"
           
           
           
+          <td>GBP (£ Millions)</td>
+          
+          
+          
           <td>Normal value</td>
           
           
@@ -649,6 +661,10 @@ data-event-label="high"
           
           
           
+          <td>GBP (£ Millions)</td>
+          
+          
+          
           <td>Normal value</td>
           
           
@@ -665,11 +681,15 @@ data-event-label="high"
           
           
           
-          <td>5.798568</td>
+          <td>7.59302</td>
           
           
           
-          <td>Normal value</td>
+          <td>GBP (£ Millions)</td>
+          
+          
+          
+          <td>Provisional value</td>
           
           
           
@@ -690,7 +710,7 @@ data-event-label="high"
     <p>Geographical Area: United Kingdom</p>
     
     
-    <p>Unit of Measurement: Pounds (£Millions)</p>
+    <p>Unit of Measurement: GBP (£ Millions)</p>
     
     
     <p>Footnote: <p>1. Data represents financial year; </p><p>2. The 2021 to 2022 figure shows spend to date</p></p>
@@ -1000,7 +1020,7 @@ opensdg.chartConfigAlter(function(config, info) {
 
         
         <dt>Unit of Measurement:</dt>
-        <dd>Pounds (£Millions)</dd>
+        <dd>GBP (£ Millions)</dd>
         
 
         
@@ -1049,7 +1069,7 @@ opensdg.chartConfigAlter(function(config, info) {
 
         
         <dt>Unit of Measurement:</dt>
-        <dd>Pounds (£Millions)</dd>
+        <dd>GBP (£ Millions)</dd>
         
 
         
@@ -1179,7 +1199,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            <p>Pounds (£Millions)</p>
+            <p>GBP (£ Millions)</p>
 
           
         </td>
@@ -1237,7 +1257,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             <p>Manufacturing Africa, formerly the Invest Africa programme, is a £100 million initiative that aims to increase foreign direct investment (FDI) into manufacturing in Africa. It does so by working with developing-country governments, international investors, buyers, and financiers – including from the UK. Over 10 years the programme will help create 90,000 jobs and generate £1.2 billion of new FDI. It will support developing countries to industrialise, produce higher value-added goods, and thereby transform their economies, creating high quality job opportunities for the poor. </p>
-<p>  The programme operates in 7 countries – this currently includes Ethiopia, Uganda, Rwanda, Kenya, Nigeria, Senegal and Cote D’Ivoire. This feeds into the <a href="https://www.gov.uk/government/collections/global-britain-delivering-on-our-international-ambition">Global Britain agenda</a> – building wider and deeper global markets that will benefit the UK. </p>
+<p>  The programme operates in 7 countries – this currently includes Ethiopia, Uganda, Rwanda, Kenya, Nigeria, Senegal and Cote D’Ivoire. This feeds into the <a href="https://www.gov.uk/government/collections/global-britain-delivering-on-our-international- ambition">Global Britain agenda</a> – building wider and deeper global markets that will benefit the UK. </p>
 <p>Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
 
           
@@ -1750,7 +1770,7 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://devtracker.fcdo.gov.uk/projects/GB-1-205226" target="_blank">
+              <a href="https://devtracker.fcdo.gov.uk/projects/GB-1-205226/summary" target="_blank">
                 Manufacturing Africa - development tracker <span class="visuallyhidden">opens in a new window</span>
               </a>
             
@@ -1771,7 +1791,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            15 July 2021
+            10 September 2021
           
         </td>
         </tr>
@@ -2160,7 +2180,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20211202142852'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20211202143704'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2168,7 +2188,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20211202142852"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20211202143704"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
