@@ -11,6 +11,9 @@ If you have any feedback on our publications, please [contact us]({{ site.baseur
 We publish a yearly update on our progress towards measuring the global Sustainable Development Goal indicators in the UK:
 <br>
 <br>
+[2021 annual update](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/december2021)
+<br>
+<br>
 [2020 annual update](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/december2020)
 <br>
 <br>
@@ -24,6 +27,14 @@ We publish a yearly update on our progress towards measuring the global Sustaina
 <br>
 <br>
 ## All goals
+
+[Leaving no one behind - a review of who has been most affected by the coronavirus pandemic in the UK](https://www.ons.gov.uk/economy/environmentalaccounts/articles/leavingnoonebehindareviewofwhohasbeenmostaffectedbythecoronaviruspandemicintheuk/december2021)
+
+Evidence on the impacts of coronavirus (COVID-19) on society, economy and the environment in the UK, and how this links to the global Sustainable Development Goals.
+
+<small>3 December 2021</small>
+<br>
+<br>
 [UK Sustainable Development Goals: use of non-official sources](https://www.ons.gov.uk/economy/environmentalaccounts/methodologies/uksustainabledevelopmentgoalsuseofnonofficialsources)
 
 We outline our approach to assessing the quality and suitability of non-official sources for reporting the UK’s progress towards the Sustainable Development Goals.
