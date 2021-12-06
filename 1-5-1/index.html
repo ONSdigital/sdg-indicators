@@ -138,7 +138,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20211206122708">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20211206150515">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -506,6 +506,12 @@ data-event-label="high"
   
 
   
+<div class="row metadata-available-indicator">
+  <div class="col-xs-12">
+    <h2>Number of deaths registered in the calendar year from exposure to forces of nature in England and Wales</h2>
+  </div>
+</div>
+
 
   
 
@@ -523,9 +529,9 @@ data-event-label="high"
   data-indicatorid='indicator_1-5-1'
   data-id="1-5-1"
   data-country="England and Wales"
-  data-charttitle="Deaths from exposure to natural forces per 100,000 population and number of deaths."
+  data-charttitle="Number of deaths from exposure to forces of nature in England and Wales"
   data-charttitles="null"
-  data-measurementunit=""
+  data-measurementunit="Number of deaths and age-standardised mortality rates per 100,000 population"
   data-xaxislabel=""
   data-showdata="true"
   data-graphtype="line"
@@ -538,7 +544,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;England&quot;,&quot;Wales&quot;,&quot;England and Wales&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Sex&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Female&quot;,&quot;Male&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Sex&quot;},{&quot;name&quot;:&quot;Cause of death&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Exposure to excessive natural cold&quot;,&quot;Exposure to excessive natural heat&quot;,&quot;Exposure to other and unspecified forces of nature&quot;,&quot;Exposure to sunlight&quot;,&quot;Victim of avalanche, landslide and other earth movements&quot;,&quot;Victim of cataclysmic storm&quot;,&quot;Victim of earthquake&quot;,&quot;Victim of flood&quot;,&quot;Victim of lightning&quot;,&quot;Victim of volcanic eruption&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Cause of death&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Deaths&quot;,&quot;Rate per 100,000 population&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Number of deaths from exposure to forces of nature&quot;,&quot;Age-standardised mortality rates per 100,000 population&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;England&quot;,&quot;Wales&quot;,&quot;England and Wales&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Sex&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Female&quot;,&quot;Male&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Sex&quot;},{&quot;name&quot;:&quot;Cause of death&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Exposure to excessive natural cold&quot;,&quot;Exposure to excessive natural heat&quot;,&quot;Exposure to other and unspecified forces of nature&quot;,&quot;Exposure to sunlight&quot;,&quot;Victim of avalanche, landslide and other earth movements&quot;,&quot;Victim of cataclysmic storm&quot;,&quot;Victim of earthquake&quot;,&quot;Victim of flood&quot;,&quot;Victim of lightning&quot;,&quot;Victim of volcanic eruption&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Cause of death&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -572,7 +578,7 @@ data-event-label="high"
 
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>Deaths from exposure to natural forces per 100,000 population and number of deaths.</caption>
+      <caption>Number of deaths from exposure to forces of nature in England and Wales</caption>
       <thead>
         
         
@@ -584,7 +590,7 @@ data-event-label="high"
         
         
         
-        <th scope="col">Units</th>
+        <th scope="col">Series</th>
         
         
         
@@ -613,11 +619,11 @@ data-event-label="high"
           
           
           
-          <td>0.248281235</td>
+          <td>0.2483</td>
           
           
           
-          <td>Rate per 100,000 population</td>
+          <td>Age-standardised mortality rates per 100,000 population</td>
           
           
           
@@ -625,11 +631,11 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
@@ -645,11 +651,11 @@ data-event-label="high"
           
           
           
-          <td>0.1806010071</td>
+          <td>0.1806</td>
           
           
           
-          <td>Rate per 100,000 population</td>
+          <td>Age-standardised mortality rates per 100,000 population</td>
           
           
           
@@ -657,11 +663,11 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
@@ -677,11 +683,11 @@ data-event-label="high"
           
           
           
-          <td>0.1778173331</td>
+          <td>0.1778</td>
           
           
           
-          <td>Rate per 100,000 population</td>
+          <td>Age-standardised mortality rates per 100,000 population</td>
           
           
           
@@ -689,11 +695,11 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
@@ -709,11 +715,11 @@ data-event-label="high"
           
           
           
-          <td>0.1787326172</td>
+          <td>0.1787</td>
           
           
           
-          <td>Rate per 100,000 population</td>
+          <td>Age-standardised mortality rates per 100,000 population</td>
           
           
           
@@ -721,11 +727,11 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
@@ -741,11 +747,11 @@ data-event-label="high"
           
           
           
-          <td>0.1679877252</td>
+          <td>0.168</td>
           
           
           
-          <td>Rate per 100,000 population</td>
+          <td>Age-standardised mortality rates per 100,000 population</td>
           
           
           
@@ -753,11 +759,11 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
@@ -773,11 +779,11 @@ data-event-label="high"
           
           
           
-          <td>0.1723791064</td>
+          <td>0.1724</td>
           
           
           
-          <td>Rate per 100,000 population</td>
+          <td>Age-standardised mortality rates per 100,000 population</td>
           
           
           
@@ -785,11 +791,11 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
@@ -805,11 +811,11 @@ data-event-label="high"
           
           
           
-          <td>0.200414096</td>
+          <td>0.2004</td>
           
           
           
-          <td>Rate per 100,000 population</td>
+          <td>Age-standardised mortality rates per 100,000 population</td>
           
           
           
@@ -817,11 +823,11 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
@@ -837,11 +843,11 @@ data-event-label="high"
           
           
           
-          <td>0.2115178007</td>
+          <td>0.2115</td>
           
           
           
-          <td>Rate per 100,000 population</td>
+          <td>Age-standardised mortality rates per 100,000 population</td>
           
           
           
@@ -849,11 +855,11 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
@@ -869,11 +875,11 @@ data-event-label="high"
           
           
           
-          <td>0.2244943098</td>
+          <td>0.2245</td>
           
           
           
-          <td>Rate per 100,000 population</td>
+          <td>Age-standardised mortality rates per 100,000 population</td>
           
           
           
@@ -881,11 +887,11 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
@@ -901,11 +907,11 @@ data-event-label="high"
           
           
           
-          <td>0.2316293547</td>
+          <td>0.2316</td>
           
           
           
-          <td>Rate per 100,000 population</td>
+          <td>Age-standardised mortality rates per 100,000 population</td>
           
           
           
@@ -913,11 +919,11 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
@@ -933,11 +939,11 @@ data-event-label="high"
           
           
           
-          <td>0.1406421511</td>
+          <td>0.1406</td>
           
           
           
-          <td>Rate per 100,000 population</td>
+          <td>Age-standardised mortality rates per 100,000 population</td>
           
           
           
@@ -945,11 +951,11 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
@@ -965,11 +971,11 @@ data-event-label="high"
           
           
           
-          <td>0.1449588031</td>
+          <td>0.145</td>
           
           
           
-          <td>Rate per 100,000 population</td>
+          <td>Age-standardised mortality rates per 100,000 population</td>
           
           
           
@@ -977,11 +983,11 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
@@ -997,11 +1003,11 @@ data-event-label="high"
           
           
           
-          <td>0.1703301432</td>
+          <td>0.18</td>
           
           
           
-          <td>Rate per 100,000 population</td>
+          <td>Age-standardised mortality rates per 100,000 population</td>
           
           
           
@@ -1009,11 +1015,11 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
@@ -1029,11 +1035,11 @@ data-event-label="high"
           
           
           
-          <td>0.1236747338</td>
+          <td>0.13</td>
           
           
           
-          <td>Rate per 100,000 population</td>
+          <td>Age-standardised mortality rates per 100,000 population</td>
           
           
           
@@ -1041,11 +1047,11 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
@@ -1061,11 +1067,11 @@ data-event-label="high"
           
           
           
-          <td>0.0673744869</td>
+          <td>0.07</td>
           
           
           
-          <td>Rate per 100,000 population</td>
+          <td>Age-standardised mortality rates per 100,000 population</td>
           
           
           
@@ -1073,11 +1079,11 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
@@ -1093,11 +1099,11 @@ data-event-label="high"
           
           
           
-          <td>0.0907826228</td>
+          <td>0.09</td>
           
           
           
-          <td>Rate per 100,000 population</td>
+          <td>Age-standardised mortality rates per 100,000 population</td>
           
           
           
@@ -1105,11 +1111,11 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
@@ -1125,11 +1131,11 @@ data-event-label="high"
           
           
           
-          <td>0.1106484775</td>
+          <td>0.12</td>
           
           
           
-          <td>Rate per 100,000 population</td>
+          <td>Age-standardised mortality rates per 100,000 population</td>
           
           
           
@@ -1137,11 +1143,11 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
@@ -1157,11 +1163,11 @@ data-event-label="high"
           
           
           
-          <td>0.0964209083</td>
+          <td>0.1</td>
           
           
           
-          <td>Rate per 100,000 population</td>
+          <td>Age-standardised mortality rates per 100,000 population</td>
           
           
           
@@ -1169,11 +1175,75 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
+          
+          
+          
+          <td class="table-value">Rate per 100,000 population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>0.08</td>
+          
+          
+          
+          <td>Age-standardised mortality rates per 100,000 population</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td class="table-value">Rate per 100,000 population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>0.08</td>
+          
+          
+          
+          <td>Age-standardised mortality rates per 100,000 population</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td></td>
           
           
           
@@ -1193,7 +1263,7 @@ data-event-label="high"
           
           
           
-          <td>Deaths</td>
+          <td>Number of deaths from exposure to forces of nature</td>
           
           
           
@@ -1201,15 +1271,15 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
-          <td class="table-value">Number of Deaths</td>
+          <td class="table-value">Number</td>
           
           
         </tr>
@@ -1225,7 +1295,7 @@ data-event-label="high"
           
           
           
-          <td>Deaths</td>
+          <td>Number of deaths from exposure to forces of nature</td>
           
           
           
@@ -1233,15 +1303,15 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
-          <td class="table-value">Number of Deaths</td>
+          <td class="table-value">Number</td>
           
           
         </tr>
@@ -1257,7 +1327,7 @@ data-event-label="high"
           
           
           
-          <td>Deaths</td>
+          <td>Number of deaths from exposure to forces of nature</td>
           
           
           
@@ -1265,15 +1335,15 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
-          <td class="table-value">Number of Deaths</td>
+          <td class="table-value">Number</td>
           
           
         </tr>
@@ -1289,7 +1359,7 @@ data-event-label="high"
           
           
           
-          <td>Deaths</td>
+          <td>Number of deaths from exposure to forces of nature</td>
           
           
           
@@ -1297,15 +1367,15 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
-          <td class="table-value">Number of Deaths</td>
+          <td class="table-value">Number</td>
           
           
         </tr>
@@ -1321,7 +1391,7 @@ data-event-label="high"
           
           
           
-          <td>Deaths</td>
+          <td>Number of deaths from exposure to forces of nature</td>
           
           
           
@@ -1329,15 +1399,15 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
-          <td class="table-value">Number of Deaths</td>
+          <td class="table-value">Number</td>
           
           
         </tr>
@@ -1353,7 +1423,7 @@ data-event-label="high"
           
           
           
-          <td>Deaths</td>
+          <td>Number of deaths from exposure to forces of nature</td>
           
           
           
@@ -1361,15 +1431,15 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
-          <td class="table-value">Number of Deaths</td>
+          <td class="table-value">Number</td>
           
           
         </tr>
@@ -1385,7 +1455,7 @@ data-event-label="high"
           
           
           
-          <td>Deaths</td>
+          <td>Number of deaths from exposure to forces of nature</td>
           
           
           
@@ -1393,15 +1463,15 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
-          <td class="table-value">Number of Deaths</td>
+          <td class="table-value">Number</td>
           
           
         </tr>
@@ -1417,7 +1487,7 @@ data-event-label="high"
           
           
           
-          <td>Deaths</td>
+          <td>Number of deaths from exposure to forces of nature</td>
           
           
           
@@ -1425,15 +1495,15 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
-          <td class="table-value">Number of Deaths</td>
+          <td class="table-value">Number</td>
           
           
         </tr>
@@ -1449,7 +1519,7 @@ data-event-label="high"
           
           
           
-          <td>Deaths</td>
+          <td>Number of deaths from exposure to forces of nature</td>
           
           
           
@@ -1457,15 +1527,15 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
-          <td class="table-value">Number of Deaths</td>
+          <td class="table-value">Number</td>
           
           
         </tr>
@@ -1481,7 +1551,7 @@ data-event-label="high"
           
           
           
-          <td>Deaths</td>
+          <td>Number of deaths from exposure to forces of nature</td>
           
           
           
@@ -1489,15 +1559,15 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
-          <td class="table-value">Number of Deaths</td>
+          <td class="table-value">Number</td>
           
           
         </tr>
@@ -1513,7 +1583,7 @@ data-event-label="high"
           
           
           
-          <td>Deaths</td>
+          <td>Number of deaths from exposure to forces of nature</td>
           
           
           
@@ -1521,15 +1591,15 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
-          <td class="table-value">Number of Deaths</td>
+          <td class="table-value">Number</td>
           
           
         </tr>
@@ -1545,7 +1615,7 @@ data-event-label="high"
           
           
           
-          <td>Deaths</td>
+          <td>Number of deaths from exposure to forces of nature</td>
           
           
           
@@ -1553,15 +1623,15 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
-          <td class="table-value">Number of Deaths</td>
+          <td class="table-value">Number</td>
           
           
         </tr>
@@ -1577,7 +1647,7 @@ data-event-label="high"
           
           
           
-          <td>Deaths</td>
+          <td>Number of deaths from exposure to forces of nature</td>
           
           
           
@@ -1585,15 +1655,15 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
-          <td class="table-value">Number of Deaths</td>
+          <td class="table-value">Number</td>
           
           
         </tr>
@@ -1609,7 +1679,7 @@ data-event-label="high"
           
           
           
-          <td>Deaths</td>
+          <td>Number of deaths from exposure to forces of nature</td>
           
           
           
@@ -1617,15 +1687,15 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
-          <td class="table-value">Number of Deaths</td>
+          <td class="table-value">Number</td>
           
           
         </tr>
@@ -1641,7 +1711,7 @@ data-event-label="high"
           
           
           
-          <td>Deaths</td>
+          <td>Number of deaths from exposure to forces of nature</td>
           
           
           
@@ -1649,15 +1719,15 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
-          <td class="table-value">Number of Deaths</td>
+          <td class="table-value">Number</td>
           
           
         </tr>
@@ -1673,7 +1743,7 @@ data-event-label="high"
           
           
           
-          <td>Deaths</td>
+          <td>Number of deaths from exposure to forces of nature</td>
           
           
           
@@ -1681,15 +1751,15 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
-          <td class="table-value">Number of Deaths</td>
+          <td class="table-value">Number</td>
           
           
         </tr>
@@ -1705,7 +1775,7 @@ data-event-label="high"
           
           
           
-          <td>Deaths</td>
+          <td>Number of deaths from exposure to forces of nature</td>
           
           
           
@@ -1713,15 +1783,15 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
-          <td class="table-value">Number of Deaths</td>
+          <td class="table-value">Number</td>
           
           
         </tr>
@@ -1737,7 +1807,7 @@ data-event-label="high"
           
           
           
-          <td>Deaths</td>
+          <td>Number of deaths from exposure to forces of nature</td>
           
           
           
@@ -1745,15 +1815,79 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
-          <td>Units</td>
+          <td></td>
           
           
           
-          <td class="table-value">Number of Deaths</td>
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>46.0</td>
+          
+          
+          
+          <td>Number of deaths from exposure to forces of nature</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td class="table-value">Number</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>49.0</td>
+          
+          
+          
+          <td>Number of deaths from exposure to forces of nature</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td class="table-value">Number</td>
           
           
         </tr>
@@ -1764,14 +1898,16 @@ data-event-label="high"
 
   <div id="datatableFooter">
     
-    <p>Source: Office for National Statistics (ONS)</p>
+    <p>Source: Nomis</p>
     
     
     <p>Geographical Area: England and Wales</p>
     
     
+    <p>Unit of Measurement: Number of deaths and age-standardised mortality rates per 100,000 population</p>
     
-    <p>Footnote: 1. Underlying cause of death was defined using the International Classification of Diseases, Tenth Revision (ICD-10) codes X30 to X39. 2. Figures are for persons usually resident in England and Wales, based on boundaries as of February 2020. 3. Figures are based on deaths registered, rather than deaths occurring between 2001 and 2018.  Figures only include deaths that were registered by 31 Dec 2018.</p>
+    
+    <p>Footnote: 1. Underlying cause of death was defined using the International Classification of Diseases, Tenth Revision (ICD-10) codes X30 to X39. 2. Figures are for persons resident in England and Wales</p>
     
   </div>
 
@@ -1817,7 +1953,7 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Deaths from exposure to natural forces per 100,000 population and number of deaths.</h4>
+          <h4 id="chart-heading" class="chart-title">Number of deaths from exposure to forces of nature in England and Wales</h4>
           <div id="chart" class="plot-container">
             
 <canvas
@@ -2068,7 +2204,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>Office for National Statistics (ONS)</dd>
+        <dd>Nomis, Office for National Statistics</dd>
         
 
         
@@ -2077,12 +2213,15 @@ opensdg.chartConfigAlter(function(config, info) {
         
 
         
+        <dt>Unit of Measurement:</dt>
+        <dd>Number of deaths and age-standardised mortality rates per 100,000 population</dd>
+        
 
         
 
         
         <dt>Footnote:</dt>
-        <dd>1. Underlying cause of death was defined using the International Classification of Diseases, Tenth Revision (ICD-10) codes X30 to X39. 2. Figures are for persons usually resident in England and Wales, based on boundaries as of February 2020. 3. Figures are based on deaths registered, rather than deaths occurring between 2001 and 2018.  Figures only include deaths that were registered by 31 Dec 2018.</dd>
+        <dd>1. Underlying cause of death was defined using the International Classification of Diseases, Tenth Revision (ICD-10) codes X30 to X39. 2. Figures are for persons resident in England and Wales</dd>
         
     <dl>
 </div>
@@ -2114,7 +2253,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>Office for National Statistics (ONS)</dd>
+        <dd>Nomis, Office for National Statistics</dd>
         
 
         
@@ -2123,12 +2262,15 @@ opensdg.chartConfigAlter(function(config, info) {
         
 
         
+        <dt>Unit of Measurement:</dt>
+        <dd>Number of deaths and age-standardised mortality rates per 100,000 population</dd>
+        
 
         
 
         
         <dt>Footnote:</dt>
-        <dd>1. Underlying cause of death was defined using the International Classification of Diseases, Tenth Revision (ICD-10) codes X30 to X39. 2. Figures are for persons usually resident in England and Wales, based on boundaries as of February 2020. 3. Figures are based on deaths registered, rather than deaths occurring between 2001 and 2018.  Figures only include deaths that were registered by 31 Dec 2018.</dd>
+        <dd>1. Underlying cause of death was defined using the International Classification of Diseases, Tenth Revision (ICD-10) codes X30 to X39. 2. Figures are for persons resident in England and Wales</dd>
         
     <dl>
 </div>
@@ -2209,7 +2351,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            
+            <p>Number of deaths registered in the calendar year from exposure to forces of nature in England and Wales</p>
 
           
         </td>
@@ -2251,7 +2393,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            
+            <p>Number of deaths and age-standardised mortality rates per 100,000 population</p>
 
           
         </td>
@@ -2265,7 +2407,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Data is provided by the Nomis Mortality Statistics dataset. This dataset provides mortality statistics for England and Wales, broken down by calendar year of registration, age, sex, underlying cause of death  (classified using ICD10, the International Classification of Diseases, 10th revision) and area of usual residence of the deceased. Death statistics are compiled from information supplied when deaths are certified and registered as part of civil registration, a legal requirement. Figures represent the number of deaths registered in the calendar year. Figures represent deaths which occurred in England and Wales - these include the deaths of individuals whose usual residence was outside England and Wales.</p>
+            <p> Data is provided by the Nomis Mortality Statistics dataset. This dataset provides mortality statistics for England and Wales, broken down by calendar year, sex and underlying cause of death (classified using ICD10, the International Classification of Diseases, 10th revision). </p>
+<p> Death statistics are compiled from information supplied when deaths are certified and registered as part of civil registration, a legal requirement. </p>
 
           
         </td>
@@ -2307,7 +2450,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>For more information, please see <a href="http://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/qmis/mortalitystatisticsinenglandandwalesqmi">Mortality Statistics Quality and Methodology Information</a>. This document contains important information on the strengths and limitations of the data, the quality of the output including the accuracy of the data, how it compares with related data, uses and users and how the output was created. This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.</p>
+            <p> For more information, please see <a href="http://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/qmis/mortalitystatisticsinenglandandwalesqmi">Nomis Mortality Statistics Quality and Methodology Information</a>. This document contains important information on the strengths and limitations of the data, the quality of the output including the accuracy of the data, how it compares with related data, uses and users and how the output was created.</p>
+<p>This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -2716,6 +2860,8 @@ data-event-label="Change to Sources tab"
     
     <div class="col-md-6">
       
+        <h4>Source 1</h4>
+      
       <table class="table">
   
   
@@ -2757,7 +2903,618 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Office for National Statistics (ONS)</p>
+            <p>Nomis</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Annual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2013</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>England and Wales</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://www.nomisweb.co.uk/api/v01/dataset/NM_161_1.data.csv?geography=2092957715,2092957699,2092957700,2092957703,2092957716&cause_of_death=0,12430...12439&gender=0...2&age=0&measure=1&measures=20100" target="_blank">
+                Number of deaths from exposure to forces of nature, England and Wales from 2013 to 2020 <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            08 July 2021
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>30/07/2022</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>National Statistic</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>support@nomisweb.co.uk</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            <p>Figures by area of usual residence may differ slightly to other published figures available on the ONS website. This is because the boundary files used to derive geography information (National Statistics Postcode Lookup (NSPL)) are updated quarterly which can result in small differences.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </div>
+    
+    
+    
+    <div class="col-md-6">
+      
+        <h4>Source 2</h4>
+      
+      <table class="table">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>Nomis</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Annual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2013</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>England and Wales</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://www.nomisweb.co.uk/api/v01/dataset/NM_161_1.data.csv?geography=2092957703&cause_of_death=0,2510&gender=0...2&age=0&measure=2&measures=20100" target="_blank">
+                Age-standardised mortality rates per 100,000 population from exposure to forces of nature, England and Wales from 2013 to 2020 <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            08 July 2021
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>30/07/2022</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>National Statistic</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>support@nomisweb.co.uk</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            <p> Age-standardised mortality rates per 100,000 population are standardised to the 2013 European Standard Population. Age-standardised rates are used to allow comparison between populations which may contain different proportions of people of different ages. More information on the calculation of age-standardised rates is available in our <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/methodologies/userguidetomortalitystatisticsjuly2017">User Guide to Mortality Statistics</a> </p>
+<p> Rates are suppressed when the number of deaths is less than 5 which is often the case when looking at mid-level super output area data or looking at detailed cause of death. The source data contains separate death rates per 100,000 population for England and for Wales, and death rates by cause of death which have not been included here. This is because in some instances the number of deaths are very small (less than 10), meaning the rate is statistically unreliable.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </div>
+    
+    
+    
+    <div class="col-md-6">
+      
+        <h4>Source 3</h4>
+      
+      <table class="table">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>Office for National Statistics</p>
 
           
         </td>
@@ -2895,37 +3652,13 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Please note the data source contains separate death rates per 100,000 population for England and for Wales, and death rates by cause of death and sex which have not been included here. This is because in some instances the number of deaths are very small (less than 10), meaning the rate is statistically unreliable. Therefore, death rates are only included here for combined England and Wales by sex, as there have been enough deaths to increase reliability of these figures. The absolute number of deaths has been reported for all other breakdowns.</p>
+            
 
           
         </td>
         </tr>
         
       
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -3229,7 +3962,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20211206122708'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20211206150515'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -3237,7 +3970,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20211206122708"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20211206150515"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
