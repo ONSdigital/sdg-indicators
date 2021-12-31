@@ -138,7 +138,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20211231002133">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20211231135634">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -1545,7 +1545,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            <p>These data show the number of neonatal deaths per 1,000 live births in the UK. These statististics are derived from information recorded when births and deaths are registered in England and Wales as part of civil registration, a legal requirement. Data presented by the UN may differ as a Bayesian model is used for the international methodology.</p>
+            <p>These data show the number of neonatal deaths per 1,000 live births in the UK. These statististics are derived from information recorded when births and deaths are registered in England and Wales as part of civil registration, a legal requirement. Data presented by the UN may differ as a Beyesian model is used for the international methodology.</p>
 
           
         </td>
@@ -1629,11 +1629,10 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>Where late neonatal mortality rates were not provided in the source data, the following calculation was carried out for breakdowns other than Country and Country by Sex</p>
+            <p>Where late neonatal mortality rates were not provided in the source data, the following calculation was carried out (with the one exception given below)</p>
 <p>(Number of neonatal deaths - number of early neonatal deaths) / (number of live births / 1000) </p>
-<p>Late neonatal mortality rates were caluclated as Neonatal mortality rate - Early neonatal mortality rate.</p>
-<p> For Country and Country by Sex the following calculation (which is less precise because of rounding) was used - </p>
-<p> Neonatal rate - Early neonatal rate</p>
+<p>For Northern Ireland figures in the Country and Country by Sex breakdowns the above calculation was not possible because number of live births excludes births to non-resident mothers, while the number of deaths includes non-residents. Therefore, for Northern Ireland the following calculation (which is less precise because of rounding) was used - </p>
+<p> Neonatal mortality rate - Early neonatal mortality rate.</p>
 
           
         </td>
@@ -1652,7 +1651,10 @@ data-event-label="Change to Sources tab"
 <p> Where the number of deaths is smaller than 3, rates are not given. </p>
 <p>Non-residents are included in the rates for England and Wales combined, Scotland, and Northern Ireland. However, non-residents are excluded from rates for England, and Wales.</p>
 <p>The reason why non-residents are treated differently is because the figures for Scotland and Northern Ireland are consistent with figures published by National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) respectively, and each organisation uses slightly different definitions. This does have a small knock-on effect on comparability but the differences that non-residents make to rates are relatively small – at the most, including/excluding non-residents leads to a difference of 0.1 in the rates shown. For cross country comparisons, then the different infant mortality rates for England and Wales (combined only), Scotland and Northern Ireland are all directly comparable.</p>
-<p>Breakdowns by age and country of birth of the mother, and by sex of the infant are given for infant deaths that have been successfully linked to their corresponding birth registration record. &lt;p&gt;Rates are not calculated where there are fewer than 3 deaths in a cell. It is ONS practice not to calculate rates where there are fewer than 3 deaths in a cell, as rates based on such low numbers are susceptible to inaccurate interpretation. These values have been left blank and are flagged as ‘Missing value; suppressed’ in the observation status of the downloadable csv. Some figures shown have low reliability (rates based on between 3 and 19 deaths). This means that their their reliability as a measure may be affected by the small number of events. Information on reliability is given in the observation status column in the downloadable csv. In particular, late neonatal figures have low reliability for some birthweights and some Country of birth levels. See available disaggregations above for more information. &lt;/p&gt;&lt;p&gt; Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
+<p>Breakdowns by age and country of birth of the mother, and by sex of the infant are given for infant deaths that have been successfully linked to their corresponding birth registration record.</p>
+<p>Rates are not calculated where there are fewer than 3 deaths in a cell. It is ONS practice not to calculate rates where there are fewer than 3 deaths in a cell, as rates based on such low numbers are susceptible to inaccurate interpretation. These values have been left blank and are flagged as 'Missing value; suppressed' in the observation status of the downloadable csv. Some figures shown have low reliability (rates based on between 3 and 19 deaths). This means that their their reliability as a measure may be affected by the small number of events. Information on reliability is given in the observation status column in the downloadable csv. In particular, late neonatal figures have low reliability for some birthweights and some Country of birth levels. See available disaggregations above for more information. </p>
+<p> Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.
+</p>
 
           
         </td>
@@ -1666,7 +1668,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            30 December 2021
+            31 December 2021
           
         </td>
         </tr>
@@ -1679,7 +1681,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            30 December 2021
+            31 December 2021
           
         </td>
         </tr>
@@ -2878,7 +2880,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20211231002133'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20211231135634'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2886,7 +2888,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20211231002133"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20211231135634"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
