@@ -17,17 +17,17 @@
     {% assign indicator_objects = indicator_objects | sort: 'sort' %}
     {% for indicator in indicator_objects %}
 
-      {% assign status_css = indicator.rs | slugify %}
-      {% if indicator.rs == 'notapplicable' %}
+      {% assign status_css = indicator.reporting_status | slugify %}
+      {% if indicator.reporting_status == 'notapplicable' %}
         {% assign status_desc = page.t.status.not_applicable %}
       {% endif %}
-      {% if indicator.rs == 'notstarted' %}
+      {% if indicator.reporting_status == 'notstarted' %}
         {% assign status_desc = page.t.status.exploring_data_sources %}
       {% endif %}
-      {% if indicator.rs == 'inprogress' %}
+      {% if indicator.reporting_status == 'inprogress' %}
         {% assign status_desc = page.t.status.statistics_in_progress %}
       {% endif %}
-      {% if indicator.rs == 'complete' %}
+      {% if indicator.reporting_status == 'complete' %}
         {% assign status_desc = page.t.status.reported %}
       {% endif %}
 
