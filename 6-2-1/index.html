@@ -138,7 +138,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220111122455">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220111171444">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -506,6 +506,12 @@ data-event-label="high"
   
 
   
+<div class="row metadata-available-indicator">
+  <div class="col-xs-12">
+    <h2>Proportion of population using (a) safely managed sanitation services</h2>
+  </div>
+</div>
+
 
   
 
@@ -522,23 +528,23 @@ data-event-label="high"
   id="indicatorData"
   data-indicatorid='indicator_6-2-1'
   data-id="6-2-1"
-  data-country="England and Wales"
-  data-charttitle="Percentage of the population connected to wastewater treatment"
+  data-country="United Kingdom"
+  data-charttitle="Proportion of population using safely managed sanitation services (%)"
   data-charttitles="null"
   data-measurementunit="Percentage (%)"
   data-xaxislabel=""
   data-showdata="true"
   data-graphtype="line"
   data-geocoderegex=""
-  data-showmap=""
-  data-startvalues="null"
+  data-showmap="false"
+  data-startvalues="[{&quot;field&quot;:&quot;Series&quot;,&quot;value&quot;:&quot;Proportion of population using safely managed sanitation services (%)&quot;},{&quot;field&quot;:&quot;Service level&quot;,&quot;value&quot;:&quot;Safely managed service&quot;}]"
   data-graphlimits="null"
   data-stackeddisaggregation=""
   data-graphannotations="null"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Treatment connection&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Independent&quot;,&quot;Public sewage&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Treatment connection&quot;},{&quot;name&quot;:&quot;Water treatment category&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Primary&quot;,&quot;Secondary&quot;,&quot;Tertiary&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Water treatment category&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Proportion of population using safely managed sanitation services (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Safely managed element&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Disposed insitu&quot;,&quot;Faecal sludge treated&quot;,&quot;Sewage treated&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Safely managed element&quot;},{&quot;name&quot;:&quot;Service level&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Basic service&quot;,&quot;Limited service&quot;,&quot;Open defecation&quot;,&quot;Safely managed service&quot;,&quot;Unimproved&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Service level&quot;},{&quot;name&quot;:&quot;Facility type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Improved latrine and other&quot;,&quot;Septic tank&quot;,&quot;Sewer&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Facility type&quot;},{&quot;name&quot;:&quot;Residence type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Rural&quot;,&quot;Urban&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Residence type&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -572,271 +578,11 @@ data-event-label="high"
 
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>Percentage of the population connected to wastewater treatment</caption>
+      <caption>Proportion of population using safely managed sanitation services (%)</caption>
       <thead>
-        
-        
-        <th scope="col">Year</th>
-        
-        
-        
-        <th scope="col">Value</th>
-        
-        
-        
-        <th scope="col">Observation status</th>
-        
-        
-        
-        <th scope="col">Unit multiplier</th>
-        
-        
-        
-        <th scope="col" class="table-value">Unit measure</th>
-        
         
       </thead>
       <tbody>
-        
-        <tr>
-          
-          
-          <td>2000</td>
-          
-          
-          
-          <td>97.99999857</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2001</td>
-          
-          
-          
-          <td>99.89999694</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2002</td>
-          
-          
-          
-          <td>99.99999696</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2003</td>
-          
-          
-          
-          <td>100.0000018</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2004</td>
-          
-          
-          
-          <td>99.99999911</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2005</td>
-          
-          
-          
-          <td>99.99999845</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2008</td>
-          
-          
-          
-          <td>99.99999714</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2009</td>
-          
-          
-          
-          <td>100.0000019</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2010</td>
-          
-          
-          
-          <td>99.5</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2012</td>
-          
-          
-          
-          <td>100.0</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
         
       </tbody>
     </table>
@@ -844,16 +590,16 @@ data-event-label="high"
 
   <div id="datatableFooter">
     
-    <p>Source: Organisation for Economic Co-operation and Development (OECD)</p>
+    <p>Source: WHO/UNICEF Joint Monitoring Programme (JMP) for Water Supply, Sanitation and Hygiene</p>
     
     
-    <p>Geographical Area: England and Wales</p>
+    <p>Geographical Area: United Kingdom</p>
     
     
     <p>Unit of Measurement: Percentage (%)</p>
     
     
-    <p>Footnote: Data refer to the financial year (April to March) until 2000. Independent treatment in 2012 is estimated by assuming that there are 2 persons per property.</p>
+    <p>Footnote: Figures are estimated by JMP. Select 'safely managed' from service level drop-down for 'safely managed element' options.</p>
     
   </div>
 
@@ -899,7 +645,7 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Percentage of the population connected to wastewater treatment</h4>
+          <h4 id="chart-heading" class="chart-title">Proportion of population using safely managed sanitation services (%)</h4>
           <div id="chart" class="plot-container">
             
 <canvas
@@ -1150,12 +896,12 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>Organisation for Economic Co-operation and Development (OECD)</dd>
+        <dd>WHO/UNICEF Joint Monitoring Programme (JMP) for Water Supply, Sanitation and Hygiene</dd>
         
 
         
         <dt>Geographical Area:</dt>
-        <dd>England and Wales</dd>
+        <dd>United Kingdom</dd>
         
 
         
@@ -1167,7 +913,7 @@ opensdg.chartConfigAlter(function(config, info) {
 
         
         <dt>Footnote:</dt>
-        <dd>Data refer to the financial year (April to March) until 2000. Independent treatment in 2012 is estimated by assuming that there are 2 persons per property.</dd>
+        <dd>Figures are estimated by JMP. Select 'safely managed' from service level drop-down for 'safely managed element' options.</dd>
         
     <dl>
 </div>
@@ -1199,12 +945,12 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>Organisation for Economic Co-operation and Development (OECD)</dd>
+        <dd>WHO/UNICEF Joint Monitoring Programme (JMP) for Water Supply, Sanitation and Hygiene</dd>
         
 
         
         <dt>Geographical Area:</dt>
-        <dd>England and Wales</dd>
+        <dd>United Kingdom</dd>
         
 
         
@@ -1216,7 +962,7 @@ opensdg.chartConfigAlter(function(config, info) {
 
         
         <dt>Footnote:</dt>
-        <dd>Data refer to the financial year (April to March) until 2000. Independent treatment in 2012 is estimated by assuming that there are 2 persons per property.</dd>
+        <dd>Figures are estimated by JMP. Select 'safely managed' from service level drop-down for 'safely managed element' options.</dd>
         
     <dl>
 </div>
@@ -1297,7 +1043,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            
+            <p>Proportion of population using (a) safely managed sanitation services</p>
 
           
         </td>
@@ -1311,7 +1057,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            <p>National population connected to a systems of conduits which collects and conducts urban wastewater. Collecting systems are often operated by public authorities or semi-public associations.</p>
+            
 
           
         </td>
@@ -1325,7 +1071,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            <p>England and Wales</p>
+            <p>United Kingdom</p>
 
           
         </td>
@@ -1353,7 +1099,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Tertiary treatment - treatment (additional to secondary treatment) of nitrogen and/or phosphorus and/or any other pollutant affecting the quality or a specific use of water (microbiological pollution, colour etc.). The different possible treatment efficiencies (organic pollution removal of at least 95% for BOD, 85% for COD, nitrogen removal of at least 70%, phosphorus removal of at least 80%, and microbiological removal) cannot be added and are exclusive. Secondary treatment - treatment of (urban) wastewater by a process generally involving biological treatment with a secondary settlement or other process, resulting in a BOD removal of at least 70% and a COD removal of at least 75%. Primary treatment - treatment of (urban) wastewater by a physical and/or chemical process involving settlement of suspended solids, or other process in which the BOD5 of the incoming wastewater are reduced by at least 20% before discharge and the total suspended solids of the incoming wastewater are reduced by at least 50%.</p>
+            <p>Sanitation services are defined as to the management of excreta from the facilities used by individuals, through emptying and transport of excreta for treatment and eventual discharge or reuse.​​​​​​<p> The data follows JMP's five stage sanitation ladder - <p> Open defecation - Disposal of human faeces in fields, forests, bushes, open bodies of water, beaches and other open spaces or with solid waste. <p>Unimproved - Use of pit latrines without a slab or platform, hanging latrines or bucket latrines.<p>Limited -  Use of improved facilities shared between two or more households. <p>Basic  -  Use of improved facilities which are not shared with other households.<p>Safely managed - Use of improved facilities that are not shared with other households and where excreta are safely disposed of in situ or removed and treated offsite.</p>
+</p></p></p></p></p></p>
 
           
         </td>
@@ -1381,7 +1128,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>Percentage figures provided in source data</p>
+            <p>Percentage figures provided in source data.</p>
 
           
         </td>
@@ -1395,7 +1142,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>A framework for measuring faecal waste flows and safety factors has been developed and piloted in 12 countries (World Bank Water and Sanitation Program, 2014), and is being adopted and scaled up within the sanitation sector. This framework has served as the basis for indicators 6.2.1 and 6.3.1. Data on safe disposal and treatment are not available for all countries. However, sufficient data were available to make global and regional estimates of safely managed sanitation services in 2017. Presence of a handwashing station with soap and water does not guarantee that household members consistently wash hands at key times, but has been accepted as the most suitable proxy. Data were available for 70 countries in 2017. At present, UK data does not account for homeless rough sleepers. Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
+            <p>Improved sanitation facilities are those designed to hygienically separate excreta from human contact and include - flush/pour flush toilets connected to piped sewer systems, septic tanks or pit latrines; pit latrines with slabs (including ventilated pit latrines), and composting toilets.</p>
+<p> There are 3 main ways to meet the criteria for having a safely managed sanitation service. People should use improved sanitation facilities which are not shared with other households, and the excreta produced should either be - <li>Treated and disposed in situ<li>Stored temporarily and then emptied and treated off-site<li>transported through a sewer with wastewater and then treated off-site</li><p><p>If excreta from improved sanitation facilities are not safely managed, then people using those facilities are classed as having a basic sanitation service. People using improved facilities that are shared with other households are classified as having a basic sanitation service.<p>The data figures are estimated by JMP, drawing from a range of different data sources. Such as, representative household surveys, population and housing censuses, administrative data and service provider data. For further information on JMP data collection and methods for this indicator, please see <a href="https://washdata.org/monitoring/methods/data-sources">JMP monitoring</a>. At present, UK data does not account for homeless rough sleepers.</p>No national data are currently available for indicator 6.2.1 (b) 'Proportion of population with handwashing facilities with soap and water available at home'.</p> Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.
+</p></li></li></p>
 
           
         </td>
@@ -1845,7 +1594,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Organisation for Economic Co-operation and Development (OECD)</p>
+            <p>WHO/UNICEF Joint Monitoring Programme (JMP) for Water Supply, Sanitation and Hygiene</p>
 
           
         </td>
@@ -1887,7 +1636,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            <p>England and Wales</p>
+            <p>United Kingdom</p>
 
           
         </td>
@@ -1907,8 +1656,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="http://stats.oecd.org/index.aspx?DataSetCode=water_treat#" target="_blank">
-                Wastewater treatment (% population connected) <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://washdata.org/data/household#!/gbr" target="_blank">
+                JMP Washdata <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1928,7 +1677,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            01 March 2018
+            01 July 2021
           
         </td>
         </tr>
@@ -1941,7 +1690,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>To be confirmed</p>
+            <p>01/07/2023</p>
 
           
         </td>
@@ -1969,7 +1718,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>ENV.Stat@oecd.org</p>
+            <p>info@washdata.org</p>
 
           
         </td>
@@ -1983,7 +1732,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            
+            <p>View data table and select measure by ‘Sanitation’ and see ‘anaylse by service level’, ‘analyse by facility type’ and ‘analyse by safely managed criteria’ for data.</p>
 
           
         </td>
@@ -2317,7 +2066,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20220111122455'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20220111171444'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2325,7 +2074,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20220111122455"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20220111171444"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
