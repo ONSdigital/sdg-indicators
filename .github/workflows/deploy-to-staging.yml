@@ -24,8 +24,8 @@ jobs:
       run: |
         gem install bundler
         bundle config path vendor/bundle
-        make install
-        make build.staging
+        bundle install
+        bundle exec jekyll build
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
