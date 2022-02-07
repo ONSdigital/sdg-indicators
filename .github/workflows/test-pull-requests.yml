@@ -19,7 +19,7 @@ jobs:
       run: |
         gem install bundler
         bundle config path vendor/bundle
-        make install
-        make build.staging
+        bundle install
+        bundle exec jekyll build
     - name: Test the HTML
       run: bash scripts/test/html_proofer_staging.sh
