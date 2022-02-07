@@ -3,7 +3,6 @@ layout: page
 title: Cookies on sdgdata.gov.uk
 permalink: /cookies/
 ---
-{% include custom/cookie-page-success.html %}
 
 Cookies are small files saved on your phone, tablet or computer when you visit a website.
 
