@@ -138,7 +138,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220222002139">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220222083908">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -539,7 +539,7 @@ data-event-label="high"
   data-id="2-1-1"
   data-country="United Kingdom"
   data-charttitle="Total Energy intake per day"
-  data-charttitles="null"
+  data-charttitles="[{&quot;series&quot;:&quot;Median&quot;,&quot;title&quot;:&quot;Total energy intake per day (median)&quot;},{&quot;series&quot;:&quot;Percentile (2.5th)&quot;,&quot;title&quot;:&quot;Total energy intake per day (2.5th percentile) &quot;}]"
   data-measurementunit="Calories per day (kcal/day)"
   data-xaxislabel=""
   data-showdata="true"
@@ -608,7 +608,7 @@ data-event-label="high"
     <p>Unit of Measurement: Calories per day (kcal/day)</p>
     
     
-    <p>Footnote: Up until 2016 to 17, Data is available as a combined figure from two survey years.  Each survey year spans two calendar years.  The year shown on the x-axis refers to the middle year from the combined survey years.  For example for year 2015 on the x axis, data is combined from both the 2014 to 15 and the 2015 to 16 survey years. For Survey years between 2016 to 17 and 2018 to 19, data is combined from three survey years. For these survey years 2018 appears on the x-axis</p>
+    <p>Footnote: Up until 2016 to 17, Data is available as a combined figure from two survey years.  Each survey year spans two calendar years.  The year shown on the x-axis refers to the middle year from the combined survey years.  For example for year 2015 on the x axis, data is combined from both the 2014 to 15 and the 2015 to 16 survey years. For Survey years between 2016 to 17 and 2018 to 19, data is combined from three survey years. For these survey years 2018 appears on the x-axis.</p>
     
   </div>
 
@@ -693,7 +693,7 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Total Energy intake per day</h4>
+          <h4 id="chart-heading" class="chart-title">Total energy intake per day (median)</h4>
           <div id="chart" class="plot-container">
             
 <canvas
@@ -969,7 +969,7 @@ opensdg.chartConfigAlter(function(config, info) {
 
         
         <dt>Footnote:</dt>
-        <dd>Up until 2016 to 17, Data is available as a combined figure from two survey years.  Each survey year spans two calendar years.  The year shown on the x-axis refers to the middle year from the combined survey years.  For example for year 2015 on the x axis, data is combined from both the 2014 to 15 and the 2015 to 16 survey years. For Survey years between 2016 to 17 and 2018 to 19, data is combined from three survey years. For these survey years 2018 appears on the x-axis</dd>
+        <dd>Up until 2016 to 17, Data is available as a combined figure from two survey years.  Each survey year spans two calendar years.  The year shown on the x-axis refers to the middle year from the combined survey years.  For example for year 2015 on the x axis, data is combined from both the 2014 to 15 and the 2015 to 16 survey years. For Survey years between 2016 to 17 and 2018 to 19, data is combined from three survey years. For these survey years 2018 appears on the x-axis.</dd>
         
 
         
@@ -1023,7 +1023,7 @@ opensdg.chartConfigAlter(function(config, info) {
 
         
         <dt>Footnote:</dt>
-        <dd>Up until 2016 to 17, Data is available as a combined figure from two survey years.  Each survey year spans two calendar years.  The year shown on the x-axis refers to the middle year from the combined survey years.  For example for year 2015 on the x axis, data is combined from both the 2014 to 15 and the 2015 to 16 survey years. For Survey years between 2016 to 17 and 2018 to 19, data is combined from three survey years. For these survey years 2018 appears on the x-axis</dd>
+        <dd>Up until 2016 to 17, Data is available as a combined figure from two survey years.  Each survey year spans two calendar years.  The year shown on the x-axis refers to the middle year from the combined survey years.  For example for year 2015 on the x axis, data is combined from both the 2014 to 15 and the 2015 to 16 survey years. For Survey years between 2016 to 17 and 2018 to 19, data is combined from three survey years. For these survey years 2018 appears on the x-axis.</dd>
         
 
         
@@ -1164,7 +1164,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Undernourishment is defined as the condition by which a person has access, on a regular basis, to the amount of food that are insufficient to provide the energy required for conducting a normal, healthy and active life, given his or her own dietary energy requirements. Though strictly related, “undernourishment” as defined here is different from the physical conditions of “malnutrition” and “undernutrition” as it refers to the condition of insufficient intake of food, rather than to the outcome in terms of nutritional status</p>
+            <p>Undernourishment is defined as the condition by which a person has access, on a regular basis, to the amount of food that are insufficient to provide the energy required for conducting a normal, healthy and active life, given his or her own dietary energy requirements. Though strictly related, “undernourishment” as defined here is different from the physical conditions of “malnutrition” and “undernutrition” as it refers to the condition of insufficient intake of food, rather than to the outcome in terms of nutritional status.</p>
 
           
         </td>
@@ -1192,7 +1192,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>No calculations were performed in the data acquisition of this indicator as appropriate data was readily available in the final format specified by this indicator</p>
+            <p>No calculations were performed in the data acquisition of this indicator as appropriate data was readily available in the final format specified by this indicator.</p>
 
           
         </td>
@@ -1233,7 +1233,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            04 January 2022
+            22 February 2022
           
         </td>
         </tr>
@@ -1752,7 +1752,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>To be Confirmed</p>
+            <p>To be confirmed</p>
 
           
         </td>
@@ -2128,7 +2128,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20220222002139'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20220222083908'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2136,7 +2136,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20220222002139"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20220222083908"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
