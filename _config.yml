@@ -5,6 +5,9 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'jekyll serve'. If you change this file, please restart the server process.
 
+# Open SDG version
+remote_theme: open-sdg/open-sdg@1.7.0
+
 # Site settings
 title: U.K. Indicators For The Sustainable Development Goals
 description: Data Platform Prototype
@@ -14,6 +17,13 @@ data_dir: data
 environment: staging
 
 remote_data_prefix: "https://ONSdigital.github.io/sdg-data"
+
+ignored_disaggregations:
+  - Age (default)
+  - Activity (default)
+  - Urbanisation (default)
+
+graph_title_from_series: true
 
 create_indicators:
   layout: indicator
@@ -152,8 +162,6 @@ plugins:
   - jekyll-remote-theme
   - jekyll-open-sdg-plugins
 
-remote_theme: open-sdg/open-sdg@1.7.0
-
 # Apply any custom Javascript.
 custom_js:
   - /assets/js/custom.js
@@ -218,7 +226,7 @@ reporting_status:
 
 frontpage_introduction_banner:
   title: 17 goals to transform our world
-  description: <a href="https://www.un.org/sustainabledevelopment/sustainable-development-goals/">The Sustainable Development Goals (SDGs)</a> are a universal call to action to end poverty, protect the planet and improve the lives and prospects of everyone, everywhere. The 17 Goals were adopted by all UN Member States in 2015, as part of the <a href="https://sustainabledevelopment.un.org/post2015/transformingourworld">2030 Agenda for Sustainable Development</a>.
+  description: <a href="https://sdgs.un.org/goals">The Sustainable Development Goals (SDGs)</a> are a universal call to action to end poverty, protect the planet and improve the lives and prospects of everyone, everywhere. The 17 Goals were adopted by all UN Member States in 2015, as part of the <a href="https://sdgs.un.org/2030agenda">2030 Agenda for Sustainable Development</a>.
 
 
 # This controls the text that appears above the goals grid.
@@ -249,7 +257,7 @@ frontpage_cards:
 
       [Implementing the Sustainable Development Goals](https://www.gov.uk/government/publications/implementing-the-sustainable-development-goals/implementing-the-sustainable-development-goals--2)
 
-      [UN Department of Economic and Social Affairs](https://sustainabledevelopment.un.org/)
+      [UN Department of Economic and Social Affairs](https://sdgs.un.org/)
 
 cookie_consent_form:
   enabled: true
