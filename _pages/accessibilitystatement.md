@@ -20,7 +20,7 @@ We’ve also made the website text as simple as possible to understand.
 
 ## Compliance status
 
-This website is fully compliant with the [Web Content Accessibility Guidelines version 2.1](https://www.w3.org/TR/WCAG21/) [AA standard](http://digitalaccessibilitycentre.org/index.php/office-for-national-statistics-sdg).
+This website is fully compliant with the [Web Content Accessibility Guidelines version 2.1](https://www.w3.org/TR/WCAG21/) [AA standard](https://digitalaccessibilitycentre.org/index.php/ons-sustainable-development-goals).
 
 ## How accessible this website is
 Even though this website is AA compliant, we are aware of some issues at a higher compliance level:
@@ -58,4 +58,4 @@ Ensuring accessibility is embedded in our development processes, including using
 
 This statement was prepared on 24.09.2020. It was last reviewed on 22.10.2020.
 
-This website was last tested on 20.10.2020. The test was carried out by the [Digital Accessibility Centre](http://digitalaccessibilitycentre.org/index.php/office-for-national-statistics-sdg).
+This website was last tested on 16.07.2021. The test was carried out by the [Digital Accessibility Centre](https://digitalaccessibilitycentre.org/index.php/ons-sustainable-development-goals).
