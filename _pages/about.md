@@ -3,7 +3,7 @@ title: About
 permalink: /about/
 layout: page
 ---
-The [Sustainable Development Goals](http://www.un.org/sustainabledevelopment/sustainable-development-goals/) (SDGs) are a universal call to action to:
+The [Sustainable Development Goals](https://sdgs.un.org/goals) (SDGs) are a universal call to action to:
 
   * end poverty
   
@@ -11,7 +11,7 @@ The [Sustainable Development Goals](http://www.un.org/sustainabledevelopment/sus
   
   * improve the lives and prospects of everyone, everywhere
 
-The 17 Goals were adopted by all UN Member States in 2015, as part of the [2030 Agenda for Sustainable Development](https://sustainabledevelopment.un.org/post2015/transformingourworld).
+The 17 Goals were adopted by all UN Member States in 2015, as part of the [2030 Agenda for Sustainable Development](https://sdgs.un.org/2030agenda).
 
 ## ONS' role in the SDGs
 The [Office For National Statistics](https://www.ons.gov.uk/) (ONS) is the UK’s largest independent producer of official statistics and its recognised National Statistical Institute (NSI).
