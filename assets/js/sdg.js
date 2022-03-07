@@ -544,7 +544,7 @@ opensdg.autotrack = function(preset, category, action, label) {
         finalMapPreparation();
       }
       else {
-        $('#tab-mapview').parent().click(finalMapPreparation);
+        $('.map-tab-item').parent().click(finalMapPreparation);
       }
       function finalMapPreparation() {
         setTimeout(function() {
@@ -606,55 +606,6 @@ opensdg.autotrack = function(preset, category, action, label) {
     });
   };
 })(jQuery);
-Chart.plugins.register({
-  id: 'rescaler',
-  beforeInit: function (chart, options) {
-    chart.config.data.allLabels = chart.config.data.labels.slice(0);
-  },
-  afterDatasetsUpdate: function (chart) {
-    _.each(chart.data.datasets, function (ds) {
-      if (!ds.initialised) {
-        ds.initialised = true;
-        ds.allData = ds.data.slice(0);
-      }
-    });
-  },
-  afterUpdate: function (chart) {
-
-    if (chart.isScaleUpdate) {
-      chart.isScaleUpdate = false;
-      return;
-    }
-
-    var datasets = _.filter(chart.data.datasets, function (ds, index) {
-      var meta = chart.getDatasetMeta(index).$filler;
-      return meta && meta.visible;
-    });
-
-    var ranges = _.chain(datasets).map('allData').map(function (data) {
-      return {
-        min: _.findIndex(data, function(val) { return val !== null }),
-        max: _.findLastIndex(data, function(val) { return val !== null })
-      };
-    }).value();
-
-    var dataRange = ranges.length ? {
-      min: _.chain(ranges).map('min').min().value(),
-      max: _.chain(ranges).map('max').max().value()
-    } : undefined;
-
-    if (dataRange) {
-      chart.data.labels = chart.data.allLabels.slice(dataRange.min, dataRange.max + 1);
-
-      chart.data.datasets.forEach(function (dataset) {
-        dataset.data = dataset.allData.slice(dataRange.min, dataRange.max + 1);
-      });
-
-      chart.isScaleUpdate = true;
-      chart.update();
-    }
-  }
-});
 function getTextLinesOnCanvas(ctx, text, maxWidth) {
   var words = text.split(" ");
   var lines = [];
@@ -676,6 +627,7 @@ function getTextLinesOnCanvas(ctx, text, maxWidth) {
 
 // This plugin displays a message to the user whenever a chart has no data.
 Chart.plugins.register({
+  id: 'open-sdg-no-data-message',
   afterDraw: function(chart) {
     if (chart.data.datasets.length === 0) {
 
@@ -685,16 +637,19 @@ Chart.plugins.register({
       }
       // @deprecated end
 
+      
       var ctx = chart.chart.ctx;
       var width = chart.chart.width;
-      var height = chart.chart.height
+      var height = chart.chart.height;
+      
+
       chart.clear();
 
       ctx.save();
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.font = "normal 40px 'Open Sans', Helvetica, Arial, sans-serif";
-      var lines = getTextLinesOnCanvas(ctx, translations.indicator.data_not_available, chart.chart.width);
+      var lines = getTextLinesOnCanvas(ctx, translations.indicator.data_not_available, width);
       var numLines = lines.length;
       var lineHeight = 50;
       var xLine = width / 2;
@@ -714,6 +669,7 @@ Chart.plugins.register({
 });
 // This plugin allows users to cycle through tooltips by keyboard.
 Chart.plugins.register({
+    id: 'open-sdg-accessible-charts',
     afterInit: function(chart) {
         var plugin = this;
         plugin.chart = chart;
@@ -1085,6 +1041,7 @@ var VALUE_COLUMN = 'Value';
 var HEADLINE_COLOR = '#777777';
 var SERIES_TOGGLE = true;
 var GRAPH_TITLE_FROM_SERIES = true;
+var CHARTJS_3 = false;
 
   /**
  * Model helper functions with general utility.
@@ -1953,6 +1910,25 @@ function getChartTitle(currentTitle, allTitles, selectedUnit, selectedSeries) {
 }
 
 /**
+ * @param {string} currentType
+ * @param {Array} allTypes Objects containing 'unit', 'series', and 'type'
+ * @param {String} selectedUnit
+ * @param {String} selectedSeries
+ * @param {Boolean} chartjs3
+ * @return {String} Updated type
+ */
+function getChartType(currentType, allTypes, selectedUnit, selectedSeries, chartjs3) {
+  if (!chartjs3) {
+    return currentType;
+  }
+  if (!currentType) {
+    currentType = 'line';
+  }
+  var match = getMatchByUnitSeries(allTypes, selectedUnit, selectedSeries);
+  return (match) ? match.type : currentType;
+}
+
+/**
  * @param {Array} graphLimits Objects containing 'unit' and 'title'
  * @param {String} selectedUnit
  * @param {String} selectedSeries
@@ -2277,7 +2253,8 @@ function getBaseDataset() {
     pointHoverRadius: 5,
     pointHoverBorderWidth: 1,
     tension: 0,
-    spanGaps: true
+    spanGaps: true,
+    maxBarThickness: 150,
   });
 }
 
@@ -2509,6 +2486,7 @@ function inputEdges(edges) {
     VALUE_COLUMN: VALUE_COLUMN,
     SERIES_TOGGLE: SERIES_TOGGLE,
     GRAPH_TITLE_FROM_SERIES: GRAPH_TITLE_FROM_SERIES,
+    CHARTJS_3: CHARTJS_3,
     convertJsonFormatToRows: convertJsonFormatToRows,
     getUniqueValuesByProperty: getUniqueValuesByProperty,
     dataHasUnits: dataHasUnits,
@@ -2540,6 +2518,7 @@ function inputEdges(edges) {
     getUpdatedFieldItemStates: getUpdatedFieldItemStates,
     fieldItemStatesForView: fieldItemStatesForView,
     getChartTitle: getChartTitle,
+    getChartType: getChartType,
     getCombinationData: getCombinationData,
     getDatasets: getDatasets,
     tableDataFromDatasets: tableDataFromDatasets,
@@ -2579,6 +2558,7 @@ function inputEdges(edges) {
   this.chartTitle = options.chartTitle,
   this.chartTitles = options.chartTitles;
   this.graphType = options.graphType;
+  this.graphTypes = options.graphTypes;
   this.measurementUnit = options.measurementUnit;
   this.xAxisLabel = options.xAxisLabel;
   this.startValues = options.startValues;
@@ -2685,6 +2665,10 @@ function inputEdges(edges) {
 
   this.updateChartTitle = function() {
     this.chartTitle = helpers.getChartTitle(this.chartTitle, this.chartTitles, this.selectedUnit, this.selectedSeries);
+  }
+
+  this.updateChartType = function() {
+    this.graphType = helpers.getChartType(this.graphType, this.graphTypes, this.selectedUnit, this.selectedSeries, helpers.CHARTJS_3);
   }
 
   this.updateSelectedUnit = function(selectedUnit) {
@@ -2853,6 +2837,7 @@ function inputEdges(edges) {
     }
 
     this.updateChartTitle();
+    this.updateChartType();
 
     this.onFieldsStatusUpdated.notify({
       data: this.fieldItemStates,
@@ -2874,6 +2859,7 @@ function inputEdges(edges) {
       stackedDisaggregation: this.stackedDisaggregation,
       graphAnnotations: helpers.getGraphAnnotations(this.graphAnnotations, this.selectedUnit, this.selectedSeries, this.graphTargetLines, this.graphSeriesBreaks),
       chartTitle: this.chartTitle,
+      chartType: this.graphType,
       indicatorDownloads: this.indicatorDownloads,
       precision: helpers.getPrecision(this.precision, this.selectedUnit, this.selectedSeries),
     });
@@ -3304,8 +3290,6 @@ var indicatorView = function (model, options) {
     view_obj._chartInstance.data.datasets = chartInfo.datasets;
     view_obj._chartInstance.data.labels = chartInfo.labels;
     this.updateHeadlineColor(this.isHighContrast() ? 'high' : 'default', view_obj._chartInstance);
-    // TODO: Investigate assets/js/chartjs/rescaler.js and why "allLabels" is needed.
-    view_obj._chartInstance.data.allLabels = chartInfo.labels;
 
     if(chartInfo.selectedUnit) {
       view_obj._chartInstance.options.scales.yAxes[0].scaleLabel.labelString = translations.t(chartInfo.selectedUnit);
@@ -3940,6 +3924,71 @@ indicatorController.prototype = {
   initialise: function () {
     this._model.initialise();
   }
+};
+var indicatorInit = function () {
+    if ($('#indicatorData').length) {
+        var domData = $('#indicatorData').data();
+
+        if (domData.showdata) {
+
+            $('.async-loading').each(function (i, obj) {
+                $(obj).append($('<img />').attr('src', $(obj).data('img')).attr('alt', translations.indicator.loading));
+            });
+
+            var remoteUrl = '/comb/' + domData.id + '.json';
+            if (opensdg.remoteDataBaseUrl !== '/') {
+                remoteUrl = opensdg.remoteDataBaseUrl + remoteUrl;
+            }
+
+            $.ajax({
+                url: remoteUrl,
+                success: function (res) {
+
+                    $('.async-loading').remove();
+                    $('.async-loaded').show();
+
+                    var model = new indicatorModel({
+                        data: res.data,
+                        edgesData: res.edges,
+                        showMap: domData.showmap,
+                        country: domData.country,
+                        indicatorId: domData.indicatorid,
+                        shortIndicatorId: domData.id,
+                        chartTitle: domData.charttitle,
+                        chartTitles: domData.charttitles,
+                        measurementUnit: domData.measurementunit,
+                        xAxisLabel: domData.xaxislabel,
+                        showData: domData.showdata,
+                        graphType: domData.graphtype,
+                        graphTypes: domData.graphtypes,
+                        startValues: domData.startvalues,
+                        graphLimits: domData.graphlimits,
+                        stackedDisaggregation: domData.stackeddisaggregation,
+                        graphAnnotations: domData.graphannotations,
+                        graphTargetLines: domData.graphtargetlines,
+                        graphSeriesBreaks: domData.graphseriesbreaks,
+                        indicatorDownloads: domData.indicatordownloads,
+                        dataSchema: domData.dataschema,
+                        compositeBreakdownLabel: domData.compositebreakdownlabel,
+                        precision: domData.precision,
+                    });
+                    var view = new indicatorView(model, {
+                        rootElement: '#indicatorData',
+                        legendElement: '#plotLegend',
+                        decimalSeparator: '',
+                        maxChartHeight: 420,
+                        tableColumnDefs: [
+                            { maxCharCount: 25 }, // nowrap
+                            { maxCharCount: 35, width: 200 },
+                            { maxCharCount: Infinity, width: 250 }
+                        ]
+                    });
+                    var controller = new indicatorController(model, view);
+                    controller.initialise();
+                }
+            });
+        }
+    }
 };
 $(document).ready(function() {
     $('.nav-tabs').each(function() {
