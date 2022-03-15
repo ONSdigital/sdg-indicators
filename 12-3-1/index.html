@@ -138,7 +138,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220315002134">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220315091730">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -529,9 +529,9 @@ data-event-label="high"
   data-indicatorid='indicator_12-3-1'
   data-id="12-3-1"
   data-country="United Kingdom"
-  data-charttitle="Food waste (tonnes and per capita)"
+  data-charttitle="Food waste"
   data-charttitles="null"
-  data-measurementunit=""
+  data-measurementunit="Kilogrammes per person, kilotonnes"
   data-xaxislabel=""
   data-showdata="true"
   data-graphtype="line"
@@ -578,7 +578,7 @@ data-event-label="high"
 
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>Food waste (tonnes and per capita)</caption>
+      <caption>Food waste</caption>
       <thead>
         
         
@@ -1404,8 +1404,10 @@ data-event-label="high"
     <p>Geographical Area: United Kingdom</p>
     
     
+    <p>Unit of Measurement: Kilogrammes per person, kilotonnes</p>
     
-    <p>Footnote: 2009 Retail figures, 2011 Manufacturing and 2011 Hospitality and foodservice used as part of the 2007 12.3 baseline year totals</p>
+    
+    <p>Footnote: 2009 Retail figures, 2011 Manufacturing and 2011 Hospitality and food service used as part of the 2007 12.3 baseline year totals</p>
     
   </div>
 
@@ -1490,7 +1492,7 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Food waste (tonnes and per capita)</h4>
+          <h4 id="chart-heading" class="chart-title">Food waste</h4>
           <div id="chart" class="plot-container">
             
 <canvas
@@ -1758,12 +1760,15 @@ opensdg.chartConfigAlter(function(config, info) {
         
 
         
+        <dt>Unit of Measurement:</dt>
+        <dd>Kilogrammes per person, kilotonnes</dd>
+        
 
         
 
         
         <dt>Footnote:</dt>
-        <dd>2009 Retail figures, 2011 Manufacturing and 2011 Hospitality and foodservice used as part of the 2007 12.3 baseline year totals</dd>
+        <dd>2009 Retail figures, 2011 Manufacturing and 2011 Hospitality and food service used as part of the 2007 12.3 baseline year totals</dd>
         
 
         
@@ -1809,12 +1814,15 @@ opensdg.chartConfigAlter(function(config, info) {
         
 
         
+        <dt>Unit of Measurement:</dt>
+        <dd>Kilogrammes per person, kilotonnes</dd>
+        
 
         
 
         
         <dt>Footnote:</dt>
-        <dd>2009 Retail figures, 2011 Manufacturing and 2011 Hospitality and foodservice used as part of the 2007 12.3 baseline year totals</dd>
+        <dd>2009 Retail figures, 2011 Manufacturing and 2011 Hospitality and food service used as part of the 2007 12.3 baseline year totals</dd>
         
 
         
@@ -1941,7 +1949,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            
+            <p>Kilogrammes per person, kilotonnes</p>
 
           
         </td>
@@ -2026,7 +2034,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            18 November 2021
+            15 March 2022
           
         </td>
         </tr>
@@ -2587,7 +2595,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>2009 Retail figures, 2011 Manufacturing and 2011 Hospitality and foodservice used as part of the 2007 12.3 baseline year totals</p>
+            <p>2009 Retail figures, 2011 Manufacturing and 2011 Hospitality and food service used as part of the 2007 12.3 baseline year totals</p>
 
           
         </td>
@@ -2921,7 +2929,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20220315002134'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20220315091730'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2929,7 +2937,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20220315002134"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20220315091730"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
