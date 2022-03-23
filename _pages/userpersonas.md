@@ -40,7 +40,7 @@ We identified four main user personas:
 
 <style>
 
-span {
+.persona-span {
     position: absolute;
     margin: 4px 4px;
     left: 0px;
@@ -87,26 +87,27 @@ span {
     display: inline;
   }
 }
+
+.persona-list li {
+  position: relative;
 }
 
 
 </style>
 
-<html>
-
 <div>
-<ol style="list-style-type:none;" class="row no-gutters">
-  <li class="col-xs-6 col-sm-3 col-md-3">
-      <div class="up-column"><h3>Concerned Citizen</h3><p>“Tell me what the goals are and what is being done about them”</p><span>They use the website out of personal interest</span></div>
+<ol style="list-style-type:none;" class="row g-0 no-gutters persona-list">
+  <li class="col-6 col-xs-6 col-sm-3 col-md-3">
+      <div class="up-column"><h3>Concerned Citizen</h3><p>“Tell me what the goals are and what is being done about them”</p><span class="persona-span">They use the website out of personal interest</span></div>
   </li>
-  <li class="col-xs-6 col-sm-3 col-md-3">
-      <div class="up-column"><h3>Connected Influencer</h3><p>“Give me a tool that will support my ambitions and give me a louder voice”</p><span>They use the website as it adds credibility to what they are doing</span></div>
+  <li class="col-6 col-xs-6 col-sm-3 col-md-3">
+      <div class="up-column"><h3>Connected Influencer</h3><p>“Give me a tool that will support my ambitions and give me a louder voice”</p><span class="persona-span">They use the website as it adds credibility to what they are doing</span></div>
   </li>
-  <li class="col-xs-6 col-sm-3 col-md-3">
-      <div class="up-column"><h3>Fact Gatherer</h3><p>“I just need to quickly see what progress is being made and check the facts”</p><span>They use the website because they need to check something</span></div>
+  <li class="col-6 col-xs-6 col-sm-3 col-md-3">
+      <div class="up-column"><h3>Fact Gatherer</h3><p>“I just need to quickly see what progress is being made and check the facts”</p><span class="persona-span">They use the website because they need to check something</span></div>
   </li>
-  <li class="col-xs-6 col-sm-3 col-md-3">
-      <div class="up-column"><h3>Involved Analyst</h3><p>“I just want the data so I can do my own thing with it”</p><span>They use the website because they need to analyse the data</span></div>
+  <li class="col-6 col-xs-6 col-sm-3 col-md-3">
+      <div class="up-column"><h3>Involved Analyst</h3><p>“I just want the data so I can do my own thing with it”</p><span class="persona-span">They use the website because they need to analyse the data</span></div>
   </li>
 </ol>
 
@@ -114,7 +115,6 @@ span {
     <p class="up-text">The different user personas need different types of data on a scale from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst.</p>
 
 </div>
-</html>
 
 
 
