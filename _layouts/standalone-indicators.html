@@ -1,49 +1,35 @@
 {% include head.html %}
 {% include header.html %}
 
-<div id="main-content" class="container goal-indicators">
+<div id="main-content" class="container">
   <h1>{{ page.title | t }}</h1>
   {{ content }}
 
-  <div class="row no-gutters goal-target-and-indicators layout-goal-by-target-vertical">
+  {% assign indicator_objects = '' | split: ',' %}
+  {% for indicator_number in page.standalone_indicators %}
+    {% assign indicator = indicator_number | sdg_lookup %}
+    {% if indicator and indicator.sort %}
+      {% assign indicator_objects = indicator_objects | push: indicator %}
+    {% endif %}
+  {% endfor %}
+  {% assign indicator_objects = indicator_objects | sort: 'sort' %}
+  {% for indicator in indicator_objects %}
 
-    {% assign indicator_objects = '' | split: ',' %}
-    {% for indicator_number in page.standalone_indicators %}
-      {% assign indicator = indicator_number | sdg_lookup %}
-      {% if indicator and indicator.sort %}
-        {% assign indicator_objects = indicator_objects | push: indicator %}
-      {% endif %}
-    {% endfor %}
-    {% assign indicator_objects = indicator_objects | sort: 'sort' %}
-    {% for indicator in indicator_objects %}
-
-      {% assign status_css = indicator.reporting_status | slugify %}
-      {% if indicator.reporting_status == 'notapplicable' %}
-        {% assign status_desc = page.t.status.not_applicable %}
-      {% endif %}
-      {% if indicator.reporting_status == 'notstarted' %}
-        {% assign status_desc = page.t.status.exploring_data_sources %}
-      {% endif %}
-      {% if indicator.reporting_status == 'inprogress' %}
-        {% assign status_desc = page.t.status.statistics_in_progress %}
-      {% endif %}
-      {% if indicator.reporting_status == 'complete' %}
-        {% assign status_desc = page.t.status.reported %}
-      {% endif %}
-
-      <div class="goal-indicator">
-        <h4>
-          <span class="indicator-number"><span class="sr-only">{{ page.t.general.indicator }}</span>{{ indicator.indicator_number }}</span>
-        </h4>
-        <span class="indicator-name"><a href="{{ indicator.url }}">{{ indicator.name }}</a> ({{ indicator.archive_type }})</span>
-        <span class="sr-only">{{ page.t.indicator.status }}</span>
-        <span class="status {{ status_css }}">
-          {{ status_desc }}
-        </span>
-        {% include components/indicator/tags.html tags=indicator.tags %}
-      </div>
-    {% endfor %}
+  <div class="row mb-3">
+    <div class="col-1 ps-5">
+      <h4>
+        <span class="indicator-number"><span class="visually-hidden">{{ page.t.general.indicator }}</span> {{ indicator.indicator_number }}</span>
+      </h4>
+    </div>
+    <div class="col-8">
+      <span class="indicator-name"><a href="{{ indicator.url }}">{{ indicator.name }}</a> ({{ indicator.archive_type }})</span>
+    </div>
+    <div class="col-12 col-md-2 ms-auto text-end text-nowrap">
+      <span class="visually-hidden">{{ page.t.indicator.status }}</span>
+      {% include components/reportingstatus/reporting-status-label.html indicator=indicator %}
+    </div>
   </div>
+  {% endfor %}
 </div>
 
 {% include footer.html %}
