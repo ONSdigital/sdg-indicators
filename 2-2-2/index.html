@@ -138,7 +138,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220330002203">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220330083054">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -508,7 +508,7 @@ data-event-label="high"
   
 <div class="row metadata-available-indicator">
   <div class="col-xs-12">
-    <h2>Prevalence of underweight, overweight or obese children (aged 4 - 5 years) based on Body Mass Index (BMI) classifications</h2>
+    <h2>Prevalence of malnutrition (weight for height >+2 or <-2 standard deviation from the median of the WHO Child Growth Standards) for children aged 4 by type (wasting and overweight) and prevalence of underweight, overweight, and obesity for children aged 4 to 5 years using BMI classifications</h2>
   </div>
 </div>
 
@@ -519,7 +519,8 @@ data-event-label="high"
 
 <div class="row" id="page-content">
   <div class="col-xs-12">
-    <p>Data for this indicator is available for the 4 countries of the UK. However, as the data is acquired from different data sources for each, it is not possible to provide an overall UK figure.</p>
+    <p>Data which uses the WHO Child Growth Standards is available for England only. <p /> <p> Data which uses Body Mass Index (BMI) classifications is available for the 4 countries of the UK. However, as the data is acquired from different data sources for each, it is not possible to provide an overall UK figure.
+</p></p>
 
   </div>
 </div>
@@ -536,8 +537,8 @@ data-event-label="high"
   data-indicatorid='indicator_2-2-2'
   data-id="2-2-2"
   data-country="England, Scotland, Wales, Northern Ireland"
-  data-charttitle="Percentage of children classified as underweight, overweight or obese"
-  data-charttitles="null"
+  data-charttitle="Prevalence of malnutrition (weight for height >+2 or <-2 standard deviation from the median of the WHO Child Growth Standards) among children under 5 years of age, by type (wasting and overweight)"
+  data-charttitles="[{&quot;series&quot;:&quot;BMI classifications&quot;,&quot;title&quot;:&quot;Proportion of children (aged 4 - 5 years) classified as underweight, overweight or obese using BMI classifications&quot;},{&quot;series&quot;:&quot;WHO Child Growth Standards&quot;,&quot;title&quot;:&quot;Proportion of children aged 4 classified as wasting or overweight (England only)&quot;}]"
   data-measurementunit="Percentage (%)"
   data-xaxislabel=""
   data-showdata="true"
@@ -551,7 +552,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;England&quot;,&quot;Scotland&quot;,&quot;Wales&quot;,&quot;Northern Ireland&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Ethnicity&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Any other ethnic group&quot;,&quot;Asian&quot;,&quot;Black&quot;,&quot;Chinese&quot;,&quot;Mixed&quot;,&quot;Not stated&quot;,&quot;White&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnicity&quot;},{&quot;name&quot;:&quot;Sex&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Female&quot;,&quot;Male&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Sex&quot;},{&quot;name&quot;:&quot;BMI&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Obese&quot;,&quot;Overweight&quot;,&quot;Underweight&quot;,&quot;&quot;]},&quot;title&quot;:&quot;BMI&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;WHO Child Growth Standards&quot;,&quot;BMI classifications&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;England&quot;,&quot;Scotland&quot;,&quot;Wales&quot;,&quot;Northern Ireland&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Ethnicity&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;White - British&quot;,&quot;White - Irish&quot;,&quot;Any other White background&quot;,&quot;Indian&quot;,&quot;Pakistani&quot;,&quot;Bangladeshi&quot;,&quot;Chinese&quot;,&quot;Any other Asian background&quot;,&quot;Black - African&quot;,&quot;Black - Caribbean&quot;,&quot;Any other Black background&quot;,&quot;White and Black Caribbean&quot;,&quot;White and Black African&quot;,&quot;White and Asian&quot;,&quot;Any other Mixed background&quot;,&quot;Any other Ethnic group&quot;,&quot;Not stated / Invalid&quot;,&quot;White&quot;,&quot;Asian&quot;,&quot;Black&quot;,&quot;Mixed&quot;,&quot;Any other ethnic group&quot;,&quot;Not stated&quot;,&quot;Chinese or other&quot;,&quot;Not known&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnicity&quot;},{&quot;name&quot;:&quot;Sex&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Female&quot;,&quot;Male&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Sex&quot;},{&quot;name&quot;:&quot;Type (wasting or overweight)&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Wasting&quot;,&quot;Overweight&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Type (wasting or overweight)&quot;},{&quot;name&quot;:&quot;BMI Classifications&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Obese&quot;,&quot;Overweight&quot;,&quot;Underweight&quot;,&quot;&quot;]},&quot;title&quot;:&quot;BMI Classifications&quot;},{&quot;name&quot;:&quot;IMD Deciles (England)&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;1 (Most deprived)&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;,&quot;10 (Least deprived)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;IMD Deciles (England)&quot;},{&quot;name&quot;:&quot;IMD Quintiles&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;1 (Most deprived)&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5 (Least deprived)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;IMD Quintiles&quot;},{&quot;name&quot;:&quot;Urban or rural&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Urban&quot;,&quot;Rural&quot;,&quot;Not classified&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Urban or rural&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -585,7 +586,7 @@ data-event-label="high"
 
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>Percentage of children classified as underweight, overweight or obese</caption>
+      <caption>Prevalence of malnutrition (weight for height >+2 or <-2 standard deviation from the median of the WHO Child Growth Standards) among children under 5 years of age, by type (wasting and overweight)</caption>
       <thead>
         
       </thead>
@@ -606,7 +607,7 @@ data-event-label="high"
     <p>Unit of Measurement: Percentage (%)</p>
     
     
-    <p>Footnote: Please note the y axis does not go to 100% for ease of visualisation.</p>
+    <p>Footnote: <p> Please note the y axis does not go to 100% for ease of visualisation. <p/> <p> Data represents a school year. <p/> <p> For Northern Ireland BMI classification data, figures combine 3 years of data, as school closures due to the COVID-19 pandemic led to a reduction in the number of recorded measurements for this year group. For example, data from the year 2012/13 combines data from 2010/11, 2011/12 and 2012/13. <p/> <p> For England BMI classification data, 2020/21 figures are based on weighted data due to a smaller sample of measurements collected than in previous years. Because the WHO Child Growth Standards series is based on the same data, the values for 2020/21 school year are missing as the WHO calculations could not be performed on the weighted sample. <p/> <p> Data gaps in this indicator are due to data not being available or numbers of children in category being too small to be reported. Further information is available from data sources.</p>
     
   </div>
 
@@ -691,7 +692,7 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Percentage of children classified as underweight, overweight or obese</h4>
+          <h4 id="chart-heading" class="chart-title">Proportion of children (aged 4 - 5 years) classified as underweight, overweight or obese using BMI classifications</h4>
           <div id="chart" class="plot-container">
             
 <canvas
@@ -950,7 +951,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>NHS Digital, Information Services Division and NHS Scotland, Health Northern Ireland, NHS Wales</dd>
+        <dd>NHS Digital, Public Health Scotland, Department of Health Northern Ireland, NHS Wales, Office for Health Improvement and Disparities (OHID)</dd>
         
 
         
@@ -967,7 +968,7 @@ opensdg.chartConfigAlter(function(config, info) {
 
         
         <dt>Footnote:</dt>
-        <dd>Please note the y axis does not go to 100% for ease of visualisation.</dd>
+        <dd><p> Please note the y axis does not go to 100% for ease of visualisation. <p/> <p> Data represents a school year. <p/> <p> For Northern Ireland BMI classification data, figures combine 3 years of data, as school closures due to the COVID-19 pandemic led to a reduction in the number of recorded measurements for this year group. For example, data from the year 2012/13 combines data from 2010/11, 2011/12 and 2012/13. <p/> <p> For England BMI classification data, 2020/21 figures are based on weighted data due to a smaller sample of measurements collected than in previous years. Because the WHO Child Growth Standards series is based on the same data, the values for 2020/21 school year are missing as the WHO calculations could not be performed on the weighted sample. <p/> <p> Data gaps in this indicator are due to data not being available or numbers of children in category being too small to be reported. Further information is available from data sources.</dd>
         
 
         
@@ -1004,7 +1005,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>NHS Digital, Information Services Division and NHS Scotland, Health Northern Ireland, NHS Wales</dd>
+        <dd>NHS Digital, Public Health Scotland, Department of Health Northern Ireland, NHS Wales, Office for Health Improvement and Disparities (OHID)</dd>
         
 
         
@@ -1021,7 +1022,7 @@ opensdg.chartConfigAlter(function(config, info) {
 
         
         <dt>Footnote:</dt>
-        <dd>Please note the y axis does not go to 100% for ease of visualisation.</dd>
+        <dd><p> Please note the y axis does not go to 100% for ease of visualisation. <p/> <p> Data represents a school year. <p/> <p> For Northern Ireland BMI classification data, figures combine 3 years of data, as school closures due to the COVID-19 pandemic led to a reduction in the number of recorded measurements for this year group. For example, data from the year 2012/13 combines data from 2010/11, 2011/12 and 2012/13. <p/> <p> For England BMI classification data, 2020/21 figures are based on weighted data due to a smaller sample of measurements collected than in previous years. Because the WHO Child Growth Standards series is based on the same data, the values for 2020/21 school year are missing as the WHO calculations could not be performed on the weighted sample. <p/> <p> Data gaps in this indicator are due to data not being available or numbers of children in category being too small to be reported. Further information is available from data sources.</dd>
         
 
         
@@ -1106,7 +1107,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            <p>Prevalence of underweight, overweight or obese children (aged 4 - 5 years) based on Body Mass Index (BMI) classifications</p>
+            <p>Prevalence of malnutrition (weight for height &gt;+2 or &lt;-2 standard deviation from the median of the WHO Child Growth Standards) for children aged 4 by type (wasting and overweight) and prevalence of underweight, overweight, and obesity for children aged 4 to 5 years using BMI classifications</p>
 
           
         </td>
@@ -1120,7 +1121,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            <p>Percentage of 4-5 year old children categorised as underweight, overweight or obese based on body mass index (BMI) classifications.</p>
+            <p>Prevalence of malnutrition based on WHO Child Growth Standards is reported under the WHO Child Growth Standards series. Prevalence of malnutrition based on BMI classification data is reported under the BMI classifcations series.</p>
 
           
         </td>
@@ -1162,7 +1163,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>The prevalence of undernourishment is an estimate of the proportion of the population whose habitual food consumption is insufficient to provide the dietary energy levels that are required to maintain a normal active and healthy life. It is expressed as a percentage.</p>
+            <p>The prevalence of undernourishment is an estimate of the proportion of the population whose habitual food consumption is insufficient to provide the dietary energy levels that are required to maintain a normal active and healthy life. It is expressed as a percentage. <p /> <p> BMI is defined as weight (in kg) divided by height squared (in m2). <p /> <p> For England, Scotland, and Wales, BMI classifications are defined using the British 1990 Growth Reference where underweight includes those with a BMI less than or equal to the 2nd centile, overweight includes those with a BMI of greater than or equal to the 85th and less than the 95th centile and obesity includes those with a BMI greater than or equal to the 95th centile. The exception is Wales who categorises underweight as those with a BMI less than (but not equal to) the 2nd centile. <p /> <p> For Northern Ireland, BMI classifications are defined using the International Obesity Task Force (IOTF) guidelines. For more information, please refer to the original source links in the Sources tab. <p /> <p> Index of Multiple Deprivation (IMD) is the official measure of relative deprivation. It is expressed either in deciles (1 to 10) or quintiles (1 to 5), with 1 representing the most deprived category. It is calculated slightly differently between the different UK nations, so direct comparisons are not advised. For more details refer to the original source links in the Sources tab.
+</p></p></p></p></p>
 
           
         </td>
@@ -1176,7 +1178,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Available disaggregations </th>
         <td>
           
-            
+            <p> Sex; Index of Multiple Deprivation; Ethnicity; Rural or Urban classification. The latter is only available for the data which uses the WHO Child Growth Standards from academic year 2013 to 2014. <p /> <p> For BMI classifications, source data may contain additional disaggregations (e.g., by health board) that are not displayed on this page but can be found via the source links.
+</p></p>
 
           
         </td>
@@ -1190,7 +1193,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>No calculations were performed in the data acquisition of this indicator as appropriate data was readily available in the final format specified by this indicator. For insight into the details of potential calculations please refer to the original source metadata or source contact.</p>
+            <p>The analysis  for the data using the WHO Child Growth Standards was done by running the NCMP data through a bespoke <a href="https://www.who.int/tools/child-growth-standards/software">R package 'anthro</a>, developed by the World Health Organization (WHO) specifically for supplying Sustainable Development Goals related figures. <p /> <p> The prevalence represents percentage from the unweighted sample size. <p> The dataset variables used for the analysis were age in months, height, sex, weight, index of multiple deprivation (originally deciles, and recoded into quintiles), ethnic group, and rural/urban indicator (recoded into a binary classification). <p /> <p>For Wales BMI classification series, percentage of obese was subtracted from percentage of overweight or obese to provide the figure for percentage of overweight that is reported here. <p /> <p> For Northern Ireland BMI classification series, percentage of obese was subtracted from percentage of overweight and obese to provide the figure for percentage of overweight that is reported here.<p /> <p> No other calculations were performed in the data acquisition of BMI classifications data as appropriate data was readily available in the final format specified by this indicator. For insight into the details of potential calculations please refer to the original source metadata or source contact.
+</p></p></p></p></p></p>
 
           
         </td>
@@ -1204,7 +1208,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has not been identified in collaboration with topic experts.</p>
+            <p>For Northern Ireland, only data from the past 5 years are available via the source link. However, older data and data for some disaggregations not available via the source link (i.e., sex and some IMD quintiles) can be requested directly from Department of Health Northern Ireland using the relevant contact details under the Sources tab.</p>
+<p>This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has not been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -1218,7 +1223,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            08 February 2022
+            30 March 2022
           
         </td>
         </tr>
@@ -1231,7 +1236,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            08 February 2022
+            30 March 2022
           
         </td>
         </tr>
@@ -1718,8 +1723,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://digital.nhs.uk/data-and-information/publications/statistical/national-child-measurement-programme/2016-17-school-year" target="_blank">
-                National Child Measurement Programme  <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://digital.nhs.uk/data-and-information/publications/statistical/national-child-measurement-programme/2020-21-school-year" target="_blank">
+                National Child Measurement Programme England 2020/21 <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1739,7 +1744,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            11 October 2018
+            16 November 2021
           
         </td>
         </tr>
@@ -1752,7 +1757,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>TBA</p>
+            <p>See source link</p>
 
           
         </td>
@@ -1766,7 +1771,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Official Statistic</p>
+            <p>Official statistic</p>
 
           
         </td>
@@ -1794,7 +1799,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            
+            <p>Data tables can be found towards the bottom of the page, under the heading ‘Resources’</p>
 
           
         </td>
@@ -1961,7 +1966,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Information Services Division and NHS Scotland</p>
+            <p>Public Health Scotland</p>
 
           
         </td>
@@ -1975,7 +1980,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            <p>annual</p>
+            <p>Annual</p>
 
           
         </td>
@@ -1989,7 +1994,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2006/2007</p>
+            <p>2001/02</p>
 
           
         </td>
@@ -2023,8 +2028,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://www.isdscotland.org/Health-Topics/Child-Health/Publications/2016-12-13/2016-12-13-P1-BMI-Report.pdf?2334231139" target="_blank">
-                Body Mass Index of Primary 1 Children in Scotland <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.publichealthscotland.scot/publications/primary-1-body-mass-index-bmi-statistics-scotland/primary-1-body-mass-index-bmi-statistics-scotland-school-year-2020-to-2021/" target="_blank">
+                Primary 1 Body Mass Index (BMI) statistics Scotland 2020/21 <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -2044,7 +2049,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            13 December 2016
+            14 December 2021
           
         </td>
         </tr>
@@ -2057,7 +2062,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            
+            <p>See source link</p>
 
           
         </td>
@@ -2071,7 +2076,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>National Statistics</p>
+            <p>Official statistic</p>
 
           
         </td>
@@ -2085,7 +2090,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            
+            <p>phs.childhealthstats@phs.scot</p>
 
           
         </td>
@@ -2099,7 +2104,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Report with data tables</p>
+            <p>Data tables can be found towards the bottom of the page, under the heading ‘Data files’</p>
 
           
         </td>
@@ -2266,7 +2271,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Health Northern Ireland</p>
+            <p>Department of Health Northern Ireland</p>
 
           
         </td>
@@ -2294,7 +2299,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2010/2011</p>
+            <p>2010/11</p>
 
           
         </td>
@@ -2328,8 +2333,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://www.health-ni.gov.uk/publications/health-inequalities-regional-report-2016" target="_blank">
-                Health Inequalities Regional Report 2016 <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.health-ni.gov.uk/publications/health-inequalities-annual-report-2021" target="_blank">
+                Health Inequalities Annual Report 2021 <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -2349,7 +2354,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            26 October 2016
+            14 April 2021
           
         </td>
         </tr>
@@ -2362,7 +2367,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            
+            <p>See source link</p>
 
           
         </td>
@@ -2376,7 +2381,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Official Statistic</p>
+            <p>Official statistic</p>
 
           
         </td>
@@ -2390,7 +2395,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            
+            <p>healthinequalities@health-ni.gov.uk</p>
 
           
         </td>
@@ -2404,7 +2409,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            
+            <p>The data cleansing parameters applied to the calculation of childhood obesity figures has been refined from 2017/18 onwards. Therefore figures should be treated with caution when making comparisons.</p>
 
           
         </td>
@@ -2599,7 +2604,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2012/2013</p>
+            <p>2012/13</p>
 
           
         </td>
@@ -2633,8 +2638,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="http://www.wales.nhs.uk/sitesplus/documents/888/12743%20PHW%20CMP%20Report%20%28Eng%29.pdf" target="_blank">
-                The Child measuring programme for Wales 2016/17 <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://phw.nhs.wales/services-and-teams/child-measurement-programme/cmp-2018-19/" target="_blank">
+                The Child Measuring Programme for Wales 2018/19 <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -2654,7 +2659,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            19 April 2018
+            25 March 2021
           
         </td>
         </tr>
@@ -2667,7 +2672,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>TBC</p>
+            <p>See source link</p>
 
           
         </td>
@@ -2681,7 +2686,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Official</p>
+            <p>Official statistic</p>
 
           
         </td>
@@ -2695,7 +2700,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>childmeasurementprogramme@wales.nhs.uk</p>
+            <p>childmeasurementprogramme​@wales.nhs.uk</p>
 
           
         </td>
@@ -2709,7 +2714,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>PDF file</p>
+            
 
           
         </td>
@@ -2728,6 +2733,299 @@ data-event-label="Change to Sources tab"
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </div>
+    
+    
+    
+    <div class="col-md-6">
+      
+        <h4>Source 5</h4>
+      
+      <table class="table">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>Office for Health Improvement and Disparities (OHID)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Annual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2006/07</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>England</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://www.gov.uk/government/publications/national-child-measurement-programme-ad-hoc-analysis-of-data" target="_blank">
+                National Child Measurement Programme ad-hoc analysis of data <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            18 August 2021
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>See source link</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>Official statistic</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>ncmp@phe.gov.uk</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
   
   
   
@@ -3007,7 +3305,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20220330002203'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20220330083054'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -3015,7 +3313,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20220330002203"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20220330083054"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
