@@ -133,7 +133,7 @@ var translations = {
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220401110220">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220401133625">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -384,7 +384,7 @@ data-event-label="high"
       <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
         <h1 class="post-title" itemprop="name headline">Use of non-official sources for SDG reporting</h1>
         <div class="post-header">
-          <time class="post-date" datetime="2021-11-30T00:00:00+00:00" itemprop="datePublished">30 November 2021</time><ul class="post-categories"><li>Data sources</li></ul><span class="post-author" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">SDGs team</span></span></div>
+          <time class="post-date" datetime="2022-03-18T00:00:00+00:00" itemprop="datePublished">18 March 2022</time><ul class="post-categories"><li>Data sources</li></ul><span class="post-author" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">SDGs team</span></span></div>
 
         <div class="post-content" itemprop="articleBody">
           <p>In July 2021 we published a detailed outline of our approach to assessing the quality and suitability of statistics from non-official sources for SDG reporting. We produced a <a href="https://www.ons.gov.uk/economy/environmentalaccounts/methodologies/uksustainabledevelopmentgoalsuseofnonofficialsources">transparent protocol</a> with a simple scoring system based on the pillars of the UKSA <a href="https://code.statisticsauthority.gov.uk/the-code/">Code of Practice for Statistics</a> and critical SDG characteristics. Putting this protocol in place was the result of collaborative work and feedback from across the GSS. It allows us to expand our breadth of sources beyond official statistics without compromising on quality. As a result, more vulnerable populations and environments could be highlighted as we fill outstanding headline and disaggregation gaps, making sure no-one and no-where is left behind.</p>
@@ -404,13 +404,14 @@ data-event-label="high"
   <li>methods</li>
   <li>coverage</li>
   <li>timeliness and ongoing availability</li>
-  <li>data journey awareness</li>
-  <li>quality assurance</li>
+  <li>data quality</li>
 </ul>
 
 <p>A statistical output from a non-official source with an average score of over 1.5, and no scores of 0, is considered appropriate for SDG reporting. Using this system, we can see where strengths and weaknesses lie for each potential data source.</p>
 
-<p>Using this protocol, we have assessed the non-official sources already used in SDG reporting, and confirmed they are fit for purpose. We also have plans to use further non-official sources to fill current gaps. For example, we are looking to fill sub-indicator headline gaps for <a href="https://sdgdata.gov.uk/6-6-1/">indicator 6.6.1</a> using National River Flow Archive data and British Geological Survey data. Also, potential fills for headline gaps for <a href="https://sdgdata.gov.uk/14-1-1/">indicator 14.1.1</a> (Marine Conservation Society beach litter data). Some of these sources have already been assessed, and for others we need to gather more information.</p>
+<p>The scoring criteria listed above represent the latest version as of March 2022. This version differs slightly from the one published in the original publication from July 2021. We have refined the original scoring system following practical use within the SDG team, and dissemination at various conferences and workshops. The change affects the second stage of the scoring, where we have removed the original criteria of “data journey awareness” and “quality assurance”. Instead, we merged these into a single dimension called “data quality”. This change fits better with the details available for most non-official statistical sources. It still captures important and critical aspects of data quality, such as reliability, validity and quality assurance.</p>
+
+<p>Using this protocol, we have assessed the non-official sources already used in SDG reporting, and confirmed they are fit for purpose. We also have plans to use further non-official sources to fill current gaps. For example, we are looking to fill sub-indicator headline gaps for <a href="https://sdgdata.gov.uk/6-6-1/">indicator 6.6.1</a> using National River Flow Archive data. Another sub-indicator has already been filled with non-official statistics from the British Geological Survey. Also, headline gap for <a href="https://sdgdata.gov.uk/14-1-1/">indicator 14.1.1</a> is soon going to be filled with non-official statistics based on Marine Conservation Society beach litter data.</p>
 
 <p>In the <a href="https://www.ons.gov.uk/economy/environmentalaccounts/methodologies/uksustainabledevelopmentgoalsuseofnonofficialsources">original publication</a> of the protocol, we emphasised that we would prioritise headline gaps, but we committed to outline a set of priorities for filling disaggregation gaps. Here we state that if we need to prioritise due to potential multiple non-official sources, this will be done based on disaggregations explicitly mentioned in the indicator’s title (we call these <i>required disaggregations</i>). For example, if the indicator has a required disaggregation by age or sex, we will prioritise non-official sources that help to fill those gaps. On the other hand, if a non-official source provides age or sex (or another disaggregation) for an indicator that does not explicitly require this breakdown in its title, the source will be classed as a lower priority. However, if we are in a position where resource is not an issue, we will aim to fill any available disaggregation or headline gap.</p>
 
@@ -621,7 +622,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20220401110220'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20220401133625'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -629,7 +630,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20220401110220"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20220401133625"></script><script>
 $(function() {
     if($('#indicatorData').length) {
       var domData = $('#indicatorData').data();
