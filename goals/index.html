@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -130,10 +130,13 @@ var translations = {
 
 
         
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+        
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220413002445">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220413095732">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -156,219 +159,76 @@ layout-goals
 
 
 
-
 <script>translations['header'] = {"alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","disclaimer":"This is a development website. We welcome your <a href=\"mailto:%email_address\">feedback</a>.","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content","tag_line":"17 Goals to Transform our World","toggle_menu":"Menu toggle. Click to expand or collapse the menu.","toggle_search":"Search toggle. Click to expand or collapse the search bar."};</script>
 
-<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
-
-<script>
-  document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
-</script>
-<div id="cookie-banner" style="display: none" class="govuk-cookie-banner " data-nosnippet role="region" aria-label="Cookies on sdgdata.gov.uk">
-  <div class="govuk-cookie-banner__message govuk-width-container">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-cookie-banner__heading govuk-heading-m">Cookies on sdgdata.gov.uk</h2>
-
-        <div class="govuk-cookie-banner__content">
-          <p>We use some essential cookies to make this service work.</p>
-          <p>We’d also like to use analytics cookies so we can understand how you use the service and make improvements.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="govuk-button-group">
-      <button id="cookie-accept" value="accept" type="button" name="cookies" class="govuk-button" data-module="govuk-button">
-        Accept analytics cookies
-      </button>
-      <button id="cookie-reject" value="reject" type="button" name="cookies" class="govuk-button" data-module="govuk-button">
-        Reject analytics cookies
-      </button>
-      <a class="govuk-link" href="/sdg-indicators/cookies">View cookies</a>
-    </div>
-  </div>
-</div>
-<div id="cookie-banner-accept" style="display: none" class="govuk-cookie-banner " data-nosnippet role="region" aria-label="Cookies on sdgdata.gov.uk">
-  <div class="govuk-cookie-banner__message govuk-width-container">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <div class="govuk-cookie-banner__content">
-          <p>You’ve accepted analytics cookies. You can <a class="govuk-link" href="/sdg-indicators/cookies">change your cookie settings</a> at any time.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="govuk-button-group">
-      <a id="hide-accept" href="#" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
-          Hide this message
-      </a>
-    </div>
-  </div>
-</div>
-<div id="cookie-banner-reject" style="display: none" class="govuk-cookie-banner " data-nosnippet role="region" aria-label="Cookies on sdgdata.gov.uk">
-  <div class="govuk-cookie-banner__message govuk-width-container">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <div class="govuk-cookie-banner__content">
-          <p>You’ve rejected analytics cookies. You can <a class="govuk-link" href="/sdg-indicators/cookies">change your cookie settings</a> at any time.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="govuk-button-group">
-      <a id="hide-reject" href="#" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
-          Hide this message
-      </a>
-    </div>
-  </div>
-</div>
-
+<a class="sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
 <div id="disclaimer">
-  <div class="container">
+    
+<div class="container">
   <div class="disclaimer-alert">
     <strong class="phase-tag">BETA</strong>
     
     This website is in development – your <a href="https://www.surveymonkey.co.uk/r/SDGfeedback">feedback</a> will help us to improve it
-    <a id="takepartButton" aria-labelledby="takepartButton" href="/sdg-indicators/take-part" class="btn btn-primary btn-download btn-takepart" role="link">Take part in user research</a>
+     <a id="takepartButton" aria-labelledby="takepartButton" href="/sdg-indicators/take-part" class="btn btn-primary btn-download btn-takepart" role="link">Take part in user research</a>
+
   </div>
 </div>
 
 </div>
 
-<header role="banner" class="header-menu-left-aligned">
-  <div class="container">
-
-    <div class="logo-and-mobile-widgets">
-      <a class="navbar-brand" href="/sdg-indicators/" id="home">
+<header role="banner" class="">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light flex-wrap align-items-start">
+            <a class="navbar-brand" href="/sdg-indicators/" id="home">
     <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
 </a>
-      <div class="mobile-widgets">
-    <ul id='accessibility-nav' class='contrast-switcher'>
-        
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="d-flex flex-wrap w-100 justify-content-between">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav" id="menu"><li class="nav-item active">
+    <a class="nav-link" href="/sdg-indicators/goals">Goals</a>
+</li><li class="nav-item ">
+    <a class="nav-link" href="/sdg-indicators/reporting-status/">Reporting Status</a>
+</li><li class="nav-item ">
+    <a class="nav-link" href="/sdg-indicators/about/">About</a>
+</li><li class="nav-item ">
+    <a class="nav-link" href="/sdg-indicators/publications/">Publications</a>
+</li><li class="nav-item ">
+    <a class="nav-link" href="/sdg-indicators/faq/">FAQ</a>
+</li><li class="nav-item ">
+    <a class="nav-link" href="/sdg-indicators/updates/">Updates</a>
+</li></ul>
+    
+                </div>
+                <div class="header-search-bar">
+                    <form class="align-self-lg-end" id="search" action="/sdg-indicators/search/">
+    <div class="input-group">
+        <label class="visually-hidden" for="indicator_search">Search</label>
+        <input class="form-control" type="search" name="q" id="indicator_search" title="Search">
+        <span class="input-group-append">
+            <button class="btn btn-outline-secondary ms-n5" aria-label="Search" id="search-btn" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </span>
+    </div>
+</form>
 
-    <li class="nav-link contrast contrast-high contrast-type-single">
-        <a title="Enable high contrast"
-           aria-label="Enable high contrast"
-           data-contrast-switch-to="high"
-           href="javascript:void(0)"
-           data-on="click"
+                </div>
+                <div class="header-toggles d-flex"><a title="Enable high contrast" aria-label="Enable high contrast"
+    data-contrast-switch-to="" href="javascript:void(0)" data-on="click"
 data-event-category="Accessibility"
 data-event-action="Change contrast setting"
 data-event-label="high"
-
-        >A</a>
-    </li>
-
-
-    </ul></div>
+>A</a>
+                </div>
+            </div>
+        </nav>
     </div>
-
-    <div class="search-and-desktop-widgets">
-      <div id="search" class="menu-target">
-  <form action="/sdg-indicators/search/">
-    <label class="sr-only" for="indicator_search">Search</label>
-    <input type="text" name="q" id="indicator_search" title="Search" /><!--
-    --><button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
-  </form>
-</div>
-
-      <div class="navbar navbar-default widgets-without-menu">
-        <ul class="nav navbar-nav contrast-switcher">
-
-    <li class="nav-link contrast contrast-high contrast-type-single">
-        <a title="Enable high contrast"
-           aria-label="Enable high contrast"
-           data-contrast-switch-to="high"
-           href="javascript:void(0)"
-           data-on="click"
-data-event-category="Accessibility"
-data-event-action="Change contrast setting"
-data-event-label="high"
-
-        >A</a>
-    </li>
-
-
-        </ul>
-      </div>
-    </div>
-
-    <div class="navbar navbar-default menu-without-widgets" id="main-nav">
-      <ul class="top-level">
-    <li id="menuToggle"
-        aria-label="Menu toggle. Click to expand or collapse the menu."
-        aria-haspopup="true">
-        <button data-target="menu-mobile" aria-expanded="false">Menu</button>
-        <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link active">
-    <a href="/sdg-indicators/goals">Goals</a>
-</li><li class="nav-link ">
-    <a href="/sdg-indicators/reporting-status/">Reporting Status</a>
-</li><li class="nav-link ">
-    <a href="/sdg-indicators/about/">About</a>
-</li><li class="nav-link ">
-    <a href="/sdg-indicators/publications/">Publications</a>
-</li><li class="nav-link ">
-    <a href="/sdg-indicators/faq/">FAQ</a>
-</li><li class="nav-link ">
-    <a href="/sdg-indicators/updates/">Updates</a>
-</li>
-
-
-
-    <li class="nav-link contrast contrast-high contrast-type-single">
-        <a title="Enable high contrast"
-           aria-label="Enable high contrast"
-           data-contrast-switch-to="high"
-           href="javascript:void(0)"
-           data-on="click"
-data-event-category="Accessibility"
-data-event-action="Change contrast setting"
-data-event-label="high"
-
-        >A</a>
-    </li>
-
-
-
-</ul>
-
-    </li>
-    <li id="searchToggle"
-        aria-label="Search toggle. Click to expand or collapse the search bar."
-        aria-haspopup="true">
-        <button data-target="search-mobile" aria-expanded="false">Search</button>
-        <div id="search-mobile" class="menu-target">
-  <form action="/sdg-indicators/search/">
-    <label class="sr-only" for="indicator_search-mobile">Search</label>
-    <input type="text" name="q" id="indicator_search-mobile" title="Search" /><!--
-    --><button aria-label="Search" id="search-mobile-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
-  </form>
-</div>
-
-    </li>
-</ul>
-      <ul class="nav navbar-nav menu-target " id="menu"><li class="nav-link active">
-    <a href="/sdg-indicators/goals">Goals</a>
-</li><li class="nav-link ">
-    <a href="/sdg-indicators/reporting-status/">Reporting Status</a>
-</li><li class="nav-link ">
-    <a href="/sdg-indicators/about/">About</a>
-</li><li class="nav-link ">
-    <a href="/sdg-indicators/publications/">Publications</a>
-</li><li class="nav-link ">
-    <a href="/sdg-indicators/faq/">FAQ</a>
-</li><li class="nav-link ">
-    <a href="/sdg-indicators/updates/">Updates</a>
-</li>
-
-</ul>
-
-    </div>
-
-  </div>
-
 </header>
 <div id="top" tabindex=-1></div>
+
 
 
 
@@ -389,105 +249,105 @@ data-event-label="high"
 
 
     <div class="goal-tiles">
-        <div class="row no-gutters">
+        <div class="row g-2">
             
-            <div class="col-xs-4 col-md-2 goal-tile">
+            <div class="col-4 col-md-2 goal-tile">
                 <a href="/sdg-indicators/1">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/1.svg" id="goal-1" alt="No poverty - Goal 1" class="goal-icon-image goal-icon-image-svg" />
                 </a>
             </div>
             
-            <div class="col-xs-4 col-md-2 goal-tile">
+            <div class="col-4 col-md-2 goal-tile">
                 <a href="/sdg-indicators/2">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/2.svg" id="goal-2" alt="Zero hunger - Goal 2" class="goal-icon-image goal-icon-image-svg" />
                 </a>
             </div>
             
-            <div class="col-xs-4 col-md-2 goal-tile">
+            <div class="col-4 col-md-2 goal-tile">
                 <a href="/sdg-indicators/3">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/3.svg" id="goal-3" alt="Good health and well-being - Goal 3" class="goal-icon-image goal-icon-image-svg" />
                 </a>
             </div>
             
-            <div class="col-xs-4 col-md-2 goal-tile">
+            <div class="col-4 col-md-2 goal-tile">
                 <a href="/sdg-indicators/4">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/4.svg" id="goal-4" alt="Quality education - Goal 4" class="goal-icon-image goal-icon-image-svg" />
                 </a>
             </div>
             
-            <div class="col-xs-4 col-md-2 goal-tile">
+            <div class="col-4 col-md-2 goal-tile">
                 <a href="/sdg-indicators/5">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/5.svg" id="goal-5" alt="Gender equality - Goal 5" class="goal-icon-image goal-icon-image-svg" />
                 </a>
             </div>
             
-            <div class="col-xs-4 col-md-2 goal-tile">
+            <div class="col-4 col-md-2 goal-tile">
                 <a href="/sdg-indicators/6">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/6.svg" id="goal-6" alt="Clean water and sanitation - Goal 6" class="goal-icon-image goal-icon-image-svg" />
                 </a>
             </div>
             
-            <div class="col-xs-4 col-md-2 goal-tile">
+            <div class="col-4 col-md-2 goal-tile">
                 <a href="/sdg-indicators/7">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/7.svg" id="goal-7" alt="Affordable and clean energy - Goal 7" class="goal-icon-image goal-icon-image-svg" />
                 </a>
             </div>
             
-            <div class="col-xs-4 col-md-2 goal-tile">
+            <div class="col-4 col-md-2 goal-tile">
                 <a href="/sdg-indicators/8">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/8.svg" id="goal-8" alt="Decent jobs and economic growth - Goal 8" class="goal-icon-image goal-icon-image-svg" />
                 </a>
             </div>
             
-            <div class="col-xs-4 col-md-2 goal-tile">
+            <div class="col-4 col-md-2 goal-tile">
                 <a href="/sdg-indicators/9">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/9.svg" id="goal-9" alt="Industry, innovation and infrastructure - Goal 9" class="goal-icon-image goal-icon-image-svg" />
                 </a>
             </div>
             
-            <div class="col-xs-4 col-md-2 goal-tile">
+            <div class="col-4 col-md-2 goal-tile">
                 <a href="/sdg-indicators/10">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/10.svg" id="goal-10" alt="Reduced inequalities - Goal 10" class="goal-icon-image goal-icon-image-svg" />
                 </a>
             </div>
             
-            <div class="col-xs-4 col-md-2 goal-tile">
+            <div class="col-4 col-md-2 goal-tile">
                 <a href="/sdg-indicators/11">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/11.svg" id="goal-11" alt="Sustainable cities &amp; communities - Goal 11" class="goal-icon-image goal-icon-image-svg" />
                 </a>
             </div>
             
-            <div class="col-xs-4 col-md-2 goal-tile">
+            <div class="col-4 col-md-2 goal-tile">
                 <a href="/sdg-indicators/12">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/12.svg" id="goal-12" alt="Responsible consumption and production - Goal 12" class="goal-icon-image goal-icon-image-svg" />
                 </a>
             </div>
             
-            <div class="col-xs-4 col-md-2 goal-tile">
+            <div class="col-4 col-md-2 goal-tile">
                 <a href="/sdg-indicators/13">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/13.svg" id="goal-13" alt="Climate action - Goal 13" class="goal-icon-image goal-icon-image-svg" />
                 </a>
             </div>
             
-            <div class="col-xs-4 col-md-2 goal-tile">
+            <div class="col-4 col-md-2 goal-tile">
                 <a href="/sdg-indicators/14">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/14.svg" id="goal-14" alt="Life below water - Goal 14" class="goal-icon-image goal-icon-image-svg" />
                 </a>
             </div>
             
-            <div class="col-xs-4 col-md-2 goal-tile">
+            <div class="col-4 col-md-2 goal-tile">
                 <a href="/sdg-indicators/15">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/15.svg" id="goal-15" alt="Life on land - Goal 15" class="goal-icon-image goal-icon-image-svg" />
                 </a>
             </div>
             
-            <div class="col-xs-4 col-md-2 goal-tile">
+            <div class="col-4 col-md-2 goal-tile">
                 <a href="/sdg-indicators/16">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/16.svg" id="goal-16" alt="Peace and justice - strong institutions - Goal 16" class="goal-icon-image goal-icon-image-svg" />
                 </a>
             </div>
             
-            <div class="col-xs-4 col-md-2 goal-tile">
+            <div class="col-4 col-md-2 goal-tile">
                 <a href="/sdg-indicators/17">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/17.svg" id="goal-17" alt="Partnerships for the goals - Goal 17" class="goal-icon-image goal-icon-image-svg" />
                 </a>
@@ -495,62 +355,76 @@ data-event-label="high"
             
             
             
-            <div class="col-xs-4 col-md-2 goal-tile">
+            <div class="col-4 col-md-2 goal-tile global-goals-extra-icon">
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/18.png" id="goal-18" alt="The Global Goals for Sustainable Development" class="goal-icon-image goal-icon-image-svg" />
             </div>
             
         </div>
     </div>
 </div>
+
 <footer role="contentinfo">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <div id="footerLinks">
-          <ul>
-            <li><a href="https://open-sdg.org">Built using Open SDG</a></li>
-            
-              <li>
-                <a href="/sdg-indicators/contact-us">Contact us</a>
-                
-                </li>
-              <li>
-                
-                  <a href="https://twitter.com/ONS" target="_blank">Twitter</a>
-                
-                </li>
-              <li>
-                <a href="/sdg-indicators/cookies-no-javascript/">Cookies</a>
-                
-                </li>
-              <li>
-                <a href="/sdg-indicators/privacy-notice/">Privacy</a>
-                
-                </li>
-              <li>
-                <a href="/sdg-indicators/accessibility-statement/">Accessibility statement</a>
-                
-                </li>
-              
-            
-            </ul>
-          <div id="oglLicense">
-            <br />
-            <img alt="Open Government Licence logo" src="/sdg-indicators/assets/img/OGL_logo.png" width="35px">All data is available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>, except where otherwise stated
-          </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div id="footerLinks">
+                    <ul>
+                        <li>
+                            <a href="https://open-sdg.org">Built using Open SDG</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/sdg-indicators/contact-us">Contact us</a>
+                            
+                        </li>
+                        <li>
+                            
+                            <a href="https://twitter.com/ONS" target="_blank">Twitter</a>
+                            
+                        </li>
+                        <li>
+                            <a href="/sdg-indicators/cookies-no-javascript/">Cookies</a>
+                            
+                        </li>
+                        <li>
+                            <a href="/sdg-indicators/privacy-notice/">Privacy</a>
+                            
+                        </li>
+                        <li>
+                            <a href="/sdg-indicators/accessibility-statement/">Accessibility statement</a>
+                            
+                        </li>
+                        
+                        
+                        </ul>
+                </div>
+            </div>
         </div>
-      </div>
+         
+
+<div class="row">
+  <div class="col-xs-12">
+    <div id="oglLicense">
+        <img alt="Open Government Licence logo" src="/sdg-indicators/assets/img/OGL_logo.png" width="35px" class="me-2">All data is available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>, except where otherwise stated
     </div>
   </div>
+</div>
+<div class="mb-2"></div>
+
+    </div>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
 
@@ -697,7 +571,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20220413002445'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20220413095732'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -705,75 +579,9 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20220413002445"></script><script>
-$(function() {
-    if($('#indicatorData').length) {
-      var domData = $('#indicatorData').data();
-
-      if (domData.showdata) {
-
-        $('.async-loading').each(function(i, obj) {
-            $(obj).append($('<img />').attr('src', $(obj).data('img')).attr('alt', translations.indicator.loading));
-        });
-
-        var remoteUrl = '/comb/' + domData.id + '.json';
-        if (opensdg.remoteDataBaseUrl !== '/') {
-          remoteUrl = opensdg.remoteDataBaseUrl + remoteUrl;
-        }
-
-        $.ajax({
-          url: remoteUrl,
-          success: function(res) {
-
-            $('.async-loading').remove();
-            $('.async-loaded').show();
-
-            var model = new indicatorModel({
-              data: res.data,
-              edgesData: res.edges,
-              showMap: domData.showmap,
-              country: domData.country,
-              indicatorId: domData.indicatorid,
-              shortIndicatorId: domData.id,
-              chartTitle: domData.charttitle,
-              chartTitles: domData.charttitles,
-              measurementUnit: domData.measurementunit,
-              xAxisLabel: domData.xaxislabel,
-              showData: domData.showdata,
-              graphType: domData.graphtype,
-              startValues: domData.startvalues,
-              graphLimits: domData.graphlimits,
-              stackedDisaggregation: domData.stackeddisaggregation,
-              graphAnnotations: domData.graphannotations,
-              graphTargetLines: domData.graphtargetlines,
-              graphSeriesBreaks: domData.graphseriesbreaks,
-              indicatorDownloads: domData.indicatordownloads,
-              dataSchema: domData.dataschema,
-              compositeBreakdownLabel: domData.compositebreakdownlabel,
-              precision: domData.precision,
-            }),
-            view  = new indicatorView(model, {
-              rootElement: '#indicatorData',
-              legendElement: '#plotLegend',
-              decimalSeparator: '',
-              maxChartHeight: 420,
-              tableColumnDefs: [
-                { maxCharCount: 25 }, // nowrap
-                { maxCharCount: 35, width: 200 },
-                { maxCharCount: Infinity, width: 250 }
-              ]
-            }),
-            controller = new indicatorController(model, view);
-            controller.initialise();
-          }
-        });
-      }
-    }
-
-    var switcher = new accessibilitySwitcher();
-
-
-});
+    <script src="/sdg-indicators/assets/js/custom.js?v=20220413095732"></script><script>
+    new indicatorInit();
+    new accessibilitySwitcher();
 </script>
 
 
