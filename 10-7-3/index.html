@@ -141,7 +141,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220425071755">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220425133904">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -388,16 +388,16 @@ data-event-label="high"
   id="indicatorData"
   data-indicatorid='indicator_10-7-3'
   data-id="10-7-3"
-  data-country="UK"
-  data-charttitle="Number of people who died or disappeared in the process of migration towards an international destination"
+  data-country="English Channel"
+  data-charttitle="Number of people who died or disappeared in English Channel during the process of migration to the UK"
   data-charttitles="null"
-  data-measurementunit=""
+  data-measurementunit="Number"
   data-xaxislabel=""
-  data-showdata="false"
+  data-showdata="true"
   data-graphtype="line"
   data-graphtypes="null"
   data-geocoderegex=""
-  data-showmap=""
+  data-showmap="false"
   data-startvalues="null"
   data-graphlimits="null"
   data-stackeddisaggregation=""
@@ -405,12 +405,510 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Cause of death&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Drowning&quot;,&quot;Sickness/lack of acess to adequate healthcare&quot;,&quot;Vehicle accident/death linked to hazardous transport&quot;,&quot;Violence&quot;,&quot;Mixed or Unknown&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Cause of death&quot;},{&quot;name&quot;:&quot;Region of origin&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Eastern Africa&quot;,&quot;Europe&quot;,&quot;Middle Africa&quot;,&quot;Northern Africa&quot;,&quot;Sub-Saharan Africa&quot;,&quot;Southern Asia&quot;,&quot;Western Africa&quot;,&quot;Western Asia&quot;,&quot;Unknown&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region of origin&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Under 18&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Sex&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Female&quot;,&quot;Male&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Sex&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Number&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
   
-  <div id="indicator-main" class="indicator-main col-md-12">
+  <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
+  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
+    <div id="serieses"></div>
+<div id="units"></div>
+<div id="toolbar">
+  <span id="series-help">
+    <h4>Sub-categories</h4>
+    <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+  </span>
+  <div id="fields">
+    <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+  </div>
+</div>
+
+  </div>
+  <div id="indicator-main" class="indicator-main col-md-9">
+    
+
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    <a href="https://ONSdigital.github.io/sdg-data/en/headline/10-7-3.csv" class="btn btn-primary btn-download" download="indicator_10-7-3.csv" tabindex="0" role="button">Download Headline CSV</a>
+
+    <a href="https://ONSdigital.github.io/sdg-data/en/data/10-7-3.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_10-7-3.csv' tabindex='0' role='button'>Download Source CSV</a>
+
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>Number of people who died or disappeared in English Channel during the process of migration to the UK</caption>
+      <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col">Value</th>
+        
+        
+        
+        <th scope="col">Units</th>
+        
+        
+        
+        <th scope="col">Observation status</th>
+        
+        
+        
+        <th scope="col" class="table-value">Unit multiplier</th>
+        
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>17.0</td>
+          
+          
+          
+          <td>Number</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>31.0</td>
+          
+          
+          
+          <td>Number</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>22.0</td>
+          
+          
+          
+          <td>Number</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>8.0</td>
+          
+          
+          
+          <td>Number</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>11.0</td>
+          
+          
+          
+          <td>Number</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>50.0</td>
+          
+          
+          
+          <td>Number</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>13.0</td>
+          
+          
+          
+          <td>Number</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>45.0</td>
+          
+          
+          
+          <td>Number</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <div id="datatableFooter">
+    
+    <p>Source: International Organization for Migration</p>
+    
+    
+    <p>Geographical Area: English Channel</p>
+    
+    
+    <p>Unit of Measurement: Number</p>
+    
+    
+    <p>Footnote: Please note, that these figures are likely an underestimatation due to the difficulties encountered when collecting data in this area. Totals may not sum as numbers include some victims with undetermined gender.</p>
+    
+  </div>
+
+</div>
+
+
+<section>
+
+  <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+
+  <div class="async-loaded mt-4" style="display:none;">
+
+    <div style="display: none;">
+    <span id="table-alternative">For tabular data alternative see Table tab.</span>
+  </div>
+  <ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
+    
+    <li role="presentation"
+      class="
+        nav-item
+        
+        
+      ">
+      <button
+        class="nav-link active"
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-chartview"
+          data-bs-target="#chartview"
+          aria-controls="chartview"
+          aria-describedby="table-alternative"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+
+        
+      >Chart</button>
+    </li>
+    
+    <li role="presentation"
+      class="
+        nav-item
+        
+        
+      ">
+      <button
+        class="nav-link "
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-tableview"
+          data-bs-target="#tableview"
+          aria-controls="tableview"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+
+        
+      >Table</button>
+    </li>
+    
+  </ul>
+  
+    <div class="tab-content data-view">
+    
+      
+        <div role="tabpanel" class="tab-pane active" id="chartview">
+          
+
+    <div id="dataset-size-warning" style="display:none" role="alert">
+      <i class="fa fa-bolt"><span class="sr-only">Warning:</span></i>
+      There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+    </div>
+
+    
+    
+    <div id="selectionsChart">
+      <figure role="group">
+        <div id="chart-canvas">
+          <h4 id="chart-heading" class="chart-title">Number of people who died or disappeared in English Channel during the process of migration to the UK</h4>
+          <div id="chart" class="plot-container">
+            
+              <canvas
+    role="img"
+    aria-labelledby="chart-heading"
+    aria-describedby="table-alternative chart-annotations"
+    tabindex="0"
+ ></canvas>
+
+            
+          </div>
+          <div id="plotLegend"></div>
+          
+
+
+
+<div id="selectionChartFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>International Organization for Migration</dd>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>English Channel</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+        <dt>Footnote:</dt>
+        <dd>Please note, that these figures are likely an underestimatation due to the difficulties encountered when collecting data in this area. Totals may not sum as numbers include some victims with undetermined gender.</dd>
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    <dl>
+</div>
+
+        </div>
+      </figure>
+      <div id="chartSelectionDownload" class="clearfix">
+        <button id="btnSave" title="Download chart as image" class='btn btn-primary btn-download'>
+          Download Chart Image
+        </button><!-- 
+   --></div>
+    </div>
+
+
+
+        </div>
+      
+    
+      
+        <div role="tabpanel" class="tab-pane " id="tableview">
+          <div style="display: none;">
+            <span id="column-sort-info">Click to sort by this column</span>
+          </div>
+          <div id="selectionsTable"></div>
+<dl id="tableTargetLines" class="clearfix"></dl>
+
+
+
+
+<div id="selectionTableFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>International Organization for Migration</dd>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>English Channel</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+        <dt>Footnote:</dt>
+        <dd>Please note, that these figures are likely an underestimatation due to the difficulties encountered when collecting data in this area. Totals may not sum as numbers include some victims with undetermined gender.</dd>
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    <dl>
+</div>
+
+<div id="tableSelectionDownload" class="clearfix"></div>
+
+        </div>
+      
+    
+  </div>
+  
+
+  </div>
+
+</section>
+
   
   <div class="mt-4">
 <ul class="nav nav-tabs" role="tablist">
@@ -507,7 +1005,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            
+            <p>English Channel</p>
 
           
         </td>
@@ -521,7 +1019,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            
+            <p>Number</p>
 
           
         </td>
@@ -549,7 +1047,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Available disaggregations </th>
         <td>
           
-            
+            <p>Cause of death, Region of origin, Age, Sex</p>
 
           
         </td>
@@ -563,7 +1061,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            
+            <p>Disaggregation figures available from the source are summed to represent the UK headline numbers.</p>
 
           
         </td>
@@ -577,7 +1075,17 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            
+            <p>Data uses a range of sources to collate figures for missing and dead migrants; incidents are ranked on a scale from 1-5 based on the source(s) of information available:</p>
+<p><li>Level 1 - only one media source</li></p>
+<p><li>Level 2 - from uncorroborated eyewitness accounts or data from survey respondents</li></p>
+<p><li> Level 3 - multiple media reports</li></p>
+<p><li> Level 4 - at least one NGO, IGO, or another humanitarian actor with direct knowledge of the incident</li></p>
+<p><li>Level 5 - official sources such as coroners, medical examiners, gov officials or from multiple humanitarian actors</li></p>
+<p>Download <a href="https://missingmigrants.iom.int/region/europeregion_incident=All&amp;route=3896&amp;incident_date%5Bmin%5D=&amp;incident_date%5Bmax%5D="> IOM Missing Migrants Data</a> to see ranks assigned to the data sources used in this indicator.</p>
+<p>In some cases, 'Region of origin' is marked as "(P)" for Presumed in <a href="https://missingmigrants.iom.int/region/europe?region_incident=All&amp;route=3896&amp;incident_date%5Bmin%5D=&amp;incident_date%5Bmax%5D="> IOM Data Source</a>, to see which figures are derived from presumed locations please download the IOM Data.</p>
+<p>For further information such as, data exclusions, definitions and challenges in collecting migration data please see <a href="https://missingmigrants.iom.int/methodology"> IOM Methodology</a> and<a href="https://missingmigrants.iom.int/sites/g/files/tmzbdl601/files/publication/file/MMP%2520data%2520collection%2520guidelines_EN.pdf"> Data Collection Guidelines</a>.</p>
+<p> This indicator reports both missing and dead migrants incidents, as missing migrants are presumed to be dead.</p>
+<p>Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -591,7 +1099,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            
+            19 April 2022
           
         </td>
         </tr>
@@ -604,7 +1112,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            22 November 2021
+            19 April 2022
           
         </td>
         </tr>
@@ -980,6 +1488,301 @@ data-event-label="Change to Sources tab"
 
 
 
+  <div class="row">
+  
+    
+    
+    <div class="col-md-6">
+      
+      <table class="table">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>International Organization for Migration</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Annual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2014</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>United Kingdom</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://missingmigrants.iom.int/region/europe?region_incident=All&route=3896&incident_date%5Bmin%5D=&incident_date%5Bmax%5D=" target="_blank">
+                Missing migrants <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>TBC</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>Official international</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>MissingMigrants@iom.int</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            <p>Filter ‘Migration route’ by ‘English Channel to the UK’. Totals may not sum as numbers include some victims with undetermined gender.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </div>
+    
+  </div>
+
 
 </div>
     
@@ -1217,7 +2020,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20220425071755'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20220425133904'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -1225,7 +2028,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20220425071755"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20220425133904"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
