@@ -141,7 +141,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220427064652">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220427110824">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -403,7 +403,7 @@ data-event-label="high"
   data-graphtype="line"
   data-graphtypes="null"
   data-geocoderegex=""
-  data-showmap="false"
+  data-showmap="true"
   data-startvalues="null"
   data-graphlimits="[{&quot;unit&quot;:&quot;Percentage (%)&quot;,&quot;minimum&quot;:0,&quot;maximum&quot;:100}]"
   data-stackeddisaggregation=""
@@ -482,7 +482,7 @@ data-event-label="high"
           
           
           
-          <td>26.0</td>
+          <td>25.984206</td>
           
           
           
@@ -510,7 +510,7 @@ data-event-label="high"
           
           
           
-          <td>25.0</td>
+          <td>25.436388</td>
           
           
           
@@ -538,7 +538,7 @@ data-event-label="high"
           
           
           
-          <td>28.0</td>
+          <td>27.804348</td>
           
           
           
@@ -566,7 +566,7 @@ data-event-label="high"
           
           
           
-          <td>27.0</td>
+          <td>26.5292</td>
           
           
           
@@ -594,7 +594,7 @@ data-event-label="high"
           
           
           
-          <td>26.0</td>
+          <td>26.025694414</td>
           
           
           
@@ -622,7 +622,63 @@ data-event-label="high"
           
           
           
-          <td>25.0</td>
+          <td>25.391919984</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019/20</td>
+          
+          
+          
+          <td>26.8</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020/21</td>
+          
+          
+          
+          <td>26.5858371701</td>
           
           
           
@@ -658,7 +714,7 @@ data-event-label="high"
     <p>Unit of Measurement: Percentage (%)</p>
     
     
-    <p>Footnote: 1. Table excludes respondents who answered 'don't know' and those with missing answers. 2. Figures for 'Black' and 'Other' ethnic groups for 2014/15 are suppressed because the percentage is based on 5 or fewer responses and is therefore unavailable. 3. Information about respondents' limiting long term illnesses/disabilities are only available for those who completed the online version of the survey. 4. Citizenship - Respondents were instructed to select all that apply so there will be some overlap between citizenship groups. 5. Household income is measured as respondent income combined with the income of cohabiting partner (where applicable) from all sources before deductions. Response categories changed in 2016/17 and the 'no income' category was removed. It's likely that those with no income will have selected 'under £5,199' from 2016/17 onwards. The household income categories are defined in the 'other information' section.</p>
+    <p>Footnote: 1. The period April to March is being used to report annual data. </p><p> 2. Table excludes respondents who answered 'don't know' and those with missing answers. </p><p> 3. Please be aware that not all differences between data reported here are statistically significant, that is when there is confidence that the differences seen in the sampled respondents reflect the population. Therefore, care should be taken when interpeting differences between data. To test significance, please refer to the "Ready Reckoner" tab within the <a href="https://www.gov.uk/government/statistics/community-life-survey-202021">Community Life Survey 2020/21 Reference Tables</a>.</p>
     
   </div>
 
@@ -725,6 +781,31 @@ data-event-label="Change to Table tab"
       >Table</button>
     </li>
     
+    <li role="presentation"
+      class="
+        nav-item
+        map
+        
+      ">
+      <button
+        class="nav-link "
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-mapview"
+          data-bs-target="#mapview"
+          aria-controls="mapview"
+          data-no-disagg="true"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Map tab"
+
+        
+      >Map</button>
+    </li>
+    
   </ul>
   
     <div class="tab-content data-view">
@@ -780,7 +861,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd>1. Table excludes respondents who answered 'don't know' and those with missing answers. 2. Figures for 'Black' and 'Other' ethnic groups for 2014/15 are suppressed because the percentage is based on 5 or fewer responses and is therefore unavailable. 3. Information about respondents' limiting long term illnesses/disabilities are only available for those who completed the online version of the survey. 4. Citizenship - Respondents were instructed to select all that apply so there will be some overlap between citizenship groups. 5. Household income is measured as respondent income combined with the income of cohabiting partner (where applicable) from all sources before deductions. Response categories changed in 2016/17 and the 'no income' category was removed. It's likely that those with no income will have selected 'under £5,199' from 2016/17 onwards. The household income categories are defined in the 'other information' section.</dd>
+        <dd>1. The period April to March is being used to report annual data. </p><p> 2. Table excludes respondents who answered 'don't know' and those with missing answers. </p><p> 3. Please be aware that not all differences between data reported here are statistically significant, that is when there is confidence that the differences seen in the sampled respondents reflect the population. Therefore, care should be taken when interpeting differences between data. To test significance, please refer to the "Ready Reckoner" tab within the <a href="https://www.gov.uk/government/statistics/community-life-survey-202021">Community Life Survey 2020/21 Reference Tables</a>.</dd>
         
 
         
@@ -854,7 +935,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd>1. Table excludes respondents who answered 'don't know' and those with missing answers. 2. Figures for 'Black' and 'Other' ethnic groups for 2014/15 are suppressed because the percentage is based on 5 or fewer responses and is therefore unavailable. 3. Information about respondents' limiting long term illnesses/disabilities are only available for those who completed the online version of the survey. 4. Citizenship - Respondents were instructed to select all that apply so there will be some overlap between citizenship groups. 5. Household income is measured as respondent income combined with the income of cohabiting partner (where applicable) from all sources before deductions. Response categories changed in 2016/17 and the 'no income' category was removed. It's likely that those with no income will have selected 'under £5,199' from 2016/17 onwards. The household income categories are defined in the 'other information' section.</dd>
+        <dd>1. The period April to March is being used to report annual data. </p><p> 2. Table excludes respondents who answered 'don't know' and those with missing answers. </p><p> 3. Please be aware that not all differences between data reported here are statistically significant, that is when there is confidence that the differences seen in the sampled respondents reflect the population. Therefore, care should be taken when interpeting differences between data. To test significance, please refer to the "Ready Reckoner" tab within the <a href="https://www.gov.uk/government/statistics/community-life-survey-202021">Community Life Survey 2020/21 Reference Tables</a>.</dd>
         
 
         
@@ -884,6 +965,70 @@ data-event-label="Change to Table tab"
 </div>
 
 <div id="tableSelectionDownload" class="clearfix"></div>
+
+        </div>
+      
+    
+      
+        <div role="tabpanel" class="tab-pane " id="mapview" class="map">
+          
+<h4 id="map-heading" class="chart-title">Percentage of population agreeing they can influence decisions affecting their local area</h4>
+<div id="map" aria-describedby="table-alternative">
+  <img class="map-loading-image" src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
+</div>
+
+
+
+
+<div id="mapFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>Department for Digital, Culture, Media & Sport</dd>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>England</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+        <dt>Footnote:</dt>
+        <dd>1. The period April to March is being used to report annual data. </p><p> 2. Table excludes respondents who answered 'don't know' and those with missing answers. </p><p> 3. Please be aware that not all differences between data reported here are statistically significant, that is when there is confidence that the differences seen in the sampled respondents reflect the population. Therefore, care should be taken when interpeting differences between data. To test significance, please refer to the "Ready Reckoner" tab within the <a href="https://www.gov.uk/government/statistics/community-life-survey-202021">Community Life Survey 2020/21 Reference Tables</a>.</dd>
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    <dl>
+</div>
+
 
         </div>
       
@@ -1063,10 +1208,17 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>We are reporting on data from 2013/14 as the data collection mode (from face-to-face to online/paper) changed and data would not be comparable with earlier years.</p>
-<p>From 2013/14 to 2015/16, household income categories were - Band A1 - Under £5,000; Band A2 - £5,000 to £9,999; Band A3 - £10,000 to £14,999; Band A4 - £15,000 to £19,999; Band A5 - £20,000 to £29,999; Band A6 - £30,000 to £49,999; Band A7 - £50,000 to £74,999; Band A8 - £75,000 or more. From 2016/17 onwards, the household income categories were changed to - Band B1 - Under £5,199; Band B2 - £5,200 to £10,399; Band B3 - £10,400 to £15,599; Band B4 - £15,600 to £20,799; Band B5 - £20,800 to £31,199; Band B6 - £31,200 to £51,999; Band B7 - £52,000 to £74,999; Band B8 - £75,000 or more.</p>
-<p>The Washington Group on Disability Statistics are often used to provide a cross-nationally comparable population-based measures of disability. Please see the article <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/disability/articles/measuringdisabilitycomparingapproaches/2019-08-06">Measuring disability - comparing approaches</a> for a comparison between the GSS Harmonised measure (used here) and the Washington Group measure.</p>
-<p>The required disaggregations for this indicator are sex, age, disability and population group. The global metadata specified by the United Nations defines population group as a nationally relevant concept, encompassing “groups with a distinct ethnicity, language, religion, indigenous status, nationality or other characteristics”. The currently available disaggregations by ethnicity and citizenship fall within “population group” as defined by the global metadata, so this indicator is considered as fully disaggregated.</p>
+            <p>The <a href="https://www.gov.uk/government/statistics/community-life-survey-202021">Community Life Survey</a> is a household online/paper self-completion study of adults aged 16+ in England. </p>
+<p>The survey is a key evidence source on social cohesion, community engagement and social action.</p>
+<p> Differences between groups are only reported on in this publication where they are statistically significant i.e. where we can be confident that the differences seen in our sampled respondents reflect the population. </p>
+<p> Figures for 'Black' and 'Other' ethnic groups for 2014/15 are suppressed because the percentage is based on 5 or fewer responses and is therefore unavailable. </p>
+<p> Information about respondents' limiting long term illnesses/disabilities are only available for those who completed the online version of the survey. </p>
+<p> Citizenship - Respondents were instructed to select all that apply so there will be some overlap between citizenship groups. </p>
+<p> Household income is measured as respondent income combined with the income of cohabiting partner (where applicable) from all sources before deductions. Response categories changed in 2016/17 and the 'no income' category was removed. It's likely that those with no income will have selected 'under £5,199' from 2016/17 onwards. The household income categories are defined in the 'other information' section. </p>
+<p> We are reporting on data from 2013/14 as the data collection mode (from face-to-face to online/paper) changed and data would not be comparable with earlier years. </p>
+<p> From 2013/14 to 2015/16, household income categories were - Band A1 - Under £5,000; Band A2 - £5,000 to £9,999; Band A3 - £10,000 to £14,999; Band A4 - £15,000 to £19,999; Band A5 - £20,000 to £29,999; Band A6 - £30,000 to £49,999; Band A7 - £50,000 to £74,999; Band A8 - £75,000 or more. From 2016/17 onwards, the household income categories were changed to - Band B1 - Under £5,199; Band B2 - £5,200 to £10,399; Band B3 - £10,400 to £15,599; Band B4 - £15,600 to £20,799; Band B5 - £20,800 to £31,199; Band B6 - £31,200 to £51,999; Band B7 - £52,000 to £74,999; Band B8 - £75,000 or more. </p>
+<p> The Washington Group on Disability Statistics are often used to provide a cross-nationally comparable population- based measures of disability. Please see the article <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/disability/articles/measuringdisabilitycomparingapproaches/2019-08-06">Measuring disability - comparing approaches</a> for a comparison between the GSS Harmonised measure (used here) and the Washington Group measure. </p>
+<p> The required disaggregations for this indicator are sex, age, disability and population group. The global metadata specified by the United Nations defines population group as a nationally relevant concept, encompassing “groups with a distinct ethnicity, language, religion, indigenous status, nationality or other characteristics”. The currently available disaggregations by ethnicity and citizenship fall within “population group” as defined by the global metadata, so this indicator is considered as fully disaggregated. </p>
 <p>This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.</p>
 
           
@@ -1081,7 +1233,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            22 November 2021
+            11 February 2022
           
         </td>
         </tr>
@@ -1094,7 +1246,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            04 December 2020
+            27 April 2022
           
         </td>
         </tr>
@@ -1547,7 +1699,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2013/14</p>
+            <p>2013 to 2014</p>
 
           
         </td>
@@ -1581,7 +1733,7 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://www.gov.uk/government/collections/community-life-survey--2" target="_blank">
+              <a href="https://www.gov.uk/government/statistics/community-life-survey-202021" target="_blank">
                 Community Life Survey <span class="visuallyhidden">opens in a new window</span>
               </a>
             
@@ -1602,7 +1754,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            25 July 2019
+            21 July 2021
           
         </td>
         </tr>
@@ -1615,7 +1767,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>TBC</p>
+            <p>See Source Link</p>
 
           
         </td>
@@ -1657,7 +1809,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            
+            <p>Data can be found in Table C4 of the Reference Tables. Upper and lower estimates refer to the 95% confidence intervals. These are available for estimates from 2019/20.</p>
 
           
         </td>
@@ -1852,7 +2004,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2013/14</p>
+            <p>2013 to 2014</p>
 
           
         </td>
@@ -2154,6 +2306,15 @@ data-event-label="Change to Sources tab"
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
 
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
+<script src="https://cdn.rawgit.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
+<script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
@@ -2297,7 +2458,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20220427064652'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20220427110824'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2305,7 +2466,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20220427064652"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20220427110824"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
