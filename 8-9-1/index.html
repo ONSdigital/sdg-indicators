@@ -141,7 +141,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220428121343">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220428151904">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -390,8 +390,8 @@ data-event-label="high"
   data-id="8-9-1"
   data-country="United Kingdom"
   data-charttitle="Tourism direct GDP as a proportion of total GDP and in growth rate"
-  data-charttitles="[{&quot;series&quot;:&quot;Tourism direct GDP as a percentage of GDP (%)&quot;,&quot;unit&quot;:&quot;Percentage (%)&quot;,&quot;title&quot;:&quot;Tourism direct GDP as a proportion of total GDP (%)&quot;},{&quot;series&quot;:&quot;Tourism direct GDP growth rate (%)&quot;,&quot;unit&quot;:&quot;Percentage change (%)&quot;,&quot;title&quot;:&quot;Tourism direct GDP growth rate (%)&quot;}]"
-  data-measurementunit="Percentage (%)/ Percentage change (%)"
+  data-charttitles="[{&quot;series&quot;:&quot;Tourism direct GDP as a proportion of total GDP&quot;,&quot;unit&quot;:&quot;Percentage (%)&quot;,&quot;title&quot;:&quot;Tourism direct GDP as a proportion of total GDP&quot;},{&quot;series&quot;:&quot;Tourism direct GDP growth rate&quot;,&quot;unit&quot;:&quot;Percentage change (%)&quot;,&quot;title&quot;:&quot;Tourism direct GDP growth rate&quot;}]"
+  data-measurementunit="Percentage (%)"
   data-xaxislabel=""
   data-showdata="true"
   data-graphtype="line"
@@ -399,13 +399,13 @@ data-event-label="high"
   data-geocoderegex=""
   data-showmap="false"
   data-startvalues="null"
-  data-graphlimits="[{&quot;unit&quot;:&quot;Percentage (%)&quot;,&quot;minimum&quot;:0,&quot;maximum&quot;:100}]"
+  data-graphlimits="null"
   data-stackeddisaggregation=""
   data-graphannotations="null"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Tourism direct GDP as a percentage of GDP (%)&quot;,&quot;Tourism direct GDP growth rate (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Product&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Accommodation services for visitors&quot;,&quot;Food and beverage serving activities&quot;,&quot;Railway passenger transport services&quot;,&quot;Road passenger transport services&quot;,&quot;Water passenger transport services&quot;,&quot;Air passenger transport services&quot;,&quot;Transport equipment rental services&quot;,&quot;Travel agencies and other reservation services&quot;,&quot;Cultural activities&quot;,&quot;Sport and recreation activities&quot;,&quot;Exhibitions &amp; Conferences etc.&quot;,&quot;Other consumption products&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Product&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;Percentage change (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Tourism direct GDP growth rate&quot;,&quot;Tourism direct GDP as a proportion of total GDP&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Product&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Accommodation services for visitors&quot;,&quot;Food and beverage serving activities&quot;,&quot;Railway passenger transport services&quot;,&quot;Road passenger transport services&quot;,&quot;Water passenger transport services&quot;,&quot;Air passenger transport services&quot;,&quot;Transport equipment rental services&quot;,&quot;Travel agencies and other reservation services&quot;,&quot;Cultural activities&quot;,&quot;Sport and recreation activities&quot;,&quot;Exhibitions &amp; Conferences etc.&quot;,&quot;Other consumption products&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Product&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -472,118 +472,6 @@ data-event-label="high"
         <tr>
           
           
-          <td>2013</td>
-          
-          
-          
-          <td>6.28993895</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tourism direct GDP as a percentage of GDP (%)</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td class="table-value">Units</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2014</td>
-          
-          
-          
-          <td>5.9353266053</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tourism direct GDP as a percentage of GDP (%)</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td class="table-value">Units</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2015</td>
-          
-          
-          
-          <td>6.4763585092</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tourism direct GDP as a percentage of GDP (%)</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td class="table-value">Units</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2016</td>
-          
-          
-          
-          <td>6.4100496027</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tourism direct GDP as a percentage of GDP (%)</td>
-          
-          
-          
-          <td>Undefined</td>
-          
-          
-          
-          <td class="table-value">Units</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
           <td>2014</td>
           
           
@@ -592,15 +480,15 @@ data-event-label="high"
           
           
           
-          <td>Percentage change (%)</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Tourism direct GDP growth rate (%)</td>
+          <td>Tourism direct GDP growth rate</td>
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
@@ -616,19 +504,19 @@ data-event-label="high"
           
           
           
-          <td>11.6787088089</td>
+          <td>12.0592069271</td>
           
           
           
-          <td>Percentage change (%)</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Tourism direct GDP growth rate (%)</td>
+          <td>Tourism direct GDP growth rate</td>
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
@@ -644,19 +532,299 @@ data-event-label="high"
           
           
           
-          <td>0.7471078727</td>
+          <td>1.2003290399</td>
           
           
           
-          <td>Percentage change (%)</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Tourism direct GDP growth rate (%)</td>
+          <td>Tourism direct GDP growth rate</td>
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>5.8432247497</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Tourism direct GDP as a proportion of total GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>5.5114627903</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Tourism direct GDP as a proportion of total GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>6.018266632</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Tourism direct GDP as a proportion of total GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>5.9557005256</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Tourism direct GDP as a proportion of total GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>0.8841845645</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Tourism direct GDP growth rate</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>-1.146682344</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Tourism direct GDP growth rate</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>14.7770031129</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Tourism direct GDP growth rate</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>5.8827944203</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Tourism direct GDP as a proportion of total GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>5.7208898289</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Tourism direct GDP as a proportion of total GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>6.4582869412</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Tourism direct GDP as a proportion of total GDP</td>
+          
+          
+          
+          <td>Normal value</td>
           
           
           
@@ -677,7 +845,7 @@ data-event-label="high"
     <p>Geographical Area: United Kingdom</p>
     
     
-    <p>Unit of Measurement: Percentage (%)/ Percentage change (%)</p>
+    <p>Unit of Measurement: Percentage (%)</p>
     
     
   </div>
@@ -763,7 +931,7 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Tourism direct GDP as a proportion of total GDP (%)</h4>
+          <h4 id="chart-heading" class="chart-title">Tourism direct GDP as a proportion of total GDP</h4>
           <div id="chart" class="plot-container">
             
               <canvas
@@ -1019,7 +1187,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            <p>Percentage (%)/ Percentage change (%)</p>
+            <p>Percentage (%)</p>
 
           
         </td>
@@ -1089,7 +1257,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            21 September 2021
+            28 April 2022
           
         </td>
         </tr>
@@ -1102,7 +1270,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            21 September 2021
+            28 April 2022
           
         </td>
         </tr>
@@ -1915,7 +2083,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            27 November 2017
+            03 November 2021
           
         </td>
         </tr>
@@ -1956,7 +2124,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>chloe.gibbs@ons.gov.uk </p>
+            <p>tourism@ons.gov.uk </p>
 
           
         </td>
@@ -2220,7 +2388,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            10 May 2019
+            11 February 2022
           
         </td>
         </tr>
@@ -2233,7 +2401,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>28/06/2019</p>
+            <p>31/03/2022</p>
 
           
         </td>
@@ -2261,7 +2429,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>gdp@ons.gsi.gov.uk</p>
+            <p>gdp@ons.gov.uk</p>
 
           
         </td>
@@ -2598,7 +2766,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20220428121343'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20220428151904'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2606,7 +2774,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20220428121343"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20220428151904"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
