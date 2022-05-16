@@ -141,7 +141,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220516002715">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220516150524">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -1452,7 +1452,7 @@ data-event-label="Change to Sources tab"
 <p>Non-residents are included in the rates for England and Wales combined, Scotland, and Northern Ireland. However, non-residents are excluded from rates for England, and Wales.</p>
 <p>The reason why non-residents are treated differently is because the figures for Scotland and Northern Ireland are consistent with figures published by National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) respectively, and each organisation uses slightly different definitions. This does have a small knock-on effect on comparability but the differences that non-residents make to rates are relatively small – at the most, including/excluding non-residents leads to a difference of 0.1 in the rates shown. Please see the <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/methodologies/userguidetochildmortalitystatistics#area-coverage-and-base-populations">User guide to child and infant mortality statistics</a> for information on comparability between countries.</p>
 <p>Rates are not calculated where there are fewer than 3 deaths in a cell. It is ONS practice not to calculate rates where there are fewer than 3 deaths in a cell, as rates based on such low numbers are susceptible to inaccurate interpretation. These values have been left blank and are flagged as 'Missing value; suppressed' in the observation status of the downloadable csv. Some figures shown have low reliability (rates based on between 3 and 19 deaths). This means that their reliability as a measure may be affected by the small number of events. Information on reliability is given in the observation status column in the downloadable csv. In particular, late neonatal figures have low reliability for some birthweights and some country of birth levels. See available disaggregations above for more information. </p>
-<p>Breakdowns by birthweight, sex, ethnicity, and mother's country of birth and age are only given where deaths could be linked to their corresponding birth registration record. For 2007 data onwards, deaths have been linked to birth registration and/or birth notification. The linkage rate to both data sources is above 95% for all years except 2020, for which the linkage rate was 90.5%. For more information see the cover sheet in the <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/childmortalitystatisticschildhoodinfantandperinatalchildhoodinfantandperinatalmortalityinenglandandwales">Child mortality (death cohort) tables in England and Wales</a>.</p>
+<p>Breakdowns by birthweight, sex, mother's country of birth and age are only given where deaths could be linked to their corresponding birth registration record. For the data years 2007 onwards, deaths that linked to their birth registration are then linked to birth notification data, enabling statistics by ethnicity of the baby. The linkage rate to both data sources is above 95% for all years except 2020, for which the linkage rate was 90.5%. For more information see the cover sheet in the <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/childmortalitystatisticschildhoodinfantandperinatalchildhoodinfantandperinatalmortalityinenglandandwales">Child mortality (death cohort) tables in England and Wales</a>.</p>
 <p> Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.
 </p>
 
@@ -1481,7 +1481,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            11 May 2022
+            16 May 2022
           
         </td>
         </tr>
@@ -3280,7 +3280,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20220516002715'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20220516150524'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -3288,7 +3288,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20220516002715"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20220516150524"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
