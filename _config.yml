@@ -35,7 +35,22 @@ create_indicators:
   layout: indicator
 create_goals:
   layout: goal-by-target-vertical
-create_pages: true
+create_pages:
+  - folder: /
+    layout: frontpage-alt
+    title: 17 goals to transform our world
+  - folder: /goals
+    layout: goals
+    title: UK data for the Sustainable Development Goals
+  - folder: /reporting-status
+    layout: reportingstatus
+    title: Reporting Status
+  - filename: indicators.json
+    folder: /
+    layout: indicator-json
+  - folder: /search
+    layout: search
+    title: Search results
 
 # Social media accounts.
 twitter: 'ONS'
