@@ -141,7 +141,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220518145810">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220518153145">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -384,6 +384,13 @@ data-event-label="high"
   
 
   
+
+<div class="row" id="page-content">
+  <div class="col-xs-12">
+    <p>For information on UK’s water management plan, such as challenges that threaten UK’s water environment and how these challenges can be managed please see <a href="https://www.gov.uk/government/collections/draft-river-basin-management-plans-2021"> Draft river basin management plans: 2021</a>.</p>
+
+  </div>
+</div>
 
 
   
@@ -1654,14 +1661,14 @@ data-event-label="Change to Sources tab"
           
             <p>Please note, data from the lake water quality, reservoir, open water and wetlands series all use data derived from the Global Surface Water Explorer (GSWE). However, the 'Open water area' series data has undergone further refinement to ensure costal water is not included in the estimate. Therefore, values differ to those on GSWE. See below for further information on the Open water series methodology.</p>
 <p><b>Open water area</b></p>
-<p>Please see the blog <a href="https://datasciencecampus.ons.gov.uk/using-satellite-imagery-to-report-changes-to-water-bodies-for-sdg-6-6-1">Using satellite imagery to report changes to water bodies for SDG 6.6.1</a> for more information on this indicator.</p>
+<p>Please see the blog <a href="https://datasciencecampus.ons.gov.uk/using-satellite-imagery-to-report-changes-to-water-bodies-for- sdg-6-6-1">Using satellite imagery to report changes to water bodies for SDG 6.6.1</a> for more information on this indicator.</p>
 <p>Data for open water is derived from Earth Observation data (from the Landsat satellite programme). The resolution used does not pick up smaller waterbodies (including, small lakes, rivers and streams). These data can be downloaded from the Global Surface Water Explorer (GSWE).</p>
 <p>The data presented here have been constrained to official high-water mark boundaries, which helps to ensure that costal water is not included in estimate. Measures therefore differ slightly to those on <a href="https://www.sdg661.app/">Freshwater Ecosystems Explorer</a>, a GSWE platform for presenting data specifically for this indicator.</p>
-<p>Persistent cloud cover can impact the quality of data collection. Anomalous years (likely due to cloud cover - 1994 to 1998 and 2004 to 2009) have therefore been excluded from the data presented here, with the exception of the baseline. The baseline period of 2001 to 2005 includes the anomalous years 2004 and 2005. To mitigate the impact of variable cloud cover, the modal value of each pixel across the baseline years has been used to calculate the average spatial extent in the baseline period. Further details on the source data and mitigating the impacts of these anomalous periods is provided in the <a href="https://datasciencecampus.ons.gov.uk/projects/quality- and-methodology-extent-and-change-of-surface-water-statistics">Data Science Campus Quality and Methodology document</a>.</p>
+<p>Persistent cloud cover can impact the quality of data collection. Anomalous years (likely due to cloud cover - 1994 to 1998 and 2004 to 2009) have therefore been excluded from the data presented here, with the exception of the baseline. The baseline period of 2001 to 2005 includes the anomalous years 2004 and 2005. To mitigate the impact of variable cloud cover, the modal value of each pixel across the baseline years has been used to calculate the average spatial extent in the baseline period. Further details on the source data and mitigating the impacts of these anomalous periods is provided in the <a href="https://datasciencecampus.ons.gov.uk/projects/quality-and-methodology-extent-and-change-of-surface-water-statistics">Data Science Campus Quality and Methodology document</a>.</p>
 <p>HydroBASIN catchments are identified with numbers, however we have added descriptive names to each catchment in the dropdown menu - these are not official names. Work is in progress to provide interactive maps. While these are not yet available here, they can be viewed in the blog <a href="https://datasciencecampus.ons.gov.uk/using-satellite-imagery-to-report-changes-to-water-bodies-for-sdg-6-6-1">Using satellite imagery to report changes to water for SDG 6.6.1</a>.</p>
 <p><b>Groundwater</b></p>
 <p>Groundwater level data is obtained from BGS WellMaster database, derived from 154 groundwater level monitoring stations to provide groundwater estimates for 19 of the 34 HydroBasins in the UK. HydroBasin catchments are identified with numbers, however descriptive name have been added to the dropdown menu, these are not official names.</p>
-<p>The chosen five-year reference period for the analysis is 1990 to 1994. Values greater than 100% imply average groundwater levels have risen since the period 1990 to 1994, while values less than 100% imply falling levels.</p>
+<p>The chosen five-year reference period for the analysis is 1990 to 1994. Values greater than 100% imply average groundwater levels have risen since the period 1990 to 1994, while values less than 100% imply falling levels. Please note that this baseline reference contains a period of draught for the UK</p>
 <p>The data monitored by measuring authorities in each nation (EA, SEPA, NRW, DAERA) are passed to BGS periodically. All chosen sites have the following - monitoring frequencies of greater than one observation a month, are monitoring boreholes where groundwater levels are not systematically affected by abstraction, and are representative of local and regional groundwater systems.</p>
 <p>Raw data is quality assured by measuring authority and are expected to be accurate to less than +/- 0.01 metre for data collected since 1990. On receipt by BGS an additional check is made to ensure all values fall within expected hydrogeologicaly plausible ranges.</p>
 <p>Please note, the headline figure for UK show average percentage change across hydrobasins for which values are available (not all hydrobasins are represented), not the % change across hydrobasins.</p>
@@ -1699,7 +1706,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            16 March 2022
+            10 May 2022
           
         </td>
         </tr>
@@ -2903,7 +2910,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20220518145810'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20220518153145'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2911,7 +2918,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20220518145810"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20220518153145"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
