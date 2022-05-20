@@ -141,7 +141,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220520135139">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220520154130">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -376,7 +376,7 @@ data-event-label="high"
   
 <div class="row metadata-available-indicator">
   <div class="col-xs-12">
-    <h2>Proportion of the population who are unpaid carers</h2>
+    <h2>Proportion of informal carers by characteristics & proportion of the population who are informal carers</h2>
   </div>
 </div>
 
@@ -394,24 +394,24 @@ data-event-label="high"
   id="indicatorData"
   data-indicatorid='indicator_5-4-1'
   data-id="5-4-1"
-  data-country="Great Britain"
-  data-charttitle="Proportion of people who are unpaid carers"
-  data-charttitles="null"
+  data-country="United Kingdom"
+  data-charttitle="Proportion of time spent on unpaid domestic and care work, by sex, age and location"
+  data-charttitles="[{&quot;series&quot;:&quot;Proportion of informal carers by characteristics&quot;,&quot;title&quot;:&quot;Proportion of informal carers by characteristics&quot;},{&quot;series&quot;:&quot;Proportion of population who are informal carers&quot;,&quot;title&quot;:&quot;Proportion of population who are informal carers&quot;}]"
   data-measurementunit="Percentage (%)"
   data-xaxislabel=""
   data-showdata="true"
-  data-graphtype="bar"
+  data-graphtype="line"
   data-graphtypes="null"
   data-geocoderegex=""
   data-showmap="false"
-  data-startvalues="null"
+  data-startvalues="[{&quot;field&quot;:&quot;Series&quot;,&quot;value&quot;:&quot;Proportion of informal carers by characteristics&quot;},{&quot;field&quot;:&quot;Sex&quot;,&quot;value&quot;:&quot;Female&quot;},{&quot;field&quot;:&quot;Sex&quot;,&quot;value&quot;:&quot;Male&quot;},{&quot;field&quot;:&quot;Number of hours per week providing care&quot;,&quot;value&quot;:&quot;50 or more hours&quot;}]"
   data-graphlimits="[{&quot;unit&quot;:&quot;Percentage (%)&quot;,&quot;minimum&quot;:0,&quot;maximum&quot;:100}]"
   data-stackeddisaggregation=""
   data-graphannotations="null"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Sex&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Female&quot;,&quot;Male&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Sex&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;16 to 24&quot;,&quot;25 to 34&quot;,&quot;35 to 44&quot;,&quot;45 to 54&quot;,&quot;55 to 64&quot;,&quot;65 to 74&quot;,&quot;75 and over&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Disability status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Disabled (GSS harmonised)&quot;,&quot;Non-disabled (GSS harmonised)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Disability status&quot;},{&quot;name&quot;:&quot;Number of hours&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;10 to 19 hours&quot;,&quot;2 to 4 hours&quot;,&quot;20 to 34  hours&quot;,&quot;20 to 34 hours&quot;,&quot;35 to 49 hours&quot;,&quot;5 to 9 hours&quot;,&quot;50 or more hours&quot;,&quot;Less than 2 hours&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Number of hours&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Proportion of informal carers by characteristics&quot;,&quot;Proportion of population who are informal carers&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Sex&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Female&quot;,&quot;Male&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Sex&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;0-10&quot;,&quot;0-15&quot;,&quot;11-15&quot;,&quot;16-24&quot;,&quot;25-34&quot;,&quot;35-44&quot;,&quot;45-54&quot;,&quot;55-64&quot;,&quot;65-74&quot;,&quot;75-84&quot;,&quot;85+&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Employment status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;In employment (all)&quot;,&quot;Unemployed&quot;,&quot;Retired&quot;,&quot;Other economically inactive&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Employment status&quot;},{&quot;name&quot;:&quot;Number of hours per week providing care&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;0-4 hours&quot;,&quot;5-19 hours&quot;,&quot;20-34 hours&quot;,&quot;20-35 hours&quot;,&quot;35-49 hours&quot;,&quot;35-50 hours&quot;,&quot;50 or more hours&quot;,&quot;Unknown&quot;,&quot;Varies, 35 or more hours&quot;,&quot;Varies, less than 35 hours&quot;,&quot;Varies, more than 35 hours&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Number of hours per week providing care&quot;},{&quot;name&quot;:&quot;Net weekly income (£)&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Less than £50&quot;,&quot;£50 - £99&quot;,&quot;£100 - £149&quot;,&quot;£150 - £199&quot;,&quot;£200 - £249&quot;,&quot;£250 - £299&quot;,&quot;£300 - £399&quot;,&quot;£300 or more&quot;,&quot;£400 - £499&quot;,&quot;£500 or more&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Net weekly income (£)&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -445,7 +445,7 @@ data-event-label="high"
 
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>Proportion of people who are unpaid carers</caption>
+      <caption>Proportion of time spent on unpaid domestic and care work, by sex, age and location</caption>
       <thead>
         
         
@@ -461,7 +461,15 @@ data-event-label="high"
         
         
         
-        <th scope="col" class="table-value">Observation status</th>
+        <th scope="col">Series</th>
+        
+        
+        
+        <th scope="col">Observation status</th>
+        
+        
+        
+        <th scope="col" class="table-value">Unit multiplier</th>
         
         
       </thead>
@@ -470,19 +478,475 @@ data-event-label="high"
         <tr>
           
           
-          <td>2021</td>
+          <td>2004/05</td>
           
           
           
-          <td>17.0</td>
+          <td>8.0</td>
           
           
           
-          <td>Percentage</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td class="table-value">Normal value</td>
+          <td>Proportion of population who are informal carers</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2005/06</td>
+          
+          
+          
+          <td>9.0</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Proportion of population who are informal carers</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2006/07</td>
+          
+          
+          
+          <td>9.0</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Proportion of population who are informal carers</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2007/08</td>
+          
+          
+          
+          <td>8.0</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Proportion of population who are informal carers</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2008/09</td>
+          
+          
+          
+          <td>8.0</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Proportion of population who are informal carers</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2009/10</td>
+          
+          
+          
+          <td>8.0</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Proportion of population who are informal carers</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010/11</td>
+          
+          
+          
+          <td>8.0</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Proportion of population who are informal carers</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011/12</td>
+          
+          
+          
+          <td>8.0</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Proportion of population who are informal carers</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012/13</td>
+          
+          
+          
+          <td>9.0</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Proportion of population who are informal carers</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013/14</td>
+          
+          
+          
+          <td>8.0</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Proportion of population who are informal carers</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014/15</td>
+          
+          
+          
+          <td>8.0</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Proportion of population who are informal carers</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015/16</td>
+          
+          
+          
+          <td>8.0</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Proportion of population who are informal carers</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016/17</td>
+          
+          
+          
+          <td>8.0</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Proportion of population who are informal carers</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017/18</td>
+          
+          
+          
+          <td>7.0</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Proportion of population who are informal carers</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018/19</td>
+          
+          
+          
+          <td>7.0</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Proportion of population who are informal carers</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019/20</td>
+          
+          
+          
+          <td>7.0</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Proportion of population who are informal carers</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020/21</td>
+          
+          
+          
+          <td>6.0</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Proportion of population who are informal carers</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -493,16 +957,16 @@ data-event-label="high"
 
   <div id="datatableFooter">
     
-    <p>Source: Office for National Statistics</p>
+    <p>Source: Department for Work and Pensions (DWP)</p>
     
     
-    <p>Geographical Area: Great Britain</p>
+    <p>Geographical Area: United Kingdom</p>
     
     
     <p>Unit of Measurement: Percentage (%)</p>
     
     
-    <p>Footnote: The data were collected between 31 March and 25 April 2021. During this period the “rule of 6” was in place in England (29 March), “stay local” restrictions were lifted in Wales (from 27 March), and “stay home” rules in Scotland were replaced by “stay local” rules (2 April).</p>
+    <p>Footnote: <p> 1) Data collection for 2020/21 has been impacted by the COVID-19 pandemic. Please see the background relevant <a href="https://www.gov.uk/government/statistics/family-resources-survey-financial-year-2020-to-2021/family-resources-survey-background-information-and-methodology"> Family Resources Survey (FRS)  Information and Methodology </a> for the specific adjustments that have been made in light of the COVID impacts on the sample. </p> <p> 2) For the series "Proportion of population who are informal carers" the base population of the percentage is the total adult population, for instance "in 2020/21, 6 percent of the total adult population were informal carers" . For the series "Proportion of informal carers by characteristics" the base population of the percentage is all informal carers, for instance "in 2020/21, of all informal carers, 53 percent were in employment". </p><p> 3) There are some intentional breaks in the time-series for younger age groups in the 'Proportion of informal carers by characteristics' as for some years there are missing data due to negligible estimates (populations of less than 0.5 per cent, or 0.1 million). For the years 2014/15 and 2015/16 the youngest age category (0-15 years old) is split into two age categories. </p></p>
     
   </div>
 
@@ -587,7 +1051,7 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Proportion of people who are unpaid carers</h4>
+          <h4 id="chart-heading" class="chart-title">Proportion of informal carers by characteristics</h4>
           <div id="chart" class="plot-container">
             
               <canvas
@@ -609,12 +1073,12 @@ data-event-label="Change to Table tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>Office for National Statistics</dd>
+        <dd>Department for Work and Pensions (DWP)</dd>
         
 
         
         <dt>Geographical Area:</dt>
-        <dd>Great Britain</dd>
+        <dd>United Kingdom</dd>
         
 
         <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
@@ -624,7 +1088,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd>The data were collected between 31 March and 25 April 2021. During this period the “rule of 6” was in place in England (29 March), “stay local” restrictions were lifted in Wales (from 27 March), and “stay home” rules in Scotland were replaced by “stay local” rules (2 April).</dd>
+        <dd><p> 1) Data collection for 2020/21 has been impacted by the COVID-19 pandemic. Please see the background relevant <a href="https://www.gov.uk/government/statistics/family-resources-survey-financial-year-2020-to-2021/family-resources-survey-background-information-and-methodology"> Family Resources Survey (FRS)  Information and Methodology </a> for the specific adjustments that have been made in light of the COVID impacts on the sample. </p> <p> 2) For the series "Proportion of population who are informal carers" the base population of the percentage is the total adult population, for instance "in 2020/21, 6 percent of the total adult population were informal carers" . For the series "Proportion of informal carers by characteristics" the base population of the percentage is all informal carers, for instance "in 2020/21, of all informal carers, 53 percent were in employment". </p><p> 3) There are some intentional breaks in the time-series for younger age groups in the 'Proportion of informal carers by characteristics' as for some years there are missing data due to negligible estimates (populations of less than 0.5 per cent, or 0.1 million). For the years 2014/15 and 2015/16 the youngest age category (0-15 years old) is split into two age categories. </p></dd>
         
 
         
@@ -683,12 +1147,12 @@ data-event-label="Change to Table tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>Office for National Statistics</dd>
+        <dd>Department for Work and Pensions (DWP)</dd>
         
 
         
         <dt>Geographical Area:</dt>
-        <dd>Great Britain</dd>
+        <dd>United Kingdom</dd>
         
 
         <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
@@ -698,7 +1162,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd>The data were collected between 31 March and 25 April 2021. During this period the “rule of 6” was in place in England (29 March), “stay local” restrictions were lifted in Wales (from 27 March), and “stay home” rules in Scotland were replaced by “stay local” rules (2 April).</dd>
+        <dd><p> 1) Data collection for 2020/21 has been impacted by the COVID-19 pandemic. Please see the background relevant <a href="https://www.gov.uk/government/statistics/family-resources-survey-financial-year-2020-to-2021/family-resources-survey-background-information-and-methodology"> Family Resources Survey (FRS)  Information and Methodology </a> for the specific adjustments that have been made in light of the COVID impacts on the sample. </p> <p> 2) For the series "Proportion of population who are informal carers" the base population of the percentage is the total adult population, for instance "in 2020/21, 6 percent of the total adult population were informal carers" . For the series "Proportion of informal carers by characteristics" the base population of the percentage is all informal carers, for instance "in 2020/21, of all informal carers, 53 percent were in employment". </p><p> 3) There are some intentional breaks in the time-series for younger age groups in the 'Proportion of informal carers by characteristics' as for some years there are missing data due to negligible estimates (populations of less than 0.5 per cent, or 0.1 million). For the years 2014/15 and 2015/16 the youngest age category (0-15 years old) is split into two age categories. </p></dd>
         
 
         
@@ -807,7 +1271,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            <p>Proportion of the population who are unpaid carers</p>
+            <p>Proportion of informal carers by characteristics &amp; proportion of the population who are informal carers</p>
 
           
         </td>
@@ -821,7 +1285,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            <p>Proportion of the population who are unpaid carers, by time spent on unpaid care, disability status, age and sex.</p>
+            <p>Proportion of the population who are informal carers, by proportion of time per day on informal care care, age and sex. Proportion of those who provide informal care, by employment status, weekly income and hours caring per week.</p>
 
           
         </td>
@@ -835,7 +1299,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            <p>Great Britain</p>
+            <p>United Kingdom</p>
 
           
         </td>
@@ -863,9 +1327,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p> A person is considered an “unpaid-carer” if they provide support/care to an individual who has needs due to physical or mental health condition(s) or illness(es), or problems related to old age, excluding anything they did as part of their paid employment. This definition is consistent with the <a href="https://gss.civilservice.gov.uk/policy-store/unpaid-care/"> Government Statistical Service (GSS) harmonised “core” definition </a>. </p>
-<p> Unpaid carers are self-reported as everyone who answered "Yes" or "No" to the question -  "In the past seven days, did you look after or give any help or support to, anyone inside or outside your household because they have - long-term physical or mental health conditions or illnesses, or problems related to old age?" </p>
-<p> A person is considered to have a disability if they have a self-reported long-standing illness, condition or impairment which causes difficulty with day-to-day activities. his definition is consistent with the <a href="https://gss.civilservice.gov.uk/policy-store/measuring-disability-for-the-equality-act-2010/"> Government Statistical Service (GSS) harmonised “core” definition </a> and the Equality Act 2010. </p>
+            <p> Informal carers - the Family Resources Survey (FRS) defines all those giving help on an informal basis (that is, not as part of a paid job) as informal carers.  This definition is consistent with the <a href="https://gss.civilservice.gov.uk/policy-store/unpaid-care/"> Government Statistical Service (GSS) harmonised “core” definition </a>. Professional carers can also be informal carers if giving help outside of work. What should be counted as care is not prescriptively defined but includes activities such as going shopping for someone and helping with paperwork. Those in receipt of care may be receiving either formal or informal care or a mixture of both.</p>
 
           
         </td>
@@ -879,7 +1341,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Available disaggregations </th>
         <td>
           
-            <p>Age, Sex, Disability, Numbers of hours spent</p>
+            <p>Age, Sex, Income, Proportion of time</p>
 
           
         </td>
@@ -907,10 +1369,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>The data were collected between 31 March and 25 April 2021. During this period the “rule of 6” was in place in England (29 March), “stay local” restrictions were lifted in Wales (from 27 March), and “stay home” rules in Scotland were replaced by “stay local” rules (2 April).</p>
-<p> This indicator previously showed data from the time use survey. As this  data is discontinued it has been replaced by data from the OPN, currently displayed. </p>
-<p> For more information about this data please see the  <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/socialcare/articles/coronavirusandthesocialimpactsonunpaidcarersingreatbritain/april2021">publication</a>.</p>
-<p>This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.</p>
+            <p>Data collection for 2020/21 has been impacted by the COVID-19 pandemic. Please see the background relevant <a href="https://www.gov.uk/government/statistics/family-resources-survey-financial-year-2020-to-2021/family-resources-survey-background-information-and-methodology"> Family Resources Survey (FRS)  Information and Methodology </a> for the specific adjustments that have been made in light of the COVID impacts on the sample. This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -924,7 +1383,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            02 December 2021
+            20 May 2022
           
         </td>
         </tr>
@@ -937,7 +1396,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            01 December 2021
+            20 May 2022
           
         </td>
         </tr>
@@ -1360,7 +1819,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Office for National Statistics</p>
+            <p>Department for Work and Pensions (DWP)</p>
 
           
         </td>
@@ -1374,7 +1833,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            <p>N/A</p>
+            <p>Annual</p>
 
           
         </td>
@@ -1388,7 +1847,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2021</p>
+            <p>2004/05</p>
 
           
         </td>
@@ -1402,7 +1861,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            <p>Great Britain</p>
+            <p>United Kingdom</p>
 
           
         </td>
@@ -1422,8 +1881,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/socialcare/datasets/coronavirusandthesocialimpactsonunpaidcarersingreatbritain" target="_blank">
-                Coronavirus and the social impacts on unpaid carers in Great Britain <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.gov.uk/government/collections/family-resources-survey--2" target="_blank">
+                Family Resources Survey <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1443,7 +1902,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            10 June 2021
+            31 March 2022
           
         </td>
         </tr>
@@ -1456,7 +1915,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>TBC</p>
+            <p>March 2023</p>
 
           
         </td>
@@ -1470,7 +1929,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Official statistics</p>
+            <p>National statistics</p>
 
           
         </td>
@@ -1484,7 +1943,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>Social.Care@ons.gov.uk</p>
+            <p>team.frs@dwp.gov.uk </p>
 
           
         </td>
@@ -1498,7 +1957,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            
+            <p>Carers data tables (5.1, 5.2, 5.3, 5.4, 5.6 for 2014/15 onwards)</p>
 
           
         </td>
@@ -1845,7 +2304,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20220520135139'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20220520154130'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -1853,7 +2312,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20220520135139"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20220520154130"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
