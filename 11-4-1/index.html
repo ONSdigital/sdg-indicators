@@ -141,7 +141,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220520103733">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220520135139">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -395,8 +395,8 @@ data-event-label="high"
   data-indicatorid='indicator_11-4-1'
   data-id="11-4-1"
   data-country="United Kingdom"
-  data-charttitle="Total per capita expenditure on the preservation, protection and conservation of all cultural and natural heritage, by source of funding (public, private), type of heritage (cultural, natural) and level of government (national, regional, and local/municipal)"
-  data-charttitles="[{&quot;series&quot;:&quot;General government expenditure&quot;,&quot;title&quot;:&quot;General government expenditure per capita&quot;},{&quot;series&quot;:&quot;Central government expenditure&quot;,&quot;title&quot;:&quot;Central government expenditure per capita&quot;},{&quot;series&quot;:&quot;Local government expenditure&quot;,&quot;title&quot;:&quot;Local government expenditure per capita&quot;}]"
+  data-charttitle="Per capita expenditure on cultural and natural heritage"
+  data-charttitles="null"
   data-measurementunit="GBP (£) per capita"
   data-xaxislabel=""
   data-showdata="true"
@@ -404,14 +404,14 @@ data-event-label="high"
   data-graphtypes="null"
   data-geocoderegex=""
   data-showmap="false"
-  data-startvalues="null"
+  data-startvalues="[{&quot;field&quot;:&quot;series&quot;,&quot;value&quot;:&quot;Cultural heritage&quot;},{&quot;field&quot;:&quot;Type of expenditure&quot;,&quot;value&quot;:&quot;Central government expenditure&quot;}]"
   data-graphlimits="null"
   data-stackeddisaggregation=""
   data-graphannotations="null"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;General government expenditure&quot;,&quot;Central government expenditure&quot;,&quot;Local government expenditure&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Type of heritage&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Natural heritage&quot;,&quot;Cultural heritage&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Type of heritage&quot;},{&quot;name&quot;:&quot;Area of spending&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Waste management&quot;,&quot;Waste water management&quot;,&quot;Pollution abatement&quot;,&quot;Protection of biodiversity and landscape&quot;,&quot;Research and development environmental protection&quot;,&quot;Environmental protection not elsewhere classified&quot;,&quot;Recreational and sporting services&quot;,&quot;Cultural services&quot;,&quot;Broadcasting and publishing services&quot;,&quot;Religious and other community services&quot;,&quot;Research and development recreation, culture and religion&quot;,&quot;Recreation, culture and religion not elsewhere classified&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Area of spending&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Cultural heritage&quot;,&quot;Natural heritage&quot;,&quot;&quot;]},&quot;title&quot;:&quot;series&quot;},{&quot;name&quot;:&quot;Type of expenditure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Central government expenditure&quot;,&quot;NGO expenditure&quot;,&quot;General government expenditure&quot;,&quot;Local government expenditure&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Type of expenditure&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -445,1715 +445,11 @@ data-event-label="high"
 
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>Total per capita expenditure on the preservation, protection and conservation of all cultural and natural heritage, by source of funding (public, private), type of heritage (cultural, natural) and level of government (national, regional, and local/municipal)</caption>
+      <caption>Per capita expenditure on cultural and natural heritage</caption>
       <thead>
-        
-        
-        <th scope="col">Year</th>
-        
-        
-        
-        <th scope="col">Value</th>
-        
-        
-        
-        <th scope="col">Series</th>
-        
-        
-        
-        <th scope="col">Observation status</th>
-        
-        
-        
-        <th scope="col">Unit multiplier</th>
-        
-        
-        
-        <th scope="col" class="table-value">Unit measure</th>
-        
         
       </thead>
       <tbody>
-        
-        <tr>
-          
-          
-          <td>2000</td>
-          
-          
-          
-          <td>317.018787116</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2001</td>
-          
-          
-          
-          <td>287.5847952227</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2002</td>
-          
-          
-          
-          <td>314.9798621089</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2003</td>
-          
-          
-          
-          <td>346.8166414305</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2004</td>
-          
-          
-          
-          <td>348.0043502629</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2005</td>
-          
-          
-          
-          <td>525.9437905229</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2006</td>
-          
-          
-          
-          <td>423.2817280456</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2007</td>
-          
-          
-          
-          <td>454.4913411971</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2008</td>
-          
-          
-          
-          <td>461.9094911668</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2009</td>
-          
-          
-          
-          <td>491.9973337831</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2010</td>
-          
-          
-          
-          <td>493.8216524988</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2011</td>
-          
-          
-          
-          <td>469.4943991556</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2012</td>
-          
-          
-          
-          <td>455.6471234597</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2013</td>
-          
-          
-          
-          <td>421.7409684318</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2014</td>
-          
-          
-          
-          <td>436.7244197855</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2015</td>
-          
-          
-          
-          <td>429.980033789</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2016</td>
-          
-          
-          
-          <td>414.5893026607</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2017</td>
-          
-          
-          
-          <td>427.1034915097</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2018</td>
-          
-          
-          
-          <td>413.1369326084</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2019</td>
-          
-          
-          
-          <td>407.7440835489</td>
-          
-          
-          
-          <td>General government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2000</td>
-          
-          
-          
-          <td>126.2946603698</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2001</td>
-          
-          
-          
-          <td>133.1686769408</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2002</td>
-          
-          
-          
-          <td>153.2197885311</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2003</td>
-          
-          
-          
-          <td>171.8237259942</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2004</td>
-          
-          
-          
-          <td>161.7837412261</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2005</td>
-          
-          
-          
-          <td>321.8000009932</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2006</td>
-          
-          
-          
-          <td>212.997167381</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2007</td>
-          
-          
-          
-          <td>236.1743730746</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2008</td>
-          
-          
-          
-          <td>238.6783083537</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2009</td>
-          
-          
-          
-          <td>260.0203981658</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2010</td>
-          
-          
-          
-          <td>265.7446283033</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2011</td>
-          
-          
-          
-          <td>246.6931394594</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2012</td>
-          
-          
-          
-          <td>252.8529942705</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2013</td>
-          
-          
-          
-          <td>225.8457516258</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2014</td>
-          
-          
-          
-          <td>251.8545810319</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2015</td>
-          
-          
-          
-          <td>250.0537551835</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2016</td>
-          
-          
-          
-          <td>245.2317736538</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2017</td>
-          
-          
-          
-          <td>246.7890769562</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2018</td>
-          
-          
-          
-          <td>232.2851001571</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2019</td>
-          
-          
-          
-          <td>225.3401360544</td>
-          
-          
-          
-          <td>Central government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2000</td>
-          
-          
-          
-          <td>194.1035320729</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2001</td>
-          
-          
-          
-          <td>157.697968298</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2002</td>
-          
-          
-          
-          <td>167.1167020687</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2003</td>
-          
-          
-          
-          <td>182.9410413386</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2004</td>
-          
-          
-          
-          <td>193.7768555339</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2005</td>
-          
-          
-          
-          <td>212.7511657201</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2006</td>
-          
-          
-          
-          <td>222.1378300133</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2007</td>
-          
-          
-          
-          <td>228.9172541671</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2008</td>
-          
-          
-          
-          <td>235.0551082269</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2009</td>
-          
-          
-          
-          <td>240.0880172822</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2010</td>
-          
-          
-          
-          <td>237.971940503</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2011</td>
-          
-          
-          
-          <td>230.3069758916</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2012</td>
-          
-          
-          
-          <td>212.6206734165</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2013</td>
-          
-          
-          
-          <td>204.8959764888</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2014</td>
-          
-          
-          
-          <td>199.8396205385</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2015</td>
-          
-          
-          
-          <td>192.4896329289</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2016</td>
-          
-          
-          
-          <td>183.6610655906</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2017</td>
-          
-          
-          
-          <td>192.3828213724</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2018</td>
-          
-          
-          
-          <td>192.8183082564</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2019</td>
-          
-          
-          
-          <td>190.6378748683</td>
-          
-          
-          
-          <td>Local government expenditure</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">GBP (£) per capita</td>
-          
-          
-        </tr>
         
       </tbody>
     </table>
@@ -2169,6 +465,8 @@ data-event-label="high"
     
     <p>Unit of Measurement: GBP (£) per capita</p>
     
+    
+    <p>Footnote: </p><p> 1. Expenditure data for 'Cultural heritage' has been extracted from annual expenditures of central and local government using UN Classification of the Functions of Government (COFOG) codes for 'Cultural services' GF0802.</p> 2. Data for government expenditure on 'Natural heritage' is based on public sector spending on UK biodiversity, therefore it only includes spending provided solely for the protection and promotion of biodiversity and generally excludes operational costs. It includes spending by central government and not that by local authorities.</p><p> 3. Figures for expenditure on biodiversity/natural heritage are presented as financial year data and for expenditure on cultural heritage are presented as calendar year data, as they are produced as such in the source publications. For example, data we present here for natural heritage in 2019, is data for the financial year ending March 2020 and has been combined with the mid-year population estimates for 2019 to calculate a per capita expenditure figure. The data we present here for cultural heritage in 2019 is for the calendar year 2019 and has been combined with the mid-year population estimates for 2019. </p><p> 4. Figures for UK public sector and NGO expenditure on biodiversity in the source publication are deflated using the UK Gross Domestic Product (GDP) deflator. Therefore, per capita expenditure figures presented in this indicator for Natural heritage are in constant (most recent year) prices and account for the effects of inflation.</p><p> 5. Given the large number of UK public sector organisations funding activities related to biodiversity and the complexities involved in both defining and identifying relevant expenditure, the figures presented in this indicator are likely to be an underestimation of total biodiversity spend by the UK public sector.</p><p> 6. The data reported for NGOs is collated predominantly from published annual accounts/financial reports. Almost all of the NGOs included in this data are registered as charities and detailed annual financial reports are published on the Charity Commission website. </p></p>
     
   </div>
 
@@ -2253,7 +551,7 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">General government expenditure per capita</h4>
+          <h4 id="chart-heading" class="chart-title">Per capita expenditure on cultural and natural heritage</h4>
           <div id="chart" class="plot-container">
             
               <canvas
@@ -2275,7 +573,7 @@ data-event-label="Change to Table tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>Office for National Statistics (ONS)</dd>
+        <dd>Office for National Statistics (ONS), Joint Nature Conservation Committee (JNCC) and Department for Environment, Food and Rural Affairs (DEFRA)</dd>
         
 
         
@@ -2288,6 +586,9 @@ data-event-label="Change to Table tab"
 
         
 
+        
+        <dt>Footnote:</dt>
+        <dd></p><p> 1. Expenditure data for 'Cultural heritage' has been extracted from annual expenditures of central and local government using UN Classification of the Functions of Government (COFOG) codes for 'Cultural services' GF0802.</p> 2. Data for government expenditure on 'Natural heritage' is based on public sector spending on UK biodiversity, therefore it only includes spending provided solely for the protection and promotion of biodiversity and generally excludes operational costs. It includes spending by central government and not that by local authorities.</p><p> 3. Figures for expenditure on biodiversity/natural heritage are presented as financial year data and for expenditure on cultural heritage are presented as calendar year data, as they are produced as such in the source publications. For example, data we present here for natural heritage in 2019, is data for the financial year ending March 2020 and has been combined with the mid-year population estimates for 2019 to calculate a per capita expenditure figure. The data we present here for cultural heritage in 2019 is for the calendar year 2019 and has been combined with the mid-year population estimates for 2019. </p><p> 4. Figures for UK public sector and NGO expenditure on biodiversity in the source publication are deflated using the UK Gross Domestic Product (GDP) deflator. Therefore, per capita expenditure figures presented in this indicator for Natural heritage are in constant (most recent year) prices and account for the effects of inflation.</p><p> 5. Given the large number of UK public sector organisations funding activities related to biodiversity and the complexities involved in both defining and identifying relevant expenditure, the figures presented in this indicator are likely to be an underestimation of total biodiversity spend by the UK public sector.</p><p> 6. The data reported for NGOs is collated predominantly from published annual accounts/financial reports. Almost all of the NGOs included in this data are registered as charities and detailed annual financial reports are published on the Charity Commission website. </p></dd>
         
 
         
@@ -2346,7 +647,7 @@ data-event-label="Change to Table tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>Office for National Statistics (ONS)</dd>
+        <dd>Office for National Statistics (ONS), Joint Nature Conservation Committee (JNCC) and Department for Environment, Food and Rural Affairs (DEFRA)</dd>
         
 
         
@@ -2359,6 +660,9 @@ data-event-label="Change to Table tab"
 
         
 
+        
+        <dt>Footnote:</dt>
+        <dd></p><p> 1. Expenditure data for 'Cultural heritage' has been extracted from annual expenditures of central and local government using UN Classification of the Functions of Government (COFOG) codes for 'Cultural services' GF0802.</p> 2. Data for government expenditure on 'Natural heritage' is based on public sector spending on UK biodiversity, therefore it only includes spending provided solely for the protection and promotion of biodiversity and generally excludes operational costs. It includes spending by central government and not that by local authorities.</p><p> 3. Figures for expenditure on biodiversity/natural heritage are presented as financial year data and for expenditure on cultural heritage are presented as calendar year data, as they are produced as such in the source publications. For example, data we present here for natural heritage in 2019, is data for the financial year ending March 2020 and has been combined with the mid-year population estimates for 2019 to calculate a per capita expenditure figure. The data we present here for cultural heritage in 2019 is for the calendar year 2019 and has been combined with the mid-year population estimates for 2019. </p><p> 4. Figures for UK public sector and NGO expenditure on biodiversity in the source publication are deflated using the UK Gross Domestic Product (GDP) deflator. Therefore, per capita expenditure figures presented in this indicator for Natural heritage are in constant (most recent year) prices and account for the effects of inflation.</p><p> 5. Given the large number of UK public sector organisations funding activities related to biodiversity and the complexities involved in both defining and identifying relevant expenditure, the figures presented in this indicator are likely to be an underestimation of total biodiversity spend by the UK public sector.</p><p> 6. The data reported for NGOs is collated predominantly from published annual accounts/financial reports. Almost all of the NGOs included in this data are registered as charities and detailed annual financial reports are published on the Charity Commission website. </p></dd>
         
 
         
@@ -2523,8 +827,10 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Expenditure data has been extracted from annual expenditures of central and local government using UN Classification of the Functions of Government (COFOG) codes for ‘Environmental protection’ GF05 and ‘Recreation, culture and religion’ GF08.</p>
-<p>Natural heritage represents expenditure on environmental protection, and cultural heritage represents expenditure on recreation, culture and religion.</p>
+            <p>Expenditure data has been extracted from annual expenditures of central and local government using UN Classification of the Functions of Government (COFOG) codes. </p>
+<p> In this context, to approximate spending on 'Cultural heritage' we include that which is defined under 'Cultural services' (GF0802) .</p>
+<p>Similarly for 'Natural heritage', we use data that reflects central Government expenditure on UK biodiversity. However, this does not include some aspects of the full definition provided in the UN metadata. This data only includes spending provided solely for the protection and promotion of biodiversity and generally excludes operational costs. </p>
+<p> An 'NGO' refers to a 'Non-governmental organisation'.</p>
 
           
         </td>
@@ -2552,7 +858,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>Per capita is calculated by - (Expenditure on environmental protection or recreation, culture and religion / UK Mid-Year Population)*1,000,000</p>
+            <p>Per capita is calculated by - (Expenditure on ‘cultural heritage’ or ‘natural heritage’ / UK Mid-Year Population)*1,000,000</p>
 
           
         </td>
@@ -2566,7 +872,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has not been identified in collaboration with topic experts.</p>
+            <p>This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -2580,7 +886,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            06 September 2021
+            12 May 2022
           
         </td>
         </tr>
@@ -2593,7 +899,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            06 September 2021
+            20 May 2022
           
         </td>
         </tr>
@@ -3101,7 +1407,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            30 April 2021
+            22 February 2022
           
         </td>
         </tr>
@@ -3142,7 +1448,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>bob.richards@ons.gov.uk</p>
+            <p>public.sector.inquiries@ons.gov.uk</p>
 
           
         </td>
@@ -3406,7 +1712,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            30 April 2021
+            22 February 2022
           
         </td>
         </tr>
@@ -3447,7 +1753,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>bob.richards@ons.gov.uk</p>
+            <p>public.sector.inquiries@ons.gov.uk</p>
 
           
         </td>
@@ -3711,7 +2017,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            30 April 2021
+            22 February 2022
           
         </td>
         </tr>
@@ -3752,7 +2058,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>bob.richards@ons.gov.uk</p>
+            <p>public.sector.inquiries@ons.gov.uk</p>
 
           
         </td>
@@ -4143,6 +2449,299 @@ data-event-label="Change to Sources tab"
 
     </div>
     
+    
+    
+    <div class="col-md-6">
+      
+        <h4>Source 5</h4>
+      
+      <table class="table">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>Joint Nature Conservation Committee (JNCC) and Department for Environment, Food and Rural Affairs (DEFRA)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Annual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2000/01</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>United Kingdom</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://hub.jncc.gov.uk/assets/42bca044-0e1b-449b-8e8f-e357e65e3822" target="_blank">
+                UK Biodiversity Indicators 2021. Indicator E2 – Expenditure on UK and international biodiversity <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            20 October 2021
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>TBA</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>Official Statistic</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>communications@jncc.gov.uk</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </div>
+    
   </div>
 
 
@@ -4382,7 +2981,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20220520103733'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20220520135139'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -4390,7 +2989,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20220520103733"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20220520135139"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
