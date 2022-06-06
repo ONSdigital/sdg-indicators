@@ -16,7 +16,7 @@
 
   <div class="container g-0">
     <h2 class="goal-page-heading">{{ page.t.general.targets_and_indicators }}</h2>
-    <div class="row align-items-start goal-indicator col-lg-1 goal-page-indicator-progress progress-status progress-status-label">Progress status</div>
+    <div class="">Progress status</div>
     <hr class="goal-page-target-rule" />
 
     {% assign goal_indicators = page.indicators | where: 'goal_number', page.goal.number | group_by: 'target_number' %}
