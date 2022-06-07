@@ -1,7 +1,7 @@
 {% if page.indicator.progress_status and page.indicator.progress_status != '' %}
 {% assign progress_status = site.progress_status.status_types | where: 'value', include.indicator.progress_status | first %}
     {% if progress_status %}
-        {% if progress_status.label%}
+        {% if progress_status.label %}
             <div class="row indicator-progress">
                 <img src="/assets/img/progress/embed-test.png">
             </div>
