@@ -1,3 +1,4 @@
+<p>{{ page.indicator.progress_status }}</p>
 {% if page.indicator.progress_status and ['target_achieved', 'close_to_target', 'moderate_distance_to_target','far_from_target', 'very_far_from_target'].includes(page.indicator.progress_status) %}
     <div class="row">   
         <img src="{{ site.baseurl }}/assets/img/progress/embed-test.png">
