@@ -1,4 +1,4 @@
-<p>{{ page.indicator.progress_status }}</p>
+<p>{{ ['target_achieved', 'close_to_target', 'moderate_distance_to_target','far_from_target', 'very_far_from_target'].indexOf(page.indicator.progress_status) }}</p>
 {% if page.indicator.progress_status and ['target_achieved', 'close_to_target', 'moderate_distance_to_target','far_from_target', 'very_far_from_target'].indexOf(page.indicator.progress_status)!==-1 %}
     <div class="row">   
         <img src="{{ site.baseurl }}/assets/img/progress/embed-test.png">
