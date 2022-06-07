@@ -1,5 +1,5 @@
-<p>{{ ['target_achieved', 'close_to_target', 'moderate_distance_to_target','far_from_target', 'very_far_from_target'].indexOf(page.indicator.progress_status) }}</p>
-{% if page.indicator.progress_status and ['target_achieved', 'close_to_target', 'moderate_distance_to_target','far_from_target', 'very_far_from_target'].indexOf(page.indicator.progress_status)!==-1 %}
+{% assign progress_statuses = "target_achieved,close_to_target,moderate_distance_to_target,far_from_target,very_far_from_target" | split: ',' %}
+{% if page.indicator.progress_status and page.indicator.progress_status in progress_statuses %}
     <div class="row">   
         <img src="{{ site.baseurl }}/assets/img/progress/embed-test.png">
     </div>
