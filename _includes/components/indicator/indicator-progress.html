@@ -1,6 +1,6 @@
 {% assign progress_statuses = "target_achieved,close_to_target,moderate_distance_to_target,far_from_target,very_far_from_target" | split: ',' %}
 {% if page.indicator.progress_status and progress_statuses contains page.indicator.progress_status %}
-    <div class="row progress-status">   
+    <div class="row indicator-progress">   
         <img src="{{ site.baseurl }}/assets/img/progress/embed-test.png">
     </div>
 {% endif %}
