@@ -1,13 +1,12 @@
 {% if page.indicator.progress_status and page.indicator.progress_status != '' %}
 {% assign progress_status = site.progress_status.status_types | where: 'value', include.indicator.progress_status | first %}
     {% if progress_status %}
-        {% if progress_status.label %}
+        {% if progress_status.value and ['target_achieved', 'close_to_target', 'moderate_distance_to_target','far_from_target', 'very_far_from_target'].includes(progress_status.value) %}
             <div class="row">
-                <p>{{ progress_status }}</p>
                 <img src="{{ site.baseurl }}/assets/img/progress/embed-test.png">
             </div>
         {% endif %}
      {% endif %}
 {% endif %}
 
-<!--['target_achieved', 'close_to_target', 'moderate_distance_to_target','far_from_target', 'very_far_from_target'].includes(progress_status.label) -->
+<!-- -->
