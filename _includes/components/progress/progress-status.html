@@ -1,1 +1,9 @@
-
+{% if include.indicator.progress_status and include.indicator.progress_status != '' %}
+    {% assign progress_status = site.progress_status.status_types | where: 'value', include.indicator.progress_status | first %}
+    {% if progress_status and ['target_achieved', 'close_to_target', 'moderate_distance_to_target',
+                                                                     'far_from_target', 'very_far_from_target'].includes(progress_status) %}
+        <div>
+            <img src="http://uk-sdg-feature-branches.s3-website.eu-west-2.amazonaws.com/feature-progress-ut-june-2022/assets/img/progress/embed-test.png">
+        </div>
+    {% endif %}
+{% endif %}
