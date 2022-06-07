@@ -2,7 +2,7 @@
 {% assign progress_status = site.progress_status.status_types | where: 'value', include.indicator.progress_status | first %}
     {% if progress_status %}
         {% if progress_status.label %}
-            <div class="row indicator-progress">
+            <div class="row">
                 <p>{{ progress_status.label }}</p>
                 <img src="{{ site.baseurl }}/assets/img/progress/embed-test.png">
             </div>
