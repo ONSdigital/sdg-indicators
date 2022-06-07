@@ -1,0 +1,7 @@
+{% if page.indicator.progress_status and ['target_achieved', 'close_to_target', 'moderate_distance_to_target','far_from_target', 'very_far_from_target'].includes(page.indicator.progress_status) %}
+    {% if progress_status and ['target_achieved', 'close_to_target', 'moderate_distance_to_target','far_from_target', 'very_far_from_target'].includes(progress_status) %}
+        <div>
+            <img src="/assets/img/progress/embed-test.png">
+        </div>
+    {% endif %}
+{% endif %}
