@@ -3,6 +3,7 @@
     {% if progress_status %}
         {% if progress_status.label %}
             <div class="row indicator-progress">
+                <p>{{ progress_status.label }}</p>
                 <img src="{{ site.baseurl }}/assets/img/progress/embed-test.png">
             </div>
         {% endif %}
