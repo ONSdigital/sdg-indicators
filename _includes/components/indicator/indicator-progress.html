@@ -1,7 +1,8 @@
 {% if page.indicator.progress_status and page.indicator.progress_status != '' %}
 {% assign progress_status = page.indicator.progress_status %}
+    <p>{{ progress_status.value }}</p>
+    <p>{{ page.indicator.progress_status }}</p>
     {% if progress_status %}
-        <p>{{ progress_status.value }}</p>
         {% if ['target_achieved', 'close_to_target', 'moderate_distance_to_target','far_from_target', 'very_far_from_target'].includes(progress_status.value) %}
             <div class="row">   
                 <img src="{{ site.baseurl }}/assets/img/progress/embed-test.png">
