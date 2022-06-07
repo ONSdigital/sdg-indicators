@@ -1,4 +1,4 @@
-{% if page.indicator.progress_status and ['target_achieved', 'close_to_target', 'moderate_distance_to_target','far_from_target', 'very_far_from_target'].includes(page.indicator.progress_status) %}
+{% if page.indicator.progress_status and ['target_achieved', 'close_to_target', 'moderate_distance_to_target','far_from_target', 'very_far_from_target'].includes(page.indicator.progress_status.label) %}
     <div class="row indicator-progress">
         <img src="/assets/img/progress/embed-test.png">
     </div>
