@@ -1,0 +1,57 @@
+{% assign sdg_headline_data = site.data.headlines[page.indicator.slug] %}
+{% if site.data[page.language].headlines[page.indicator.slug] %}
+  {% assign sdg_headline_data = site.data[page.language].headlines[page.indicator.slug] %}
+{% endif %}
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    <a href="{{ page.remote_data_prefix }}/headline/{{ page.indicator.slug }}.csv" class="btn btn-primary btn-download" download="indicator_{{ page.indicator.slug }}.csv" tabindex="0" role="button">Download headline data (.csv)</a>
+
+    <a href="{{ page.remote_data_prefix }}/data/{{ page.indicator.slug }}.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_{{ page.indicator.slug }}.csv' tabindex='0' role='button'>Download all {{page.indicator.slug }} indicator data (.csv)</a>
+
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>{{ page.indicator.graph_title }}</caption>
+      <thead>
+        {% for column in sdg_headline_data[0] %}
+        {% if forloop.last %}
+        <th scope="col" class="table-value">{{ column[0] | t }}</th>
+        {% else %}
+        <th scope="col">{{ column[0] | t }}</th>
+        {% endif %}
+        {% endfor %}
+      </thead>
+      <tbody>
+        {% for row in sdg_headline_data %}
+        <tr>
+          {% for cell in row %}
+          {% if forloop.last %}
+          <td class="table-value">{{ cell[1] }}</td>
+          {% else %}
+          <td>{{ cell[1] }}</td>
+          {% endif %}
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div id="datatableFooter">
+    {% if page.indicator.source_organisation_1 %}
+    <p>{{ page.t.indicator.source }}: {{ page.indicator.source_organisation_1 }}</p>
+    {% endif %}
+    {% if page.indicator.national_geographical_coverage %}
+    <p>{{ page.t.indicator.geographical_area }}: {{ page.indicator.national_geographical_coverage }}</p>
+    {% endif %}
+    {% if page.indicator.computation_units %}
+    <p>{{ page.t.indicator.unit_of_measurement }}: {{ page.indicator.computation_units }}</p>
+    {% endif %}
+    {% if page.indicator.data_footnote %}
+    <p>{{ page.t.indicator.footnote }}: {{ page.indicator.data_footnote }}</p>
+    {% endif %}
+  </div>
+
+</div>
