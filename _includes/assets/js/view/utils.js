@@ -86,8 +86,8 @@ function createDownloadButton(table, name, indicatorId, el) {
         $(el).append(downloadButton);
     } else {
         var headlineId = indicatorId.replace('indicator', 'headline');
-        var id = indicatorId.replaceAll('indicator_', '');
-        var id_source = 'Download all ' + id.replace('-','.') + ' indicator data (.csv)';
+        var id = indicatorId.replace('indicator_', '');
+        var id_source = 'Download all ' + id.replaceAll('-','.') + ' indicator data (.csv)';
         var gaLabel = 'Download Headline CSV: ' + id;
         $(el).append($('<a />').text(id_source)
             .attr(opensdg.autotrack('download_data_headline', 'Downloads', 'Download CSV', gaLabel))
@@ -108,8 +108,8 @@ function createDownloadButton(table, name, indicatorId, el) {
  */
 function createSourceButton(indicatorId, el) {
     var gaLabel = 'Download Source CSV: ' + indicatorId;
-    var id = indicatorId.replaceAll('indicator_', '');
-    var id_source = 'Download all ' + id.replace('-','.') + ' indicator data (.csv)';
+    var id = indicatorId.replace('indicator_', '');
+    var id_source = 'Download all ' + id.replaceAll('-','.') + ' indicator data (.csv)';
     $(el).append($('<a />').text(id_source)
         .attr(opensdg.autotrack('download_data_source', 'Downloads', 'Download CSV', gaLabel))
         .attr({
