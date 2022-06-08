@@ -108,6 +108,7 @@ function createDownloadButton(table, name, indicatorId, el) {
  */
 function createSourceButton(indicatorId, el) {
     var gaLabel = 'Download Source CSV: ' + indicatorId;
+    var id = indicatorId.replace('indicator_', '');
     var id_source = 'Download all' + id + 'indicator data (.csv)';
     $(el).append($('<a />').text(id_source)
         .attr(opensdg.autotrack('download_data_source', 'Downloads', 'Download CSV', gaLabel))
