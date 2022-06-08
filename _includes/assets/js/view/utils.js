@@ -87,8 +87,9 @@ function createDownloadButton(table, name, indicatorId, el) {
     } else {
         var headlineId = indicatorId.replace('indicator', 'headline');
         var id = indicatorId.replace('indicator_', '');
+        var id_source = 'Download all' + id + 'indicator data (.csv)'
         var gaLabel = 'Download Headline CSV: ' + id;
-        $(el).append($('<a />').text(translations.indicator.download_headline)
+        $(el).append($('<a />').text(id_source)
             .attr(opensdg.autotrack('download_data_headline', 'Downloads', 'Download CSV', gaLabel))
             .attr({
                 'href': opensdg.remoteDataBaseUrl + '/headline/' + id + '.csv',
