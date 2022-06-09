@@ -18,7 +18,8 @@
     <div class="row">
       <h2 class="goal-page-heading">{{ page.t.general.targets_and_indicators }}</h2>
       <p class="col-lg-1" style="font-weight: bold;float: right;">Progress status</p>
-      <hr class="goal-page-target-rule" />
+    </div>
+    <hr class="goal-page-target-rule" />
 
     {% assign goal_indicators = page.indicators | where: 'goal_number', page.goal.number | group_by: 'target_number' %}
     {% for group in goal_indicators %}
