@@ -6,7 +6,7 @@ var klaroConfig = {
     storageMethod: 'cookie',
     cookieName: 'cookie_settings',
     cookieExpiresAfterDays: 365,
-    default: false,
+    default: true,
     services: [
         {
             name: 'contrast',
