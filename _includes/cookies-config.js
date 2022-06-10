@@ -2,11 +2,11 @@
 {% assign analytics_ua = site.analytics.ua and site.analytics.ua != '' %}
 {% assign analytics_gtag = site.analytics.gtag and site.analytics.gtag != '' %}
 var klaroConfig = {
-    noAutoLoad: true, // no autoload because we have a custom notice and form
+    noAutoLoad: false, // no autoload because we have a custom notice and form
     storageMethod: 'cookie',
     cookieName: 'cookie_settings',
     cookieExpiresAfterDays: 365,
-    default: true,
+    default: false,
     services: [
         {
             name: 'contrast',
