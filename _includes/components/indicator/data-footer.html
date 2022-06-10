@@ -1,0 +1,64 @@
+{% assign sources_list = '' | split: ',' %}
+{% for i in (1..12) %}
+  {% assign src_active = "source_active_" | append: i %}
+  {% if page.indicator[src_active] == true %}
+    {% assign src_org = "source_organisation_" | append: i %}
+    {% assign src_org_translated = page.indicator[src_org] %}
+    {% assign sources_list = sources_list | push: src_org_translated  %}
+  {% endif %}
+{% endfor %}
+{% assign uniqSources = sources_list | uniq | join: ", " %}
+
+<div id="{{ include.footerId | default: 'selectionChartFooter' }}" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        {% if uniqSources != '' %}
+        <dt>{{ page.t.indicator.source }}:</dt>
+        <dd>{{ uniqSources }}</dd>
+        {% endif %}
+
+        {% if page.indicator.national_geographical_coverage and page.indicator.national_geographical_coverage != '' %}
+        <dt>{{ page.t.indicator.geographical_area }}:</dt>
+        <dd>{{ page.indicator.national_geographical_coverage }}</dd>
+        {% endif %}
+
+        <dt class="data-controlled-footer-field unit-from-data">{{ page.t.indicator.unit_of_measurement }}:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        {% if page.indicator.copyright and page.indicator.copyright != '' %}
+        <dt>{{ page.t.metadata_fields.copyright }}:</dt>
+        <dd>{{ page.indicator.copyright }}</dd>
+        {% endif %}
+
+        {% if page.indicator.data_footnote and page.indicator.data_footnote != '' %}
+        <dt>{{ page.t.indicator.footnote }}:</dt>
+        <dd>{{ page.indicator.data_footnote }}</dd>
+        {% endif %}
+
+        {% if page.indicator.footer_fields and page.indicator.footer_fields.size > 0 %}
+        {% for footer_field in page.indicator.footer_fields %}
+        <dt
+          data-for-series={{ footer_field.series | default: "" | jsonify }}
+          data-for-unit={{ footer_field.unit | default: "" | jsonify }}
+        >{{ footer_field.label | t  }}:</dt>
+        <dd
+          data-for-series={{ footer_field.series | default: "" | jsonify }}
+          data-for-unit={{ footer_field.unit | default: "" | jsonify }}
+        >{{ footer_field.value | t  }}</dd>
+        {% endfor %}
+        {% endif %}
+
+        {% if site.time_series_attributes and site.time_series_attributes.size > 0 %}
+        {% for ts_attribute in site.time_series_attributes %}
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute={{ ts_attribute.field | jsonify }}
+        >{{ ts_attribute.label | t  }}:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute={{ ts_attribute.field | jsonify }}
+        ></dd>
+        {% endfor %}
+        {% endif %}
+    <dl>
+</div>
