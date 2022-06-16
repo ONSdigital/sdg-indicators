@@ -141,7 +141,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220616093349">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220616124846">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -164,9 +164,74 @@ layout-indicator-bootstrap5
 
 
 
+
+
 <script>translations['header'] = {"alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","disclaimer":"This is a development website. We welcome your <a href=\"mailto:%email_address\">feedback</a>.","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content","tag_line":"17 Goals to Transform our World","toggle_menu":"Menu toggle. Click to expand or collapse the menu.","toggle_search":"Search toggle. Click to expand or collapse the search bar."};</script>
 
 <a class="sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+
+<script>
+  document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+</script>
+<div id="cookie-banner" style="display: none" class="govuk-cookie-banner " data-nosnippet role="region" aria-label="Cookies on sdgdata.gov.uk">
+  <div class="govuk-cookie-banner__message govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-cookie-banner__heading govuk-heading-m">Cookies on sdgdata.gov.uk</h2>
+
+        <div class="govuk-cookie-banner__content">
+          <p>We use some essential cookies to make this service work.</p>
+          <p>We’d also like to use analytics cookies so we can understand how you use the service and make improvements.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-button-group">
+      <button id="cookie-accept" value="accept" type="button" name="cookies" class="govuk-button" data-module="govuk-button">
+        Accept analytics cookies
+      </button>
+      <button id="cookie-reject" value="reject" type="button" name="cookies" class="govuk-button" data-module="govuk-button">
+        Reject analytics cookies
+      </button>
+      <a class="govuk-link" href="/sdg-indicators/cookies">View cookies</a>
+    </div>
+  </div>
+</div>
+<div id="cookie-banner-accept" style="display: none" class="govuk-cookie-banner " data-nosnippet role="region" aria-label="Cookies on sdgdata.gov.uk">
+  <div class="govuk-cookie-banner__message govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-cookie-banner__content">
+          <p>You’ve accepted analytics cookies. You can <a class="govuk-link" href="/sdg-indicators/cookies">change your cookie settings</a> at any time.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-button-group">
+      <a id="hide-accept" href="#" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+          Hide this message
+      </a>
+    </div>
+  </div>
+</div>
+<div id="cookie-banner-reject" style="display: none" class="govuk-cookie-banner " data-nosnippet role="region" aria-label="Cookies on sdgdata.gov.uk">
+  <div class="govuk-cookie-banner__message govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-cookie-banner__content">
+          <p>You’ve rejected analytics cookies. You can <a class="govuk-link" href="/sdg-indicators/cookies">change your cookie settings</a> at any time.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-button-group">
+      <a id="hide-reject" href="#" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+          Hide this message
+      </a>
+    </div>
+  </div>
+</div>
+
 <div id="disclaimer">
     
 <div class="container">
@@ -233,7 +298,6 @@ data-event-label="high"
     </div>
 </header>
 <div id="top" tabindex=-1></div>
-
 
 
 
@@ -2849,7 +2913,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20220616093349'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20220616124846'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2857,7 +2921,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20220616093349"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20220616124846"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
