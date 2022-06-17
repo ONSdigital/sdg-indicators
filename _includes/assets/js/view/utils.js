@@ -55,7 +55,7 @@ function createDownloadButton(table, name, indicatorId, el) {
         if (name == 'Table') {
             downloadKey = 'Download table data (.csv)';
         }
-        var gaLabel = 'Download ' + name + ' CSV: ' + indicatorId.replace('indicator_', '');
+        var gaLabel = 'Download source data (.csv)';
         var tableCsv = toCsv(table);
         var fileName = indicatorId + '.csv';
         var downloadButton = $('<a />').text(downloadKey)
@@ -87,7 +87,7 @@ function createDownloadButton(table, name, indicatorId, el) {
     } else {
         var headlineId = indicatorId.replace('indicator', 'headline');
         var id = indicatorId.replace('indicator_', '');
-        var id_source = 'Download all ' + id.replaceAll('-','.') + ' indicator data (.csv)';
+        var id_source = 'Download source data (.csv)';
         var gaLabel = 'Download Headline CSV: ' + id;
         $(el).append($('<a />').text(id_source)
             .attr(opensdg.autotrack('download_data_headline', 'Downloads', 'Download CSV', gaLabel))
@@ -109,7 +109,7 @@ function createDownloadButton(table, name, indicatorId, el) {
 function createSourceButton(indicatorId, el) {
     var gaLabel = 'Download Source CSV: ' + indicatorId;
     var id = indicatorId.replace('indicator_', '');
-    var id_source = 'Download all ' + id.replaceAll('-','.') + ' indicator data (.csv)';
+    var id_source = 'Download source data (.csv)';
     $(el).append($('<a />').text(id_source)
         .attr(opensdg.autotrack('download_data_source', 'Downloads', 'Download CSV', gaLabel))
         .attr({
