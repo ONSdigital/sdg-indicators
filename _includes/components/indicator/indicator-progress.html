@@ -1,6 +1,6 @@
 {% assign progress_statuses = "target_achieved,close_to_target,moderate_distance_to_target,far_from_target,very_far_from_target" | split: ',' %}
 {% if page.indicator.progress_status and progress_statuses contains page.indicator.progress_status %}
-    <div style = "width: 75%;" class="row indicator-progress"> 
+    <div style = "width: 50%;" class="row indicator-progress"> 
         {% if page.indicator.number == '1.1.1' %}
             <img src="{{ site.baseurl }}/assets/img/progress/1-1-1-info-box.png">
         {% elsif page.indicator.number == '1.2.1' %}
