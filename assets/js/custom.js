@@ -11,3 +11,6 @@ opensdg.dataRounding = function(value) {
     return Number(value.toPrecision(3))
   }
 };
+
+$('td:contains("Not available for this indicator")')
+    .addClass('meta-not-available');
