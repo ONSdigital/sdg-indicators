@@ -11,7 +11,7 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://ONSdigital.github.io/sdg-data/en',
+  remoteDataBaseUrl: 'http://uk-sdg-feature-branches.s3-website.eu-west-2.amazonaws.com/feature-2.0.0-data/en',
 
   chartConfigAlterations: [],
   // A hook which can be used to modify the configuration for Chart.js.
@@ -40,10 +40,6 @@ var opensdg = {
 
   language: 'en',
 };
-
-// For backwards compatibility, some of these might need to be global.
-// @TODO: Remove these eventually.
-var remoteDataBaseUrl = opensdg.remoteDataBaseUrl;
 
 </script>
 
@@ -120,28 +116,21 @@ var translations = {
         <link rel="canonical" href="/">
 
         <!--[if IE 9]>
-        <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
+        <script src="/assets/js/lib/classList.js"></script>
         <![endif]-->
 
-        
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
 
 
-
-
-<link rel="apple-touch-icon" sizes="180x180" href="/sdg-indicators/assets/img/favicons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/sdg-indicators/assets/img/favicons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
-<link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
-
-
-        
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
-        
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220630002521">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20220630092845">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -152,17 +141,19 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
 
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/govuk.css">
+        <!--[if IE]>
+        <link rel="stylesheet" href="/assets/css/ie.css">
+        <![endif]-->
+
+        <link rel="stylesheet" href="/assets/css/govuk.css">
 <!-- Hotjar Tracking Code for https://sdgdata.gov.uk/ -->
 
 
     </head>
 <body class="language-en
-layout-indicator-bootstrap5
+layout-indicator
 ">
 <!-- <div class="container"> -->
-
-
 
 
 
@@ -193,7 +184,7 @@ layout-indicator-bootstrap5
       <button id="cookie-reject" value="reject" type="button" name="cookies" class="govuk-button" data-module="govuk-button">
         Reject analytics cookies
       </button>
-      <a class="govuk-link" href="/sdg-indicators/cookies">View cookies</a>
+      <a class="govuk-link" href="/cookies">View cookies</a>
     </div>
   </div>
 </div>
@@ -202,7 +193,7 @@ layout-indicator-bootstrap5
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <div class="govuk-cookie-banner__content">
-          <p>You’ve accepted analytics cookies. You can <a class="govuk-link" href="/sdg-indicators/cookies">change your cookie settings</a> at any time.</p>
+          <p>You’ve accepted analytics cookies. You can <a class="govuk-link" href="/cookies">change your cookie settings</a> at any time.</p>
         </div>
       </div>
     </div>
@@ -219,7 +210,7 @@ layout-indicator-bootstrap5
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <div class="govuk-cookie-banner__content">
-          <p>You’ve rejected analytics cookies. You can <a class="govuk-link" href="/sdg-indicators/cookies">change your cookie settings</a> at any time.</p>
+          <p>You’ve rejected analytics cookies. You can <a class="govuk-link" href="/cookies">change your cookie settings</a> at any time.</p>
         </div>
       </div>
     </div>
@@ -232,6 +223,10 @@ layout-indicator-bootstrap5
   </div>
 </div>
 
+<div class="container internet-explorer-message">
+    <h2 class="internet-explorer-message-title">This internet browser is no longer supported</h2>
+    <p class="internet-explorer-message-body">We have detected that you are using Internet Explorer to visit this website. Internet Explorer is now being phased out by Microsoft. As a result, this website no longer supports any version of Internet Explorer. Some features on this site will not work. You should use a modern browser such as Edge, Chrome, Firefox, or Safari. If you have difficulty installing or accessing a different browser, please contact your IT support team.</p>
+</div>
 <div id="disclaimer">
     
 <div class="container">
@@ -239,7 +234,7 @@ layout-indicator-bootstrap5
     <strong class="phase-tag">BETA</strong>
     
     This website is in development – your <a href="https://www.surveymonkey.co.uk/r/SDGfeedback">feedback</a> will help us to improve it
-     <a id="takepartButton" aria-labelledby="takepartButton" href="/sdg-indicators/take-part" class="btn btn-primary btn-download btn-takepart" role="link">Take part in user research</a>
+     <a id="takepartButton" aria-labelledby="takepartButton" href="/take-part" class="btn btn-primary btn-download btn-takepart" role="link">Take part in user research</a>
 
   </div>
 </div>
@@ -249,8 +244,8 @@ layout-indicator-bootstrap5
 <header role="banner" class="">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light flex-wrap align-items-start">
-            <a class="navbar-brand" href="/sdg-indicators/" id="home">
-    <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+            <a class="navbar-brand" href="/" id="home">
+    <img src="/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
 </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -258,22 +253,22 @@ layout-indicator-bootstrap5
             <div class="d-flex flex-wrap w-100 justify-content-between">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav" id="menu"><li class="nav-item ">
-    <a class="nav-link" href="/sdg-indicators/goals">Goals</a>
+    <a class="nav-link" href="/goals">Goals</a>
 </li><li class="nav-item ">
-    <a class="nav-link" href="/sdg-indicators/reporting-status/">Reporting Status</a>
+    <a class="nav-link" href="/reporting-status/">Reporting Status</a>
 </li><li class="nav-item ">
-    <a class="nav-link" href="/sdg-indicators/about/">About</a>
+    <a class="nav-link" href="/about/">About</a>
 </li><li class="nav-item ">
-    <a class="nav-link" href="/sdg-indicators/publications/">Publications</a>
+    <a class="nav-link" href="/publications/">Publications</a>
 </li><li class="nav-item ">
-    <a class="nav-link" href="/sdg-indicators/faq/">FAQ</a>
+    <a class="nav-link" href="/faq/">FAQ</a>
 </li><li class="nav-item ">
-    <a class="nav-link" href="/sdg-indicators/updates/">Updates</a>
+    <a class="nav-link" href="/updates/">Updates</a>
 </li></ul>
     
                 </div>
                 <div class="header-search-bar">
-                    <form class="align-self-lg-end" id="search" action="/sdg-indicators/search/">
+                    <form class="align-self-lg-end" id="search" action="/search/">
     <div class="input-group">
         <label class="visually-hidden" for="indicator_search">Search</label>
         <input class="form-control" type="search" name="q" id="indicator_search" title="Search">
@@ -307,9 +302,6 @@ data-event-label="high"
     <div class="variable-selector
       <% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed <% }%>
       <% if (typeof childFields !== 'undefined' && childFields.indexOf(fieldItem.field) !== -1) { %> child <% }%>
-      <% // @deprecated start %>
-      <% if (typeof childFields === 'undefined' && allowedFields.indexOf(fieldItem.field) == -1) { %> child <% }%>
-      <% // @deprecated end %>
       "
       data-field="<%=fieldItem.field%>"
     >
@@ -395,10 +387,10 @@ data-event-label="high"
     <ol aria-label="breadcrumb" class="breadcrumb" style="--bs-breadcrumb-divider: '&rsaquo;';">
         
         <li class="breadcrumb-item">
-            <a href="/sdg-indicators/">Home</a>
+            <a href="/">Home</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="/sdg-indicators/13" title="Take urgent action to combat climate change and its impacts">Goal 13</a>
+            <a href="/13" title="Take urgent action to combat climate change and its impacts">Goal 13</a>
         </li>
         <li class="breadcrumb-item active">Indicator 13.1.1</li>
         
@@ -413,7 +405,7 @@ data-event-label="high"
         <div class="row">
             
             <div class="col-4 col-md-3 col-lg-2 goal-icon goal-tiles">
-                <a href="/sdg-indicators/13" title="View this goal's indicator list">
+                <a href="/13" title="View this goal's indicator list">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/13.svg"
                         alt="Climate action - Goal 13"
                         id="goal-13"
@@ -492,7 +484,7 @@ data-event-label="high"
     <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
   </span>
   <div id="fields">
-    <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+    <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
   </div>
 </div>
 
@@ -501,14 +493,20 @@ data-event-label="high"
     
 
 
+
+
 <div id="headlineTable">
 
   <div id="datatables">
 
-    <a href="https://ONSdigital.github.io/sdg-data/en/headline/13-1-1.csv" class="btn btn-primary btn-download" download="indicator_13-1-1.csv" tabindex="0" role="button">Download Headline CSV</a>
+    
+    <a href="http://uk-sdg-feature-branches.s3-website.eu-west-2.amazonaws.com/feature-2.0.0-data/en/headline/13-1-1.csv" class="btn btn-primary btn-download" download="indicator_13-1-1.csv" tabindex="0" role="button">Download Headline CSV</a>
+    
+    <a href="http://uk-sdg-feature-branches.s3-website.eu-west-2.amazonaws.com/feature-2.0.0-data/en/data/13-1-1.csv" class="btn btn-primary btn-download" download='indicator_13-1-1.csv' tabindex='0' role='button'>Download Source CSV</a>
 
-    <a href="https://ONSdigital.github.io/sdg-data/en/data/13-1-1.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_13-1-1.csv' tabindex='0' role='button'>Download Source CSV</a>
+    <p class="no-js-disaggregation-hint">Download source CSV for disaggregations</p>
 
+    
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
       <caption>Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population</caption>
@@ -1827,8 +1825,10 @@ data-event-label="high"
         
       </tbody>
     </table>
+    
   </div>
 
+  
   <div id="datatableFooter">
     
     <p>Source: Nomis</p>
@@ -1843,13 +1843,14 @@ data-event-label="high"
     <p>Footnote: 1. Underlying cause of death was defined using the International Classification of Diseases, Tenth Revision (ICD-10) codes X30 to X39. 2. Figures are for persons resident in England and Wales</p>
     
   </div>
+  
 
 </div>
 
 
 <section>
 
-  <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+  <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
 
   <div class="async-loaded mt-4" style="display:none;">
 
@@ -1921,21 +1922,18 @@ data-event-label="Change to Table tab"
     </div>
 
     
-    
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
           <h4 id="chart-heading" class="chart-title">Number of deaths from exposure to forces of nature</h4>
           <div id="chart" class="plot-container">
-            
-              <canvas
+            <canvas
     role="img"
     aria-labelledby="chart-heading"
     aria-describedby="table-alternative chart-annotations"
     tabindex="0"
  ></canvas>
 
-            
           </div>
           <div id="plotLegend"></div>
           
@@ -1988,7 +1986,7 @@ data-event-label="Change to Table tab"
         ></dd>
         
         
-    <dl>
+    </dl>
 </div>
 
         </div>
@@ -2062,7 +2060,7 @@ data-event-label="Change to Table tab"
         ></dd>
         
         
-    <dl>
+    </dl>
 </div>
 
 <div id="tableSelectionDownload" class="clearfix"></div>
@@ -2121,7 +2119,7 @@ data-event-label="Change to Sources tab"
             <p>
                 
                 
-                This table provides metadata for the actual indicator available from %country.name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country.adjective statistics, this table should be consulted for information on national methodology and other %country.adjective-specific metadata information.
+                This table provides metadata for the actual indicator available from UK statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from UK statistics, this table should be consulted for information on national methodology and other UK-specific metadata information.
             </p>
             <table class="table">
   
@@ -2259,7 +2257,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            15 March 2022
+            27 June 2022
           
         </td>
         </tr>
@@ -2272,7 +2270,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            15 March 2022
+            27 June 2022
           
         </td>
         </tr>
@@ -3539,11 +3537,11 @@ data-event-label="Change to Sources tab"
         <div role="tabpanel" class="tab-pane" id="edit">
             <div class="edit-container">
   
-  <a class="btn btn-primary" href="http://prose.io/#ONSdigital/sdg-data/edit/develop/data/indicator_13-1-1.csv">Edit Data</a>
+  <a class="btn btn-primary" href="http://prose.io/#//edit//data/indicator_13-1-1.csv">Edit Data</a>
   
 
   
-  <a class="btn btn-primary" href="http://prose.io/#ONSdigital/sdg-data/edit/develop/meta/13-1-1.md">Edit Metadata</a>
+  <a class="btn btn-primary" href="http://prose.io/#//edit//meta/13-1-1.md">Edit Metadata</a>
   
 
   
@@ -3558,8 +3556,8 @@ data-event-label="Change to Sources tab"
   </div>
 </div>
 
+  <a href="#top">Back to top</a>
 </div>
-
 
 <footer role="contentinfo">
     <div class="container">
@@ -3572,7 +3570,7 @@ data-event-label="Change to Sources tab"
                         </li>
                         
                         <li>
-                            <a href="/sdg-indicators/contact-us">Contact us</a>
+                            <a href="/contact-us">Contact us</a>
                             
                         </li>
                         <li>
@@ -3581,19 +3579,23 @@ data-event-label="Change to Sources tab"
                             
                         </li>
                         <li>
-                            <a href="/sdg-indicators/cookies-no-javascript/">Cookies</a>
+                            <a href="/cookies-no-javascript/">Cookies</a>
                             
                         </li>
                         <li>
-                            <a href="/sdg-indicators/privacy-notice/">Privacy</a>
+                            <a href="/privacy-notice/">Privacy</a>
                             
                         </li>
                         <li>
-                            <a href="/sdg-indicators/accessibility-statement/">Accessibility statement</a>
+                            <a href="/accessibility-statement/">Accessibility statement</a>
                             
                         </li>
                         
                         
+                        
+                        <li>
+                            <a href="/config">Configuration</a>
+                        </li>
                         </ul>
                 </div>
             </div>
@@ -3603,7 +3605,7 @@ data-event-label="Change to Sources tab"
 <div class="row">
   <div class="col-xs-12">
     <div id="oglLicense">
-        <img alt="Open Government Licence logo" src="/sdg-indicators/assets/img/OGL_logo.png" width="35px" class="me-2">All data is available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>, except where otherwise stated
+        <img alt="Open Government Licence logo" src="/assets/img/OGL_logo.png" width="35px" class="me-2">All data is available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>, except where otherwise stated
     </div>
   </div>
 </div>
@@ -3613,16 +3615,12 @@ data-event-label="Change to Sources tab"
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
 
@@ -3647,6 +3645,13 @@ var klaroConfig = {
             default: true,
             cookies: ['contrast'],
             required: true,
+        },
+        
+        {
+            name: 'google-analytics',
+            
+            cookies: ['_gat', '_gid', '_ga'],
+            
         },
         
         
@@ -3769,15 +3774,15 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20220630002521'></script>
+<script src='/assets/js/sdg.js?v=20220630092845'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
-<script src="/sdg-indicators/assets/js/govuk.js"></script>
+<script src="/assets/js/govuk.js"></script>
 <script>
   window.GOVUKFrontend.initAll()
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20220630002521"></script><script>
+    <script src="/assets/js/custom.js?v=20220630092845"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
@@ -3785,4 +3790,3 @@ if (allRequired) {
 
 </body>
 </html>
-

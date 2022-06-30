@@ -11,7 +11,7 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'https://ONSdigital.github.io/sdg-data/en',
+  remoteDataBaseUrl: 'http://uk-sdg-feature-branches.s3-website.eu-west-2.amazonaws.com/feature-2.0.0-data/en',
 
   chartConfigAlterations: [],
   // A hook which can be used to modify the configuration for Chart.js.
@@ -40,10 +40,6 @@ var opensdg = {
 
   language: 'en',
 };
-
-// For backwards compatibility, some of these might need to be global.
-// @TODO: Remove these eventually.
-var remoteDataBaseUrl = opensdg.remoteDataBaseUrl;
 
 </script>
 
@@ -115,28 +111,21 @@ var translations = {
         <link rel="canonical" href="/">
 
         <!--[if IE 9]>
-        <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
+        <script src="/assets/js/lib/classList.js"></script>
         <![endif]-->
 
-        
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
 
 
-
-
-<link rel="apple-touch-icon" sizes="180x180" href="/sdg-indicators/assets/img/favicons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/sdg-indicators/assets/img/favicons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
-<link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
-
-
-        
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
-        
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220630002521">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20220630092845">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -147,17 +136,19 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
 
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/govuk.css">
+        <!--[if IE]>
+        <link rel="stylesheet" href="/assets/css/ie.css">
+        <![endif]-->
+
+        <link rel="stylesheet" href="/assets/css/govuk.css">
 <!-- Hotjar Tracking Code for https://sdgdata.gov.uk/ -->
 
 
     </head>
 <body class="language-en
-layout-goal-bootstrap5
+layout-goal
 ">
 <!-- <div class="container"> -->
-
-
 
 
 
@@ -188,7 +179,7 @@ layout-goal-bootstrap5
       <button id="cookie-reject" value="reject" type="button" name="cookies" class="govuk-button" data-module="govuk-button">
         Reject analytics cookies
       </button>
-      <a class="govuk-link" href="/sdg-indicators/cookies">View cookies</a>
+      <a class="govuk-link" href="/cookies">View cookies</a>
     </div>
   </div>
 </div>
@@ -197,7 +188,7 @@ layout-goal-bootstrap5
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <div class="govuk-cookie-banner__content">
-          <p>You’ve accepted analytics cookies. You can <a class="govuk-link" href="/sdg-indicators/cookies">change your cookie settings</a> at any time.</p>
+          <p>You’ve accepted analytics cookies. You can <a class="govuk-link" href="/cookies">change your cookie settings</a> at any time.</p>
         </div>
       </div>
     </div>
@@ -214,7 +205,7 @@ layout-goal-bootstrap5
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <div class="govuk-cookie-banner__content">
-          <p>You’ve rejected analytics cookies. You can <a class="govuk-link" href="/sdg-indicators/cookies">change your cookie settings</a> at any time.</p>
+          <p>You’ve rejected analytics cookies. You can <a class="govuk-link" href="/cookies">change your cookie settings</a> at any time.</p>
         </div>
       </div>
     </div>
@@ -227,6 +218,10 @@ layout-goal-bootstrap5
   </div>
 </div>
 
+<div class="container internet-explorer-message">
+    <h2 class="internet-explorer-message-title">This internet browser is no longer supported</h2>
+    <p class="internet-explorer-message-body">We have detected that you are using Internet Explorer to visit this website. Internet Explorer is now being phased out by Microsoft. As a result, this website no longer supports any version of Internet Explorer. Some features on this site will not work. You should use a modern browser such as Edge, Chrome, Firefox, or Safari. If you have difficulty installing or accessing a different browser, please contact your IT support team.</p>
+</div>
 <div id="disclaimer">
     
 <div class="container">
@@ -234,7 +229,7 @@ layout-goal-bootstrap5
     <strong class="phase-tag">BETA</strong>
     
     This website is in development – your <a href="https://www.surveymonkey.co.uk/r/SDGfeedback">feedback</a> will help us to improve it
-     <a id="takepartButton" aria-labelledby="takepartButton" href="/sdg-indicators/take-part" class="btn btn-primary btn-download btn-takepart" role="link">Take part in user research</a>
+     <a id="takepartButton" aria-labelledby="takepartButton" href="/take-part" class="btn btn-primary btn-download btn-takepart" role="link">Take part in user research</a>
 
   </div>
 </div>
@@ -244,8 +239,8 @@ layout-goal-bootstrap5
 <header role="banner" class="">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light flex-wrap align-items-start">
-            <a class="navbar-brand" href="/sdg-indicators/" id="home">
-    <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+            <a class="navbar-brand" href="/" id="home">
+    <img src="/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
 </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -253,22 +248,22 @@ layout-goal-bootstrap5
             <div class="d-flex flex-wrap w-100 justify-content-between">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav" id="menu"><li class="nav-item ">
-    <a class="nav-link" href="/sdg-indicators/goals">Goals</a>
+    <a class="nav-link" href="/goals">Goals</a>
 </li><li class="nav-item ">
-    <a class="nav-link" href="/sdg-indicators/reporting-status/">Reporting Status</a>
+    <a class="nav-link" href="/reporting-status/">Reporting Status</a>
 </li><li class="nav-item ">
-    <a class="nav-link" href="/sdg-indicators/about/">About</a>
+    <a class="nav-link" href="/about/">About</a>
 </li><li class="nav-item ">
-    <a class="nav-link" href="/sdg-indicators/publications/">Publications</a>
+    <a class="nav-link" href="/publications/">Publications</a>
 </li><li class="nav-item ">
-    <a class="nav-link" href="/sdg-indicators/faq/">FAQ</a>
+    <a class="nav-link" href="/faq/">FAQ</a>
 </li><li class="nav-item ">
-    <a class="nav-link" href="/sdg-indicators/updates/">Updates</a>
+    <a class="nav-link" href="/updates/">Updates</a>
 </li></ul>
     
                 </div>
                 <div class="header-search-bar">
-                    <form class="align-self-lg-end" id="search" action="/sdg-indicators/search/">
+                    <form class="align-self-lg-end" id="search" action="/search/">
     <div class="input-group">
         <label class="visually-hidden" for="indicator_search">Search</label>
         <input class="form-control" type="search" name="q" id="indicator_search" title="Search">
@@ -302,7 +297,7 @@ data-event-label="high"
     <ol aria-label="breadcrumb" class="breadcrumb" style="--bs-breadcrumb-divider: '&rsaquo;';">
         
         <li class="breadcrumb-item" >
-            <a href="/sdg-indicators/">Home</a>
+            <a href="/">Home</a>
         </li>
         <li class="breadcrumb-item active">Goal 2</li>
         
@@ -314,10 +309,10 @@ data-event-label="high"
 <div class="heading goal-banner goal-2">
     <div class="container">
         <div class="row">
-            <div class="col-4 col-md-3 col-lg-2 goal-tiles">
+            <div class="col-4 col-md-3 col-lg-2 goal-icon goal-tiles">
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/2.svg" alt="Zero hunger - Goal 2" id="goal-2" class="goal-icon-image goal-icon-image-svg" />
             </div>
-            <div class="col-8 col-md-9 col-lg-10">
+            <div class="col-8 col-md-9 col-lg-10 goal-details">
                 <h1>End hunger, achieve food security and improved nutrition and promote sustainable agriculture</h1>
             </div>
         </div>
@@ -363,7 +358,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/2-1-1">Prevalence of undernourishment</a></span>
+              <span class="indicator-name"><a href="/2-1-1">Prevalence of undernourishment</a></span>
               
 
 
@@ -403,7 +398,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/2-1-2">Prevalence of moderate or severe food insecurity in the population, based on the Food Insecurity Experience Scale (FIES)</a></span>
+              <span class="indicator-name"><a href="/2-1-2">Prevalence of moderate or severe food insecurity in the population, based on the Food Insecurity Experience Scale (FIES)</a></span>
               
 
 
@@ -457,7 +452,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/2-2-1">Prevalence of stunting (height for age <-2 standard deviation from the median of the World Health Organization (WHO) Child Growth Standards) among children under 5 years of age</a></span>
+              <span class="indicator-name"><a href="/2-2-1">Prevalence of stunting (height for age <-2 standard deviation from the median of the World Health Organization (WHO) Child Growth Standards) among children under 5 years of age</a></span>
               
 
 
@@ -497,7 +492,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/2-2-2">Prevalence of malnutrition (weight for height >+2 or <-2 standard deviation from the median of the WHO Child Growth Standards) among children under 5 years of age, by type (wasting and overweight)</a></span>
+              <span class="indicator-name"><a href="/2-2-2">Prevalence of malnutrition (weight for height >+2 or <-2 standard deviation from the median of the WHO Child Growth Standards) among children under 5 years of age, by type (wasting and overweight)</a></span>
               
 
 
@@ -537,7 +532,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/2-2-3">Prevalence of anaemia in women aged 15 to 49 years, by pregnancy status (percentage)</a></span>
+              <span class="indicator-name"><a href="/2-2-3">Prevalence of anaemia in women aged 15 to 49 years, by pregnancy status (percentage)</a></span>
               
 
 
@@ -591,7 +586,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/2-3-1">Volume of production per labour unit by classes of farming/pastoral/forestry enterprise size</a></span>
+              <span class="indicator-name"><a href="/2-3-1">Volume of production per labour unit by classes of farming/pastoral/forestry enterprise size</a></span>
               
 
 
@@ -631,7 +626,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/2-3-2">Average income of small-scale food producers, by sex and indigenous status</a></span>
+              <span class="indicator-name"><a href="/2-3-2">Average income of small-scale food producers, by sex and indigenous status</a></span>
               
 
 
@@ -685,7 +680,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/2-4-1">Proportion of agricultural area under productive and sustainable agriculture</a></span>
+              <span class="indicator-name"><a href="/2-4-1">Proportion of agricultural area under productive and sustainable agriculture</a></span>
               
 
 
@@ -739,7 +734,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/2-5-1">Number of plant and animal genetic resources for food and agriculture secured in either medium- or long-term conservation facilities</a></span>
+              <span class="indicator-name"><a href="/2-5-1">Number of plant and animal genetic resources for food and agriculture secured in either medium- or long-term conservation facilities</a></span>
               
 
 
@@ -779,7 +774,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/2-5-2">Proportion of local breeds classified as being at risk of extinction</a></span>
+              <span class="indicator-name"><a href="/2-5-2">Proportion of local breeds classified as being at risk of extinction</a></span>
               
 
 
@@ -833,7 +828,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/2-a-1">The agriculture orientation index for government expenditures</a></span>
+              <span class="indicator-name"><a href="/2-a-1">The agriculture orientation index for government expenditures</a></span>
               
 
 
@@ -873,7 +868,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/2-a-2">Total official flows (official development assistance plus other official flows) to the agriculture sector</a></span>
+              <span class="indicator-name"><a href="/2-a-2">Total official flows (official development assistance plus other official flows) to the agriculture sector</a></span>
               
 
 
@@ -927,7 +922,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/2-b-1">Agricultural export subsidies</a></span>
+              <span class="indicator-name"><a href="/2-b-1">Agricultural export subsidies</a></span>
               
 
 
@@ -981,7 +976,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/2-c-1">Indicator of food price anomalies</a></span>
+              <span class="indicator-name"><a href="/2-c-1">Indicator of food price anomalies</a></span>
               
 
 
@@ -1008,9 +1003,9 @@ data-event-label="high"
         
         <hr class="goal-page-target-rule" />
     
-    </div>
   </div>
-
+  <a href="#top">Back to top</a>
+</div>
 
 
 <footer role="contentinfo">
@@ -1024,7 +1019,7 @@ data-event-label="high"
                         </li>
                         
                         <li>
-                            <a href="/sdg-indicators/contact-us">Contact us</a>
+                            <a href="/contact-us">Contact us</a>
                             
                         </li>
                         <li>
@@ -1033,19 +1028,23 @@ data-event-label="high"
                             
                         </li>
                         <li>
-                            <a href="/sdg-indicators/cookies-no-javascript/">Cookies</a>
+                            <a href="/cookies-no-javascript/">Cookies</a>
                             
                         </li>
                         <li>
-                            <a href="/sdg-indicators/privacy-notice/">Privacy</a>
+                            <a href="/privacy-notice/">Privacy</a>
                             
                         </li>
                         <li>
-                            <a href="/sdg-indicators/accessibility-statement/">Accessibility statement</a>
+                            <a href="/accessibility-statement/">Accessibility statement</a>
                             
                         </li>
                         
                         
+                        
+                        <li>
+                            <a href="/config">Configuration</a>
+                        </li>
                         </ul>
                 </div>
             </div>
@@ -1055,7 +1054,7 @@ data-event-label="high"
 <div class="row">
   <div class="col-xs-12">
     <div id="oglLicense">
-        <img alt="Open Government Licence logo" src="/sdg-indicators/assets/img/OGL_logo.png" width="35px" class="me-2">All data is available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>, except where otherwise stated
+        <img alt="Open Government Licence logo" src="/assets/img/OGL_logo.png" width="35px" class="me-2">All data is available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>, except where otherwise stated
     </div>
   </div>
 </div>
@@ -1065,16 +1064,12 @@ data-event-label="high"
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
 
@@ -1099,6 +1094,13 @@ var klaroConfig = {
             default: true,
             cookies: ['contrast'],
             required: true,
+        },
+        
+        {
+            name: 'google-analytics',
+            
+            cookies: ['_gat', '_gid', '_ga'],
+            
         },
         
         
@@ -1221,15 +1223,15 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20220630002521'></script>
+<script src='/assets/js/sdg.js?v=20220630092845'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
-<script src="/sdg-indicators/assets/js/govuk.js"></script>
+<script src="/assets/js/govuk.js"></script>
 <script>
   window.GOVUKFrontend.initAll()
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20220630002521"></script><script>
+    <script src="/assets/js/custom.js?v=20220630092845"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
@@ -1237,4 +1239,3 @@ if (allRequired) {
 
 </body>
 </html>
-
