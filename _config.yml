@@ -1,92 +1,16 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+# Jekyll configuration for Open SDG platform
 
-# Open SDG version
-remote_theme: open-sdg/open-sdg@1.8.0
+# Tell the Remote Theme plugin to use the Open SDG platform (Jekyll theme).
+remote_theme: open-sdg/open-sdg@2.0.0
+
+#UK-specific config settings
+survey_url: https://www.surveymonkey.co.uk/r/XFJZGVL
+hotjar: false
 
 # Site settings
 title: U.K. Indicators For The Sustainable Development Goals
-description: Data Platform Prototype
-baseurl: "/sdg-indicators" # the subpath of your site, e.g. /blog
 url: ""
-data_dir: data
 environment: staging
-
-remote_data_prefix: "https://ONSdigital.github.io/sdg-data"
-
-# Controlling the Bootstrap 5 settings.
-bootstrap_5: true
-
-# Controlling the Chart.js 3 settings.
-chartjs_3: true
-
-ignored_disaggregations:
-  - Age (default)
-  - Activity (default)
-  - Urbanisation (default)
-
-graph_title_from_series: true
-
-create_indicators:
-  layout: indicator
-create_goals:
-  layout: goal-by-target-vertical
-create_pages:
-  - folder: /
-    layout: frontpage-alt
-    title: 17 goals to transform our world
-  - folder: /goals
-    layout: goals
-    title: UK data for the Sustainable Development Goals
-  - folder: /reporting-status
-    layout: reportingstatus
-    title: Reporting Status
-  - filename: indicators.json
-    folder: /
-    layout: indicator-json
-  - folder: /search
-    layout: search
-    title: Search results
-
-# Social media accounts.
-twitter: 'ONS'
-
-disclaimer:
-  phase: BETA
-  message: This website is in development – your <a href="https://www.surveymonkey.co.uk/r/SDGfeedback">feedback</a> will help us to improve it
-
-# Email accounts
-email_contacts:
-  questions: sustainabledevelopment@ons.gov.uk
-  suggestions: sustainabledevelopment@ons.gov.uk
-  functional: sustainabledevelopment@ons.gov.uk
-
-# Github Repo for Data
-repo_name: sdg-data
-branch: develop
-org_name: ONSdigital
-
-# Build settings
-markdown: kramdown
-
-# Date format
-date_formats:
-  - type: standard
-    language: en
-    format: "%d %B %Y"
-
-# Travis Support
-exclude: [vendor, scripts, remotedata, .sass-cache, Makefile, node_modules]
-
-# International Support
-# Eg name: Australia and adjective: Australian
-country:
-  name: UK
-  adjective: UK
 
 # Pages
 collections:
@@ -101,171 +25,21 @@ collections:
   goals:
     output: true
 
-# Hide categories section of news page
-news:
-  category_links: false
-
-# The list of languages that are translated. The first one is the default.
-languages:
-  - en
-
-# Goal image options
-goal_image_base: https://open-sdg.github.io/sdg-translations/assets/img/goals
-goal_image_extension: svg
-
-# Accessibility options
-accessible_tabs: true
-accessible_charts: true
-
-# Use single toggle button for controlling high contrast
-contrast_type: single
-
-# Use radio buttons for Series instead of dropdown
-series_toggle: true
-
-#Header
-header:
-    include: header-menu-left-aligned.html
-
-# Header Menu
-menu:
-  # Use these to customise the main navigation.
-  - path: /goals
-    translation_key: general.goals
-  - path: /reporting-status/
-    translation_key: menu.reporting_status
-  - path: /about/
-    translation_key: menu.about
-  - path: /publications/
-    translation_key: menu.publications
-  - path: /faq/
-    translation_key: menu.faq
-  - path: /updates/
-    translation_key: menu.updates
-
-# Footer Menu
-footer_menu:
-  - path: /contact-us
-    translation_key: menu.contact_us
-  - path: https://twitter.com/ONS
-    translation_key: general.twitter
-  - path: /cookies-no-javascript/
-    translation_key: menu.cookies
-  - path: /privacy-notice/
-    translation_key: Privacy
-  - path: /accessibility-statement/
-    translation_key: Accessibility statement
-
-# This makes sure that all pages have a language.
-defaults:
-  -
-    scope:
-      path: ""
-    values:
-      language: "en"
-
 plugins:
   - jekyll-remote-theme
   - jekyll-open-sdg-plugins
 
-# Apply any custom Javascript.
-custom_js:
-  - /assets/js/custom.js
+# Exclude some files/folders.
+exclude:
+  - vendor
+  - scripts
+  - remotedata
+  - Gemfile
+  - Gemfile.lock
+  - README
+  - README.md
+  - LICENSE
 
-search_index_extra_fields:
-  - indicator_available
-  - graph_title
-  - data_keywords
-
-# Graphs
-graph_color_set: accessible
-
-hide_single_series: true
-hide_single_unit: true
-
-favicons: favicon.io
-
-# Mapping
-map_options:
-  tileURL: https://{s}.tile.jawg.io/{id}/{z}/{x}/{y}{r}.png?access-token={accessToken}
-  tileOptions:
-    id: jawg-light
-    accessToken: lCtbMZiG4tbVWl7uq9EEch1yphnuLx9JyZL2qZwoQJ26wAu73oK1NkU4K50AALkp
-    attribution:  <a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | <a href="http://geoportal.statistics.gov.uk/">ONS</a>
-  minZoom: 4
-
-map_layers:
-  - min_zoom: 4
-    max_zoom: 6
-    staticBorders: true
-    subfolder: country
-    label: Country
-  - min_zoom: 6
-    max_zoom: 8
-    staticBorders: true
-    subfolder: regions
-    label: Regions
-  - min_zoom: 9
-    max_zoom: 12
-    staticBorders: true
-    subfolder: local_authorities
-    label: Local Authorities
-
-survey_url: https://www.surveymonkey.co.uk/r/XFJZGVL
-
-goals_page:
-    title: UK data for the Sustainable Development Goals
-    description: Click on each goal for UK Sustainable Development Goal global indicator data.
-
-reporting_status:
-    disaggregation_tabs: true
-    description: |
-
-      Reporting status provides an overview of how much Sustainable Development Goal (SDG) data the UK reports. For more information, see [What does the reporting status mean?](https://onsdigital.github.io/sdg-indicators/faq/#what-does-the-reporting-status-mean)
-
-      Disaggregation status provides an overview of how many of the SDG indicators are disaggregated. For more information, see [What does the disaggregation status mean?](https://onsdigital.github.io/sdg-indicators/faq/#what-does-the-disaggregation-status-mean)
-
-      For details about all available disaggregations and how each indicator is disaggregated, see the [UK disaggregation report](https://onsdigital.github.io/sdg-data/disaggregations.html).
-
-      Note: These percentages have been rounded. As a result, adding them together may not equal exactly 100%.
-
-
-frontpage_introduction_banner:
-  title: 17 goals to transform our world
-  description: <a href="https://sdgs.un.org/goals">The Sustainable Development Goals (SDGs)</a> are a universal call to action to end poverty, protect the planet and improve the lives and prospects of everyone, everywhere. The 17 Goals were adopted by all UN Member States in 2015, as part of the <a href="https://sdgs.un.org/2030agenda">2030 Agenda for Sustainable Development</a>.
-
-
-# This controls the text that appears above the goals grid.
-frontpage_goals_grid:
-  title: UK data for the Sustainable Development Goals
-  description: Click on each goal for UK Sustainable Development Goal global indicator data.
-
-
-# This controls the three-column "cards" that appear below the goals grid.
-frontpage_cards:
-  - title: Download all data
-    # This "feature" is used for baked-in stuff like "bulk_download".
-    include: components/download-all-data.html
-    # Optionally control the color of the line above the card title.
-  - title: Publications
-    content: |
-
-      [SDGs in the UK: Progress on monitoring and reporting data](https://www.ons.gov.uk/economy/environmentalaccounts/articles/sustainabledevelopmentgoalstakingstockprogressandpossibilities/december2020)
-
-      [UK SDG Voluntary National Review](https://www.gov.uk/government/publications/uks-voluntary-national-review-of-the-sustainable-development-goals)
-      <br/><br/>
-      <a href="./publications" aria-label="More publications">More publications...</a>
-  - title: Useful resources
-    # Control the content of the card - can use Markdown.
-    content: |
-
-      [The Global Goals](https://www.globalgoals.org/)
-
-      [Implementing the Sustainable Development Goals](https://www.gov.uk/government/publications/implementing-the-sustainable-development-goals/implementing-the-sustainable-development-goals--2)
-
-      [UN Department of Economic and Social Affairs](https://sdgs.un.org/)
-
-cookie_consent_form:
-  enabled: true
-
-hotjar: false
+country:
+  name: UK
+  adjective: UK
