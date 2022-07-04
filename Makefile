@@ -15,6 +15,3 @@ build.production:
 
 serve: build.staging
 	bundle exec jekyll serve --skip-initial-build
-
-serve.production: build.production
-	bundle exec jekyll serve --skip-initial-build --config _config.yml,_config_prod.yml
