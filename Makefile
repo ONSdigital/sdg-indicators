@@ -11,7 +11,7 @@ build.staging:
 
 build.production:
 	npx sass --quiet assets/css/govuk_production.scss assets/css/govuk.css
-	bundle exec jekyll build --config _config.yml,_config_prod.yml
+	JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config_prod.yml
 
 serve: build.staging
 	bundle exec jekyll serve --skip-initial-build
