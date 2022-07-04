@@ -11,7 +11,7 @@
 var opensdg = {
 
   // A base URL for asynchronous calls to SDG data.
-  remoteDataBaseUrl: 'http://uk-sdg-feature-branches.s3-website.eu-west-2.amazonaws.com/feature-2.0.0-data/en',
+  remoteDataBaseUrl: 'https://ONSdigital.github.io/sdg-data/en',
 
   chartConfigAlterations: [],
   // A hook which can be used to modify the configuration for Chart.js.
@@ -130,7 +130,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220704121640">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220704134333">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -494,9 +494,9 @@ data-event-label="high"
   <div id="datatables">
 
     
-    <a href="http://uk-sdg-feature-branches.s3-website.eu-west-2.amazonaws.com/feature-2.0.0-data/en/headline/17-6-1.csv" class="btn btn-primary btn-download" download="indicator_17-6-1.csv" tabindex="0" role="button">Download Headline CSV</a>
+    <a href="https://ONSdigital.github.io/sdg-data/en/headline/17-6-1.csv" class="btn btn-primary btn-download" download="indicator_17-6-1.csv" tabindex="0" role="button">Download Headline CSV</a>
     
-    <a href="http://uk-sdg-feature-branches.s3-website.eu-west-2.amazonaws.com/feature-2.0.0-data/en/data/17-6-1.csv" class="btn btn-primary btn-download" download='indicator_17-6-1.csv' tabindex='0' role='button'>Download Source CSV</a>
+    <a href="https://ONSdigital.github.io/sdg-data/en/data/17-6-1.csv" class="btn btn-primary btn-download" download='indicator_17-6-1.csv' tabindex='0' role='button'>Download Source CSV</a>
 
     <p class="no-js-disaggregation-hint">Download source CSV for disaggregations</p>
 
@@ -1921,7 +1921,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            27 June 2022
+            15 June 2021
           
         </td>
         </tr>
@@ -1934,7 +1934,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            27 June 2022
+            16 September 2021
           
         </td>
         </tr>
@@ -2849,7 +2849,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20220704121640'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20220704134333'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2857,7 +2857,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20220704121640"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20220704134333"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
