@@ -43,7 +43,7 @@ jobs:
         if: startsWith(github.ref, 'refs/heads/feature-site-') == false
         with:
           # Update this if your 'remote_data_prefix' setting is in a different file.
-          valueFile: '_config.yml'
+          valueFile: '_data/site_config.yml'
           propertyPath: 'remote_data_prefix'
           # Update this according to the public URL of your S3 bucket.
           value: 'http://uk-sdg-feature-branches.s3-website.eu-west-2.amazonaws.com/${{ env.GITHUB_REF_SLUG }}-data'
