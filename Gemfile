@@ -6,3 +6,4 @@ gem "jekyll-remote-theme"
 gem "deep_merge"
 gem "jekyll-open-sdg-plugins", "2.0.0"
 gem "jekyll-redirect-from"
+
