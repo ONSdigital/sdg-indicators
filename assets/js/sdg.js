@@ -2536,6 +2536,8 @@ function getPrecision(precisions, selectedUnit, selectedSeries) {
 function inputData(data) {
   var dropKeys = [];
   
+  dropKeys = ["Activity (default)","Age (default)","Urbanisation (default)"];
+  
   return convertJsonFormatToRows(data, dropKeys);
 }
 
@@ -2545,6 +2547,14 @@ function inputData(data) {
  */
 function inputEdges(edges) {
   var edgesData = convertJsonFormatToRows(edges);
+  
+  var ignoredDisaggregations = ["Activity (default)","Age (default)","Urbanisation (default)"];
+  edgesData = edgesData.filter(function(edge) {
+    if (ignoredDisaggregations.includes(edge.To) || ignoredDisaggregations.includes(edge.From)) {
+      return false;
+    }
+    return true;
+  });
   
   return edgesData;
 }
