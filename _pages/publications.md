@@ -7,6 +7,23 @@ Publications released by the ONS in relation to the Sustainable Development Goal
 
 If you have any feedback on our publications, please [contact us]({{ site.baseurl }}/contact-us)
 
+
+## Table of contents
+- [Our annual updates](#our-annual-updates)
+
+- [All goals](#all-goals)
+
+- [Goal 3: Good health and well-being](#goal-3-good-health-and-well-being)
+
+- [Goal 5: Gender Equality](#goal-5-gender-equality)
+
+- [Goal 7: Affordable and clean energy](#goal-7-affordable-and-clean-energy)
+
+- [Goal 10: Reduced Inequalities](#goal-10-reduced-inequalities)
+
+- [Goal 16: Peace and Justice](#goal-16-peace-and-justice)
+
+
 ## Our annual updates
 We publish a yearly update on our progress towards measuring the global Sustainable Development Goal indicators in the UK:
 <br>
@@ -86,7 +103,7 @@ In 2017 we asked how we should approach SDG data reporting and prioritise new da
 <small>11 December 2017</small>
 <br>
 <br>
-## Goal 3 Good health and well-being
+## Goal 3: Good health and well-being
 
 [UK drops in European child mortality rankings](https://visual.ons.gov.uk/uk-drops-in-european-child-mortality-rankings/)
 
@@ -94,7 +111,7 @@ We used target 3.2 (child mortality) to show the UK’s mortality rate is improv
 
 <small>13 October 2017</small>
 <br>
-## Goal 5 Gender Equality
+## Goal 5: Gender Equality
 
 [Women most at risk of experiencing partner abuse](https://www.ons.gov.uk/releases/sustainabledevelopmentgoalsandachievingequalitywhichwomenarethemostvulnerableandatriskofexperiencingdomesticabusebyapartner)
 
@@ -102,7 +119,7 @@ We used target 5.2 (violence against women and girls) to look at which groups ar
 
 <small>31 May 2018</small>
 <br>
-## Goal 7 Affordable and clean energy
+## Goal 7: Affordable and clean energy
 
 [Renewable Energy in the UK](https://www.slideshare.net/statisticsONS/renewable-energy-in-the-uk)
 
@@ -110,7 +127,7 @@ We used target 7.2 (renewable energy) to look at renewable energies in the UK. W
 
 <small>22 November 2017</small>
 <br>
-## Goal 10 Reduced Inequalities 
+## Goal 10: Reduced Inequalities 
 
 [Measuring Inequalities in the UK for the Sustainable Development Goals](https://www.ons.gov.uk/economy/nationalaccounts/uksectoraccounts/compendium/economicreview/july2018/measuringinequalitiesintheukforthesustainabledevelopmentgoals)
 
@@ -118,7 +135,7 @@ We used target 10.1 (household expenditure) to look at income and household expe
 
 <small>26 July 2018</small>
 <br>
-## Goal 16 Peace and Justice 
+## Goal 16: Peace and Justice 
 
 [Reporting on the SDGs: People on remand in custody in England and Wales](https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/articles/reportingonthesustainabledevelopmentgoalspeopleonremandincustodyinenglandandwales/2018-08-03)
 
