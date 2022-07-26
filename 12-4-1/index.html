@@ -130,7 +130,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220726003104">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220726111129">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -435,6 +435,23 @@ data-event-label="high"
 
   
 
+<div class="row" id="page-content">
+  <div class="col-xs-12">
+    <p><strong>Non-Statistical Indicator</strong></p>
+
+<p>We have identified the following policies relevant to this indicator -</p>
+<ul>
+  <li><a href="http://www.basel.int/Countries/NationalReporting/NationalReports/BC2018Reports/tabid/8202/Default.aspx">2018 Basel Convention Annual National Report</a></li>
+  <li><a href="http://www.pic.int/Procedures/ImportResponses/Database/tabid/1370/language/en-US/Default.aspx">Import responses on the Rotterdam Convention</a></li>
+  <li><a href="https://consult.defra.gov.uk/eu-environment/uk-nip-for-stockholm-convention-on-pops-2017/">Stockholm Convention National Implementation Plan</a></li>
+  <li><a href="https://treaties.un.org/pages/ViewDetails.aspx?src=TREATY&amp;mtdsg_no=XXVII-2-a&amp;chapter=27&amp;clang=_en">Montreal Protocol signatories</a></li>
+  <li><a href="http://www.mercuryconvention.org/Countries/Parties/tabid/3428/language/en-US/Default.aspx">Minamata Convention signatories</a></li>
+  <li><a href="http://chm.pops.int/Countries/Reporting/NationalReports/FourthRoundPartyReports/tabid/6346/Default.aspx">Fourth Stockholm Convention Annual National Report</a></li>
+</ul>
+
+  </div>
+</div>
+
 
 
 
@@ -449,9 +466,9 @@ data-event-label="high"
   data-country="UK"
   data-charttitle="Number of parties to international multilateral environmental agreements on hazardous waste, and other chemicals that meet their commitments and obligations in transmitting information as required by each relevant agreement"
   data-charttitles="null"
-  data-measurementunit="<p> For the Basel, Rotterdam and Stockholm Conventions the units of measurements are the transmission of information, such as the number of country contacts designated, number of national reports, national implementation plans and import responses. For each party, a percentage value is assigned to indicate how much of the required information has been submitted. </p> <p>   For the Montreal Protocol the units of measurement are the number of parties that comply with their reporting obligations with regard to production and consumption of controlled substances (Article 7) and submission of information on licensing systems (Article 4B). For each party, a percentage value is assigned to indicate how much of the required information has been submitted. </p> <p> For the Minamata Convention the units of measurement are the number of designated national focal points and the number of national reports received. For each party, a percentage value is assigned to indicate how much of the required information has been submitted. </p>"
+  data-measurementunit=""
   data-xaxislabel=""
-  data-showdata="true"
+  data-showdata="false"
   data-graphtype="line"
   data-graphtypes="null"
   data-geocoderegex=""
@@ -463,266 +480,12 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Compliance with meeting  commitments and obligations in transmitting information as required by international multilateral environmental agreements on hazardous waste, and other chemicals&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Convention&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;The Basel Convention&quot;,&quot;The Rotterdam Convention&quot;,&quot;The Stockholm Convention&quot;,&quot;The Montreal Convention&quot;,&quot;The Minamta Convention&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Convention&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
   
-  <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
-  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
-    <div id="serieses"></div>
-<div id="units"></div>
-<div id="toolbar">
-  <span id="series-help">
-    <h4>Sub-categories</h4>
-    <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
-  </span>
-  <div id="fields">
-    <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
-  </div>
-</div>
-
-  </div>
-  <div id="indicator-main" class="indicator-main col-md-9">
-    
-
-
-
-
-<div id="headlineTable">
-
-  <div id="datatables">
-
-    
-    <a href="https://ONSdigital.github.io/sdg-data/en/data/12-4-1.csv" class="btn btn-primary btn-download" download='indicator_12-4-1.csv' tabindex='0' role='button'>Download Source CSV</a>
-
-    <p class="no-js-disaggregation-hint">Download source CSV for disaggregations</p>
-
-    
-    <h3>No headline data available</h3>
-    
-  </div>
-
-  
-
-</div>
-
-
-<section>
-
-  <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
-
-  <div class="async-loaded mt-4" style="display:none;">
-
-    <div style="display: none;">
-    <span id="table-alternative">For tabular data alternative see Table tab.</span>
-  </div>
-  <ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
-    
-    <li role="presentation"
-      class="
-        nav-item
-        
-        
-      ">
-      <button
-        class="nav-link active"
-        data-bs-toggle="tab"
-        role="tab"
-        type="button"
-        
-          id="tab-chartview"
-          data-bs-target="#chartview"
-          aria-controls="chartview"
-          aria-describedby="table-alternative"
-          data-on="click"
-data-event-category="Tab change"
-data-event-action="Change data view"
-data-event-label="Change to Chart tab"
-
-        
-      >Chart</button>
-    </li>
-    
-    <li role="presentation"
-      class="
-        nav-item
-        
-        
-      ">
-      <button
-        class="nav-link "
-        data-bs-toggle="tab"
-        role="tab"
-        type="button"
-        
-          id="tab-tableview"
-          data-bs-target="#tableview"
-          aria-controls="tableview"
-          data-on="click"
-data-event-category="Tab change"
-data-event-action="Change data view"
-data-event-label="Change to Table tab"
-
-        
-      >Table</button>
-    </li>
-    
-  </ul>
-  
-    <div class="tab-content data-view">
-    
-      
-        <div role="tabpanel" class="tab-pane active" id="chartview">
-          
-
-    <div id="dataset-size-warning" style="display:none" role="alert">
-      <i class="fa fa-bolt"><span class="sr-only">Warning:</span></i>
-      There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
-    </div>
-
-    
-    <div id="selectionsChart">
-      <figure role="group">
-        <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Number of parties to international multilateral environmental agreements on hazardous waste, and other chemicals that meet their commitments and obligations in transmitting information as required by each relevant agreement</h4>
-          <div id="chart" class="plot-container">
-            <canvas
-    role="img"
-    aria-labelledby="chart-heading"
-    aria-describedby="table-alternative chart-annotations"
-    tabindex="0"
- ></canvas>
-
-          </div>
-          <div id="plotLegend"></div>
-          
-
-
-
-<div id="selectionChartFooter" class="table-footer-text">
-  <h5 class="sr-only">Chart details</h5>
-    <dl>
-        
-        <dt>Source:</dt>
-        <dd>UNEP</dd>
-        
-
-        
-
-        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
-        <dd class="data-controlled-footer-field unit-from-data"></dd>
-
-        
-
-        
-
-        
-
-        
-        
-        <dt
-          class="data-controlled-footer-field"
-          data-ts-attribute="COMMENT_TS"
-        >Footnote:</dt>
-        <dd
-          class="data-controlled-footer-field"
-          data-ts-attribute="COMMENT_TS"
-        ></dd>
-        
-        <dt
-          class="data-controlled-footer-field"
-          data-ts-attribute="DATA_LAST_UPDATE"
-        >Data last updated:</dt>
-        <dd
-          class="data-controlled-footer-field"
-          data-ts-attribute="DATA_LAST_UPDATE"
-        ></dd>
-        
-        
-    </dl>
-</div>
-
-        </div>
-      </figure>
-      <div id="chartSelectionDownload" class="clearfix">
-        <button id="btnSave" title="Download chart as image" class='btn btn-primary btn-download'>
-          Download Chart Image
-        </button><!-- 
-   --></div>
-    </div>
-
-
-
-        </div>
-      
-    
-      
-        <div role="tabpanel" class="tab-pane " id="tableview">
-          <div style="display: none;">
-            <span id="column-sort-info">Click to sort by this column</span>
-          </div>
-          <div id="selectionsTable"></div>
-<dl id="tableTargetLines" class="clearfix"></dl>
-
-
-
-
-<div id="selectionTableFooter" class="table-footer-text">
-  <h5 class="sr-only">Chart details</h5>
-    <dl>
-        
-        <dt>Source:</dt>
-        <dd>UNEP</dd>
-        
-
-        
-
-        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
-        <dd class="data-controlled-footer-field unit-from-data"></dd>
-
-        
-
-        
-
-        
-
-        
-        
-        <dt
-          class="data-controlled-footer-field"
-          data-ts-attribute="COMMENT_TS"
-        >Footnote:</dt>
-        <dd
-          class="data-controlled-footer-field"
-          data-ts-attribute="COMMENT_TS"
-        ></dd>
-        
-        <dt
-          class="data-controlled-footer-field"
-          data-ts-attribute="DATA_LAST_UPDATE"
-        >Data last updated:</dt>
-        <dd
-          class="data-controlled-footer-field"
-          data-ts-attribute="DATA_LAST_UPDATE"
-        ></dd>
-        
-        
-    </dl>
-</div>
-
-<div id="tableSelectionDownload" class="clearfix"></div>
-
-        </div>
-      
-    
-  </div>
-  
-
-  </div>
-
-</section>
-
+  <div id="indicator-main" class="indicator-main col-md-12">
   
   <div class="mt-4">
 <ul class="nav nav-tabs" role="tablist">
@@ -805,17 +568,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            <p>The indicator refers to the level at which the country have ratified, accepted, approved or accessed, to the following the Multilateral Environmental Agreements (MEAs) </p>
-<p> - The Basel Convention on the Control of Transboundary Movements of Hazardous Wastes and their Disposal (Basel Convention) </p>
-<p> - The Rotterdam Convention on the prior informed consent procedure for certain hazardous chemicals and pesticides in international trade (Rotterdam Convention) </p>
-<p> - The Stockholm Convention on Persistent Organic Pollutants (Stockholm Convention) </p>
-<p> - The Montreal Protocol on Substances that Deplete the Ozone Layer (Montreal Protocol). </p>
-<p> - The Minamata Convention on Mercury (Minamata Convention), and have submitted the information to the Secretariat of each MEA, as required by each of the agreements. The information required is as follows</p>
-<p> - Basel Convention - Designation of the focal point and one or more competent authorities and submission of the annual national reports. </p>
-<p> -Rotterdam Convention - Designation of the Designated National Authority(-ies) and official contact points and submission of the import responses. </p>
-<p> - Stockholm Convention - Designation of the Stockholm Convention official contact points and national focal points, submission of the national implementation plans, submission of the revised national implementation plan addressing amendments and submission of the national reports. </p>
-<p> - Montreal Protocol - Compliance with annual reporting requirements for production and consumption of controlled substances under Article 7 of the Montreal Protocol and submission of information on Licensing systems under (Article 4B of) the Montreal Protocol. For each party, a percentage value is assigned to indicate how much of the required information has been submitted. </p>
-<p> - Minamata Convention - Designation of a national focal point for exchange of information under Article 17 of the Convention and submission of national reports as required under Article 21 of the Minamata Convention. </p>
+            
 
           
         </td>
@@ -843,9 +596,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            <p> For the Basel, Rotterdam and Stockholm Conventions the units of measurements are the transmission of information, such as the number of country contacts designated, number of national reports, national implementation plans and import responses. For each party, a percentage value is assigned to indicate how much of the required information has been submitted. </p>
-<p>   For the Montreal Protocol the units of measurement are the number of parties that comply with their reporting obligations with regard to production and consumption of controlled substances (Article 7) and submission of information on licensing systems (Article 4B). For each party, a percentage value is assigned to indicate how much of the required information has been submitted. </p>
-<p> For the Minamata Convention the units of measurement are the number of designated national focal points and the number of national reports received. For each party, a percentage value is assigned to indicate how much of the required information has been submitted. </p>
+            
 
           
         </td>
@@ -901,7 +652,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.</p>
+            <p>Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -915,7 +666,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            25 July 2022
+            26 July 2022
           
         </td>
         </tr>
@@ -928,7 +679,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            25 July 2022
+            26 July 2022
           
         </td>
         </tr>
@@ -1304,301 +1055,6 @@ data-event-label="Change to Sources tab"
 
 
 
-  <div class="row">
-  
-    
-    
-    <div class="col-md-6">
-      
-      <table class="table">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
-          
-            <p>UNEP</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Periodicity </th>
-        <td>
-          
-            <p>Every 5 years</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Earliest available data </th>
-        <td>
-          
-            <p>2015</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Geographical coverage </th>
-        <td>
-          
-            <p>UK</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Link to data source </th>
-        <td>
-          
-            
-            
-            
-            
-
-            
-              <a href="https://unstats.un.org/sdgs/dataportal/database" target="_blank">
-                https://unstats.un.org/sdgs/dataportal/database <span class="visuallyhidden">opens in a new window</span>
-              </a>
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Release date </th>
-        <td>
-          
-            01 January 1970
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Next release </th>
-        <td>
-          
-            <p>2025</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Statistical classification </th>
-        <td>
-          
-            <p>Official international</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact details </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Other information </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</table>
-
-    </div>
-    
-  </div>
-
 
 </div>
     
@@ -1843,7 +1299,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20220726003104'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20220726111129'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -1851,7 +1307,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20220726003104"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20220726111129"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
