@@ -130,7 +130,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220808002530">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20220808130433">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -461,7 +461,7 @@ data-event-label="high"
   data-graphtype="line"
   data-graphtypes="null"
   data-geocoderegex=""
-  data-showmap="false"
+  data-showmap="true"
   data-startvalues="null"
   data-graphlimits="null"
   data-stackeddisaggregation=""
@@ -469,7 +469,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Great Britain&quot;,&quot;England&quot;,&quot;Wales&quot;,&quot;Scotland&quot;,&quot;Northern Ireland&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;North East&quot;,&quot;North West&quot;,&quot;Yorkshire and the Humber&quot;,&quot;East Midlands&quot;,&quot;West Midlands&quot;,&quot;East of England&quot;,&quot;London&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Sex&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Male&quot;,&quot;Female&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Sex&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;0 to 4&quot;,&quot;5 to 14&quot;,&quot;15 to 24&quot;,&quot;25 to 34&quot;,&quot;35 to 44&quot;,&quot;45 to 54&quot;,&quot;55 to 64&quot;,&quot;65 to 74&quot;,&quot;75 to 84&quot;,&quot;85 and over&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Death rate due to road traffic injuries&quot;,&quot;Death rate due to road traffic injuries (sex by age pre-2018)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Great Britain&quot;,&quot;England&quot;,&quot;Wales&quot;,&quot;Scotland&quot;,&quot;Northern Ireland&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;East Midlands&quot;,&quot;East of England&quot;,&quot;London&quot;,&quot;North East&quot;,&quot;North West&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;West Midlands&quot;,&quot;Yorkshire and The Humber&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Sex&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Female&quot;,&quot;Male&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Sex&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;0 to 4&quot;,&quot;5 to 7&quot;,&quot;8 to 11&quot;,&quot;12 to 15&quot;,&quot;16 to 19&quot;,&quot;20 to 29&quot;,&quot;30 to 39&quot;,&quot;40 to 49&quot;,&quot;50 to 59&quot;,&quot;60 to 69&quot;,&quot;70 to 79&quot;,&quot;80 and over&quot;,&quot;5 to 14&quot;,&quot;15 to 24&quot;,&quot;25 to 34&quot;,&quot;35 to 44&quot;,&quot;45 to 54&quot;,&quot;55 to 64&quot;,&quot;65 to 74&quot;,&quot;75 to 84&quot;,&quot;85 and over&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -521,6 +521,10 @@ data-event-label="high"
         
         
         
+        <th scope="col">Series</th>
+        
+        
+        
         <th scope="col">GeoCode</th>
         
         
@@ -550,11 +554,15 @@ data-event-label="high"
           
           
           
+          <td>Death rate due to road traffic injuries</td>
+          
+          
+          
           <td></td>
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
@@ -578,11 +586,15 @@ data-event-label="high"
           
           
           
+          <td>Death rate due to road traffic injuries</td>
+          
+          
+          
           <td></td>
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
@@ -606,11 +618,15 @@ data-event-label="high"
           
           
           
+          <td>Death rate due to road traffic injuries</td>
+          
+          
+          
           <td></td>
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
@@ -634,11 +650,15 @@ data-event-label="high"
           
           
           
+          <td>Death rate due to road traffic injuries</td>
+          
+          
+          
           <td></td>
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
@@ -662,11 +682,15 @@ data-event-label="high"
           
           
           
+          <td>Death rate due to road traffic injuries</td>
+          
+          
+          
           <td></td>
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
@@ -690,11 +714,15 @@ data-event-label="high"
           
           
           
+          <td>Death rate due to road traffic injuries</td>
+          
+          
+          
           <td></td>
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
@@ -718,11 +746,15 @@ data-event-label="high"
           
           
           
+          <td>Death rate due to road traffic injuries</td>
+          
+          
+          
           <td></td>
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
@@ -746,11 +778,15 @@ data-event-label="high"
           
           
           
+          <td>Death rate due to road traffic injuries</td>
+          
+          
+          
           <td></td>
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
@@ -774,11 +810,15 @@ data-event-label="high"
           
           
           
+          <td>Death rate due to road traffic injuries</td>
+          
+          
+          
           <td></td>
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
@@ -802,11 +842,15 @@ data-event-label="high"
           
           
           
+          <td>Death rate due to road traffic injuries</td>
+          
+          
+          
           <td></td>
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
           
           
           
@@ -830,11 +874,47 @@ data-event-label="high"
           
           
           
+          <td>Death rate due to road traffic injuries</td>
+          
+          
+          
           <td></td>
           
           
           
-          <td>Undefined</td>
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Rate per 100,000 population</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>2.2599465001</td>
+          
+          
+          
+          <td>Death rate due to road traffic injuries</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
           
           
           
@@ -864,7 +944,7 @@ data-event-label="high"
     <p>Unit of Measurement: Rate per 100,000 population</p>
     
     
-    <p>Footnote: Please note, 0-4 age band in some cases may include age 0 which was coded where the age of the casualty was not reported.</p>
+    <p>Footnote: Please note, 0-4 age band in some cases may include age 0 which was coded where the age of the casualty was not reported. Selecting 'Great Britain' allows for sex and age disaggregations. Sex by age disaggregation is available for pre-2018 data series only.</p>
     
   </div>
   
@@ -932,6 +1012,31 @@ data-event-label="Change to Table tab"
       >Table</button>
     </li>
     
+    <li role="presentation"
+      class="
+        nav-item
+        map
+        
+      ">
+      <button
+        class="nav-link "
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-mapview"
+          data-bs-target="#mapview"
+          aria-controls="mapview"
+          data-no-disagg="true"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Map tab"
+
+        
+      >Map</button>
+    </li>
+    
   </ul>
   
     <div class="tab-content data-view">
@@ -984,7 +1089,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd>Please note, 0-4 age band in some cases may include age 0 which was coded where the age of the casualty was not reported.</dd>
+        <dd>Please note, 0-4 age band in some cases may include age 0 which was coded where the age of the casualty was not reported. Selecting 'Great Britain' allows for sex and age disaggregations. Sex by age disaggregation is available for pre-2018 data series only.</dd>
         
 
         
@@ -1058,7 +1163,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd>Please note, 0-4 age band in some cases may include age 0 which was coded where the age of the casualty was not reported.</dd>
+        <dd>Please note, 0-4 age band in some cases may include age 0 which was coded where the age of the casualty was not reported. Selecting 'Great Britain' allows for sex and age disaggregations. Sex by age disaggregation is available for pre-2018 data series only.</dd>
         
 
         
@@ -1088,6 +1193,70 @@ data-event-label="Change to Table tab"
 </div>
 
 <div id="tableSelectionDownload" class="clearfix"></div>
+
+        </div>
+      
+    
+      
+        <div role="tabpanel" class="tab-pane " id="mapview" class="map">
+          
+<h4 id="map-heading" class="map-title">Death rate due to road traffic injuries</h4>
+<div id="map" aria-describedby="table-alternative">
+  <img class="map-loading-image" src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
+</div>
+
+
+
+
+<div id="mapFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>Department for Transport (DfT), Office for National Statistics (ONS)</dd>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>United Kingdom</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+        <dt>Footnote:</dt>
+        <dd>Please note, 0-4 age band in some cases may include age 0 which was coded where the age of the casualty was not reported. Selecting 'Great Britain' allows for sex and age disaggregations. Sex by age disaggregation is available for pre-2018 data series only.</dd>
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
+</div>
+
 
         </div>
       
@@ -1223,7 +1392,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Death rate due to road traffic injuries is defined as the number of road traffic fatal injury deaths per 100,000 population.  For more information on Reported Road Casualities in Great Britain (RRCGB) please see <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/743853/reported-road-casualties-gb-notes-definitions.pdf">guidance notes</a></p>
+            <p>Death rate due to road traffic injuries is defined as the number of road traffic fatal injury deaths per 100,000 population.  For more information on Reported Road Casualities in Great Britain (RRCGB) please see <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/851383/transport-accidents-notes.pdf">guidance notes</a></p>
 
           
         </td>
@@ -1237,7 +1406,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Available disaggregations </th>
         <td>
           
-            
+            <p>Country, Region, Sex, and Age are available for all years. Sex by age is also available for 2015 to 2018 in the series ‘Death rate due to road traffic injuries (sex by age pre-2018)’. This can be selected using the radio buttons above and to the left of the chart. Sex by age is presented as a separate series as the agegroups are different to those presented in the rest of the indicator.</p>
 
           
         </td>
@@ -1279,7 +1448,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            08 December 2020
+            20 July 2022
           
         </td>
         </tr>
@@ -1292,7 +1461,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            08 December 2020
+            20 July 2022
           
         </td>
         </tr>
@@ -1800,7 +1969,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            30 September 2020
+            30 September 2021
           
         </td>
         </tr>
@@ -1813,7 +1982,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>01/09/2021</p>
+            <p>TBC</p>
 
           
         </td>
@@ -2105,7 +2274,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            24 June 2020
+            25 June 2021
           
         </td>
         </tr>
@@ -2118,7 +2287,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>01/06/2021</p>
+            <p>01/09/2022</p>
 
           
         </td>
@@ -2160,7 +2329,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>UK population estimates, 1838 to 2019 data and Regional population estimates for England and Wales, 1971 to 2019 data which can be found under the mid-2001 to mid-2019 detailed time series section, under ‘Supporting files you may find useful’.</p>
+            <p>See ‘MYE2’ tables.</p>
 
           
         </td>
@@ -2352,6 +2521,15 @@ data-event-label="Change to Sources tab"
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
 
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
+<script src="https://cdn.rawgit.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
+<script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
@@ -2502,7 +2680,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20220808002530'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20220808130433'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2510,7 +2688,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20220808002530"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20220808130433"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
