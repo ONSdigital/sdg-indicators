@@ -120,6 +120,8 @@ We do not allow Google or Hotjar to use or share the information about how you u
 {% endcapture %}
 {% include custom/details.html label="List of cookies that measure website use" content=analytics_table %}
 
+## Change your cookie settings
+
 {% include custom/cookie-page-analytics.html %}
 
 ## Essential cookies
@@ -165,5 +167,3 @@ We use [SurveyMonkey](https://www.surveymonkey.co.uk/) to collect feedback about
 ## How we use the information we collect
 
 To find out how we collect, store and use information about you or your visit, see our [privacy notice]({{ site.baseurl }}/privacy-notice).
-
-<br>{% include custom/cookie-page-submit.html %}

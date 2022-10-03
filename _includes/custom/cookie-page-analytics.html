@@ -1,18 +1,22 @@
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l cookie-form-legend">
+      Do you want to accept analytics cookies?
+    </legend>
     <div class="govuk-radios">
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="analytics-cookies" name="analytics-cookies" type="radio" value="yes">
         <label class="govuk-label govuk-radios__label" for="analytics-cookies">
-          Use cookies to measure my website use
+          Yes
         </label>
       </div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="analytics-cookies-2" name="analytics-cookies" type="radio" value="no" checked>
         <label class="govuk-label govuk-radios__label" for="analytics-cookies-2">
-          Do not use cookies to measure my website use
+          No
         </label>
       </div>
     </div>
   </fieldset>
+  <br>{% include custom/cookie-page-submit.html %}
 </div>
