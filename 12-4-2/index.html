@@ -130,7 +130,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20221004004228">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20221004103054">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -448,9 +448,9 @@ data-event-label="high"
   data-indicatorid='indicator_12-4-2'
   data-id="12-4-2"
   data-country="United Kingdom"
-  data-charttitle="Hazardous waste generated (absolute and per capita) hazardous waste treated, by type of treatment"
-  data-charttitles="[{&quot;unit&quot;:&quot;Hazardous waste generated (tonnes)&quot;,&quot;title&quot;:&quot;Hazardous waste generated (tonnes)&quot;},{&quot;unit&quot;:&quot;Hazardous waste generated (tonnes per capita)&quot;,&quot;title&quot;:&quot;Hazardous waste generated (tonnes per capita)&quot;},{&quot;unit&quot;:&quot;hazardous waste treated (tonnes)&quot;,&quot;title&quot;:&quot;Hazardous waste treated (tonnes) &quot;}]"
-  data-measurementunit=""
+  data-charttitle="Hazardous waste generated (absolute and per capita) and proportion of hazardous waste treated, by type of treatment"
+  data-charttitles="[{&quot;unit&quot;:&quot;Hazardous waste generated (absolute number)&quot;,&quot;title&quot;:&quot;Hazardous waste generated (absolute number)&quot;},{&quot;unit&quot;:&quot;Hazardous waste generated (tonnes per capita)&quot;,&quot;title&quot;:&quot;Hazardous waste generated (tonnes per capita)&quot;},{&quot;unit&quot;:&quot;Percentage (%)&quot;,&quot;title&quot;:&quot;Percentage of hazardous waste treated (%) &quot;}]"
+  data-measurementunit="Absolute number, Tonnes per capita, Percentage (%)"
   data-xaxislabel=""
   data-showdata="true"
   data-graphtype="line"
@@ -458,13 +458,13 @@ data-event-label="high"
   data-geocoderegex=""
   data-showmap="false"
   data-startvalues="null"
-  data-graphlimits="null"
+  data-graphlimits="[{&quot;unit&quot;:&quot;Percentage (%)&quot;,&quot;minimum&quot;:0,&quot;maximum&quot;:100}]"
   data-stackeddisaggregation=""
   data-graphannotations="null"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Hazardous waste generated (absolute number)&quot;,&quot;Hazardous waste generated (tonnes per capita)&quot;,&quot;Hazardous waste treated&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Treatment type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Deposit onto or into land&quot;,&quot;Energy recovery&quot;,&quot;Incineration&quot;,&quot;Land treatment and release into water bodies&quot;,&quot;Recovery other than energy recovery - Backfilling&quot;,&quot;Recovery other than energy recovery - Except backfilling&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Treatment type&quot;},{&quot;name&quot;:&quot;Economic activity&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Agriculture, forestry and fishing&quot;,&quot;Construction&quot;,&quot;Electricity, gas, steam and air conditioning supply&quot;,&quot;Households&quot;,&quot;Manufacture of basic metals and fabricated metal products, except machinery and equipment&quot;,&quot;Manufacture of chemical, pharmaceutical, rubber and plastic products&quot;,&quot;Manufacture of coke and refined petroleum products&quot;,&quot;Manufacture of computer, electronic and optical products, electrical equipment, motor vehicles and other transport equipment&quot;,&quot;Manufacture of food products, beverages and tobacco products&quot;,&quot;Manufacture of furniture, jewellery, musical instruments, toys, repair and installation or machinery and equipment&quot;,&quot;Manufacture of other non-metallic mineral products&quot;,&quot;Manufacture of paper and paper products, printing and reproduction or recorded media&quot;,&quot;Manufacture of textiles, wearing apparel, leather and related products&quot;,&quot;Manufacture of wood and of products of wood and cork, except furniture, manufacture of articles of straw and plaiting materials&quot;,&quot;Mining and quarrying&quot;,&quot;Services (except wholesale of waste and scrap)&quot;,&quot;Water collection, treatment and supply, sewerage, remediation activities and other waste management services&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Economic activity&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Hazardous waste generated (absolute number)&quot;,&quot;Hazardous waste generated (tonnes per capita)&quot;,&quot;Percentage (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Treatment type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Deposit onto or into land&quot;,&quot;Energy recovery&quot;,&quot;Incineration&quot;,&quot;Land treatment and release into water bodies&quot;,&quot;Recovery other than energy recovery - Backfilling&quot;,&quot;Recovery other than energy recovery - Except backfilling&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Treatment type&quot;},{&quot;name&quot;:&quot;Economic activity&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Agriculture, forestry and fishing&quot;,&quot;Construction&quot;,&quot;Electricity, gas, steam and air conditioning supply&quot;,&quot;Households&quot;,&quot;Manufacture of basic metals and fabricated metal products, except machinery and equipment&quot;,&quot;Manufacture of chemical, pharmaceutical, rubber and plastic products&quot;,&quot;Manufacture of coke and refined petroleum products&quot;,&quot;Manufacture of computer, electronic and optical products, electrical equipment, motor vehicles and other transport equipment&quot;,&quot;Manufacture of food products, beverages and tobacco products&quot;,&quot;Manufacture of furniture, jewellery, musical instruments, toys, repair and installation or machinery and equipment&quot;,&quot;Manufacture of other non-metallic mineral products&quot;,&quot;Manufacture of paper and paper products, printing and reproduction or recorded media&quot;,&quot;Manufacture of textiles, wearing apparel, leather and related products&quot;,&quot;Manufacture of wood and of products of wood and cork, except furniture, manufacture of articles of straw and plaiting materials&quot;,&quot;Mining and quarrying&quot;,&quot;Services (except wholesale of waste and scrap)&quot;,&quot;Water collection, treatment and supply, sewerage, remediation activities and other waste management services&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Economic activity&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -504,7 +504,7 @@ data-event-label="high"
     
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>Hazardous waste generated (absolute and per capita) hazardous waste treated, by type of treatment</caption>
+      <caption>Hazardous waste generated (absolute and per capita) and proportion of hazardous waste treated, by type of treatment</caption>
       <thead>
         
         
@@ -516,7 +516,7 @@ data-event-label="high"
         
         
         
-        <th scope="col">Series</th>
+        <th scope="col">Units</th>
         
         
         
@@ -549,7 +549,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -577,7 +577,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -605,7 +605,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -625,7 +625,7 @@ data-event-label="high"
           
           
           
-          <td>4463193.895194106</td>
+          <td>4505384.311884105</td>
           
           
           
@@ -633,35 +633,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Tonnes</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2018</td>
-          
-          
-          
-          <td>4574432.128876306</td>
-          
-          
-          
-          <td>Hazardous waste generated (absolute number)</td>
-          
-          
-          
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -689,7 +661,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -717,7 +689,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -745,7 +717,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -773,35 +745,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Tonnes per capita</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2018</td>
-          
-          
-          
-          <td>0.0688551856</td>
-          
-          
-          
-          <td>Hazardous waste generated (tonnes per capita)</td>
-          
-          
-          
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -821,15 +765,15 @@ data-event-label="high"
           
           
           
-          <td>1973446.2986709345</td>
+          <td>48.4218941637</td>
           
           
           
-          <td>Hazardous waste treated</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -837,7 +781,7 @@ data-event-label="high"
           
           
           
-          <td class="table-value">Tonnes</td>
+          <td class="table-value">Percentage (%)</td>
           
           
         </tr>
@@ -849,15 +793,15 @@ data-event-label="high"
           
           
           
-          <td>1912804.608148825</td>
+          <td>45.7299096821</td>
           
           
           
-          <td>Hazardous waste treated</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -865,7 +809,7 @@ data-event-label="high"
           
           
           
-          <td class="table-value">Tonnes</td>
+          <td class="table-value">Percentage (%)</td>
           
           
         </tr>
@@ -877,15 +821,15 @@ data-event-label="high"
           
           
           
-          <td>1895827.0293695328</td>
+          <td>45.0656601962</td>
           
           
           
-          <td>Hazardous waste treated</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -893,7 +837,7 @@ data-event-label="high"
           
           
           
-          <td class="table-value">Tonnes</td>
+          <td class="table-value">Percentage (%)</td>
           
           
         </tr>
@@ -905,43 +849,15 @@ data-event-label="high"
           
           
           
-          <td>1931002.006267872</td>
+          <td>42.8598732671</td>
           
           
           
-          <td>Hazardous waste treated</td>
+          <td>Percentage (%)</td>
           
           
           
-          <td>Normal value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Tonnes</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2018</td>
-          
-          
-          
-          <td>2028082.160726641</td>
-          
-          
-          
-          <td>Hazardous waste treated</td>
-          
-          
-          
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -949,7 +865,7 @@ data-event-label="high"
           
           
           
-          <td class="table-value">Tonnes</td>
+          <td class="table-value">Percentage (%)</td>
           
           
         </tr>
@@ -967,6 +883,8 @@ data-event-label="high"
     
     <p>Geographical Area: United Kingdom</p>
     
+    
+    <p>Unit of Measurement: Absolute number, Tonnes per capita, Percentage (%)</p>
     
     
   </div>
@@ -1052,7 +970,7 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Hazardous waste generated (tonnes)</h4>
+          <h4 id="chart-heading" class="chart-title">Hazardous waste generated (absolute number)</h4>
           <div id="chart" class="plot-container">
             <canvas
     role="img"
@@ -1306,7 +1224,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            
+            <p>Absolute number, Tonnes per capita, Percentage (%)</p>
 
           
         </td>
@@ -1376,7 +1294,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            15 September 2022
+            04 October 2022
           
         </td>
         </tr>
@@ -1389,7 +1307,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            15 September 2022
+            04 October 2022
           
         </td>
         </tr>
@@ -1897,7 +1815,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            11 May 2022
+            07 March 2019
           
         </td>
         </tr>
@@ -1910,7 +1828,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>tbc</p>
+            <p>01/02/2021</p>
 
           
         </td>
@@ -2202,7 +2120,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            
+            26 June 2019
           
         </td>
         </tr>
@@ -2215,7 +2133,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>tbc</p>
+            <p>01/06/2020</p>
 
           
         </td>
@@ -2599,7 +2517,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20221004004228'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20221004103054'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2607,7 +2525,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20221004004228"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20221004103054"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
