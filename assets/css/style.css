@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* open-sans-regular - latin */
 @font-face {
   font-family: 'Open Sans';
@@ -2643,6 +2644,24 @@ body.contrast-high.layout-search form input, body.contrast-high.layout-search fo
   padding: 15px;
   margin-bottom: 20px;
   margin-left: 30px; }
+
+#toc {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 30px; }
+  #toc li {
+    position: relative;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 7.5px; }
+    #toc li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      width: 20px;
+      overflow: hidden; }
+    #toc li a {
+      text-decoration: none; }
 
 body.contrast-high .fa-exclamation-circle {
   color: white; }
