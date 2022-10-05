@@ -2,30 +2,8 @@
 title: Frequently Asked Questions (FAQ)
 permalink: /faq/
 layout: page
+toc: true
 ---
-## Table of contents
-- [How often will new data be added to this site?](#how-often-will-new-data-be-added-to-this-site)
-
-- [How do I suggest new or different data sources?](#how-do-i-suggest-new-or-different-data-sources)
-
-- [What are you doing to fill data gaps?](#what-are-you-doing-to-fill-data-gaps)
-
-- [What does the reporting status mean?](#what-does-the-reporting-status-mean)
-
-- [What does the disaggregation status mean?](#what-does-the-disaggregation-status-mean)
-
-- [What disaggregations are available?](#what-disaggregations-are-available)
-
-- [Who uses this website?](#who-uses-this-website)
-
-- [Can other countries copy this website?](#can-other-countries-copy-this-website)
-
-- [How accessible is this website?](#how-accessible-is-this-website)
-
-- [What browsers can I use to view this website?](#what-browsers-can-i-use-to-view-this-website)
-
-- [What do each of the three tiers mean?](#what-do-each-of-the-three-tiers-mean)
-
 
 ## How often will new data be added to this site?
 We will add data as soon as it has been sourced and checked. This includes new data as well as updates to data we have already published. We will continue to collect data from existing sources where possible, in cooperation with topic experts.
