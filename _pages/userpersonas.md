@@ -68,7 +68,7 @@ We identified four main user personas:
     </div>
   </li>
 </ol>
-<img class="row no-gutters up-image" src="{{ site.baseurl }}/assets/img/userpersonas-arrow.png" alt="Diagram of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst.">
+<img class="row g-0 no-gutters up-image" src="{{ site.baseurl }}/assets/img/userpersonas-arrow.png" alt="Diagram of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst.">
 <p style="font-size: 22px;">Visual data
   <span style="float: right;">Raw data</span>
 </p>
