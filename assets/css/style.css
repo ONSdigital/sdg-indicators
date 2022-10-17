@@ -2674,3 +2674,36 @@ body.contrast-high .goal-indicators div span.status.notstarted {
   background: black !important;
   color: white !important;
   border: 1px solid white; }
+
+.persona-list {
+  list-style-type: none;
+  padding: 0; }
+  .persona-list li {
+    display: flex; }
+    .persona-list li .up-column {
+      padding: 10px;
+      border: 1px solid;
+      text-align: center;
+      margin: 5px;
+      display: flex;
+      flex-direction: column; }
+      .persona-list li .up-column h3 {
+        font-size: 16px;
+        font-weight: 700;
+        margin-top: 5px; }
+      .persona-list li .up-column .persona-quote {
+        margin-bottom: 75px; }
+      .persona-list li .up-column .persona-motivation {
+        align-self: flex-end;
+        margin-top: auto; }
+
+.up-image {
+  width: 100%;
+  display: none; }
+
+@media only screen and (min-width: 768px) {
+  .up-image {
+    display: block; }
+
+  .up-text {
+    display: none; } }
