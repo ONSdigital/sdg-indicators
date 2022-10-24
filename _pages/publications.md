@@ -2,27 +2,11 @@
 title: Publications
 permalink: /publications/
 layout: page
+toc: true
 ---
 Publications released by the ONS in relation to the Sustainable Development Goals.
 
 If you have any feedback on our publications, please [contact us]({{ site.baseurl }}/contact-us)
-
-
-## Table of contents
-- [Our annual updates](#our-annual-updates)
-
-- [All goals](#all-goals)
-
-- [Goal 3: Good health and well-being](#goal-3-good-health-and-well-being)
-
-- [Goal 5: Gender Equality](#goal-5-gender-equality)
-
-- [Goal 7: Affordable and clean energy](#goal-7-affordable-and-clean-energy)
-
-- [Goal 10: Reduced Inequalities](#goal-10-reduced-inequalities)
-
-- [Goal 16: Peace and Justice](#goal-16-peace-and-justice)
-
 
 ## Our annual updates
 We publish a yearly update on our progress towards measuring the global Sustainable Development Goal indicators in the UK:
