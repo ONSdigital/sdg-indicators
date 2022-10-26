@@ -101,7 +101,7 @@ Concerned citizens might arrive to the site from other public facing websites an
 * explain the SDGs in simple terms
 * give simple-to-understand context of what the goals mean
 * give them an overall view of UK performance against targets
-* explain what is being to meet the targets
+* explain what is being done to meet the targets
 * use visualisations to explain everything
 
 ### We must not:
@@ -140,7 +140,7 @@ They have a good knowledge of the SDGs and use the SDGs to champion the themes t
 
 * provide alternate routes into data so that their users can understand
 * provide guidance on indicators that relate to the themes they work in
-* ensure commentary and analysis is easy to find
+* ensure commentary and analysis are easy to find
 * show relationships between different indicators
 * show UK progress early in the journey
 
@@ -179,12 +179,12 @@ They come to the website quite often  and may copy data for use in reports, whic
 * provide bite-sized summaries to brief them on progress
 * provide them with links to the physical source data
 * show them targets early in the journey
-* provide them with a quick view of what data has been collected, jot collected and reasons why data was chosen or not collected
+* provide them with a quick view of what data has been collected, not collected and reasons why data was chosen or not collected
 
 ### We must not:
 
 * expect them to find the source data with a generic link
-* populate the website with out-of-date website
+* populate the website with out-of-date information
 * hide facts and figures under complex levels of navigation
 
 
@@ -197,7 +197,7 @@ Involved analysts can be a range of different people, who usually work with inte
 * Users creating detailed reports as part of commissioned project work
 * Academia working in funded projects
 * Students researching set topics
-* Custodian ageny analysts
+* Custodian agency analysts
 
 ### Likely to say
 "I just want the data so I can do my own thing with it."
@@ -219,7 +219,7 @@ They will often collaborate with others to produce analysis to inform or challen
 
 ### We must:
 
-* give them advanced routes in to the data from the outset
+* give them advanced routes into the data from the outset
 * show them the targets
 * show relationships between different indicators
 * give them methodology behind the data
@@ -229,7 +229,7 @@ They will often collaborate with others to produce analysis to inform or challen
 
 * put lots of commentary and top-level visualisations in their way
 * make it hard to get lots of data
-* expect them to navigate each indicator to geth the data they need
+* expect them to navigate each indicator to get the data they need
 * expect them to understand the difference between data on the UK NRP and the UN global database
 
 
