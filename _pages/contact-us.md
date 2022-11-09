@@ -12,13 +12,6 @@ To provide specific feedback about this website, please complete our [feedback s
 
 We aim to respond within 10 working days
 
-## Webchat
-[Speak to an advisor now](http://ldws00.ngcc.bt.com/chatweb/default.aspx?recid=8662719c-8442-4b95-a5de-0b5642ceba29)
-
-Monday to Friday, 9am to 4pm
-
-Closed Saturday and Sunday
-
 ## Telephone
 Telephone: +44 (0)345 601 3034
 
