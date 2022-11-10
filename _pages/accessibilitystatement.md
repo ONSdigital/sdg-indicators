@@ -58,4 +58,4 @@ Ensuring accessibility is embedded in our development processes, including using
 
 This statement was prepared on 24.09.2020. It was last reviewed on 22.10.2020.
 
-This website was last tested on 16.07.2021. The test was carried out by the [Digital Accessibility Centre](https://digitalaccessibilitycentre.org/index.php/ons-sustainable-development-goals).
+This website was last tested on 03.11.2022. The test was carried out by the [Digital Accessibility Centre](https://digitalaccessibilitycentre.org/index.php/ons-sustainable-development-goals).
