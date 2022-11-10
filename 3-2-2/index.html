@@ -26,8 +26,9 @@ var opensdg = {
   },
 
   // A hook which can be replaced to alter whether/how the values that are
-  // displayed on indicator tables/graphs get rounded.
-  dataRounding: function(value) {
+  // displayed on indicator tables/graphs get rounded. A "context" parameter
+  // is also passed which contains additional information.
+  dataRounding: function(value, context) {
     // Alterations go here.
     return value;
   },
@@ -37,6 +38,9 @@ var opensdg = {
   dataDisplayAlter: function(callback) {
     this.dataDisplayAlterations.push(callback);
   },
+
+  // Disaggregations which should be ignored on indicator pages.
+  ignoredDisaggregations: ["Activity (default)","Age (default)","Urbanisation (default)"],
 
   language: 'en',
 };
@@ -130,7 +134,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20221110003014">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20221110085112">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -245,10 +249,10 @@ layout-indicator
 <header role="banner" class="">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light flex-wrap align-items-start">
-            <a class="navbar-brand" href="/sdg-indicators/" id="home">
+            <a class="navbar-brand" href="/sdg-indicators/" id="home" aria-label="Go to homepage" title="Go to homepage">
     <img src="/sdg-indicators/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
 </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Show navigation menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="d-flex flex-wrap w-100 justify-content-between">
@@ -274,7 +278,7 @@ layout-indicator
         <label class="visually-hidden" for="indicator_search">Search</label>
         <input class="form-control" type="search" name="q" id="indicator_search" title="Search">
         <span class="input-group-append">
-            <button class="btn btn-outline-secondary ms-n5" aria-label="Search" id="search-btn" type="submit">
+            <button class="btn btn-outline-secondary ms-n5" aria-label="Site search" id="search-btn" type="submit">
                 <i class="fa fa-search"></i>
             </button>
         </span>
@@ -391,7 +395,11 @@ data-event-label="high"
             <a href="/sdg-indicators/">Home</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="/sdg-indicators/3" title="Ensure healthy lives and promote well-being for all at all ages">Goal 3</a>
+            <a href="/sdg-indicators/3"
+               title="Goal 3 - Good health and well-being"
+               aria-label="Goal  - ">
+               Goal 3
+            </a>
         </li>
         <li class="breadcrumb-item active">Indicator 3.2.2</li>
         
@@ -406,7 +414,7 @@ data-event-label="high"
         <div class="row">
             
             <div class="col-4 col-md-3 col-lg-2 goal-icon goal-tiles">
-                <a href="/sdg-indicators/3" title="View this goal's indicator list">
+                <a href="/sdg-indicators/3" aria-label="View targets and indicators for Goal 3" title="View targets and indicators for Goal 3">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/3.svg"
                         alt="Good health and well-being - Goal 3"
                         id="goal-3"
@@ -1250,9 +1258,13 @@ data-event-label="Change to Map tab"
         </div>
       </figure>
       <div id="chartSelectionDownload" class="clearfix">
-        <button id="btnSave" title="Download chart image as PNG" class='btn btn-primary btn-download'>
+        <button
+          id="btnSave"
+          title="Download chart image as PNG"
+          aria-label="Download chart image as PNG"
+          class='btn btn-primary btn-download'>
           Download chart image (.png)
-        </button><!-- 
+        </button><!--
    --></div>
     </div>
 
@@ -1443,7 +1455,8 @@ data-event-label="Change to Sources tab"
                 
                 This table provides metadata for the actual indicator available from UK statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from UK statistics, this table should be consulted for information on national methodology and other UK-specific metadata information.
             </p>
-            <table class="table">
+            <table class="table metadata-content">
+  <tbody>
   
   
   
@@ -1459,6 +1472,8 @@ data-event-label="Change to Sources tab"
   
   
   
+      
+      
       
       
       <tr>
@@ -1475,6 +1490,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Indicator description </th>
         <td>
@@ -1487,6 +1504,8 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -1503,6 +1522,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Unit of measurement </th>
         <td>
@@ -1515,6 +1536,8 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -1533,6 +1556,8 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -1558,6 +1583,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Calculations </th>
         <td>
@@ -1573,6 +1600,8 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -1597,6 +1626,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Data last updated </th>
         <td>
@@ -1608,6 +1639,8 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -1737,6 +1770,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  </tbody>
 </table>
 
         </article>
@@ -1747,12 +1781,15 @@ data-event-label="Change to Sources tab"
     <div>
         <article>
             <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href="https://unstats.un.org/sdgs/metadata/">Complete global metadata</a> is provided by the UN Statistics Division.</p>
-            <table class="table">
+            <table class="table metadata-content">
+  <tbody>
   
   
   
   
   
+      
+      
       
       
       <tr>
@@ -1771,6 +1808,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Target name </th>
         <td>
@@ -1786,11 +1825,20 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+        
+          
+          
+          
+          
+        
+      
+      
       <tr>
         <th scope="row">Global indicator description </th>
         <td>
           
-            
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
 
           
         </td>
@@ -1798,6 +1846,8 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -1814,6 +1864,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">UN custodian agency </th>
         <td>
@@ -1828,6 +1880,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Link to UN metadata </th>
         <td>
@@ -1836,7 +1890,6 @@ data-event-label="Change to Sources tab"
             
             
             
-
             
               <a href="https://unstats.un.org/sdgs/metadata/?Text=&Goal=3&Target=3.2" target="_blank">
                 United Nations Sustainable Development Goals metadata for target 3.2 <span class="visuallyhidden">opens in a new window</span>
@@ -1852,6 +1905,8 @@ data-event-label="Change to Sources tab"
       
       
       
+      
+      
   
   
   
@@ -1979,6 +2034,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  </tbody>
 </table>
 
         </article>
@@ -1998,7 +2054,8 @@ data-event-label="Change to Sources tab"
       
         <h4>Source 1</h4>
       
-      <table class="table">
+      <table class="table metadata-content">
+  <tbody>
   
   
   
@@ -2033,6 +2090,8 @@ data-event-label="Change to Sources tab"
   
   
   
+      
+      
       
       
       <tr>
@@ -2049,6 +2108,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Periodicity </th>
         <td>
@@ -2061,6 +2122,8 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -2077,6 +2140,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Geographical coverage </th>
         <td>
@@ -2091,6 +2156,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Link to data source </th>
         <td>
@@ -2099,7 +2166,6 @@ data-event-label="Change to Sources tab"
             
             
             
-
             
               <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/childmortalitystatisticschildhoodinfantandperinatalchildhoodinfantandperinatalmortalityinenglandandwales" target="_blank">
                 Childhood mortality in England and Wales <span class="visuallyhidden">opens in a new window</span>
@@ -2115,7 +2181,11 @@ data-event-label="Change to Sources tab"
       
       
       
+      
+      
   
+      
+      
       
       
       <tr>
@@ -2129,6 +2199,8 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -2145,6 +2217,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Statistical classification </th>
         <td>
@@ -2159,6 +2233,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Contact details </th>
         <td>
@@ -2171,6 +2247,8 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -2282,6 +2360,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  </tbody>
 </table>
 
     </div>
@@ -2292,7 +2371,8 @@ data-event-label="Change to Sources tab"
       
         <h4>Source 2</h4>
       
-      <table class="table">
+      <table class="table metadata-content">
+  <tbody>
   
   
   
@@ -2339,6 +2419,8 @@ data-event-label="Change to Sources tab"
   
   
   
+      
+      
       
       
       <tr>
@@ -2355,6 +2437,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Periodicity </th>
         <td>
@@ -2367,6 +2451,8 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -2383,6 +2469,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Geographical coverage </th>
         <td>
@@ -2397,6 +2485,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Link to data source </th>
         <td>
@@ -2405,7 +2495,6 @@ data-event-label="Change to Sources tab"
             
             
             
-
             
               <a href="http://webarchive.nationalarchives.gov.uk/20160108045516/http://www.ons.gov.uk/ons/rel/vsob1/mortality-statistics--childhood--infant-and-perinatal--england-and-wales--series-dh3-/index.html" target="_blank">
                 Mortality Statistics - Childhood, infant and perinatal, England and Wales (Series DH3) <span class="visuallyhidden">opens in a new window</span>
@@ -2421,7 +2510,11 @@ data-event-label="Change to Sources tab"
       
       
       
+      
+      
   
+      
+      
       
       
       <tr>
@@ -2435,6 +2528,8 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -2451,6 +2546,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Statistical classification </th>
         <td>
@@ -2465,6 +2562,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Contact details </th>
         <td>
@@ -2477,6 +2576,8 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -2575,6 +2676,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  </tbody>
 </table>
 
     </div>
@@ -2585,7 +2687,8 @@ data-event-label="Change to Sources tab"
       
         <h4>Source 3</h4>
       
-      <table class="table">
+      <table class="table metadata-content">
+  <tbody>
   
   
   
@@ -2644,6 +2747,8 @@ data-event-label="Change to Sources tab"
   
   
   
+      
+      
       
       
       <tr>
@@ -2660,6 +2765,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Periodicity </th>
         <td>
@@ -2672,6 +2779,8 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -2688,6 +2797,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Geographical coverage </th>
         <td>
@@ -2702,6 +2813,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Link to data source </th>
         <td>
@@ -2710,7 +2823,6 @@ data-event-label="Change to Sources tab"
             
             
             
-
             
               <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/childhealth/datasets/birthsandinfantmortalitybyethnicityenglandandwales" target="_blank">
                 Births and infant mortality by ethnicity, england and Wales <span class="visuallyhidden">opens in a new window</span>
@@ -2726,7 +2838,11 @@ data-event-label="Change to Sources tab"
       
       
       
+      
+      
   
+      
+      
       
       
       <tr>
@@ -2740,6 +2856,8 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -2756,6 +2874,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Statistical classification </th>
         <td>
@@ -2770,6 +2890,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Contact details </th>
         <td>
@@ -2782,6 +2904,8 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -2868,6 +2992,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  </tbody>
 </table>
 
     </div>
@@ -2878,7 +3003,8 @@ data-event-label="Change to Sources tab"
       
         <h4>Source 4</h4>
       
-      <table class="table">
+      <table class="table metadata-content">
+  <tbody>
   
   
   
@@ -2949,6 +3075,8 @@ data-event-label="Change to Sources tab"
   
   
   
+      
+      
       
       
       <tr>
@@ -2965,6 +3093,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Periodicity </th>
         <td>
@@ -2977,6 +3107,8 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -2993,6 +3125,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Geographical coverage </th>
         <td>
@@ -3007,6 +3141,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Link to data source </th>
         <td>
@@ -3015,7 +3151,6 @@ data-event-label="Change to Sources tab"
             
             
             
-
             
               <a href="https://www.nisra.gov.uk/publications/registrar-general-annual-report-2020-stillbirths-and-infant-deaths" target="_blank">
                 Registrar General Annual Report 2020 Stillbirths and Infant Deaths <span class="visuallyhidden">opens in a new window</span>
@@ -3031,7 +3166,11 @@ data-event-label="Change to Sources tab"
       
       
       
+      
+      
   
+      
+      
       
       
       <tr>
@@ -3045,6 +3184,8 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -3061,6 +3202,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Statistical classification </th>
         <td>
@@ -3075,6 +3218,8 @@ data-event-label="Change to Sources tab"
   
       
       
+      
+      
       <tr>
         <th scope="row">Contact details </th>
         <td>
@@ -3087,6 +3232,8 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+      
       
       
       <tr>
@@ -3161,6 +3308,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  </tbody>
 </table>
 
     </div>
@@ -3188,7 +3336,7 @@ data-event-label="Change to Sources tab"
         </div>
     
 </div>
-  
+
 </div>
   </div>
 </div>
@@ -3251,12 +3399,12 @@ data-event-label="Change to Sources tab"
     </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
@@ -3267,7 +3415,7 @@ data-event-label="Change to Sources tab"
 <script src="https://cdn.rawgit.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
 <script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
-<script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/torfsen/leaflet.zoomhome@master/dist/leaflet.zoomhome.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
@@ -3420,7 +3568,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20221110003014'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20221110085112'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -3428,7 +3576,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20221110003014"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20221110085112"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

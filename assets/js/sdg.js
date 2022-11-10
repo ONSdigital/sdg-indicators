@@ -111,9 +111,13 @@ opensdg.autotrack = function(preset, category, action, label) {
     this.mapLayers = [];
     this.indicatorId = options.indicatorId;
     this._precision = options.precision;
+    this.precisionItems = options.precisionItems;
     this._decimalSeparator = options.decimalSeparator;
     this.currentDisaggregation = 0;
     this.dataSchema = options.dataSchema;
+    this.viewHelpers = options.viewHelpers;
+    this.modelHelpers = options.modelHelpers;
+    this.chartTitles = options.chartTitles;
 
     // Require at least one geoLayer.
     if (!options.mapLayers || !options.mapLayers.length) {
@@ -141,6 +145,47 @@ opensdg.autotrack = function(preset, category, action, label) {
   }
 
   Plugin.prototype = {
+
+    // Update title.
+    updateTitle: function() {
+      if (!this.modelHelpers) {
+        return;
+      }
+      var currentSeries = this.disaggregationControls.getCurrentSeries(),
+          currentUnit = this.disaggregationControls.getCurrentUnit(),
+          newTitle = null;
+      if (this.modelHelpers.GRAPH_TITLE_FROM_SERIES) {
+        newTitle = currentSeries;
+      }
+      else {
+        var currentTitle = $('#map-heading').text();
+        newTitle = this.modelHelpers.getChartTitle(currentTitle, this.chartTitles, currentUnit, currentSeries);
+      }
+      if (newTitle) {
+        $('#map-heading').text(newTitle);
+      }
+    },
+
+    // Update footer fields.
+    updateFooterFields: function() {
+      if (!this.viewHelpers) {
+        return;
+      }
+      var currentSeries = this.disaggregationControls.getCurrentSeries(),
+          currentUnit = this.disaggregationControls.getCurrentUnit();
+      this.viewHelpers.updateSeriesAndUnitElements(currentSeries, currentUnit);
+      this.viewHelpers.updateUnitElements(currentUnit);
+    },
+
+    // Update precision.
+    updatePrecision: function() {
+      if (!this.modelHelpers) {
+        return;
+      }
+      var currentSeries = this.disaggregationControls.getCurrentSeries(),
+          currentUnit = this.disaggregationControls.getCurrentUnit();
+      this._precision = this.modelHelpers.getPrecision(this.precisionItems, currentUnit, currentSeries);
+    },
 
     // Zoom to a feature.
     zoomToFeature: function(layer) {
@@ -252,11 +297,21 @@ opensdg.autotrack = function(preset, category, action, label) {
       opensdg.dataDisplayAlterations.forEach(function(callback) {
         value = callback(value);
       });
-      if (this._precision || this._precision === 0) {
-        value = Number.parseFloat(value).toFixed(this._precision);
+      if (typeof value !== 'number') {
+        if (this._precision || this._precision === 0) {
+          value = Number.parseFloat(value).toFixed(this._precision);
+        }
+        if (this._decimalSeparator) {
+          value = value.toString().replace('.', this._decimalSeparator);
+        }
       }
-      if (this._decimalSeparator) {
-        value = value.toString().replace('.', this._decimalSeparator);
+      else {
+        var localeOpts = {};
+        if (this._precision || this._precision === 0) {
+            localeOpts.minimumFractionDigits = this._precision;
+            localeOpts.maximumFractionDigits = this._precision;
+        }
+        value = value.toLocaleString(opensdg.language, localeOpts);
       }
       return value;
     },
@@ -267,7 +322,7 @@ opensdg.autotrack = function(preset, category, action, label) {
       if (props.values && props.values.length && this.currentDisaggregation < props.values.length) {
         var value = props.values[this.currentDisaggregation][this.currentYear];
         if (typeof value === 'number') {
-          ret = opensdg.dataRounding(value);
+          ret = opensdg.dataRounding(value, { indicatorId: this.indicatorId });
         }
       }
       return ret;
@@ -414,6 +469,7 @@ opensdg.autotrack = function(preset, category, action, label) {
             .attr('download', '')
             .attr('class', 'btn btn-primary btn-download')
             .attr('title', translations.indicator.download_geojson_title + ' - ' + downloadLabel)
+            .attr('aria-label', translations.indicator.download_geojson_title + ' - ' + downloadLabel)
             .text(translations.indicator.download_geojson + ' - ' + downloadLabel);
           $(plugin.element).parent().append(downloadButton);
 
@@ -456,19 +512,30 @@ opensdg.autotrack = function(preset, category, action, label) {
         plugin.setColorScale();
 
         plugin.years = _.uniq(availableYears).sort();
-        plugin.currentYear = plugin.years[0];
+        //Start the map with the most recent year
+        plugin.currentYear = plugin.years.slice(-1)[0];
 
         // And we can now update the colors.
         plugin.updateColors();
 
         // Add zoom control.
-        plugin.map.addControl(L.Control.zoomHome());
+        plugin.zoomHome = L.Control.zoomHome({
+          zoomInTitle: translations.indicator.map_zoom_in,
+          zoomOutTitle: translations.indicator.map_zoom_out,
+          zoomHomeTitle: translations.indicator.map_zoom_home,
+        });
+        plugin.map.addControl(plugin.zoomHome);
 
         // Add full-screen functionality.
-        plugin.map.addControl(new L.Control.FullscreenAccessible());
+        plugin.map.addControl(new L.Control.FullscreenAccessible({
+          title: {
+              'false': translations.indicator.map_fullscreen,
+              'true': translations.indicator.map_fullscreen_exit,
+          },
+        }));
 
         // Add the year slider.
-        plugin.map.addControl(L.Control.yearSlider({
+        plugin.yearSlider = L.Control.yearSlider({
           years: plugin.years,
           yearChangeCallback: function(e) {
             plugin.currentYear = plugin.years[e.target._currentTimeIndex];
@@ -476,7 +543,8 @@ opensdg.autotrack = function(preset, category, action, label) {
             plugin.updateTooltips();
             plugin.selectionLegend.update();
           }
-        }));
+        });
+        plugin.map.addControl(plugin.yearSlider);
 
         // Add the selection legend.
         plugin.selectionLegend = L.Control.selectionLegend(plugin);
@@ -485,6 +553,9 @@ opensdg.autotrack = function(preset, category, action, label) {
         // Add the disaggregation controls.
         plugin.disaggregationControls = L.Control.disaggregationControls(plugin);
         plugin.map.addControl(plugin.disaggregationControls);
+        plugin.updateTitle();
+        plugin.updateFooterFields();
+        plugin.updatePrecision();
 
         // Add the search feature.
         plugin.searchControl = new L.Control.SearchAccessible({
@@ -582,6 +653,14 @@ opensdg.autotrack = function(preset, category, action, label) {
         $('#tab-mapview').parent().click(finalMapPreparation);
       }
       function finalMapPreparation() {
+        // Update the series/unit stuff in case it changed
+        // while on the chart/table.
+        plugin.updateTitle();
+        plugin.updateFooterFields();
+        plugin.updatePrecision();
+        // The year slider does not seem to be correct unless we refresh it here.
+        plugin.yearSlider._timeDimension.setCurrentTimeIndex(plugin.yearSlider._timeDimension.getCurrentTimeIndex());
+        // Delay other things to give time for browser to do stuff.
         setTimeout(function() {
           $('#map #loader-container').hide();
           // Leaflet needs "invalidateSize()" if it was originally rendered in a
@@ -589,6 +668,8 @@ opensdg.autotrack = function(preset, category, action, label) {
           plugin.map.invalidateSize();
           // Also zoom in/out as needed.
           plugin.map.fitBounds(plugin.getVisibleLayers().getBounds());
+          // Set the home button to return to that zoom.
+          plugin.zoomHome.setHomeBounds(plugin.getVisibleLayers().getBounds());
           // Limit the panning to what we care about.
           plugin.map.setMaxBounds(plugin.getVisibleLayers().getBounds());
           // Make sure the info pane is not too wide for the map.
@@ -790,6 +871,9 @@ Chart.register({
                 }
             });
         }
+    },
+    afterUpdate: function(chart) {
+        this.setMeta();
     },
     setMeta: function() {
         this.meta = this.chart.getDatasetMeta(this.currentDataset);
@@ -1080,6 +1164,16 @@ var accessibilitySwitcher = function () {
     }
 
 };
+
+// Dynamic aria labels on navbar toggle.
+$(document).ready(function() {
+    $('#navbarSupportedContent').on('shown.bs.collapse', function() {
+        $('.navbar-toggler').attr('aria-label', translations.header.hide_menu);
+    });
+    $('#navbarSupportedContent').on('hidden.bs.collapse', function() {
+        $('.navbar-toggler').attr('aria-label', translations.header.show_menu);
+    });
+});
 opensdg.chartColors = function(indicatorId) {
   var colorSet = "accessible";
   var numberOfColors = 0;
@@ -1793,7 +1887,7 @@ function selectFieldsFromStartValues(startValues, selectableFieldNames) {
   return Object.keys(valuesByField).map(function(field) {
     return {
       field: field,
-      values: valuesByField[field],
+      values: _.uniq(valuesByField[field]),
     };
   });
 }
@@ -2486,14 +2580,14 @@ function getHeadline(selectableFields, rows) {
  * @param {Array} rows
  * @return {Array} Prepared rows
  */
-function prepareData(rows) {
+function prepareData(rows, context) {
   return rows.map(function(item) {
 
     if (item[VALUE_COLUMN] != 0) {
       // For rounding, use a function that can be set on the global opensdg
       // object, for easier control: opensdg.dataRounding()
       if (typeof opensdg.dataRounding === 'function') {
-        item.Value = opensdg.dataRounding(item.Value);
+        item.Value = opensdg.dataRounding(item.Value, context);
       }
     }
 
@@ -2535,9 +2629,9 @@ function getPrecision(precisions, selectedUnit, selectedSeries) {
  */
 function inputData(data) {
   var dropKeys = [];
-  
-  dropKeys = ["Activity (default)","Age (default)","Urbanisation (default)"];
-  
+  if (opensdg.ignoredDisaggregations && opensdg.ignoredDisaggregations.length > 0) {
+    dropKeys = opensdg.ignoredDisaggregations;
+  }
   return convertJsonFormatToRows(data, dropKeys);
 }
 
@@ -2547,15 +2641,15 @@ function inputData(data) {
  */
 function inputEdges(edges) {
   var edgesData = convertJsonFormatToRows(edges);
-  
-  var ignoredDisaggregations = ["Activity (default)","Age (default)","Urbanisation (default)"];
-  edgesData = edgesData.filter(function(edge) {
-    if (ignoredDisaggregations.includes(edge.To) || ignoredDisaggregations.includes(edge.From)) {
-      return false;
-    }
-    return true;
-  });
-  
+  if (opensdg.ignoredDisaggregations && opensdg.ignoredDisaggregations.length > 0) {
+    var ignoredDisaggregations = opensdg.ignoredDisaggregations;
+    edgesData = edgesData.filter(function(edge) {
+      if (ignoredDisaggregations.includes(edge.To) || ignoredDisaggregations.includes(edge.From)) {
+        return false;
+      }
+      return true;
+    });
+  }
   return edgesData;
 }
 
@@ -2644,6 +2738,7 @@ function getTimeSeriesAttributes(rows) {
   }
 })();
 
+  this.helpers = helpers;
 
   // events:
   this.onDataComplete = new event(this);
@@ -2724,7 +2819,7 @@ function getTimeSeriesAttributes(rows) {
   }
 
   // Before continuing, we may need to filter by Series, so set up all the Series stuff.
-  this.allData = helpers.prepareData(this.data);
+  this.allData = helpers.prepareData(this.data, { indicatorId: this.indicatorId });
   this.allColumns = helpers.getColumnsFromData(this.allData);
   this.hasSerieses = helpers.dataHasSerieses(this.allColumns);
   this.serieses = this.hasSerieses ? helpers.getUniqueValuesByProperty(helpers.SERIES_COLUMN, this.allData) : [];
@@ -2918,7 +3013,9 @@ function getTimeSeriesAttributes(rows) {
         indicatorId: this.indicatorId,
         showMap: this.showMap,
         precision: helpers.getPrecision(this.precision, this.selectedUnit, this.selectedSeries),
+        precisionItems: this.precision,
         dataSchema: this.dataSchema,
+        chartTitles: this.chartTitles,
       });
     }
 
@@ -2999,15 +3096,19 @@ var mapView = function () {
 
   "use strict";
 
-  this.initialise = function(indicatorId, precision, decimalSeparator, dataSchema) {
+  this.initialise = function(indicatorId, precision, precisionItems, decimalSeparator, dataSchema, viewHelpers, modelHelpers, chartTitles) {
     $('.map').show();
     $('#map').sdgMap({
       indicatorId: indicatorId,
       mapOptions: {"disaggregation_controls":false,"minZoom":4,"maxZoom":10,"tileURL":"https://{s}.tile.jawg.io/{id}/{z}/{x}/{y}{r}.png?access-token={accessToken}","tileOptions":{"id":"ed56748f-29f9-465e-9269-c715674ee5ff","accessToken":"yrcGMvxCkRD6zZBF4x3mnAT3OGQJstAj7JvG1iy1UjEdy6JFeDfnzKvXrTK07CxF","attribution":"<a href=\"http://jawg.io\" title=\"Provider of map tiles\" target=\"_blank\">&copy; <b>Jawg</b>Maps</a> &copy; <a href=\"https://www.openstreetmap.org/copyright\" title=\"Provider of map visual data copywrite information\">OpenStreetMap</a> contributors | <a href=\"http://geoportal.statistics.gov.uk/\" title=\"The Open Geography portal from the Office for National Statistics\">ONS</a>"},"colorRange":["#c4e1c6","#b0d1b3","#9bc2a1","#87b28f","#74a37c","#60946b","#4d8559","#3a7747","#276836"],"noValueColor":"#f0f0f0","styleNormal":{"weight":1,"opacity":1,"fillOpacity":0.7,"color":"#888888","dashArray":""},"styleHighlighted":{"weight":1,"opacity":1,"fillOpacity":0.7,"color":"#111111","dashArray":""},"styleStatic":{"weight":2,"opacity":1,"fillOpacity":0,"color":"#172d44","dashArray":"5,5"}},
       mapLayers: [{"subfolder":"country","label":"Country","min_zoom":4,"max_zoom":6,"staticBorders":true},{"subfolder":"regions","label":"Regions","min_zoom":6,"max_zoom":8,"staticBorders":true},{"subfolder":"local_authorities","label":"Local Authorities","min_zoom":9,"max_zoom":12,"staticBorders":true}],
       precision: precision,
+      precisionItems: precisionItems,
       decimalSeparator: decimalSeparator,
       dataSchema: dataSchema,
+      viewHelpers: viewHelpers,
+      modelHelpers: modelHelpers,
+      chartTitles: chartTitles,
     });
   };
 };
@@ -3165,7 +3266,10 @@ function initialiseUnits(args) {
  * @return null
  */
 function initialiseSerieses(args) {
-    var templateElement = $('#series_template');
+    var activeSeriesInput = $('#serieses').find(document.activeElement),
+        seriesWasFocused = (activeSeriesInput.length > 0) ? true : false,
+        focusedValue = (seriesWasFocused) ? $(activeSeriesInput).val() : null,
+        templateElement = $('#series_template');
     if (templateElement.length > 0) {
         var template = _.template(templateElement.html()),
             serieses = args.serieses || [],
@@ -3187,6 +3291,10 @@ function initialiseSerieses(args) {
         else {
             $(OPTIONS.rootElement).removeClass('no-serieses');
         }
+    }
+    // Return focus if necessary.
+    if (seriesWasFocused) {
+        $('#serieses :input[value="' + focusedValue + '"]').focus();
     }
 }
 
@@ -3394,6 +3502,7 @@ function createPlot(chartInfo) {
     else {
         updateHeadlineColor('default', chartConfig);
     }
+    refreshChartLineWrapping(chartConfig);
 
     VIEW._chartInstance = new Chart($(OPTIONS.rootElement).find('canvas'), chartConfig);
     $(VIEW._legendElement).html(generateChartLegend(VIEW._chartInstance));
@@ -3421,6 +3530,7 @@ function createPlot(chartInfo) {
     }
 
     alterChartConfig(updatedConfig, chartInfo);
+    refreshChartLineWrapping(updatedConfig);
     VIEW._chartInstance.config.type = updatedConfig.type;
     VIEW._chartInstance.data.datasets = updatedConfig.data.datasets;
     VIEW._chartInstance.data.labels = updatedConfig.data.labels;
@@ -3471,6 +3581,41 @@ function generateChartLegend(chart) {
     });
     text.push('</ul>');
     return text.join('');
+}
+
+/**
+ * @param {Object} chartConfig
+ */
+function refreshChartLineWrapping(chartConfig) {
+    var yAxisLimit = 40,
+        wrappedYAxis = strToArray(chartConfig.options.scales.y.title.text, yAxisLimit);
+    chartConfig.options.scales.y.title.text = wrappedYAxis;
+}
+
+/**
+ * @param {String} str
+ * @param {Number} limit
+ * @returns {Array} The string divided into an array for line wrapping.
+ */
+function strToArray (str, limit) {
+    var words = str.split(' '),
+        aux = [],
+        concat = [];
+
+    for (var i = 0; i < words.length; i++) {
+        concat.push(words[i]);
+        var join = concat.join(' ');
+        if (join.length > limit) {
+            aux.push(join);
+            concat = [];
+        }
+    }
+
+    if (concat.length) {
+        aux.push(concat.join(' ').trim());
+    }
+
+    return aux;
 }
 
   opensdg.annotationPresets = {
@@ -3613,7 +3758,7 @@ opensdg.chartTypes.base = function(info) {
                     backgroundColor: 'rgba(0,0,0,0.7)',
                     callbacks: {
                         label: function (tooltipItem) {
-                            return translations.t(tooltipItem.dataset.label) + ': ' + alterDataDisplay(tooltipItem.formattedValue, tooltipItem.dataset, 'chart tooltip');
+                            return translations.t(tooltipItem.dataset.label) + ': ' + alterDataDisplay(tooltipItem.raw, tooltipItem.dataset, 'chart tooltip');
                         },
                         afterBody: function () {
                             var unit = MODEL.selectedUnit ? translations.t(MODEL.selectedUnit) : MODEL.measurementUnit;
@@ -4184,13 +4329,26 @@ function alterDataDisplay(value, info, context) {
     opensdg.dataDisplayAlterations.forEach(function (callback) {
         altered = callback(altered, info, context);
     });
-    // Now apply our custom precision control if needed.
-    if (VIEW._precision || VIEW._precision === 0) {
-        altered = Number.parseFloat(altered).toFixed(VIEW._precision);
+    // If the returned value is not a number, use the legacy logic for
+    // precision and decimal separator.
+    if (typeof altered !== 'number') {
+        // Now apply our custom precision control if needed.
+        if (VIEW._precision || VIEW._precision === 0) {
+            altered = Number.parseFloat(altered).toFixed(VIEW._precision);
+        }
+        // Now apply our custom decimal separator if needed.
+        if (OPTIONS.decimalSeparator) {
+            altered = altered.toString().replace('.', OPTIONS.decimalSeparator);
+        }
     }
-    // Now apply our custom decimal separator if needed.
-    if (OPTIONS.decimalSeparator) {
-        altered = altered.toString().replace('.', OPTIONS.decimalSeparator);
+    // Otherwise if we have a number, use toLocaleString instead.
+    else {
+        var localeOpts = {};
+        if (VIEW._precision || VIEW._precision === 0) {
+            localeOpts.minimumFractionDigits = VIEW._precision;
+            localeOpts.maximumFractionDigits = VIEW._precision;
+        }
+        altered = altered.toLocaleString(opensdg.language, localeOpts);
     }
     return altered;
 }
@@ -4260,6 +4418,7 @@ function createDownloadButton(table, name, indicatorId, el) {
             .attr({
                 'download': fileName,
                 'title': translations.indicator.download_csv_title,
+                'aria-label': translations.indicator.download_csv_title,
                 'class': 'btn btn-primary btn-download',
                 'tabindex': 0
             });
@@ -4291,6 +4450,7 @@ function createDownloadButton(table, name, indicatorId, el) {
                 'href': opensdg.remoteDataBaseUrl + '/headline/' + id + '.csv',
                 'download': headlineId + '.csv',
                 'title': translations.indicator.download_headline_title,
+                'aria-label': translations.indicator.download_headline_title,
                 'class': 'btn btn-primary btn-download',
                 'tabindex': 0
             }));
@@ -4310,6 +4470,7 @@ function createSourceButton(indicatorId, el) {
             'href': opensdg.remoteDataBaseUrl + '/data/' + indicatorId + '.csv',
             'download': indicatorId + '.csv',
             'title': translations.indicator.download_source_title,
+            'aria-label': translations.indicator.download_source_title,
             'class': 'btn btn-primary btn-download',
             'tabindex': 0
         }));
@@ -4374,6 +4535,7 @@ function createIndicatorDownloadButtons(indicatorDownloads, indicatorId, el) {
   }
 })();
 
+    VIEW.helpers = helpers;
 
     VIEW._chartInstance = undefined;
     VIEW._tableColumnDefs = OPTIONS.tableColumnDefs;
@@ -4418,6 +4580,12 @@ function createIndicatorDownloadButtons(indicatorDownloads, indicatorId, el) {
             else {
                 $sidebar.removeClass('indicator-sidebar-hidden');
                 $main.removeClass('indicator-main-full');
+                // Make sure the unit/series items are updated, in case
+                // they were changed while on the map.
+                helpers.updateChartTitle(VIEW._dataCompleteArgs.chartTitle);
+                helpers.updateSeriesAndUnitElements(VIEW._dataCompleteArgs.selectedSeries, VIEW._dataCompleteArgs.selectedUnit);
+                helpers.updateUnitElements(VIEW._dataCompleteArgs.selectedUnit);
+                helpers.updateTimeSeriesAttributes(VIEW._dataCompleteArgs.timeSeriesAttributes);
             }
         };
     });
@@ -4441,6 +4609,8 @@ function createIndicatorDownloadButtons(indicatorDownloads, indicatorId, el) {
         helpers.updateSeriesAndUnitElements(args.selectedSeries, args.selectedUnit);
         helpers.updateUnitElements(args.selectedUnit);
         helpers.updateTimeSeriesAttributes(args.timeSeriesAttributes);
+
+        VIEW._dataCompleteArgs = args;
     });
 
     MODEL.onFieldsComplete.attach(function (sender, args) {
@@ -4449,7 +4619,16 @@ function createIndicatorDownloadButtons(indicatorDownloads, indicatorId, el) {
 
         if (args.hasGeoData && args.showMap) {
             VIEW._mapView = new mapView();
-            VIEW._mapView.initialise(args.indicatorId, args.precision, OPTIONS.decimalSeparator, args.dataSchema);
+            VIEW._mapView.initialise(
+                args.indicatorId,
+                args.precision,
+                args.precisionItems,
+                OPTIONS.decimalSeparator,
+                args.dataSchema,
+                VIEW.helpers,
+                MODEL.helpers,
+                args.chartTitles,
+            );
         }
     });
 
@@ -4851,6 +5030,7 @@ var indicatorSearch = function() {
         if (opensdg.language != 'en' && lunr[opensdg.language]) {
           this.use(lunr[opensdg.language]);
         }
+        this.use(storeUnstemmed);
         this.ref('url');
         // Index the expected fields.
         this.field('title', getSearchFieldOptions('title'));
@@ -4954,9 +5134,13 @@ var indicatorSearch = function() {
   function getMatchedTerms(results) {
     var matchedTerms = {};
     results.forEach(function(result) {
-      Object.keys(result.matchData.metadata).forEach(function(matchedTerm) {
-        matchedTerms[matchedTerm] = true;
-      })
+      Object.keys(result.matchData.metadata).forEach(function(stemmedTerm) {
+        Object.keys(result.matchData.metadata[stemmedTerm]).forEach(function(fieldName) {
+          result.matchData.metadata[stemmedTerm][fieldName].unstemmed.forEach(function(unstemmedTerm) {
+            matchedTerms[unstemmedTerm] = true;
+          });
+        });
+      });
     });
     return Object.keys(matchedTerms);
   }
@@ -4977,6 +5161,19 @@ var indicatorSearch = function() {
   function escapeRegExp(str) {
     return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/gi, "\\$&");
   };
+
+  // Define a pipeline function that keeps the unstemmed word.
+  // See: https://github.com/olivernn/lunr.js/issues/287#issuecomment-454923675
+  function storeUnstemmed(builder) {
+    function pipelineFunction(token) {
+      token.metadata['unstemmed'] = token.toString();
+      return token;
+    };
+    lunr.Pipeline.registerFunction(pipelineFunction, 'storeUnstemmed');
+    var firstPipelineFunction = builder.pipeline._stack[0];
+    builder.pipeline.before(firstPipelineFunction, pipelineFunction);
+    builder.metadataWhitelist.push('unstemmed');
+  }
 };
 
 $(function() {
@@ -5076,9 +5273,10 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
           color: swatchColor,
         });
       }).join('');
+      var context = { indicatorId: this.plugin.indicatorId };
       return L.Util.template(controlTpl, {
-        lowValue: this.plugin.alterData(opensdg.dataRounding(this.plugin.valueRanges[this.plugin.currentDisaggregation][0])),
-        highValue: this.plugin.alterData(opensdg.dataRounding(this.plugin.valueRanges[this.plugin.currentDisaggregation][1])),
+        lowValue: this.plugin.alterData(opensdg.dataRounding(this.plugin.valueRanges[this.plugin.currentDisaggregation][0], context)),
+        highValue: this.plugin.alterData(opensdg.dataRounding(this.plugin.valueRanges[this.plugin.currentDisaggregation][1], context)),
         legendSwatches: swatches,
       });
     },
@@ -5178,12 +5376,7 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
     timeSliderDragUpdate: true,
     speedSlider: false,
     position: 'bottomleft',
-    // Player options.
-    playerOptions: {
-      transitionTime: 1000,
-      loop: false,
-      startOver: true
-    },
+    playButton: false,
   };
 
   L.Control.YearSlider = L.Control.TimeDimension.extend({
@@ -5225,9 +5418,15 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
           maxYear = years[years.length - 1],
           knobElement = knob._element;
 
+      control._buttonBackward.title = translations.indicator.map_slider_back;
+      control._buttonBackward.setAttribute('aria-label', control._buttonBackward.title);
+      control._buttonForward.title = translations.indicator.map_slider_forward;
+      control._buttonForward.setAttribute('aria-label', control._buttonForward.title);
+
       knobElement.setAttribute('tabindex', '0');
       knobElement.setAttribute('role', 'slider');
-      knobElement.setAttribute('aria-label', translations.indicator.map_year_slider);
+      knobElement.setAttribute('aria-label', translations.indicator.map_slider_keyboard);
+      knobElement.title = translations.indicator.map_slider_mouse;
       knobElement.setAttribute('aria-valuemin', minYear);
       knobElement.setAttribute('aria-valuemax', maxYear);
 
@@ -5281,14 +5480,28 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
       // cause any problems. This converts the array of years into a comma-
       // delimited string of YYYY-MM-DD dates.
       times: years.map(function(y) { return y.time }).join(','),
-      currentTime: new Date(years[0].time).getTime(),
+      //Set the map to the most recent year
+      currentTime: new Date(years.slice(-1)[0].time).getTime(),
     });
-    // Create the player.
-    options.player = new L.TimeDimension.Player(options.playerOptions, options.timeDimension);
     // Listen for time changes.
     if (typeof options.yearChangeCallback === 'function') {
       options.timeDimension.on('timeload', options.yearChangeCallback);
     };
+    // Also pass in another callback for managing the back/forward buttons.
+    options.timeDimension.on('timeload', function(e) {
+      var currentTimeIndex = this.getCurrentTimeIndex(),
+          availableTimes = this.getAvailableTimes(),
+          $backwardButton = $('.timecontrol-backward'),
+          $forwardButton = $('.timecontrol-forward'),
+          isFirstTime = (currentTimeIndex === 0),
+          isLastTime = (currentTimeIndex === availableTimes.length - 1);
+      $backwardButton
+        .attr('disabled', isFirstTime)
+        .attr('aria-disabled', isFirstTime);
+      $forwardButton
+        .attr('disabled', isLastTime)
+        .attr('aria-disabled', isLastTime);
+    });
     // Pass in our years for later use.
     options.years = years;
     // Return the control.
@@ -5378,6 +5591,7 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
       var container = L.Control.Search.prototype.onAdd.call(this, map);
 
       this._input.setAttribute('aria-label', this._input.placeholder);
+      this._input.removeAttribute('role');
       this._tooltip.setAttribute('aria-label', this._input.placeholder);
 
       this._button.setAttribute('role', 'button');
@@ -5385,6 +5599,7 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
       this._button.innerHTML = '<i class="fa fa-search" aria-hidden="true"></i>';
 
       this._cancel.setAttribute('role', 'button');
+      this._cancel.title = translations.indicator.map_search_cancel;
       this._cancel.setAttribute('aria-label', this._cancel.title);
       this._cancel.innerHTML = '<i class="fa fa-close" aria-hidden="true"></i>';
 
@@ -5464,6 +5679,18 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
       if ((typeof e === 'undefined' || e.type === 'keyup') && this._input.value === '') {
         return;
       }
+      if (this._tooltip.childNodes.length > 0 && this._input.value !== '') {
+        // This is a workaround for the bug where non-exact matches
+        // do not successfully search. See this Github issue:
+        // https://github.com/stefanocudini/leaflet-search/issues/264
+        var firstSuggestion = this._tooltip.childNodes[0].innerText;
+        var firstSuggestionLower = firstSuggestion.toLowerCase();
+        var userInput = this._input.value;
+        var userInputLower = userInput.toLowerCase();
+        if (firstSuggestion !== userInput && firstSuggestionLower.includes(userInputLower)) {
+          this._input.value = firstSuggestion;
+        }
+      }
       L.Control.Search.prototype._handleSubmit.call(this, e);
     },
     _handleArrowSelect: function(velocity) {
@@ -5529,14 +5756,23 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
             this.hasSeries = (this.allSeries.length > 0);
             this.hasUnits = (this.allUnits.length > 0);
             this.hasDisaggregations = this.hasDissagregationsWithValues();
+            this.hasDisaggregationsWithMultipleValuesFlag = this.hasDisaggregationsWithMultipleValues();
         },
 
         getVisibleDisaggregations: function() {
-            var features = this.plugin.getVisibleLayers().toGeoJSON().features;
+            var features = this.plugin.getVisibleLayers().toGeoJSON().features.filter(function(feature) {
+                return typeof feature.properties.disaggregations !== 'undefined';
+            });
+            if (features.length === 0) {
+                return [];
+            }
+
             var disaggregations = features[0].properties.disaggregations;
-            // The purpose of the rest of this function is to
-            // "prune" the disaggregations by removing any keys
-            // that are identical across all disaggregations.
+            // The purpose of the rest of this function is to identiy
+            // and remove any "region columns" - ie, any columns that
+            // correspond exactly to names of map regions. These columns
+            // are useful on charts and tables but should not display
+            // on maps.
             var allKeys = Object.keys(disaggregations[0]);
             var relevantKeys = {};
             var rememberedValues = {};
@@ -5552,6 +5788,27 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
                 }
             });
             relevantKeys = Object.keys(relevantKeys);
+            if (features.length > 1) {
+                // Any columns not already identified as "relevant" might
+                // be region columns.
+                var regionColumnCandidates = allKeys.filter(function(item) {
+                    return relevantKeys.includes(item) ? false : true;
+                });
+                // Compare the column value across map regions - if it is
+                // different then we assume the column is a "region column".
+                // For efficiency we only check the first and second region.
+                var regionColumns = regionColumnCandidates.filter(function(candidate) {
+                    var region1 = features[0].properties.disaggregations[0][candidate];
+                    var region2 = features[1].properties.disaggregations[0][candidate];
+                    return region1 === region2 ? false : true;
+                });
+                // Now we can treat any non-region columns as relevant.
+                regionColumnCandidates.forEach(function(item) {
+                    if (!regionColumns.includes(item)) {
+                        relevantKeys.push(item);
+                    }
+                });
+            }
             relevantKeys.push(this.seriesColumn);
             relevantKeys.push(this.unitsColumn);
             var pruned = [];
@@ -5601,6 +5858,16 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
             return hasDisaggregations;
         },
 
+        hasDisaggregationsWithMultipleValues: function () {
+            var hasDisaggregations = false;
+            this.allDisaggregations.forEach(function(disaggregation) {
+                if (disaggregation.values.length > 1 && disaggregation.values[1] !== '') {
+                    hasDisaggregations = true;
+                }
+            });
+            return hasDisaggregations;
+        },
+
         updateList: function () {
             var list = this.list;
             list.innerHTML = '';
@@ -5631,7 +5898,7 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
                         definition = L.DomUtil.create('dd', 'disaggregation-definition'),
                         container = L.DomUtil.create('div', 'disaggregation-container'),
                         field = disaggregation.field;
-                    title.innerHTML = field;
+                    title.innerHTML = translations.t(field);
                     var disaggregationValue = currentDisaggregation[field];
                     if (disaggregationValue !== '') {
                         definition.innerHTML = disaggregationValue;
@@ -5672,7 +5939,7 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
                     label.prepend(input);
                     fieldset.append(label);
                     input.addEventListener('change', function(e) {
-                        that.currentDisaggregation = that.getSelectedDisaggregationIndex();
+                        that.currentDisaggregation = that.getSelectedDisaggregationIndex(seriesColumn, series);
                         that.updateForm();
                     });
                 });
@@ -5698,7 +5965,7 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
                         label.prepend(input);
                         fieldset.append(label);
                         input.addEventListener('change', function(e) {
-                            that.currentDisaggregation = that.getSelectedDisaggregationIndex();
+                            that.currentDisaggregation = that.getSelectedDisaggregationIndex(unitsColumn, unit);
                             that.updateForm();
                         });
                     }
@@ -5711,7 +5978,7 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
                         legend = L.DomUtil.create('legend', 'disaggregation-fieldset-legend'),
                         fieldset = L.DomUtil.create('fieldset', 'disaggregation-fieldset'),
                         field = disaggregation.field;
-                    legend.innerHTML = field;
+                    legend.innerHTML = translations.t(field);
                     fieldset.append(legend);
                     form.append(fieldset);
                     formInputs.append(form);
@@ -5724,11 +5991,11 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
                             input.tabindex = 0;
                             input.checked = (value === currentDisaggregation[field]) ? 'checked' : '';
                             var label = L.DomUtil.create('label', 'disaggregation-label');
-                            label.innerHTML = (value === '') ? 'All' : value;
+                            label.innerHTML = (value === '') ? translations.indicator.total : value;
                             label.prepend(input);
                             fieldset.append(label);
                             input.addEventListener('change', function(e) {
-                                that.currentDisaggregation = that.getSelectedDisaggregationIndex();
+                                that.currentDisaggregation = that.getSelectedDisaggregationIndex(field, value);
                                 that.updateForm();
                             });
                         }
@@ -5752,11 +6019,14 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
             });
             applyButton.addEventListener('click', function(e) {
                 that.plugin.currentDisaggregation = that.currentDisaggregation;
+                that.plugin.updatePrecision();
                 that.plugin.setColorScale();
                 that.plugin.updateColors();
                 that.plugin.updateTooltips();
                 that.plugin.selectionLegend.resetSwatches();
                 that.plugin.selectionLegend.update();
+                that.plugin.updateTitle();
+                that.plugin.updateFooterFields();
                 that.updateList();
                 $('.disaggregation-form-outer').toggle();
             });
@@ -5776,7 +6046,7 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
                     numUnits = this.allUnits.length,
                     displayForm = this.displayForm;
 
-                if (displayForm && (this.hasDisaggregations || (numSeries > 1 || numUnits > 1))) {
+                if (displayForm && (this.hasDisaggregationsWithMultipleValuesFlag || (numSeries > 1 || numUnits > 1))) {
 
                     var button = L.DomUtil.create('button', 'disaggregation-button');
                     button.innerHTML = translations.indicator.change_breakdowns;
@@ -5864,7 +6134,7 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
             return allDisaggregations;
         },
 
-        getSelectedDisaggregationIndex: function() {
+        getSelectedDisaggregationIndex: function(changedKey, newValue) {
             for (var i = 0; i < this.disaggregations.length; i++) {
                 var disaggregation = this.disaggregations[i],
                     keys = Object.keys(disaggregation),
@@ -5872,8 +6142,9 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
                 for (var j = 0; j < keys.length; j++) {
                     var key = keys[j],
                         inputName = 'map-' + key,
-                        selection = $('input[name="' + inputName + '"]:checked').val();
-                    if (selection !== disaggregation[key]) {
+                        $inputElement = $('input[name="' + inputName + '"]:checked'),
+                        selection = $inputElement.val();
+                    if ($inputElement.length > 0 && selection !== disaggregation[key]) {
                         matchesSelections = false;
                         break;
                     }
@@ -5882,6 +6153,18 @@ if (klaroConfig && klaroConfig.noAutoLoad !== true) {
                     return i;
                 }
             }
+            // If we are still here, it means that a recent change
+            // has resulted in an illegal combination. In this case
+            // we look at the recently-changed key and its value,
+            // and we pick the first disaggregation that matches.
+            for (var i = 0; i < this.disaggregations.length; i++) {
+                var disaggregation = this.disaggregations[i],
+                    keys = Object.keys(disaggregation);
+                if (keys.includes(changedKey) && disaggregation[changedKey] === newValue) {
+                    return i;
+                }
+            }
+            // If we are still here, something went wrong.
             throw('Could not find match');
         },
 
