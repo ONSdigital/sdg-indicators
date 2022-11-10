@@ -134,7 +134,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20221110135345">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20221110150849">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -457,7 +457,7 @@ data-event-label="high"
   data-id="15-2-1"
   data-country="United Kingdom"
   data-charttitle="Progress towards sustainable forest management"
-  data-charttitles="[{&quot;series&quot;:&quot;1) Woodland area net change&quot;,&quot;unit&quot;:&quot;Area (000s hectares)&quot;,&quot;title&quot;:&quot;Woodland area net change (000s hectares)&quot;},{&quot;series&quot;:&quot;1) Woodland area net change&quot;,&quot;unit&quot;:&quot;Growth rate (%)&quot;,&quot;title&quot;:&quot;Woodland area net change (% growth rate)&quot;},{&quot;series&quot;:&quot;2) Above-ground biomass stock&quot;,&quot;title&quot;:&quot;Above-ground biomass stock (Tonnes per hectare)&quot;},{&quot;series&quot;:&quot;3) Percentage of woodland within protected areas&quot;,&quot;title&quot;:&quot;Percentage of woodland within protected areas&quot;},{&quot;series&quot;:&quot;4) Percentage of woodland under long-term management plan&quot;,&quot;title&quot;:&quot;Percentage of woodland under long-term management plan&quot;},{&quot;series&quot;:&quot;5) Woodland area under certification scheme&quot;,&quot;unit&quot;:&quot;Area (000s hectares)&quot;,&quot;title&quot;:&quot;Woodland area under independently verified management scheme (000s hectares)&quot;},{&quot;series&quot;:&quot;5) Woodland area under certification scheme&quot;,&quot;unit&quot;:&quot;Percentage (%)&quot;,&quot;title&quot;:&quot;Percentage of woodland area under independently verified management scheme (%)&quot;}]"
+  data-charttitles="null"
   data-measurementunit="Hectares, Percentage (%), Growth rate (%)"
   data-xaxislabel=""
   data-showdata="true"
@@ -3784,7 +3784,7 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Woodland area net change (000s hectares)</h4>
+          <h4 id="chart-heading" class="chart-title">Progress towards sustainable forest management</h4>
           <div id="chart" class="plot-container">
             <canvas
     role="img"
@@ -4097,7 +4097,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Available disaggregations </th>
         <td>
           
-            <p>The series ‘Woodland area net change’ and ‘Woodland area under independently verified management certification schemes’ are broken down by country.</p>
+            <p>Country breakdown is available for ‘Woodland area net change’ and ‘Woodland area under independently verified management certification schemes’.</p>
 
           
         </td>
@@ -4138,7 +4138,7 @@ data-event-label="Change to Sources tab"
 <p>The land area and forest area measurements used here are ‘flat’ as they do not take into account variations in relief e.g. mountains and valleys.</p>
 <h3>Biomass stock</h3>
 <p>Data for biomass stock are estimated using National Forest Inventory (NFI) estimates of 218 thousand oven dry tonnes for conifers, and 208 thousand oven dry tonnes for broadleaves in Great Britain (GB). It is assumed that the volume of deadwood per hectare is unchanged over time, and that all estimates per hectare for the UK are similar to GB levels. Growing stock estimates have been used to uprate GB biomass figures from the NFI report to UK figures and to derive a time series.</p>
-<p>More information on biomass can be found in the Forestry Commission publication on <a href="https://www.forestresearch.gov.uk/research/biomass-in-live-woodland-trees-in-britain/">Biomass in live woodland trees in Britain</a>.</p>
+<p>More information on biomass can be found in the Forestry Commission publication on <a href="https://www.forestresearch.gov.uk/publications/biomass-in-live-woodland-trees-in-britain/">Biomass in live woodland trees in Britain</a>.</p>
 <h3>Protected areas</h3>
 <p>For Great Britain, the woodland area within legally protected areas has been estimated by overlaying the National Forest Inventory woodland map with maps of designated areas. Geological Sites of Special Scientific Interest have been excluded from this analysis, as the designation in these cases is unlikely to be related to the presence of woodland. A similar analysis was undertaken by the Northern Ireland Forest Service for the Forest Resources Assessment 2015.</p>
 <h3>Long-term management plans</h3>
@@ -4180,7 +4180,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            16 February 2022
+            03 November 2022
           
         </td>
         </tr>
@@ -5468,7 +5468,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20221110135345'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20221110150849'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -5476,7 +5476,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20221110135345"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20221110150849"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
