@@ -134,7 +134,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20221111003308">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20221111100948">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -439,18 +439,16 @@ data-event-label="high"
   
 
   
-
-  
-
-  
-
-<div class="row" id="page-content">
+<div class="row metadata-available-indicator">
   <div class="col-xs-12">
-    <p>We have not yet found any suitable data sources for this indicator.</p>
-<p>If you have any data source suggestions, please <a href="https://sdgdata.gov.uk/contact-us/">contact us</a>.</p>
-
+    <h2>Proportion of the population who are refugees, by country of origin</h2>
   </div>
 </div>
+
+
+  
+
+  
 
 
 
@@ -463,16 +461,16 @@ data-event-label="high"
   id="indicatorData"
   data-indicatorid='indicator_10-7-4'
   data-id="10-7-4"
-  data-country="UK"
-  data-charttitle="Proportion of the population who are refugees, by country of origin"
+  data-country="United Kingdom"
+  data-charttitle="Proportion of UK nationals who are refugees abroad per 100,000 UK population"
   data-charttitles="null"
-  data-measurementunit=""
+  data-measurementunit="Number of refugees per 100,000 population"
   data-xaxislabel=""
-  data-showdata="false"
+  data-showdata="true"
   data-graphtype="line"
   data-graphtypes="null"
   data-geocoderegex=""
-  data-showmap=""
+  data-showmap="false"
   data-startvalues="null"
   data-graphlimits="null"
   data-stackeddisaggregation=""
@@ -480,12 +478,976 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Number of refugees per 100,000 population&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
   
-  <div id="indicator-main" class="indicator-main col-md-12">
+  <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
+  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
+    <div id="serieses"></div>
+<div id="units"></div>
+<div id="toolbar">
+  <span id="series-help">
+    <h4>Sub-categories</h4>
+    <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+  </span>
+  <div id="fields">
+    <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+  </div>
+</div>
+
+  </div>
+  <div id="indicator-main" class="indicator-main col-md-9">
+    
+
+
+
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    
+    <a href="https://ONSdigital.github.io/sdg-data/en/headline/10-7-4.csv" class="btn btn-primary btn-download" download="indicator_10-7-4.csv" tabindex="0" role="button">Download headline data (.csv)</a>
+    
+    <a href="https://ONSdigital.github.io/sdg-data/en/data/10-7-4.csv" class="btn btn-primary btn-download" download='indicator_10-7-4.csv' tabindex='0' role='button'>Download source data (.csv)</a>
+
+    <p class="no-js-disaggregation-hint">Download source data for disaggregations (.csv)</p>
+
+    
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>Proportion of UK nationals who are refugees abroad per 100,000 UK population</caption>
+      <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col">Value</th>
+        
+        
+        
+        <th scope="col">Units</th>
+        
+        
+        
+        <th scope="col">Observation status</th>
+        
+        
+        
+        <th scope="col" class="table-value">Unit multiplier</th>
+        
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          
+          <td>1994</td>
+          
+          
+          
+          <td>0.183193845</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1995</td>
+          
+          
+          
+          <td>0.1292549101</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1996</td>
+          
+          
+          
+          <td>0.1186291239</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1997</td>
+          
+          
+          
+          <td>0.1286134484</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1998</td>
+          
+          
+          
+          <td>0.150491694</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1999</td>
+          
+          
+          
+          <td>0.1738107959</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2000</td>
+          
+          
+          
+          <td>0.1851027632</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2001</td>
+          
+          
+          
+          <td>0.1759338705</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2002</td>
+          
+          
+          
+          <td>0.2661463449</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2003</td>
+          
+          
+          
+          <td>0.244815249</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2004</td>
+          
+          
+          
+          <td>0.2351940155</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2005</td>
+          
+          
+          
+          <td>0.2218050595</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2006</td>
+          
+          
+          
+          <td>0.279480522</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2007</td>
+          
+          
+          
+          <td>0.3229001101</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2008</td>
+          
+          
+          
+          <td>0.294384277</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2009</td>
+          
+          
+          
+          <td>0.2489534279</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>0.242193992</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>0.2370218864</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>0.2354596596</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>0.2183889962</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>0.2120845169</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>0.1965898964</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>0.1188152619</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>0.1287092608</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>0.1264381702</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>0.1032982441</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>0.0939158943</td>
+          
+          
+          
+          <td>Number of refugees per 100,000 population</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+      </tbody>
+    </table>
+    
+  </div>
+
+  
+  <div id="datatableFooter">
+    
+    <p>Source: United Nations Human Rights Council (UNHRC)</p>
+    
+    
+    <p>Geographical Area: United Kingdom</p>
+    
+    
+    <p>Unit of Measurement: Number of refugees per 100,000 population</p>
+    
+    
+    <p>Footnote: 1) Mid-year population estimates are used. 2) Refugee figures include those in refugee-like situations.</p>
+    
+  </div>
+  
+
+</div>
+
+
+<section>
+
+  <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+
+  <div class="async-loaded mt-4" style="display:none;">
+
+    <div style="display: none;">
+    <span id="table-alternative">For tabular data alternative see Table tab.</span>
+  </div>
+  <ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
+    
+    <li role="presentation"
+      class="
+        nav-item
+        
+        
+      ">
+      <button
+        class="nav-link active"
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-chartview"
+          data-bs-target="#chartview"
+          aria-controls="chartview"
+          aria-describedby="table-alternative"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+
+        
+      >Chart</button>
+    </li>
+    
+    <li role="presentation"
+      class="
+        nav-item
+        
+        
+      ">
+      <button
+        class="nav-link "
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-tableview"
+          data-bs-target="#tableview"
+          aria-controls="tableview"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+
+        
+      >Table</button>
+    </li>
+    
+  </ul>
+  
+    <div class="tab-content data-view">
+    
+      
+        <div role="tabpanel" class="tab-pane active" id="chartview">
+          
+
+    <div id="dataset-size-warning" style="display:none" role="alert">
+      <i class="fa fa-bolt"><span class="sr-only">Warning:</span></i>
+      There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+    </div>
+
+    
+    <div id="selectionsChart">
+      <figure role="group">
+        <div id="chart-canvas">
+          <h4 id="chart-heading" class="chart-title">Proportion of UK nationals who are refugees abroad per 100,000 UK population</h4>
+          <div id="chart" class="plot-container">
+            <canvas
+    role="img"
+    aria-labelledby="chart-heading"
+    aria-describedby="table-alternative chart-annotations"
+    tabindex="0"
+ ></canvas>
+
+          </div>
+          <div id="plotLegend"></div>
+          
+
+
+
+<div id="selectionChartFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>United Nations Human Rights Council (UNHRC), Office for National Statistics (ONS)</dd>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>United Kingdom</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+        <dt>Footnote:</dt>
+        <dd>1) Mid-year population estimates are used. 2) Refugee figures include those in refugee-like situations.</dd>
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
+</div>
+
+        </div>
+      </figure>
+      <div id="chartSelectionDownload" class="clearfix">
+        <button
+          id="btnSave"
+          title="Download chart image as PNG"
+          aria-label="Download chart image as PNG"
+          class='btn btn-primary btn-download'>
+          Download chart image (.png)
+        </button><!--
+   --></div>
+    </div>
+
+
+
+        </div>
+      
+    
+      
+        <div role="tabpanel" class="tab-pane " id="tableview">
+          <div style="display: none;">
+            <span id="column-sort-info">Click to sort by this column</span>
+          </div>
+          <div id="selectionsTable"></div>
+<dl id="tableTargetLines" class="clearfix"></dl>
+
+
+
+
+<div id="selectionTableFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>United Nations Human Rights Council (UNHRC), Office for National Statistics (ONS)</dd>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>United Kingdom</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+        <dt>Footnote:</dt>
+        <dd>1) Mid-year population estimates are used. 2) Refugee figures include those in refugee-like situations.</dd>
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
+</div>
+
+<div id="tableSelectionDownload" class="clearfix"></div>
+
+        </div>
+      
+    
+  </div>
+  
+
+  </div>
+
+</section>
+
   
   <div class="mt-4">
 <ul class="nav nav-tabs" role="tablist">
@@ -552,19 +1514,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Indicator available </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Proportion of the population who are refugees, by country of origin</p>
 
           
         </td>
@@ -574,20 +1529,13 @@ data-event-label="Change to Sources tab"
   
       
       
-      
-        
-          
-          
-          
-          
-        
       
       
       <tr>
         <th scope="row">Indicator description </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>This indicator measures the proportion of UK nationals who are refugees abroad per 100,000 UK population and not the number of refugees residing within the UK.</p>
 
           
         </td>
@@ -597,20 +1545,13 @@ data-event-label="Change to Sources tab"
   
       
       
-      
-        
-          
-          
-          
-          
-        
       
       
       <tr>
         <th scope="row">Geographical coverage </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>United Kingdom</p>
 
           
         </td>
@@ -620,20 +1561,13 @@ data-event-label="Change to Sources tab"
   
       
       
-      
-        
-          
-          
-          
-          
-        
       
       
       <tr>
         <th scope="row">Unit of measurement </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Number of refugees per 100,000 population</p>
 
           
         </td>
@@ -644,19 +1578,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Definitions </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Refugee – persons who have fled a country due conflict, war, violence or persecution to find safety in another country. UNHCR also define those in a refugee-like situations as a refugee within their data. These are people residing outside their country of origin, facing protection risks similar to refugees but for various reasons refugee status has yet to be  ascertained. For further information on UNHCR refugee definition see <a href="https://www.unhcr.org/refugee-statistics/methodology/definition/">Refugee Methodology</a>.</p>
 
           
         </td>
@@ -690,19 +1617,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Calculations </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Per 100,000 population = (number of UK refugees/UK mid-year population + number of UK refugees abroad) * 100,000</p>
 
           
         </td>
@@ -712,20 +1632,15 @@ data-event-label="Change to Sources tab"
   
       
       
-      
-        
-          
-          
-          
-          
-        
       
       
       <tr>
         <th scope="row">Other information </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>For further information on UNHCR methodology such as data collection methods and definitions see <a href="https://www.unhcr.org/refugee-statistics/methodology/definition/">Refugee Statistics Methodology</a>.</p>
+<p> Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.
+</p>
 
           
         </td>
@@ -736,20 +1651,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Data last updated </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
-
+            03 November 2022
           
         </td>
         </tr>
@@ -764,7 +1671,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            22 November 2021
+            03 November 2022
           
         </td>
         </tr>
@@ -1163,6 +2070,642 @@ data-event-label="Change to Sources tab"
 
 
 
+  <div class="row">
+  
+    
+    
+    <div class="col-md-6">
+      
+        <h4>Source 1</h4>
+      
+      <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>United Nations Human Rights Council (UNHRC)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Biannual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>1994</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>United Kingdom</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+            
+              <a href="https://www.unhcr.org/refugee-statistics/download/?url=5G7Uz6" target="_blank">
+                UNHCR Refugee Data Finder <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            01 June 2022
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>01/12/2022</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>Official International</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>gbrlo@unhcr.org</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            <p>Select country of origin as ‘United Kingdom of Great Britain and Northern Ireland’.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+    </div>
+    
+    
+    
+    <div class="col-md-6">
+      
+        <h4>Source 2</h4>
+      
+      <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>Office for National Statistics (ONS)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Annual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>1991</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>United Kingdom</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+            
+              <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland" target="_blank">
+                Estimates of the population for the UK, England and Wales (ONS) <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            25 June 2021
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>November 2022</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>National Statistic</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>pop.info@ons.gov.uk</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            <p>See ‘Mid-2020 edition of this dataset’ and ‘Mid-1991 to Mid-2000 edition of this dataset’</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+    </div>
+    
+  </div>
+
 
 </div>
     
@@ -1407,7 +2950,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20221111003308'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20221111100948'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -1415,7 +2958,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20221111003308"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20221111100948"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
