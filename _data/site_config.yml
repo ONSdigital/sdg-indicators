@@ -428,14 +428,23 @@ map_options:
   maxZoom: 10
   tileURL: 'https://{s}.tile.jawg.io/{id}/{z}/{x}/{y}{r}.png?access-token={accessToken}'
   tileOptions:
-    id: jawg-light
-    accessToken: lCtbMZiG4tbVWl7uq9EEch1yphnuLx9JyZL2qZwoQJ26wAu73oK1NkU4K50AALkp
+    id: ed56748f-29f9-465e-9269-c715674ee5ff
+    accessToken: yrcGMvxCkRD6zZBF4x3mnAT3OGQJstAj7JvG1iy1UjEdy6JFeDfnzKvXrTK07CxF
     attribution: >-
-      <a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps"
+      <a href="http://jawg.io" title="Provider of map tiles"
       target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a
-      href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>
-      contributors | <a href="http://geoportal.statistics.gov.uk/">ONS</a>
-  colorRange: chroma.brewer.BuGn
+      href="https://www.openstreetmap.org/copyright" title="Provider of map visual data copywrite information">OpenStreetMap</a>
+      contributors | <a href="http://geoportal.statistics.gov.uk/" title="The Open Geography portal from the Office for National Statistics">ONS</a>
+  colorRange: 
+    -  '#c4e1c6'
+    -  '#b0d1b3'
+    -  '#9bc2a1'
+    -  '#87b28f'
+    -  '#74a37c'
+    -  '#60946b'
+    -  '#4d8559'
+    -  '#3a7747'
+    -  '#276836'
   noValueColor: '#f0f0f0'
   styleNormal:
     weight: 1
@@ -493,15 +502,18 @@ reporting_status:
     mean?](https://onsdigital.github.io/sdg-indicators/faq/#what-does-the-reporting-status-mean)
 
 
+
     Disaggregation status provides an overview of how many of the SDG indicators
     are disaggregated. For more information, see [What does the disaggregation
     status
     mean?](https://onsdigital.github.io/sdg-indicators/faq/#what-does-the-disaggregation-status-mean)
 
 
+
     For details about all available disaggregations and how each indicator is
     disaggregated, see the [UK disaggregation
     report](https://onsdigital.github.io/sdg-data/disaggregations.html).
+
 
 
     Note: These percentages have been rounded. As a result, adding them together
@@ -512,7 +524,7 @@ reporting_status:
       label: status.reported
       hide_on_goal_pages: false
     - value: notstarted
-      label: status.exploring_data_sources
+      label: status.no_data_available
       hide_on_goal_pages: false
 repository_url_data: 'https://github.com/ONSdigital/sdg-data'
 repository_url_site: 'https://github.com/ONSdigital/sdg-indicators'
@@ -534,3 +546,4 @@ time_series_attributes:
 validate_indicator_config: false
 validate_site_config: false
 x_axis_label: ''
+

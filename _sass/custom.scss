@@ -1,4 +1,57 @@
 // Enter any custom Sass in this file.
+
+.layout-frontpage .emergency-banner {
+    border-bottom: 5px solid #fff;
+    border-top: 5px solid #fff;
+    margin-bottom: -10px;
+    margin-top: 0;
+    position: relative;
+    z-index: 10;
+}
+
+.emergency-banner {
+    color: #fff;
+}
+
+.emergency-banner__heading {
+    font-weight: 700;
+}
+
+.emergency-banner--notable-death {
+    background-color: #0b0c0c;
+}
+
+.layout-frontpage .emergency-banner__description {
+    margin: 20px 0;
+}
+
+.emergency-banner__link.govuk-link:link, .emergency-banner__link.govuk-link:visited {
+    color: #fff;
+}
+
+@media (min-width: 40.0625em) {
+  .emergency-banner {
+    padding: 30px 0;
+  }
+  .layout-frontpage .emergency-banner__heading {
+    margin-bottom: 20px;
+    font-size: 48px;
+    font-size: 3rem;
+    line-height: 1.0416666667;
+  }
+  .emergency-banner {
+    font-size: 19px;
+    font-size: 1.1875rem;
+    line-height: 1.3157894737;
+  }
+  .emergency-banner__link {
+    font-size: 19px;
+    font-size: 1.1875rem;
+    line-height: 1.3157894737;
+  }
+}
+
+
 .site-intro {
     margin-top: 20px;
     .description{
@@ -61,7 +114,7 @@
     display: block;
     width: 220px;
     float: unset;
-    margin-top: 10px;  
+    margin-top: 10px;
   }
 
   &:hover, &:active {
@@ -70,7 +123,7 @@
   &:focus {
     background: #fd0 !important;
     color: #0b0c0c !important;
-  }  
+  }
 }
 
 .layout-frontpage-alt .btn-takepart {
@@ -79,7 +132,7 @@
     width: 220px;
     float: unset;
     margin-top: 10px;
-  }      
+  }
 }
 
 .ten {
@@ -92,6 +145,9 @@
   width: 45%;
 }
 
+.govuk-fieldset__legend--l.cookie-form-legend {
+  font-size: 16px;
+}
 
 .blank {
   background-colour: #ffffff
@@ -113,6 +169,28 @@
   margin-left: 30px;
 }
 
+#toc {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 30px;
+  li {
+    position: relative;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 7.5px;
+    &::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      width: 20px;
+      overflow: hidden;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
 body.contrast-high {
   .fa-exclamation-circle {
     color: white;
@@ -130,3 +208,42 @@ body.contrast-high {
    }
 }
 
+.persona-list {
+  list-style-type: none;
+  padding: 0;
+  li {
+    display: flex;
+    .up-column {
+      padding: 10px;
+      border: 1px solid;
+      text-align: center;
+      margin: 5px;
+      display: flex;
+      flex-direction: column;
+      h3 {
+        font-size: 16px;
+        font-weight: 700;
+        margin-top: 5px;
+      }
+      .persona-quote {
+        margin-bottom: 75px;
+      }
+      .persona-motivation {
+        align-self: flex-end;
+        margin-top: auto;
+      }
+    }
+  }
+}
+.up-image {
+  width: 100%;
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .up-image {
+    display: block;
+  }
+  .up-text {
+    display: none;
+  }
+}

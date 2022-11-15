@@ -34,89 +34,45 @@ Alternatively, if you have specific feedback about this website, please complete
 
 ## User personas
 
-User personas are descriptions of typical users which represent people who’ll use your service. 
+User personas are descriptions of typical users which represent people who’ll use your service.
 
 We identified four main user personas:
 
-<style>
-
-.persona-span {
-    position: absolute;
-    margin: 4px 4px;
-    left: 0px;
-    bottom: 0px;
-    padding: 5px
-}
-
-
-* {
-  box-sizing: border-box;
-}
-
-/* Create three equal columns that floats next to each other */
-.up-column {
-  min-height: 270px;
-  padding: 10px;
-  border:1px solid;
-  text-align: center;
-  margin: 5px
-}
-
-.up-column h3 {
-  font-size: 16px;
-  font-weight: 700;
-  margin-top: 5px;
-}
-
-.up-image {
-  width: 100%;
-}
-
-.up-text {
-  display: none;
-}
-
-@media only screen and (max-width: 768px) {
-  .up-column {
-  min-height: 320px;
-  }
-  .up-image {
-    display: none;
-  }
-  .up-text {
-    display: inline;
-  }
-}
-
-.persona-list li {
-  position: relative;
-}
-
-
-</style>
-
-<div>
-<ol style="list-style-type:none;" class="row g-0 no-gutters persona-list">
+<ol class="row g-0 no-gutters persona-list">
   <li class="col-6 col-xs-6 col-sm-3 col-md-3">
-      <div class="up-column"><h3>Concerned Citizen</h3><p>“Tell me what the goals are and what is being done about them”</p><span class="persona-span">They use the website out of personal interest</span></div>
+    <div class="up-column">
+      <h3>Concerned Citizen</h3>
+      <p class="persona-quote">“Tell me what the goals are and what is being done about them”</p>
+      <p class="persona-motivation">They use the website out of personal interest</p>
+    </div>
   </li>
   <li class="col-6 col-xs-6 col-sm-3 col-md-3">
-      <div class="up-column"><h3>Connected Influencer</h3><p>“Give me a tool that will support my ambitions and give me a louder voice”</p><span class="persona-span">They use the website as it adds credibility to what they are doing</span></div>
+    <div class="up-column">
+      <h3>Connected Influencer</h3>
+      <p class="persona-quote">“Give me a tool that will support my ambitions and give me a louder voice”</p>
+      <p class="persona-motivation">They use the website as it adds credibility to what they are doing</p>
+    </div>
   </li>
   <li class="col-6 col-xs-6 col-sm-3 col-md-3">
-      <div class="up-column"><h3>Fact Gatherer</h3><p>“I just need to quickly see what progress is being made and check the facts”</p><span class="persona-span">They use the website because they need to check something</span></div>
+    <div class="up-column">
+      <h3>Fact Gatherer</h3>
+      <p class="persona-quote">“I just need to quickly see what progress is being made and check the facts”</p>
+      <p class="persona-motivation">They use the website because they need to check something</p>
+    </div>
   </li>
   <li class="col-6 col-xs-6 col-sm-3 col-md-3">
-      <div class="up-column"><h3>Involved Analyst</h3><p>“I just want the data so I can do my own thing with it”</p><span class="persona-span">They use the website because they need to analyse the data</span></div>
+    <div class="up-column">
+      <h3>Involved Analyst</h3>
+      <p class="persona-quote">“I just want the data so I can do my own thing with it”</p>
+      <p class="persona-motivation">They use the website because they need to analyse the data</p>
+    </div>
   </li>
 </ol>
-
-<img class="row no-gutters up-image" src="{{ site.baseurl }}/assets/img/userpersonas-arrow.svg" alt="Diagram of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst.">
-    <p class="up-text">The different user personas need different types of data on a scale from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst.</p>
-
-</div>
-
-
+<img class="row g-0 no-gutters up-image" src="{{ site.baseurl }}/assets/img/userpersonas-arrow.png" alt="Diagram of user personas on scale of data type needed from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst.">
+<p style="font-size: 22px;">Visual data
+  <span style="float: right;">Raw data</span>
+</p>
+<p class="up-text">The different user personas need different types of data on a scale from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst.</p>
 
 ## Concerned citizen
 ### Who they are
@@ -145,7 +101,7 @@ Concerned citizens might arrive to the site from other public facing websites an
 * explain the SDGs in simple terms
 * give simple-to-understand context of what the goals mean
 * give them an overall view of UK performance against targets
-* explain what is being to meet the targets
+* explain what is being done to meet the targets
 * use visualisations to explain everything
 
 ### We must not:
@@ -184,7 +140,7 @@ They have a good knowledge of the SDGs and use the SDGs to champion the themes t
 
 * provide alternate routes into data so that their users can understand
 * provide guidance on indicators that relate to the themes they work in
-* ensure commentary and analysis is easy to find
+* ensure commentary and analysis are easy to find
 * show relationships between different indicators
 * show UK progress early in the journey
 
@@ -223,12 +179,12 @@ They come to the website quite often  and may copy data for use in reports, whic
 * provide bite-sized summaries to brief them on progress
 * provide them with links to the physical source data
 * show them targets early in the journey
-* provide them with a quick view of what data has been collected, jot collected and reasons why data was chosen or not collected
+* provide them with a quick view of what data has been collected, not collected and reasons why data was chosen or not collected
 
 ### We must not:
 
 * expect them to find the source data with a generic link
-* populate the website with out-of-date website
+* populate the website with out-of-date information
 * hide facts and figures under complex levels of navigation
 
 
@@ -241,7 +197,7 @@ Involved analysts can be a range of different people, who usually work with inte
 * Users creating detailed reports as part of commissioned project work
 * Academia working in funded projects
 * Students researching set topics
-* Custodian ageny analysts
+* Custodian agency analysts
 
 ### Likely to say
 "I just want the data so I can do my own thing with it."
@@ -263,7 +219,7 @@ They will often collaborate with others to produce analysis to inform or challen
 
 ### We must:
 
-* give them advanced routes in to the data from the outset
+* give them advanced routes into the data from the outset
 * show them the targets
 * show relationships between different indicators
 * give them methodology behind the data
@@ -273,7 +229,7 @@ They will often collaborate with others to produce analysis to inform or challen
 
 * put lots of commentary and top-level visualisations in their way
 * make it hard to get lots of data
-* expect them to navigate each indicator to geth the data they need
+* expect them to navigate each indicator to get the data they need
 * expect them to understand the difference between data on the UK NRP and the UN global database
 
 
