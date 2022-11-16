@@ -2689,12 +2689,17 @@ body.contrast-high.layout-search form input, body.contrast-high.layout-search fo
   float: right;
   margin-top: -7px;
   margin-right: -9px;
-  box-shadow: 0 2px 0 #580829;
-  display: none; }
+  box-shadow: 0 2px 0 #580829; }
   @media only screen and (min-width: 992px) {
     .btn-takepart {
       display: inline-block; } }
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
+  @media only screen and (min-width: 768px) and (max-width: 1199px) {
+    .btn-takepart {
+      display: block;
+      width: 220px;
+      float: unset;
+      margin-top: 10px; } }
+  @media only screen and (min-width: 1px) and (max-width: 767px) {
     .btn-takepart {
       display: block;
       width: 220px;
@@ -2705,13 +2710,6 @@ body.contrast-high.layout-search form input, body.contrast-high.layout-search fo
   .btn-takepart:focus {
     background: #fd0 !important;
     color: #0b0c0c !important; }
-
-@media only screen and (max-width: 768px) {
-  .layout-frontpage-alt .btn-takepart {
-    display: block;
-    width: 220px;
-    float: unset;
-    margin-top: 10px; } }
 
 .ten {
   width: 10%; }
