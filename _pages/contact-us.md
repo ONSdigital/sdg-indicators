@@ -5,7 +5,7 @@ layout: page
 ---
 
 ## Feedback
-To provide specific feedback about this website, please complete our [feedback survey]({{ site.baseurl }}/take-part)
+To provide specific feedback about this website, please complete our [feedback survey](https://www.surveymonkey.co.uk/r/8DBHWCF)
 
 ## Email
 [sustainabledevelopment@ons.gov.uk](mailto:sustainabledevelopment@ons.gov.uk)
