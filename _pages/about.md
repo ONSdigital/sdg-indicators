@@ -2,6 +2,10 @@
 title: About
 permalink: /about/
 layout: page
+meta_tags:
+  - path: about
+    name: description
+    content: my description content
 ---
 The [Sustainable Development Goals](https://sdgs.un.org/goals) (SDGs) are a universal call to action to:
 
