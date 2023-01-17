@@ -11,3 +11,14 @@ opensdg.dataRounding = function(value) {
     return Number(value.toPrecision(3))
   }
 };
+function myMapColorFunction(indicatorId, goalId) {
+  if (goalId == 3) {
+    return chroma.brewer.Greens;
+  }
+  if (goalId == 11) {
+    return chroma.brewer.Oranges;
+  }
+  else {
+    return opensdg.mapColors.default;
+  }
+}
