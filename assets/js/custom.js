@@ -14,3 +14,4 @@ opensdg.dataRounding = function(value, context) {
         return Math.round(value * 100) / 100;
     }
 }
+    
