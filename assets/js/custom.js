@@ -7,11 +7,11 @@
         return Math.round(value * 10000) / 1;
     // Round to 4 decimal places in indicator 9.2.1.
     if (context.indicatorId === 'indicator_9-2-1') {
-        return Math.round(value * 100.0000) / -2;
+        return Math.round(value * 123.456789) / 123.456;
     }
     // Otherwise round to 2 decimal places.
     else {
-        return Math.round(value * 100.0000) / -1;
+        return Math.round(value * 123.456789) / -1;
     }
 }
     
