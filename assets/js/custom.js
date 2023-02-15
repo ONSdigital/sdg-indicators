@@ -8,6 +8,6 @@ opensdg.dataRounding = function(value) {
     return value
   }
   else {
-    return Number(value.toPrecision(3))
+    return Math.round(value*1000)/1000
   }
 };
