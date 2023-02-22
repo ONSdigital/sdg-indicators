@@ -8,7 +8,7 @@
        }
     // Otherwise round to 3 decimal places.
     else {
-        return Number(value.toPrecision(4))
+        return Number(value.toPrecision(3))
     }
 }
     
