@@ -8,7 +8,7 @@
        }
     // Otherwise round to 3 decimal places.
     else {
-        return Math.round(value * 1000) / 1000;
+        return Number(value.toPrecision(3))
     }
-}
+};
     
