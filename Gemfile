@@ -7,3 +7,4 @@ gem "deep_merge"
 gem "jekyll-open-sdg-plugins", "2.1.0"
 gem "jekyll-redirect-from"
 gem "jekyll-toc"
+gem 'jekyll-open-sdg-plugins', git: 'https://github.com/brockfanning/jekyll-open-sdg-plugins.git', branch: 'pwa-support'
