@@ -6,7 +6,7 @@
     if (context.indicatorId === 'indicator_5-3-2') {
         return Number(value.toPrecision(4))
        }
-    // Otherwise round to 3 decimal places.
+    // Otherwise round to 3 SF.
     else {
         return Number(value.toPrecision(3))
     }
