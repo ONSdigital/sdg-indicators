@@ -134,7 +134,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230222103441">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230222105120">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -439,6 +439,12 @@ data-event-label="high"
   
 
   
+<div class="row metadata-available-indicator">
+  <div class="col-xs-12">
+    <h2>Installed capacity of sites generating electricity from renewable sources</h2>
+  </div>
+</div>
+
 
   
 
@@ -468,7 +474,7 @@ data-event-label="high"
   data-graphtype="line"
   data-graphtypes="null"
   data-geocoderegex=""
-  data-showmap=""
+  data-showmap="true"
   data-startvalues="null"
   data-graphlimits="null"
   data-stackeddisaggregation=""
@@ -476,7 +482,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;England&quot;,&quot;Northern Ireland&quot;,&quot;Scotland&quot;,&quot;Wales&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;East Midlands&quot;,&quot;East of England&quot;,&quot;North East&quot;,&quot;North West&quot;,&quot;London&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;West Midlands&quot;,&quot;Yorkshire and The Humber&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Renewable Source&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Hydro&quot;,&quot;Landfill gas&quot;,&quot;Other bioenergy&quot;,&quot;Sewage gas&quot;,&quot;Solar PV&quot;,&quot;Wave and tidal&quot;,&quot;Wind&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Renewable Source&quot;},{&quot;name&quot;:&quot;Wind&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Onshore Wind&quot;,&quot;Offshore Wind&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Wind&quot;},{&quot;name&quot;:&quot;Bioenergy&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;AD&quot;,&quot;Biomass and waste&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Bioenergy&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;number&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Installed capacity of sites generating electricity from renewable sources&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;England&quot;,&quot;Northern Ireland&quot;,&quot;Scotland&quot;,&quot;Wales&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;North East&quot;,&quot;North West&quot;,&quot;Yorkshire and The Humber&quot;,&quot;East Midlands&quot;,&quot;West Midlands&quot;,&quot;East of England&quot;,&quot;London&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Renewable source&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Hydro&quot;,&quot;Landfill gas&quot;,&quot;Sewage gas&quot;,&quot;Solar PV&quot;,&quot;Wave and tidal&quot;,&quot;Wind&quot;,&quot;Other bioenergy&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Renewable source&quot;},{&quot;name&quot;:&quot;Wind&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Offshore Wind&quot;,&quot;Onshore Wind&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Wind&quot;},{&quot;name&quot;:&quot;Bioenergy&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Anaerobic Digestion (AD)&quot;,&quot;Biomass and waste&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Bioenergy&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Watts per capita&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -532,6 +538,10 @@ data-event-label="high"
         
         
         
+        <th scope="col">Series</th>
+        
+        
+        
         <th scope="col">GeoCode</th>
         
         
@@ -553,7 +563,15 @@ data-event-label="high"
           
           
           
-          <td>110.586931</td>
+          <td>110.5869309772</td>
+          
+          
+          
+          <td>Watts per capita</td>
+          
+          
+          
+          <td>Installed capacity of sites generating electricity from renewable sources</td>
           
           
           
@@ -561,15 +579,11 @@ data-event-label="high"
           
           
           
-          <td></td>
+          <td>Normal value</td>
           
           
           
-          <td></td>
-          
-          
-          
-          <td class="table-value"></td>
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -581,7 +595,15 @@ data-event-label="high"
           
           
           
-          <td>128.5596965</td>
+          <td>128.5596965452</td>
+          
+          
+          
+          <td>Watts per capita</td>
+          
+          
+          
+          <td>Installed capacity of sites generating electricity from renewable sources</td>
           
           
           
@@ -589,15 +611,11 @@ data-event-label="high"
           
           
           
-          <td></td>
+          <td>Normal value</td>
           
           
           
-          <td></td>
-          
-          
-          
-          <td class="table-value"></td>
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -609,7 +627,15 @@ data-event-label="high"
           
           
           
-          <td>147.4817679</td>
+          <td>147.4817679474</td>
+          
+          
+          
+          <td>Watts per capita</td>
+          
+          
+          
+          <td>Installed capacity of sites generating electricity from renewable sources</td>
           
           
           
@@ -617,15 +643,11 @@ data-event-label="high"
           
           
           
-          <td></td>
+          <td>Normal value</td>
           
           
           
-          <td></td>
-          
-          
-          
-          <td class="table-value"></td>
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -637,7 +659,15 @@ data-event-label="high"
           
           
           
-          <td>195.642294</td>
+          <td>195.6422939925</td>
+          
+          
+          
+          <td>Watts per capita</td>
+          
+          
+          
+          <td>Installed capacity of sites generating electricity from renewable sources</td>
           
           
           
@@ -645,15 +675,11 @@ data-event-label="high"
           
           
           
-          <td></td>
+          <td>Normal value</td>
           
           
           
-          <td></td>
-          
-          
-          
-          <td class="table-value"></td>
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -665,7 +691,15 @@ data-event-label="high"
           
           
           
-          <td>245.6414034</td>
+          <td>245.6414033958</td>
+          
+          
+          
+          <td>Watts per capita</td>
+          
+          
+          
+          <td>Installed capacity of sites generating electricity from renewable sources</td>
           
           
           
@@ -673,15 +707,11 @@ data-event-label="high"
           
           
           
-          <td></td>
+          <td>Normal value</td>
           
           
           
-          <td></td>
-          
-          
-          
-          <td class="table-value"></td>
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -693,7 +723,15 @@ data-event-label="high"
           
           
           
-          <td>311.3746715</td>
+          <td>311.374671538</td>
+          
+          
+          
+          <td>Watts per capita</td>
+          
+          
+          
+          <td>Installed capacity of sites generating electricity from renewable sources</td>
           
           
           
@@ -701,15 +739,11 @@ data-event-label="high"
           
           
           
-          <td></td>
+          <td>Normal value</td>
           
           
           
-          <td></td>
-          
-          
-          
-          <td class="table-value"></td>
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -721,7 +755,15 @@ data-event-label="high"
           
           
           
-          <td>385.7707972</td>
+          <td>385.7707972364</td>
+          
+          
+          
+          <td>Watts per capita</td>
+          
+          
+          
+          <td>Installed capacity of sites generating electricity from renewable sources</td>
           
           
           
@@ -729,15 +771,11 @@ data-event-label="high"
           
           
           
-          <td></td>
+          <td>Normal value</td>
           
           
           
-          <td></td>
-          
-          
-          
-          <td class="table-value"></td>
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -749,7 +787,15 @@ data-event-label="high"
           
           
           
-          <td>475.5897409</td>
+          <td>475.5897409081</td>
+          
+          
+          
+          <td>Watts per capita</td>
+          
+          
+          
+          <td>Installed capacity of sites generating electricity from renewable sources</td>
           
           
           
@@ -757,15 +803,11 @@ data-event-label="high"
           
           
           
-          <td></td>
+          <td>Normal value</td>
           
           
           
-          <td></td>
-          
-          
-          
-          <td class="table-value"></td>
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -777,7 +819,15 @@ data-event-label="high"
           
           
           
-          <td>543.0586171</td>
+          <td>543.0586170679</td>
+          
+          
+          
+          <td>Watts per capita</td>
+          
+          
+          
+          <td>Installed capacity of sites generating electricity from renewable sources</td>
           
           
           
@@ -785,15 +835,11 @@ data-event-label="high"
           
           
           
-          <td></td>
+          <td>Normal value</td>
           
           
           
-          <td></td>
-          
-          
-          
-          <td class="table-value"></td>
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -805,7 +851,15 @@ data-event-label="high"
           
           
           
-          <td>610.1213418</td>
+          <td>610.1213418441</td>
+          
+          
+          
+          <td>Watts per capita</td>
+          
+          
+          
+          <td>Installed capacity of sites generating electricity from renewable sources</td>
           
           
           
@@ -813,15 +867,11 @@ data-event-label="high"
           
           
           
-          <td></td>
+          <td>Normal value</td>
           
           
           
-          <td></td>
-          
-          
-          
-          <td class="table-value"></td>
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -833,7 +883,15 @@ data-event-label="high"
           
           
           
-          <td>666.78871</td>
+          <td>664.233401589</td>
+          
+          
+          
+          <td>Watts per capita</td>
+          
+          
+          
+          <td>Installed capacity of sites generating electricity from renewable sources</td>
           
           
           
@@ -841,15 +899,11 @@ data-event-label="high"
           
           
           
-          <td></td>
+          <td>Normal value</td>
           
           
           
-          <td></td>
-          
-          
-          
-          <td class="table-value"></td>
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -861,7 +915,15 @@ data-event-label="high"
           
           
           
-          <td>706.063231</td>
+          <td>703.1960307956</td>
+          
+          
+          
+          <td>Watts per capita</td>
+          
+          
+          
+          <td>Installed capacity of sites generating electricity from renewable sources</td>
           
           
           
@@ -869,7 +931,31 @@ data-event-label="high"
           
           
           
-          <td></td>
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>714.3236959657</td>
+          
+          
+          
+          <td>Watts per capita</td>
+          
+          
+          
+          <td>Installed capacity of sites generating electricity from renewable sources</td>
           
           
           
@@ -877,7 +963,43 @@ data-event-label="high"
           
           
           
-          <td class="table-value"></td>
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>741.5339416392</td>
+          
+          
+          
+          <td>Watts per capita</td>
+          
+          
+          
+          <td>Installed capacity of sites generating electricity from renewable sources</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -890,7 +1012,7 @@ data-event-label="high"
   
   <div id="datatableFooter">
     
-    <p>Source: Department for Business, Energy and Industrial Strategy</p>
+    <p>Source: Department for Business, Energy & Industrial Strategey</p>
     
     
     <p>Geographical Area: United Kingdom</p>
@@ -899,7 +1021,7 @@ data-event-label="high"
     <p>Unit of Measurement: Watts per capita</p>
     
     
-    <p>Footnote: 1. Information for energy capacity as at 31 December. 2. Data for population are mid year estimates. 3. Data for offshore wind are allocated to the Region/Country that the cables come ashore 4. Data showing 0 are less than 50 GW capacity in the Region/Country.</p>
+    <p>Footnote: <p> 1. Information for energy capacity as at 31 December </p> <p> 2. Data for population are mid year estimates </p> <p> 3. Data for offshore wind are allocated to the Region/Country that the cables come ashore </p> <p> 4. Data showing 0 are less than 50 GW capacity in the Region/Country </p></p>
     
   </div>
   
@@ -967,6 +1089,31 @@ data-event-label="Change to Table tab"
       >Table</button>
     </li>
     
+    <li role="presentation"
+      class="
+        nav-item
+        map
+        
+      ">
+      <button
+        class="nav-link "
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-mapview"
+          data-bs-target="#mapview"
+          aria-controls="mapview"
+          data-no-disagg="true"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Map tab"
+
+        
+      >Map</button>
+    </li>
+    
   </ul>
   
     <div class="tab-content data-view">
@@ -1004,7 +1151,7 @@ data-event-label="Change to Table tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>Department for Business, Energy and Industrial Strategy, Office for National Statistics (Nomis)</dd>
+        <dd>Department for Business, Energy & Industrial Strategey, Office For National Statistics (Nomis)</dd>
         
 
         
@@ -1019,7 +1166,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd>1. Information for energy capacity as at 31 December. 2. Data for population are mid year estimates. 3. Data for offshore wind are allocated to the Region/Country that the cables come ashore 4. Data showing 0 are less than 50 GW capacity in the Region/Country.</dd>
+        <dd><p> 1. Information for energy capacity as at 31 December </p> <p> 2. Data for population are mid year estimates </p> <p> 3. Data for offshore wind are allocated to the Region/Country that the cables come ashore </p> <p> 4. Data showing 0 are less than 50 GW capacity in the Region/Country </p></dd>
         
 
         
@@ -1082,7 +1229,7 @@ data-event-label="Change to Table tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>Department for Business, Energy and Industrial Strategy, Office for National Statistics (Nomis)</dd>
+        <dd>Department for Business, Energy & Industrial Strategey, Office For National Statistics (Nomis)</dd>
         
 
         
@@ -1097,7 +1244,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd>1. Information for energy capacity as at 31 December. 2. Data for population are mid year estimates. 3. Data for offshore wind are allocated to the Region/Country that the cables come ashore 4. Data showing 0 are less than 50 GW capacity in the Region/Country.</dd>
+        <dd><p> 1. Information for energy capacity as at 31 December </p> <p> 2. Data for population are mid year estimates </p> <p> 3. Data for offshore wind are allocated to the Region/Country that the cables come ashore </p> <p> 4. Data showing 0 are less than 50 GW capacity in the Region/Country </p></dd>
         
 
         
@@ -1127,6 +1274,70 @@ data-event-label="Change to Table tab"
 </div>
 
 <div id="tableSelectionDownload" class="clearfix"></div>
+
+        </div>
+      
+    
+      
+        <div role="tabpanel" class="tab-pane " id="mapview" class="map">
+          
+<h4 id="map-heading" class="map-title">Installed capacity of sites generating electricity from renewable sources</h4>
+<div id="map" aria-describedby="table-alternative">
+  <img class="map-loading-image" src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
+</div>
+
+
+
+
+<div id="mapFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>Department for Business, Energy & Industrial Strategey, Office For National Statistics (Nomis)</dd>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>United Kingdom</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+        <dt>Footnote:</dt>
+        <dd><p> 1. Information for energy capacity as at 31 December </p> <p> 2. Data for population are mid year estimates </p> <p> 3. Data for offshore wind are allocated to the Region/Country that the cables come ashore </p> <p> 4. Data showing 0 are less than 50 GW capacity in the Region/Country </p></dd>
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
+</div>
+
 
         </div>
       
@@ -1204,19 +1415,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Indicator available </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Installed capacity of sites generating electricity from renewable sources</p>
 
           
         </td>
@@ -1287,7 +1491,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Solar PV- The direct conversion of solar radiation into electricity by the interaction of light with the electrons in a semiconductor device or cell. Bioenergy - renewable energy made from material of recent biological origin derived from plant or animal matter, known as biomass. AD - Anaerobic Digestion  is a natural process in which microorganisms break down organic matter, in the absence of oxygen, into biogas (a mixture of carbon dioxide (CO2) and methane) and digestate (a nitrogen-rich fertiliser). The biogas can be used directlyin engines for Combined Heat and Power (CHP), burned to produce heat, or can be cleaned and used in the same way as natural gas or as a vehicle fuel.</p>
+            <p>Solar PV - the direct conversion of solar radiation into electricity by the interaction of light with the electrons in a semiconductor device or cell.</p>
+<p>Bioenergy - renewable energy made from material of recent biological origin derived from plant or animal matter, known as biomass. </p>
+<p>Anaerobic Digestion (AD) - a natural process in which microorganisms break down organic matter, in the absence of oxygen, into biogas (a mixture of carbon dioxide (CO2) and methane) and digestate (a nitrogen-rich fertiliser). The biogas can be used directly in engines for Combined Heat and Power (CHP), burned to produce heat, or can be cleaned and used in the same way as natural gas or as a vehicle fuel.</p>
 
           
         </td>
@@ -1303,7 +1509,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Available disaggregations </th>
         <td>
           
-            <p>Region; Renewable Source</p>
+            <p>Region; Renewable source</p>
 
           
         </td>
@@ -1335,7 +1541,10 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Source 1 contains an estimate of non-fossil fuelled capacity used for co-firing of renewables based on the proportion of generation accounted for by the renewable source. This is applicable for Other Bioenergy  and the sub category Biomass and Waste. Also in each year some sites have not been attributed to a region so that data related to individual companies are not disclosed. This information is contained within the tables in source 1. Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
+            <p>Source 1 contains an estimate of non-fossil fuelled capacity used for co-firing of renewables based on the proportion of generation accounted for by the renewable source that is not reported here. This is applicable for Other Bioenergy and the sub category Biomass and Waste. </p>
+<p> In each year, some sites have not been attributed to a region so that data related to individual companies are not disclosed. Specific information related to this is contained within the tables in the source 1 data link under the Sources tab.</p>
+<p> Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.
+</p>
 
           
         </td>
@@ -1351,7 +1560,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            22 November 2021
+            22 February 2023
           
         </td>
         </tr>
@@ -1366,7 +1575,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            01 December 2021
+            22 February 2023
           
         </td>
         </tr>
@@ -1817,7 +2026,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Department for Business, Energy and Industrial Strategy</p>
+            <p>Department for Business, Energy &amp; Industrial Strategey</p>
 
           
         </td>
@@ -1865,7 +2074,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            <p>UK</p>
+            <p>United Kingdom</p>
 
           
         </td>
@@ -1887,7 +2096,7 @@ data-event-label="Change to Sources tab"
             
             
               <a href="https://www.gov.uk/government/statistics/regional-renewable-statistics" target="_blank">
-                Regional Installed Capacity <span class="visuallyhidden">opens in a new window</span>
+                Regional Renewable Statistics <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1911,7 +2120,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            30 September 2021
+            29 September 2022
           
         </td>
         </tr>
@@ -1926,7 +2135,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>To be confirmed: We plan to update indicator data within 4 months of data being released</p>
+            <p>28/09/2023: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -1942,7 +2151,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>National Statistic</p>
+            <p>National statistics</p>
 
           
         </td>
@@ -1969,19 +2178,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Other information </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this source</span></p>
+            <p>Data can be found in the Regional Statistics 2003-2021 Installed Capacity tables.</p>
 
           
         </td>
@@ -2152,7 +2354,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Office for National Statistics (Nomis)</p>
+            <p>Office For National Statistics (Nomis)</p>
 
           
         </td>
@@ -2200,7 +2402,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            <p>UK</p>
+            <p>United Kingdom</p>
 
           
         </td>
@@ -2221,7 +2423,7 @@ data-event-label="Change to Sources tab"
             
             
             
-              <a href="https://www.nomisweb.co.uk/datasets/pestnew" target="_blank">
+              <a href="https://www.nomisweb.co.uk/query/construct/submit.asp?forward=yes&menuopt=201&subcomp=" target="_blank">
                 Population Estimates <span class="visuallyhidden">opens in a new window</span>
               </a>
             
@@ -2246,7 +2448,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            24 June 2020
+            21 December 2022
           
         </td>
         </tr>
@@ -2261,7 +2463,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>01/07/2021: We plan to update indicator data within 4 months of data being released</p>
+            <p>See source link: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -2277,7 +2479,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>National Statistic</p>
+            <p>National statistics</p>
 
           
         </td>
@@ -2304,19 +2506,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Other information </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this source</span></p>
+            <p>The calculation is performed using the mid year population estimates.</p>
 
           
         </td>
@@ -2509,6 +2704,15 @@ data-event-label="Change to Sources tab"
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
 
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
+<script src="https://cdn.rawgit.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
+<script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/torfsen/leaflet.zoomhome@master/dist/leaflet.zoomhome.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
@@ -2659,7 +2863,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230222103441'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230222105120'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2667,7 +2871,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230222103441"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230222105120"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
