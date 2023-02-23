@@ -1,7 +1,6 @@
 ---
 # Do not delete this line.
 ---
- opensdg.dataRounding = function(value, context) {
  function countDigitsBeforeDecimal(number) {
   // Convert the number to a string
   var numberString = number.toString();
