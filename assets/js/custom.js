@@ -16,7 +16,7 @@
  
   // Round to whole number
  if (numDigits >= 4) 
-  return Number(value.toPrecision(numDigits)
+  return Number(value.toPrecision(numDigits);
        }           
     
     // Otherwise round to 3 SF.
