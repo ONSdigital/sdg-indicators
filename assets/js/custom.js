@@ -1,13 +1,14 @@
 ---
 # Do not delete this line.
 ---
- opensdg.dataRounding = function(value, context) {
-    // Round to 4 SF in indicator 5.3.2.
-    if (context.indicatorId === 'indicator_5-3-2') {
-        return Number(value.toPrecision(4))
-       }
-    // Otherwise round to 3 SF.
-    else {
-        return Number(value.toPrecision(3))
-    }
+{% include custom/cookies.js %}
+
+opensdg.dataRounding = function(value, context) {
+   var digitsBeforeDecimal = String(value).split('.')[0].length;
+   if (digitsBeforeDecimal > 0) {
+       return Number(value.toPrecision(digitsBeforeDecimal))
+   }
+   else {
+       return Number(value.toPrecision(3))
+   }
 }
