@@ -5,7 +5,7 @@
 
 opensdg.dataRounding = function(value, context) {
    var digitsBeforeDecimal = String(value).split('.')[0].length;
-   if (digitsBeforeDecimal > 0) {
+   if (digitsBeforeDecimal > 1) {
        return Number(value.toPrecision(digitsBeforeDecimal))
    }
    else {
