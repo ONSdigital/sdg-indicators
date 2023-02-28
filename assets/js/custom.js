@@ -10,5 +10,4 @@
     else {
         return Number(value.toPrecision(3))
     }
-}
-    
+};    
