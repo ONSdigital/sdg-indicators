@@ -129,7 +129,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230316084344">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230316115742">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -1260,7 +1260,7 @@ data-event-label="high"
 
     
       try {
-        var currentValue = normalizeCurrentValue('reporting_status', {"title":"Reporting status","description":"\nReporting status provides an overview of how much Sustainable Development Goal (SDG) data the UK reports. For more information, see [What does the reporting status mean?](https://onsdigital.github.io/sdg-indicators/faq/#what-does-the-reporting-status-mean)\n\n\nDisaggregation status provides an overview of how many of the SDG indicators are disaggregated. For more information, see [What does the disaggregation status mean?](https://onsdigital.github.io/sdg-indicators/faq/#what-does-the-disaggregation-status-mean)\n\n\nFor details about all available disaggregations and how each indicator is disaggregated, see the [UK disaggregation report](https://onsdigital.github.io/sdg-data/disaggregations.html).\n\n\nNote: These percentages have been rounded. As a result, adding them together may not equal exactly 100%.\n","disaggregation_tabs":true,"status_types":[{"value":"complete","label":"status.reported","hide_on_goal_pages":false},{"value":"notstarted","label":"status.no_data_available","hide_on_goal_pages":false}]});
+        var currentValue = normalizeCurrentValue('reporting_status', {"title":"Reporting status","description":"\nReporting status provides an overview of how much Sustainable Development Goal (SDG) data the UK reports. For more information, see [What does the reporting status mean?](https://onsdigital.github.io/sdg-indicators/faq/#what-does-the-reporting-status-mean)\n\n\nDisaggregation status provides an overview of how many of the SDG indicators are disaggregated. For more information, see [What does the disaggregation status mean?](https://onsdigital.github.io/sdg-indicators/faq/#what-does-the-disaggregation-status-mean)\n\n\nFor details about all available disaggregations and how each indicator is disaggregated, see the [UK disaggregation report](https://onsdigital.github.io/sdg-data/disaggregations.html).\n\n\nNote: These percentages have been rounded. As a result, adding them together may not equal exactly 100%.\n\n\n*This page is updated automatically on a weekly basis.*\n","disaggregation_tabs":true,"status_types":[{"value":"complete","label":"status.reported","hide_on_goal_pages":false},{"value":"notstarted","label":"status.no_data_available","hide_on_goal_pages":false}]});
         var propertyEditor = editor.getEditor('root.reporting_status');
         propertyEditor.setValue(null);
         propertyEditor.setValue(currentValue);
@@ -1658,7 +1658,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230316084344'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230316115742'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -1666,7 +1666,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230316084344"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230316115742"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
