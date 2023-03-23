@@ -2,6 +2,7 @@
 title: About
 permalink: /about/
 layout: page
+toc: true
 ---
 The [Sustainable Development Goals](https://sdgs.un.org/goals) (SDGs) are a universal call to action to:
 
