@@ -8,7 +8,7 @@ layout: page
 To provide specific feedback about this website, please complete our [feedback survey](https://www.surveymonkey.co.uk/r/8DBHWCF)
 
 ## Email
-[sustainabledevelopment@ons.gov.uk](mailto:sustainabledevelopment@ons.gov.uk)
+[opensdg@outlook.com](mailto:opensdg@outlook.com)
 
 We aim to respond within 10 working days
 
