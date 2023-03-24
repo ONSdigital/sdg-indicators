@@ -134,7 +134,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230324002535">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230324110453">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -439,6 +439,12 @@ data-event-label="high"
   
 
   
+<div class="row metadata-available-indicator">
+  <div class="col-xs-12">
+    <h2>Net official development assistance to medical research and basic health sectors</h2>
+  </div>
+</div>
+
 
   
 
@@ -472,7 +478,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Country income classification&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;LDCs&quot;,&quot;LMICs&quot;,&quot;Other LICs&quot;,&quot;UMICs&quot;,&quot;Unspecified&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country income classification&quot;},{&quot;name&quot;:&quot;Aid description (CRS code)&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Basic health&quot;,&quot;Medical research&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Aid description (CRS code)&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;GBP&quot;,&quot;Constant USD&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Country income classification&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;LDCs&quot;,&quot;LMICs&quot;,&quot;Other LICs&quot;,&quot;UMICs&quot;,&quot;Unspecified&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country income classification&quot;},{&quot;name&quot;:&quot;Aid description (CRS code)&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Basic health&quot;,&quot;Medical research&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Aid description (CRS code)&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;GBP (£ thousands)&quot;,&quot;Constant USD ($ thousands)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -532,11 +538,7 @@ data-event-label="high"
         
         
         
-        <th scope="col">Observation status</th>
-        
-        
-        
-        <th scope="col" class="table-value">Unit multiplier</th>
+        <th scope="col" class="table-value">Observation status</th>
         
         
       </thead>
@@ -553,7 +555,7 @@ data-event-label="high"
           
           
           
-          <td>GBP</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -561,319 +563,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2010</td>
-          
-          
-          
-          <td>324857.4027</td>
-          
-          
-          
-          <td>GBP</td>
-          
-          
-          
-          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2011</td>
-          
-          
-          
-          <td>490791.755095</td>
-          
-          
-          
-          <td>GBP</td>
-          
-          
-          
-          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2012</td>
-          
-          
-          
-          <td>557455.155661</td>
-          
-          
-          
-          <td>GBP</td>
-          
-          
-          
-          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2013</td>
-          
-          
-          
-          <td>817519.83779</td>
-          
-          
-          
-          <td>GBP</td>
-          
-          
-          
-          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2014</td>
-          
-          
-          
-          <td>652950.029878</td>
-          
-          
-          
-          <td>GBP</td>
-          
-          
-          
-          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2015</td>
-          
-          
-          
-          <td>543329.123967</td>
-          
-          
-          
-          <td>GBP</td>
-          
-          
-          
-          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2016</td>
-          
-          
-          
-          <td>593232.218841</td>
-          
-          
-          
-          <td>GBP</td>
-          
-          
-          
-          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2017</td>
-          
-          
-          
-          <td>767594.845852</td>
-          
-          
-          
-          <td>GBP</td>
-          
-          
-          
-          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2018</td>
-          
-          
-          
-          <td>779790.792588</td>
-          
-          
-          
-          <td>GBP</td>
-          
-          
-          
-          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2019</td>
-          
-          
-          
-          <td>822382.885975</td>
-          
-          
-          
-          <td>GBP</td>
-          
-          
-          
-          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2020</td>
-          
-          
-          
-          <td>1110232.546981</td>
-          
-          
-          
-          <td>GBP</td>
-          
-          
-          
-          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -885,11 +575,11 @@ data-event-label="high"
           
           
           
-          <td>417238.5008358249</td>
+          <td>440372.34</td>
           
           
           
-          <td>Constant USD</td>
+          <td>Constant USD ($ thousands)</td>
           
           
           
@@ -897,11 +587,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -913,11 +599,11 @@ data-event-label="high"
           
           
           
-          <td>487382.5057143184</td>
+          <td>324857.39</td>
           
           
           
-          <td>Constant USD</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -925,11 +611,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>515575.381</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -941,11 +647,11 @@ data-event-label="high"
           
           
           
-          <td>721419.01507683</td>
+          <td>490791.85</td>
           
           
           
-          <td>Constant USD</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -953,11 +659,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>763150.154</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -969,11 +695,11 @@ data-event-label="high"
           
           
           
-          <td>806060.6463024257</td>
+          <td>557455.14</td>
           
           
           
-          <td>Constant USD</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -981,11 +707,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>853057.052</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -997,11 +743,11 @@ data-event-label="high"
           
           
           
-          <td>1161426.22764845</td>
+          <td>817519.92</td>
           
           
           
-          <td>Constant USD</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -1009,11 +755,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>1223631.79</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -1025,11 +791,11 @@ data-event-label="high"
           
           
           
-          <td>911839.8585491376</td>
+          <td>652950.02</td>
           
           
           
-          <td>Constant USD</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -1037,11 +803,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>962010.498</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -1053,11 +839,11 @@ data-event-label="high"
           
           
           
-          <td>753771.3231452415</td>
+          <td>543329.19</td>
           
           
           
-          <td>Constant USD</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -1065,11 +851,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>796430.162</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -1081,11 +887,11 @@ data-event-label="high"
           
           
           
-          <td>805670.9664726112</td>
+          <td>593232.27</td>
           
           
           
-          <td>Constant USD</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -1093,11 +899,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>853356.551</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -1109,11 +935,11 @@ data-event-label="high"
           
           
           
-          <td>1022654.1996598408</td>
+          <td>767594.93</td>
           
           
           
-          <td>Constant USD</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -1121,11 +947,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>1084451.227</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -1137,11 +983,11 @@ data-event-label="high"
           
           
           
-          <td>1016045.5836710364</td>
+          <td>779791.01</td>
           
           
           
-          <td>Constant USD</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -1149,11 +995,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>1080090.365</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -1165,11 +1031,11 @@ data-event-label="high"
           
           
           
-          <td>1049493.2184469118</td>
+          <td>822182.74</td>
           
           
           
-          <td>Constant USD</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -1177,11 +1043,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>1116312.402</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -1193,11 +1079,11 @@ data-event-label="high"
           
           
           
-          <td>1337595.1856000428</td>
+          <td>1109632.55</td>
           
           
           
-          <td>Constant USD</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -1205,11 +1091,79 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>1423153.2</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>626911.6</td>
+          
+          
+          
+          <td>GBP (£ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>797637.865</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance to medical research and basic heath sectors, net disbursement, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -1536,19 +1490,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Indicator available </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Net official development assistance to medical research and basic health sectors</p>
 
           
         </td>
@@ -1619,7 +1566,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Official Development Assistance (ODA) - resource flows to developing countries and multilateral organisations provided by official agencies (e.g. the UK Government) or their executive agencies. Each transaction is administered for the promotion of the economic development and welfare of developing countries and is concessional in character. More information on ODA can be found on the <a href="http://www.oecd.org/development/financing-sustainable-development/development-finance-standards/officialdevelopmentassistancedefinitionandcoverage.htm">OECD website</a>. ODA recipients are broken down in groups according to their Gross National Income (GNI) per capita.<p>Country income classification - the Development Assistance Committee (DAC) list of countries eligible to receive ODA is based on Gross National Income per capita as published by the <a href="https://data.worldbank.org/indicator/NY.GNP.PCAP.CD">World Bank</a>. All low and middle income countries are included, with the exception of G8 members, EU members, and countries with a firm date for entry into the EU. The list also includes all Least Developed Countries (LDCs) as defined by the <a href="https://www.un.org/ohrlls/content/least-developed-countries%20">United Nations (UN)</a>.<p>LDCs - Least Developed Countries<p>LMICs - Lower-middle Income Countries<p>UMICs - Upper Middle Income Countries<p>Other LICs - Other Low Income Countries<p>Undefined - ODA that cannot be allocated to a single country<p><p> Sector Purpose Codes (CRS codes) - the DAC Secretariat maintains various code lists which are used by donors to report on their aid flows to the DAC databases. In addition, these codes are used to classify information in the DAC databases. This indicator is based on ODA flows grouped under CRS code 12182 (medical research) and all codes in the 122 series (basic health). The sector classification codes can be found on the <a href="http://www.oecd.org/dac/stats/purposecodessectorclassification.htm">OECD website<a />.
+            <p>Official Development Assistance (ODA) - resource flows to developing countries and multilateral organisations provided by official agencies (e.g. the UK Government) or their executive agencies. Each transaction is administered for the promotion of the economic development and welfare of developing countries as its main objective and is concessional in character. More information on ODA can be found on the <a href="http://www.oecd.org/development/financing-sustainable-development/development-finance-standards/officialdevelopmentassistancedefinitionandcoverage.htm">OECD website</a>. ODA recipients are broken down in groups according to their Gross National Income (GNI) per capita.<p>Country income classification - the Development Assistance Committee (DAC) list of countries eligible to receive ODA is based on Gross National Income per capita as published by the <a href="https://data.worldbank.org/indicator/NY.GNP.PCAP.CD">World Bank</a>. All low and middle income countries are included, with the exception of G8 members, EU members, and countries with a firm date for entry into the EU. The list also includes all Least Developed Countries (LDCs) as defined by the <a href="https://www.un.org/ohrlls/content/least-developed-countries%20">United Nations (UN)</a>.<p>LDCs - Least Developed Countries<p>LMICs - Lower-middle Income Countries<p>UMICs - Upper Middle Income Countries<p>Other LICs - Other Low Income Countries<p>Undefined - ODA that cannot be allocated to a single country<p><p> Sector Purpose Codes (CRS codes) - the DAC Secretariat maintains various code lists which are used by donors to report on their aid flows to the DAC databases. In addition, these codes are used to classify information in the DAC databases. This indicator is based on ODA flows grouped under CRS code 12182 (medical research) and all codes in the 122 series (basic health). The sector classification codes can be found on the <a href="http://www.oecd.org/dac/stats/purposecodessectorclassification.htm">OECD website<a />.
 </a></p></p></p></p></p></p></p></p></p>
 
           
@@ -1631,19 +1578,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Available disaggregations </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Recipient country income classification and aid description codes</p>
 
           
         </td>
@@ -1659,7 +1599,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>The ODA data underlying the United Kingdom Statistics on International Development (SID) was summed around appropriate aid description CRS codes and recipient country income classification. The codes used to measure net ODA to the medical research and basic health sectors were those that sit under the specific CRS code 12182 and Broad Sector Code 122 (which corresponds to all CRS codes in the 122 series). The constant USD conversion was done using methodology specified by the <a href="https://www.oecd.org/dac/financing-sustainable-development/development-finance- standards/informationnoteonthedacdeflators.htm">OECD<a></a>. The GBP values were converted with the USD exchange rate for the respective year, and then a deflator with base year 2019 was applied to transform the current USD values to constant 2019 USD values  (see Source 2).</a></p>
+            <p>The bilateral ODA data underlying the United Kingdom Statistics on International Development (SID) was summed around appropriate aid description CRS codes and recipient country income classification. The codes used to measure net ODA to the medical research and basic health sectors were those that sit under the specific CRS code 12182 and Broad Sector Code 122 (which corresponds to all CRS codes in the 122 series). The constant USD conversion was done using methodology specified by the <a href="https://www.oecd.org/dac/financing-sustainable-development/development-finance-standards/informationnoteonthedacdeflators.htm">OECD<a></a>. The GBP values were converted with the USD exchange rate for the respective year, and then a deflator with base year 2020 was applied to transform the current USD values to constant 2020 USD values  (see Source 2).</a></p>
 
           
         </td>
@@ -1691,7 +1631,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            03 February 2022
+            14 March 2023
           
         </td>
         </tr>
@@ -1706,7 +1646,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            03 February 2022
+            17 March 2023
           
         </td>
         </tr>
@@ -2226,8 +2166,8 @@ data-event-label="Change to Sources tab"
             
             
             
-              <a href="https://www.gov.uk/government/statistics/statistics-on-international-development-final-uk-aid-spend-2020" target="_blank">
-                Statistics on International Development (SID) Final UK Aid Spend 2020 <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.gov.uk/government/statistics/statistics-on-international-development-final-uk-aid-spend-2021" target="_blank">
+                Statistics on International Development (SID) Final UK Aid Spend 2021 <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -2251,7 +2191,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            29 September 2021
+            23 November 2022
           
         </td>
         </tr>
@@ -2266,7 +2206,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>Spring 2022: We plan to update indicator data within 4 months of data being released</p>
+            <p>Autumn 2023: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -2314,7 +2254,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Latest ODA flows data are obtained from table “Data underlying the SID publication” (see relevant CRS code and BroadSectorCode in National Metadata tab). Previous data (2009 to 2016) are available from <a href="https://www.gov.uk/government/statistics/statistics-on-international- development-2017">SID for 2017</a></p>
+            <p>Latest ODA flows data are obtained from table “Data underlying the SID publication” (see relevant CRS code and BroadSectorCode in National Metadata tab). Previous data (2009 to 2016) are available from <a href="https://www.gov.uk/government/statistics/statistics-on-international-development-2017">SID for 2017</a></p>
 
           
         </td>
@@ -2579,7 +2519,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            01 April 2021
+            22 December 2022
           
         </td>
         </tr>
@@ -2642,7 +2582,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Data tables section, tables “Deflators for Resource Flows from DAC Countries (2019=100).xls” and “Annual Exchange Rates for DAC Donor Countries from 1960 to 2020.xls”</p>
+            <p>Data tables section, tables “Deflators for Resource Flows from DAC Countries (2020=100).xls” and “Annual Exchange Rates for DAC Donor Countries from 1960 to 2021.xls”</p>
 
           
         </td>
@@ -2985,7 +2925,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230324002535'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230324110453'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2993,7 +2933,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230324002535"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230324110453"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
