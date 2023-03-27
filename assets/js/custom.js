@@ -1,6 +1,8 @@
 ---
 # Do not delete this line.
 ---
+{% include custom/cookies.js %}
+
  opensdg.dataRounding = function(value, context) {
     if (value == null) {
     return value
