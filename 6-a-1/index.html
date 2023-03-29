@@ -134,7 +134,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230329081917">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230329082656">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -441,6 +441,12 @@ data-event-label="high"
   
 
   
+<div class="row metadata-available-indicator">
+  <div class="col-xs-12">
+    <h2>Gross Official Development Assistance (ODA) for the water and sanitation sectors</h2>
+  </div>
+</div>
+
 
   
 
@@ -460,7 +466,7 @@ data-event-label="high"
   data-country="United Kingdom"
   data-charttitle="Gross Official Development Assistance (ODA) for the water and sanitation sectors"
   data-charttitles="null"
-  data-measurementunit="GBP (£ thousands), constant USD in 2019 prices ($ thousands)"
+  data-measurementunit="GBP (£ thousands), constant USD in 2020 prices ($ thousands)"
   data-xaxislabel=""
   data-showdata="true"
   data-graphtype="line"
@@ -474,7 +480,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Country income classification&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;LDCs&quot;,&quot;LMICs&quot;,&quot;Other LICs&quot;,&quot;UMICs&quot;,&quot;Unspecified&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country income classification&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;GBP&quot;,&quot;Constant USD&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Country income classification&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;LDCs&quot;,&quot;LMICs&quot;,&quot;Other LICs&quot;,&quot;UMICs&quot;,&quot;Unspecified&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country income classification&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;GBP (£ thousands)&quot;,&quot;Constant USD ($ thousands)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -534,11 +540,7 @@ data-event-label="high"
         
         
         
-        <th scope="col">Observation status</th>
-        
-        
-        
-        <th scope="col" class="table-value">Unit multiplier</th>
+        <th scope="col" class="table-value">Observation status</th>
         
         
       </thead>
@@ -555,7 +557,7 @@ data-event-label="high"
           
           
           
-          <td>GBP</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -563,11 +565,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2009</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>117745.464</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -583,7 +605,7 @@ data-event-label="high"
           
           
           
-          <td>GBP</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -591,11 +613,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>161273.405</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -611,7 +653,7 @@ data-event-label="high"
           
           
           
-          <td>GBP</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -619,11 +661,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>170545.791</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -639,7 +701,7 @@ data-event-label="high"
           
           
           
-          <td>GBP</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -647,11 +709,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>164864.07</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -667,7 +749,7 @@ data-event-label="high"
           
           
           
-          <td>GBP</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -675,11 +757,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>208277.846</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -695,7 +797,7 @@ data-event-label="high"
           
           
           
-          <td>GBP</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -703,11 +805,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>266447.227</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -723,7 +845,7 @@ data-event-label="high"
           
           
           
-          <td>GBP</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -731,11 +853,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>271416.146</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -751,7 +893,7 @@ data-event-label="high"
           
           
           
-          <td>GBP</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -759,319 +901,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2017</td>
-          
-          
-          
-          <td>177217.6682173</td>
-          
-          
-          
-          <td>GBP</td>
-          
-          
-          
-          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2018</td>
-          
-          
-          
-          <td>208142.3739088</td>
-          
-          
-          
-          <td>GBP</td>
-          
-          
-          
-          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2019</td>
-          
-          
-          
-          <td>177578.456861</td>
-          
-          
-          
-          <td>GBP</td>
-          
-          
-          
-          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2020</td>
-          
-          
-          
-          <td>111093.7997945</td>
-          
-          
-          
-          <td>GBP</td>
-          
-          
-          
-          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2009</td>
-          
-          
-          
-          <td>111560.0061651626</td>
-          
-          
-          
-          <td>Constant USD</td>
-          
-          
-          
-          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2010</td>
-          
-          
-          
-          <td>152454.5897060231</td>
-          
-          
-          
-          <td>Constant USD</td>
-          
-          
-          
-          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2011</td>
-          
-          
-          
-          <td>161219.9118640131</td>
-          
-          
-          
-          <td>Constant USD</td>
-          
-          
-          
-          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2012</td>
-          
-          
-          
-          <td>155781.415640848</td>
-          
-          
-          
-          <td>Constant USD</td>
-          
-          
-          
-          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2013</td>
-          
-          
-          
-          <td>197689.6803175567</td>
-          
-          
-          
-          <td>Constant USD</td>
-          
-          
-          
-          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2014</td>
-          
-          
-          
-          <td>252551.5039002997</td>
-          
-          
-          
-          <td>Constant USD</td>
-          
-          
-          
-          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2015</td>
-          
-          
-          
-          <td>256878.4337557797</td>
-          
-          
-          
-          <td>Constant USD</td>
-          
-          
-          
-          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -1083,11 +913,11 @@ data-event-label="high"
           
           
           
-          <td>231620.3896741248</td>
+          <td>245329.381</td>
           
           
           
-          <td>Constant USD</td>
+          <td>Constant USD ($ thousands)</td>
           
           
           
@@ -1095,11 +925,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Thousands</td>
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -1111,11 +937,11 @@ data-event-label="high"
           
           
           
-          <td>236104.2334191097</td>
+          <td>177217.668</td>
           
           
           
-          <td>Constant USD</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -1123,11 +949,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>250371.531</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -1139,11 +985,11 @@ data-event-label="high"
           
           
           
-          <td>271203.6892394775</td>
+          <td>208142.374</td>
           
           
           
-          <td>Constant USD</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -1151,11 +997,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>288298.493</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -1167,11 +1033,11 @@ data-event-label="high"
           
           
           
-          <td>226618.7555653395</td>
+          <td>177578.457</td>
           
           
           
-          <td>Constant USD</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -1179,11 +1045,31 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>241105.808</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -1195,11 +1081,11 @@ data-event-label="high"
           
           
           
-          <td>133844.510466942</td>
+          <td>111093.8</td>
           
           
           
-          <td>Constant USD</td>
+          <td>GBP (£ thousands)</td>
           
           
           
@@ -1207,11 +1093,79 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
           
           
           
-          <td class="table-value">Thousands</td>
+          <td>142482.75</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>79029.093</td>
+          
+          
+          
+          <td>GBP (£ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>100551.014</td>
+          
+          
+          
+          <td>Constant USD ($ thousands)</td>
+          
+          
+          
+          <td>Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -1230,10 +1184,8 @@ data-event-label="high"
     <p>Geographical Area: United Kingdom</p>
     
     
-    <p>Unit of Measurement: GBP (£ thousands), constant USD in 2019 prices ($ thousands)</p>
+    <p>Unit of Measurement: GBP (£ thousands), constant USD in 2020 prices ($ thousands)</p>
     
-    
-    <p>Footnote: Please note that the currency units are expressed in thousands</p>
     
   </div>
   
@@ -1352,9 +1304,6 @@ data-event-label="Change to Table tab"
         
 
         
-        <dt>Footnote:</dt>
-        <dd>Please note that the currency units are expressed in thousands</dd>
-        
 
         
 
@@ -1429,9 +1378,6 @@ data-event-label="Change to Table tab"
 
         
 
-        
-        <dt>Footnote:</dt>
-        <dd>Please note that the currency units are expressed in thousands</dd>
         
 
         
@@ -1538,19 +1484,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Indicator available </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Gross Official Development Assistance (ODA) for the water and sanitation sectors</p>
 
           
         </td>
@@ -1598,7 +1537,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            <p>GBP (£ thousands), constant USD in 2019 prices ($ thousands)</p>
+            <p>GBP (£ thousands), constant USD in 2020 prices ($ thousands)</p>
 
           
         </td>
@@ -1614,7 +1553,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Official Development Assistance (ODA) - Resource flows to developing countries and multilateral organisations provided by official agencies (e.g. the UK Government) or their executive agencies. Each transaction is administered for the promotion of the economic development and welfare of developing countries and is concessional in character. More information on ODA can be found on the <a href="http://www.oecd.org/development/financing-sustainable-development/development-finance-standards/officialdevelopmentassistancedefinitionandcoverage.htm">OECD website</a>. ODA recipients are broken down in groups according to their Gross National Income (GNI) per capita.<p>Country income classification - The Development Assistance Committee (DAC) list of countries eligible to receive ODA is based on Gross National Income per capita as published by the <a href="https://data.worldbank.org/indicator/NY.GNP.PCAP.CD">World Bank</a>. All low and middle income countries are included, with the exception of G8 members, EU members, and countries with a firm date for entry into the EU. The list also includes all Least Developed Countries (LDCs) as defined by the <a href="https://www.un.org/ohrlls/content/least-developed-countries%20">United Nations (UN)</a>.<p>LDCs - Least Developed Countries<p>LMICs - Lower-Middle Income Countries<p>UMICs - Upper Middle Income Countries<p>Other LICs - Other Low Income Countries<p>Undefined - ODA that cannot be allocated to a single country<p><p>Sector Purpose Codes (CRS codes) - the DAC Secretariat maintains various code lists which are used by donors to report on their aid flows to the DAC databases. In addition, these codes are used to classify information in the DAC databases.
+            <p>Official Development Assistance (ODA) - Resource flows to developing countries and multilateral organisations provided by official agencies (e.g. the UK Government) or their executive agencies. Each transaction is administered for the promotion of the economic development and welfare of developing countries as its main objective and is concessional in character. More information on ODA can be found on the <a href="http://www.oecd.org/development/financing-sustainable-development/development-finance-standards/officialdevelopmentassistancedefinitionandcoverage.htm">OECD website</a>. ODA recipients are broken down in groups according to their Gross National Income (GNI) per capita.<p>Country income classification - The Development Assistance Committee (DAC) list of countries eligible to receive ODA is based on Gross National Income per capita as published by the <a href="https://data.worldbank.org/indicator/NY.GNP.PCAP.CD">World Bank</a>. All low and middle income countries are included, with the exception of G8 members, EU members, and countries with a firm date for entry into the EU. The list also includes all Least Developed Countries (LDCs) as defined by the <a href="https://www.un.org/ohrlls/content/least-developed-countries%20">United Nations (UN)</a>.<p>LDCs - Least Developed Countries<p>LMICs - Lower-Middle Income Countries<p>UMICs - Upper Middle Income Countries<p>Other LICs - Other Low Income Countries<p>Unspecified - ODA that cannot be allocated to a single country<p><p>Sector Purpose Codes (CRS codes) - the DAC Secretariat maintains various code lists which are used by donors to report on their aid flows to the DAC databases. In addition, these codes are used to classify information in the DAC databases.
 </p></p></p></p></p></p></p></p></p>
 
           
@@ -1626,19 +1565,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Available disaggregations </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Recipient country income classification</p>
 
           
         </td>
@@ -1654,8 +1586,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>The gross disbursements ODA  obtained from the UK  Statistics on International Development (SID) is summed around appropriate aid description Sector Purpose codes (CRS codes). The variable used for the sums is 'AmountExtended'. The codes correspond to "BroadSectorCode" = 140 for the water supply and sanitation sector and CRS code 31140 for agricultural water resources. The gross ODA (amount extended) across these codes is summed for the headline UK data. These sums are broken down into the different country income classifications outlined in the definitions. The CRS code field and other relevant disaggregations are available from the Data Underlying SID spreadsheets linked in Source 1.</p>
-<p>The constant USD conversion was done using methodology specified by the <a href="https://www.oecd.org/dac/financing-sustainable-development/development-finance-standards/informationnoteonthedacdeflators.htm">OECD<a></a>. The GBP values were converted with the USD exchange rate for the respective year, and then a deflator with base year 2019 was applied to transform the current USD values to constant 2019 USD values  (see Source 2).</a></p>
+            <p>The gross disbursements bilateral ODA obtained from the UK  Statistics on International Development (SID) are summed around appropriate aid description Sector Purpose codes (CRS codes). The variable used for the sums is 'AmountExtended'. The codes correspond to "BroadSectorCode" = 140 for the water supply and sanitation sector and CRS code 31140 for agricultural water resources. The gross ODA (amount extended) across these codes is summed for the headline UK data. These sums are broken down into the different country income classifications outlined in the definitions. The CRS code field and other relevant disaggregations are available from the Data Underlying SID spreadsheets linked in Source 1.</p>
+<p>The constant USD conversion was done using methodology specified by the <a href="https://www.oecd.org/dac/financing-sustainable-development/development-finance-standards/informationnoteonthedacdeflators.htm">OECD<a></a>. The GBP values were converted with the USD exchange rate for the respective year, and then a deflator with base year 2020 was applied to transform the current USD values to constant 2020 USD values  (see Source 2).</a></p>
 
           
         </td>
@@ -1687,7 +1619,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            07 February 2022
+            29 March 2023
           
         </td>
         </tr>
@@ -1702,7 +1634,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            18 March 2022
+            29 March 2023
           
         </td>
         </tr>
@@ -2222,8 +2154,8 @@ data-event-label="Change to Sources tab"
             
             
             
-              <a href="https://www.gov.uk/government/statistics/statistics-on-international-development-final-uk-aid-spend-2020" target="_blank">
-                Statistics on International Development (SID) Final UK Aid Spend 2020 <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.gov.uk/government/statistics/statistics-on-international-development-final-uk-aid-spend-2021" target="_blank">
+                Statistics on International Development (SID) Final UK Aid Spend 2021 <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -2247,7 +2179,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            29 September 2021
+            23 November 2022
           
         </td>
         </tr>
@@ -2262,7 +2194,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>Spring 2022: We plan to update indicator data within 4 months of data being released</p>
+            <p>Autumn 2023: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -2575,7 +2507,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            01 April 2021
+            22 December 2022
           
         </td>
         </tr>
@@ -2638,7 +2570,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Data tables section, tables “Deflators for Resource Flows from DAC Countries (2019=100).xls” and “Annual Exchange Rates for DAC Donor Countries from 1960 to 2020.xls”</p>
+            <p>Data tables section, tables “Deflators for Resource Flows from DAC Countries (2020=100).xls” and “Annual Exchange Rates for DAC Donor Countries from 1960 to 2021.xls”</p>
 
           
         </td>
@@ -2981,7 +2913,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230329081917'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230329082656'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2989,7 +2921,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230329081917"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230329082656"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
