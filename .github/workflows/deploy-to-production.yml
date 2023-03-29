@@ -21,8 +21,7 @@ on:
   push:
     branches:
       - master
-  repository_dispatch:
-    types: rebuild-live
+  workflow_dispatch:
 
 jobs:
   build:
