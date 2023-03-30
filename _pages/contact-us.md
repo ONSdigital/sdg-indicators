@@ -5,12 +5,12 @@ layout: page
 ---
 
 ## Feedback
-To provide specific feedback about this website, please complete our [feedback survey](https://www.surveymonkey.co.uk/r/8DBHWCF)
+To provide specific feedback about this website, please complete our [feedback survey](https://www.surveymonkey.co.uk/r/8DBHWCF).
 
 ## Email
 [sustainabledevelopment@ons.gov.uk](mailto:sustainabledevelopment@ons.gov.uk)
 
-We aim to respond within 10 working days
+We aim to respond within 10 working days.
 
 ## Telephone
 Telephone: +44 (0)345 601 3034
