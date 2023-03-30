@@ -21,8 +21,7 @@ on:
   push:
     branches:
       - master
-  repository_dispatch:
-    types: rebuild-live
+  workflow_dispatch:
 
 jobs:
   build:
@@ -34,7 +33,6 @@ jobs:
       uses: actions/checkout@v2
       with:
         persist-credentials: false
-        ref: master
     - name: Set up Ruby 2.6
       uses: ruby/setup-ruby@v1
       with:
