@@ -2,6 +2,7 @@
 title: About
 permalink: /about/
 layout: page
+toc: true
 ---
 The [Sustainable Development Goals](https://sdgs.un.org/goals) (SDGs) are a universal call to action to:
 
@@ -30,7 +31,21 @@ As one of the world leaders in providing data for the SDG indicators our aims in
   
   * promoting the SDG-related work we do
   
-Cabinet Office and the Department for International Development (DfID) have responsibility for policy implementation. 
+Cabinet Office and the Department for International Development (DfID) have responsibility for policy implementation.
+
+## Useful resources
+
+* To find out more about the Sustainable Development Goals see [The Global Goals website](https://www.globalgoals.org/).
+
+* To find out more about what the UK government is doing to support the delivery of the SDGs, see the report [Implementing the Sustainable Development Goals](https://www.gov.uk/government/publications/implementing-the-sustainable-development-goals/implementing-the-sustainable-development-goals--2).
+
+* To find out more about what you personally can do to help the UK meet the sustainable development goals, see this [guide from the UN](https://www.un.org/sustainabledevelopment/takeaction/).
+
+* To compare country progress towards meeting the sustainable development goals, see the [SDG Index](https://dashboards.sdgindex.org/rankings) website.
+
+Note: This is a third party site that gathers data from a variety of sources and is not endorsed by ONS.
+
+* To read UN reports and learn more about UN events see the [UN website](https://sdgs.un.org/).
 
 ## About this site
 This site is based on the open source [Open SDG](https://open-sdg.org) platform. The Open SDG platform is the result of collaboration between the:
@@ -43,7 +58,7 @@ This site is based on the open source [Open SDG](https://open-sdg.org) platform.
     
 Other countries or organisations wishing to reuse the Open SDG reporting platform are welcome to do so for free. The [Open SDG Quick Start Guide](https://open-sdg.readthedocs.io/en/latest/quick-start/) gives technical instructions on the quickest way to get a copy of the Open SDG platform up and running.
 
-If you have comments, feedback, or want to get involved with the Open SDG community please email <opensdg@googlegroups.com> or contact the [Open SDG GitHub](https://github.com/open-sdg/open-sdg).
+If you have comments, feedback, or want to get involved with the Open SDG community please email <opensdg@outlook.com> or contact the [Open SDG GitHub](https://github.com/open-sdg/open-sdg).
 
 ## Need more info?
 Answers to some specific questions about this website are included on our [frequently asked questions]({{ site.baseurl }}{% link _pages/faq.md %}) page.
