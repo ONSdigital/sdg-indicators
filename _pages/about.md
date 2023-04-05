@@ -33,7 +33,7 @@ As one of the world leaders in providing data for the SDG indicators our aims in
   
 Cabinet Office and the Department for International Development (DfID) have responsibility for policy implementation.
 
-## Useful resources
+## More resources
 
 * To find out more about the Sustainable Development Goals see [The Global Goals website](https://www.globalgoals.org/).
 
@@ -43,7 +43,7 @@ Cabinet Office and the Department for International Development (DfID) have resp
 
 * To compare country progress towards meeting the sustainable development goals, see the [SDG Index](https://dashboards.sdgindex.org/rankings) website.
 
-Note: This is a third party site that gathers data from a variety of sources and is not endorsed by ONS.
+  Note: This is a third party site that gathers data from a variety of sources and is not endorsed by ONS.
 
 * To read UN reports and learn more about UN events see the [UN website](https://sdgs.un.org/).
 
