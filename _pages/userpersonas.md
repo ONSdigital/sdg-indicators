@@ -8,10 +8,15 @@ We want to provide a website that has purpose and is easy to use by everybody. T
 
 ## Table of contents
 * [Our research](#our-research)
+
 * [User personas](#user-personas)
+
 * [Concerned citizen](#concerned-citizen)
+
 * [Connected influencer](#connected-influencer)
+
 * [Fact gatherer](#fact-gatherer)
+
 * [Involved analyst](#involved-analyst)
 
 ## Our research
