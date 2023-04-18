@@ -2,11 +2,17 @@
 layout: page
 title: User personas and their needs
 permalink: /user-personas/
-toc: true
 ---
 
 We want to provide a website that has purpose and is easy to use by everybody. To achieve this, we continue to understand more about who uses this site and what they need from it.
 
+## Table of contents
+* [Our research](#our-research)
+* [User personas](#user-personas)
+* [Concerned citizen](#concerned-citizen)
+* [Connected influencer](#connected-influencer)
+* [Fact gatherer](#fact-gatherer)
+* [Involved analyst](#involved-analyst)
 
 ## Our research
 
@@ -64,16 +70,16 @@ We identified four main user personas:
 <p class="up-text">The different user personas need different types of data on a scale from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst.</p>
 
 ## Concerned citizen
-### Who they are<!-- omit in toc -->
+### Who they are
 Someone who has an personal interest in SDGs or related topics but may also have a professional interest.
 
-### Likely to say<!-- omit in toc -->
+### Likely to say
 "Tell me what the goals are and what is being done about them."
 
-### What motivates them<!-- omit in toc -->
+### What motivates them
 They have either a personal and/or political interest in the SDGS, and want to know what they are about and whether they will make a difference.
 
-### What they want <!-- omit in toc -->
+### What they want
 Concerned citizens want to:
 
 * get a better understanding of the SDGs
