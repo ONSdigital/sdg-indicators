@@ -64,16 +64,16 @@ We identified four main user personas:
 <p class="up-text">The different user personas need different types of data on a scale from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst.</p>
 
 ## Concerned citizen
-### Who they are
+# Who they are
 Someone who has an personal interest in SDGs or related topics but may also have a professional interest.
 
-### Likely to say
+# Likely to say
 "Tell me what the goals are and what is being done about them."
 
-### What motivates them
+# What motivates them
 They have either a personal and/or political interest in the SDGS, and want to know what they are about and whether they will make a difference.
 
-### What they want
+# What they want
 Concerned citizens want to:
 
 * get a better understanding of the SDGs
@@ -82,10 +82,10 @@ Concerned citizens want to:
 * see if the SDGs impact them
 * see what is being done
 
-### Behaviours and preferences
+# Behaviours and preferences
 Concerned citizens might arrive to the site from other public facing websites and are more likely to prefer SDG content from media outlets. They will often browse using handheld devices and may share links with others.
 
-### We must:
+# We must:
 
 * explain the SDGs in simple terms
 * give simple-to-understand context of what the goals mean
@@ -93,7 +93,7 @@ Concerned citizens might arrive to the site from other public facing websites an
 * explain what is being done to meet the targets
 * use visualisations to explain everything
 
-### We must not:
+# We must not:
 
 * expect them to understand the data in the charts without any context
 * use terminology and technical terms
@@ -103,16 +103,16 @@ Concerned citizens might arrive to the site from other public facing websites an
 
 
 ## Connected influencer
-### Who they are
+# Who they are
 Someone non-statistical working in the not-for-profit space or for a private sector organisation looking to make money around sustainable development activities. Might be an individual attempting to challenge or guide on government policy.
 
-### Likely to say
+# Likely to say
 "Give me a tool that will support my ambitions and give me a louder voice."
 
-### What motivates them
+# What motivates them
 Connected influencers understand the SDGs but don't necessarily align to them. The SDGs provide a higher framework for them to align their work to.
 
-### What they want
+# What they want
 Connected influencers want to:
 
 * use the SDG website to educate people
@@ -122,10 +122,10 @@ Connected influencers want to:
 * drive change
 * see how the UK and government are performing
 
-### Behaviours and preferences
+# Behaviours and preferences
 They have a good knowledge of the SDGs and use the SDGs to champion the themes they work in. They use the website to begin conversations with others and use it in conjunction with the UN website amongst others.
 
-### We must:
+# We must:
 
 * provide alternate routes into data so that their users can understand
 * provide guidance on indicators that relate to the themes they work in
@@ -133,7 +133,7 @@ They have a good knowledge of the SDGs and use the SDGs to champion the themes t
 * show relationships between different indicators
 * show UK progress early in the journey
 
-### We must not:
+# We must not:
 
 * expect them to get their answers through data manipulation
 * force them to approach each indicator separately
@@ -141,16 +141,16 @@ They have a good knowledge of the SDGs and use the SDGs to champion the themes t
 
 
 ## Fact gatherer
-### Who they are
+# Who they are
 Policy advisers in government departments who have been tasked with reporting on SDG progress and VNR, non-governmental organisations looking to understand what is going on in the UK and think tanks wanting to understand what the UK is doing and hold the government to account.
 
-### Likely to say
+# Likely to say
 "I just need to quickly see what progress is being made and check the facts."
 
-### What motivates them
+# What motivates them
 They need somewhere that gives them a view of UK progress which doesn't involve hunting through lots of data.
 
-### What they want
+# What they want
 Fact gatherers want to:
 
 * see what progress is being made and understand any issues or challenges
@@ -159,10 +159,10 @@ Fact gatherers want to:
 * see progress towards collecting data and understand the issues and choices being made
 * access the data and check the quality
 
-### Behaviours and preferences
+# Behaviours and preferences
 They come to the website quite often  and may copy data for use in reports, which report data around themes not goals and targets. They cite the website in reports and may mix data from other sources.
 
-### We must:
+# We must:
 
 * provide them with a view of UK performance at every level
 * provide bite-sized summaries to brief them on progress
@@ -170,7 +170,7 @@ They come to the website quite often  and may copy data for use in reports, whic
 * show them targets early in the journey
 * provide them with a quick view of what data has been collected, not collected and reasons why data was chosen or not collected
 
-### We must not:
+# We must not:
 
 * expect them to find the source data with a generic link
 * populate the website with out-of-date information
@@ -179,7 +179,7 @@ They come to the website quite often  and may copy data for use in reports, whic
 
 
 ## Involved analyst
-### Who they are
+# Who they are
 Involved analysts can be a range of different people, who usually work with international data:
 
 * A statistical audience working in or around the SDG framework
