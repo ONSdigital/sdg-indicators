@@ -29,7 +29,7 @@ Our approach to user research continues to be user focused and iterative. We wil
 
 If you have any further questions about our user research approach, or if you want to be involved in future user research sessions, please [contact us]({{ site.baseurl }}/contact-us).
 
-Alternatively, if you have specific feedback about this website, please complete our [feedback survey](https://www.surveymonkey.co.uk/r/SDGfeedback)
+Alternatively, if you have specific feedback about this website, please complete our [feedback survey](https://www.surveymonkey.co.uk/r/SDGfeedback).
 
 
 ## User personas
@@ -108,20 +108,20 @@ Concerned citizens might arrive to the site from other public facing websites an
 
 * expect them to understand the data in the charts without any context
 * use terminology and technical terms
-* expect them to go into individual indivators to get a view of performance
+* expect them to go into individual indicators to get a view of performance
 * put lots of methodology and usage notes in their way
 
 
 
 ## Connected influencer
 ### Who they are
-Someone non-statistical working in the not-for-profit space or for a private sector organisation looking to make money around sustainable development activities. Might be an individual attempting to challenge or guide on government policy
+Someone non-statistical working in the not-for-profit space or for a private sector organisation looking to make money around sustainable development activities. Might be an individual attempting to challenge or guide on government policy.
 
 ### Likely to say
 "Give me a tool that will support my ambitions and give me a louder voice."
 
 ### What motivates them
-Connected influencers understand the SDGs but don't necessarily allign to them. The SDGs provide a higher framework for them to align their work to
+Connected influencers understand the SDGs but don't necessarily align to them. The SDGs provide a higher framework for them to align their work to.
 
 ### What they want
 Connected influencers want to:
@@ -131,10 +131,10 @@ Connected influencers want to:
 * take content from the website and report on it
 * influence policies and change them
 * drive change
-* see how the UK and government and performing
+* see how the UK and government are performing
 
 ### Behaviours and preferences
-They have a good knowledge of the SDGs and use the SDGs to champion the themes they work in. They use the website to begin conversations with others and use it in conjunction with the UN website amongst other
+They have a good knowledge of the SDGs and use the SDGs to champion the themes they work in. They use the website to begin conversations with others and use it in conjunction with the UN website amongst others.
 
 ### We must:
 
@@ -193,7 +193,7 @@ They come to the website quite often  and may copy data for use in reports, whic
 ### Who they are
 Involved analysts can be a range of different people, who usually work with international data:
 
-* A statistical audience working in or around the SDG framework.
+* A statistical audience working in or around the SDG framework
 * Users creating detailed reports as part of commissioned project work
 * Academia working in funded projects
 * Students researching set topics
