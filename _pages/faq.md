@@ -74,7 +74,7 @@ Yes. [See the Open SDG Quick Start guide](https://open-sdg.readthedocs.io/en/lat
 Our aim is to make this website as accessible and usable as possible for every user. We have recently achieved the AA level standard of the [Web Content Accessibility Guidelines (WCAG 2.1)](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag), with a [Digital Accessibility Centre Certificate of Accreditation](https://digitalaccessibilitycentre.org/index.php/ons-sustainable-development-goals).
 
 
-![DAC logo with two ticks indicating AA certification](https://sustainabledevelopment-uk.github.io/public/DAC_Certification_Two_Tick.png)
+![DAC logo with two ticks indicating AA certification](https://onsdigital.github.io/sdg-indicators/public/DAC_Certification_Two_Tick.png)
 
 
 For details about compatibility with tools and known issues, please see our [Accessibility statement]({{ site.baseurl }}{% link _pages/accessibilitystatement.md %}).
