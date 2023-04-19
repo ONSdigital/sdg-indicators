@@ -58,7 +58,7 @@ This site is based on the open source [Open SDG](https://open-sdg.org) platform.
     
 Other countries or organisations wishing to reuse the Open SDG reporting platform are welcome to do so for free. The [Open SDG Quick Start Guide](https://open-sdg.readthedocs.io/en/latest/quick-start/) gives technical instructions on the quickest way to get a copy of the Open SDG platform up and running.
 
-If you have comments, feedback, or want to get involved with the Open SDG community please email <opensdg@outlook.com> or contact the [Open SDG GitHub](https://github.com/open-sdg/open-sdg).
+If you have comments, feedback, or want to get involved with the Open SDG community please email <opensdg@outlook.com> or contact the [Open SDG GitHub](https://github.com/open-sdg/open-sdg/discussions).
 
 ## Need more info?
 Answers to some specific questions about this website are included on our [frequently asked questions]({{ site.baseurl }}{% link _pages/faq.md %}) page.
