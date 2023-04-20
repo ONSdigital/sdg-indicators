@@ -80,13 +80,6 @@ In partnership with the Global Partnership for Sustainable Development Data we h
 <small>19 March 2018</small>
 <br>
 <br>
-[ONS response to 2017 SDG data consultation](https://consultations.ons.gov.uk/sustainable-development-goals/ons-approach-to-measuring-reporting-sdgs-in-the-uk/)
-
-In 2017 we asked how we should approach SDG data reporting and prioritise new data. This was our response to that public consultation.
-
-<small>11 December 2017</small>
-<br>
-<br>
 ## Goal 3: Good health and well-being
 
 [UK drops in European child mortality rankings](https://visual.ons.gov.uk/uk-drops-in-european-child-mortality-rankings/)
