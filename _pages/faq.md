@@ -17,7 +17,7 @@ For some indicators, although we may have data at the national level, our existi
 
 This means we need to look for new data sources, link existing ones, or model data. We are working with colleagues across the Government Statistical Service to do this, including the Data Science Campus.
 
-We published [our response to the consultation on measuring and reporting SDGs in the UK](https://consultations.ons.gov.uk/sustainable-development-goals/ons-approach-to-measuring-reporting-sdgs-in-the-uk/) where we asked for your ideas on prioritising data development. Your feedback informed our [data development plans](https://www.ons.gov.uk/economy/environmentalaccounts/articles/ukdatagapsinclusivedataactionplantowardstheglobalsustainabledevelopmentgoalindicators/2018-03-19).
+We had a consultation on measuring and reporting SDGs in the UK where we asked for your ideas on prioritising data development. Your feedback informed our [data development plans](https://www.ons.gov.uk/economy/environmentalaccounts/articles/ukdatagapsinclusivedataactionplantowardstheglobalsustainabledevelopmentgoalindicators/2018-03-19).
 
 
 ## What does the reporting status mean?
