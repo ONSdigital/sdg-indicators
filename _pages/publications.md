@@ -50,9 +50,9 @@ The UK’s first Voluntary National Review taking stock of progress towards the 
 <small>26 June 2019</small>
 <br>
 <br>
-[What is the difference between sex and gender](https://www.ons.gov.uk/economy/environmentalaccounts/articles/whatisthedifferencebetweensexandgender/2019-02-21)
+[Sex and gender within the context of data collected for the Sustainable Development Goals (SDGs)](https://www.ons.gov.uk/economy/environmentalaccounts/articles/whatisthedifferencebetweensexandgender/2019-02-21)
 
-We are exploring concepts that are important to the Sustainable Development Goals. This article explains the differences between sex and gender.
+We are exploring concepts that are important to the Sustainable Development Goals. This article explains the complexities in reporting sex and gender data for the Sustainable Development Goals.
 
 <small>21 February 2019</small>
 <br>
