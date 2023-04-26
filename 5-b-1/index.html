@@ -134,7 +134,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230426111119">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230426113804">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -452,21 +452,6 @@ data-event-label="high"
 
   
 
-<div class="row" id="page-content">
-  <div class="col-xs-12">
-    <p>graph_series_breaks:</p>
-<ul>
-  <li>series: Percentage of individuals who use a mobile telephone
-value: 13
-label_content:</li>
-  <li>series: Percentage of mobile phone owners who use a smartphone
-value: 13
-label_content:</li>
-</ul>
-
-  </div>
-</div>
-
 
 
 
@@ -493,7 +478,7 @@ label_content:</li>
   data-stackeddisaggregation=""
   data-graphannotations="null"
   data-graphtargetlines="null"
-  data-graphseriesbreaks="null"
+  data-graphseriesbreaks="[{&quot;series&quot;:&quot;Percentage of individuals who use a mobile telephone&quot;,&quot;value&quot;:13,&quot;label_content&quot;:null},{&quot;series&quot;:&quot;Percentage of mobile phone owners who use a smartphone&quot;,&quot;value&quot;:13,&quot;label_content&quot;:null}]"
   data-indicatordownloads="null"
   data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage of individuals who use a mobile telephone&quot;,&quot;Percentage of mobile phone owners who use a smartphone&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Sex&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Female&quot;,&quot;Male&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Sex&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;16 to 24&quot;,&quot;25 to 34&quot;,&quot;35 to 54&quot;,&quot;55 to 64&quot;,&quot;65 and over&quot;,&quot;55 and over&quot;,&quot;55 +&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;England&quot;,&quot;Northern Ireland&quot;,&quot;Scotland&quot;,&quot;Wales&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Deprivation level&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Low&quot;,&quot;Medium/high&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Deprivation level&quot;},{&quot;name&quot;:&quot;Household income&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Less than £11,500&quot;,&quot;£11,500 to less than £17,500&quot;,&quot;£17,500 to less than £30,000&quot;,&quot;£30,000 or more&quot;,&quot;Less than £10,400&quot;,&quot;£10,400 to less than £15,600&quot;,&quot;£15,600 to less than £26,000&quot;,&quot;£26,000 or more&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household income&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;North East&quot;,&quot;North West&quot;,&quot;Yorkshire and The Humber&quot;,&quot;East Midlands&quot;,&quot;West Midlands&quot;,&quot;East of England&quot;,&quot;London&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Socio-economic classification&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;AB&quot;,&quot;C1&quot;,&quot;C2&quot;,&quot;DE&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Socio-economic classification&quot;},{&quot;name&quot;:&quot;Urban or rural&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Rural&quot;,&quot;Urban&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Urban or rural&quot;},{&quot;name&quot;:&quot;Working status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Working&quot;,&quot;Not-working&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Working status&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
@@ -2728,6 +2713,8 @@ data-event-label="Change to Sources tab"
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.2.2/dist/chartjs-plugin-annotation.min.js" integrity="sha256-XuHhf6q+GD7fscc96mTm/228GXf1Nn9wOYOE0EgeFzY=" crossorigin="anonymous"></script>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
@@ -2879,7 +2866,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230426111119'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230426113804'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2887,7 +2874,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230426111119"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230426113804"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
