@@ -134,7 +134,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230426002551">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230426055254">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -482,7 +482,7 @@ data-event-label="high"
   data-measurementunit="Percentage (%)"
   data-xaxislabel=""
   data-showdata="true"
-  data-graphtype="bar"
+  data-graphtype="line"
   data-graphtypes="null"
   data-geocoderegex=""
   data-showmap="false"
@@ -493,7 +493,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Food security level&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Low&quot;,&quot;Very low&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Food security level&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;16 to 24&quot;,&quot;25 to 34&quot;,&quot;35 to 44&quot;,&quot;45 to 54&quot;,&quot;55 to 59&quot;,&quot;60 to 64&quot;,&quot;65 to 74&quot;,&quot;75 to 84&quot;,&quot;85 or over&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Age group&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Working age&quot;,&quot;State Pension age&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age group&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;England&quot;,&quot;Great Britain&quot;,&quot;Northern Ireland&quot;,&quot;Scotland&quot;,&quot;Wales&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;East&quot;,&quot;East Midlands&quot;,&quot;Inner London&quot;,&quot;London&quot;,&quot;North East&quot;,&quot;North West&quot;,&quot;Outer London&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;West Midlands&quot;,&quot;Yorkshire and The Humber&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Ethnic group&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;White&quot;,&quot;Mixed/multiple ethnic groups&quot;,&quot;Asian/Asian British&quot;,&quot;Black/African/Caribbean/Black British&quot;,&quot;Other ethnic group&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnic group&quot;},{&quot;name&quot;:&quot;Ethnicity&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Indian&quot;,&quot;Pakistani&quot;,&quot;Bangladeshi&quot;,&quot;Chinese&quot;,&quot;Any other Asian background&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnicity&quot;},{&quot;name&quot;:&quot;Highest qualification&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Entry level&quot;,&quot;Level 1&quot;,&quot;Level 2&quot;,&quot;Level 3&quot;,&quot;Level 4 or higher&quot;,&quot;Other qualification&quot;,&quot;No reported qualifications&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Highest qualification&quot;},{&quot;name&quot;:&quot;Household composition - children&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Without children&quot;,&quot;With children&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household composition - children&quot;},{&quot;name&quot;:&quot;Number of adults&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;One adult&quot;,&quot;Two adults&quot;,&quot;Three or more adults&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Number of adults&quot;},{&quot;name&quot;:&quot;Number of children&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;One child&quot;,&quot;Two children&quot;,&quot;Three or more children&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Number of children&quot;},{&quot;name&quot;:&quot;Household composition - adults over State Pension age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;One or more adults over State Pension age&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household composition - adults over State Pension age&quot;},{&quot;name&quot;:&quot;Household composition - disabled adults&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;No disabled adults&quot;,&quot;One or more disabled adults&quot;,&quot;One or more disabled adults under State Pension age&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household composition - disabled adults&quot;},{&quot;name&quot;:&quot;Household composition - unemployed adults&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;One or more unemployed adults under State Pension age&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household composition - unemployed adults&quot;},{&quot;name&quot;:&quot;State support&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;In receipt of state support (benefit and/or Tax Credits)&quot;,&quot;In receipt of benefit&quot;,&quot;In receipt of Tax Credits&quot;,&quot;&quot;]},&quot;title&quot;:&quot;State support&quot;},{&quot;name&quot;:&quot;State support detail&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Income-related benefit&quot;,&quot;Non-income-related benefit&quot;,&quot;Working Tax Credit&quot;,&quot;Child Tax Credit&quot;,&quot;&quot;]},&quot;title&quot;:&quot;State support detail&quot;},{&quot;name&quot;:&quot;Total gross weekly income&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Less than £200&quot;,&quot;£200 but less than £400&quot;,&quot;£400 but less than £600&quot;,&quot;£600 but less than £800&quot;,&quot;£800 but less than £1,000&quot;,&quot;£1,000 or more&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Total gross weekly income&quot;},{&quot;name&quot;:&quot;Tenure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Occupier owned&quot;,&quot;Social rented&quot;,&quot;Private rented&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Tenure&quot;},{&quot;name&quot;:&quot;Tenure sub-category&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Owned outright&quot;,&quot;Buying with a mortgage&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Tenure sub-category&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Food security level&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Low&quot;,&quot;Very low&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Food security level&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;16 to 24&quot;,&quot;25 to 34&quot;,&quot;35 to 44&quot;,&quot;45 to 54&quot;,&quot;55 to 59&quot;,&quot;60 to 64&quot;,&quot;65 to 74&quot;,&quot;75 to 84&quot;,&quot;85 or over&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Age group&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Working age&quot;,&quot;State Pension age&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age group&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;England&quot;,&quot;Great Britain&quot;,&quot;Northern Ireland&quot;,&quot;Scotland&quot;,&quot;Wales&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;East&quot;,&quot;East Midlands&quot;,&quot;Inner London&quot;,&quot;London&quot;,&quot;North East&quot;,&quot;North West&quot;,&quot;Outer London&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;West Midlands&quot;,&quot;Yorkshire and The Humber&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Ethnic group&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;White&quot;,&quot;Mixed/multiple ethnic groups&quot;,&quot;Asian/Asian British&quot;,&quot;Black/African/Caribbean/Black British&quot;,&quot;Other ethnic group&quot;,&quot;Arab&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnic group&quot;},{&quot;name&quot;:&quot;Ethnicity&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Indian&quot;,&quot;Pakistani&quot;,&quot;Bangladeshi&quot;,&quot;Chinese&quot;,&quot;Any other Asian background&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnicity&quot;},{&quot;name&quot;:&quot;Highest qualification&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Entry level&quot;,&quot;Level 1&quot;,&quot;Level 2&quot;,&quot;Level 3&quot;,&quot;Level 4 or higher&quot;,&quot;Other qualification&quot;,&quot;No reported qualifications&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Highest qualification&quot;},{&quot;name&quot;:&quot;Household composition - children&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Without children&quot;,&quot;With children&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household composition - children&quot;},{&quot;name&quot;:&quot;Number of adults&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;One adult&quot;,&quot;Two adults&quot;,&quot;Three or more adults&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Number of adults&quot;},{&quot;name&quot;:&quot;Number of children&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;One child&quot;,&quot;Two children&quot;,&quot;Three or more children&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Number of children&quot;},{&quot;name&quot;:&quot;Household composition - adults over State Pension age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;One or more adults over State Pension age&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household composition - adults over State Pension age&quot;},{&quot;name&quot;:&quot;Household composition - disabled adults&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;No disabled adults&quot;,&quot;One or more disabled adults&quot;,&quot;One or more disabled adults under State Pension age&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household composition - disabled adults&quot;},{&quot;name&quot;:&quot;Household composition - unemployed adults&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;One or more unemployed adults under State Pension age&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household composition - unemployed adults&quot;},{&quot;name&quot;:&quot;State support&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;In receipt of state support (benefit and/or Tax Credits)&quot;,&quot;In receipt of benefit&quot;,&quot;In receipt of Tax Credits&quot;,&quot;&quot;]},&quot;title&quot;:&quot;State support&quot;},{&quot;name&quot;:&quot;State support detail&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Income-related benefit&quot;,&quot;Non-income-related benefit&quot;,&quot;Working Tax Credit&quot;,&quot;Child Tax Credit&quot;,&quot;&quot;]},&quot;title&quot;:&quot;State support detail&quot;},{&quot;name&quot;:&quot;Total gross weekly income&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Less than £200&quot;,&quot;More than £200 but less than £400&quot;,&quot;More than £400 but less than £600&quot;,&quot;More than £600 but less than £800&quot;,&quot;More than £800 but less than £1,000&quot;,&quot;£1,000 or more&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Total gross weekly income&quot;},{&quot;name&quot;:&quot;Tenure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Occupier owned&quot;,&quot;Social rented&quot;,&quot;Private rented&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Tenure&quot;},{&quot;name&quot;:&quot;Tenure sub-category&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Owned outright&quot;,&quot;Buying with a mortgage&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Tenure sub-category&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage of households (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
 >
@@ -570,7 +570,7 @@ data-event-label="high"
           
           
           
-          <td>Percentage (%)</td>
+          <td>Percentage of households (%)</td>
           
           
           
@@ -594,7 +594,31 @@ data-event-label="high"
           
           
           
-          <td>Percentage (%)</td>
+          <td>Percentage of households (%)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021/22</td>
+          
+          
+          
+          <td>7.0</td>
+          
+          
+          
+          <td>Percentage of households (%)</td>
           
           
           
@@ -624,7 +648,7 @@ data-event-label="high"
     <p>Unit of Measurement: Percentage (%)</p>
     
     
-    <p>Footnote: <p>1. Data for some disaggregations are not available for some years due to small sample sizes (Less than 100).</p><p>2. For respondents in Great Britain, 'Gypsy or Irish traveller ' is included in the 'White' ethnic category. For Northern Ireland respondents, 'Irish traveller' is included in the 'Other ethnic group' category.</p><p>3. Please note, the State Pension age for men and women differs between 2019/20 and 2020/21 and so cannot be directly compared.</p>
+    <p>Footnote: <p>1. Data for some disaggregations are not available for some years due to small sample sizes (less than 100 for 2019/20 data and less than 30 for 2020/21 and 2021/22 data).</p><p>2. For respondents in Great Britain, 'Gypsy or Irish traveller ' is included in the 'White' ethnic category. For Northern Ireland respondents, 'Irish traveller' is included in the 'Other ethnic group' category.</p><p>3. Although 2021/22 ethnicity data are displayed on this graph as a single year, the COVID-19 pandemic resulted in smaller sample sizes. As such, the 2021/22 ethnicity data represent a 3-year average of 2019/20, 2020/21, and 2021/22 and should not be compared to earlier years.</p><p>4. The State Pension age for men and women differs between 2019/20 and 2020/21 and so cannot be directly compared.</p><p>5. Please note the y axis does not go to 100% for ease of visualisation.</p>
     
   </div>
   
@@ -744,7 +768,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd><p>1. Data for some disaggregations are not available for some years due to small sample sizes (Less than 100).</p><p>2. For respondents in Great Britain, 'Gypsy or Irish traveller ' is included in the 'White' ethnic category. For Northern Ireland respondents, 'Irish traveller' is included in the 'Other ethnic group' category.</p><p>3. Please note, the State Pension age for men and women differs between 2019/20 and 2020/21 and so cannot be directly compared.</dd>
+        <dd><p>1. Data for some disaggregations are not available for some years due to small sample sizes (less than 100 for 2019/20 data and less than 30 for 2020/21 and 2021/22 data).</p><p>2. For respondents in Great Britain, 'Gypsy or Irish traveller ' is included in the 'White' ethnic category. For Northern Ireland respondents, 'Irish traveller' is included in the 'Other ethnic group' category.</p><p>3. Although 2021/22 ethnicity data are displayed on this graph as a single year, the COVID-19 pandemic resulted in smaller sample sizes. As such, the 2021/22 ethnicity data represent a 3-year average of 2019/20, 2020/21, and 2021/22 and should not be compared to earlier years.</p><p>4. The State Pension age for men and women differs between 2019/20 and 2020/21 and so cannot be directly compared.</p><p>5. Please note the y axis does not go to 100% for ease of visualisation.</dd>
         
 
         
@@ -822,7 +846,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd><p>1. Data for some disaggregations are not available for some years due to small sample sizes (Less than 100).</p><p>2. For respondents in Great Britain, 'Gypsy or Irish traveller ' is included in the 'White' ethnic category. For Northern Ireland respondents, 'Irish traveller' is included in the 'Other ethnic group' category.</p><p>3. Please note, the State Pension age for men and women differs between 2019/20 and 2020/21 and so cannot be directly compared.</dd>
+        <dd><p>1. Data for some disaggregations are not available for some years due to small sample sizes (less than 100 for 2019/20 data and less than 30 for 2020/21 and 2021/22 data).</p><p>2. For respondents in Great Britain, 'Gypsy or Irish traveller ' is included in the 'White' ethnic category. For Northern Ireland respondents, 'Irish traveller' is included in the 'Other ethnic group' category.</p><p>3. Although 2021/22 ethnicity data are displayed on this graph as a single year, the COVID-19 pandemic resulted in smaller sample sizes. As such, the 2021/22 ethnicity data represent a 3-year average of 2019/20, 2020/21, and 2021/22 and should not be compared to earlier years.</p><p>4. The State Pension age for men and women differs between 2019/20 and 2020/21 and so cannot be directly compared.</p><p>5. Please note the y axis does not go to 100% for ease of visualisation.</dd>
         
 
         
@@ -1005,7 +1029,7 @@ data-event-label="Change to Sources tab"
 <p>Households being shared on an equal basis are not included. For example, a house shared by a group of professionals is not included. However, households where adult children are living with their parents or where there are lodgers, but the owner lives in the household are included.</p>
 <p>Head of household - The sole householder (i.e. the person who owns or rents the accommodation). Or, if there are multiple householders, the person with the highest personal income from all sources. Or, if multiple householders have the same income, the eldest.</p>
 <p>Disability Status - The <a href="https://gss.civilservice.gov.uk/policy-store/measuring-disability-for-the-equality-act-2010">(GSS) harmonised "core" definition</a> identifies a person as disabled if they have a physical or mental health condition or illness that has lasted or is expected to last 12 months or more. It must reduce their ability to carry-out day-to-day activities. It is important to note that a person who has a long-term illness that does not reduce their ability to carry-out day- to-day activities is not disabled under the definition. The GSS harmonised questions are asked of the respondent in the survey, meaning that disability status is self-reported. The GSS definition is designed to reflect the definitions that appear in legal terms in the Disability Discrimination Act 1995 (DDA) for Northern Ireland and the 2010 Equality Act for Great Britain.</p>
-<p>State Pension age - From 6 April 2010, the State Pension age has been increasing gradually for women, and since December 2018 has been increasing for both men and women. The data for 2019/20 were collected throughout the financial year 2019/20, during which the State Pension age for both men and women increased from 65 years 2 months to 65 years 8 months. The data for 2020/21 were collected throughout the financial year 2020/21, during which the State Pension age for both men and women increased to 66 years.</p>
+<p>State Pension age - From 6 April 2010, the State Pension age has been increasing gradually for women, and since December 2018 has been increasing for both men and women. The data for 2019/20 were collected throughout the financial year 2019/20, during which the State Pension age for both men and women increased from 65 years 2 months to 65 years 8 months. The data for 2020/21 were collected throughout the financial year 2020/21, during which the State Pension age for both men and women increased to 66 years. The data for 2021/22 were collected throughout the financial year 2021/22, during which the State Pension age for both men and women remained at 66 years.</p>
 <p>Highest qualification - Educational attainment is measured by the highest level of qualification achieved. England, Wales and Northern Ireland use a range from Entry Level to Level 8. Scottish qualifications use a range from 1 to 12, but have been converted to the England, Wales and Northern Ireland system using an <a href="https://www.sqa.org.uk/sqa/64561.html">equivalency chart</a>. Entry level includes qualifications such as Entry Level Awards and Entry Level Functional Skills.  Level 1 includes qualifications such as GCSEs (grades 1-3/G-D) and Scottish National 4 qualifications. Level 2 includes qualifications such as GCSEs (grade 4/C and above) and Scottish National 5 qualifications. Level 3  includes qualifications such as A levels and Scottish Highers. Level 4 or higher covers a range of further education and university qualifications, including undergraduate degrees (such as BA, BSc, LLB), Master's degrees, doctoral qualifications (such as PhDs), most professional medical qualifications and PGCEs. No reported qualifications covers qualifications where the exact type or level could not be established during the interview.</p>
 <p>Ethnic group - Sample sizes for 'Gypsy, Traveller or Irish Traveller' are small, so for Northern Ireland, 'Irish Traveller' is included in 'Other ethnic group'. For England, Wales and Scotland, 'Gypsy or Irish Traveller' is included in 'White'. It is not possible to disaggregate Mixed/multiple ethnic group due to differences in data collection of the country specific questions. 'Arab' has been included in 'Other ethnic group' due to small sample sizes.</p>
 
@@ -1034,7 +1058,7 @@ data-event-label="Change to Sources tab"
 <p>Number of adults and Number of children – these are only available when 'Household composition – children present' is selected.</p>
 <p>State support – This relates to the household being in receipt of any state support. Further breakdowns of State support are available in the source data. </p>
 <p>Tenure – Tenure is available in conjunction with Age group.</p>
-<p>Total Household gross weekly income - This includes all income for the household.</p>
+<p>Total Household gross weekly income - This includes all income for the household. Self employed incomes do not include any reported grant amounts received from the Self-Employment Income Support Scheme (SEISS). Wages are treated as income rather than state support, irrespective of any support payments from CJRS that the respondent’s employer was receiving in respect of their employment. Income from directors’ dividends has also been included in this category.</p>
 
           
         </td>
@@ -1066,7 +1090,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>It should be noted that the Family Resources Survey (FRS) Household Food Security questions cover the 30 days prior to interview, not the previous 12 months, as is the case in many other surveys. Direct comparisons cannot be made between these data and those based on questions asked of a 12 month period.The question set is based on the Adult Food Security Survey Module from the United States Department of Agriculture. The 30 day time reference period has been used as it was more appropriate in the context of the Family Resources Survey, which focuses on respondent’s circumstances at the time of the interview and uses time reference period of a week or a month on other questions.</p>
+            <p>It should be noted that the Family Resources Survey (FRS) Household Food Security questions cover the 30 days prior to interview, not the previous 12 months, as is the case in many other surveys. Direct comparisons cannot be made between these data and those based on questions asked of a 12 month period. The question set is based on the Adult Food Security Survey Module from the United States Department of Agriculture. The 30 day time reference period has been used as it was more appropriate in the context of the Family Resources Survey, which focuses on respondent’s circumstances at the time of the interview and uses time reference period of a week or a month on other questions.</p>
 <p>The USDA set of questions is very similar to the FIES (Food Insecurity Experience Scale) set, which is used for international comparisons.</p>
 <p>Questions on food security are answered by the person in the household who knows the most about food purchasing and preparation. There are a range of questions, asking about the adults within the household. The questions do not directly ask about the food security status of children.</p>
 <p>Further information on the questions posed can be found in the 'Guidance' and table 9.10 tabs of the source data, and in the Background Information &amp; Methodology.</p>
@@ -1087,7 +1111,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            19 April 2022
+            25 April 2023
           
         </td>
         </tr>
@@ -1102,7 +1126,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            06 April 2023
+            26 April 2023
           
         </td>
         </tr>
@@ -1620,8 +1644,8 @@ data-event-label="Change to Sources tab"
             
             
             
-              <a href="https://www.gov.uk/government/statistics/family-resources-survey-financial-year-2020-to-2021" target="_blank">
-                Family Resources Survey <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.gov.uk/government/statistics/family-resources-survey-financial-year-2021-to-2022" target="_blank">
+                Family Resources Survey - financial year 2021 to 2022 <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1645,7 +1669,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            31 March 2022
+            23 March 2023
           
         </td>
         </tr>
@@ -1660,7 +1684,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>March 2023: We plan to update indicator data within 4 months of data being released</p>
+            <p>See source link: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -2063,7 +2087,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230426002551'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230426055254'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2071,7 +2095,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230426002551"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230426055254"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
