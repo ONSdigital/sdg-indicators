@@ -54,7 +54,7 @@ The UK’s first Voluntary National Review taking stock of progress towards the 
 
 We are exploring concepts that are important to the Sustainable Development Goals. This article explains the complexities in reporting sex and gender data for the Sustainable Development Goals.
 
-<small>21 February 2019</small>
+<small>21 April 2023</small>
 <br>
 <br>
 [Geographical data: project report](https://www.ons.gov.uk/economy/environmentalaccounts/articles/usinginnovativemethodstoreportagainstthesustainabledevelopmentgoals/2018-10-22)
