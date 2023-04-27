@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: null,
 
   language: 'en',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -103,16 +117,15 @@ var translations = {
         ================================================== -->
 
         
+    
     <title>Goal 10 - Reduced inequalities - U.K. Indicators For The Sustainable Development Goals</title>
+    
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
         <meta name="robots" content="noindex, nofollow">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
@@ -123,13 +136,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427090144">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427091053">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -139,6 +153,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/sdg-indicators/assets/css/ie.css">
@@ -320,7 +337,11 @@ data-event-label="high"
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/10.svg" alt="Reduced inequalities - Goal 10" id="goal-10" class="goal-icon-image goal-icon-image-svg" />
             </div>
             <div class="col-8 col-md-9 col-lg-10 goal-details">
-                <h1>Reduce inequality within and among countries</h1>
+                <h1>
+                    
+                        Reduce inequality within and among countries
+                    
+                </h1>
             </div>
         </div>
     </div>
@@ -396,7 +417,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/10-1-1">Growth rates of household expenditure or income per capita among the bottom 40 per cent of the population and the total population</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/10-1-1/">Growth rates of household expenditure or income per capita among the bottom 40 per cent of the population and the total population</a></span>
               
 
 
@@ -451,7 +472,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/10-2-1">Proportion of people living below 50 per cent of median income, by sex, age and persons with disabilities</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/10-2-1/">Proportion of people living below 50 per cent of median income, by sex, age and persons with disabilities</a></span>
               
 
 
@@ -506,7 +527,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/10-3-1">Proportion of population reporting having personally felt discriminated against or harassed in the previous 12 months on the basis of a ground of discrimination prohibited under international human rights law</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/10-3-1/">Proportion of population reporting having personally felt discriminated against or harassed in the previous 12 months on the basis of a ground of discrimination prohibited under international human rights law</a></span>
               
 
 
@@ -561,7 +582,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/10-4-1">Labour share of GDP</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/10-4-1/">Labour share of GDP</a></span>
               
 
 
@@ -601,7 +622,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/10-4-2">Redistributive impact of fiscal policy</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/10-4-2/">Redistributive impact of fiscal policy</a></span>
               
 
 
@@ -656,7 +677,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/10-5-1">Financial Soundness Indicators</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/10-5-1/">Financial Soundness Indicators</a></span>
               
 
 
@@ -711,7 +732,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/10-6-1">Proportion of members and voting rights of developing countries in international organizations</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/10-6-1/">Proportion of members and voting rights of developing countries in international organizations</a></span>
               
 
 
@@ -766,7 +787,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/10-7-1">Recruitment cost borne by employee as a proportion of monthly income earned in country of destination</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/10-7-1/">Recruitment cost borne by employee as a proportion of monthly income earned in country of destination</a></span>
               
 
 
@@ -806,7 +827,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/10-7-2">Number of countries with migration policies that facilitate orderly, safe, regular and responsible migration and mobility of people</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/10-7-2/">Number of countries with migration policies that facilitate orderly, safe, regular and responsible migration and mobility of people</a></span>
               
 
 
@@ -846,7 +867,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/10-7-3">Number of people who died or disappeared in the process of migration towards an international destination</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/10-7-3/">Number of people who died or disappeared in the process of migration towards an international destination</a></span>
               
 
 
@@ -886,7 +907,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/10-7-4">Proportion of the population who are refugees, by country of origin</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/10-7-4/">Proportion of the population who are refugees, by country of origin</a></span>
               
 
 
@@ -941,7 +962,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/10-a-1">Proportion of tariff lines applied to imports from least developed countries and developing countries with zero-tariff</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/10-a-1/">Proportion of tariff lines applied to imports from least developed countries and developing countries with zero-tariff</a></span>
               
 
 
@@ -996,7 +1017,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/10-b-1">Total resource flows for development, by recipient and donor countries and type of flow (e.g. official development assistance, foreign direct investment and other flows)</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/10-b-1/">Total resource flows for development, by recipient and donor countries and type of flow (e.g. official development assistance, foreign direct investment and other flows)</a></span>
               
 
 
@@ -1051,7 +1072,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/10-c-1">Remittance costs as a proportion of the amount remitted</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/10-c-1/">Remittance costs as a proportion of the amount remitted</a></span>
               
 
 
@@ -1298,7 +1319,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230427090144'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230427091053'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -1306,7 +1327,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230427090144"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230427091053"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

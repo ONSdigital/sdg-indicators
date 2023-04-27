@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: null,
 
   language: 'en',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -103,16 +117,15 @@ var translations = {
         ================================================== -->
 
         
+    
     <title>Goal 9 - Industry, innovation and infrastructure - U.K. Indicators For The Sustainable Development Goals</title>
+    
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
         <meta name="robots" content="noindex, nofollow">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
@@ -123,13 +136,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427090144">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427091053">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -139,6 +153,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/sdg-indicators/assets/css/ie.css">
@@ -320,7 +337,11 @@ data-event-label="high"
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/9.svg" alt="Industry, innovation and infrastructure - Goal 9" id="goal-9" class="goal-icon-image goal-icon-image-svg" />
             </div>
             <div class="col-8 col-md-9 col-lg-10 goal-details">
-                <h1>Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation</h1>
+                <h1>
+                    
+                        Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation
+                    
+                </h1>
             </div>
         </div>
     </div>
@@ -382,7 +403,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/9-1-1">Proportion of the rural population who live within 2 km of an all-season road</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/9-1-1/">Proportion of the rural population who live within 2 km of an all-season road</a></span>
               
 
 
@@ -422,7 +443,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/9-1-2">Passenger and freight volumes, by mode of transport</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/9-1-2/">Passenger and freight volumes, by mode of transport</a></span>
               
 
 
@@ -477,7 +498,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/9-2-1">Manufacturing value added as a proportion of GDP and per capita</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/9-2-1/">Manufacturing value added as a proportion of GDP and per capita</a></span>
               
 
 
@@ -517,7 +538,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/9-2-2">Manufacturing employment as a proportion of total employment</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/9-2-2/">Manufacturing employment as a proportion of total employment</a></span>
               
 
 
@@ -572,7 +593,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/9-3-1">Proportion of small-scale industries in total industry value added</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/9-3-1/">Proportion of small-scale industries in total industry value added</a></span>
               
 
 
@@ -612,7 +633,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/9-3-2">Proportion of small-scale industries with a loan or line of credit</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/9-3-2/">Proportion of small-scale industries with a loan or line of credit</a></span>
               
 
 
@@ -667,7 +688,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/9-4-1">CO2 emission per unit of value added</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/9-4-1/">CO2 emission per unit of value added</a></span>
               
 
 
@@ -722,7 +743,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/9-5-1">Research and development expenditure as a proportion of GDP</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/9-5-1/">Research and development expenditure as a proportion of GDP</a></span>
               
 
 
@@ -762,7 +783,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/9-5-2">Researchers (in full-time equivalent) per million inhabitants</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/9-5-2/">Researchers (in full-time equivalent) per million inhabitants</a></span>
               
 
 
@@ -817,7 +838,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/9-a-1">Total official international support (official development assistance plus other official flows) to infrastructure</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/9-a-1/">Total official international support (official development assistance plus other official flows) to infrastructure</a></span>
               
 
 
@@ -872,7 +893,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/9-b-1">Proportion of medium and high-tech industry value added in total value added</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/9-b-1/">Proportion of medium and high-tech industry value added in total value added</a></span>
               
 
 
@@ -927,7 +948,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/9-c-1">Proportion of population covered by a mobile network, by technology</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/9-c-1/">Proportion of population covered by a mobile network, by technology</a></span>
               
 
 
@@ -1174,7 +1195,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230427090144'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230427091053'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -1182,7 +1203,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230427090144"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230427091053"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

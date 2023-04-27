@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: null,
 
   language: 'en',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -103,16 +117,15 @@ var translations = {
         ================================================== -->
 
         
+    
     <title>Goal 15 - Life on land - U.K. Indicators For The Sustainable Development Goals</title>
+    
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
         <meta name="robots" content="noindex, nofollow">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
@@ -123,13 +136,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427090144">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427091053">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -139,6 +153,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/sdg-indicators/assets/css/ie.css">
@@ -320,7 +337,11 @@ data-event-label="high"
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/15.svg" alt="Life on land - Goal 15" id="goal-15" class="goal-icon-image goal-icon-image-svg" />
             </div>
             <div class="col-8 col-md-9 col-lg-10 goal-details">
-                <h1>Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss</h1>
+                <h1>
+                    
+                        Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss
+                    
+                </h1>
             </div>
         </div>
     </div>
@@ -390,7 +411,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/15-1-1">Forest area as a proportion of total land area</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/15-1-1/">Forest area as a proportion of total land area</a></span>
               
 
 
@@ -430,7 +451,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/15-1-2">Proportion of important sites for terrestrial and freshwater biodiversity that are covered by protected areas, by ecosystem type</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/15-1-2/">Proportion of important sites for terrestrial and freshwater biodiversity that are covered by protected areas, by ecosystem type</a></span>
               
 
 
@@ -485,7 +506,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/15-2-1">Progress towards sustainable forest management</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/15-2-1/">Progress towards sustainable forest management</a></span>
               
 
 
@@ -540,7 +561,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/15-3-1">Proportion of land that is degraded over total land area</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/15-3-1/">Proportion of land that is degraded over total land area</a></span>
               
 
 
@@ -595,7 +616,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/15-4-1">Coverage by protected areas of important sites for mountain biodiversity</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/15-4-1/">Coverage by protected areas of important sites for mountain biodiversity</a></span>
               
 
 
@@ -635,7 +656,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/15-4-2">Mountain Green Cover Index</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/15-4-2/">Mountain Green Cover Index</a></span>
               
 
 
@@ -690,7 +711,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/15-5-1">Red List Index</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/15-5-1/">Red List Index</a></span>
               
 
 
@@ -745,7 +766,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/15-6-1">Number of countries that have adopted legislative, administrative and policy frameworks to ensure fair and equitable sharing of benefits</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/15-6-1/">Number of countries that have adopted legislative, administrative and policy frameworks to ensure fair and equitable sharing of benefits</a></span>
               
 
 
@@ -800,7 +821,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/15-7-1">Proportion of traded wildlife that was poached or illicitly trafficked</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/15-7-1/">Proportion of traded wildlife that was poached or illicitly trafficked</a></span>
               
 
 
@@ -855,7 +876,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/15-8-1">Proportion of countries adopting relevant national legislation and adequately resourcing the prevention or control of invasive alien species</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/15-8-1/">Proportion of countries adopting relevant national legislation and adequately resourcing the prevention or control of invasive alien species</a></span>
               
 
 
@@ -910,7 +931,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/15-9-1">(a) Number of countries that have established national targets in accordance with or similar to Aichi Biodiversity Target 2 of the Strategic Plan for Biodiversity 2011–2020 in their national biodiversity strategy and action plans and the progress reported towards these targets; and (b) integration of biodiversity into national accounting and reporting systems, defined as implementation of the System of Environmental-Economic Accounting</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/15-9-1/">(a) Number of countries that have established national targets in accordance with or similar to Aichi Biodiversity Target 2 of the Strategic Plan for Biodiversity 2011–2020 in their national biodiversity strategy and action plans and the progress reported towards these targets; and (b) integration of biodiversity into national accounting and reporting systems, defined as implementation of the System of Environmental-Economic Accounting</a></span>
               
 
 
@@ -965,7 +986,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/15-a-1">(a) Official development assistance on conservation and sustainable use of biodiversity; and (b) revenue generated and finance mobilized from biodiversity-relevant economic instruments</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/15-a-1/">(a) Official development assistance on conservation and sustainable use of biodiversity; and (b) revenue generated and finance mobilized from biodiversity-relevant economic instruments</a></span>
               
 
 
@@ -1020,7 +1041,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/15-b-1">(a) Official development assistance on conservation and sustainable use of biodiversity; and (b) revenue generated and finance mobilized from biodiversity-relevant economic instruments</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/15-b-1/">(a) Official development assistance on conservation and sustainable use of biodiversity; and (b) revenue generated and finance mobilized from biodiversity-relevant economic instruments</a></span>
               
 
 
@@ -1075,7 +1096,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/15-c-1">Proportion of traded wildlife that was poached or illicitly trafficked</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/15-c-1/">Proportion of traded wildlife that was poached or illicitly trafficked</a></span>
               
 
 
@@ -1322,7 +1343,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230427090144'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230427091053'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -1330,7 +1351,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230427090144"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230427091053"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

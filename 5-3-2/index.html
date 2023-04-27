@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: ["Activity (default)","Age (default)","Urbanisation (default)"],
 
   language: 'en',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -112,12 +126,9 @@ var translations = {
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
         <meta name="robots" content="noindex, nofollow">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
@@ -128,13 +139,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427090144">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427091053">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -144,6 +156,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/sdg-indicators/assets/css/ie.css">
@@ -374,8 +389,9 @@ data-event-label="high"
     <fieldset>
       <legend class="sr-only">Series</legend>
       <% _.each(serieses, function(seriesItem, index) { %>
+        <% var isProxy = (proxySerieses.includes(seriesItem)) %>
         <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
-        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%> <%=isProxy ? proxyPill : ''%></label>
       <% }); %>
     </fieldset>
   
@@ -397,7 +413,7 @@ data-event-label="high"
             <a href="/sdg-indicators/">Home</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="/sdg-indicators/5"
+            <a href="/sdg-indicators/5/"
                title="Goal 5 - Gender equality"
                aria-label="Goal  - ">
                Goal 5
@@ -416,7 +432,7 @@ data-event-label="high"
         <div class="row">
             
             <div class="col-4 col-md-3 col-lg-2 goal-icon goal-tiles">
-                <a href="/sdg-indicators/5" aria-label="View targets and indicators for Goal 5" title="View targets and indicators for Goal 5">
+                <a href="/sdg-indicators/5/" aria-label="View targets and indicators for Goal 5" title="View targets and indicators for Goal 5">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/5.svg"
                         alt="Gender equality - Goal 5"
                         id="goal-5"
@@ -444,6 +460,20 @@ data-event-label="high"
 <div class="row metadata-available-indicator">
   <div class="col-xs-12">
     <h2>Proportion of girls and women who have undergone female genital mutilation/cutting.</h2>
+  </div>
+</div>
+
+
+  
+<div class="row proxy-banner my-4 mx-1 px-2 gx-2">
+  <div class="col col-auto align-self-center">
+    <span aria-describedby="proxy-description" class="proxy-pill">indicator.proxy</span>
+  </div>
+  <div class="col col-auto align-self-center">
+    =
+  </div>
+  <div id="proxy-description" class="col">
+    indicator.proxy_description
   </div>
 </div>
 
@@ -483,6 +513,8 @@ data-event-label="high"
   data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;Individuals&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Age at which FGM took place&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Not Recorded&quot;,&quot;Not Known&quot;,&quot;Under 1&quot;,&quot;1 to 4&quot;,&quot;5 to 9&quot;,&quot;10 to 14&quot;,&quot;15 to 17&quot;,&quot;18 and over&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age at which FGM took place&quot;},{&quot;name&quot;:&quot;Country of birth&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Born in UK&quot;,&quot;Born in Eastern Africa&quot;,&quot;Born in Northern Africa&quot;,&quot;Born in Western Africa&quot;,&quot;Born elsewhere in Africa&quot;,&quot;Born in Western Asia&quot;,&quot;Born elsewhere in Asia&quot;,&quot;Other country of birth&quot;,&quot;Country of birth not recorded&quot;,&quot;Country of birth not known&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country of birth&quot;},{&quot;name&quot;:&quot;FGM type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Not recorded&quot;,&quot;Not known&quot;,&quot;Type 1&quot;,&quot;Type 2&quot;,&quot;Type 3&quot;,&quot;Type 4&quot;,&quot;History of type 3&quot;,&quot;Type 3 reinfibulation identified&quot;,&quot;&quot;]},&quot;title&quot;:&quot;FGM type&quot;},{&quot;name&quot;:&quot;Local Authority&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Adur District Council&quot;,&quot;Allerdale Borough Council&quot;,&quot;Amber Valley Borough Council&quot;,&quot;Arun District Council&quot;,&quot;Ashfield District Council&quot;,&quot;Ashford Borough Council&quot;,&quot;Babergh District Council&quot;,&quot;Barnsley Metropolitan Borough Council&quot;,&quot;Barrow-In-Furness Borough Council&quot;,&quot;Basildon Borough Council&quot;,&quot;Basingstoke and Deane Borough Council&quot;,&quot;Bassetlaw District Council&quot;,&quot;Bath and North East Somerset Council&quot;,&quot;BCP Council&quot;,&quot;Bedford Borough Council&quot;,&quot;Birmingham City Council&quot;,&quot;Blaby District Council&quot;,&quot;Blackburn with Darwen Borough Council&quot;,&quot;Blackpool Borough Council&quot;,&quot;Bolsover District Council&quot;,&quot;Bolton Metropolitan Borough Council&quot;,&quot;Borough Council of King's Lynn and West Norfolk&quot;,&quot;Boston Borough Council&quot;,&quot;Bracknell Forest Council&quot;,&quot;Braintree District Council&quot;,&quot;Breckland District Council&quot;,&quot;Brentwood Borough Council&quot;,&quot;Brighton and Hove City Council&quot;,&quot;Bristol City Council&quot;,&quot;Broadland District Council&quot;,&quot;Bromsgrove District Council&quot;,&quot;Broxbourne Borough Council&quot;,&quot;Broxtowe Borough Council&quot;,&quot;Buckinghamshire Council&quot;,&quot;Burnley Borough Council&quot;,&quot;Bury Metropolitan Borough Council&quot;,&quot;Calderdale Metropolitan Borough Council&quot;,&quot;Cambridge City Council&quot;,&quot;Cambridgeshire County Council&quot;,&quot;Cannock Chase District Council&quot;,&quot;Canterbury City Council&quot;,&quot;Carlisle City Council&quot;,&quot;Castle Point Borough Council&quot;,&quot;Central Bedfordshire Council&quot;,&quot;Charnwood Borough Council&quot;,&quot;Chelmsford City Council&quot;,&quot;Cheltenham Borough Council&quot;,&quot;Cherwell District Council&quot;,&quot;Cheshire East Council&quot;,&quot;Cheshire West and Chester Council&quot;,&quot;Chesterfield Borough Council&quot;,&quot;Chichester District Council&quot;,&quot;Chorley Borough Council&quot;,&quot;City of Bradford Metropolitan District Council&quot;,&quot;City of Lincoln Council&quot;,&quot;City of London Corporation&quot;,&quot;City of Westminster&quot;,&quot;City of Wolverhampton Council&quot;,&quot;City of York Council&quot;,&quot;Colchester Borough Council&quot;,&quot;Copeland Borough Council&quot;,&quot;Corby Borough Council&quot;,&quot;Cornwall Council&quot;,&quot;Cotswold District Council&quot;,&quot;Council of The Isles of Scilly&quot;,&quot;Coventry City Council&quot;,&quot;Craven District Council&quot;,&quot;Crawley Borough Council&quot;,&quot;Cumbria County Council&quot;,&quot;Dacorum Borough Council&quot;,&quot;Darlington Borough Council&quot;,&quot;Dartford Borough Council&quot;,&quot;Daventry District Council&quot;,&quot;Derby City Council&quot;,&quot;Derbyshire County Council&quot;,&quot;Derbyshire Dales District Council&quot;,&quot;Devon County Council&quot;,&quot;Doncaster Metropolitan Borough Council&quot;,&quot;Dorset Council&quot;,&quot;Dover District Council&quot;,&quot;Dudley Metropolitan Borough Council&quot;,&quot;Durham County Council&quot;,&quot;East Cambridgeshire District Council&quot;,&quot;East Devon District Council&quot;,&quot;East Hampshire District Council&quot;,&quot;East Hertfordshire District Council&quot;,&quot;East Lindsey District Council&quot;,&quot;East Northamptonshire Council&quot;,&quot;East Riding of Yorkshire Council&quot;,&quot;East Staffordshire Borough Council&quot;,&quot;East Suffolk Council&quot;,&quot;East Sussex County Council&quot;,&quot;Eastbourne Borough Council&quot;,&quot;Eastleigh Borough Council&quot;,&quot;Eden District Council&quot;,&quot;Elmbridge Borough Council&quot;,&quot;Epping Forest District Council&quot;,&quot;Epsom and Ewell Borough Council&quot;,&quot;Erewash Borough Council&quot;,&quot;Essex County Council&quot;,&quot;Exeter City Council&quot;,&quot;Fareham Borough Council&quot;,&quot;Fenland District Council&quot;,&quot;Folkestone and Hythe Council&quot;,&quot;Forest of Dean District Council&quot;,&quot;Fylde Borough Council&quot;,&quot;Gateshead Metropolitan Borough Council&quot;,&quot;Gedling Borough Council&quot;,&quot;Gloucester City Council&quot;,&quot;Gloucestershire County Council&quot;,&quot;Gosport Borough Council&quot;,&quot;Gravesham Borough Council&quot;,&quot;Great Yarmouth Borough Council&quot;,&quot;Greater London Authority&quot;,&quot;Guildford Borough Council&quot;,&quot;Halton Borough Council&quot;,&quot;Hambleton District Council&quot;,&quot;Hampshire County Council&quot;,&quot;Harborough District Council&quot;,&quot;Harlow District Council&quot;,&quot;Harrogate Borough Council&quot;,&quot;Hart District Council&quot;,&quot;Hartlepool Borough Council&quot;,&quot;Hastings Borough Council&quot;,&quot;Havant Borough Council&quot;,&quot;Herefordshire Council&quot;,&quot;Hertfordshire County Council&quot;,&quot;Hertsmere Borough Council&quot;,&quot;High Peak Borough Council&quot;,&quot;Hinckley and Bosworth Borough Council&quot;,&quot;Horsham District Council&quot;,&quot;Hull City Council&quot;,&quot;Huntingdonshire District Council&quot;,&quot;Hyndburn Borough Council&quot;,&quot;Ipswich Borough Council&quot;,&quot;Isle of Wight Council&quot;,&quot;Kent County Council&quot;,&quot;Kettering Borough Council&quot;,&quot;Kirklees Council&quot;,&quot;Knowsley Metropolitan Borough Council&quot;,&quot;Lancashire County Council&quot;,&quot;Lancaster City Council&quot;,&quot;Leeds City Council&quot;,&quot;Leicester City Council&quot;,&quot;Leicestershire County Council&quot;,&quot;Lewes District Council&quot;,&quot;Lichfield District Council&quot;,&quot;Lincolnshire County Council&quot;,&quot;Liverpool City Council&quot;,&quot;London Borough of Barking and Dagenham&quot;,&quot;London Borough of Barnet&quot;,&quot;London Borough of Bexley&quot;,&quot;London Borough of Brent&quot;,&quot;London Borough of Bromley&quot;,&quot;London Borough of Camden&quot;,&quot;London Borough of Croydon&quot;,&quot;London Borough of Ealing&quot;,&quot;London Borough of Enfield&quot;,&quot;London Borough of Hackney&quot;,&quot;London Borough of Hammersmith &amp; Fulham&quot;,&quot;London Borough of Haringey&quot;,&quot;London Borough of Harrow&quot;,&quot;London Borough of Havering&quot;,&quot;London Borough of Hillingdon&quot;,&quot;London Borough of Hounslow&quot;,&quot;London Borough of Islington&quot;,&quot;London Borough of Lambeth&quot;,&quot;London Borough of Lewisham&quot;,&quot;London Borough of Merton&quot;,&quot;London Borough of Newham&quot;,&quot;London Borough of Redbridge&quot;,&quot;London Borough of Richmond Upon Thames&quot;,&quot;London Borough of Southwark&quot;,&quot;London Borough of Sutton&quot;,&quot;London Borough of Tower Hamlets&quot;,&quot;London Borough of Waltham Forest&quot;,&quot;London Borough of Wandsworth&quot;,&quot;Luton Borough Council&quot;,&quot;Maidstone Borough Council&quot;,&quot;Maldon District Council&quot;,&quot;Malvern Hills District Council&quot;,&quot;Manchester City Council&quot;,&quot;Mansfield District Council&quot;,&quot;Medway Council&quot;,&quot;Melton Borough Council&quot;,&quot;Mendip District Council&quot;,&quot;Mid Devon District Council&quot;,&quot;Mid Suffolk District Council&quot;,&quot;Mid Sussex District Council&quot;,&quot;Middlesbrough Borough Council&quot;,&quot;Milton Keynes Council&quot;,&quot;Mole Valley District Council&quot;,&quot;New Forest District Council&quot;,&quot;Newark and Sherwood District Council&quot;,&quot;Newcastle City Council&quot;,&quot;Newcastle-Under-Lyme Borough Council&quot;,&quot;Norfolk County Council&quot;,&quot;North Devon District Council&quot;,&quot;North East Derbyshire District Council&quot;,&quot;North East Lincolnshire Council&quot;,&quot;North Hertfordshire District Council&quot;,&quot;North Kesteven District Council&quot;,&quot;North Lincolnshire Council&quot;,&quot;North Norfolk District Council&quot;,&quot;North Somerset Council&quot;,&quot;North Tyneside Council&quot;,&quot;North Warwickshire Borough Council&quot;,&quot;North West Leicestershire District Council&quot;,&quot;North Yorkshire County Council&quot;,&quot;Northampton Borough Council&quot;,&quot;Northamptonshire County Council&quot;,&quot;Northumberland County Council&quot;,&quot;Norwich City Council&quot;,&quot;Nottingham City Council&quot;,&quot;Nottinghamshire County Council&quot;,&quot;Nuneaton and Bedworth Borough Council&quot;,&quot;Oadby and Wigston Borough Council&quot;,&quot;Oldham Metropolitan Borough Council&quot;,&quot;Oxford City Council&quot;,&quot;Oxfordshire County Council&quot;,&quot;Pendle Borough Council&quot;,&quot;Peterborough City Council&quot;,&quot;Plymouth City Council&quot;,&quot;Portsmouth City Council&quot;,&quot;Preston City Council&quot;,&quot;Reading Borough Council&quot;,&quot;Redcar and Cleveland Borough Council&quot;,&quot;Redditch Borough Council&quot;,&quot;Reigate and Banstead Borough Council&quot;,&quot;Ribble Valley Borough Council&quot;,&quot;Richmondshire District Council&quot;,&quot;Rochdale Metropolitan Borough Council&quot;,&quot;Rochford District Council&quot;,&quot;Rossendale Borough Council&quot;,&quot;Rother District Council&quot;,&quot;Rotherham Metropolitan Borough Council&quot;,&quot;Royal Borough of Greenwich&quot;,&quot;Royal Borough of Kensington and Chelsea&quot;,&quot;Royal Borough of Kingston Upon Thames&quot;,&quot;Royal Borough of Windsor and Maidenhead&quot;,&quot;Rugby Borough Council&quot;,&quot;Runnymede Borough Council&quot;,&quot;Rushcliffe Borough Council&quot;,&quot;Rushmoor Borough Council&quot;,&quot;Rutland County Council&quot;,&quot;Ryedale District Council&quot;,&quot;Salford City Council&quot;,&quot;Sandwell Metropolitan Borough Council&quot;,&quot;Scarborough Borough Council&quot;,&quot;Sedgemoor District Council&quot;,&quot;Sefton Metropolitan Borough Council&quot;,&quot;Selby District Council&quot;,&quot;Sevenoaks District Council&quot;,&quot;Sheffield City Council&quot;,&quot;Shropshire Council&quot;,&quot;Slough Borough Council&quot;,&quot;Solihull Metropolitan Borough Council&quot;,&quot;Somerset County Council&quot;,&quot;Somerset West and Taunton Council&quot;,&quot;South Cambridgeshire District Council&quot;,&quot;South Derbyshire District Council&quot;,&quot;South Gloucestershire Council&quot;,&quot;South Hams District Council&quot;,&quot;South Holland District Council&quot;,&quot;South Kesteven District Council&quot;,&quot;South Lakeland District Council&quot;,&quot;South Norfolk District Council&quot;,&quot;South Northamptonshire Council&quot;,&quot;South Oxfordshire District Council&quot;,&quot;South Ribble Borough Council&quot;,&quot;South Somerset District Council&quot;,&quot;South Staffordshire Council&quot;,&quot;South Tyneside Council&quot;,&quot;Southampton City Council&quot;,&quot;Southend-On-Sea Borough Council&quot;,&quot;Spelthorne Borough Council&quot;,&quot;St Albans City and District Council&quot;,&quot;St Helens Council&quot;,&quot;Stafford Borough Council&quot;,&quot;Staffordshire County Council&quot;,&quot;Staffordshire Moorlands District Council&quot;,&quot;Stevenage Borough Council&quot;,&quot;Stockport Metropolitan Borough Council&quot;,&quot;Stockton-On-Tees Borough Council&quot;,&quot;Stoke-On-Trent City Council&quot;,&quot;Stratford-On-Avon District Council&quot;,&quot;Stroud District Council&quot;,&quot;Suffolk County Council&quot;,&quot;Sunderland City Council&quot;,&quot;Surrey County Council&quot;,&quot;Surrey Heath Borough Council&quot;,&quot;Swale Borough Council&quot;,&quot;Swindon Borough Council&quot;,&quot;Tameside Metropolitan Borough Council&quot;,&quot;Tamworth Borough Council&quot;,&quot;Tandridge District Council&quot;,&quot;Teignbridge District Council&quot;,&quot;Telford &amp; Wrekin Council&quot;,&quot;Tendring District Council&quot;,&quot;Test Valley Borough Council&quot;,&quot;Tewkesbury Borough Council&quot;,&quot;Thanet District Council&quot;,&quot;Three Rivers District Council&quot;,&quot;Thurrock Council&quot;,&quot;Tonbridge and Malling Borough Council&quot;,&quot;Torbay Council&quot;,&quot;Torridge District Council&quot;,&quot;Trafford Metropolitan Borough Council&quot;,&quot;Tunbridge Wells Borough Council&quot;,&quot;Uttlesford District Council&quot;,&quot;Vale of White Horse District Council&quot;,&quot;Wakefield Metropolitan District Council&quot;,&quot;Walsall Metropolitan Borough Council&quot;,&quot;Warrington Borough Council&quot;,&quot;Warwick District Council&quot;,&quot;Warwickshire County Council&quot;,&quot;Watford Borough Council&quot;,&quot;Waverley Borough Council&quot;,&quot;Wealden District Council&quot;,&quot;Wellingborough Borough Council&quot;,&quot;Welwyn Hatfield Borough Council&quot;,&quot;West Berkshire Council&quot;,&quot;West Devon Borough Council&quot;,&quot;West Lancashire Borough Council&quot;,&quot;West Lindsey District Council&quot;,&quot;West Oxfordshire District Council&quot;,&quot;West Suffolk Council&quot;,&quot;West Sussex County Council&quot;,&quot;Wigan Metropolitan Borough Council&quot;,&quot;Wiltshire Council&quot;,&quot;Winchester City Council&quot;,&quot;Wirral Borough Council&quot;,&quot;Woking Borough Council&quot;,&quot;Wokingham Borough Council&quot;,&quot;Worcester City Council&quot;,&quot;Worcestershire County Council&quot;,&quot;Worthing Borough Council&quot;,&quot;Wychavon District Council&quot;,&quot;Wyre Borough Council&quot;,&quot;Wyre Forest District Council&quot;,&quot;Unknown&quot;,&quot;Aylesbury Vale District Council&quot;,&quot;Basildon District Council&quot;,&quot;Borough of Poole Council&quot;,&quot;Bournemouth Borough Council&quot;,&quot;Bracknell Forest Borough Council&quot;,&quot;Brighton &amp; Hove City Council&quot;,&quot;Buckinghamshire County Council&quot;,&quot;Chiltern District Council&quot;,&quot;Christchurch Borough Council&quot;,&quot;Corporation of The City of London&quot;,&quot;Darlington Borough Council (Unitary)&quot;,&quot;Doncaster Council&quot;,&quot;East Dorset District Council&quot;,&quot;Folkestone and Hythe District Council&quot;,&quot;Forest Heath District Council&quot;,&quot;Halton Borough Council (Unitary)&quot;,&quot;Hinckley &amp; Bosworth Borough Council&quot;,&quot;Kings Lynn &amp; West Norfolk Borough Council&quot;,&quot;London Borough of Greenwich&quot;,&quot;London Borough of Hammersmith and Fulham&quot;,&quot;London Borough of Lambeth Council&quot;,&quot;London Borough of Lewisham Council&quot;,&quot;London Borough of Merton Council&quot;,&quot;London Borough of Newham Council&quot;,&quot;London Borough of Redbridge Council&quot;,&quot;London Borough of Richmond Upon Thames Council&quot;,&quot;London Borough of Southwark Council&quot;,&quot;London Borough of Sutton Council&quot;,&quot;London Borough of Tower Hamlets Council&quot;,&quot;London Borough of Waltham Forest Council&quot;,&quot;Middlesbrough Council&quot;,&quot;Newcastle-Upon-Tyne City Council&quot;,&quot;North Dorset District Council&quot;,&quot;North Somerset District Council&quot;,&quot;Oadby &amp; Wigston Borough Council&quot;,&quot;Purbeck District Council&quot;,&quot;Redcar &amp; Cleveland Borough Council&quot;,&quot;Royal Borough of Kingston-Upon-Thames Council&quot;,&quot;Royal Borough of Windsor &amp; Maidenhead&quot;,&quot;Sefton Council&quot;,&quot;South Bucks District Council&quot;,&quot;South Norfolk Council&quot;,&quot;South Northamptonshire District Council&quot;,&quot;South Tyneside Metropolitan Borough Council&quot;,&quot;St Albans City &amp; District Council&quot;,&quot;St Edmundsbury Borough Council&quot;,&quot;St Helens Metropolitan Borough Council&quot;,&quot;Suffolk Coastal District Council&quot;,&quot;Swindon Borough Council (Unitary)&quot;,&quot;Taunton Deane Borough Council&quot;,&quot;Telford and Wrekin Council (Unitary)&quot;,&quot;The Council of The Isles of Scilly&quot;,&quot;Wakefield Council&quot;,&quot;Warrington Borough Council (Unitary)&quot;,&quot;Waveney District Council&quot;,&quot;Welwyn Hatfield Council&quot;,&quot;West Berkshire District Council&quot;,&quot;West Dorset District Council&quot;,&quot;West Lancashire District Council&quot;,&quot;West Somerset District Council&quot;,&quot;Westminster City Council&quot;,&quot;Weymouth &amp; Portland Borough Council&quot;,&quot;Wirral Metropolitan Borough Council&quot;,&quot;Wolverhampton City Council&quot;,&quot;Wycombe District Council&quot;,&quot;York City Council&quot;,&quot;Chelmsford Borough Council&quot;,&quot;Kingston-Upon-Hull City Council&quot;,&quot;Oldham Metropolitian Borough Council&quot;,&quot;Shepway District Council&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Local Authority&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;Individuals&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
+  data-proxy="proxy"
+  data-proxyseries="null"
 >
   
   <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
@@ -1038,7 +1070,9 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Percentage of women the NHS has interacted with where FGM was identified</h4>
+          <h4 id="chart-heading" class="chart-title">
+            Percentage of women the NHS has interacted with where FGM was identified
+          </h4>
           <div id="chart" class="plot-container">
             <canvas
     role="img"
@@ -2713,7 +2747,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230427090144'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230427091053'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2721,7 +2755,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230427090144"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230427091053"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: ["Activity (default)","Age (default)","Urbanisation (default)"],
 
   language: 'en',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -112,12 +126,9 @@ var translations = {
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
         <meta name="robots" content="noindex, nofollow">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
@@ -128,13 +139,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427090144">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427091053">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -144,6 +156,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/sdg-indicators/assets/css/ie.css">
@@ -374,8 +389,9 @@ data-event-label="high"
     <fieldset>
       <legend class="sr-only">Series</legend>
       <% _.each(serieses, function(seriesItem, index) { %>
+        <% var isProxy = (proxySerieses.includes(seriesItem)) %>
         <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
-        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%> <%=isProxy ? proxyPill : ''%></label>
       <% }); %>
     </fieldset>
   
@@ -397,7 +413,7 @@ data-event-label="high"
             <a href="/sdg-indicators/">Home</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="/sdg-indicators/4"
+            <a href="/sdg-indicators/4/"
                title="Goal 4 - Quality education"
                aria-label="Goal  - ">
                Goal 4
@@ -416,7 +432,7 @@ data-event-label="high"
         <div class="row">
             
             <div class="col-4 col-md-3 col-lg-2 goal-icon goal-tiles">
-                <a href="/sdg-indicators/4" aria-label="View targets and indicators for Goal 4" title="View targets and indicators for Goal 4">
+                <a href="/sdg-indicators/4/" aria-label="View targets and indicators for Goal 4" title="View targets and indicators for Goal 4">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/4.svg"
                         alt="Quality education - Goal 4"
                         id="goal-4"
@@ -444,6 +460,20 @@ data-event-label="high"
 <div class="row metadata-available-indicator">
   <div class="col-xs-12">
     <h2>Percentage of children and adolescents achieving at least the expected proficiency level in English and Mathematics at ages 7, 11 and 16</h2>
+  </div>
+</div>
+
+
+  
+<div class="row proxy-banner my-4 mx-1 px-2 gx-2">
+  <div class="col col-auto align-self-center">
+    <span aria-describedby="proxy-description" class="proxy-pill">indicator.proxy</span>
+  </div>
+  <div class="col col-auto align-self-center">
+    =
+  </div>
+  <div id="proxy-description" class="col">
+    indicator.proxy_description
   </div>
 </div>
 
@@ -490,6 +520,8 @@ data-event-label="high"
   data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Attainment at age 16&quot;,&quot;Attainment at age 11&quot;,&quot;Attainment at age 7&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Subject&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;English&quot;,&quot;Maths&quot;,&quot;Reading&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Subject&quot;},{&quot;name&quot;:&quot;Sex&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Female&quot;,&quot;Male&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Sex&quot;},{&quot;name&quot;:&quot;Special educational needs&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;No special educational needs&quot;,&quot;Special educational needs&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Special educational needs&quot;},{&quot;name&quot;:&quot;Free school meals&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Free school meals&quot;,&quot;No free school meals&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Free school meals&quot;},{&quot;name&quot;:&quot;Ethnicity&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;White&quot;,&quot;Mixed&quot;,&quot;Asian&quot;,&quot;Black/African/Caribbean/Black British&quot;,&quot;Chinese&quot;,&quot;Other&quot;,&quot;Unclassified&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnicity&quot;},{&quot;name&quot;:&quot;Ethnic group&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;White British&quot;,&quot;Irish&quot;,&quot;Traveller of Irish heritage&quot;,&quot;Gypsy / Roma&quot;,&quot;Any other white background&quot;,&quot;White and black Caribbean&quot;,&quot;White and black African&quot;,&quot;White and Asian&quot;,&quot;Any other mixed background&quot;,&quot;Indian&quot;,&quot;Pakistani&quot;,&quot;Bangladeshi&quot;,&quot;Any other Asian background&quot;,&quot;Black Caribbean&quot;,&quot;Black African&quot;,&quot;Any other black background&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnic group&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;London&quot;,&quot;Yorkshire and The Humber&quot;,&quot;South West&quot;,&quot;East of England&quot;,&quot;West Midlands&quot;,&quot;North West&quot;,&quot;South East&quot;,&quot;North East&quot;,&quot;East Midlands&quot;,&quot;Inner London&quot;,&quot;Outer London&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Local Authority&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Barking and Dagenham&quot;,&quot;Barnet&quot;,&quot;Barnsley&quot;,&quot;Bath and North East Somerset&quot;,&quot;Bedford&quot;,&quot;Bexley&quot;,&quot;Birmingham&quot;,&quot;Blackburn with Darwen&quot;,&quot;Blackpool&quot;,&quot;Bolton&quot;,&quot;Bournemouth&quot;,&quot;Bournemouth, Christchurch and Poole&quot;,&quot;Bracknell Forest&quot;,&quot;Bradford&quot;,&quot;Brent&quot;,&quot;Brighton and Hove&quot;,&quot;Bristol, City of&quot;,&quot;Bromley&quot;,&quot;Buckinghamshire&quot;,&quot;Bury&quot;,&quot;Calderdale&quot;,&quot;Cambridgeshire&quot;,&quot;Camden&quot;,&quot;Central Bedfordshire&quot;,&quot;Cheshire East&quot;,&quot;Cheshire West and Chester&quot;,&quot;City of London7&quot;,&quot;Cornwall&quot;,&quot;County Durham&quot;,&quot;Coventry&quot;,&quot;Croydon&quot;,&quot;Cumbria&quot;,&quot;Darlington&quot;,&quot;Derby&quot;,&quot;Derbyshire&quot;,&quot;Devon&quot;,&quot;Doncaster&quot;,&quot;Dorset&quot;,&quot;Dudley&quot;,&quot;Ealing&quot;,&quot;East Riding of Yorkshire&quot;,&quot;East Sussex&quot;,&quot;Enfield&quot;,&quot;Essex&quot;,&quot;Gateshead&quot;,&quot;Gloucestershire&quot;,&quot;Greenwich&quot;,&quot;Hackney&quot;,&quot;Halton&quot;,&quot;Hammersmith and Fulham&quot;,&quot;Hampshire&quot;,&quot;Haringey&quot;,&quot;Harrow&quot;,&quot;Hartlepool&quot;,&quot;Havering&quot;,&quot;Herefordshire, County of&quot;,&quot;Hertfordshire&quot;,&quot;Hillingdon&quot;,&quot;Hounslow&quot;,&quot;Isle of Wight&quot;,&quot;Isles of Scilly7&quot;,&quot;Islington&quot;,&quot;Kensington and Chelsea&quot;,&quot;Kent&quot;,&quot;Kingston upon Hull, City of&quot;,&quot;Kingston upon Thames&quot;,&quot;Kirklees&quot;,&quot;Knowsley&quot;,&quot;Lambeth&quot;,&quot;Lancashire&quot;,&quot;Leeds&quot;,&quot;Leicester&quot;,&quot;Leicestershire&quot;,&quot;Lewisham&quot;,&quot;Lincolnshire&quot;,&quot;Liverpool&quot;,&quot;Luton&quot;,&quot;Manchester&quot;,&quot;Medway&quot;,&quot;Merton&quot;,&quot;Middlesbrough&quot;,&quot;Milton Keynes&quot;,&quot;Newcastle upon Tyne&quot;,&quot;Newham&quot;,&quot;Norfolk&quot;,&quot;North East Lincolnshire&quot;,&quot;North Lincolnshire&quot;,&quot;North Somerset&quot;,&quot;North Tyneside&quot;,&quot;North Yorkshire&quot;,&quot;Northamptonshire&quot;,&quot;Northumberland&quot;,&quot;Nottingham&quot;,&quot;Nottinghamshire&quot;,&quot;Oldham&quot;,&quot;Oxfordshire&quot;,&quot;Peterborough&quot;,&quot;Plymouth&quot;,&quot;Portsmouth&quot;,&quot;Reading&quot;,&quot;Redbridge&quot;,&quot;Redcar and Cleveland&quot;,&quot;Richmond upon Thames&quot;,&quot;Rochdale&quot;,&quot;Rotherham&quot;,&quot;Rutland&quot;,&quot;Salford&quot;,&quot;Sandwell&quot;,&quot;Sefton&quot;,&quot;Sheffield&quot;,&quot;Shropshire&quot;,&quot;Slough&quot;,&quot;Solihull&quot;,&quot;Somerset&quot;,&quot;South Gloucestershire&quot;,&quot;South Tyneside&quot;,&quot;Southampton&quot;,&quot;Southend-on-Sea&quot;,&quot;Southwark&quot;,&quot;St. Helens&quot;,&quot;Staffordshire&quot;,&quot;Stockport&quot;,&quot;Stockton-on-Tees&quot;,&quot;Stoke-on-Trent&quot;,&quot;Suffolk&quot;,&quot;Sunderland&quot;,&quot;Surrey&quot;,&quot;Sutton&quot;,&quot;Swindon&quot;,&quot;Tameside&quot;,&quot;Telford and Wrekin&quot;,&quot;Thurrock&quot;,&quot;Torbay&quot;,&quot;Tower Hamlets&quot;,&quot;Trafford&quot;,&quot;Wakefield&quot;,&quot;Walsall&quot;,&quot;Waltham Forest&quot;,&quot;Wandsworth&quot;,&quot;Warrington&quot;,&quot;Warwickshire&quot;,&quot;West Berkshire&quot;,&quot;West Sussex&quot;,&quot;Westminster&quot;,&quot;Wigan&quot;,&quot;Wiltshire&quot;,&quot;Windsor and Maidenhead&quot;,&quot;Wirral&quot;,&quot;Wokingham&quot;,&quot;Wolverhampton&quot;,&quot;Worcestershire&quot;,&quot;York&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Local Authority&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
+  data-proxy="proxy"
+  data-proxyseries="null"
 >
   
   <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
@@ -609,7 +641,9 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Attainment at age 16</h4>
+          <h4 id="chart-heading" class="chart-title">
+            Attainment at age 16
+          </h4>
           <div id="chart" class="plot-container">
             <canvas
     role="img"
@@ -2595,7 +2629,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230427090144'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230427091053'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2603,7 +2637,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230427090144"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230427091053"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

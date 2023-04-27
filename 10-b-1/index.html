@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: ["Activity (default)","Age (default)","Urbanisation (default)"],
 
   language: 'en',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -112,12 +126,9 @@ var translations = {
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
         <meta name="robots" content="noindex, nofollow">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
@@ -128,13 +139,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427090144">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427091053">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -144,6 +156,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/sdg-indicators/assets/css/ie.css">
@@ -374,8 +389,9 @@ data-event-label="high"
     <fieldset>
       <legend class="sr-only">Series</legend>
       <% _.each(serieses, function(seriesItem, index) { %>
+        <% var isProxy = (proxySerieses.includes(seriesItem)) %>
         <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
-        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%> <%=isProxy ? proxyPill : ''%></label>
       <% }); %>
     </fieldset>
   
@@ -397,7 +413,7 @@ data-event-label="high"
             <a href="/sdg-indicators/">Home</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="/sdg-indicators/10"
+            <a href="/sdg-indicators/10/"
                title="Goal 10 - Reduced inequalities"
                aria-label="Goal  - ">
                Goal 10
@@ -416,7 +432,7 @@ data-event-label="high"
         <div class="row">
             
             <div class="col-4 col-md-3 col-lg-2 goal-icon goal-tiles">
-                <a href="/sdg-indicators/10" aria-label="View targets and indicators for Goal 10" title="View targets and indicators for Goal 10">
+                <a href="/sdg-indicators/10/" aria-label="View targets and indicators for Goal 10" title="View targets and indicators for Goal 10">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/10.svg"
                         alt="Reduced inequalities - Goal 10"
                         id="goal-10"
@@ -447,6 +463,8 @@ data-event-label="high"
   </div>
 </div>
 
+
+  
 
   
 
@@ -483,6 +501,8 @@ data-event-label="high"
   data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Recipient region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Africa&quot;,&quot;Americas&quot;,&quot;Asia&quot;,&quot;Europe&quot;,&quot;Pacific&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Recipient region&quot;},{&quot;name&quot;:&quot;Recipient country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Africa, regional&quot;,&quot;Algeria&quot;,&quot;Angola&quot;,&quot;Benin&quot;,&quot;Botswana&quot;,&quot;Burkina Faso&quot;,&quot;Burundi&quot;,&quot;Cameroon&quot;,&quot;Cape Verde&quot;,&quot;Central African Rep.&quot;,&quot;Chad&quot;,&quot;Democratic Republic of the Congo&quot;,&quot;Cote d'Ivoire&quot;,&quot;Djibouti&quot;,&quot;Egypt&quot;,&quot;Eritrea&quot;,&quot;Ethiopia&quot;,&quot;Gambia&quot;,&quot;Ghana&quot;,&quot;Guinea&quot;,&quot;Guinea-Bissau&quot;,&quot;Kenya&quot;,&quot;Lesotho&quot;,&quot;Liberia&quot;,&quot;Libya&quot;,&quot;Madagascar&quot;,&quot;Malawi&quot;,&quot;Mali&quot;,&quot;Mauritania&quot;,&quot;Mauritius&quot;,&quot;Morocco&quot;,&quot;Mozambique&quot;,&quot;Namibia&quot;,&quot;Niger&quot;,&quot;Nigeria&quot;,&quot;North of Sahara, regional&quot;,&quot;Rwanda&quot;,&quot;Senegal&quot;,&quot;Seychelles&quot;,&quot;Sierra Leone&quot;,&quot;Somalia&quot;,&quot;South Africa&quot;,&quot;South of Sahara, regional&quot;,&quot;St. Helena&quot;,&quot;Sudan&quot;,&quot;Swaziland&quot;,&quot;Tanzania&quot;,&quot;Togo&quot;,&quot;Tunisia&quot;,&quot;Uganda&quot;,&quot;Zambia&quot;,&quot;Zimbabwe&quot;,&quot;Anguilla&quot;,&quot;Antigua and Barbuda&quot;,&quot;Argentina&quot;,&quot;Barbados&quot;,&quot;Belize&quot;,&quot;Bolivia&quot;,&quot;Brazil&quot;,&quot;Chile&quot;,&quot;Colombia&quot;,&quot;Costa Rica&quot;,&quot;Cuba&quot;,&quot;Dominica&quot;,&quot;Dominican Republic&quot;,&quot;Ecuador&quot;,&quot;El Salvador&quot;,&quot;Grenada&quot;,&quot;Guatemala&quot;,&quot;Guyana&quot;,&quot;Haiti&quot;,&quot;Honduras&quot;,&quot;Jamaica&quot;,&quot;Mexico&quot;,&quot;Montserrat&quot;,&quot;Nicaragua&quot;,&quot;North &amp; Central America, regional&quot;,&quot;Panama&quot;,&quot;Paraguay&quot;,&quot;Peru&quot;,&quot;St. Kitts-Nevis&quot;,&quot;St. Lucia&quot;,&quot;St.Vincent &amp; Grenadines&quot;,&quot;Trinidad &amp; Tobago&quot;,&quot;Uruguay&quot;,&quot;Venezuela&quot;,&quot;West Indies, regional&quot;,&quot;Afghanistan&quot;,&quot;Armenia&quot;,&quot;Asia, regional&quot;,&quot;Azerbaijan&quot;,&quot;Bangladesh&quot;,&quot;Cambodia&quot;,&quot;China&quot;,&quot;Georgia&quot;,&quot;India&quot;,&quot;Indonesia&quot;,&quot;Iran&quot;,&quot;Iraq&quot;,&quot;Jordan&quot;,&quot;Kazakhstan&quot;,&quot;Democratic People's Republic of Korea&quot;,&quot;Kyrgyz Republic&quot;,&quot;Laos&quot;,&quot;Lebanon&quot;,&quot;Malaysia&quot;,&quot;Maldives&quot;,&quot;Middle East, regional&quot;,&quot;Mongolia&quot;,&quot;Myanmar&quot;,&quot;Nepal&quot;,&quot;Oman&quot;,&quot;Pakistan&quot;,&quot;Philippines&quot;,&quot;South Asia, regional&quot;,&quot;Sri Lanka&quot;,&quot;Syria&quot;,&quot;Tajikistan&quot;,&quot;Thailand&quot;,&quot;Timor-Leste&quot;,&quot;Turkmenistan&quot;,&quot;Uzbekistan&quot;,&quot;Vietnam&quot;,&quot;West Bank &amp; Gaza Strip&quot;,&quot;Yemen&quot;,&quot;Albania&quot;,&quot;Belarus&quot;,&quot;Bosnia-Herzegovina&quot;,&quot;Croatia&quot;,&quot;Europe, regional&quot;,&quot;Former Yugoslav Republic of Macedonia (FYROM)&quot;,&quot;Kosovo&quot;,&quot;Moldova&quot;,&quot;Montenegro&quot;,&quot;Serbia&quot;,&quot;Turkey&quot;,&quot;Ukraine&quot;,&quot;Fiji&quot;,&quot;Kiribati&quot;,&quot;Oceania, regional&quot;,&quot;Papua New Guinea&quot;,&quot;Samoa&quot;,&quot;Solomon Islands&quot;,&quot;Tonga&quot;,&quot;Vanuatu&quot;,&quot;Comoros&quot;,&quot;Congo, Rep.&quot;,&quot;Gabon&quot;,&quot;America, regional&quot;,&quot;Nauru&quot;,&quot;Palau&quot;,&quot;Tuvalu&quot;,&quot;South Sudan&quot;,&quot;Marshall Islands&quot;,&quot;Bhutan&quot;,&quot;Sao Tome &amp; Principe&quot;,&quot;South America, regional&quot;,&quot;Suriname&quot;,&quot;South &amp; Central Asia, regional&quot;,&quot;Congo&quot;,&quot;Congo, Dem. Rep.&quot;,&quot;Eswatini&quot;,&quot;St. Vincent &amp; Grenadines&quot;,&quot;Central Asia, regional&quot;,&quot;Far East Asia, regional&quot;,&quot;Korea, Dem. Rep.&quot;,&quot;North Macedonia&quot;,&quot;States Ex-Yugoslavia unspecified&quot;,&quot;Micronesia&quot;,&quot;Middle Africa, regional&quot;,&quot;Eastern Africa, regional&quot;,&quot;Western Africa, regional&quot;,&quot;Caribbean &amp; Central America, regional&quot;,&quot;Caribbean, regional&quot;,&quot;Central America, regional&quot;,&quot;Melanesia, regional&quot;,&quot;Southern Africa, regional&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Recipient country&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
+  data-proxy=""
+  data-proxyseries="null"
 >
   
   <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
@@ -1872,7 +1892,9 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Net Official Development Assistance (ODA) in £000s</h4>
+          <h4 id="chart-heading" class="chart-title">
+            Net Official Development Assistance (ODA) in £000s
+          </h4>
           <div id="chart" class="plot-container">
             <canvas
     role="img"
@@ -3202,7 +3224,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230427090144'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230427091053'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -3210,7 +3232,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230427090144"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230427091053"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

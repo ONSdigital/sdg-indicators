@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: ["Activity (default)","Age (default)","Urbanisation (default)"],
 
   language: 'en',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -112,12 +126,9 @@ var translations = {
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
         <meta name="robots" content="noindex, nofollow">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
@@ -128,13 +139,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427090144">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427091053">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -144,6 +156,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/sdg-indicators/assets/css/ie.css">
@@ -374,8 +389,9 @@ data-event-label="high"
     <fieldset>
       <legend class="sr-only">Series</legend>
       <% _.each(serieses, function(seriesItem, index) { %>
+        <% var isProxy = (proxySerieses.includes(seriesItem)) %>
         <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
-        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%> <%=isProxy ? proxyPill : ''%></label>
       <% }); %>
     </fieldset>
   
@@ -397,7 +413,7 @@ data-event-label="high"
             <a href="/sdg-indicators/">Home</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="/sdg-indicators/2"
+            <a href="/sdg-indicators/2/"
                title="Goal 2 - Zero hunger"
                aria-label="Goal  - ">
                Goal 2
@@ -416,7 +432,7 @@ data-event-label="high"
         <div class="row">
             
             <div class="col-4 col-md-3 col-lg-2 goal-icon goal-tiles">
-                <a href="/sdg-indicators/2" aria-label="View targets and indicators for Goal 2" title="View targets and indicators for Goal 2">
+                <a href="/sdg-indicators/2/" aria-label="View targets and indicators for Goal 2" title="View targets and indicators for Goal 2">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/2.svg"
                         alt="Zero hunger - Goal 2"
                         id="goal-2"
@@ -444,6 +460,20 @@ data-event-label="high"
 <div class="row metadata-available-indicator">
   <div class="col-xs-12">
     <h2>Estimated prevalence of low and very low food security in households in the United Kingdom</h2>
+  </div>
+</div>
+
+
+  
+<div class="row proxy-banner my-4 mx-1 px-2 gx-2">
+  <div class="col col-auto align-self-center">
+    <span aria-describedby="proxy-description" class="proxy-pill">indicator.proxy</span>
+  </div>
+  <div class="col col-auto align-self-center">
+    =
+  </div>
+  <div id="proxy-description" class="col">
+    indicator.proxy_description
   </div>
 </div>
 
@@ -496,6 +526,8 @@ data-event-label="high"
   data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Food security level&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Low&quot;,&quot;Very low&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Food security level&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;16 to 24&quot;,&quot;25 to 34&quot;,&quot;35 to 44&quot;,&quot;45 to 54&quot;,&quot;55 to 59&quot;,&quot;60 to 64&quot;,&quot;65 to 74&quot;,&quot;75 to 84&quot;,&quot;85 or over&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Age group&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Working age&quot;,&quot;State Pension age&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age group&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;England&quot;,&quot;Great Britain&quot;,&quot;Northern Ireland&quot;,&quot;Scotland&quot;,&quot;Wales&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;East&quot;,&quot;East Midlands&quot;,&quot;Inner London&quot;,&quot;London&quot;,&quot;North East&quot;,&quot;North West&quot;,&quot;Outer London&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;West Midlands&quot;,&quot;Yorkshire and The Humber&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Ethnic group&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;White&quot;,&quot;Mixed/multiple ethnic groups&quot;,&quot;Asian/Asian British&quot;,&quot;Black/African/Caribbean/Black British&quot;,&quot;Other ethnic group&quot;,&quot;Arab&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnic group&quot;},{&quot;name&quot;:&quot;Ethnicity&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Indian&quot;,&quot;Pakistani&quot;,&quot;Bangladeshi&quot;,&quot;Chinese&quot;,&quot;Any other Asian background&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnicity&quot;},{&quot;name&quot;:&quot;Highest qualification&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Entry level&quot;,&quot;Level 1&quot;,&quot;Level 2&quot;,&quot;Level 3&quot;,&quot;Level 4 or higher&quot;,&quot;Other qualification&quot;,&quot;No reported qualifications&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Highest qualification&quot;},{&quot;name&quot;:&quot;Household composition - children&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Without children&quot;,&quot;With children&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household composition - children&quot;},{&quot;name&quot;:&quot;Number of adults&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;One adult&quot;,&quot;Two adults&quot;,&quot;Three or more adults&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Number of adults&quot;},{&quot;name&quot;:&quot;Number of children&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;One child&quot;,&quot;Two children&quot;,&quot;Three or more children&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Number of children&quot;},{&quot;name&quot;:&quot;Household composition - adults over State Pension age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;One or more adults over State Pension age&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household composition - adults over State Pension age&quot;},{&quot;name&quot;:&quot;Household composition - disabled adults&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;No disabled adults&quot;,&quot;One or more disabled adults&quot;,&quot;One or more disabled adults under State Pension age&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household composition - disabled adults&quot;},{&quot;name&quot;:&quot;Household composition - unemployed adults&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;One or more unemployed adults under State Pension age&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household composition - unemployed adults&quot;},{&quot;name&quot;:&quot;State support&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;In receipt of state support (benefit and/or Tax Credits)&quot;,&quot;In receipt of benefit&quot;,&quot;In receipt of Tax Credits&quot;,&quot;&quot;]},&quot;title&quot;:&quot;State support&quot;},{&quot;name&quot;:&quot;State support detail&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Income-related benefit&quot;,&quot;Non-income-related benefit&quot;,&quot;Working Tax Credit&quot;,&quot;Child Tax Credit&quot;,&quot;&quot;]},&quot;title&quot;:&quot;State support detail&quot;},{&quot;name&quot;:&quot;Total gross weekly income&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Less than £200&quot;,&quot;More than £200 but less than £400&quot;,&quot;More than £400 but less than £600&quot;,&quot;More than £600 but less than £800&quot;,&quot;More than £800 but less than £1,000&quot;,&quot;£1,000 or more&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Total gross weekly income&quot;},{&quot;name&quot;:&quot;Tenure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Occupier owned&quot;,&quot;Social rented&quot;,&quot;Private rented&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Tenure&quot;},{&quot;name&quot;:&quot;Tenure sub-category&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Owned outright&quot;,&quot;Buying with a mortgage&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Tenure sub-category&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage of households (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
+  data-proxy="proxy"
+  data-proxyseries="null"
 >
   
   <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
@@ -733,7 +765,9 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Estimated prevalence of low and very low food security</h4>
+          <h4 id="chart-heading" class="chart-title">
+            Estimated prevalence of low and very low food security
+          </h4>
           <div id="chart" class="plot-container">
             <canvas
     role="img"
@@ -2087,7 +2121,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230427090144'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230427091053'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2095,7 +2129,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230427090144"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230427091053"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

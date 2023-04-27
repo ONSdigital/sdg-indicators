@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: null,
 
   language: 'en',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -103,16 +117,15 @@ var translations = {
         ================================================== -->
 
         
+    
     <title>Goal 16 - Peace, justice and strong institutions - U.K. Indicators For The Sustainable Development Goals</title>
+    
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
         <meta name="robots" content="noindex, nofollow">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
@@ -123,13 +136,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427090144">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427091053">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -139,6 +153,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/sdg-indicators/assets/css/ie.css">
@@ -320,7 +337,11 @@ data-event-label="high"
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/16.svg" alt="Peace, justice and strong institutions - Goal 16" id="goal-16" class="goal-icon-image goal-icon-image-svg" />
             </div>
             <div class="col-8 col-md-9 col-lg-10 goal-details">
-                <h1>Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels</h1>
+                <h1>
+                    
+                        Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels
+                    
+                </h1>
             </div>
         </div>
     </div>
@@ -389,7 +410,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-1-1">Number of victims of intentional homicide per 100,000 population, by sex and age</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-1-1/">Number of victims of intentional homicide per 100,000 population, by sex and age</a></span>
               
 
 
@@ -429,7 +450,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-1-2">Conflict-related deaths per 100,000 population, by sex, age and cause</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-1-2/">Conflict-related deaths per 100,000 population, by sex, age and cause</a></span>
               
 
 
@@ -469,7 +490,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-1-3">Proportion of population subjected to (a) physical violence, (b) psychological violence and (c) sexual violence in the previous 12 months</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-1-3/">Proportion of population subjected to (a) physical violence, (b) psychological violence and (c) sexual violence in the previous 12 months</a></span>
               
 
 
@@ -509,7 +530,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-1-4">Proportion of population that feel safe walking alone around the area they live</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-1-4/">Proportion of population that feel safe walking alone around the area they live</a></span>
               
 
 
@@ -564,7 +585,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-2-1">Proportion of children aged 1–17 years who experienced any physical punishment and/or psychological aggression by caregivers in the past month</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-2-1/">Proportion of children aged 1–17 years who experienced any physical punishment and/or psychological aggression by caregivers in the past month</a></span>
               
 
 
@@ -604,7 +625,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-2-2">Number of victims of human trafficking per 100,000 population, by sex, age and form of exploitation</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-2-2/">Number of victims of human trafficking per 100,000 population, by sex, age and form of exploitation</a></span>
               
 
 
@@ -644,7 +665,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-2-3">Proportion of young women and men aged 18–29 years who experienced sexual violence by age 18</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-2-3/">Proportion of young women and men aged 18–29 years who experienced sexual violence by age 18</a></span>
               
 
 
@@ -699,7 +720,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-3-1">Proportion of victims of violence in the previous 12 months who reported their victimization to competent authorities or other officially recognized conflict resolution mechanisms</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-3-1/">Proportion of victims of violence in the previous 12 months who reported their victimization to competent authorities or other officially recognized conflict resolution mechanisms</a></span>
               
 
 
@@ -739,7 +760,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-3-2">Unsentenced detainees as a proportion of overall prison population</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-3-2/">Unsentenced detainees as a proportion of overall prison population</a></span>
               
 
 
@@ -779,7 +800,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-3-3">Proportion of the population who have experienced a dispute in the past two years and who accessed a formal or informal dispute resolution mechanism, by type of mechanism</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-3-3/">Proportion of the population who have experienced a dispute in the past two years and who accessed a formal or informal dispute resolution mechanism, by type of mechanism</a></span>
               
 
 
@@ -834,7 +855,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-4-1">Total value of inward and outward illicit financial flows (in current United States dollars)</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-4-1/">Total value of inward and outward illicit financial flows (in current United States dollars)</a></span>
               
 
 
@@ -874,7 +895,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-4-2">Proportion of seized, found or surrendered arms whose illicit origin or context has been traced or established by a competent authority in line with international instruments</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-4-2/">Proportion of seized, found or surrendered arms whose illicit origin or context has been traced or established by a competent authority in line with international instruments</a></span>
               
 
 
@@ -929,7 +950,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-5-1">Proportion of persons who had at least one contact with a public official and who paid a bribe to a public official, or were asked for a bribe by those public officials, during the previous 12 months</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-5-1/">Proportion of persons who had at least one contact with a public official and who paid a bribe to a public official, or were asked for a bribe by those public officials, during the previous 12 months</a></span>
               
 
 
@@ -969,7 +990,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-5-2">Proportion of businesses that had at least one contact with a public official and that paid a bribe to a public official, or were asked for a bribe by those public officials during the previous 12 months</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-5-2/">Proportion of businesses that had at least one contact with a public official and that paid a bribe to a public official, or were asked for a bribe by those public officials during the previous 12 months</a></span>
               
 
 
@@ -1024,7 +1045,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-6-1">Primary government expenditures as a proportion of original approved budget, by sector (or by budget codes or similar)</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-6-1/">Primary government expenditures as a proportion of original approved budget, by sector (or by budget codes or similar)</a></span>
               
 
 
@@ -1064,7 +1085,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-6-2">Proportion of population satisfied with their last experience of public services</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-6-2/">Proportion of population satisfied with their last experience of public services</a></span>
               
 
 
@@ -1119,7 +1140,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-7-1">Proportions of positions in national and local institutions, including (a) the legislatures; (b) the public service; and (c) the judiciary, compared to national distributions, by sex, age, persons with disabilities and population groups</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-7-1/">Proportions of positions in national and local institutions, including (a) the legislatures; (b) the public service; and (c) the judiciary, compared to national distributions, by sex, age, persons with disabilities and population groups</a></span>
               
 
 
@@ -1159,7 +1180,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-7-2">Proportion of population who believe decision-making is inclusive and responsive, by sex, age, disability and population group</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-7-2/">Proportion of population who believe decision-making is inclusive and responsive, by sex, age, disability and population group</a></span>
               
 
 
@@ -1214,7 +1235,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-8-1">Proportion of members and voting rights of developing countries in international organizations</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-8-1/">Proportion of members and voting rights of developing countries in international organizations</a></span>
               
 
 
@@ -1269,7 +1290,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-9-1">Proportion of children under 5 years of age whose births have been registered with a civil authority, by age</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-9-1/">Proportion of children under 5 years of age whose births have been registered with a civil authority, by age</a></span>
               
 
 
@@ -1324,7 +1345,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-10-1">Number of verified cases of killing, kidnapping, enforced disappearance, arbitrary detention and torture of journalists, associated media personnel, trade unionists and human rights advocates in the previous 12 months</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-10-1/">Number of verified cases of killing, kidnapping, enforced disappearance, arbitrary detention and torture of journalists, associated media personnel, trade unionists and human rights advocates in the previous 12 months</a></span>
               
 
 
@@ -1364,7 +1385,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-10-2">Number of countries that adopt and implement constitutional, statutory and/or policy guarantees for public access to information</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-10-2/">Number of countries that adopt and implement constitutional, statutory and/or policy guarantees for public access to information</a></span>
               
 
 
@@ -1419,7 +1440,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-a-1">Existence of independent national human rights institutions in compliance with the Paris Principles</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-a-1/">Existence of independent national human rights institutions in compliance with the Paris Principles</a></span>
               
 
 
@@ -1474,7 +1495,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/16-b-1">Proportion of population reporting having personally felt discriminated against or harassed in the previous 12 months on the basis of a ground of discrimination prohibited under international human rights law</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/16-b-1/">Proportion of population reporting having personally felt discriminated against or harassed in the previous 12 months on the basis of a ground of discrimination prohibited under international human rights law</a></span>
               
 
 
@@ -1721,7 +1742,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230427090144'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230427091053'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -1729,7 +1750,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230427090144"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230427091053"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

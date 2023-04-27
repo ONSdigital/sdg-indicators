@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: null,
 
   language: 'en',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -103,16 +117,15 @@ var translations = {
         ================================================== -->
 
         
+    
     <title>Goal 6 - Clean water and sanitation - U.K. Indicators For The Sustainable Development Goals</title>
+    
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
         <meta name="robots" content="noindex, nofollow">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
@@ -123,13 +136,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427090144">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427091053">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -139,6 +153,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/sdg-indicators/assets/css/ie.css">
@@ -320,7 +337,11 @@ data-event-label="high"
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/6.svg" alt="Clean water and sanitation - Goal 6" id="goal-6" class="goal-icon-image goal-icon-image-svg" />
             </div>
             <div class="col-8 col-md-9 col-lg-10 goal-details">
-                <h1>Ensure availability and sustainable management of water and sanitation for all</h1>
+                <h1>
+                    
+                        Ensure availability and sustainable management of water and sanitation for all
+                    
+                </h1>
             </div>
         </div>
     </div>
@@ -390,7 +411,7 @@ It also aims to:</li>
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/6-1-1">Proportion of population using safely managed drinking water services</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/6-1-1/">Proportion of population using safely managed drinking water services</a></span>
               
 
 
@@ -445,7 +466,7 @@ It also aims to:</li>
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/6-2-1">Proportion of population using (a) safely managed sanitation services and (b) a hand-washing facility with soap and water</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/6-2-1/">Proportion of population using (a) safely managed sanitation services and (b) a hand-washing facility with soap and water</a></span>
               
 
 
@@ -500,7 +521,7 @@ It also aims to:</li>
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/6-3-1">Proportion of domestic and industrial wastewater flows safely treated</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/6-3-1/">Proportion of domestic and industrial wastewater flows safely treated</a></span>
               
 
 
@@ -540,7 +561,7 @@ It also aims to:</li>
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/6-3-2">Proportion of bodies of water with good ambient water quality</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/6-3-2/">Proportion of bodies of water with good ambient water quality</a></span>
               
 
 
@@ -595,7 +616,7 @@ It also aims to:</li>
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/6-4-1">Change in water-use efficiency over time</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/6-4-1/">Change in water-use efficiency over time</a></span>
               
 
 
@@ -635,7 +656,7 @@ It also aims to:</li>
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/6-4-2">Level of water stress: freshwater withdrawal as a proportion of available freshwater resources</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/6-4-2/">Level of water stress: freshwater withdrawal as a proportion of available freshwater resources</a></span>
               
 
 
@@ -690,7 +711,7 @@ It also aims to:</li>
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/6-5-1">Degree of integrated water resources management</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/6-5-1/">Degree of integrated water resources management</a></span>
               
 
 
@@ -730,7 +751,7 @@ It also aims to:</li>
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/6-5-2">Proportion of transboundary basin area with an operational arrangement for water cooperation</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/6-5-2/">Proportion of transboundary basin area with an operational arrangement for water cooperation</a></span>
               
 
 
@@ -785,7 +806,7 @@ It also aims to:</li>
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/6-6-1">Change in the extent of water-related ecosystems over time</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/6-6-1/">Change in the extent of water-related ecosystems over time</a></span>
               
 
 
@@ -840,7 +861,7 @@ It also aims to:</li>
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/6-a-1">Amount of water- and sanitation-related official development assistance that is part of a government-coordinated spending plan</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/6-a-1/">Amount of water- and sanitation-related official development assistance that is part of a government-coordinated spending plan</a></span>
               
 
 
@@ -895,7 +916,7 @@ It also aims to:</li>
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/6-b-1">Proportion of local administrative units with established and operational policies and procedures for participation of local communities in water and sanitation management</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/6-b-1/">Proportion of local administrative units with established and operational policies and procedures for participation of local communities in water and sanitation management</a></span>
               
 
 
@@ -1142,7 +1163,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230427090144'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230427091053'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -1150,7 +1171,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230427090144"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230427091053"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

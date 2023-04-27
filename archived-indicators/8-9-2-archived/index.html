@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: ["Activity (default)","Age (default)","Urbanisation (default)"],
 
   language: 'en',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -110,12 +124,9 @@ var translations = {
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
         <meta name="robots" content="noindex, nofollow">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
@@ -126,13 +137,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427090144">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427091053">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -142,6 +154,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/sdg-indicators/assets/css/ie.css">
@@ -372,8 +387,9 @@ data-event-label="high"
     <fieldset>
       <legend class="sr-only">Series</legend>
       <% _.each(serieses, function(seriesItem, index) { %>
+        <% var isProxy = (proxySerieses.includes(seriesItem)) %>
         <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
-        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%> <%=isProxy ? proxyPill : ''%></label>
       <% }); %>
     </fieldset>
   
@@ -434,6 +450,8 @@ data-event-label="high"
 
   
 
+  
+
 
 
 
@@ -465,6 +483,8 @@ data-event-label="high"
   data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Tourism sector&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Accommodation&quot;,&quot;Food and beverage serving activities&quot;,&quot;Railway passenger transport&quot;,&quot;Road passenger transport&quot;,&quot;Water passenger transport&quot;,&quot;Air passenger transport&quot;,&quot;Renting and leasing of motor vehicles&quot;,&quot;Travel agencies and other reservation service activities&quot;,&quot;Cultural activities&quot;,&quot;Sport and recreational activities&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Tourism sector&quot;},{&quot;name&quot;:&quot;Tourism sub-sector (upper)&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Accommodation&quot;,&quot;Real estate activities&quot;,&quot;Restaurants and mobile food service activities&quot;,&quot;Other food services activities&quot;,&quot;Beverage serving activities&quot;,&quot;Passenger rail transport; interurban&quot;,&quot;Urban and suburban passenger railway transportation by underground; metro and similar systems&quot;,&quot;Other urban; suburban or metropolitan area passenger land transport (not including underground; metro and the like)&quot;,&quot;Taxi operation&quot;,&quot;Other passenger land transport&quot;,&quot;Sea and coastal passenger water transport&quot;,&quot;Inland passenger water transport&quot;,&quot;Scheduled passenger air transport&quot;,&quot;Non-scheduled passenger air transport&quot;,&quot;Renting and leasing of cars and light motor vehicles&quot;,&quot;Renting and leasing of trucks&quot;,&quot;Travel agency and tour operator activities&quot;,&quot;Activities of tourist guides&quot;,&quot;Creative; arts and entertainment activities&quot;,&quot;Museums activities&quot;,&quot;Operation of historical sites and buildings and similar visitor attractions&quot;,&quot;Botanical and zoological gardens and nature reserves activities&quot;,&quot;Renting and leasing of recreational and sports goods&quot;,&quot;Gambling and betting activities&quot;,&quot;Operation of sports facilities&quot;,&quot;Activities of racehorse owners&quot;,&quot;Other sports activities&quot;,&quot;Amusement and recreation activities&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Tourism sub-sector (upper)&quot;},{&quot;name&quot;:&quot;Tourism sub-sector (middle)&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Hotels and similar accommodation&quot;,&quot;Holiday and other short-stay accommodation&quot;,&quot;Camping grounds; recreational vehicle parks and trailer parks&quot;,&quot;Other accommodation&quot;,&quot;Buying and selling of own real estate&quot;,&quot;Renting and operating of own or leased real estate&quot;,&quot;Real estate activities on a fee or contract basis&quot;,&quot;Licensed restaurants&quot;,&quot;Unlicensed restaurants and cafes&quot;,&quot;Take-away food shops and mobile food stands&quot;,&quot;Licensed clubs&quot;,&quot;Public houses and bars&quot;,&quot;Travel agency activities&quot;,&quot;Tour operator activities&quot;,&quot;Performing arts&quot;,&quot;Support activities to performing arts&quot;,&quot;Artistic creation&quot;,&quot;Operation of arts facilities&quot;,&quot;Activities of amusement parks and theme parks&quot;,&quot;Other amusement and recreation activities not elsewhere classified&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Tourism sub-sector (middle)&quot;},{&quot;name&quot;:&quot;Tourism sub-sector (lower)&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Holiday centres and villages&quot;,&quot;Holiday and other collective accommodation&quot;,&quot;Other holiday and other collective accommodation&quot;,&quot;Renting and operating of Housing Association real estate&quot;,&quot;Letting and operating of conference and exhibition centres&quot;,&quot;Other letting and operating of own or leased real estate&quot;,&quot;Real estate agencies&quot;,&quot;Management of real estate on a fee or contract basis&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Tourism sub-sector (lower)&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
+  data-proxy=""
+  data-proxyseries="null"
 >
   
   <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
@@ -820,7 +840,9 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Number of people employed in tourism related industries</h4>
+          <h4 id="chart-heading" class="chart-title">
+            Number of people employed in tourism related industries
+          </h4>
           <div id="chart" class="plot-container">
             <canvas
     role="img"
@@ -2158,7 +2180,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230427090144'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230427091053'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2166,7 +2188,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230427090144"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230427091053"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

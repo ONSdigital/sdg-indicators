@@ -883,6 +883,13 @@ body.contrast-high #dataset-size-warning {
       background-size: 180px;
       background-repeat: no-repeat; } }
 
+@media only screen and (min-width: 700px) {
+  body.contrast-high .site-intro {
+    background: url("../img/high-contrast/SDG Wheel_Transparent-01.png");
+    background-position: right 60px top;
+    background-size: 180px;
+    background-repeat: no-repeat; } }
+
 .frontpage-cards {
   margin-top: 20px; }
   @media only screen and (min-width: 992px) {
@@ -1405,6 +1412,30 @@ body.contrast-high div#serieses {
     color: white;
     text-decoration: underline; }
 
+.proxy-pill {
+  padding: 4px;
+  font-size: 16px;
+  color: white;
+  border: 1px solid transparent;
+  background: #005ea5;
+  white-space: nowrap; }
+
+#serieses .proxy-pill {
+  font-size: 14px;
+  float: right;
+  margin: 5px; }
+
+#chart-heading .proxy-pill, #selectionsTable .proxy-pill, #map-heading .proxy-pill {
+  margin-left: 10px;
+  line-height: 3em; }
+
+.proxy-banner {
+  border-left: solid 10px #767676; }
+
+body.contrast-high .proxy-pill {
+  background: #FFDD00;
+  color: black; }
+
 .status {
   color: #0b0c0c;
   font-weight: normal;
@@ -1848,8 +1879,6 @@ body.contrast-high .indicator.goal-banner .goal-tiles img {
   width: 100%; }
 .layout-reportingstatus #main-content .goal-overall {
   margin-bottom: 20px; }
-  .layout-reportingstatus #main-content .goal-overall .details {
-    width: 100%; }
 .layout-reportingstatus #main-content .reporting-status-item {
   margin-bottom: 20px; }
 .layout-reportingstatus.contrast-high #main-content .goal-tiles img {

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: ["Activity (default)","Age (default)","Urbanisation (default)"],
 
   language: 'en',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -112,12 +126,9 @@ var translations = {
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
         <meta name="robots" content="noindex, nofollow">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
@@ -128,13 +139,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427090144">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427091053">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -144,6 +156,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/sdg-indicators/assets/css/ie.css">
@@ -374,8 +389,9 @@ data-event-label="high"
     <fieldset>
       <legend class="sr-only">Series</legend>
       <% _.each(serieses, function(seriesItem, index) { %>
+        <% var isProxy = (proxySerieses.includes(seriesItem)) %>
         <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
-        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%> <%=isProxy ? proxyPill : ''%></label>
       <% }); %>
     </fieldset>
   
@@ -397,7 +413,7 @@ data-event-label="high"
             <a href="/sdg-indicators/">Home</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="/sdg-indicators/8"
+            <a href="/sdg-indicators/8/"
                title="Goal 8 - Decent work and economic growth"
                aria-label="Goal  - ">
                Goal 8
@@ -416,7 +432,7 @@ data-event-label="high"
         <div class="row">
             
             <div class="col-4 col-md-3 col-lg-2 goal-icon goal-tiles">
-                <a href="/sdg-indicators/8" aria-label="View targets and indicators for Goal 8" title="View targets and indicators for Goal 8">
+                <a href="/sdg-indicators/8/" aria-label="View targets and indicators for Goal 8" title="View targets and indicators for Goal 8">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/8.svg"
                         alt="Decent work and economic growth - Goal 8"
                         id="goal-8"
@@ -438,6 +454,8 @@ data-event-label="high"
     </div>
 </div>
 <div id="main-content" class="container goal-8" role="main">
+  
+
   
 
   
@@ -477,6 +495,8 @@ data-event-label="high"
   data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Number of commercial bank branches and building societies per 100,000 adults&quot;,&quot;Number of automated teller machines (ATMs) per 100,000 adults&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;England&quot;,&quot;Northern Ireland&quot;,&quot;Scotland&quot;,&quot;Wales&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;East&quot;,&quot;East Midlands&quot;,&quot;London&quot;,&quot;North East&quot;,&quot;North West&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;West Midlands&quot;,&quot;Yorkshire and The Humber&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Local Authority&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Babergh&quot;,&quot;Basildon&quot;,&quot;Bedford&quot;,&quot;Braintree&quot;,&quot;Breckland&quot;,&quot;Brentwood&quot;,&quot;Broadland&quot;,&quot;Broxbourne&quot;,&quot;Cambridge&quot;,&quot;Castle Point&quot;,&quot;Central Bedfordshire&quot;,&quot;Chelmsford&quot;,&quot;Colchester&quot;,&quot;Dacorum&quot;,&quot;East Cambridgeshire&quot;,&quot;East Hertfordshire&quot;,&quot;East Suffolk&quot;,&quot;Epping Forest&quot;,&quot;Fenland&quot;,&quot;Great Yarmouth&quot;,&quot;Harlow&quot;,&quot;Hertsmere&quot;,&quot;Huntingdonshire&quot;,&quot;Ipswich&quot;,&quot;King's Lynn and West Norfolk&quot;,&quot;Luton&quot;,&quot;Maldon&quot;,&quot;Mid Suffolk&quot;,&quot;North Hertfordshire&quot;,&quot;North Norfolk&quot;,&quot;Norwich&quot;,&quot;Peterborough&quot;,&quot;Rochford&quot;,&quot;South Cambridgeshire&quot;,&quot;South Norfolk&quot;,&quot;Southend-on-Sea&quot;,&quot;St Albans&quot;,&quot;Stevenage&quot;,&quot;Tendring&quot;,&quot;Three Rivers&quot;,&quot;Thurrock&quot;,&quot;Uttlesford&quot;,&quot;Watford&quot;,&quot;Welwyn Hatfield&quot;,&quot;West Suffolk&quot;,&quot;Amber Valley&quot;,&quot;Ashfield&quot;,&quot;Bassetlaw&quot;,&quot;Blaby&quot;,&quot;Bolsover&quot;,&quot;Boston&quot;,&quot;Broxtowe&quot;,&quot;Charnwood&quot;,&quot;Chesterfield&quot;,&quot;Corby&quot;,&quot;Daventry&quot;,&quot;Derby&quot;,&quot;Derbyshire Dales&quot;,&quot;East Lindsey&quot;,&quot;East Northamptonshire&quot;,&quot;Erewash&quot;,&quot;Gedling&quot;,&quot;Harborough&quot;,&quot;High Peak&quot;,&quot;Hinckley and Bosworth&quot;,&quot;Kettering&quot;,&quot;Leicester&quot;,&quot;Lincoln&quot;,&quot;Mansfield&quot;,&quot;Melton&quot;,&quot;Newark and Sherwood&quot;,&quot;North East Derbyshire&quot;,&quot;North Kesteven&quot;,&quot;North West Leicestershire&quot;,&quot;Northampton&quot;,&quot;Nottingham&quot;,&quot;Oadby and Wigston&quot;,&quot;Rushcliffe&quot;,&quot;Rutland&quot;,&quot;South Derbyshire&quot;,&quot;South Holland&quot;,&quot;South Kesteven&quot;,&quot;South Northamptonshire&quot;,&quot;Wellingborough&quot;,&quot;West Lindsey&quot;,&quot;Barking and Dagenham&quot;,&quot;Barnet&quot;,&quot;Bexley&quot;,&quot;Brent&quot;,&quot;Bromley&quot;,&quot;Camden&quot;,&quot;City of London&quot;,&quot;Croydon&quot;,&quot;Ealing&quot;,&quot;Enfield&quot;,&quot;Greenwich&quot;,&quot;Hackney&quot;,&quot;Hammersmith and Fulham&quot;,&quot;Haringey&quot;,&quot;Harrow&quot;,&quot;Havering&quot;,&quot;Hillingdon&quot;,&quot;Hounslow&quot;,&quot;Islington&quot;,&quot;Kensington and Chelsea&quot;,&quot;Kingston upon Thames&quot;,&quot;Lambeth&quot;,&quot;Lewisham&quot;,&quot;Merton&quot;,&quot;Newham&quot;,&quot;Redbridge&quot;,&quot;Richmond upon Thames&quot;,&quot;Southwark&quot;,&quot;Sutton&quot;,&quot;Tower Hamlets&quot;,&quot;Waltham Forest&quot;,&quot;Wandsworth&quot;,&quot;Westminster&quot;,&quot;County Durham&quot;,&quot;Darlington&quot;,&quot;Gateshead&quot;,&quot;Hartlepool&quot;,&quot;Middlesbrough&quot;,&quot;Newcastle upon Tyne&quot;,&quot;North Tyneside&quot;,&quot;Northumberland&quot;,&quot;Redcar and Cleveland&quot;,&quot;South Tyneside&quot;,&quot;Stockton-on-Tees&quot;,&quot;Sunderland&quot;,&quot;Allerdale&quot;,&quot;Barrow-in-Furness&quot;,&quot;Blackburn with Darwen&quot;,&quot;Blackpool&quot;,&quot;Bolton&quot;,&quot;Burnley&quot;,&quot;Bury&quot;,&quot;Carlisle&quot;,&quot;Cheshire East&quot;,&quot;Cheshire West and Chester&quot;,&quot;Chorley&quot;,&quot;Copeland&quot;,&quot;Eden&quot;,&quot;Fylde&quot;,&quot;Halton&quot;,&quot;Hyndburn&quot;,&quot;Knowsley&quot;,&quot;Lancaster&quot;,&quot;Liverpool&quot;,&quot;Manchester&quot;,&quot;Oldham&quot;,&quot;Pendle&quot;,&quot;Preston&quot;,&quot;Ribble Valley&quot;,&quot;Rochdale&quot;,&quot;Rossendale&quot;,&quot;Salford&quot;,&quot;Sefton&quot;,&quot;South Lakeland&quot;,&quot;South Ribble&quot;,&quot;St. Helens&quot;,&quot;Stockport&quot;,&quot;Tameside&quot;,&quot;Trafford&quot;,&quot;Warrington&quot;,&quot;West Lancashire&quot;,&quot;Wigan&quot;,&quot;Wirral&quot;,&quot;Wyre&quot;,&quot;Adur&quot;,&quot;Arun&quot;,&quot;Ashford&quot;,&quot;Aylesbury Vale&quot;,&quot;Basingstoke and Deane&quot;,&quot;Bracknell Forest&quot;,&quot;Brighton and Hove&quot;,&quot;Canterbury&quot;,&quot;Cherwell&quot;,&quot;Chichester&quot;,&quot;Chiltern&quot;,&quot;Crawley&quot;,&quot;Dartford&quot;,&quot;Dover&quot;,&quot;East Hampshire&quot;,&quot;Eastbourne&quot;,&quot;Eastleigh&quot;,&quot;Elmbridge&quot;,&quot;Epsom and Ewell&quot;,&quot;Fareham&quot;,&quot;Folkestone and Hythe&quot;,&quot;Gosport&quot;,&quot;Gravesham&quot;,&quot;Guildford&quot;,&quot;Hart&quot;,&quot;Hastings&quot;,&quot;Havant&quot;,&quot;Horsham&quot;,&quot;Isle of Wight&quot;,&quot;Lewes&quot;,&quot;Maidstone&quot;,&quot;Medway&quot;,&quot;Mid Sussex&quot;,&quot;Milton Keynes&quot;,&quot;Mole Valley&quot;,&quot;New Forest&quot;,&quot;Oxford&quot;,&quot;Portsmouth&quot;,&quot;Reading&quot;,&quot;Reigate and Banstead&quot;,&quot;Rother&quot;,&quot;Runnymede&quot;,&quot;Rushmoor&quot;,&quot;Sevenoaks&quot;,&quot;Slough&quot;,&quot;South Bucks&quot;,&quot;South Oxfordshire&quot;,&quot;Southampton&quot;,&quot;Spelthorne&quot;,&quot;Surrey Heath&quot;,&quot;Swale&quot;,&quot;Tandridge&quot;,&quot;Test Valley&quot;,&quot;Thanet&quot;,&quot;Tonbridge and Malling&quot;,&quot;Tunbridge Wells&quot;,&quot;Vale of White Horse&quot;,&quot;Waverley&quot;,&quot;Wealden&quot;,&quot;West Berkshire&quot;,&quot;West Oxfordshire&quot;,&quot;Winchester&quot;,&quot;Windsor and Maidenhead&quot;,&quot;Woking&quot;,&quot;Wokingham&quot;,&quot;Worthing&quot;,&quot;Wycombe&quot;,&quot;Bath and North East Somerset&quot;,&quot;Bournemouth, Christchurch and Poole&quot;,&quot;Bristol, City of&quot;,&quot;Cheltenham&quot;,&quot;Cornwall&quot;,&quot;Cotswold&quot;,&quot;Dorset&quot;,&quot;East Devon&quot;,&quot;Exeter&quot;,&quot;Forest of Dean&quot;,&quot;Gloucester&quot;,&quot;Isles of Scilly&quot;,&quot;Mendip&quot;,&quot;Mid Devon&quot;,&quot;North Devon&quot;,&quot;North Somerset&quot;,&quot;Plymouth&quot;,&quot;Sedgemoor&quot;,&quot;Somerset West and Taunton&quot;,&quot;South Gloucestershire&quot;,&quot;South Hams&quot;,&quot;South Somerset&quot;,&quot;Stroud&quot;,&quot;Swindon&quot;,&quot;Teignbridge&quot;,&quot;Tewkesbury&quot;,&quot;Torbay&quot;,&quot;Torridge&quot;,&quot;West Devon&quot;,&quot;Wiltshire&quot;,&quot;Birmingham&quot;,&quot;Bromsgrove&quot;,&quot;Cannock Chase&quot;,&quot;Coventry&quot;,&quot;Dudley&quot;,&quot;East Staffordshire&quot;,&quot;Herefordshire, County of&quot;,&quot;Lichfield&quot;,&quot;Malvern Hills&quot;,&quot;Newcastle-under-Lyme&quot;,&quot;North Warwickshire&quot;,&quot;Nuneaton and Bedworth&quot;,&quot;Redditch&quot;,&quot;Rugby&quot;,&quot;Sandwell&quot;,&quot;Shropshire&quot;,&quot;Solihull&quot;,&quot;South Staffordshire&quot;,&quot;Stafford&quot;,&quot;Staffordshire Moorlands&quot;,&quot;Stoke-on-Trent&quot;,&quot;Stratford-on-Avon&quot;,&quot;Tamworth&quot;,&quot;Telford and Wrekin&quot;,&quot;Walsall&quot;,&quot;Warwick&quot;,&quot;Wolverhampton&quot;,&quot;Worcester&quot;,&quot;Wychavon&quot;,&quot;Wyre Forest&quot;,&quot;Barnsley&quot;,&quot;Bradford&quot;,&quot;Calderdale&quot;,&quot;Craven&quot;,&quot;Doncaster&quot;,&quot;East Riding of Yorkshire&quot;,&quot;Hambleton&quot;,&quot;Harrogate&quot;,&quot;Kingston upon Hull, City of&quot;,&quot;Kirklees&quot;,&quot;Leeds&quot;,&quot;North East Lincolnshire&quot;,&quot;North Lincolnshire&quot;,&quot;Richmondshire&quot;,&quot;Rotherham&quot;,&quot;Ryedale&quot;,&quot;Scarborough&quot;,&quot;Selby&quot;,&quot;Sheffield&quot;,&quot;Wakefield&quot;,&quot;York&quot;,&quot;Antrim and Newtownabbey&quot;,&quot;Ards and North Down&quot;,&quot;Armagh City, Banbridge and Craigavon&quot;,&quot;Belfast&quot;,&quot;Causeway Coast and Glens&quot;,&quot;Derry City and Strabane&quot;,&quot;Fermanagh and Omagh&quot;,&quot;Lisburn and Castlereagh&quot;,&quot;Mid and East Antrim&quot;,&quot;Mid Ulster&quot;,&quot;Newry, Mourne and Down&quot;,&quot;Aberdeen City&quot;,&quot;Aberdeenshire&quot;,&quot;Angus&quot;,&quot;Argyll and Bute&quot;,&quot;City of Edinburgh&quot;,&quot;Clackmannanshire&quot;,&quot;Dumfries and Galloway&quot;,&quot;Dundee City&quot;,&quot;East Ayrshire&quot;,&quot;East Dunbartonshire&quot;,&quot;East Lothian&quot;,&quot;East Renfrewshire&quot;,&quot;Falkirk&quot;,&quot;Fife&quot;,&quot;Glasgow City&quot;,&quot;Highland&quot;,&quot;Inverclyde&quot;,&quot;Midlothian&quot;,&quot;Moray&quot;,&quot;Na h-Eileanan Siar&quot;,&quot;North Ayrshire&quot;,&quot;North Lanarkshire&quot;,&quot;Orkney Islands&quot;,&quot;Perth and Kinross&quot;,&quot;Renfrewshire&quot;,&quot;Scottish Borders&quot;,&quot;Shetland Islands&quot;,&quot;South Ayrshire&quot;,&quot;South Lanarkshire&quot;,&quot;Stirling&quot;,&quot;West Dunbartonshire&quot;,&quot;West Lothian&quot;,&quot;Blaenau Gwent&quot;,&quot;Bridgend&quot;,&quot;Caerphilly&quot;,&quot;Cardiff&quot;,&quot;Carmarthenshire&quot;,&quot;Ceredigion&quot;,&quot;Conwy&quot;,&quot;Denbighshire&quot;,&quot;Flintshire&quot;,&quot;Gwynedd&quot;,&quot;Isle of Anglesey&quot;,&quot;Merthyr Tydfil&quot;,&quot;Monmouthshire&quot;,&quot;Neath Port Talbot&quot;,&quot;Newport&quot;,&quot;Pembrokeshire&quot;,&quot;Powys&quot;,&quot;Rhondda Cynon Taf&quot;,&quot;Swansea&quot;,&quot;Torfaen&quot;,&quot;Vale of Glamorgan&quot;,&quot;Wrexham&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Local Authority&quot;},{&quot;name&quot;:&quot;Urban or rural&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Rural&quot;,&quot;Urban&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Urban or rural&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Number per 100,000 people&quot;,&quot;Number per 100,000 adults&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
+  data-proxy=""
+  data-proxyseries="null"
 >
   
   <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
@@ -1697,7 +1717,9 @@ data-event-label="Change to Map tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Number of commercial bank branches and building societies per 100,000 adults</h4>
+          <h4 id="chart-heading" class="chart-title">
+            Number of commercial bank branches and building societies per 100,000 adults
+          </h4>
           <div id="chart" class="plot-container">
             <canvas
     role="img"
@@ -4263,7 +4285,7 @@ data-event-label="Change to Sources tab"
 <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
-<script src="https://cdn.rawgit.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/iso8601-js-period@0.2.1/iso8601.min.js"></script>
 <script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
 <script src="https://cdn.jsdelivr.net/gh/torfsen/leaflet.zoomhome@master/dist/leaflet.zoomhome.min.js"></script>
@@ -4419,7 +4441,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230427090144'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230427091053'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -4427,7 +4449,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230427090144"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230427091053"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

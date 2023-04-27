@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: null,
 
   language: 'en',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -107,12 +121,9 @@ var translations = {
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
         <meta name="robots" content="noindex, nofollow">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
@@ -123,13 +134,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427090144">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427091053">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -139,6 +151,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/sdg-indicators/assets/css/ie.css">
@@ -328,103 +343,103 @@ data-event-label="high"
     <div class="row g-2">
         
         <div class="col-4 col-md-2 col-lg-1 goal-tile">
-            <a href="/sdg-indicators/1">
+            <a href="/sdg-indicators/1/">
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/1.svg" id="goal-1" alt="Goal 1 - No poverty" class="goal-icon-image goal-icon-image-svg"/>
             </a>
         </div>
         
         <div class="col-4 col-md-2 col-lg-1 goal-tile">
-            <a href="/sdg-indicators/2">
+            <a href="/sdg-indicators/2/">
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/2.svg" id="goal-2" alt="Goal 2 - Zero hunger" class="goal-icon-image goal-icon-image-svg"/>
             </a>
         </div>
         
         <div class="col-4 col-md-2 col-lg-1 goal-tile">
-            <a href="/sdg-indicators/3">
+            <a href="/sdg-indicators/3/">
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/3.svg" id="goal-3" alt="Goal 3 - Good health and well-being" class="goal-icon-image goal-icon-image-svg"/>
             </a>
         </div>
         
         <div class="col-4 col-md-2 col-lg-1 goal-tile">
-            <a href="/sdg-indicators/4">
+            <a href="/sdg-indicators/4/">
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/4.svg" id="goal-4" alt="Goal 4 - Quality education" class="goal-icon-image goal-icon-image-svg"/>
             </a>
         </div>
         
         <div class="col-4 col-md-2 col-lg-1 goal-tile">
-            <a href="/sdg-indicators/5">
+            <a href="/sdg-indicators/5/">
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/5.svg" id="goal-5" alt="Goal 5 - Gender equality" class="goal-icon-image goal-icon-image-svg"/>
             </a>
         </div>
         
         <div class="col-4 col-md-2 col-lg-1 goal-tile">
-            <a href="/sdg-indicators/6">
+            <a href="/sdg-indicators/6/">
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/6.svg" id="goal-6" alt="Goal 6 - Clean water and sanitation" class="goal-icon-image goal-icon-image-svg"/>
             </a>
         </div>
         
         <div class="col-4 col-md-2 col-lg-1 goal-tile">
-            <a href="/sdg-indicators/7">
+            <a href="/sdg-indicators/7/">
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/7.svg" id="goal-7" alt="Goal 7 - Affordable and clean energy" class="goal-icon-image goal-icon-image-svg"/>
             </a>
         </div>
         
         <div class="col-4 col-md-2 col-lg-1 goal-tile">
-            <a href="/sdg-indicators/8">
+            <a href="/sdg-indicators/8/">
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/8.svg" id="goal-8" alt="Goal 8 - Decent work and economic growth" class="goal-icon-image goal-icon-image-svg"/>
             </a>
         </div>
         
         <div class="col-4 col-md-2 col-lg-1 goal-tile">
-            <a href="/sdg-indicators/9">
+            <a href="/sdg-indicators/9/">
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/9.svg" id="goal-9" alt="Goal 9 - Industry, innovation and infrastructure" class="goal-icon-image goal-icon-image-svg"/>
             </a>
         </div>
         
         <div class="col-4 col-md-2 col-lg-1 goal-tile">
-            <a href="/sdg-indicators/10">
+            <a href="/sdg-indicators/10/">
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/10.svg" id="goal-10" alt="Goal 10 - Reduced inequalities" class="goal-icon-image goal-icon-image-svg"/>
             </a>
         </div>
         
         <div class="col-4 col-md-2 col-lg-1 goal-tile">
-            <a href="/sdg-indicators/11">
+            <a href="/sdg-indicators/11/">
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/11.svg" id="goal-11" alt="Goal 11 - Sustainable cities and communities" class="goal-icon-image goal-icon-image-svg"/>
             </a>
         </div>
         
         <div class="col-4 col-md-2 col-lg-1 goal-tile">
-            <a href="/sdg-indicators/12">
+            <a href="/sdg-indicators/12/">
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/12.svg" id="goal-12" alt="Goal 12 - Responsible consumption and production" class="goal-icon-image goal-icon-image-svg"/>
             </a>
         </div>
         
         <div class="col-4 col-md-2 col-lg-1 goal-tile">
-            <a href="/sdg-indicators/13">
+            <a href="/sdg-indicators/13/">
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/13.svg" id="goal-13" alt="Goal 13 - Climate action" class="goal-icon-image goal-icon-image-svg"/>
             </a>
         </div>
         
         <div class="col-4 col-md-2 col-lg-1 goal-tile">
-            <a href="/sdg-indicators/14">
+            <a href="/sdg-indicators/14/">
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/14.svg" id="goal-14" alt="Goal 14 - Life below water" class="goal-icon-image goal-icon-image-svg"/>
             </a>
         </div>
         
         <div class="col-4 col-md-2 col-lg-1 goal-tile">
-            <a href="/sdg-indicators/15">
+            <a href="/sdg-indicators/15/">
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/15.svg" id="goal-15" alt="Goal 15 - Life on land" class="goal-icon-image goal-icon-image-svg"/>
             </a>
         </div>
         
         <div class="col-4 col-md-2 col-lg-1 goal-tile">
-            <a href="/sdg-indicators/16">
+            <a href="/sdg-indicators/16/">
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/16.svg" id="goal-16" alt="Goal 16 - Peace, justice and strong institutions" class="goal-icon-image goal-icon-image-svg"/>
             </a>
         </div>
         
         <div class="col-4 col-md-2 col-lg-1 goal-tile">
-            <a href="/sdg-indicators/17">
+            <a href="/sdg-indicators/17/">
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/17.svg" id="goal-17" alt="Goal 17 - Partnerships for the goals" class="goal-icon-image goal-icon-image-svg"/>
             </a>
         </div>
@@ -784,7 +799,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230427090144'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230427091053'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -792,7 +807,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230427090144"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230427091053"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

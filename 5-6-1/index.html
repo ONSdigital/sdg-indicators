@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: ["Activity (default)","Age (default)","Urbanisation (default)"],
 
   language: 'en',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -112,12 +126,9 @@ var translations = {
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
         <meta name="robots" content="noindex, nofollow">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
@@ -128,13 +139,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427090144">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427091053">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -144,6 +156,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/sdg-indicators/assets/css/ie.css">
@@ -374,8 +389,9 @@ data-event-label="high"
     <fieldset>
       <legend class="sr-only">Series</legend>
       <% _.each(serieses, function(seriesItem, index) { %>
+        <% var isProxy = (proxySerieses.includes(seriesItem)) %>
         <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
-        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%> <%=isProxy ? proxyPill : ''%></label>
       <% }); %>
     </fieldset>
   
@@ -397,7 +413,7 @@ data-event-label="high"
             <a href="/sdg-indicators/">Home</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="/sdg-indicators/5"
+            <a href="/sdg-indicators/5/"
                title="Goal 5 - Gender equality"
                aria-label="Goal  - ">
                Goal 5
@@ -416,7 +432,7 @@ data-event-label="high"
         <div class="row">
             
             <div class="col-4 col-md-3 col-lg-2 goal-icon goal-tiles">
-                <a href="/sdg-indicators/5" aria-label="View targets and indicators for Goal 5" title="View targets and indicators for Goal 5">
+                <a href="/sdg-indicators/5/" aria-label="View targets and indicators for Goal 5" title="View targets and indicators for Goal 5">
                     <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/5.svg"
                         alt="Gender equality - Goal 5"
                         id="goal-5"
@@ -444,6 +460,20 @@ data-event-label="high"
 <div class="row metadata-available-indicator">
   <div class="col-xs-12">
     <h2>Women using Sexual and Reproductive Health Services, by main method of contraception, age and local authority</h2>
+  </div>
+</div>
+
+
+  
+<div class="row proxy-banner my-4 mx-1 px-2 gx-2">
+  <div class="col col-auto align-self-center">
+    <span aria-describedby="proxy-description" class="proxy-pill">indicator.proxy</span>
+  </div>
+  <div class="col col-auto align-self-center">
+    =
+  </div>
+  <div id="proxy-description" class="col">
+    indicator.proxy_description
   </div>
 </div>
 
@@ -483,6 +513,8 @@ data-event-label="high"
   data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;North East&quot;,&quot;North West&quot;,&quot;Yorkshire and The Humber&quot;,&quot;East Midlands&quot;,&quot;West Midlands&quot;,&quot;East of England&quot;,&quot;London&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Local authority&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;County Durham&quot;,&quot;Gateshead&quot;,&quot;Hartlepool&quot;,&quot;Middlesbrough&quot;,&quot;Newcastle upon Tyne&quot;,&quot;North Tyneside&quot;,&quot;Northumberland&quot;,&quot;Redcar and Cleveland&quot;,&quot;South Tyneside&quot;,&quot;Stockton-on-Tees&quot;,&quot;Sunderland&quot;,&quot;Blackburn with Darwen&quot;,&quot;Blackpool&quot;,&quot;Bolton&quot;,&quot;Bury&quot;,&quot;Cheshire East&quot;,&quot;Cheshire West and Chester&quot;,&quot;Cumbria&quot;,&quot;Halton&quot;,&quot;Knowsley&quot;,&quot;Lancashire&quot;,&quot;Liverpool&quot;,&quot;Manchester&quot;,&quot;Oldham&quot;,&quot;Rochdale&quot;,&quot;Salford&quot;,&quot;Sefton&quot;,&quot;St. Helens&quot;,&quot;Trafford&quot;,&quot;Warrington&quot;,&quot;Wigan&quot;,&quot;Wirral&quot;,&quot;Barnsley&quot;,&quot;Bradford&quot;,&quot;Calderdale&quot;,&quot;Doncaster&quot;,&quot;East Riding of Yorkshire&quot;,&quot;Kingston upon Hull, City of&quot;,&quot;Kirklees&quot;,&quot;Leeds&quot;,&quot;North East Lincolnshire&quot;,&quot;North Lincolnshire&quot;,&quot;North Yorkshire&quot;,&quot;Rotherham&quot;,&quot;Wakefield&quot;,&quot;York&quot;,&quot;Derby&quot;,&quot;Derbyshire&quot;,&quot;Leicester&quot;,&quot;Leicestershire&quot;,&quot;Lincolnshire&quot;,&quot;Northamptonshire&quot;,&quot;Nottingham&quot;,&quot;Nottinghamshire&quot;,&quot;Birmingham&quot;,&quot;Coventry&quot;,&quot;Dudley&quot;,&quot;Herefordshire, County of&quot;,&quot;Sandwell&quot;,&quot;Shropshire&quot;,&quot;Solihull&quot;,&quot;Staffordshire&quot;,&quot;Stoke-on-Trent&quot;,&quot;Telford and Wrekin&quot;,&quot;Walsall&quot;,&quot;Warwickshire&quot;,&quot;Wolverhampton&quot;,&quot;Worcestershire&quot;,&quot;Bedford&quot;,&quot;Cambridgeshire&quot;,&quot;Central Bedfordshire&quot;,&quot;Essex&quot;,&quot;Hertfordshire&quot;,&quot;Luton&quot;,&quot;Norfolk&quot;,&quot;Peterborough&quot;,&quot;Suffolk&quot;,&quot;Thurrock&quot;,&quot;Barking and Dagenham&quot;,&quot;Barnet&quot;,&quot;Bexley&quot;,&quot;Brent&quot;,&quot;Bromley&quot;,&quot;Camden&quot;,&quot;Croydon&quot;,&quot;Ealing&quot;,&quot;Enfield&quot;,&quot;Greenwich&quot;,&quot;Hackney&quot;,&quot;Hammersmith and Fulham&quot;,&quot;Haringey&quot;,&quot;Harrow&quot;,&quot;Havering&quot;,&quot;Hillingdon&quot;,&quot;Hounslow&quot;,&quot;Islington&quot;,&quot;Kensington and Chelsea&quot;,&quot;Kingston upon Thames&quot;,&quot;Lambeth&quot;,&quot;Lewisham&quot;,&quot;Merton&quot;,&quot;Newham&quot;,&quot;Redbridge&quot;,&quot;Richmond upon Thames&quot;,&quot;Southwark&quot;,&quot;Sutton&quot;,&quot;Tower Hamlets&quot;,&quot;Waltham Forest&quot;,&quot;Wandsworth&quot;,&quot;Westminster&quot;,&quot;Bracknell Forest&quot;,&quot;Brighton and Hove&quot;,&quot;Buckinghamshire&quot;,&quot;East Sussex&quot;,&quot;Hampshire&quot;,&quot;Isle of Wight&quot;,&quot;Kent&quot;,&quot;Medway&quot;,&quot;Milton Keynes&quot;,&quot;Oxfordshire&quot;,&quot;Reading&quot;,&quot;Slough&quot;,&quot;Surrey&quot;,&quot;West Berkshire&quot;,&quot;West Sussex&quot;,&quot;Windsor and Maidenhead&quot;,&quot;Wokingham&quot;,&quot;Bournemouth, Christchurch and Poole&quot;,&quot;Bristol, City of&quot;,&quot;Cornwall&quot;,&quot;Devon&quot;,&quot;Dorset&quot;,&quot;Gloucestershire&quot;,&quot;North Somerset&quot;,&quot;Plymouth&quot;,&quot;Somerset&quot;,&quot;Swindon&quot;,&quot;Torbay&quot;,&quot;Darlington&quot;,&quot;Stockport&quot;,&quot;Southampton&quot;,&quot;Wiltshire&quot;,&quot;North Northamptonshire&quot;,&quot;West Northamptonshire&quot;,&quot;Southend-on-Sea&quot;,&quot;Portsmouth&quot;,&quot;South Gloucestershire&quot;,&quot;Tameside&quot;,&quot;Sheffield&quot;,&quot;Bath and North East Somerset&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Local authority&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;15 and under&quot;,&quot;16 to 17&quot;,&quot;18 to 19&quot;,&quot;20 to 24&quot;,&quot;25 to 34&quot;,&quot;35 to 44&quot;,&quot;45 and over&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Main method of contraception&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;User dependent&quot;,&quot;Long acting reversible contraceptives&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Main method of contraception&quot;},{&quot;name&quot;:&quot;Type of contraception&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Contraceptive patch&quot;,&quot;Female condom&quot;,&quot;Implant&quot;,&quot;Injectable contraceptive&quot;,&quot;IU device&quot;,&quot;IU system&quot;,&quot;Male condom&quot;,&quot;Natural family planning&quot;,&quot;Natural family planning incl. rhythm method&quot;,&quot;Oral contraceptives&quot;,&quot;Other methods&quot;,&quot;Other methods [age]&quot;,&quot;Other methods [local authority]&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Type of contraception&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
+  data-proxy="proxy"
+  data-proxyseries="null"
 >
   
   <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
@@ -876,7 +908,9 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">The number of women using Sexual and Reproductive Health Services for means of contraception</h4>
+          <h4 id="chart-heading" class="chart-title">
+            The number of women using Sexual and Reproductive Health Services for means of contraception
+          </h4>
           <div id="chart" class="plot-container">
             <canvas
     role="img"
@@ -2208,7 +2242,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230427090144'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230427091053'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2216,7 +2250,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230427090144"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230427091053"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

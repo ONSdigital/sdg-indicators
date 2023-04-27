@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: null,
 
   language: 'en',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -107,12 +121,9 @@ var translations = {
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
         <meta name="robots" content="noindex, nofollow">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
@@ -123,13 +134,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427090144">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427091053">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -139,6 +151,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/sdg-indicators/assets/css/ie.css">
@@ -371,6 +386,11 @@ data-event-label="Change reporting status view to disaggregations"
     <div role="tabpanel" class="tab-pane active" id="goalsview">
   
   <div class="goal goal-overall">
+    
+    <div class="frame goal-tiles">
+        <img src="/sdg-indicators/assets/img/SDG Wheel_Transparent-01.png" alt="Sustainable Development Goals" width="100" height="100" class="goal-icon-image goal-icon-image-svg"/>
+    </div>
+    
     <div class="details">
         <h2 class="status-goal">
             Overall reporting status
@@ -408,13 +428,13 @@ data-event-label="Change reporting status view to disaggregations"
 </div>
   <h2>Status by goal</h2><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/1" title="View targets and indicators for Goal 1" aria-label="View targets and indicators for Goal 1">
+        <a href="/sdg-indicators/1/" title="View targets and indicators for Goal 1" aria-label="View targets and indicators for Goal 1">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/1.svg" alt="No poverty - Goal 1" width="100" height="100" class="goal-icon-1 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/1">No poverty</a>
+            <a href="/sdg-indicators/1/">No poverty</a>
         </h3>
         <span class="total">13 indicators</span>
         <div class="summary">
@@ -449,13 +469,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/2" title="View targets and indicators for Goal 2" aria-label="View targets and indicators for Goal 2">
+        <a href="/sdg-indicators/2/" title="View targets and indicators for Goal 2" aria-label="View targets and indicators for Goal 2">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/2.svg" alt="Zero hunger - Goal 2" width="100" height="100" class="goal-icon-2 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/2">Zero hunger</a>
+            <a href="/sdg-indicators/2/">Zero hunger</a>
         </h3>
         <span class="total">14 indicators</span>
         <div class="summary">
@@ -490,13 +510,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/3" title="View targets and indicators for Goal 3" aria-label="View targets and indicators for Goal 3">
+        <a href="/sdg-indicators/3/" title="View targets and indicators for Goal 3" aria-label="View targets and indicators for Goal 3">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/3.svg" alt="Good health and well-being - Goal 3" width="100" height="100" class="goal-icon-3 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/3">Good health and well-being</a>
+            <a href="/sdg-indicators/3/">Good health and well-being</a>
         </h3>
         <span class="total">28 indicators</span>
         <div class="summary">
@@ -531,13 +551,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/4" title="View targets and indicators for Goal 4" aria-label="View targets and indicators for Goal 4">
+        <a href="/sdg-indicators/4/" title="View targets and indicators for Goal 4" aria-label="View targets and indicators for Goal 4">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/4.svg" alt="Quality education - Goal 4" width="100" height="100" class="goal-icon-4 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/4">Quality education</a>
+            <a href="/sdg-indicators/4/">Quality education</a>
         </h3>
         <span class="total">12 indicators</span>
         <div class="summary">
@@ -572,13 +592,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/5" title="View targets and indicators for Goal 5" aria-label="View targets and indicators for Goal 5">
+        <a href="/sdg-indicators/5/" title="View targets and indicators for Goal 5" aria-label="View targets and indicators for Goal 5">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/5.svg" alt="Gender equality - Goal 5" width="100" height="100" class="goal-icon-5 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/5">Gender equality</a>
+            <a href="/sdg-indicators/5/">Gender equality</a>
         </h3>
         <span class="total">14 indicators</span>
         <div class="summary">
@@ -613,13 +633,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/6" title="View targets and indicators for Goal 6" aria-label="View targets and indicators for Goal 6">
+        <a href="/sdg-indicators/6/" title="View targets and indicators for Goal 6" aria-label="View targets and indicators for Goal 6">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/6.svg" alt="Clean water and sanitation - Goal 6" width="100" height="100" class="goal-icon-6 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/6">Clean water and sanitation</a>
+            <a href="/sdg-indicators/6/">Clean water and sanitation</a>
         </h3>
         <span class="total">11 indicators</span>
         <div class="summary">
@@ -654,13 +674,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/7" title="View targets and indicators for Goal 7" aria-label="View targets and indicators for Goal 7">
+        <a href="/sdg-indicators/7/" title="View targets and indicators for Goal 7" aria-label="View targets and indicators for Goal 7">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/7.svg" alt="Affordable and clean energy - Goal 7" width="100" height="100" class="goal-icon-7 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/7">Affordable and clean energy</a>
+            <a href="/sdg-indicators/7/">Affordable and clean energy</a>
         </h3>
         <span class="total">6 indicators</span>
         <div class="summary">
@@ -695,13 +715,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/8" title="View targets and indicators for Goal 8" aria-label="View targets and indicators for Goal 8">
+        <a href="/sdg-indicators/8/" title="View targets and indicators for Goal 8" aria-label="View targets and indicators for Goal 8">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/8.svg" alt="Decent work and economic growth - Goal 8" width="100" height="100" class="goal-icon-8 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/8">Decent work and economic growth</a>
+            <a href="/sdg-indicators/8/">Decent work and economic growth</a>
         </h3>
         <span class="total">16 indicators</span>
         <div class="summary">
@@ -736,13 +756,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/9" title="View targets and indicators for Goal 9" aria-label="View targets and indicators for Goal 9">
+        <a href="/sdg-indicators/9/" title="View targets and indicators for Goal 9" aria-label="View targets and indicators for Goal 9">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/9.svg" alt="Industry, innovation and infrastructure - Goal 9" width="100" height="100" class="goal-icon-9 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/9">Industry, innovation and infrastructure</a>
+            <a href="/sdg-indicators/9/">Industry, innovation and infrastructure</a>
         </h3>
         <span class="total">12 indicators</span>
         <div class="summary">
@@ -777,13 +797,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/10" title="View targets and indicators for Goal 10" aria-label="View targets and indicators for Goal 10">
+        <a href="/sdg-indicators/10/" title="View targets and indicators for Goal 10" aria-label="View targets and indicators for Goal 10">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/10.svg" alt="Reduced inequalities - Goal 10" width="100" height="100" class="goal-icon-10 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/10">Reduced inequalities</a>
+            <a href="/sdg-indicators/10/">Reduced inequalities</a>
         </h3>
         <span class="total">14 indicators</span>
         <div class="summary">
@@ -818,13 +838,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/11" title="View targets and indicators for Goal 11" aria-label="View targets and indicators for Goal 11">
+        <a href="/sdg-indicators/11/" title="View targets and indicators for Goal 11" aria-label="View targets and indicators for Goal 11">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/11.svg" alt="Sustainable cities and communities - Goal 11" width="100" height="100" class="goal-icon-11 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/11">Sustainable cities and communities</a>
+            <a href="/sdg-indicators/11/">Sustainable cities and communities</a>
         </h3>
         <span class="total">14 indicators</span>
         <div class="summary">
@@ -859,13 +879,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/12" title="View targets and indicators for Goal 12" aria-label="View targets and indicators for Goal 12">
+        <a href="/sdg-indicators/12/" title="View targets and indicators for Goal 12" aria-label="View targets and indicators for Goal 12">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/12.svg" alt="Responsible consumption and production - Goal 12" width="100" height="100" class="goal-icon-12 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/12">Responsible consumption and production</a>
+            <a href="/sdg-indicators/12/">Responsible consumption and production</a>
         </h3>
         <span class="total">13 indicators</span>
         <div class="summary">
@@ -900,13 +920,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/13" title="View targets and indicators for Goal 13" aria-label="View targets and indicators for Goal 13">
+        <a href="/sdg-indicators/13/" title="View targets and indicators for Goal 13" aria-label="View targets and indicators for Goal 13">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/13.svg" alt="Climate action - Goal 13" width="100" height="100" class="goal-icon-13 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/13">Climate action</a>
+            <a href="/sdg-indicators/13/">Climate action</a>
         </h3>
         <span class="total">8 indicators</span>
         <div class="summary">
@@ -941,13 +961,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/14" title="View targets and indicators for Goal 14" aria-label="View targets and indicators for Goal 14">
+        <a href="/sdg-indicators/14/" title="View targets and indicators for Goal 14" aria-label="View targets and indicators for Goal 14">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/14.svg" alt="Life below water - Goal 14" width="100" height="100" class="goal-icon-14 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/14">Life below water</a>
+            <a href="/sdg-indicators/14/">Life below water</a>
         </h3>
         <span class="total">10 indicators</span>
         <div class="summary">
@@ -982,13 +1002,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/15" title="View targets and indicators for Goal 15" aria-label="View targets and indicators for Goal 15">
+        <a href="/sdg-indicators/15/" title="View targets and indicators for Goal 15" aria-label="View targets and indicators for Goal 15">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/15.svg" alt="Life on land - Goal 15" width="100" height="100" class="goal-icon-15 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/15">Life on land</a>
+            <a href="/sdg-indicators/15/">Life on land</a>
         </h3>
         <span class="total">14 indicators</span>
         <div class="summary">
@@ -1023,13 +1043,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/16" title="View targets and indicators for Goal 16" aria-label="View targets and indicators for Goal 16">
+        <a href="/sdg-indicators/16/" title="View targets and indicators for Goal 16" aria-label="View targets and indicators for Goal 16">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/16.svg" alt="Peace, justice and strong institutions - Goal 16" width="100" height="100" class="goal-icon-16 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/16">Peace, justice and strong institutions</a>
+            <a href="/sdg-indicators/16/">Peace, justice and strong institutions</a>
         </h3>
         <span class="total">24 indicators</span>
         <div class="summary">
@@ -1064,13 +1084,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/17" title="View targets and indicators for Goal 17" aria-label="View targets and indicators for Goal 17">
+        <a href="/sdg-indicators/17/" title="View targets and indicators for Goal 17" aria-label="View targets and indicators for Goal 17">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/17.svg" alt="Partnerships for the goals - Goal 17" width="100" height="100" class="goal-icon-17 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/17">Partnerships for the goals</a>
+            <a href="/sdg-indicators/17/">Partnerships for the goals</a>
         </h3>
         <span class="total">24 indicators</span>
         <div class="summary">
@@ -1113,6 +1133,11 @@ data-event-label="Change reporting status view to disaggregations"
   
     <div role="tabpanel" class="tab-pane" id="disaggregationsview">
       <div class="goal goal-overall">
+    
+    <div class="frame goal-tiles">
+        <img src="/sdg-indicators/assets/img/SDG Wheel_Transparent-01.png" alt="Sustainable Development Goals" width="100" height="100" class="goal-icon-image goal-icon-image-svg"/>
+    </div>
+    
     <div class="details">
         <h2 class="status-goal">
             Overall disaggregation status
@@ -1172,13 +1197,13 @@ data-event-label="Change reporting status view to disaggregations"
 </div>
       <h2>Status by goal</h2><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/1" title="View targets and indicators for Goal 1" aria-label="View targets and indicators for Goal 1">
+        <a href="/sdg-indicators/1/" title="View targets and indicators for Goal 1" aria-label="View targets and indicators for Goal 1">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/1.svg" alt="No poverty - Goal 1" width="100" height="100" class="goal-icon-1 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/1">No poverty</a>
+            <a href="/sdg-indicators/1/">No poverty</a>
         </h3>
         <span class="total">13 indicators</span>
         <div class="summary">
@@ -1235,13 +1260,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/2" title="View targets and indicators for Goal 2" aria-label="View targets and indicators for Goal 2">
+        <a href="/sdg-indicators/2/" title="View targets and indicators for Goal 2" aria-label="View targets and indicators for Goal 2">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/2.svg" alt="Zero hunger - Goal 2" width="100" height="100" class="goal-icon-2 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/2">Zero hunger</a>
+            <a href="/sdg-indicators/2/">Zero hunger</a>
         </h3>
         <span class="total">14 indicators</span>
         <div class="summary">
@@ -1298,13 +1323,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/3" title="View targets and indicators for Goal 3" aria-label="View targets and indicators for Goal 3">
+        <a href="/sdg-indicators/3/" title="View targets and indicators for Goal 3" aria-label="View targets and indicators for Goal 3">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/3.svg" alt="Good health and well-being - Goal 3" width="100" height="100" class="goal-icon-3 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/3">Good health and well-being</a>
+            <a href="/sdg-indicators/3/">Good health and well-being</a>
         </h3>
         <span class="total">28 indicators</span>
         <div class="summary">
@@ -1361,13 +1386,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/4" title="View targets and indicators for Goal 4" aria-label="View targets and indicators for Goal 4">
+        <a href="/sdg-indicators/4/" title="View targets and indicators for Goal 4" aria-label="View targets and indicators for Goal 4">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/4.svg" alt="Quality education - Goal 4" width="100" height="100" class="goal-icon-4 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/4">Quality education</a>
+            <a href="/sdg-indicators/4/">Quality education</a>
         </h3>
         <span class="total">12 indicators</span>
         <div class="summary">
@@ -1424,13 +1449,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/5" title="View targets and indicators for Goal 5" aria-label="View targets and indicators for Goal 5">
+        <a href="/sdg-indicators/5/" title="View targets and indicators for Goal 5" aria-label="View targets and indicators for Goal 5">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/5.svg" alt="Gender equality - Goal 5" width="100" height="100" class="goal-icon-5 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/5">Gender equality</a>
+            <a href="/sdg-indicators/5/">Gender equality</a>
         </h3>
         <span class="total">14 indicators</span>
         <div class="summary">
@@ -1487,13 +1512,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/6" title="View targets and indicators for Goal 6" aria-label="View targets and indicators for Goal 6">
+        <a href="/sdg-indicators/6/" title="View targets and indicators for Goal 6" aria-label="View targets and indicators for Goal 6">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/6.svg" alt="Clean water and sanitation - Goal 6" width="100" height="100" class="goal-icon-6 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/6">Clean water and sanitation</a>
+            <a href="/sdg-indicators/6/">Clean water and sanitation</a>
         </h3>
         <span class="total">11 indicators</span>
         <div class="summary">
@@ -1550,13 +1575,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/7" title="View targets and indicators for Goal 7" aria-label="View targets and indicators for Goal 7">
+        <a href="/sdg-indicators/7/" title="View targets and indicators for Goal 7" aria-label="View targets and indicators for Goal 7">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/7.svg" alt="Affordable and clean energy - Goal 7" width="100" height="100" class="goal-icon-7 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/7">Affordable and clean energy</a>
+            <a href="/sdg-indicators/7/">Affordable and clean energy</a>
         </h3>
         <span class="total">6 indicators</span>
         <div class="summary">
@@ -1613,13 +1638,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/8" title="View targets and indicators for Goal 8" aria-label="View targets and indicators for Goal 8">
+        <a href="/sdg-indicators/8/" title="View targets and indicators for Goal 8" aria-label="View targets and indicators for Goal 8">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/8.svg" alt="Decent work and economic growth - Goal 8" width="100" height="100" class="goal-icon-8 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/8">Decent work and economic growth</a>
+            <a href="/sdg-indicators/8/">Decent work and economic growth</a>
         </h3>
         <span class="total">16 indicators</span>
         <div class="summary">
@@ -1676,13 +1701,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/9" title="View targets and indicators for Goal 9" aria-label="View targets and indicators for Goal 9">
+        <a href="/sdg-indicators/9/" title="View targets and indicators for Goal 9" aria-label="View targets and indicators for Goal 9">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/9.svg" alt="Industry, innovation and infrastructure - Goal 9" width="100" height="100" class="goal-icon-9 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/9">Industry, innovation and infrastructure</a>
+            <a href="/sdg-indicators/9/">Industry, innovation and infrastructure</a>
         </h3>
         <span class="total">12 indicators</span>
         <div class="summary">
@@ -1739,13 +1764,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/10" title="View targets and indicators for Goal 10" aria-label="View targets and indicators for Goal 10">
+        <a href="/sdg-indicators/10/" title="View targets and indicators for Goal 10" aria-label="View targets and indicators for Goal 10">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/10.svg" alt="Reduced inequalities - Goal 10" width="100" height="100" class="goal-icon-10 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/10">Reduced inequalities</a>
+            <a href="/sdg-indicators/10/">Reduced inequalities</a>
         </h3>
         <span class="total">14 indicators</span>
         <div class="summary">
@@ -1802,13 +1827,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/11" title="View targets and indicators for Goal 11" aria-label="View targets and indicators for Goal 11">
+        <a href="/sdg-indicators/11/" title="View targets and indicators for Goal 11" aria-label="View targets and indicators for Goal 11">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/11.svg" alt="Sustainable cities and communities - Goal 11" width="100" height="100" class="goal-icon-11 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/11">Sustainable cities and communities</a>
+            <a href="/sdg-indicators/11/">Sustainable cities and communities</a>
         </h3>
         <span class="total">14 indicators</span>
         <div class="summary">
@@ -1865,13 +1890,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/12" title="View targets and indicators for Goal 12" aria-label="View targets and indicators for Goal 12">
+        <a href="/sdg-indicators/12/" title="View targets and indicators for Goal 12" aria-label="View targets and indicators for Goal 12">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/12.svg" alt="Responsible consumption and production - Goal 12" width="100" height="100" class="goal-icon-12 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/12">Responsible consumption and production</a>
+            <a href="/sdg-indicators/12/">Responsible consumption and production</a>
         </h3>
         <span class="total">13 indicators</span>
         <div class="summary">
@@ -1928,13 +1953,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/13" title="View targets and indicators for Goal 13" aria-label="View targets and indicators for Goal 13">
+        <a href="/sdg-indicators/13/" title="View targets and indicators for Goal 13" aria-label="View targets and indicators for Goal 13">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/13.svg" alt="Climate action - Goal 13" width="100" height="100" class="goal-icon-13 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/13">Climate action</a>
+            <a href="/sdg-indicators/13/">Climate action</a>
         </h3>
         <span class="total">8 indicators</span>
         <div class="summary">
@@ -1991,13 +2016,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/14" title="View targets and indicators for Goal 14" aria-label="View targets and indicators for Goal 14">
+        <a href="/sdg-indicators/14/" title="View targets and indicators for Goal 14" aria-label="View targets and indicators for Goal 14">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/14.svg" alt="Life below water - Goal 14" width="100" height="100" class="goal-icon-14 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/14">Life below water</a>
+            <a href="/sdg-indicators/14/">Life below water</a>
         </h3>
         <span class="total">10 indicators</span>
         <div class="summary">
@@ -2054,13 +2079,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/15" title="View targets and indicators for Goal 15" aria-label="View targets and indicators for Goal 15">
+        <a href="/sdg-indicators/15/" title="View targets and indicators for Goal 15" aria-label="View targets and indicators for Goal 15">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/15.svg" alt="Life on land - Goal 15" width="100" height="100" class="goal-icon-15 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/15">Life on land</a>
+            <a href="/sdg-indicators/15/">Life on land</a>
         </h3>
         <span class="total">14 indicators</span>
         <div class="summary">
@@ -2117,13 +2142,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/16" title="View targets and indicators for Goal 16" aria-label="View targets and indicators for Goal 16">
+        <a href="/sdg-indicators/16/" title="View targets and indicators for Goal 16" aria-label="View targets and indicators for Goal 16">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/16.svg" alt="Peace, justice and strong institutions - Goal 16" width="100" height="100" class="goal-icon-16 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/16">Peace, justice and strong institutions</a>
+            <a href="/sdg-indicators/16/">Peace, justice and strong institutions</a>
         </h3>
         <span class="total">24 indicators</span>
         <div class="summary">
@@ -2180,13 +2205,13 @@ data-event-label="Change reporting status view to disaggregations"
     <br style="clear:both;">
 </div><div class="goal reporting-status-item">
     <div class="frame goal-tiles">
-        <a href="/sdg-indicators/17" title="View targets and indicators for Goal 17" aria-label="View targets and indicators for Goal 17">
+        <a href="/sdg-indicators/17/" title="View targets and indicators for Goal 17" aria-label="View targets and indicators for Goal 17">
         <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/17.svg" alt="Partnerships for the goals - Goal 17" width="100" height="100" class="goal-icon-17 goal-icon-image goal-icon-image-svg"/>
         </a>
     </div>
     <div class="details">
         <h3 class="status-goal">
-            <a href="/sdg-indicators/17">Partnerships for the goals</a>
+            <a href="/sdg-indicators/17/">Partnerships for the goals</a>
         </h3>
         <span class="total">24 indicators</span>
         <div class="summary">
@@ -2469,7 +2494,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230427090144'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230427091053'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2477,7 +2502,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230427090144"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230427091053"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

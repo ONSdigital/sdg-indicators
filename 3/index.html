@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: null,
 
   language: 'en',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -103,16 +117,15 @@ var translations = {
         ================================================== -->
 
         
+    
     <title>Goal 3 - Good health and well-being - U.K. Indicators For The Sustainable Development Goals</title>
+    
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
         <meta name="robots" content="noindex, nofollow">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
@@ -123,13 +136,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427090144">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427091053">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -139,6 +153,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/sdg-indicators/assets/css/ie.css">
@@ -320,7 +337,11 @@ data-event-label="high"
                 <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/3.svg" alt="Good health and well-being - Goal 3" id="goal-3" class="goal-icon-image goal-icon-image-svg" />
             </div>
             <div class="col-8 col-md-9 col-lg-10 goal-details">
-                <h1>Ensure healthy lives and promote well-being for all at all ages</h1>
+                <h1>
+                    
+                        Ensure healthy lives and promote well-being for all at all ages
+                    
+                </h1>
             </div>
         </div>
     </div>
@@ -389,7 +410,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-1-1">Maternal mortality ratio</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-1-1/">Maternal mortality ratio</a></span>
               
 
 
@@ -429,7 +450,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-1-2">Proportion of births attended by skilled health personnel</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-1-2/">Proportion of births attended by skilled health personnel</a></span>
               
 
 
@@ -484,7 +505,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-2-1">Under‐5 mortality rate</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-2-1/">Under‐5 mortality rate</a></span>
               
 
 
@@ -524,7 +545,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-2-2">Neonatal mortality rate</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-2-2/">Neonatal mortality rate</a></span>
               
 
 
@@ -579,7 +600,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-3-1">Number of new HIV infections per 1,000 uninfected population, by sex, age and key populations</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-3-1/">Number of new HIV infections per 1,000 uninfected population, by sex, age and key populations</a></span>
               
 
 
@@ -619,7 +640,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-3-2">Tuberculosis incidence per 100,000 population</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-3-2/">Tuberculosis incidence per 100,000 population</a></span>
               
 
 
@@ -659,7 +680,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-3-3">Malaria incidence per 1,000 population</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-3-3/">Malaria incidence per 1,000 population</a></span>
               
 
 
@@ -699,7 +720,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-3-4">Hepatitis B incidence per 100,000 population</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-3-4/">Hepatitis B incidence per 100,000 population</a></span>
               
 
 
@@ -739,7 +760,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-3-5">Number of people requiring interventions against neglected tropical diseases</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-3-5/">Number of people requiring interventions against neglected tropical diseases</a></span>
               
 
 
@@ -794,7 +815,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-4-1">Mortality rate attributed to cardiovascular disease, cancer, diabetes or chronic respiratory disease</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-4-1/">Mortality rate attributed to cardiovascular disease, cancer, diabetes or chronic respiratory disease</a></span>
               
 
 
@@ -834,7 +855,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-4-2">Suicide mortality rate</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-4-2/">Suicide mortality rate</a></span>
               
 
 
@@ -889,7 +910,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-5-1">Coverage of treatment interventions (pharmacological, psychosocial and rehabilitation and aftercare services) for substance use disorders</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-5-1/">Coverage of treatment interventions (pharmacological, psychosocial and rehabilitation and aftercare services) for substance use disorders</a></span>
               
 
 
@@ -929,7 +950,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-5-2">Alcohol per capita consumption (aged 15 years and older) within a calendar year in litres of pure alcohol</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-5-2/">Alcohol per capita consumption (aged 15 years and older) within a calendar year in litres of pure alcohol</a></span>
               
 
 
@@ -984,7 +1005,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-6-1">Death rate due to road traffic injuries</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-6-1/">Death rate due to road traffic injuries</a></span>
               
 
 
@@ -1039,7 +1060,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-7-1">Proportion of women of reproductive age (aged 15–49 years) who have their need for family planning satisfied with modern methods</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-7-1/">Proportion of women of reproductive age (aged 15–49 years) who have their need for family planning satisfied with modern methods</a></span>
               
 
 
@@ -1079,7 +1100,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-7-2">Adolescent birth rate (aged 10–14 years; aged 15–19 years) per 1,000 women in that age group</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-7-2/">Adolescent birth rate (aged 10–14 years; aged 15–19 years) per 1,000 women in that age group</a></span>
               
 
 
@@ -1134,7 +1155,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-8-1">Coverage of essential health services</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-8-1/">Coverage of essential health services</a></span>
               
 
 
@@ -1174,7 +1195,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-8-2">Proportion of population with large household expenditures on health as a share of total household expenditure or income</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-8-2/">Proportion of population with large household expenditures on health as a share of total household expenditure or income</a></span>
               
 
 
@@ -1229,7 +1250,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-9-1">Mortality rate attributed to household and ambient air pollution</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-9-1/">Mortality rate attributed to household and ambient air pollution</a></span>
               
 
 
@@ -1269,7 +1290,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-9-2">Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene (exposure to unsafe Water, Sanitation and Hygiene for All (WASH) services)</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-9-2/">Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene (exposure to unsafe Water, Sanitation and Hygiene for All (WASH) services)</a></span>
               
 
 
@@ -1309,7 +1330,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-9-3">Mortality rate attributed to unintentional poisoning</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-9-3/">Mortality rate attributed to unintentional poisoning</a></span>
               
 
 
@@ -1364,7 +1385,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-a-1">Age-standardized prevalence of current tobacco use among persons aged 15 years and older</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-a-1/">Age-standardized prevalence of current tobacco use among persons aged 15 years and older</a></span>
               
 
 
@@ -1419,7 +1440,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-b-1">Proportion of the target population covered by all vaccines included in their national programme</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-b-1/">Proportion of the target population covered by all vaccines included in their national programme</a></span>
               
 
 
@@ -1459,7 +1480,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-b-2">Total net official development assistance to medical research and basic health sectors</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-b-2/">Total net official development assistance to medical research and basic health sectors</a></span>
               
 
 
@@ -1499,7 +1520,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-b-3">Proportion of health facilities that have a core set of relevant essential medicines available and affordable on a sustainable basis</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-b-3/">Proportion of health facilities that have a core set of relevant essential medicines available and affordable on a sustainable basis</a></span>
               
 
 
@@ -1554,7 +1575,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-c-1">Health worker density and distribution</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-c-1/">Health worker density and distribution</a></span>
               
 
 
@@ -1609,7 +1630,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-d-1">International Health Regulations (IHR) capacity and health emergency preparedness</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-d-1/">International Health Regulations (IHR) capacity and health emergency preparedness</a></span>
               
 
 
@@ -1649,7 +1670,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/sdg-indicators/3-d-2">Percentage of bloodstream infections due to selected antimicrobial-resistant organisms</a></span>
+              <span class="indicator-name"><a href="/sdg-indicators/3-d-2/">Percentage of bloodstream infections due to selected antimicrobial-resistant organisms</a></span>
               
 
 
@@ -1896,7 +1917,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230427090144'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230427091053'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -1904,7 +1925,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230427090144"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230427091053"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

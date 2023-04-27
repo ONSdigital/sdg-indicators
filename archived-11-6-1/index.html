@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: ["Activity (default)","Age (default)","Urbanisation (default)"],
 
   language: 'en',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -110,12 +124,9 @@ var translations = {
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
         <meta name="robots" content="noindex, nofollow">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
@@ -126,13 +137,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427090144">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230427091053">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -142,6 +154,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/sdg-indicators/assets/css/ie.css">
@@ -372,8 +387,9 @@ data-event-label="high"
     <fieldset>
       <legend class="sr-only">Series</legend>
       <% _.each(serieses, function(seriesItem, index) { %>
+        <% var isProxy = (proxySerieses.includes(seriesItem)) %>
         <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
-        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%> <%=isProxy ? proxyPill : ''%></label>
       <% }); %>
     </fieldset>
   
@@ -422,6 +438,8 @@ data-event-label="high"
 
   
 
+  
+
 <div class="row" id="page-content">
   <div class="col-xs-12">
     <p>These data partially fulfill the requirements of this indicator as the best available data with a detailed breakdown at an individual local authority level and include data for both urban and rural areas. The data reported here focus on the way waste collected by local authorities in England is managed (e.g landfill vs recycling). However, they do not capture the total waste in each local authority area as most commercial waste is not managed by local government. This information is not currently available at an individual local authority area level. We are exploring possible options to achieve this.</p>
@@ -460,6 +478,8 @@ data-event-label="high"
   data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Disposal Method&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Landfill&quot;,&quot;Incineration with EfW&quot;,&quot;Incineration without EfW&quot;,&quot;Recycled-composted&quot;,&quot;Other&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Disposal Method&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;North West&quot;,&quot;East Midlands&quot;,&quot;East of England&quot;,&quot;South East&quot;,&quot;North East&quot;,&quot;Yorkshire and the Humber&quot;,&quot;West Midlands&quot;,&quot;London&quot;,&quot;South West&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Local Authority&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Stockton-on-Tees Borough Council&quot;,&quot;Redcar and Cleveland Borough Council&quot;,&quot;Middlesbrough Borough Council&quot;,&quot;Hartlepool Borough Council&quot;,&quot;Darlington Borough Council&quot;,&quot;County Durham&quot;,&quot;Northumberland&quot;,&quot;Sunderland City Council&quot;,&quot;South Tyneside MBC&quot;,&quot;North Tyneside Council&quot;,&quot;Newcastle-upon-Tyne City Council MBC&quot;,&quot;Gateshead MBC&quot;,&quot;Warrington Borough Council&quot;,&quot;Cheshire East&quot;,&quot;Cheshire West and Chester&quot;,&quot;Halton Borough Council&quot;,&quot;Cumbria County Council&quot;,&quot;Wigan MBC&quot;,&quot;Greater Manchester WDA (MBC)&quot;,&quot;Blackpool Borough Council&quot;,&quot;Blackburn with Darwen Borough Council&quot;,&quot;Lancashire County Council&quot;,&quot;Merseyside WDA (MBC)&quot;,&quot;East Riding of Yorkshire Council&quot;,&quot;Kingston-upon-Hull City Council&quot;,&quot;North East Lincolnshire Council&quot;,&quot;North Lincolnshire Council&quot;,&quot;York City Council&quot;,&quot;North Yorkshire County Council&quot;,&quot;Sheffield City Council&quot;,&quot;Rotherham MBC&quot;,&quot;Doncaster MBC&quot;,&quot;Barnsley Metropolitan Borough Council&quot;,&quot;Leeds City Council MBC&quot;,&quot;Kirklees MBC&quot;,&quot;Wakefield City MDC&quot;,&quot;Bradford City MDC (MBC)&quot;,&quot;Calderdale MBC&quot;,&quot;Derby City Council&quot;,&quot;Derbyshire County Council&quot;,&quot;Rutland County Council&quot;,&quot;Leicester City Council&quot;,&quot;Leicestershire County Council&quot;,&quot;Lincolnshire County Council&quot;,&quot;Northamptonshire County Council&quot;,&quot;Nottingham City Council&quot;,&quot;Nottinghamshire County Council&quot;,&quot;Herefordshire Council&quot;,&quot;Worcestershire County Council&quot;,&quot;Telford and Wrekin Council&quot;,&quot;Shropshire&quot;,&quot;Stoke-on-Trent City Council&quot;,&quot;Staffordshire County Council&quot;,&quot;Warwickshire County Council&quot;,&quot;Wolverhampton MBC&quot;,&quot;Walsall MBC&quot;,&quot;Solihull MBC&quot;,&quot;Sandwell MBC&quot;,&quot;Dudley MBC&quot;,&quot;Coventry City Council&quot;,&quot;Birmingham City Council&quot;,&quot;Luton Borough Council&quot;,&quot;Bedford&quot;,&quot;Central Bedfordshire&quot;,&quot;Peterborough City Council&quot;,&quot;Cambridgeshire County Council&quot;,&quot;Thurrock Council&quot;,&quot;Southend-on-Sea Borough Council&quot;,&quot;Essex County Council&quot;,&quot;Hertfordshire County Council&quot;,&quot;Norfolk County Council&quot;,&quot;Suffolk County Council&quot;,&quot;Bexley LB&quot;,&quot;Tower Hamlets LB&quot;,&quot;City of London&quot;,&quot;Westminster City Council&quot;,&quot;East London Waste Authority&quot;,&quot;North London Waste Authority&quot;,&quot;Southwark LB&quot;,&quot;Lewisham LB&quot;,&quot;Greenwich LB&quot;,&quot;Sutton LB&quot;,&quot;Merton LB&quot;,&quot;Royal Borough of Kingston upon Thames&quot;,&quot;Croydon LB&quot;,&quot;Bromley LB&quot;,&quot;West London Waste Authority&quot;,&quot;Western Riverside Waste Authority&quot;,&quot;Wokingham Council&quot;,&quot;Windsor and Maidenhead Borough Council&quot;,&quot;Slough Borough Council&quot;,&quot;Reading Borough Council&quot;,&quot;West Berkshire District Council&quot;,&quot;Bracknell Forest Borough Council&quot;,&quot;Milton Keynes Council&quot;,&quot;Buckinghamshire County Council&quot;,&quot;Brighton and Hove Council&quot;,&quot;East Sussex County Council&quot;,&quot;Southampton City Council&quot;,&quot;Portsmouth City Council&quot;,&quot;Hampshire County Council&quot;,&quot;Isle of Wight Council&quot;,&quot;Medway Borough Council&quot;,&quot;Kent County Council&quot;,&quot;Oxfordshire County Council&quot;,&quot;Surrey County Council&quot;,&quot;West Sussex County Council&quot;,&quot;Council of the Isles of Scilly&quot;,&quot;Bath and North East Somerset Council&quot;,&quot;Bristol City Council&quot;,&quot;Cornwall&quot;,&quot;Torbay Council&quot;,&quot;Plymouth City Council&quot;,&quot;Devon County Council&quot;,&quot;Poole Borough Council&quot;,&quot;Bournemouth Borough Council&quot;,&quot;Dorset Waste Partnership&quot;,&quot;Gloucestershire County Council&quot;,&quot;North Somerset Council&quot;,&quot;Somerset County Council&quot;,&quot;South Gloucestershire Council&quot;,&quot;Swindon Borough Council&quot;,&quot;Wiltshire&quot;,&quot;Somerset Waste Partnership&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Local Authority&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
+  data-proxy=""
+  data-proxyseries="null"
 >
   
   <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
@@ -604,7 +624,9 @@ data-event-label="Change to Map tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Proportion of Local Authority collected waste, by waste management type</h4>
+          <h4 id="chart-heading" class="chart-title">
+            Proportion of Local Authority collected waste, by waste management type
+          </h4>
           <div id="chart" class="plot-container">
             <canvas
     role="img"
@@ -1877,7 +1899,7 @@ Recycled-composted’ includes household and non-household sources sent for recy
 <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
-<script src="https://cdn.rawgit.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/iso8601-js-period@0.2.1/iso8601.min.js"></script>
 <script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
 <script src="https://cdn.jsdelivr.net/gh/torfsen/leaflet.zoomhome@master/dist/leaflet.zoomhome.min.js"></script>
@@ -2033,7 +2055,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230427090144'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230427091053'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2041,7 +2063,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230427090144"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230427091053"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
