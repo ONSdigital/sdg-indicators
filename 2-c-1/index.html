@@ -146,7 +146,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230428071558">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230428110401">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -507,7 +507,7 @@ data-event-label="high"
   data-graphlimits="null"
   data-stackeddisaggregation=""
   data-graphannotations="null"
-  data-graphtargetlines="null"
+  data-graphtargetlines="[{&quot;value&quot;:1,&quot;label_content&quot;:&quot;Anomaly threshold&quot;}]"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
   data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;12 month rolling average&quot;,&quot;Unaveraged monthly value&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Index&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Food type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;All&quot;,&quot;Bread and cereal&quot;,&quot;Dairy and eggs&quot;,&quot;Fish&quot;,&quot;Fruit&quot;,&quot;Meat&quot;,&quot;Oils and fats&quot;,&quot;Sugars&quot;,&quot;Vegetables&quot;,&quot;Food not elsewhere classified&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Food type&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
@@ -954,14 +954,14 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>More details on the calculations, including how weights are assigned, are available in <a href="https://www.ons.gov.uk/economy/inflationandpriceindices/methodologies/identifyingfoodpriceanomaliestosupportthesustainabledevelopmentgoals#calculating-the-indicator">Identifying food price anomalies to support the Sustainable Development Goals.</a></p>
+            <p>More details on the calculations, including how weights are assigned, are available in <a href="https://www.ons.gov.uk/economy/inflationandpriceindices/methodologies/identifyingfoodpriceanomaliestosupportthesustainabledevelopmentgoals#calculating-the-indicator">Identifying food price anomalies to support the Sustainable Development Goals</a></p>
 <p>In brief - </p>
 <p>1. Quarterly and annual compound growth rates (CGRs) of CPIs are calculated for each month.</p>
 <p>2. For each target year, each preceding year is given a weight which is higher the closer it is to the target year. These weights are used to calculate the weighted means and standard deviations of the CGRs.</p>
 <p>3. Annual and quarterly CGRs are standardised by subtracting the relevant weighted mean and dividing by the relevant weighted standard deviation for each month (similar to calculating z-scores, but using weighted data).</p>
 <p>4. The standardised quarterly and annual CGRs are combined into a single indicator value for each month. Annual standardised CGRs have a weight of 0.6, while quarterly values have a weight of 0.4.</p>
 <p>CPI values since 1988 have been used in these calculation. The first year presented here is 1992 so that a minimum of 4 years of data are used for comparison.</p>
-<p>The code for producing this indicator is available on the <a href="https://github.com/ONSdigital/sdg_data_updates/tree/main/2.c.1_python">SDG data updates repository</a>.</p>
+<p>The code for producing this indicator is available on the <a href="https://github.com/ONSdigital/sdg_data_updates/tree/main/2.c.1_python">SDG data updates  repository</a>.</p>
 
           
         </td>
@@ -977,7 +977,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>This indicator identifies anomalous changes in market prices. The index relies on a weighted compound growth rate that accounts for both within year and across year price growth. The indicator directly evaluates growth in prices over a particular month over many years, taking into account seasonality in agricultural markets and inflation, allowing to answer the question of whether or not a change in price is abnormal for any particular period.</p>
+            <p>This indicator identifies market prices that are abnormally high. The index relies on a weighted compound growth rate that accounts for both within year and across year price growth. The indicator directly evaluates growth in prices over a particular month over many years, taking into account seasonality in agricultural markets and inflation, allowing to answer the question of whether or not a change in price is abnormal for any particular period.</p>
 <p>The Office for National Statistics (ONS) measure of the inflation experienced by consumers, Consumer Prices Index (CPI), has been identified and confirmed as suitable for measuring changes in food prices by topic experts. ONS have followed the methodology in line with the UN requirements for this indicator, but have used different food groups to give a fuller picture for the UK. </p>
 <p><p>For more details regarding the methodology and calculations used for this indicator, please refer to <a href="https://www.ons.gov.uk/economy/inflationandpriceindices/methodologies/identifyingfoodpriceanomaliestosupportthesustainabledevelopmentgoals#calculating-the-indicator">Identifying food price anomalies to support the Sustainable Development Goals</a> and <a href="https://www.fao.org/fileadmin/user_upload/foodprice/docs/resources/a-i7550e.pdf">Developing an indicator of price anomalies as an early warning tool - A compound growth approach (PDF, 585KB).</a> </p><p> Please note, the methodology for this indicator uses CPI data (rather than food prices themselves). As such, there is a smoothing effect, although the figures provided are still representative of food price changes. </p><p> This methodology assumes normal distribution, however compound growth prices (CGP) of food may not be normally distributed. The further away CGP are from normal distribution, the less useful they are as an indicator of food price anomalies.</p><p> Please note that the source data for this indicator is updated monthly, however the data displayed on this page is updated every 6 months. As a result, more recent data may be available from the source link in the Sources tab.</p> This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.
 </p>
@@ -996,7 +996,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            25 April 2023
+            28 April 2023
           
         </td>
         </tr>
@@ -1011,7 +1011,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            27 April 2023
+            28 April 2023
           
         </td>
         </tr>
@@ -1554,7 +1554,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            22 March 2023
+            14 September 2022
           
         </td>
         </tr>
@@ -1569,7 +1569,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>See source link: We plan to update indicator data within 4 months of data being released</p>
+            <p>The source data are published on a monthly basis, however the data on this page are updated every 6 months.: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -1821,6 +1821,8 @@ data-event-label="Change to Sources tab"
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.2.2/dist/chartjs-plugin-annotation.min.js" integrity="sha256-XuHhf6q+GD7fscc96mTm/228GXf1Nn9wOYOE0EgeFzY=" crossorigin="anonymous"></script>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
@@ -1972,7 +1974,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230428071558'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230428110401'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -1980,7 +1982,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230428071558"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230428110401"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
