@@ -146,7 +146,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230503091920">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230503122139">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -465,18 +465,6 @@ data-event-label="high"
 
 
   
-<div class="row proxy-banner my-4 mx-1 px-2 gx-2">
-  <div class="col col-auto align-self-center">
-    <span aria-describedby="proxy-description" class="proxy-pill">Proxy</span>
-  </div>
-  <div class="col col-auto align-self-center">
-    =
-  </div>
-  <div id="proxy-description" class="col">
-    This indicator contains some alternative data to those specified by the United Nations (UN). This indicator is the most suitable match currently available.
-  </div>
-</div>
-
 
   
 
@@ -510,10 +498,10 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Births occurring within a medical facility&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;19 and under&quot;,&quot;20 to 24&quot;,&quot;25 to 29&quot;,&quot;30 to 34&quot;,&quot;35 to 39&quot;,&quot;40 to 44&quot;,&quot;45 and over&quot;,&quot;not stated&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Number of previous live births&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;0&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4 and over&quot;,&quot;Not stated&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Number of previous live births&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;England&quot;,&quot;Wales&quot;,&quot;Outside England and Wales&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;East&quot;,&quot;East Midlands&quot;,&quot;London&quot;,&quot;North East&quot;,&quot;North West&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;West Midlands&quot;,&quot;Yorkshire and The Humber&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Health Board&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Abertawe Bro Morgannwg University&quot;,&quot;Aneurin Bevan University&quot;,&quot;Betsi Cadwaladr University&quot;,&quot;Cardiff and Vale University&quot;,&quot;Cwm Taf University&quot;,&quot;Hywel Dda University&quot;,&quot;Powys Teaching&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Health Board&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Births occurring within a medical facility&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;19 and under&quot;,&quot;20 to 24&quot;,&quot;25 to 29&quot;,&quot;30 to 34&quot;,&quot;35 to 39&quot;,&quot;40 to 44&quot;,&quot;45 and over&quot;,&quot;not stated&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Number of previous live births&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;0&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4 and over&quot;,&quot;Not stated&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Number of previous live births&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;England&quot;,&quot;Wales&quot;,&quot;Outside England and Wales&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;East&quot;,&quot;East Midlands&quot;,&quot;London&quot;,&quot;North East&quot;,&quot;North West&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;West Midlands&quot;,&quot;Yorkshire and The Humber&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Health board&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Abertawe Bro Morgannwg University&quot;,&quot;Aneurin Bevan University&quot;,&quot;Betsi Cadwaladr University&quot;,&quot;Cardiff and Vale University&quot;,&quot;Cwm Taf University&quot;,&quot;Hywel Dda University&quot;,&quot;Powys Teaching&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Health board&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
-  data-proxy="proxy"
+  data-proxy=""
   data-proxyseries="null"
 >
   
@@ -810,6 +798,38 @@ data-event-label="high"
           
         </tr>
         
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>97.3203436062</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Births occurring within a medical facility</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Provisional</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
       </tbody>
     </table>
     
@@ -827,7 +847,7 @@ data-event-label="high"
     <p>Unit of Measurement: Percentage (%)</p>
     
     
-    <p>Footnote: The figures used refer to maternities resulting in live births and/or stillbirths.</p>
+    <p>Footnote: <p>1. The figures used refer to maternities resulting in live births and/or stillbirths. </p><p>2. Rates for 2021 are provisional. See Other information for further details.</p>
     
   </div>
   
@@ -974,7 +994,7 @@ data-event-label="Change to Map tab"
 
         
         <dt>Footnote:</dt>
-        <dd>The figures used refer to maternities resulting in live births and/or stillbirths.</dd>
+        <dd><p>1. The figures used refer to maternities resulting in live births and/or stillbirths. </p><p>2. Rates for 2021 are provisional. See Other information for further details.</dd>
         
 
         
@@ -1052,7 +1072,7 @@ data-event-label="Change to Map tab"
 
         
         <dt>Footnote:</dt>
-        <dd>The figures used refer to maternities resulting in live births and/or stillbirths.</dd>
+        <dd><p>1. The figures used refer to maternities resulting in live births and/or stillbirths. </p><p>2. Rates for 2021 are provisional. See Other information for further details.</dd>
         
 
         
@@ -1117,7 +1137,7 @@ data-event-label="Change to Map tab"
 
         
         <dt>Footnote:</dt>
-        <dd>The figures used refer to maternities resulting in live births and/or stillbirths.</dd>
+        <dd><p>1. The figures used refer to maternities resulting in live births and/or stillbirths. </p><p>2. Rates for 2021 are provisional. See Other information for further details.</dd>
         
 
         
@@ -1348,7 +1368,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.</p>
+            <p>Rates for 2021 have been calculated using provisional mid-2021 population estimates. Rates for all years will be revised in the next release when updated mid-year population estimates (based on the 2021 Census) are available. This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -1364,7 +1384,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            24 June 2022
+            22 March 2023
           
         </td>
         </tr>
@@ -1379,7 +1399,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            06 April 2023
+            22 March 2023
           
         </td>
         </tr>
@@ -1922,7 +1942,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            13 January 2022
+            19 January 2023
           
         </td>
         </tr>
@@ -1937,7 +1957,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>TBA: We plan to update indicator data within 4 months of data being released</p>
+            <p>November to December 2023 (provisional): We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -2349,7 +2369,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230503091920'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230503122139'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2357,7 +2377,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230503091920"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230503122139"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
