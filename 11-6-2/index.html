@@ -146,7 +146,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230510105726">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230510154316">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -457,6 +457,12 @@ data-event-label="high"
   
 
   
+<div class="row metadata-available-indicator">
+  <div class="col-xs-12">
+    <h2>Annual mean levels of fine particulate matter (e.g. PM2.5 and PM10) in cities (population weighted)</h2>
+  </div>
+</div>
+
 
   
 
@@ -478,13 +484,13 @@ data-event-label="high"
   data-country="United Kingdom"
   data-charttitle="Annual mean levels of fine particulate matter in towns and cities (population weighted)"
   data-charttitles="null"
-  data-measurementunit="Annual mean (ug/m3)"
+  data-measurementunit="Annual mean (micrograms per cubic meter)"
   data-xaxislabel=""
   data-showdata="true"
   data-graphtype="line"
   data-graphtypes="null"
   data-geocoderegex=""
-  data-showmap="true"
+  data-showmap="false"
   data-startvalues="null"
   data-graphlimits="null"
   data-stackeddisaggregation=""
@@ -492,7 +498,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Annual mean levels of fine particulate matter in towns and cities&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Size of particulate matter&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;PM 10&quot;,&quot;PM 2.5&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Size of particulate matter&quot;},{&quot;name&quot;:&quot;Local Authority&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Aberdeen City&quot;,&quot;Armagh&quot;,&quot;Barnstaple&quot;,&quot;Belfast&quot;,&quot;Birkenhead&quot;,&quot;Birmingham&quot;,&quot;Blackpool&quot;,&quot;Bournemouth&quot;,&quot;Brighton and Hove&quot;,&quot;Bristol&quot;,&quot;Cardiff&quot;,&quot;Carlisle&quot;,&quot;Chepstow&quot;,&quot;Chesterfield&quot;,&quot;City of Edinburgh&quot;,&quot;City of London&quot;,&quot;Coventry&quot;,&quot;Derry&quot;,&quot;Didcot&quot;,&quot;Eastbourne&quot;,&quot;Eccles&quot;,&quot;Erith&quot;,&quot;Gibraltar&quot;,&quot;Gillingham&quot;,&quot;Glasgow City&quot;,&quot;Grangemouth&quot;,&quot;Harlington&quot;,&quot;Hull&quot;,&quot;Inverness&quot;,&quot;Kingston upon Hull&quot;,&quot;Leamington Spa&quot;,&quot;Leeds&quot;,&quot;Leicester&quot;,&quot;Liverpool&quot;,&quot;Londonderry&quot;,&quot;Manchester&quot;,&quot;Middlesbrough&quot;,&quot;Newcastle upon Tyne&quot;,&quot;Newport&quot;,&quot;Northampton&quot;,&quot;Norwich&quot;,&quot;Nottingham&quot;,&quot;Oxford&quot;,&quot;Penicuik&quot;,&quot;Plymouth&quot;,&quot;Port Talbot&quot;,&quot;Portsmouth&quot;,&quot;Preston&quot;,&quot;Reading&quot;,&quot;Rochester&quot;,&quot;Salford&quot;,&quot;Saltash&quot;,&quot;Sandy&quot;,&quot;Scunthorpe&quot;,&quot;Sheffield&quot;,&quot;Southampton&quot;,&quot;Southend-on-Sea&quot;,&quot;Speke&quot;,&quot;Stanford le Hope&quot;,&quot;Stanmore&quot;,&quot;Stockbridge&quot;,&quot;Stockton-on-Tees&quot;,&quot;Stoke-on-Trent&quot;,&quot;Storrington&quot;,&quot;Sunderland&quot;,&quot;Swansea&quot;,&quot;Thurrock&quot;,&quot;Warrington&quot;,&quot;Warwick&quot;,&quot;Wigan&quot;,&quot;Wirral&quot;,&quot;Wrexham&quot;,&quot;York&quot;,&quot;Prestonpans&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Local Authority&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;microgram/m3&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;PM2.5&quot;,&quot;PM10&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;City&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Aberdeen&quot;,&quot;Barnstaple&quot;,&quot;Belfast&quot;,&quot;Biandrate&quot;,&quot;Birkenhead&quot;,&quot;Birmingham&quot;,&quot;Blackpool&quot;,&quot;Bournemouth&quot;,&quot;Brighton&quot;,&quot;Bristol&quot;,&quot;Cardiff&quot;,&quot;Carlisle&quot;,&quot;Chepstow&quot;,&quot;Chesterfield&quot;,&quot;Christchurch&quot;,&quot;Coventry&quot;,&quot;Didcot&quot;,&quot;Eastbourne&quot;,&quot;Eccles&quot;,&quot;Edinburgh&quot;,&quot;Enniskillen&quot;,&quot;Erith&quot;,&quot;Gillingham&quot;,&quot;Glasgow&quot;,&quot;Grangemouth&quot;,&quot;Greenock&quot;,&quot;Harlington&quot;,&quot;Hull&quot;,&quot;Inverness&quot;,&quot;Leamington Spa&quot;,&quot;Leeds&quot;,&quot;Leicester&quot;,&quot;Liverpool&quot;,&quot;London&quot;,&quot;Londonderry&quot;,&quot;Manchester&quot;,&quot;Middlesbrough&quot;,&quot;Narberth&quot;,&quot;Newcastle Upon Tyne&quot;,&quot;Newport&quot;,&quot;Northampton&quot;,&quot;Norwich&quot;,&quot;Nottingham&quot;,&quot;Oxford&quot;,&quot;Penicuik&quot;,&quot;Plymouth&quot;,&quot;Port Talbot&quot;,&quot;Portsmouth&quot;,&quot;Preston&quot;,&quot;Reading&quot;,&quot;Rochester&quot;,&quot;Royal Leamington Spa&quot;,&quot;Salford&quot;,&quot;Saltash&quot;,&quot;Sandy&quot;,&quot;Sheffield&quot;,&quot;Southampton&quot;,&quot;Southend - On - Sea&quot;,&quot;Southend-On-Sea&quot;,&quot;Speke&quot;,&quot;Stanford-Le-Hope&quot;,&quot;Stanmore&quot;,&quot;Stockbridge&quot;,&quot;Stockton-On-Tees&quot;,&quot;Stoke - On - Trent&quot;,&quot;Stoke-On-Trent&quot;,&quot;Storrington&quot;,&quot;Sunderland&quot;,&quot;Swansea&quot;,&quot;Warrington&quot;,&quot;Wigan&quot;,&quot;Worthing&quot;,&quot;Wrexham&quot;,&quot;York&quot;,&quot;Armagh&quot;,&quot;Bury&quot;,&quot;Grays&quot;,&quot;Scunthorpe&quot;,&quot;Thurrock&quot;,&quot;&quot;]},&quot;title&quot;:&quot;City&quot;},{&quot;name&quot;:&quot;Urbanisation&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;City&quot;,&quot;Town&quot;,&quot;Rural&quot;,&quot;Urban&quot;,&quot;city&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Urbanisation&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
   data-proxy=""
@@ -525,15 +531,211 @@ data-event-label="high"
   <div id="datatables">
 
     
+    <a href="https://ONSdigital.github.io/sdg-data/en/headline/11-6-2.csv" class="btn btn-primary btn-download" download="indicator_11-6-2.csv" tabindex="0" role="button">Download headline data (.csv)</a>
+    
     <a href="https://ONSdigital.github.io/sdg-data/en/data/11-6-2.csv" class="btn btn-primary btn-download" download='indicator_11-6-2.csv' tabindex='0' role='button'>Download source data (.csv)</a>
 
     <p class="no-js-disaggregation-hint">Download source data for disaggregations (.csv)</p>
 
     
-    <h3>No headline data available</h3>
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>Annual mean levels of fine particulate matter in towns and cities (population weighted)</caption>
+      <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col">Value</th>
+        
+        
+        
+        <th scope="col" class="table-value">Series</th>
+        
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>9.52</td>
+          
+          
+          
+          <td class="table-value">PM2.5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>10.07</td>
+          
+          
+          
+          <td class="table-value">PM2.5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>10.09</td>
+          
+          
+          
+          <td class="table-value">PM2.5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>10.19</td>
+          
+          
+          
+          <td class="table-value">PM2.5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>11.08</td>
+          
+          
+          
+          <td class="table-value">PM2.5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>10.95</td>
+          
+          
+          
+          <td class="table-value">PM2.5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>11.82</td>
+          
+          
+          
+          <td class="table-value">PM2.5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>12.14</td>
+          
+          
+          
+          <td class="table-value">PM2.5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>13.41</td>
+          
+          
+          
+          <td class="table-value">PM2.5</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>13.17</td>
+          
+          
+          
+          <td class="table-value">PM2.5</td>
+          
+          
+        </tr>
+        
+      </tbody>
+    </table>
     
   </div>
 
+  
+  <div id="datatableFooter">
+    
+    <p>Source: World Health Organisation (WHO)</p>
+    
+    
+    <p>Geographical Area: United Kingdom</p>
+    
+    
+    <p>Unit of Measurement: Annual mean (micrograms per cubic meter)</p>
+    
+    
+  </div>
   
 
 </div>
@@ -599,31 +801,6 @@ data-event-label="Change to Table tab"
       >Table</button>
     </li>
     
-    <li role="presentation"
-      class="
-        nav-item
-        map
-        
-      ">
-      <button
-        class="nav-link "
-        data-bs-toggle="tab"
-        role="tab"
-        type="button"
-        
-          id="tab-mapview"
-          data-bs-target="#mapview"
-          aria-controls="mapview"
-          data-no-disagg="true"
-          data-on="click"
-data-event-category="Tab change"
-data-event-action="Change data view"
-data-event-label="Change to Map tab"
-
-        
-      >Map</button>
-    </li>
-    
   </ul>
   
     <div class="tab-content data-view">
@@ -663,7 +840,7 @@ data-event-label="Change to Map tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Health Organisation (WHO)</dd>
+        <dd>World Health Organisation (WHO), World Health Organisation</dd>
         
 
         
@@ -738,7 +915,7 @@ data-event-label="Change to Map tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Health Organisation (WHO)</dd>
+        <dd>World Health Organisation (WHO), World Health Organisation</dd>
         
 
         
@@ -780,67 +957,6 @@ data-event-label="Change to Map tab"
 </div>
 
 <div id="tableSelectionDownload" class="clearfix"></div>
-
-        </div>
-      
-    
-      
-        <div role="tabpanel" class="tab-pane " id="mapview" class="map">
-          
-<h4 id="map-heading" class="map-title">Annual mean levels of fine particulate matter in towns and cities (population weighted)</h4>
-<div id="map" aria-describedby="table-alternative">
-  <img class="map-loading-image" src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
-</div>
-
-
-
-
-<div id="mapFooter" class="table-footer-text">
-  <h5 class="sr-only">Chart details</h5>
-    <dl>
-        
-        <dt>Source:</dt>
-        <dd>World Health Organisation (WHO)</dd>
-        
-
-        
-        <dt>Geographical Area:</dt>
-        <dd>United Kingdom</dd>
-        
-
-        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
-        <dd class="data-controlled-footer-field unit-from-data"></dd>
-
-        
-
-        
-
-        
-
-        
-        
-        <dt
-          class="data-controlled-footer-field"
-          data-ts-attribute="COMMENT_TS"
-        >Footnote:</dt>
-        <dd
-          class="data-controlled-footer-field"
-          data-ts-attribute="COMMENT_TS"
-        ></dd>
-        
-        <dt
-          class="data-controlled-footer-field"
-          data-ts-attribute="DATA_LAST_UPDATE"
-        >Data last updated:</dt>
-        <dd
-          class="data-controlled-footer-field"
-          data-ts-attribute="DATA_LAST_UPDATE"
-        ></dd>
-        
-        
-    </dl>
-</div>
-
 
         </div>
       
@@ -918,19 +1034,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Indicator available </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Annual mean levels of fine particulate matter (e.g. PM2.5 and PM10) in cities (population weighted)</p>
 
           
         </td>
@@ -941,19 +1050,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Indicator description </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Annual mean levels of fine particulate matter (e.g. PM2.5 and PM10) in cities (population weighted). The mean annual concentration of fine suspended particles of less than 2.5 microns in diameters (PM2.5) is a common measure of air pollution.</p>
 
           
         </td>
@@ -985,7 +1087,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            <p>Annual mean (ug/m3)</p>
+            <p>Annual mean (micrograms per cubic meter)</p>
 
           
         </td>
@@ -1001,7 +1103,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>The mean annual concentration of fine suspended particles of less than 2.5 microns in diameters (PM2.5) is a common measure of air pollution. The mean is a population-weighted average for urban population in a country, and is expressed in micrograms per cubic meter [μg/m3 ]. Air pollution consists of many pollutants, among other particulate matter. These particles are able to penetrate deeply into the respiratory tract and therefore constitute a risk for health by increasing mortality from respiratory infections and diseases, lung cancer, and selected cardiovascular diseases. Urban/rural data - while the data quality available for urban/rural population is generally good for high income countries, it can be relatively poor for some low- and middle income areas. Furthermore, the definition of urban/rural may greatly vary by country.</p>
+            <p>The mean annual concentration of fine suspended particles of less than 2.5 microns in diameters (PM2.5) is a common measure of air pollution. The mean is a population-weighted average for urban population in a country, and is expressed in micrograms per cubic meter. Air pollution consists of many pollutants, among other particulate matter. These particles are able to penetrate deeply into the respiratory tract and therefore constitute a risk for health by increasing mortality from respiratory infections and diseases, lung cancer, and selected cardiovascular diseases</p>
 
           
         </td>
@@ -1012,19 +1114,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Available disaggregations </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Geography, Urbanisation</p>
 
           
         </td>
@@ -1056,7 +1151,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
+            <p>The  data for this indicator are  provided by WHO, which use data from the Defra(Department for environment, food &amp; rural affairs), who are the main producer of air quality statistics in the UK.  The most recent data on air-pollution in the UK can be found in the <a href="https://uk- air.defra.gov.uk/data/"> Air Information Resource</a> and the <a href="https://www.gov.uk/government/statistics/air-quality-statistics">   publication on air quality </a>.  </p>
+<p> Please note that the SDG indicator is different from the PERT (Populatoin Exposure Reduction Target) in the <a href="https://uk-air.defra.gov.uk/library/air-quality-targets"> Air quality targets in the Environment act </a>, due to a difference in methodology.</p>
+<p>Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -1072,7 +1169,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            24 June 2022
+            05 April 2023
           
         </td>
         </tr>
@@ -1087,7 +1184,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            15 February 2022
+            18 April 2023
           
         </td>
         </tr>
@@ -1570,7 +1667,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2008</p>
+            <p>2010</p>
 
           
         </td>
@@ -1607,7 +1704,7 @@ data-event-label="Change to Sources tab"
             
             
             
-              <a href="http://apps.who.int/gho/data/view.main.AMBIENTCITY2016?lang=en" target="_blank">
+              <a href="https://cdn.who.int/media/docs/default-source/air-pollution-documents/air-quality-and-health/who_aap_2021_v9_11august2022.xlsx?sfvrsn=9035996c_3" target="_blank">
                 Global Health Observatory data repository <span class="visuallyhidden">opens in a new window</span>
               </a>
             
@@ -1632,7 +1729,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            15 May 2014
+            04 April 2022
           
         </td>
         </tr>
@@ -1647,7 +1744,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>TBC: We plan to update indicator data within 4 months of data being released</p>
+            <p>We plan to update indicator data within 4 months of data being released: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -1663,7 +1760,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Non-Official</p>
+            <p>Official</p>
 
           
         </td>
@@ -1679,7 +1776,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>WHO Regional Office for Europe</p>
+            <p>aqh_who@who.int  </p>
 
           
         </td>
@@ -1690,12 +1787,19 @@ data-event-label="Change to Sources tab"
       
       
       
+        
+          
+          
+          
+          
+        
+      
       
       <tr>
         <th scope="row">Other information </th>
         <td>
           
-            <p>Values &gt;2013 not available - see Data Source 2</p>
+            <p><span class="empty-metadata-placeholder">Not available for this source</span></p>
 
           
         </td>
@@ -1866,7 +1970,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>World Health Organisation (WHO)</p>
+            <p>World Health Organisation</p>
 
           
         </td>
@@ -1882,7 +1986,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            <p>Discontinuous</p>
+            <p>discontinuous</p>
 
           
         </td>
@@ -1898,7 +2002,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2013</p>
+            <p>2010</p>
 
           
         </td>
@@ -1935,8 +2039,8 @@ data-event-label="Change to Sources tab"
             
             
             
-              <a href="http://www.who.int/airpollution/data/cities/en/" target="_blank">
-                WHO Global Ambient Air Quality Database (update 2018) <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.who.int/data/gho/data/indicators/indicator-details/GHO/concentrations-of-fine-particulate-matter-(pm2-5)" target="_blank">
+                Global Health Observatory <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1960,7 +2064,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            01 May 2018
+            12 August 2022
           
         </td>
         </tr>
@@ -1975,7 +2079,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>TBC: We plan to update indicator data within 4 months of data being released</p>
+            <p>We plan to update indicator data within 4 months of data being released: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -1991,7 +2095,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Non-Official</p>
+            <p>Official</p>
 
           
         </td>
@@ -2007,7 +2111,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>http://www.who.int/about/contacthq/en/</p>
+            <p>bonjourso@who.int</p>
 
           
         </td>
@@ -2018,12 +2122,19 @@ data-event-label="Change to Sources tab"
       
       
       
+        
+          
+          
+          
+          
+        
+      
       
       <tr>
         <th scope="row">Other information </th>
         <td>
           
-            <p>Ambient (outdoor) air quality database, by country and city</p>
+            <p><span class="empty-metadata-placeholder">Not available for this source</span></p>
 
           
         </td>
@@ -2216,15 +2327,6 @@ data-event-label="Change to Sources tab"
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
 
-<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/iso8601-js-period@0.2.1/iso8601.min.js"></script>
-<script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
-<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
-<script src="https://cdn.jsdelivr.net/gh/torfsen/leaflet.zoomhome@master/dist/leaflet.zoomhome.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
@@ -2375,7 +2477,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230510105726'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230510154316'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2383,7 +2485,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230510105726"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230510154316"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
