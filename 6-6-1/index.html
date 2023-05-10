@@ -146,7 +146,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230510002430">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230510105726">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -465,6 +465,18 @@ data-event-label="high"
 
 
   
+<div class="row proxy-banner my-4 mx-1 px-2 gx-2">
+  <div class="col col-auto align-self-center">
+    <span aria-describedby="proxy-description" class="proxy-pill">Proxy</span>
+  </div>
+  <div class="col col-auto align-self-center">
+    =
+  </div>
+  <div id="proxy-description" class="col">
+    This indicator contains some alternative data to those specified by the United Nations (UN). This indicator is the most suitable match currently available.
+  </div>
+</div>
+
 
   
 
@@ -472,7 +484,7 @@ data-event-label="high"
 
 <div class="row" id="page-content">
   <div class="col-xs-12">
-    <p>For information on UK’s water management plan, such as challenges that threaten UK’s water environment and how these challenges can be managed please see <a href="https://www.gov.uk/government/collections/draft-river-basin-management-plans-2021"> Draft river basin management plans: 2021</a>.</p>
+    <p>For information on UK’s water management plan, such as challenges that threaten UK’s water environment and how these challenges can be managed please see <a href="https://www.gov.uk/guidance/river-basin-management-plans-updated-2022-summary-programmes-of-measures"> River basin management plans, updated 2022 summary programmes of measures</a>.</p>
 
   </div>
 </div>
@@ -490,8 +502,8 @@ data-event-label="high"
   data-id="6-6-1"
   data-country="United Kingdom"
   data-charttitle="Change in the extent of water-related ecosystems over time"
-  data-charttitles="[{&quot;series&quot;:&quot;Open water area&quot;,&quot;title&quot;:&quot;Change in open water body extent overtime&quot;},{&quot;series&quot;:&quot;Nationally derived quantity of groundwater&quot;,&quot;title&quot;:&quot;Percentage change in quantity of groundwater overtime&quot;},{&quot;series&quot;:&quot;Lake water quality&quot;,&quot;title&quot;:&quot;Percentage change in lake water quality overtime&quot;},{&quot;series&quot;:&quot;Reservoir area&quot;,&quot;title&quot;:&quot;Change in reservoir area overtime&quot;},{&quot;series&quot;:&quot;Wetlands area&quot;,&quot;title&quot;:&quot;Change in wetlands area overtime&quot;}]"
-  data-measurementunit="Percentage (%), Percentage change (%) and Square kilometres (km²)"
+  data-charttitles="[{&quot;series&quot;:&quot;Open water area&quot;,&quot;title&quot;:&quot;Change in open water body extent over time&quot;},{&quot;series&quot;:&quot;Nationally derived quantity of groundwater&quot;,&quot;title&quot;:&quot;Percentage change in quantity of groundwater over time&quot;}]"
+  data-measurementunit="Percentage change (%) and Square kilometres (km²)"
   data-xaxislabel=""
   data-showdata="true"
   data-graphtype="line"
@@ -499,17 +511,17 @@ data-event-label="high"
   data-geocoderegex=""
   data-showmap="false"
   data-startvalues="null"
-  data-graphlimits="[{&quot;unit&quot;:&quot;Percentage (%)&quot;,&quot;minimum&quot;:0,&quot;maximum&quot;:100}]"
+  data-graphlimits="null"
   data-stackeddisaggregation=""
   data-graphannotations="null"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Open water area&quot;,&quot;Nationally derived quantity of groundwater&quot;,&quot;Lake water quality&quot;,&quot;Reservoir area&quot;,&quot;Wetlands area&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Water area extent&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Minimum water area&quot;,&quot;Maximum water area&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Water area extent&quot;},{&quot;name&quot;:&quot;Quality measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Turbidity&quot;,&quot;Trophic state&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Quality measure&quot;},{&quot;name&quot;:&quot;Water type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Ephemeral&quot;,&quot;Permanent&quot;,&quot;Seasonal&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Water type&quot;},{&quot;name&quot;:&quot;Deviation level&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Low&quot;,&quot;Medium&quot;,&quot;High&quot;,&quot;Extreme&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Deviation level&quot;},{&quot;name&quot;:&quot;Geography (HydroBASINs ID)&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;2060048790 (Central South East England)&quot;,&quot;2060048980 (Central South West England)&quot;,&quot;2060048990 (South West England)&quot;,&quot;2060049660 (Severn)&quot;,&quot;2060049670 (South East Wye)&quot;,&quot;2060049680 (Wye)&quot;,&quot;2060049690 (Wales &amp; Dee)&quot;,&quot;2060050410 (Mersey)&quot;,&quot;2060050420 (North West England)&quot;,&quot;2060050790 (Galloway &amp; Ayrshire)&quot;,&quot;2060051150 (Clyde)&quot;,&quot;2060051160 (North West Scotland)&quot;,&quot;2060052380 (Spey)&quot;,&quot;2060052390 (Dee, Scotland)&quot;,&quot;2060052660 (Tay)&quot;,&quot;2060052670 (Firth of Forth)&quot;,&quot;2060052940 (Tweed)&quot;,&quot;2060052950 (Northumberland Coast)&quot;,&quot;2060052960 (Northumbria &amp; East Humber)&quot;,&quot;2060053240 (North Humber)&quot;,&quot;2060053250 (Head of Humber Estuary)&quot;,&quot;2060053260 (South Humber)&quot;,&quot;2060053270 (North Anglian)&quot;,&quot;2060053500 (Central Anglian)&quot;,&quot;2060053510 (South Anglian)&quot;,&quot;2060053790 (Thames)&quot;,&quot;2060053800 (South East England)&quot;,&quot;2060054000 (Outer Hebrides)&quot;,&quot;2060054130 (Sule Skerry)&quot;,&quot;2060054140 (Orkney)&quot;,&quot;2060054780 (Northern Ireland near Garvagh Lough)&quot;,&quot;2060054790 (Lough Melvin)&quot;,&quot;2060055310 (Erne)&quot;,&quot;2060055320 (North West Northern Ireland)&quot;,&quot;2060055600 (Central Northern Ireland)&quot;,&quot;2060055610 (East Northern Ireland)&quot;,&quot;2060059370 (Shetland)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Geography (HydroBASINs ID)&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;% change from baseline&quot;,&quot;% of total land area&quot;,&quot;Square km&quot;,&quot;Percentage (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Open water area&quot;,&quot;Nationally derived quantity of groundwater&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Water type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Ephemeral&quot;,&quot;Permanent&quot;,&quot;Seasonal&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Water type&quot;},{&quot;name&quot;:&quot;Geography (HydroBASINs ID)&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;2060048790 (Central South East England)&quot;,&quot;2060048980 (Central South West England)&quot;,&quot;2060048990 (South West England)&quot;,&quot;2060049660 (Severn)&quot;,&quot;2060049670 (South East Wye)&quot;,&quot;2060049680 (Wye)&quot;,&quot;2060049690 (Wales &amp; Dee)&quot;,&quot;2060050410 (Mersey)&quot;,&quot;2060050420 (North West England)&quot;,&quot;2060050790 (Galloway &amp; Ayrshire)&quot;,&quot;2060051150 (Clyde)&quot;,&quot;2060051160 (North West Scotland)&quot;,&quot;2060052380 (Spey)&quot;,&quot;2060052390 (Dee, Scotland)&quot;,&quot;2060052660 (Tay)&quot;,&quot;2060052670 (Firth of Forth)&quot;,&quot;2060052940 (Tweed)&quot;,&quot;2060052950 (Northumberland Coast)&quot;,&quot;2060052960 (Northumbria &amp; East Humber)&quot;,&quot;2060053240 (North Humber)&quot;,&quot;2060053250 (Head of Humber Estuary)&quot;,&quot;2060053260 (South Humber)&quot;,&quot;2060053270 (North Anglian)&quot;,&quot;2060053500 (Central Anglian)&quot;,&quot;2060053510 (South Anglian)&quot;,&quot;2060053790 (Thames)&quot;,&quot;2060053800 (South East England)&quot;,&quot;2060054000 (Outer Hebrides)&quot;,&quot;2060054130 (Sule Skerry)&quot;,&quot;2060054140 (Orkney)&quot;,&quot;2060054780 (Northern Ireland near Garvagh Lough)&quot;,&quot;2060054790 (Lough Melvin)&quot;,&quot;2060055310 (Erne)&quot;,&quot;2060055320 (North West Northern Ireland)&quot;,&quot;2060055600 (Central Northern Ireland)&quot;,&quot;2060055610 (East Northern Ireland)&quot;,&quot;2060059370 (Shetland)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Geography (HydroBASINs ID)&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;% change from baseline&quot;,&quot;% of total land area&quot;,&quot;Square km&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
-  data-proxy=""
-  data-proxyseries="null"
+  data-proxy="both"
+  data-proxyseries="[&quot;Open water area&quot;]"
 >
   
   <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
@@ -580,7 +592,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>1990 to 1994 (baseline)</td>
+          <td>1990-1994 (baseline)</td>
           
           
           
@@ -608,7 +620,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>1991 to 1995</td>
+          <td>1991-1995</td>
           
           
           
@@ -636,7 +648,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>1992 to 1996</td>
+          <td>1992-1996</td>
           
           
           
@@ -664,7 +676,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>1993 to 1997</td>
+          <td>1993-1997</td>
           
           
           
@@ -692,7 +704,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>1994 to 1998</td>
+          <td>1994-1998</td>
           
           
           
@@ -720,7 +732,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>1995 to 1999</td>
+          <td>1995-1999</td>
           
           
           
@@ -748,7 +760,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>1996 to 2000</td>
+          <td>1996-2000</td>
           
           
           
@@ -776,7 +788,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>1997 to 2001</td>
+          <td>1997-2001</td>
           
           
           
@@ -804,7 +816,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>1998 to 2002</td>
+          <td>1998-2002</td>
           
           
           
@@ -832,7 +844,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>1999 to 2003</td>
+          <td>1999-2003</td>
           
           
           
@@ -860,7 +872,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2000 to 2004</td>
+          <td>2000-2004</td>
           
           
           
@@ -888,7 +900,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2001 to 2005</td>
+          <td>2001-2005</td>
           
           
           
@@ -916,7 +928,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2002 to 2006</td>
+          <td>2002-2006</td>
           
           
           
@@ -944,7 +956,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2003 to 2007</td>
+          <td>2003-2007</td>
           
           
           
@@ -972,7 +984,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2004 to 2008</td>
+          <td>2004-2008</td>
           
           
           
@@ -1000,7 +1012,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2005 to 2009</td>
+          <td>2005-2009</td>
           
           
           
@@ -1028,7 +1040,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2006 to 2010</td>
+          <td>2006-2010</td>
           
           
           
@@ -1056,7 +1068,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2007 to 2011</td>
+          <td>2007-2011</td>
           
           
           
@@ -1084,7 +1096,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2008 to 2012</td>
+          <td>2008-2012</td>
           
           
           
@@ -1112,7 +1124,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2009 to 2013</td>
+          <td>2009-2013</td>
           
           
           
@@ -1140,7 +1152,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2010 to 2014</td>
+          <td>2010-2014</td>
           
           
           
@@ -1168,7 +1180,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2011 to 2015</td>
+          <td>2011-2015</td>
           
           
           
@@ -1196,7 +1208,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2012 to 2016</td>
+          <td>2012-2016</td>
           
           
           
@@ -1224,7 +1236,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2013 to 2017</td>
+          <td>2013-2017</td>
           
           
           
@@ -1252,7 +1264,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2014 to 2018</td>
+          <td>2014-2018</td>
           
           
           
@@ -1280,7 +1292,7 @@ data-event-label="high"
         <tr>
           
           
-          <td>2015 to 2019</td>
+          <td>2015-2019</td>
           
           
           
@@ -1293,34 +1305,6 @@ data-event-label="high"
           
           
           <td>Nationally derived quantity of groundwater</td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Units</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2016 to 2018 (baseline)</td>
-          
-          
-          
-          <td>13632.39</td>
-          
-          
-          
-          <td>Square km</td>
-          
-          
-          
-          <td>Wetlands area</td>
           
           
           
@@ -1347,7 +1331,7 @@ data-event-label="high"
     <p>Geographical Area: United Kingdom</p>
     
     
-    <p>Unit of Measurement: Percentage (%), Percentage change (%) and Square kilometres (km²)</p>
+    <p>Unit of Measurement: Percentage change (%) and Square kilometres (km²)</p>
     
     
   </div>
@@ -1434,7 +1418,7 @@ data-event-label="Change to Table tab"
       <figure role="group">
         <div id="chart-canvas">
           <h4 id="chart-heading" class="chart-title">
-            Change in open water body extent overtime
+            Change in open water body extent over time
           </h4>
           <div id="chart" class="plot-container">
             <canvas
@@ -1670,10 +1654,10 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            <p><b>Open water area</b> - Open water area includes large lakes, rivers, estuaries and artificial waterbodies. The data presented for this series has been constrained to official high-water mark boundaries, which helps ensure that coastal water is not included in estimates. Measures therefore differ slightly to those on the <a href="https://www.sdg661.app/">Freshwater Ecosystems Explorer</a>, a Global Surface Water Explorer (GSWE) platform for presenting data specifically for this indicator. See Other Information for more details.</p>
-<p><b>Reservoir area</b> and <b>Wetlands area</b> - Reservoirs and wetlands are a subset of open water bodies. Data are taken from the GSWE with no further constraints applied.</p>
-<p><b>Nationally derived quantity of groundwater</b> - Percentage change in groundwater level over time, of major groundwater aquifers. Data are provided by the British Geological Society (BGS).</p>
-<p><b>Lake water quality</b> - Turbidity and trophic state of 22 large UK water bodies. Data are taken from the GSWE.</p>
+            <p><b>Open water area</b> - Open water area includes large lakes, rivers, estuaries and artificial waterbodies. The data presented for this series has been constrained to official high-water mark boundaries, which helps ensure that coastal water is not included in estimates. Measures therefore differ to those on the <a href="https://www.sdg661.app/">Freshwater Ecosystems Explorer</a>, a Global Surface Water Explorer (GSWE) platform for presenting data specifically for this indicator. See Other Information for more details.</p>
+<p><b>Nationally derived quantity of groundwater</b> - Percentage change in groundwater level over time, of major groundwater aquifers. Data are provided by the British Geological Survey (BGS).</p>
+<p>
+</p>
 
           
         </td>
@@ -1705,7 +1689,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            <p>Percentage (%), Percentage change (%) and Square kilometres (km²)</p>
+            <p>Percentage change (%) and Square kilometres (km²)</p>
 
           
         </td>
@@ -1722,9 +1706,7 @@ data-event-label="Change to Sources tab"
         <td>
           
             <p>Extent - As used in the title of this indicator, 'extent' is expanded beyond spatial extent to capture additional basic parameters needed for the protection and restoration of water-related ecosystems. Extent includes three components - the spatial extent or surface area, the quality, and the quantity of water-related ecosystems.</p>
-<p>Open water body area - Area of surface water unobstructed by aquatic vegetation. This includes the following 3 water-related ecosystem categories - rivers and estuaries, lakes, and artificial waterbodies. <p>Permanent water - Area that is under water throughout the year.</p><p>Seasonal water - Area that is under water for less than 12 months a year.</p><p>Ephemeral water -Area that is episodically under water in different years.</p><p>HydroBASINS - A series of polygon layers that depict watershed boundaries at a global scale. They use the Pfafstetter coding system, which allows for analysis of catchment topology. Catchments  can be broken down  into smaller sub-basins; with each subdivision, the Pfafstetter level increases. Here, a Pfafstetter level of 6 was used, giving us data for 38 catchments across the UK.</p><p>Lake water quality - Turbidity and trophic state of 22 UK water bodies. For the UK, this includes one estuary (the Humber Estuary)</p><p>Turbidity -  An indicator of water clarity, quantifying the haziness of the water and acting as an indicator of underwater light availability.</p><p></p>Trophic State - The degree to? which organic matter accumulates in the water body. Trophic state is most commonly used in relation to monitoring eutrophication.</p>
-<p>Deviation level - Deviation in water quality from values measured over a five-year baseline (2006 to 2010) - Low (0 to 25%), Medium (25 to 50%), High (50 to 75%), and Extreme (75% to 100%).</p>
-<p>Reservoir area - Area of artificial (or human-made) bodies of freshwater, as opposed to lakes which are naturally occurring. Reservaoir area is also included under open water area.<p>Minimum water area extent - The lowest observed (minimum) surface area of reservoirs in a year (intra-annual measurement).</p><p>Maximum water area extent -The highest observed (maximum) surface area of reservoirs in a year (intra-annual measurement)</p><p>Wetland area - Surface area of a specific group of inland vegetated wetlands typologies; areas of marshes, peatlands, swamps, bogs and fens, the vegetated parts of floodplains as well as rice paddies and flood recession agriculture. Some wetland area will be included in open water area, particularly in seasonal water.</p>
+<p>Open water body area - Area of surface water unobstructed by aquatic vegetation. This includes the following 3 water-related ecosystem categories - rivers and estuaries, lakes, and artificial waterbodies. <p>Permanent water - Area that is under water throughout the year.</p><p>Seasonal water - Area that is under water for less than 12 months a year.</p><p>Ephemeral water - Area that is episodically under water in different years.</p><p>HydroBASINS - A series of polygon layers that depict watershed boundaries at a global scale. They use the Pfafstetter coding system, which allows for analysis of catchment topology. Catchments  can be broken down  into smaller sub-basins; with each subdivision, the Pfafstetter level increases. Here, a Pfafstetter level of 6 was used, giving us data for 38 catchments across the UK.</p>
 </p>
 
           
@@ -1743,8 +1725,7 @@ data-event-label="Change to Sources tab"
           
             <p>Open water area is broken down by water type - permanent, seasonal, and ephemeral.</p>
 <p>Open water and Nationally derived groundwater level are both broken down by geography (HydroBASISNS). Each HydroBASISNS starts with a unique HydroBASINS code, which is followed with a description of where the basin is. This description is not an official part of the HydroBASINS name.</p>
-<p>Lake water quality is broken down into two quality measures - turbidity and trophic state. These are further broken down into how much deviation there was from 2006 to 2010 baseline values (Deviation level).</p>
-<p>Reservoir area is broken down into minimum and maximum area extents.</p>
+<p>There are more data and disaggregation options available from the <a href="https://unstats.un.org/sdgs/dataportal/database">UNSDG database</a> (official estimates by the UN using the GSWE) not reported here.</p>
 
           
         </td>
@@ -1760,7 +1741,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p> <b>Open water area</b><p>Proportion of area = (spatial extent / land area) x 100</p><p>Percent change in spatial extent from baseline = ((average spatial extent of 5 year period - average spatial extent from 2001-2005) / average spatial extent from 2001-2005) x 100</p><p>Code for extracting data from the Global Surface Water Explorer and aggregating water to UK boundaries and HydroBasins can be found in the <a href="https://github.com/datasciencecampus/sdg_661_analysis_and_reporting">Data Science Campus GitHub</a>.</p><p><b>Groundwater </b></p><p>Percent change in groundwater level = ((average ground water of 5 year period - average groundwater level from 1990-1994) / average spatial extent from 1990-1994) x 100</p><p> Average % change across hydrobasins = (sum of percent change in groundwater level from all groundwater stations)/ total number of ground water stations * 100</p><p><b>Other series</b></p><p>No calculations on the source data were required.</p>
+            <p> <b>Open water area</b><p>Proportion of area = (spatial extent / land area) x 100</p><p>Percent change in spatial extent from baseline = ((average spatial extent of 5 year period - average spatial extent from 2001-2005) / average spatial extent from 2001-2005) x 100</p><p>Code for extracting data from the Global Surface Water Explorer and aggregating water to UK boundaries and HydroBasins can be found in the <a href="https://github.com/datasciencecampus/sdg_661_analysis_and_reporting">Data Science Campus GitHub</a>.</p><p><b>Groundwater </b></p><p>Percent change in groundwater level = ((average ground water of 5 year period - average groundwater level from 1990-1994) / average spatial extent from 1990-1994) x 100</p><p> Average % change across hydrobasins = (sum of percent change in groundwater level from all groundwater stations)/ total number of ground water stations * 100</p>
 </p>
 
           
@@ -1777,26 +1758,19 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Please note, data from the lake water quality, reservoir, open water and wetlands series all use data derived from the Global Surface Water Explorer (GSWE). However, the 'Open water area' series data has undergone further refinement to ensure costal water is not included in the estimate. Therefore, values differ to those on GSWE. See below for further information on the Open water series methodology.</p>
-<p><b>Open water area</b></p>
-<p>Please see the blog <a href="https://datasciencecampus.ons.gov.uk/using-satellite-imagery-to-report-changes-to-water-bodies-for- sdg-6-6-1">Using satellite imagery to report changes to water bodies for SDG 6.6.1</a> for more information on this indicator.</p>
+            <p><b>Open water area</b></p>
+<p>The 'Open water area' series data is derived from the Global Surface Water Explorer (GSWE) but has undergone further refinement to ensure coastal water is not included in the estimate. Therefore, values differ to those on GSWE. Please see the blog <a href="https://datasciencecampus.ons.gov.uk/using-satellite-imagery-to-report-changes-to-water-bodies-for-sdg-6-6-1">Using satellite imagery to report changes to water bodies for SDG 6.6.1</a> for more information on this indicator.</p>
 <p>Data for open water is derived from Earth Observation data (from the Landsat satellite programme). The resolution used does not pick up smaller waterbodies (including, small lakes, rivers and streams). These data can be downloaded from the Global Surface Water Explorer (GSWE).</p>
-<p>The data presented here have been constrained to official high-water mark boundaries, which helps to ensure that costal water is not included in estimate. Measures therefore differ slightly to those on <a href="https://www.sdg661.app/">Freshwater Ecosystems Explorer</a>, a GSWE platform for presenting data specifically for this indicator.</p>
-<p>Persistent cloud cover can impact the quality of data collection. Anomalous years (likely due to cloud cover - 1994 to 1998 and 2004 to 2009) have therefore been excluded from the data presented here, with the exception of the baseline. The baseline period of 2001 to 2005 includes the anomalous years 2004 and 2005. To mitigate the impact of variable cloud cover, the modal value of each pixel across the baseline years has been used to calculate the average spatial extent in the baseline period. Further details on the source data and mitigating the impacts of these anomalous periods is provided in the <a href="https://datasciencecampus.ons.gov.uk/projects/quality-and-methodology-extent-and-change-of-surface-water-statistics">Data Science Campus Quality and Methodology document</a>.</p>
-<p>HydroBASIN catchments are identified with numbers, however we have added descriptive names to each catchment in the dropdown menu - these are not official names. Work is in progress to provide interactive maps. While these are not yet available here, they can be viewed in the blog <a href="https://datasciencecampus.ons.gov.uk/using-satellite-imagery-to-report-changes-to-water-bodies-for-sdg-6-6-1">Using satellite imagery to report changes to water for SDG 6.6.1</a>.</p>
+<p>The data presented here have been constrained to official high-water mark boundaries, which helps to ensure that coastal water is not included in estimate. Measures therefore differ to those on <a href="https://www.sdg661.app/">Freshwater Ecosystems Explorer</a>, a GSWE platform for presenting data specifically for this indicator. The calculations for change from baseline (see 'Calculations' section above) are also slightly different from the ones described in the global UN metadata for the indicator.</p>
+<p>Persistent cloud cover can impact the quality of data collection. Anomalous years (likely due to cloud cover - 1994 to 1998 and 2004 to 2009) have therefore been excluded from the data presented here, with the exception of the baseline. The baseline period of 2001 to 2005 includes the anomalous years 2004 and 2005. To mitigate the impact of variable cloud cover, the modal value of each pixel across the baseline years has been used to calculate the average spatial extent in the baseline period. Further details on the source data and mitigating the impacts of these anomalous periods is provided in the <a href="https://datasciencecampus.ons.gov.uk/projects/quality-and- methodology-extent-and-change-of-surface-water-statistics">Data Science Campus Quality and Methodology document</a>.</p>
+<p>HydroBASIN catchments are identified with numbers, however we have added descriptive names to each catchment in the dropdown menu - these are not official names.</p>
 <p><b>Groundwater</b></p>
 <p>Groundwater level data is obtained from BGS WellMaster database, derived from 154 groundwater level monitoring stations to provide groundwater estimates for 19 of the 34 HydroBasins in the UK. HydroBasin catchments are identified with numbers, however descriptive name have been added to the dropdown menu, these are not official names.</p>
 <p>The chosen five-year reference period for the analysis is 1990 to 1994. Values greater than 100% imply average groundwater levels have risen since the period 1990 to 1994, while values less than 100% imply falling levels. Please note that this baseline reference contains a period of draught for the UK</p>
-<p>The data monitored by measuring authorities in each nation (EA, SEPA, NRW, DAERA) are passed to BGS periodically. All chosen sites have the following - monitoring frequencies of greater than one observation a month, are monitoring boreholes where groundwater levels are not systematically affected by abstraction, and are representative of local and regional groundwater systems.</p>
+<p>The data monitored by measuring authorities in each nation (Environment Agency, Scottish Environment Protection Agency, Natural Resources Wales, Department of Agriculture, Environment and Rural Affairs) are passed to BGS periodically. All chosen sites have the following - monitoring frequencies of greater than one observation a month, are monitoring boreholes where groundwater levels are not systematically affected by abstraction, and are representative of local and regional groundwater systems.</p>
 <p>Raw data is quality assured by measuring authority and are expected to be accurate to less than +/- 0.01 metre for data collected since 1990. On receipt by BGS an additional check is made to ensure all values fall within expected hydrogeologicaly plausible ranges.</p>
 <p>Please note, the headline figure for UK show average percentage change across hydrobasins for which values are available (not all hydrobasins are represented), not the % change across hydrobasins.</p>
-<p><b>Reservoir</b></p>
-<p>It is recognised that reservoirs are not traditional water ecosystems that necessarily warrant protection and restoration, but many countries hold a noteworthy amount of freshwater and thus has been included. Thereby, including data on reservoirs countries can better understand changes occurring to artificial water bodies in conjunction with changes occurring to natural waterbodies.</p>
-<p>The reservoirs dataset is derived from GSWE, with 2000 to 2004 being the chosen baseline period. See<a href="https://map.sdg661.app/"> Freshwater Ecosystems Explorer</a> for further information.<p></p><b>Lake water quality</b></p>
-<p>Turbidity is derived from suspended solids concentration estimated and tropphic state index comes from phytoplankton biomass by proxy of cholorphyll-a.</p>
-<p>The chosen baseline period is 2006 to 2010 and includes five monthly averages across the five years of observation for this period. From theses five years of data, 12 monthly averages (one for each month of the year) for trophic and turbidity were derived. A further set of observations were then used to calculate change from baseline. These monthly data comprise years 2017 to 2019. Lake quality percentages can be classified as; 0 to 25% (low), 25 to 50% (medium), 50 to 75% (high) and 75 to 100% (extreme). A lake is catergorised as being 'affected' when the value for turbidity/trophic state exceeds 50%, when compared to the lakes baseline value.</p>
-<p>Products in period 2006 to 2010 are based on observations from the Meris sensor, whereas 2017 to 2019 used OCLI sensors. Most accurate water quality sensors have 250 to 350 metre resolutions, while less accurate sensors detect turbidity/trophic state changes to 100m resolution. Land/water buffer maps as well as ice maps were applied to improve accuracy of the data.</p>
-<p>Please note, the data is not informing whether a lake is considered to be good/bad quality, only that a lake water event has occurred and been recorded. Also, turbidity and trophic state are an indirect indication for water quality, but do perform a successful proxy role. A more detailed methodology is available to download at <a href="https://www.sdg661.app/">GSWE</a>.</p>
+<p>See<a href="https://map.sdg661.app/"> Freshwater Ecosystems Explorer</a> for further information and additional data available. Also, estimated values for UK SDG global reporting on lake water quality, reservoir, and wetlands surface area are available from the <a href="https://unstats.un.org/sdgs/dataportal/database"> UNSDG database</a>.</p>
 <p>Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
 
           
@@ -1813,7 +1787,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            15 March 2022
+            10 May 2023
           
         </td>
         </tr>
@@ -1828,7 +1802,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            10 May 2022
+            10 May 2023
           
         </td>
         </tr>
@@ -2051,7 +2025,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">UN custodian agency </th>
         <td>
           
-            <p>UN Environment (UNEP), Ramsar</p>
+            <p>UN Environment Programme (UNEP), Secretariat of the Ramsar Convention on Wetlands</p>
 
           
         </td>
@@ -2368,20 +2342,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Release date </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this source</span></p>
-
+            See source link
           
         </td>
         </tr>
@@ -3123,7 +3089,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230510002430'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230510105726'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -3131,7 +3097,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230510002430"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230510105726"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
