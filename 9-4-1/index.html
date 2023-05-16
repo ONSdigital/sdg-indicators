@@ -146,7 +146,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230516002450">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230516110454">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -482,13 +482,6 @@ data-event-label="high"
 
   
 
-<div class="row" id="page-content">
-  <div class="col-xs-12">
-    <p>See the <a href="https://www.ons.gov.uk/economy/environmentalaccounts/bulletins/ukenvironmentalaccounts/latest">ONS report</a> for more information on Greenhouse gas intensity in the UK</p>
-
-  </div>
-</div>
-
 
 
 
@@ -517,7 +510,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Industry sector&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Agriculture, forestry and fishing&quot;,&quot;Mining and quarrying&quot;,&quot;Manufacturing&quot;,&quot;Electricity, gas, steam and air conditioning supply&quot;,&quot;Water supply; sewerage, waste management and remediation activities&quot;,&quot;Construction&quot;,&quot;Wholesale and retail trade; repair of motor vehicles and motorcycles&quot;,&quot;Transport and storage&quot;,&quot;Accommodation and food services&quot;,&quot;Information and communication&quot;,&quot;Financial and insurance activities&quot;,&quot;Real estate activities&quot;,&quot;Professional, scientific and technical activities&quot;,&quot;Administrative and support service activities&quot;,&quot;Public administration and defence; compulsory social security&quot;,&quot;Education&quot;,&quot;Human health and social work activities&quot;,&quot;Arts, entertainment and recreation&quot;,&quot;Other service activities&quot;,&quot;Activities of households as employers; undifferentiated goods and services-producing activities of households for own use&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Industry sector&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;CO2 emissions per unit of GDP&quot;,&quot;CO2 emission per manufacturing industry per unit of GVA&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Industry sector&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Accommodation and food services&quot;,&quot;Activities of households as employers; undifferentiated goods and services-producing activities of households for own use&quot;,&quot;Administrative and support service activities&quot;,&quot;Agriculture, forestry and fishing&quot;,&quot;Arts, entertainment and recreation&quot;,&quot;Construction&quot;,&quot;Education&quot;,&quot;Electricity, gas, steam and air conditioning supply&quot;,&quot;Financial and insurance activities&quot;,&quot;Human health and social work activities&quot;,&quot;Information and communication&quot;,&quot;Manufacturing&quot;,&quot;Mining and quarrying&quot;,&quot;Other service activities&quot;,&quot;Professional, scientific and technical activities&quot;,&quot;Public administration and defence; compulsory social security&quot;,&quot;Real estate activities&quot;,&quot;Transport and storage&quot;,&quot;Water supply; sewerage, waste management and remediation activities&quot;,&quot;Wholesale and retail trade; repair of motor vehicles and motorcycles&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Industry sector&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
   data-proxy="proxy"
@@ -550,15 +543,1857 @@ data-event-label="high"
   <div id="datatables">
 
     
+    <a href="https://ONSdigital.github.io/sdg-data/en/headline/9-4-1.csv" class="btn btn-primary btn-download" download="indicator_9-4-1.csv" tabindex="0" role="button">Download headline data (.csv)</a>
+    
     <a href="https://ONSdigital.github.io/sdg-data/en/data/9-4-1.csv" class="btn btn-primary btn-download" download='indicator_9-4-1.csv' tabindex='0' role='button'>Download source data (.csv)</a>
 
     <p class="no-js-disaggregation-hint">Download source data for disaggregations (.csv)</p>
 
     
-    <h3>No headline data available</h3>
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>CO2 emissions intensity by industry</caption>
+      <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col">Value</th>
+        
+        
+        
+        <th scope="col">Series</th>
+        
+        
+        
+        <th scope="col">Observation status</th>
+        
+        
+        
+        <th scope="col">Unit multiplier</th>
+        
+        
+        
+        <th scope="col" class="table-value">Unit measure</th>
+        
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          
+          <td>1990</td>
+          
+          
+          
+          <td>0.5</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1991</td>
+          
+          
+          
+          <td>0.51</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1992</td>
+          
+          
+          
+          <td>0.5</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1993</td>
+          
+          
+          
+          <td>0.48</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1994</td>
+          
+          
+          
+          <td>0.46</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1995</td>
+          
+          
+          
+          <td>0.44</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1996</td>
+          
+          
+          
+          <td>0.45</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1997</td>
+          
+          
+          
+          <td>0.42</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1998</td>
+          
+          
+          
+          <td>0.41</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1999</td>
+          
+          
+          
+          <td>0.4</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2000</td>
+          
+          
+          
+          <td>0.39</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2001</td>
+          
+          
+          
+          <td>0.39</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2002</td>
+          
+          
+          
+          <td>0.37</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2003</td>
+          
+          
+          
+          <td>0.36</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2004</td>
+          
+          
+          
+          <td>0.36</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2005</td>
+          
+          
+          
+          <td>0.35</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2006</td>
+          
+          
+          
+          <td>0.34</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2007</td>
+          
+          
+          
+          <td>0.33</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2008</td>
+          
+          
+          
+          <td>0.32</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2009</td>
+          
+          
+          
+          <td>0.3</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>0.31</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>0.28</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>0.29</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>0.28</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>0.25</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>0.24</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>0.23</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>0.22</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>0.21</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>0.21</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>0.2</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>0.19</td>
+          
+          
+          
+          <td>CO2 emissions per unit of GDP</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1990</td>
+          
+          
+          
+          <td>0.43</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1991</td>
+          
+          
+          
+          <td>0.44</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1992</td>
+          
+          
+          
+          <td>0.42</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1993</td>
+          
+          
+          
+          <td>0.4</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1994</td>
+          
+          
+          
+          <td>0.38</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1995</td>
+          
+          
+          
+          <td>0.38</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1996</td>
+          
+          
+          
+          <td>0.38</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1997</td>
+          
+          
+          
+          <td>0.36</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1998</td>
+          
+          
+          
+          <td>0.36</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>1999</td>
+          
+          
+          
+          <td>0.34</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2000</td>
+          
+          
+          
+          <td>0.33</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2001</td>
+          
+          
+          
+          <td>0.33</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2002</td>
+          
+          
+          
+          <td>0.31</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2003</td>
+          
+          
+          
+          <td>0.31</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2004</td>
+          
+          
+          
+          <td>0.31</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2005</td>
+          
+          
+          
+          <td>0.3</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2006</td>
+          
+          
+          
+          <td>0.29</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2007</td>
+          
+          
+          
+          <td>0.28</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2008</td>
+          
+          
+          
+          <td>0.27</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2009</td>
+          
+          
+          
+          <td>0.25</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>0.26</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>0.24</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>0.24</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>0.23</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>0.21</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>0.2</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>0.19</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>0.17</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>0.17</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>0.16</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>0.15</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>0.15</td>
+          
+          
+          
+          <td>CO2 emission per manufacturing industry per unit of GVA</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Thousands</td>
+          
+          
+          
+          <td class="table-value">Tonnes per million GBP (£)</td>
+          
+          
+        </tr>
+        
+      </tbody>
+    </table>
     
   </div>
 
+  
+  <div id="datatableFooter">
+    
+    <p>Source: Office for National Statistics (ONS)</p>
+    
+    
+    <p>Geographical Area: United Kingdom</p>
+    
+    
+    <p>Unit of Measurement: Thousand Tonnes per Million GBP (£)</p>
+    
+    
+    <p>Footnote: All figures are reported to 2 decimal places. Total figures are based on raw data and therefore may not sum due to rounding. 2021 data are provisional.</p>
+    
+  </div>
   
 
 </div>
@@ -678,7 +2513,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd>2020 Carbon Dioxide emissions data are provisional</dd>
+        <dd>All figures are reported to 2 decimal places. Total figures are based on raw data and therefore may not sum due to rounding. 2021 data are provisional.</dd>
         
 
         
@@ -756,7 +2591,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd>2020 Carbon Dioxide emissions data are provisional</dd>
+        <dd>All figures are reported to 2 decimal places. Total figures are based on raw data and therefore may not sum due to rounding. 2021 data are provisional.</dd>
         
 
         
@@ -884,7 +2719,11 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            <p>Carbon dioxide emissions intensity is calculated by dividing the level of carbon dioxide emissions by gross value added (GVA) in constant prices. This is the difference between output and intermediate consumption for any given industry/sector. This means the difference between the value of goods and services produced (output) and the cost of raw materials and other inputs which are used up in production (intermediate consumption). Data are in constant prices with 2016 defined as the base year.</p>
+            <p>For this indicator, carbon dioxide emissions intensity is calculated in two ways.</p>
+<p>For the CO2 emissions per unit of GDP series, carbon dioxide emissions intensity is calculated by dividing the level of carbon dioxide emissions by Gross Domestic Product (GDP). Data are chained volume measures with 2019 defined as the base year. The emissions intensity figures include consumer expenditure.</p>
+<p> For the CO2 emission per manufacturing industry per unit of GVA, carbon dioxide emissions intensity is calculated by dividing the level of carbon dioxide emissions by Gross Value Added (GVA) in constant prices. This is the difference between output and intermediate consumption for any given industry. This means the difference between the value of goods and services produced (output) and the cost of raw materials and other inputs which are used up in production (intermediate consumption). Data are in constant prices with 2019 defined as the base year. All emissions intensity figures exclude consumer expenditure.</p>
+<p>
+</p>
 
           
         </td>
@@ -927,19 +2766,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Definitions </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Consumer expenditure refers to the consumption of fuels and other products by individuals in the UK, as opposed to the production of these by industry. ‘Consumer expenditure - travel’ consists almost entirely of road transport emissions.</p>
 
           
         </td>
@@ -950,19 +2782,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Available disaggregations </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Industry sector</p>
 
           
         </td>
@@ -978,7 +2803,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>No calculations were used</p>
+            <p>No calculations were performed in the data acquisition of this indicator as the data were readily available in the required format from the source.</p>
 
           
         </td>
@@ -994,7 +2819,10 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>All emissions intensity figures exclude consumer expenditure. “There are a number of changes to the intensity figures since the previous release. This is due to revisions to the GVA figures used.” This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.</p>
+            <p>There are a number of changes to the intensity figures since the previous release. This is due to revisions to the GVA figures used. More information can be found in the source download.</p>
+<p>In September 2021 methodological improvements were made to the GDP output approach through deflation. Further information can be found in the <a href="https://www.ons.gov.uk/economy/nationalaccounts/uksectoraccounts/methodologies/doubledeflationmethodsanddeflatorimprovementstouknationalaccountsbluebook2021">Double deflation methods and deflator improvements to UK National Accounts, Blue Book 2021</a>.</p>
+<p> This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.
+</p>
 
           
         </td>
@@ -1010,7 +2838,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            20 June 2022
+            24 April 2023
           
         </td>
         </tr>
@@ -1025,7 +2853,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            06 April 2023
+            16 May 2023
           
         </td>
         </tr>
@@ -1544,7 +3372,7 @@ data-event-label="Change to Sources tab"
             
             
               <a href="https://www.ons.gov.uk/economy/environmentalaccounts/datasets/ukenvironmentalaccountsatmosphericemissionsgreenhousegasemissionsintensitybyeconomicsectorunitedkingdom" target="_blank">
-                Carbon dioxide emissions intensity by industry, 1990 to 2020 <span class="visuallyhidden">opens in a new window</span>
+                Carbon dioxide emissions intensity by industry,1990 to 2020 and (provisional) 2021 <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1568,7 +3396,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            09 June 2022
+            01 November 2022
           
         </td>
         </tr>
@@ -1583,7 +3411,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>TBA: We plan to update indicator data within 4 months of data being released</p>
+            <p>See source link: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -1993,7 +3821,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230516002450'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230516110454'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2001,7 +3829,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230516002450"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230516110454"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
