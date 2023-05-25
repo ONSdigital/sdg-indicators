@@ -1,5 +1,5 @@
 ---
-title: About
+title: About the SDGs
 permalink: /about/
 layout: page
 toc: true
@@ -15,7 +15,7 @@ The [Sustainable Development Goals](https://sdgs.un.org/goals) (SDGs) are a univ
 The 17 Goals were adopted by all UN Member States in 2015, as part of the [2030 Agenda for Sustainable Development](https://sdgs.un.org/2030agenda).
 
 ## ONS' role in the SDGs
-The [Office For National Statistics](https://www.ons.gov.uk/) (ONS) is the UK’s largest independent producer of official statistics and its recognised National Statistical Institute (NSI).
+The [Office For National Statistics](https://www.ons.gov.uk/) (ONS) is the UK's largest independent producer of official statistics and the recognised national statistical institute of the UK.
 
 In this role, we are coordinating and reporting on the global SDG indicators for the UK. This fulfils the mandate placed on all countries by the United Nations General Assembly.
 
@@ -60,8 +60,17 @@ Other countries or organisations wishing to reuse the Open SDG reporting platfor
 
 If you have comments, feedback, or want to get involved with the Open SDG community please email <opensdg@outlook.com> or contact the [Open SDG GitHub](https://github.com/open-sdg/open-sdg/discussions).
 
-## Need more info?
-Answers to some specific questions about this website are included on our [frequently asked questions]({{ site.baseurl }}{% link _pages/faq.md %}) page.
+Answers to some specific questions about this website are included on our [frequently asked questions page](https://sdgdata.gov.uk/faq/).
+
+## More information 
+
+To find out more about what the UK government is doing to support the delivery of the SDGs, see the report [Implementing the Sustainable Development Goals](https://www.gov.uk/government/publications/implementing-the-sustainable-development-goals/implementing-the-sustainable-development-goals--2){:target="_blank" rel="noopener"}
+
+To find out more about what you personally can do to help the UK meet the sustainable development goals, see this [guide from the UN](https://www.un.org/sustainabledevelopment/takeaction/).
+
+To compare country progress towards meeting the sustainable development goals, see the [SDGindex website](https://dashboards.sdgindex.org/rankings).
+Note: This is a third party site that gathers data from a variety of sources and is not endorsed by ONS.
+
 
 ## Take part
 
