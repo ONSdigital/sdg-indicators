@@ -146,7 +146,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230526072353">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230526073231">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -459,7 +459,7 @@ data-event-label="high"
   
 <div class="row metadata-available-indicator">
   <div class="col-xs-12">
-    <h2>Proportion of women who experienced abuse by a partner in the last 12 months</h2>
+    <h2>Proportion of women and girls aged 16 to 74 who experienced physical or sexual abuse by a partner in the last 12 months</h2>
   </div>
 </div>
 
@@ -482,19 +482,6 @@ data-event-label="high"
 
   
 
-<div class="row" id="page-content">
-  <div class="col-xs-12">
-    <p>graph_series_breaks: 
- - series: Women aged 16 to 59
-   value: 3
-   label_content:
- - series: Women aged 16 to 59
-   value: 16
-   label_content:</p>
-
-  </div>
-</div>
-
 
 
 
@@ -507,7 +494,7 @@ data-event-label="high"
   data-indicatorid='indicator_5-2-1'
   data-id="5-2-1"
   data-country="England and Wales"
-  data-charttitle="Proportion of women who experienced abuse by a partner in the last 12 months"
+  data-charttitle="Percentage of women who experienced partner abuse in the last 12 months"
   data-charttitles="null"
   data-measurementunit="Percentage (%)"
   data-xaxislabel=""
@@ -515,15 +502,15 @@ data-event-label="high"
   data-graphtype="line"
   data-graphtypes="null"
   data-geocoderegex=""
-  data-showmap="false"
-  data-startvalues="[{&quot;field&quot;:&quot;Women aged 16 to 59&quot;,&quot;value&quot;:&quot;Percentage (%)&quot;}]"
+  data-showmap="true"
+  data-startvalues="[{&quot;field&quot;:&quot;Series&quot;,&quot;value&quot;:&quot;Women aged 16 to 74 (%)&quot;}]"
   data-graphlimits="null"
   data-stackeddisaggregation=""
   data-graphannotations="null"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Women aged 16 to 59&quot;,&quot;Women aged 16 to 74&quot;,&quot;Women aged 16 and over&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Type of partner abuse&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Non-sexual&quot;,&quot;Sexual (including attempts)&quot;,&quot;Stalking by a partner/ex-partner&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Type of partner abuse&quot;},{&quot;name&quot;:&quot;Abuse sub-category&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Force&quot;,&quot;Non-physical abuse (emotional, financial)&quot;,&quot;Threats&quot;,&quot;Threats or force&quot;,&quot;Indecent exposure or unwanted sexual touching by a partner&quot;,&quot;Sexual assault by rape or penetration (including attempts)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Abuse sub-category&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;16 to 19&quot;,&quot;20 to 24&quot;,&quot;25 to 34&quot;,&quot;35 to 44&quot;,&quot;45 to 54&quot;,&quot;55 to 59&quot;,&quot;60 to 74&quot;,&quot;75 and over&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Ethnicity&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Asian/Asian British&quot;,&quot;Black/African/Caribbean/Black British&quot;,&quot;Other ethnic group&quot;,&quot;White&quot;,&quot;Mixed&quot;,&quot;Mixed/multiple ethnic groups&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnicity&quot;},{&quot;name&quot;:&quot;Ethnic group&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Any other Asian background&quot;,&quot;Indian&quot;,&quot;African&quot;,&quot;Any other White background&quot;,&quot;English/Welsh/Scottish/Northern Irish/British&quot;,&quot;Pakistani&quot;,&quot;Caribbean&quot;,&quot;Bangladeshi&quot;,&quot;Chinese&quot;,&quot;Any other Mixed/Multiple ethnic background&quot;,&quot;White and Black Caribbean&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnic group&quot;},{&quot;name&quot;:&quot;Disability status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Disabled (GSS harmonised)&quot;,&quot;Non-disabled (GSS harmonised)&quot;,&quot;Disabled&quot;,&quot;Not disabled&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Disability status&quot;},{&quot;name&quot;:&quot;Country of birth&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Born in UK&quot;,&quot;Not born in UK&quot;,&quot;Born in the UK&quot;,&quot;Not born in the UK&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country of birth&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;East Midlands&quot;,&quot;East of England&quot;,&quot;London&quot;,&quot;North East&quot;,&quot;North West&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;Wales&quot;,&quot;West Midlands&quot;,&quot;Yorkshire and The Humber&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Urban or Rural&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Rural&quot;,&quot;Urban&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Urban or Rural&quot;},{&quot;name&quot;:&quot;Sexual orientation&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Bisexual&quot;,&quot;Gay/Lesbian&quot;,&quot;Heterosexual/straight&quot;,&quot;Other&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Sexual orientation&quot;},{&quot;name&quot;:&quot;Gender identity&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Cisgender&quot;,&quot;Transgender&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Gender identity&quot;},{&quot;name&quot;:&quot;Highest qualification&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Apprenticeship or A/AS level&quot;,&quot;Degree or diploma&quot;,&quot;No qualification&quot;,&quot;O level/GCSE&quot;,&quot;Other qualification&quot;,&quot;No qualifications&quot;,&quot;Other&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Highest qualification&quot;},{&quot;name&quot;:&quot;Household income&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;£10,400 to less than £20,800&quot;,&quot;£20,800 to less than £31,200&quot;,&quot;£31,200 to less than £41,600&quot;,&quot;£41,600 to less than £52,000&quot;,&quot;£52,000 or more&quot;,&quot;Less than £10,400&quot;,&quot;No income stated or not enough information provided&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household income&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Women aged 16 to 59 (%)&quot;,&quot;Women aged 16 to 74 (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Type of partner abuse&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Non-sexual&quot;,&quot;Sexual (including attempts)&quot;,&quot;Stalking by a partner/ex-partner&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Type of partner abuse&quot;},{&quot;name&quot;:&quot;Abuse sub-category&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Non-physical abuse (emotional, financial)&quot;,&quot;Threats or force&quot;,&quot;Threats&quot;,&quot;Force&quot;,&quot;Sexual assault by rape or penetration (including attempts)&quot;,&quot;Indecent exposure or unwanted sexual touching by a partner&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Abuse sub-category&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;16 to 19&quot;,&quot;20 to 24&quot;,&quot;25 to 34&quot;,&quot;35 to 44&quot;,&quot;45 to 54&quot;,&quot;55 to 59&quot;,&quot;60 to 74&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Ethnicity&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;White&quot;,&quot;Asian/Asian British&quot;,&quot;Black/African/Caribbean/Black British&quot;,&quot;Other ethnic group&quot;,&quot;Mixed&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnicity&quot;},{&quot;name&quot;:&quot;Ethnic group&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;English/Welsh/Scottish/Northern Irish/British&quot;,&quot;Any other White background&quot;,&quot;Indian&quot;,&quot;Any other Asian background&quot;,&quot;African&quot;,&quot;Pakistani&quot;,&quot;Caribbean&quot;,&quot;White and Black Caribbean&quot;,&quot;Any other Mixed/Multiple ethnic background&quot;,&quot;Bangladeshi&quot;,&quot;Chinese&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnic group&quot;},{&quot;name&quot;:&quot;Disability status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Non-disabled (GSS harmonised)&quot;,&quot;Disabled (GSS harmonised)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Disability status&quot;},{&quot;name&quot;:&quot;Country of birth&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Born in UK&quot;,&quot;Not born in UK&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country of birth&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;North East&quot;,&quot;North West&quot;,&quot;Yorkshire and The Humber&quot;,&quot;East Midlands&quot;,&quot;West Midlands&quot;,&quot;East of England&quot;,&quot;London&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;Wales&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Highest qualification&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Degree or diploma&quot;,&quot;Apprenticeship or A/AS level&quot;,&quot;O level/GCSE&quot;,&quot;Other qualification&quot;,&quot;No qualification&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Highest qualification&quot;},{&quot;name&quot;:&quot;Household income&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Less than £10,400&quot;,&quot;£10,400 to less than £20,800&quot;,&quot;£20,800 to less than £31,200&quot;,&quot;£31,200 to less than £41,600&quot;,&quot;£41,600 to less than £52,000&quot;,&quot;£52,000 or more&quot;,&quot;No income stated or not enough information provided&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Household income&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
   data-proxy="proxy"
@@ -565,7 +552,7 @@ data-event-label="high"
     
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>Proportion of women who experienced abuse by a partner in the last 12 months</caption>
+      <caption>Percentage of women who experienced partner abuse in the last 12 months</caption>
       <thead>
         
         
@@ -614,7 +601,7 @@ data-event-label="high"
           
           
           
-          <td>Women aged 16 to 59</td>
+          <td>Women aged 16 to 59 (%)</td>
           
           
           
@@ -622,7 +609,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -646,7 +633,7 @@ data-event-label="high"
           
           
           
-          <td>Women aged 16 to 59</td>
+          <td>Women aged 16 to 59 (%)</td>
           
           
           
@@ -654,7 +641,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -678,7 +665,7 @@ data-event-label="high"
           
           
           
-          <td>Women aged 16 to 59</td>
+          <td>Women aged 16 to 59 (%)</td>
           
           
           
@@ -686,7 +673,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -710,7 +697,7 @@ data-event-label="high"
           
           
           
-          <td>Women aged 16 to 59</td>
+          <td>Women aged 16 to 59 (%)</td>
           
           
           
@@ -718,7 +705,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -742,7 +729,7 @@ data-event-label="high"
           
           
           
-          <td>Women aged 16 to 59</td>
+          <td>Women aged 16 to 59 (%)</td>
           
           
           
@@ -750,7 +737,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -774,7 +761,7 @@ data-event-label="high"
           
           
           
-          <td>Women aged 16 to 59</td>
+          <td>Women aged 16 to 59 (%)</td>
           
           
           
@@ -782,7 +769,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -806,7 +793,7 @@ data-event-label="high"
           
           
           
-          <td>Women aged 16 to 59</td>
+          <td>Women aged 16 to 59 (%)</td>
           
           
           
@@ -814,7 +801,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -838,7 +825,7 @@ data-event-label="high"
           
           
           
-          <td>Women aged 16 to 59</td>
+          <td>Women aged 16 to 59 (%)</td>
           
           
           
@@ -846,7 +833,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -870,7 +857,7 @@ data-event-label="high"
           
           
           
-          <td>Women aged 16 to 59</td>
+          <td>Women aged 16 to 59 (%)</td>
           
           
           
@@ -878,7 +865,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -902,7 +889,7 @@ data-event-label="high"
           
           
           
-          <td>Women aged 16 to 59</td>
+          <td>Women aged 16 to 59 (%)</td>
           
           
           
@@ -910,7 +897,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -934,7 +921,7 @@ data-event-label="high"
           
           
           
-          <td>Women aged 16 to 59</td>
+          <td>Women aged 16 to 59 (%)</td>
           
           
           
@@ -942,7 +929,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -966,7 +953,7 @@ data-event-label="high"
           
           
           
-          <td>Women aged 16 to 59</td>
+          <td>Women aged 16 to 59 (%)</td>
           
           
           
@@ -974,7 +961,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -998,7 +985,7 @@ data-event-label="high"
           
           
           
-          <td>Women aged 16 to 59</td>
+          <td>Women aged 16 to 59 (%)</td>
           
           
           
@@ -1006,39 +993,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Units</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2017/18</td>
-          
-          
-          
-          <td>5.5007598747</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Women aged 16 to 74</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -1062,7 +1017,7 @@ data-event-label="high"
           
           
           
-          <td>Women aged 16 to 59</td>
+          <td>Women aged 16 to 59 (%)</td>
           
           
           
@@ -1070,39 +1025,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Units</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2018/19</td>
-          
-          
-          
-          <td>5.6196885987</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Women aged 16 to 74</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -1126,7 +1049,7 @@ data-event-label="high"
           
           
           
-          <td>Women aged 16 to 59</td>
+          <td>Women aged 16 to 59 (%)</td>
           
           
           
@@ -1134,7 +1057,71 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017/18</td>
+          
+          
+          
+          <td>5.5007598747</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Women aged 16 to 74 (%)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018/19</td>
+          
+          
+          
+          <td>5.6196885987</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Women aged 16 to 74 (%)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Undefined</td>
           
           
           
@@ -1158,7 +1145,7 @@ data-event-label="high"
           
           
           
-          <td>Women aged 16 to 74</td>
+          <td>Women aged 16 to 74 (%)</td>
           
           
           
@@ -1166,103 +1153,7 @@ data-event-label="high"
           
           
           
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Units</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2020/21</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Women aged 16 to 59</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td>Missing value</td>
-          
-          
-          
-          <td class="table-value">Units</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2021/22</td>
-          
-          
-          
-          <td>4.7709829399</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Women aged 16 and over</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td>Normal value</td>
-          
-          
-          
-          <td class="table-value">Units</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2021/22</td>
-          
-          
-          
-          <td>5.2712047824</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Women aged 16 to 59</td>
-          
-          
-          
-          <td></td>
-          
-          
-          
-          <td>Normal value</td>
+          <td>Undefined</td>
           
           
           
@@ -1288,7 +1179,7 @@ data-event-label="high"
     <p>Unit of Measurement: Percentage (%)</p>
     
     
-    <p>Footnote: <p> 1. Data for the year ending March 2022 are not National Statistics. They are based on six months of data collection from the face-to-face Crime Survey for England and Wales between October 2021 and March 2022. Caution should be taken when using these data due to the impact of the reduced data collection period and lower response rates on the quality of the estimates. Previous years data are National Statistics. </p><p> 2. Concerns around confidentiality and respondent safeguarding led to domestic abuse questions being excluded from the Telephone Crime Survery for England and Wales (TCSEW). Therefore, there is no data available for the year ending March 2021. </p><p> 3. From April 2017, the upper age limit for the self-completion module was changed from 59 to 74. From October 2021, the upper age limit for the self-completion module was removed. Figures for 16 to 59 year olds are still presented to allow comparisons to be made over a longer time period.  </p><p> 4. Please note the y axis does not always go to 100% for ease of visualisation. </p></p>
+    <p>Footnote: 1. Not all data categories are available for the year 2007 to 2008 because comparable questions on any domestic abuse, any partner abuse and any family abuse were not included in that year. 2. New questions were introduced into the survey from the year ending March 2013, and estimates from this year onwards are calculated using these new questions. Estimates for earlier years are calculated from the original questions with an adjustment applied to make them comparable to the new questions. 3. The sum of the overarching domestic abuse categories are not the sum of the sub-categories, as some victims may be included in multiple categories as they can experience more than one type of abuse. 4. Data for some ethnic groups are unavailable due to small sample sizes.</p>
     
   </div>
   
@@ -1356,6 +1247,31 @@ data-event-label="Change to Table tab"
       >Table</button>
     </li>
     
+    <li role="presentation"
+      class="
+        nav-item
+        map
+        
+      ">
+      <button
+        class="nav-link "
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-mapview"
+          data-bs-target="#mapview"
+          aria-controls="mapview"
+          data-no-disagg="true"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Map tab"
+
+        
+      >Map</button>
+    </li>
+    
   </ul>
   
     <div class="tab-content data-view">
@@ -1374,7 +1290,7 @@ data-event-label="Change to Table tab"
       <figure role="group">
         <div id="chart-canvas">
           <h4 id="chart-heading" class="chart-title">
-            Proportion of women who experienced abuse by a partner in the last 12 months
+            Percentage of women who experienced partner abuse in the last 12 months
           </h4>
           <div id="chart" class="plot-container">
             <canvas
@@ -1410,7 +1326,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd><p> 1. Data for the year ending March 2022 are not National Statistics. They are based on six months of data collection from the face-to-face Crime Survey for England and Wales between October 2021 and March 2022. Caution should be taken when using these data due to the impact of the reduced data collection period and lower response rates on the quality of the estimates. Previous years data are National Statistics. </p><p> 2. Concerns around confidentiality and respondent safeguarding led to domestic abuse questions being excluded from the Telephone Crime Survery for England and Wales (TCSEW). Therefore, there is no data available for the year ending March 2021. </p><p> 3. From April 2017, the upper age limit for the self-completion module was changed from 59 to 74. From October 2021, the upper age limit for the self-completion module was removed. Figures for 16 to 59 year olds are still presented to allow comparisons to be made over a longer time period.  </p><p> 4. Please note the y axis does not always go to 100% for ease of visualisation. </p></dd>
+        <dd>1. Not all data categories are available for the year 2007 to 2008 because comparable questions on any domestic abuse, any partner abuse and any family abuse were not included in that year. 2. New questions were introduced into the survey from the year ending March 2013, and estimates from this year onwards are calculated using these new questions. Estimates for earlier years are calculated from the original questions with an adjustment applied to make them comparable to the new questions. 3. The sum of the overarching domestic abuse categories are not the sum of the sub-categories, as some victims may be included in multiple categories as they can experience more than one type of abuse. 4. Data for some ethnic groups are unavailable due to small sample sizes.</dd>
         
 
         
@@ -1488,7 +1404,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd><p> 1. Data for the year ending March 2022 are not National Statistics. They are based on six months of data collection from the face-to-face Crime Survey for England and Wales between October 2021 and March 2022. Caution should be taken when using these data due to the impact of the reduced data collection period and lower response rates on the quality of the estimates. Previous years data are National Statistics. </p><p> 2. Concerns around confidentiality and respondent safeguarding led to domestic abuse questions being excluded from the Telephone Crime Survery for England and Wales (TCSEW). Therefore, there is no data available for the year ending March 2021. </p><p> 3. From April 2017, the upper age limit for the self-completion module was changed from 59 to 74. From October 2021, the upper age limit for the self-completion module was removed. Figures for 16 to 59 year olds are still presented to allow comparisons to be made over a longer time period.  </p><p> 4. Please note the y axis does not always go to 100% for ease of visualisation. </p></dd>
+        <dd>1. Not all data categories are available for the year 2007 to 2008 because comparable questions on any domestic abuse, any partner abuse and any family abuse were not included in that year. 2. New questions were introduced into the survey from the year ending March 2013, and estimates from this year onwards are calculated using these new questions. Estimates for earlier years are calculated from the original questions with an adjustment applied to make them comparable to the new questions. 3. The sum of the overarching domestic abuse categories are not the sum of the sub-categories, as some victims may be included in multiple categories as they can experience more than one type of abuse. 4. Data for some ethnic groups are unavailable due to small sample sizes.</dd>
         
 
         
@@ -1518,6 +1434,70 @@ data-event-label="Change to Table tab"
 </div>
 
 <div id="tableSelectionDownload" class="clearfix"></div>
+
+        </div>
+      
+    
+      
+        <div role="tabpanel" class="tab-pane " id="mapview" class="map">
+          
+<h4 id="map-heading" class="map-title">Percentage of women who experienced partner abuse in the last 12 months</h4>
+<div id="map" aria-describedby="table-alternative">
+  <img class="map-loading-image" src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
+</div>
+
+
+
+
+<div id="mapFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>Office for National Statistics (ONS)</dd>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>England and Wales</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+        <dt>Footnote:</dt>
+        <dd>1. Not all data categories are available for the year 2007 to 2008 because comparable questions on any domestic abuse, any partner abuse and any family abuse were not included in that year. 2. New questions were introduced into the survey from the year ending March 2013, and estimates from this year onwards are calculated using these new questions. Estimates for earlier years are calculated from the original questions with an adjustment applied to make them comparable to the new questions. 3. The sum of the overarching domestic abuse categories are not the sum of the sub-categories, as some victims may be included in multiple categories as they can experience more than one type of abuse. 4. Data for some ethnic groups are unavailable due to small sample sizes.</dd>
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
+</div>
+
 
         </div>
       
@@ -1600,7 +1580,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            <p>Proportion of women who experienced abuse by a partner in the last 12 months</p>
+            <p>Proportion of women and girls aged 16 to 74 who experienced physical or sexual abuse by a partner in the last 12 months</p>
 
           
         </td>
@@ -1616,7 +1596,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            <p>&lt;/p&gt;&lt;p&gt;Percentage of partner abuse (non-physical abuse, threats, force, sexual assault or stalking) in the last 12 months among women aged 16 and over. &lt;/p&gt;&lt;p&gt;Prior to April 2017, data are only presented for people aged between 16 and 59. From April 2017 to March 2020, the upper age limit for the self-completion module was increased to ask all respondents aged 16 to 74. From October 2021, the upper age limit for the self-completion module was removed. Prior series, with upper age limits, are included here to allow for comparisons to be made over a longer time period and can be viewed by changing the Series button. &lt;/p&gt;&lt;p&gt;</p>
+            <p>Percentage of partner abuse (non-physical abuse, threats, force, sexual assault or stalking) in the last 12 months among women aged 16 to 74.</p>
 
           
         </td>
@@ -1664,7 +1644,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>&lt;/p&gt;&lt;p&gt;Intimate partner violence includes any abuse perpetrated by a current or former partner. Any partner abuse includes non-physical abuse, threats, force, sexual assault or stalking. The Crime Survey for England and Wales <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/methodologies/userguidetocrimestatisticsforenglandandwales">User guide</a> provides definitions of various types of domestic abuse. &lt;/p&gt;&lt;p&gt;Disability Status - The <a href="https://gss.civilservice.gov.uk/policy- store/measuring-disability-for-the-equality-act-2010/">(GSS) harmonised “core”</a> definition identifies a person as disabled if they have a physical or mental health condition or illness that has lasted or is expected to last 12 months or more. It must reduce their ability to carry-out day-to-day activities. It is important to note that a person who has a long-term illness that does not reduce their ability to carry-out day-to-day activities is not disabled under the definition. The GSS harmonised questions are asked of the respondent in the survey, meaning that disability status is self-reported. The GSS definition is designed to reflect the definitions that appear in legal terms in the Disability Discrimination Act 1995 (DDA) for Northern Ireland and the 2010 Equality Act for Great Britain.&lt;/p&gt;&lt;p&gt;</p>
+            <p>Intimate partner violence includes any abuse perpetrated by a current or former partner. Any partner abuse includes non-physical abuse, threats, force, sexual assault or stalking. The Crime Survey for England and Wales <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/methodologies/userguidetocrimestatisticsforenglandandwales">User guide</a> provides definitions of various types of domestic abuse. </p>
+<p>Disability Status - The <a href="https://gss.civilservice.gov.uk/policy- store/measuring-disability-for-the-equality-act-2010/">(GSS) harmonised "core"</a> definition identifies a person as disabled if they have a physical or mental health condition or illness that has lasted or is expected to last 12 months or more. It must reduce their ability to carry-out day-to-day activities. It is important to note that a person who has a long-term illness that does not reduce their ability to carry-out day-to-day activities is not disabled under the definition. The GSS harmonised questions are asked of the respondent in the survey, meaning that disability status is self-reported. The GSS definition is designed to reflect the definitions that appear in legal terms in the Disability Discrimination Act 1995 (DDA) for Northern Ireland and the 2010 Equality Act for Great Britain.</p>
+<p>Prior to April 2017, data are only presented for people aged between 16 and 59. From April 2017, the upper age limit for the self-completion module was increased to ask all respondents aged 16 to 74. Both series are included here to allow for  comparisons to be made over a longer time period and can be viewed by changing the Series button.</p>
 
           
         </td>
@@ -1703,7 +1685,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>No calculations were performed in the data acquisition of this indicator as appropriate data was readily available in the final format specified by this indicator. &lt;/p&gt;&lt;p&gt;The sum of the overarching domestic abuse categories are not the sum of the sub-categories, as some victims may be included in multiple categories as they can experience more than one type of abuse.</p>
+            <p>No calculations were performed in the data acquisition of this indicator as appropriate data was readily available in the final format specified by this indicator.</p>
 
           
         </td>
@@ -1720,13 +1702,12 @@ data-event-label="Change to Sources tab"
         <td>
           
             <p>For details of the Crime Survey for England and Wales, see the <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/methodologies/userguidetocrimestatisticsforenglandandwales">user guide to crime statistics for England and Wales.</a></p>
-<p>The year format refers to the two years covered by the data, from April of the first year to March of the following year. For example, 2018 to 2019 covers the period of April 2018 to March 2019. The year 2021/22 covers the period October 2021 and March 2022. </p>
+<p>The year format refers to the two years covered by the data, from April of the first year to March of the following year. For example, 2018 to 2019 covers the period of April 2018 to March 2019.</p>
 <p>For further information on the quality of the estimates please refer to the source data which provides the unweighted base sizes of the samples.</p>
 <p>The sample size is lower between 2010 to 2011 and 2012 to 2013, and between 2017 to 2018 and 2018 to 2019 due to use of a split-sample experiment in these years. The methodological note titled <a href="http://webarchive.nationalarchives.gov.uk/20160106010543/http:/www.ons.gov.uk/ons/guide-method/method-quality/specific/crime-statistics-methodology/methodological-notes/split-sample-for-intimate-personal-violence-2013-14.pdf">Split sample for intimate personal violence 2013-14</a> provides further information.</p>
 <p>New questions were introduced into the survey in 2010 to 2011 and were further revised for the survey year 2012 to 2013. Estimates from 2012 to 2013 onwards are calculated using these new questions. Estimates for earlier years are calculated from the original questions with an adjustment applied to make them comparable to the new questions.</p>
 <p>The Washington Group on Disability Statistics are often used to provide a cross-nationally comparable population-based measures of disability. Please see the article <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/disability/articles/measuringdisabilitycomparingapproaches/2019-08-06">Measuring disability - comparing approaches</a> for a comparison between the GSS Harmonised measure (used here) and the Washington Group measure.</p>
-<p>Not all data categories are available for the year ending March 2008 because comparable questions on any domestic abuse, any partner abuse and any family abuse were not included in that year. This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts. graph_type: line
-</p>
+<p>This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -1742,7 +1723,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            20 April 2023
+            24 June 2022
           
         </td>
         </tr>
@@ -1757,7 +1738,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            05 May 2023
+            06 April 2023
           
         </td>
         </tr>
@@ -2300,7 +2281,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            25 November 2022
+            25 November 2020
           
         </td>
         </tr>
@@ -2315,7 +2296,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>See source link: We plan to update indicator data within 4 months of data being released</p>
+            <p>TBA: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -2363,7 +2344,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Data acquired from the Crime Survey for England and Wales. Partner abuse data for 2021 to 2022 is taken from tables 1, 3, 6 and 7 in source for year ending March 2022. Parter abuse data for previous years is taken from tables 3a, 3b, 6a, 6b, 7a and 7b in previous publication of source.</p>
+            <p>Data acquired from the Crime Survey for England and Wales. Partner abuse data for 2019 to 2020 is taken from tables 3a, 3b, 6 and 7 in source for year ending March 2020. Parter abuse data for 2018 to 2019  is taken from tables 3a, 3b, 6a, 6b, 7a and 7b in previous publication of source for year ending March 2019.</p>
 
           
         </td>
@@ -2568,6 +2549,15 @@ data-event-label="Change to Sources tab"
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
 
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/iso8601-js-period@0.2.1/iso8601.min.js"></script>
+<script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/torfsen/leaflet.zoomhome@master/dist/leaflet.zoomhome.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
@@ -2718,7 +2708,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230526072353'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230526073231'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2726,7 +2716,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230526072353"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230526073231"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
