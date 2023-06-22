@@ -148,7 +148,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230622003005">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230622102533">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -459,8 +459,26 @@ data-event-label="high"
   
 
   
+<div class="row metadata-available-indicator">
+  <div class="col-xs-12">
+    <h2>Official development assistance on conservation and sustainable use of biodiversity; and tax revenue from biodiversity-relevant economic instruments</h2>
+  </div>
+</div>
+
 
   
+<div class="row proxy-banner my-4 mx-1 px-2 gx-2">
+  <div class="col col-auto align-self-center">
+    <span aria-describedby="proxy-description" class="proxy-pill">Proxy</span>
+  </div>
+  <div class="col col-auto align-self-center">
+    =
+  </div>
+  <div id="proxy-description" class="col">
+    This indicator contains some alternative data to those specified by the United Nations (UN). This indicator is the most suitable match currently available.
+  </div>
+</div>
+
 
   
 
@@ -483,8 +501,8 @@ data-event-label="high"
   data-id="15-b-1"
   data-country="United Kingdom"
   data-charttitle="(a) Official development assistance on conservation and sustainable use of biodiversity; and (b) revenue generated and finance mobilized from biodiversity-relevant economic instruments"
-  data-charttitles="[{&quot;series&quot;:&quot;Total official development assistance for biodiversity, by recipient countries&quot;,&quot;title&quot;:&quot;Total official development assistance (ODA) for biodiversity (£ Millions)&quot;},{&quot;series&quot;:&quot;Tax revenue from biodiversity-relevant taxes&quot;,&quot;unit&quot;:&quot;GBP (£ Millions)&quot;,&quot;title&quot;:&quot;Tax revenue from biodiversity-relevant taxes (£ Millions)&quot;},{&quot;series&quot;:&quot;Tax revenue from biodiversity-relevant taxes&quot;,&quot;unit&quot;:&quot;Percent of GDP (%)&quot;,&quot;title&quot;:&quot;Tax revenue from biodiversity-relevant taxes (% of GDP)&quot;},{&quot;series&quot;:&quot;Tax revenue from biodiversity-relevant taxes&quot;,&quot;unit&quot;:&quot;USD ($ Millions)&quot;,&quot;title&quot;:&quot;Tax revenue from biodiversity-relevant taxes ($ Millions)&quot;},{&quot;series&quot;:&quot;Tax revenue from biodiversity-relevant taxes out of total tax revenue&quot;,&quot;title&quot;:&quot;Tax revenue from biodiversity-relevant taxes as a percentage of total tax revenue&quot;}]"
-  data-measurementunit="GPB (£ Millions), USD ($ Millions), Percent of GDP (%), Percentage (%)"
+  data-charttitles="[{&quot;series&quot;:&quot;Total official development assistance for biodiversity, by recipient countries&quot;,&quot;title&quot;:&quot;Total official development assistance (ODA) for biodiversity (£ Millions)&quot;},{&quot;series&quot;:&quot;Tax revenue from biodiversity-relevant taxes&quot;,&quot;unit&quot;:&quot;GBP (£ Millions)&quot;,&quot;title&quot;:&quot;Tax revenue from biodiversity-relevant taxes (£ Millions)&quot;},{&quot;series&quot;:&quot;Tax revenue from biodiversity-relevant taxes&quot;,&quot;unit&quot;:&quot;USD ($ Millions)&quot;,&quot;title&quot;:&quot;Tax revenue from biodiversity-relevant taxes ($ Millions)&quot;}]"
+  data-measurementunit="GPB (£ Millions), USD ($ Millions)"
   data-xaxislabel=""
   data-showdata="true"
   data-graphtype="line"
@@ -498,11 +516,11 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;GBP (£ Millions)&quot;,&quot;USD ($ Millions)&quot;,&quot;Percentage (%)&quot;,&quot;Percent of GDP (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Total official development assistance for biodiversity, by recipient countries&quot;,&quot;Tax revenue from biodiversity-relevant taxes&quot;,&quot;Tax revenue from biodiversity-relevant taxes out of total tax revenue&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Country income classification&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;LDCs&quot;,&quot;LMICs&quot;,&quot;UMICs&quot;,&quot;Other LICs&quot;,&quot;Unspecified&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country income classification&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Total official development assistance for biodiversity, by recipient countries&quot;,&quot;Tax revenue from biodiversity-relevant taxes&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Country income classification&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;LDCs&quot;,&quot;LMICs&quot;,&quot;Other LICs&quot;,&quot;UMICs&quot;,&quot;Unspecified&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country income classification&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;GBP (£ Millions)&quot;,&quot;USD ($ Millions)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
-  data-proxy=""
-  data-proxyseries="null"
+  data-proxy="both"
+  data-proxyseries="[&quot;Total official development assistance for biodiversity, by recipient countries&quot;]"
 >
   
   <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
@@ -564,11 +582,7 @@ data-event-label="high"
         
         
         
-        <th scope="col">Unit multiplier</th>
-        
-        
-        
-        <th scope="col" class="table-value">Unit measure</th>
+        <th scope="col" class="table-value">Unit multiplier</th>
         
         
       </thead>
@@ -581,7 +595,7 @@ data-event-label="high"
           
           
           
-          <td>181.1478</td>
+          <td>181.148</td>
           
           
           
@@ -597,11 +611,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -613,7 +623,7 @@ data-event-label="high"
           
           
           
-          <td>306.31455</td>
+          <td>306.315</td>
           
           
           
@@ -629,11 +639,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -645,7 +651,7 @@ data-event-label="high"
           
           
           
-          <td>104.43612</td>
+          <td>104.436</td>
           
           
           
@@ -661,11 +667,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -677,7 +679,7 @@ data-event-label="high"
           
           
           
-          <td>4.33889</td>
+          <td>4.339</td>
           
           
           
@@ -693,11 +695,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -709,7 +707,7 @@ data-event-label="high"
           
           
           
-          <td>4.03554</td>
+          <td>4.036</td>
           
           
           
@@ -725,11 +723,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -741,7 +735,7 @@ data-event-label="high"
           
           
           
-          <td>6.76673</td>
+          <td>6.767</td>
           
           
           
@@ -757,11 +751,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -773,7 +763,7 @@ data-event-label="high"
           
           
           
-          <td>25.72453</td>
+          <td>25.725</td>
           
           
           
@@ -789,11 +779,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -805,7 +791,7 @@ data-event-label="high"
           
           
           
-          <td>11.74538</td>
+          <td>11.745</td>
           
           
           
@@ -821,11 +807,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -837,7 +819,7 @@ data-event-label="high"
           
           
           
-          <td>13.8718121327</td>
+          <td>13.872</td>
           
           
           
@@ -853,11 +835,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -869,7 +847,7 @@ data-event-label="high"
           
           
           
-          <td>15.3133227968</td>
+          <td>15.313</td>
           
           
           
@@ -885,11 +863,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -901,7 +875,7 @@ data-event-label="high"
           
           
           
-          <td>32.6601069598</td>
+          <td>32.66</td>
           
           
           
@@ -917,11 +891,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -933,7 +903,7 @@ data-event-label="high"
           
           
           
-          <td>16.2649267703</td>
+          <td>16.276</td>
           
           
           
@@ -949,11 +919,35 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
+          <td class="table-value">Millions</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
           
           
           
-          <td class="table-value">GBP</td>
+          <td>36.035</td>
+          
+          
+          
+          <td>GBP (£ Millions)</td>
+          
+          
+          
+          <td>Total official development assistance for biodiversity, by recipient countries</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -981,11 +975,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1013,11 +1003,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1045,11 +1031,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1077,11 +1059,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1109,11 +1087,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1141,11 +1115,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1173,11 +1143,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1205,11 +1171,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1221,7 +1183,7 @@ data-event-label="high"
           
           
           
-          <td>229.0</td>
+          <td>16.0</td>
           
           
           
@@ -1237,11 +1199,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1253,7 +1211,7 @@ data-event-label="high"
           
           
           
-          <td>357.0</td>
+          <td>17.0</td>
           
           
           
@@ -1269,11 +1227,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1285,7 +1239,7 @@ data-event-label="high"
           
           
           
-          <td>347.0</td>
+          <td>19.0</td>
           
           
           
@@ -1301,11 +1255,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1317,7 +1267,7 @@ data-event-label="high"
           
           
           
-          <td>347.0</td>
+          <td>20.0</td>
           
           
           
@@ -1333,11 +1283,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1349,7 +1295,7 @@ data-event-label="high"
           
           
           
-          <td>341.0</td>
+          <td>20.0</td>
           
           
           
@@ -1365,11 +1311,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1381,7 +1323,7 @@ data-event-label="high"
           
           
           
-          <td>359.0</td>
+          <td>20.0</td>
           
           
           
@@ -1397,11 +1339,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1413,7 +1351,7 @@ data-event-label="high"
           
           
           
-          <td>354.0</td>
+          <td>20.0</td>
           
           
           
@@ -1429,11 +1367,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1445,7 +1379,7 @@ data-event-label="high"
           
           
           
-          <td>295.0</td>
+          <td>20.0</td>
           
           
           
@@ -1461,11 +1395,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1477,7 +1407,7 @@ data-event-label="high"
           
           
           
-          <td>310.0</td>
+          <td>20.0</td>
           
           
           
@@ -1493,11 +1423,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1509,7 +1435,7 @@ data-event-label="high"
           
           
           
-          <td>313.0</td>
+          <td>23.0</td>
           
           
           
@@ -1525,11 +1451,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1541,7 +1463,7 @@ data-event-label="high"
           
           
           
-          <td>285.0</td>
+          <td>21.0</td>
           
           
           
@@ -1557,11 +1479,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1573,7 +1491,7 @@ data-event-label="high"
           
           
           
-          <td>303.0</td>
+          <td>21.0</td>
           
           
           
@@ -1589,11 +1507,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1605,7 +1519,7 @@ data-event-label="high"
           
           
           
-          <td>363.0</td>
+          <td>21.0</td>
           
           
           
@@ -1621,11 +1535,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1637,7 +1547,7 @@ data-event-label="high"
           
           
           
-          <td>375.0</td>
+          <td>21.0</td>
           
           
           
@@ -1653,11 +1563,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1669,7 +1575,7 @@ data-event-label="high"
           
           
           
-          <td>426.0</td>
+          <td>21.0</td>
           
           
           
@@ -1685,11 +1591,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1701,7 +1603,7 @@ data-event-label="high"
           
           
           
-          <td>396.0</td>
+          <td>21.0</td>
           
           
           
@@ -1717,11 +1619,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1733,7 +1631,7 @@ data-event-label="high"
           
           
           
-          <td>387.0</td>
+          <td>21.0</td>
           
           
           
@@ -1749,11 +1647,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">GBP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1765,7 +1659,7 @@ data-event-label="high"
           
           
           
-          <td>423.0</td>
+          <td>27.0</td>
           
           
           
@@ -1781,11 +1675,63 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
+          <td class="table-value">Millions</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
           
           
           
-          <td class="table-value">GBP</td>
+          <td>21.0</td>
+          
+          
+          
+          <td>GBP (£ Millions)</td>
+          
+          
+          
+          <td>Tax revenue from biodiversity-relevant taxes</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Millions</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>21.0</td>
+          
+          
+          
+          <td>GBP (£ Millions)</td>
+          
+          
+          
+          <td>Tax revenue from biodiversity-relevant taxes</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1797,7 +1743,7 @@ data-event-label="high"
           
           
           
-          <td>13.774</td>
+          <td>13.77</td>
           
           
           
@@ -1813,11 +1759,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1829,7 +1771,7 @@ data-event-label="high"
           
           
           
-          <td>29.984</td>
+          <td>29.98</td>
           
           
           
@@ -1845,11 +1787,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1861,7 +1799,7 @@ data-event-label="high"
           
           
           
-          <td>34.324</td>
+          <td>34.32</td>
           
           
           
@@ -1877,11 +1815,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1893,7 +1827,7 @@ data-event-label="high"
           
           
           
-          <td>36.016</td>
+          <td>36.02</td>
           
           
           
@@ -1909,11 +1843,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1925,7 +1855,7 @@ data-event-label="high"
           
           
           
-          <td>34.778</td>
+          <td>34.78</td>
           
           
           
@@ -1941,11 +1871,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1957,7 +1883,7 @@ data-event-label="high"
           
           
           
-          <td>37.213</td>
+          <td>37.21</td>
           
           
           
@@ -1973,11 +1899,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -1989,7 +1911,7 @@ data-event-label="high"
           
           
           
-          <td>25.721</td>
+          <td>25.72</td>
           
           
           
@@ -2005,11 +1927,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2021,7 +1939,7 @@ data-event-label="high"
           
           
           
-          <td>21.593</td>
+          <td>21.59</td>
           
           
           
@@ -2037,11 +1955,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2053,7 +1967,7 @@ data-event-label="high"
           
           
           
-          <td>343.214</td>
+          <td>23.98</td>
           
           
           
@@ -2069,11 +1983,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2085,7 +1995,7 @@ data-event-label="high"
           
           
           
-          <td>582.884</td>
+          <td>27.76</td>
           
           
           
@@ -2101,11 +2011,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2117,7 +2023,7 @@ data-event-label="high"
           
           
           
-          <td>635.322</td>
+          <td>34.79</td>
           
           
           
@@ -2133,11 +2039,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2149,7 +2051,7 @@ data-event-label="high"
           
           
           
-          <td>630.911</td>
+          <td>36.36</td>
           
           
           
@@ -2165,11 +2067,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2181,7 +2079,7 @@ data-event-label="high"
           
           
           
-          <td>627.43</td>
+          <td>36.8</td>
           
           
           
@@ -2197,11 +2095,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2213,7 +2107,7 @@ data-event-label="high"
           
           
           
-          <td>718.328</td>
+          <td>40.02</td>
           
           
           
@@ -2229,11 +2123,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2245,7 +2135,7 @@ data-event-label="high"
           
           
           
-          <td>650.776</td>
+          <td>36.77</td>
           
           
           
@@ -2261,11 +2151,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2277,7 +2163,7 @@ data-event-label="high"
           
           
           
-          <td>459.56</td>
+          <td>31.16</td>
           
           
           
@@ -2293,11 +2179,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2309,7 +2191,7 @@ data-event-label="high"
           
           
           
-          <td>479.002</td>
+          <td>30.9</td>
           
           
           
@@ -2325,11 +2207,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2341,7 +2219,7 @@ data-event-label="high"
           
           
           
-          <td>501.489</td>
+          <td>36.85</td>
           
           
           
@@ -2357,11 +2235,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2373,7 +2247,7 @@ data-event-label="high"
           
           
           
-          <td>450.204</td>
+          <td>33.17</td>
           
           
           
@@ -2389,11 +2263,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2405,7 +2275,7 @@ data-event-label="high"
           
           
           
-          <td>473.688</td>
+          <td>32.83</td>
           
           
           
@@ -2421,11 +2291,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2437,7 +2303,7 @@ data-event-label="high"
           
           
           
-          <td>597.305</td>
+          <td>34.56</td>
           
           
           
@@ -2453,11 +2319,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2469,7 +2331,7 @@ data-event-label="high"
           
           
           
-          <td>572.917</td>
+          <td>32.08</td>
           
           
           
@@ -2485,11 +2347,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2501,7 +2359,7 @@ data-event-label="high"
           
           
           
-          <td>575.183</td>
+          <td>28.35</td>
           
           
           
@@ -2517,11 +2375,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2533,7 +2387,7 @@ data-event-label="high"
           
           
           
-          <td>509.668</td>
+          <td>27.03</td>
           
           
           
@@ -2549,11 +2403,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2565,7 +2415,7 @@ data-event-label="high"
           
           
           
-          <td>516.322</td>
+          <td>28.02</td>
           
           
           
@@ -2581,11 +2431,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2597,7 +2443,7 @@ data-event-label="high"
           
           
           
-          <td>539.923</td>
+          <td>34.46</td>
           
           
           
@@ -2613,11 +2459,7 @@ data-event-label="high"
           
           
           
-          <td>Millions</td>
-          
-          
-          
-          <td class="table-value">USD</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -2625,847 +2467,15 @@ data-event-label="high"
         <tr>
           
           
-          <td>1994</td>
+          <td>2020</td>
           
           
           
-          <td>0.004</td>
+          <td>26.92</td>
           
           
           
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1995</td>
-          
-          
-          
-          <td>0.008</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1996</td>
-          
-          
-          
-          <td>0.008</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1997</td>
-          
-          
-          
-          <td>0.008</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1998</td>
-          
-          
-          
-          <td>0.007</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1999</td>
-          
-          
-          
-          <td>0.007</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2000</td>
-          
-          
-          
-          <td>0.005</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2001</td>
-          
-          
-          
-          <td>0.004</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2002</td>
-          
-          
-          
-          <td>0.061</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2003</td>
-          
-          
-          
-          <td>0.091</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2004</td>
-          
-          
-          
-          <td>0.082</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2005</td>
-          
-          
-          
-          <td>0.076</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2006</td>
-          
-          
-          
-          <td>0.071</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2007</td>
-          
-          
-          
-          <td>0.071</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2008</td>
-          
-          
-          
-          <td>0.069</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2009</td>
-          
-          
-          
-          <td>0.061</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2010</td>
-          
-          
-          
-          <td>0.06</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2011</td>
-          
-          
-          
-          <td>0.058</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2012</td>
-          
-          
-          
-          <td>0.052</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2013</td>
-          
-          
-          
-          <td>0.053</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2014</td>
-          
-          
-          
-          <td>0.061</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2015</td>
-          
-          
-          
-          <td>0.06</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2016</td>
-          
-          
-          
-          <td>0.065</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2017</td>
-          
-          
-          
-          <td>0.058</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2018</td>
-          
-          
-          
-          <td>0.055</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2019</td>
-          
-          
-          
-          <td>0.058</td>
-          
-          
-          
-          <td>Percentage (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes out of total tax revenue</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Percentage (%)</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1994</td>
-          
-          
-          
-          <td>0.001</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
+          <td>USD ($ Millions)</td>
           
           
           
@@ -3477,11 +2487,7 @@ data-event-label="high"
           
           
           
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -3489,15 +2495,15 @@ data-event-label="high"
         <tr>
           
           
-          <td>1995</td>
+          <td>2021</td>
           
           
           
-          <td>0.002</td>
+          <td>28.88</td>
           
           
           
-          <td>Percent of GDP (%)</td>
+          <td>USD ($ Millions)</td>
           
           
           
@@ -3509,779 +2515,7 @@ data-event-label="high"
           
           
           
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1996</td>
-          
-          
-          
-          <td>0.002</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1997</td>
-          
-          
-          
-          <td>0.002</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1998</td>
-          
-          
-          
-          <td>0.002</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>1999</td>
-          
-          
-          
-          <td>0.002</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2000</td>
-          
-          
-          
-          <td>0.002</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2001</td>
-          
-          
-          
-          <td>0.001</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2002</td>
-          
-          
-          
-          <td>0.019</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2003</td>
-          
-          
-          
-          <td>0.028</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2004</td>
-          
-          
-          
-          <td>0.026</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2005</td>
-          
-          
-          
-          <td>0.025</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2006</td>
-          
-          
-          
-          <td>0.023</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2007</td>
-          
-          
-          
-          <td>0.023</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2008</td>
-          
-          
-          
-          <td>0.022</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2009</td>
-          
-          
-          
-          <td>0.019</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2010</td>
-          
-          
-          
-          <td>0.019</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2011</td>
-          
-          
-          
-          <td>0.019</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2012</td>
-          
-          
-          
-          <td>0.017</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2013</td>
-          
-          
-          
-          <td>0.017</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2014</td>
-          
-          
-          
-          <td>0.019</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2015</td>
-          
-          
-          
-          <td>0.02</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2016</td>
-          
-          
-          
-          <td>0.021</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2017</td>
-          
-          
-          
-          <td>0.019</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2018</td>
-          
-          
-          
-          <td>0.018</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
-          <td>2019</td>
-          
-          
-          
-          <td>0.019</td>
-          
-          
-          
-          <td>Percent of GDP (%)</td>
-          
-          
-          
-          <td>Tax revenue from biodiversity-relevant taxes</td>
-          
-          
-          
-          <td>Estimated value</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">% of GDP</td>
+          <td class="table-value">Millions</td>
           
           
         </tr>
@@ -4294,13 +2528,13 @@ data-event-label="high"
   
   <div id="datatableFooter">
     
-    <p>Source: Foreign, Commonwealth & Development Office</p>
+    <p>Source: Foreign, Commonwealth & Development Office (FCDO)</p>
     
     
     <p>Geographical Area: United Kingdom</p>
     
     
-    <p>Unit of Measurement: GPB (£ Millions), USD ($ Millions), Percent of GDP (%), Percentage (%)</p>
+    <p>Unit of Measurement: GPB (£ Millions), USD ($ Millions)</p>
     
     
   </div>
@@ -4408,7 +2642,7 @@ data-event-label="Change to Table tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>Foreign, Commonwealth & Development Office, Organisation for Economic Cooperation and Development (OECD)</dd>
+        <dd>Foreign, Commonwealth & Development Office (FCDO), Organisation for Economic Cooperation and Development (OECD)</dd>
         
 
         
@@ -4483,7 +2717,7 @@ data-event-label="Change to Table tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>Foreign, Commonwealth & Development Office, Organisation for Economic Cooperation and Development (OECD)</dd>
+        <dd>Foreign, Commonwealth & Development Office (FCDO), Organisation for Economic Cooperation and Development (OECD)</dd>
         
 
         
@@ -4602,19 +2836,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Indicator available </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Official development assistance on conservation and sustainable use of biodiversity; and tax revenue from biodiversity-relevant economic instruments</p>
 
           
         </td>
@@ -4625,19 +2852,13 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Indicator description </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Total Official Development Assistance flows to developing countries quantify the public effort that donors provide to developing countries for biodiversity</p>
+<p>Economic policy instruments can either generate revenue (e.g. biodiversity-relevant taxes) or mobilise finance directly for biodiversity conservation and sustainable use (e.g. biodiversity-relevant fees and charges, positive subsidies, PES and offsets) which is finance mobilised at domestic level.</p>
 
           
         </td>
@@ -4669,7 +2890,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            <p>GPB (£ Millions), USD ($ Millions), Percent of GDP (%), Percentage (%)</p>
+            <p>GPB (£ Millions), USD ($ Millions)</p>
 
           
         </td>
@@ -4685,7 +2906,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p><b>Sub-indicator a) Official development assistance on conservation and sustainable use of biodiversity</b><p>This sub-indicator is represented by series option "Total official development assistance for biodiversity, by recipient countries". <p>Official Development Assistance (ODA) - Resource flows to developing countries and multilateral organisations provided by official agencies (e.g. the UK Government) or their executive agencies. Each transaction is administered for the promotion of the economic development and welfare of developing countries and is concessional in character. More information on ODA can be found on the <a href="http://www.oecd.org/development/financing-sustainable-development/development-finance-standards/officialdevelopmentassistancedefinitionandcoverage.htm">OECD website</a>. ODA recipients are broken down in groups according to their Gross National Income (GNI) per capita.<p>Country income classification - The Development Assistance Committee (DAC) list of countries eligible to receive ODA is based on Gross National Income per capita as published by the <a href="https://data.worldbank.org/indicator/NY.GNP.PCAP.CD">World Bank</a>. All low and middle income countries are included, with the exception of G8 members, EU members, and countries with a firm date for entry into the EU. The list also includes all Least Developed Countries (LDCs) as defined by the <a href="https://www.un.org/ohrlls/content/least-developed-countries%20">United Nations (UN)</a>.<p>LDCs - Least Developed Countries<p>LMICs - Lower Middle Income Countries<p>UMICs - Upper Middle Income Countries<p>Other LICs - Other Low Income Countries<p>Undefined - ODA that cannot be allocated to a single country<p><b>Sub-indicator b) Revenue generated and finance mobilised from biodiversity-relevant economic instruments</b><p>This sub-indicator is represented by series options "Tax revenue from biodiversity-relevant taxes" and "Tax revenue from biodiversity-relevant taxes out of total tax revenue" <p>Biodiversity-relevant taxes - Revenue raised from taxes and auctioning of tradable permits directed at biodiversity.</p>
+            <p><b>Sub-indicator a) Official development assistance on conservation and sustainable use of biodiversity</b><p>This sub-indicator is represented by series option "Total official development assistance for biodiversity, by recipient countries". <p>Official Development Assistance (ODA) - Resource flows to developing countries and multilateral organisations provided by official agencies (e.g. the UK Government) or their executive agencies. Each transaction is administered for the promotion of the economic development and welfare of developing countries as its primary objective and is concessional in character. More information on ODA can be found on the <a href="http://www.oecd.org/development/financing-sustainable-development/development-finance-standards/officialdevelopmentassistancedefinitionandcoverage.htm">OECD website</a>. ODA recipients are broken down in groups according to their Gross National Income (GNI) per capita.<p>Country income classification - The Development Assistance Committee (DAC) list of countries eligible to receive ODA is based on Gross National Income per capita as published by the <a href="https://data.worldbank.org/indicator/NY.GNP.PCAP.CD">World Bank</a>. All low and middle income countries are included, with the exception of G8 members, EU members, and countries with a firm date for entry into the EU. The list also includes all Least Developed Countries (LDCs) as defined by the <a href="https://www.un.org/ohrlls/content/least-developed-countries%20">United Nations (UN)</a>.<p>LDCs - Least Developed Countries<p>LMICs - Lower Middle Income Countries<p>UMICs - Upper Middle Income Countries<p>Other LICs - Other Low Income Countries<p>Unspecified - ODA that cannot be allocated to a single country<p><b>Sub-indicator b) Revenue generated and finance mobilised from biodiversity-relevant economic instruments</b><p>This sub-indicator is represented by series options "Tax revenue from biodiversity-relevant taxes". <p>Biodiversity- relevant taxes - Revenue raised from taxes and auctioning of tradable permits directed at biodiversity.</p>
 </p></p></p></p></p></p></p></p></p></p></p>
 
           
@@ -4697,19 +2918,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Available disaggregations </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Recipient country income classification for total official development assistance (ODA) for biodiversity .</p>
 
           
         </td>
@@ -4742,8 +2956,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p><b>Sub-indicator b) Revenue generated and finance mobilised from biodiversity-relevant economic instruments</b><p>Further information on Tax revenue from biodiversity-relevant economic instruments is available in the <a href="https://stats.oecd.org/fileview2.aspx?IDFile=813ced8d-4560-4c43-9b2c-413d017bee9e">Environmentally related tax revenue Dataset Documentation (PDF 0.18 MB).</a><p> Other environmentally related tax revenue are available from the source, in addition to further units (percentage of environmentally related tax revenue, USD 2015 Purchasing Power Parity (PPP), and USD 2015 PPP per capita).<p>Further information on taxes and the associated tax revenue is available on the <a href="http://oe.cd/pine"> OECD Policy Instruments for the Environment (PINE) database</a>.</p> Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.
-</p></p></p>
+            <p><b>Sub-indicator a) Official development assistance on conservation and sustainable use of biodiversity</b><p>This is currently a proxy indicator because the UN metadata (see Global metadata tab) require that the biodiversity spend calculation is based on the <a href="https://www.oecd.org/dac/environment-development/rioconventions.htm">Rio marker</a> for biodiversity. Here we use only the CRS code for biodiversity from the SID data, which may lead to an under-estimation. We are working on supplying more accurate figures.<p><p><b>Sub-indicator b) Revenue generated and finance mobilised from biodiversity-relevant economic instruments</b><p> Other environmentally related tax revenue are available from the source, in addition to more units and details about the available dataset. Further information on taxes and the associated tax revenue is available on the <a href="http://oe.cd/pine"> OECD Policy Instruments for the Environment (PINE) database</a>.</p>  Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.
+</p></p></p></p>
 
           
         </td>
@@ -4759,7 +2973,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            29 October 2021
+            22 June 2023
           
         </td>
         </tr>
@@ -4774,7 +2988,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            29 October 2021
+            22 June 2023
           
         </td>
         </tr>
@@ -5225,7 +3439,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Foreign, Commonwealth &amp; Development Office</p>
+            <p>Foreign, Commonwealth &amp; Development Office (FCDO)</p>
 
           
         </td>
@@ -5294,8 +3508,8 @@ data-event-label="Change to Sources tab"
             
             
             
-              <a href="https://www.gov.uk/government/statistics/statistics-on-international-development-final-uk-aid-spend-2020" target="_blank">
-                Statistics on International Development (SID) Final UK Aid Spend 2020 <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.gov.uk/government/statistics/statistics-on-international-development-final-uk-aid-spend-2021" target="_blank">
+                Statistics on International Development (SID) Final UK Aid Spend 2021 <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -5319,7 +3533,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            29 September 2021
+            23 November 2022
           
         </td>
         </tr>
@@ -5334,7 +3548,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>Spring 2022: We plan to update indicator data within 4 months of data being released</p>
+            <p>Autumn 2023: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -5382,7 +3596,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Data for sub-indicator a (ODA for biodiversity).  The Sector Purpose Code (CRS code) for biodiversity is 41030. Latest data (2017 to 2020) obtained from table “Data underlying the SID publication”. Previous data (2009 to 2016) is available from <a href="https://www.gov.uk/government/statistics/statistics-on-international-development-2017">Statistics on International Development 2017</a> in the Data underlying SID 2017 publication.</p>
+            <p>Data for sub-indicator a (ODA for biodiversity).  The Sector Purpose Code (CRS code) for biodiversity is 41030. Latest data obtained from table “Data underlying the SID publication”. Previous data (2009 to 2016) is available from <a href="https://www.gov.uk/government/statistics/statistics-on-international-development-2017">Statistics on International Development 2017</a> in the Data underlying SID 2017 publication.</p>
 
           
         </td>
@@ -5647,7 +3861,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            01 December 2020
+            01 May 2023
           
         </td>
         </tr>
@@ -5724,7 +3938,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>To download the full dataset, export your customised table as a text file (csv) rather than an Excel file. <br /><b>Selections under customise:</b> <br />Country = United Kingdom<br />Variable = all except % of environmentally related tax revenue and the two with USD PPP<br />Category = All tax bases <br />Environmental domain = Biodiversity</p>
+            <p>To download the full dataset, export your customised table as a text file (csv) rather than an Excel file. <br /><b>Selections under customise:</b> <br />Country = United Kingdom<br />Variable = ‘Tax revenue, millions national currency’ and ‘Tax revenue, millions USD’<br />Category = All tax bases <br />Environmental domain = Biodiversity</p>
 
           
         </td>
@@ -6067,7 +4281,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230622003005'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230622102533'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -6075,7 +4289,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230622003005"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230622102533"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
