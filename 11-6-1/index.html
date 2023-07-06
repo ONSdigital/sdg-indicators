@@ -148,7 +148,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230706003318">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230706084722">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -467,6 +467,18 @@ data-event-label="high"
 
 
   
+<div class="row proxy-banner my-4 mx-1 px-2 gx-2">
+  <div class="col col-auto align-self-center">
+    <span aria-describedby="proxy-description" class="proxy-pill">Proxy</span>
+  </div>
+  <div class="col col-auto align-self-center">
+    =
+  </div>
+  <div id="proxy-description" class="col">
+    This indicator contains some alternative data to those specified by the United Nations (UN). This indicator is the most suitable match currently available.
+  </div>
+</div>
+
 
   
 
@@ -514,7 +526,7 @@ data-event-label="high"
   data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Proportion of disposed waste from total collected waste&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Disposal method&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Landfill&quot;,&quot;Incineration with EfW&quot;,&quot;Incineration without EfW&quot;,&quot;Recycled-composted&quot;,&quot;Other&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Disposal method&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;East&quot;,&quot;East Midlands&quot;,&quot;London&quot;,&quot;North East&quot;,&quot;North West&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;West Midlands&quot;,&quot;Yorkshire and The Humber&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Waste collection authority&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Bedford&quot;,&quot;Cambridgeshire County Council&quot;,&quot;Central Bedfordshire&quot;,&quot;Essex County Council&quot;,&quot;Hertfordshire County Council&quot;,&quot;Luton Borough Council&quot;,&quot;Norfolk County Council&quot;,&quot;Peterborough City Council&quot;,&quot;Southend-on-Sea Borough Council&quot;,&quot;Suffolk County Council&quot;,&quot;Thurrock Council&quot;,&quot;Derby City Council&quot;,&quot;Derbyshire County Council&quot;,&quot;Leicester City Council&quot;,&quot;Leicestershire County Council&quot;,&quot;Lincolnshire County Council&quot;,&quot;Northamptonshire County Council&quot;,&quot;Nottingham City Council&quot;,&quot;Nottinghamshire County Council&quot;,&quot;Rutland County Council&quot;,&quot;Bexley LB&quot;,&quot;Bromley LB&quot;,&quot;City of London&quot;,&quot;Croydon LB&quot;,&quot;East London Waste Authority&quot;,&quot;Greenwich LB&quot;,&quot;Lewisham LB&quot;,&quot;Merton LB&quot;,&quot;North London Waste Authority&quot;,&quot;Royal Borough of Kingston upon Thames&quot;,&quot;Southwark LB&quot;,&quot;Sutton LB&quot;,&quot;Tower Hamlets LB&quot;,&quot;West London Waste Authority&quot;,&quot;Western Riverside Waste Authority&quot;,&quot;Westminster City Council&quot;,&quot;County Durham&quot;,&quot;Darlington Borough Council&quot;,&quot;Gateshead MBC&quot;,&quot;Hartlepool Borough Council&quot;,&quot;Middlesbrough Borough Council&quot;,&quot;Newcastle-upon-Tyne City Council MBC&quot;,&quot;North Tyneside Council&quot;,&quot;Northumberland&quot;,&quot;Redcar and Cleveland Borough Council&quot;,&quot;South Tyneside MBC&quot;,&quot;Stockton-on-Tees Borough Council&quot;,&quot;Sunderland City Council&quot;,&quot;Blackburn with Darwen Borough Council&quot;,&quot;Blackpool Borough Council&quot;,&quot;Cheshire East&quot;,&quot;Cheshire West and Chester&quot;,&quot;Cumbria County Council&quot;,&quot;Greater Manchester WDA (MBC)&quot;,&quot;Halton Borough Council&quot;,&quot;Lancashire County Council&quot;,&quot;Merseyside WDA (MBC)&quot;,&quot;Warrington Borough Council&quot;,&quot;Wigan MBC&quot;,&quot;Bracknell Forest Borough Council&quot;,&quot;Brighton and Hove Council&quot;,&quot;Buckinghamshire County Council&quot;,&quot;East Sussex County Council&quot;,&quot;Hampshire County Council&quot;,&quot;Isle of Wight Council&quot;,&quot;Kent County Council&quot;,&quot;Medway Borough Council&quot;,&quot;Milton Keynes Council&quot;,&quot;Oxfordshire County Council&quot;,&quot;Portsmouth City Council&quot;,&quot;Reading Borough Council&quot;,&quot;Slough Borough Council&quot;,&quot;Southampton City Council&quot;,&quot;Surrey County Council&quot;,&quot;West Berkshire District Council&quot;,&quot;West Sussex County Council&quot;,&quot;Windsor and Maidenhead Borough Council&quot;,&quot;Wokingham Council&quot;,&quot;Bath and North East Somerset Council&quot;,&quot;Bournemouth Borough Council&quot;,&quot;Bristol City Council&quot;,&quot;Cornwall&quot;,&quot;Council of the Isles of Scilly&quot;,&quot;Devon County Council&quot;,&quot;Dorset Waste Partnership&quot;,&quot;Gloucestershire County Council&quot;,&quot;North Somerset Council&quot;,&quot;Plymouth City Council&quot;,&quot;Poole Borough Council&quot;,&quot;Somerset County Council&quot;,&quot;South Gloucestershire Council&quot;,&quot;Swindon Borough Council&quot;,&quot;Torbay Council&quot;,&quot;Wiltshire&quot;,&quot;Birmingham City Council&quot;,&quot;Coventry City Council&quot;,&quot;Dudley MBC&quot;,&quot;Herefordshire Council&quot;,&quot;Sandwell MBC&quot;,&quot;Shropshire&quot;,&quot;Solihull MBC&quot;,&quot;Staffordshire County Council&quot;,&quot;Stoke-on-Trent City Council&quot;,&quot;Telford and Wrekin Council&quot;,&quot;Walsall MBC&quot;,&quot;Warwickshire County Council&quot;,&quot;Wolverhampton MBC&quot;,&quot;Worcestershire County Council&quot;,&quot;Barnsley Metropolitan Borough Council&quot;,&quot;Bradford City MDC (MBC)&quot;,&quot;Calderdale MBC&quot;,&quot;Doncaster MBC&quot;,&quot;East Riding of Yorkshire Council&quot;,&quot;Kingston-upon-Hull City Council&quot;,&quot;Kirklees MBC&quot;,&quot;Leeds City Council MBC&quot;,&quot;North East Lincolnshire Council&quot;,&quot;North Lincolnshire Council&quot;,&quot;North Yorkshire County Council&quot;,&quot;Rotherham MBC&quot;,&quot;Sheffield City Council&quot;,&quot;Wakefield City MDC&quot;,&quot;York City Council&quot;,&quot;Somerset Waste Partnership&quot;,&quot;Bournemouth, Christchurch and Poole Council&quot;,&quot;Dorset Council&quot;,&quot;Barnsley MBC&quot;,&quot;Buckinghamshire Council&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Waste collection authority&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
-  data-proxy=""
+  data-proxy="proxy"
   data-proxyseries="null"
 >
   
@@ -1116,7 +1128,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            29 April 2022
+            06 July 2023
           
         </td>
         </tr>
@@ -2064,7 +2076,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230706003318'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230706084722'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2072,7 +2084,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230706003318"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230706084722"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
