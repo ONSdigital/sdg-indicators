@@ -148,7 +148,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230721100353">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230721113905">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -459,6 +459,12 @@ data-event-label="high"
   
 
   
+<div class="row metadata-available-indicator">
+  <div class="col-xs-12">
+    <h2>Proportion of important sites for terrestrial and freshwater biodiversity that are covered by protected areas, by ecosystem type</h2>
+  </div>
+</div>
+
 
   
 
@@ -479,14 +485,14 @@ data-event-label="high"
   data-id="15-1-2"
   data-country="United Kingdom"
   data-charttitle="Proportion of important sites for terrestrial and freshwater biodiversity that are covered by protected areas, by ecosystem type"
-  data-charttitles="[{&quot;series&quot;:&quot;Average proportion of terrestrial Key Biodiversity Areas (KBAs) covered by protected areas&quot;,&quot;unit&quot;:&quot;Percentage (%)&quot;,&quot;title&quot;:&quot;Percentage of terrestrial Key Biodiversity Areas within protected areas (%)&quot;},{&quot;series&quot;:&quot;Average proportion of freshwater Key Biodiversity Areas (KBAs) covered by protected areas&quot;,&quot;unit&quot;:&quot;Percentage (%)&quot;,&quot;title&quot;:&quot;Percentage of freshwater Key Biodiversity Areas within protected areas (%)&quot;}]"
+  data-charttitles="[{&quot;series&quot;:&quot;1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)&quot;,&quot;title&quot;:&quot;Mean percentage of each Terrestrial Key Biodiversity Areas covered by protected areas (%)&quot;},{&quot;series&quot;:&quot;2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)&quot;,&quot;title&quot;:&quot;Mean percentage of each Freshwater Key Biodiversity Areas covered by protected areas (%)&quot;}]"
   data-measurementunit="Percentage (%)"
   data-xaxislabel=""
   data-showdata="true"
   data-graphtype="line"
   data-graphtypes="null"
   data-geocoderegex=""
-  data-showmap="true"
+  data-showmap="false"
   data-startvalues="null"
   data-graphlimits="[{&quot;unit&quot;:&quot;Percentage (%)&quot;,&quot;minimum&quot;:0,&quot;maximum&quot;:100}]"
   data-stackeddisaggregation=""
@@ -494,7 +500,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;England&quot;,&quot;Northern Ireland&quot;,&quot;Scotland&quot;,&quot;Wales&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;East&quot;,&quot;East Midlands&quot;,&quot;London&quot;,&quot;North East&quot;,&quot;North West&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;West Midlands&quot;,&quot;Yorkshire and The Humber&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Ecosystem type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Arable&quot;,&quot;Broadleaf woodland&quot;,&quot;Built-up areas and gardens&quot;,&quot;Coastal&quot;,&quot;Coniferous woodland&quot;,&quot;Improved grassland&quot;,&quot;Mountain, heath, bog&quot;,&quot;Saltwater&quot;,&quot;Semi-natural grassland&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ecosystem type&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Average proportion of terrestrial Key Biodiversity Areas (KBAs) covered by protected areas&quot;,&quot;Average proportion of freshwater Key Biodiversity Areas (KBAs) covered by protected areas&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)&quot;,&quot;2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
   data-proxy=""
@@ -556,10 +562,6 @@ data-event-label="high"
         
         
         
-        <th scope="col">GeoCode</th>
-        
-        
-        
         <th scope="col">Observation status</th>
         
         
@@ -573,11 +575,11 @@ data-event-label="high"
         <tr>
           
           
-          <td>1999</td>
+          <td>2000</td>
           
           
           
-          <td>74.7105390851</td>
+          <td>74.15274</td>
           
           
           
@@ -585,11 +587,7 @@ data-event-label="high"
           
           
           
-          <td>Average proportion of freshwater Key Biodiversity Areas (KBAs) covered by protected areas</td>
-          
-          
-          
-          <td></td>
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
           
           
           
@@ -605,11 +603,11 @@ data-event-label="high"
         <tr>
           
           
-          <td>1999</td>
+          <td>2001</td>
           
           
           
-          <td>60.7553853917</td>
+          <td>75.6432</td>
           
           
           
@@ -617,11 +615,35 @@ data-event-label="high"
           
           
           
-          <td>Average proportion of terrestrial Key Biodiversity Areas (KBAs) covered by protected areas</td>
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
           
           
           
-          <td></td>
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2002</td>
+          
+          
+          
+          <td>75.67927</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
           
           
           
@@ -641,7 +663,7 @@ data-event-label="high"
           
           
           
-          <td>82.232463924</td>
+          <td>76.77621</td>
           
           
           
@@ -649,11 +671,623 @@ data-event-label="high"
           
           
           
-          <td>Average proportion of freshwater Key Biodiversity Areas (KBAs) covered by protected areas</td>
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
           
           
           
-          <td></td>
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2004</td>
+          
+          
+          
+          <td>77.09212</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2005</td>
+          
+          
+          
+          <td>79.36199</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2006</td>
+          
+          
+          
+          <td>79.9189</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2007</td>
+          
+          
+          
+          <td>79.94205</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2008</td>
+          
+          
+          
+          <td>79.96974</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2009</td>
+          
+          
+          
+          <td>79.97629</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>80.40163</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>80.85208</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>80.85375</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>80.85375</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>80.96204</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>80.96212</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>80.96251</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>81.15844</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>81.39444</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>81.41049</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>81.41052</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>81.41052</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2022</td>
+          
+          
+          
+          <td>81.41052</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2000</td>
+          
+          
+          
+          <td>87.9963</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2001</td>
+          
+          
+          
+          <td>87.9963</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2002</td>
+          
+          
+          
+          <td>87.9963</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
           
           
           
@@ -673,7 +1307,7 @@ data-event-label="high"
           
           
           
-          <td>71.5874768139</td>
+          <td>87.9963</td>
           
           
           
@@ -681,11 +1315,91 @@ data-event-label="high"
           
           
           
-          <td>Average proportion of terrestrial Key Biodiversity Areas (KBAs) covered by protected areas</td>
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
           
           
           
-          <td></td>
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2004</td>
+          
+          
+          
+          <td>87.9963</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2005</td>
+          
+          
+          
+          <td>89.71646</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2006</td>
+          
+          
+          
+          <td>89.71646</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
           
           
           
@@ -705,7 +1419,7 @@ data-event-label="high"
           
           
           
-          <td>85.3085637599</td>
+          <td>89.81708</td>
           
           
           
@@ -713,11 +1427,7 @@ data-event-label="high"
           
           
           
-          <td>Average proportion of freshwater Key Biodiversity Areas (KBAs) covered by protected areas</td>
-          
-          
-          
-          <td></td>
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
           
           
           
@@ -733,11 +1443,11 @@ data-event-label="high"
         <tr>
           
           
-          <td>2007</td>
+          <td>2008</td>
           
           
           
-          <td>72.7094373252</td>
+          <td>89.81708</td>
           
           
           
@@ -745,11 +1455,63 @@ data-event-label="high"
           
           
           
-          <td>Average proportion of terrestrial Key Biodiversity Areas (KBAs) covered by protected areas</td>
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
           
           
           
-          <td></td>
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2009</td>
+          
+          
+          
+          <td>89.81708</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>90.94033</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
           
           
           
@@ -769,7 +1531,7 @@ data-event-label="high"
           
           
           
-          <td>86.2818916908</td>
+          <td>90.94033</td>
           
           
           
@@ -777,11 +1539,7 @@ data-event-label="high"
           
           
           
-          <td>Average proportion of freshwater Key Biodiversity Areas (KBAs) covered by protected areas</td>
-          
-          
-          
-          <td></td>
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
           
           
           
@@ -797,11 +1555,11 @@ data-event-label="high"
         <tr>
           
           
-          <td>2011</td>
+          <td>2012</td>
           
           
           
-          <td>76.5099446041</td>
+          <td>90.94033</td>
           
           
           
@@ -809,11 +1567,63 @@ data-event-label="high"
           
           
           
-          <td>Average proportion of terrestrial Key Biodiversity Areas (KBAs) covered by protected areas</td>
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
           
           
           
-          <td></td>
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>90.94033</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>90.94033</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
           
           
           
@@ -833,7 +1643,7 @@ data-event-label="high"
           
           
           
-          <td>86.2851763094</td>
+          <td>90.94033</td>
           
           
           
@@ -841,11 +1651,7 @@ data-event-label="high"
           
           
           
-          <td>Average proportion of freshwater Key Biodiversity Areas (KBAs) covered by protected areas</td>
-          
-          
-          
-          <td></td>
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
           
           
           
@@ -861,11 +1667,11 @@ data-event-label="high"
         <tr>
           
           
-          <td>2015</td>
+          <td>2016</td>
           
           
           
-          <td>76.5186713483</td>
+          <td>90.94033</td>
           
           
           
@@ -873,11 +1679,63 @@ data-event-label="high"
           
           
           
-          <td>Average proportion of terrestrial Key Biodiversity Areas (KBAs) covered by protected areas</td>
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
           
           
           
-          <td></td>
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>90.94033</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>90.94033</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
           
           
           
@@ -897,7 +1755,7 @@ data-event-label="high"
           
           
           
-          <td>86.2851763094</td>
+          <td>90.94033</td>
           
           
           
@@ -905,11 +1763,7 @@ data-event-label="high"
           
           
           
-          <td>Average proportion of freshwater Key Biodiversity Areas (KBAs) covered by protected areas</td>
-          
-          
-          
-          <td></td>
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
           
           
           
@@ -925,11 +1779,11 @@ data-event-label="high"
         <tr>
           
           
-          <td>2019</td>
+          <td>2020</td>
           
           
           
-          <td>76.5346165482</td>
+          <td>90.94033</td>
           
           
           
@@ -937,11 +1791,63 @@ data-event-label="high"
           
           
           
-          <td>Average proportion of terrestrial Key Biodiversity Areas (KBAs) covered by protected areas</td>
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
           
           
           
-          <td></td>
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>90.94033</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2022</td>
+          
+          
+          
+          <td>90.94033</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</td>
           
           
           
@@ -962,7 +1868,7 @@ data-event-label="high"
   
   <div id="datatableFooter">
     
-    <p>Source: Office for National Statistics</p>
+    <p>Source: United Nations (UN)</p>
     
     
     <p>Geographical Area: United Kingdom</p>
@@ -970,8 +1876,6 @@ data-event-label="high"
     
     <p>Unit of Measurement: Percentage (%)</p>
     
-    
-    <p>Footnote: Geographical area data as at December 2019.</p>
     
   </div>
   
@@ -1039,31 +1943,6 @@ data-event-label="Change to Table tab"
       >Table</button>
     </li>
     
-    <li role="presentation"
-      class="
-        nav-item
-        map
-        
-      ">
-      <button
-        class="nav-link "
-        data-bs-toggle="tab"
-        role="tab"
-        type="button"
-        
-          id="tab-mapview"
-          data-bs-target="#mapview"
-          aria-controls="mapview"
-          data-no-disagg="true"
-          data-on="click"
-data-event-category="Tab change"
-data-event-action="Change data view"
-data-event-label="Change to Map tab"
-
-        
-      >Map</button>
-    </li>
-    
   </ul>
   
     <div class="tab-content data-view">
@@ -1082,7 +1961,7 @@ data-event-label="Change to Map tab"
       <figure role="group">
         <div id="chart-canvas">
           <h4 id="chart-heading" class="chart-title">
-            Percentage of terrestrial Key Biodiversity Areas within protected areas (%)
+            Mean percentage of each Terrestrial Key Biodiversity Areas covered by protected areas (%)
           </h4>
           <div id="chart" class="plot-container">
             <canvas
@@ -1103,7 +1982,7 @@ data-event-label="Change to Map tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>Office for National Statistics</dd>
+        <dd>United Nations (UN)</dd>
         
 
         
@@ -1116,9 +1995,6 @@ data-event-label="Change to Map tab"
 
         
 
-        
-        <dt>Footnote:</dt>
-        <dd>Geographical area data as at December 2019.</dd>
         
 
         
@@ -1181,7 +2057,7 @@ data-event-label="Change to Map tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>Office for National Statistics</dd>
+        <dd>United Nations (UN)</dd>
         
 
         
@@ -1194,9 +2070,6 @@ data-event-label="Change to Map tab"
 
         
 
-        
-        <dt>Footnote:</dt>
-        <dd>Geographical area data as at December 2019.</dd>
         
 
         
@@ -1226,70 +2099,6 @@ data-event-label="Change to Map tab"
 </div>
 
 <div id="tableSelectionDownload" class="clearfix"></div>
-
-        </div>
-      
-    
-      
-        <div role="tabpanel" class="tab-pane " id="mapview" class="map">
-          
-<h4 id="map-heading" class="map-title">Percentage of terrestrial Key Biodiversity Areas within protected areas (%)</h4>
-<div id="map" aria-describedby="table-alternative">
-  <img class="map-loading-image" src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
-</div>
-
-
-
-
-<div id="mapFooter" class="table-footer-text">
-  <h5 class="sr-only">Chart details</h5>
-    <dl>
-        
-        <dt>Source:</dt>
-        <dd>Office for National Statistics</dd>
-        
-
-        
-        <dt>Geographical Area:</dt>
-        <dd>United Kingdom</dd>
-        
-
-        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
-        <dd class="data-controlled-footer-field unit-from-data"></dd>
-
-        
-
-        
-        <dt>Footnote:</dt>
-        <dd>Geographical area data as at December 2019.</dd>
-        
-
-        
-
-        
-        
-        <dt
-          class="data-controlled-footer-field"
-          data-ts-attribute="COMMENT_TS"
-        >Footnote:</dt>
-        <dd
-          class="data-controlled-footer-field"
-          data-ts-attribute="COMMENT_TS"
-        ></dd>
-        
-        <dt
-          class="data-controlled-footer-field"
-          data-ts-attribute="DATA_LAST_UPDATE"
-        >Data last updated:</dt>
-        <dd
-          class="data-controlled-footer-field"
-          data-ts-attribute="DATA_LAST_UPDATE"
-        ></dd>
-        
-        
-    </dl>
-</div>
-
 
         </div>
       
@@ -1366,19 +2175,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Indicator available </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Proportion of important sites for terrestrial and freshwater biodiversity that are covered by protected areas, by ecosystem type</p>
 
           
         </td>
@@ -1394,7 +2196,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            <p>Proportion of Important Bird and Biodiversity Areas (IBAs) and Important Plant Areas (IPAs) that are covered by protected areas, by ecosystem type.</p>
+            <p>Data is reported for both subindicators (1) Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%); (2) Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%)</p>
 
           
         </td>
@@ -1442,20 +2244,12 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Terrestrial - for the purpose of this indicator, the total value for terrestrial includes all ecosystem types that are included as disaggregations (including coastal and saltwater habitats within the land boundaries of the UK)</p>
-<p><a href="https://biodiversitya-z.org/content/important-plant-areas-ipa">Key Biodiversity Area</a> - Key Biodiversity Areas (KBAs) include 1) <a href="https://biodiversitya-z.org/content/important-plant-areas-ipa">Important Plant Areas (IPAs)</a>, 2) <a href="https://www.arcgis.com/home/item.html?id=c38f60f68f094f269d90db26b1381837">Important Bird and Biodiversity Areas (IBAs)</a>, and 3) Alliance for Zero Extinction sites.</p>
-<p><a href="https://biodiversitya-z.org/content/important-plant-areas-ipa">Important Plant Area (IPA)</a>  - Natural or semi-natural sites that 'exhibit exceptional botanical richness and/or support an outstanding assemblage of rare, threatened and/or endemic plant species and/or vegetation of high botanic value'</p>
-<p><a href="https://www.arcgis.com/home/item.html?id=c38f60f68f094f269d90db26b1381837">Important Bird and Biodiversity Area (IBA)</a> - 'Selected on the basis of the bird numbers and species complements they hold. IBAs are particularly important for species that congregate in large numbers, such as wintering and passage waterbirds and breeding seabirds. Many sites have also been identified for species of global, and European/EU conservation concern.'</p>
+            <p>Terrestrial - identified by undertaking a spatial overlap between Key Biodiversity Area polygons and an ocean raster layer, Key Biodiversity Areas were classified as a terrestrial Key Biodiversity Area where ≤95% overlap occurred with the ocean layer. Thus, some sites were classified as both terrestrial and marine.</p>
+<p>Freshwater - sites were classified as freshwater Key Biodiversity Areas if the resident species for which they were identified were documented in the <a href="https://www.iucnredlist.org/">IUCN Red List</a> as dependent on ‘Inland Water’ systems.</p>
+<p><a href="https://biodiversitya-z.org/content/important-plant-areas-ipa">Key Biodiversity Area</a> - sites contributing significantly to the global persistence of biodiversity as described by <a href="https://portals.iucn.org/library/node/46259">IUCN (2016)</a>. Key Biodiversity Areas (KBAs) include 1) <a href="https://www.arcgis.com/home/item.html?id=c38f60f68f094f269d90db26b1381837">Important Bird and Biodiversity Areas (IBAs)</a>, and 2) Alliance for Zero Extinction sites.</p>
+<p><a href="https://www.arcgis.com/home/item.html?id=c38f60f68f094f269d90db26b1381837">Important Bird and Biodiversity Area (IBA)</a> - (IBAs) are sites of importance for threatened species, restricted range species, biome-restricted species or congregatory species. <a href="http://datazone.birdlife.org/site/ibacriteria">IBA</a> criteria have been defined at global, regional and EU scale.</p>
 <p>Alliance for Zero Extinction sites - Sites that contain '95% or more of the remaining population of one or more species listed as endangered or critically endangered on the IUCN Red List of Threatened Species'. There are currently no such sites in the UK.</p>
 <p>Protected area - Protected areas include Nature Reserves, National Parks, Areas of Outstanding Natural Beauty (AONB), Sites of Special Scientific Interest (SSSI), Heritage Coast, and National Scenic Areas. For the full list of designations please see <a href="https://www.protectedplanet.net/country/GBR">Protected Planet</a>. Protected areas are taken from the World Database of Protected Areas (WDPA). Note that the data presented here do not include any Marine Protected Areas (MPAs).</p>
-<p>Ecosystem type - Ecosystem type is determined using the Centre for Ecology and Hydrology's 2015 <a href="https://www.ceh.ac.uk/services/land-cover-map-2015">Land Cover Map (LCM2015)</a>. This uses satellite data to categorise land into land cover classes, which are further aggregated to 'aggregate classes', here referred to as Ecosystem type. Land cover classes are described in the <a href="https://data.jncc.gov.uk/data/0b7943ea-2eee-47a9-bd13-76d1d66d471f/JNCC-Report-307-SCAN-WEB.pdf">JNCC Report 307</a> and in the <a href="https://www.ceh.ac.uk/sites/default/files/LCM2015_Dataset_Documentation.pdf">Land Cover Map 2015 Documentation (PDF)</a>.</p>
-<p> </p>
-<p>The following definitions give the broad habitats included in each Ecosystem type, with notes in brackets. Where no definition is given, the broad habitat name is the same as the ecosystem type -</p>
-<p>Arable - 'Arable and Horticulture'</p>
-<p>Broadleaf woodland - 'Broadleaved, Mixed and Yew Woodland'</p>
-<p>Coastal - 'Supra-littoral Rock', 'Littoral Rock' and 'Littoral Sediment' (including saltmarsh)</p>
-<p>Mountain, heath, bog - 'Dwarf Shrub Heath' (including heather and heather grassland), 'Bog', and 'Inland Rock'.</p>
-<p>Semi-natural grassland - 'Neutral Grassland', 'Calcareous Grassland', 'Acid Grassland', and 'Fen, Marsh and Swamp'.</p>
 
           
         </td>
@@ -1494,9 +2288,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>Average proportion of Terrestrial KBAs covered by protected areas  = sum area of KBAs of all ecosystem types except freshwater / sum area of protected areas of all ecosystrem types except freshwater *100.</p>
-<p>No other calculations on the source data are required.
-</p>
+            <p>No calculations were performed in the data acquisition of this indicator as appropriate data was readily available in the final format specified by this indicator. For detail on calculations made prior to acquisition see the <a href="https://unstats.un.org/sdgs/metadata/files/Metadata-15-01-02.pdf">global metadata</a>.</p>
 
           
         </td>
@@ -1512,8 +2304,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Trends in both series are driven by change in the area covered by Protected Areas. There is no change in the area coverd by Key Biodiversity Areas over the time period presented<p><p>Ecosystem type is determined using the Centre for Ecology and Hydrology's 2015 <a href="https://www.ceh.ac.uk/services/land-cover-map-2015">Land Cover Map (LCM2015)</a>. This uses satellite data to categorise land into land cover classes, which are based on the <a href="https://jncc.gov.uk/our-work/uk-bap-priority-habitats/">Biodiversity Action Plan (BAP) Broad Habitats</a>. Land cover classes are further aggregated to 'aggregate classes', here referred to as Ecosystem type.  See definitions (above) for the land cover classes that are included in each ecosystem type. Land cover classes are described in the <a href="https://data.jncc.gov.uk/data/0b7943ea-2eee-47a9-bd13-76d1d66d471f/JNCC-Report-307-SCAN-WEB.pdf">JNCC Report 307 (PDF, 25 pp, 3.3 MB)</a>. Please see the <a href="https://www.ceh.ac.uk/sites/default/files/LCM2015_Dataset_Documentation.pdf">Land Cover Map 2015 Documentation (PDF, 65 pp, 1.1 MB)</a> for methods.</p><p><a href="https://www.ibat-alliance.org/dashboard">The International Biodiversity Assessment Tool (IBAT)</a> reports international data for this indicator. UK-level data can be found in the Country Profiles, with further information included on Protected Area designation types, and IUCN management categories. To view these you will need to create a log in but this is free to do. Please note that the figures we present here differ slightly, because we include an extra set of Key Biodiversity Areas (KBAs), namely Important Plant Areas. IBAT gives the option to view individual KBAs and Protected Areas on a map - by clicking on KBAs, and then on the name of the area the user is given more information on why it is classed as a KBA, and the species present. By clicking on Protected Areas, and then on the name of the area, the user is taken to the individual area on <a href="https://www.protectedplanet.net/en/search-areas?geo_type=site">Protected Planet</a>. To use the map go to <a href="https://www.ibat-alliance.org/visual-data-map">Data Map</a> and make selections in Apply Layers.</p><p>The UK Biodiversity Indicators have related indicators for the UK - <a href="https://jncc.gov.uk/our-work/ukbi-c1-protected-areas/">C1 'Protected Areas'</a> includes 'Total extent of protected areas on land' (C1a), and 'Condition of areas/sites of Special Scientific Interest' (C1c).  The Outcome Indicator Framework for the 25 Year Environment Plan includes interim indicator D2 'Extent and condition of protected sites – land, water and sea', taken from the  <a href="https://www.gov.uk/government/statistics/england-biodiversity-indicators">England biodiversity indicators</a>. More information on D2 is presented in the <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/992970/Outcome_Indicator_Framework_for_the_25_Year_Environment_Plan_2021_Update.pdf">Outcome Indicator Framework for the 25 Year Environment Plan - 2021 Update (PDF, 167 pp, 2.8 MB)</a>.</p><p> Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.
-</p></p></p>
+            <p>Trends in both series are driven by change in the area covered by Protected Areas. There is no change in the area coverd by Key Biodiversity Areas over the time period presented<p><a href="https://www.ibat-alliance.org/?locale=en">The Integrated Biodiversity Assessment Tool (IBAT)</a> reports international data for this indicator. UK-level data can be found in the Country Profiles, with further information included on Protected Area designation types, and IUCN management categories. IBAT gives the option to view individual KBAs and Protected Areas on a map - by clicking on KBAs, and then on the name of the area the user is given more information on why it is classed as a KBA, and the species present. By clicking on Protected Areas, the user is given more information on the terrestrial and marine protected areas which can be visualised and downloaded from <a href="https://www.protectedplanet.net/en">Protected Planet</a>.</p><p>The UK Biodiversity Indicators have related indicators for the UK - <a href="https://jncc.gov.uk/our-work/ukbi-c1-protected-areas/">C1 'Protected Areas'</a> includes 'Total extent of protected areas on land' (C1a), and 'Condition of areas/sites of Special Scientific Interest' (C1c).  The Outcome Indicator Framework for the 25 Year Environment Plan includes interim indicator D2 'Extent and condition of protected sites – land, water and sea', taken from the  <a href="https://www.gov.uk/government/statistics/england-biodiversity-indicators">England biodiversity indicators</a>. More information on D2 is presented in the <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/992970/Outcome_Indicator_Framework_for_the_25_Year_Environment_Plan_2021_Update.pdf">Outcome Indicator Framework for the 25 Year Environment Plan - 2021 Update</a>.</p><p> Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.
+</p></p>
 
           
         </td>
@@ -1529,7 +2321,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            30 November 2021
+            07 July 2023
           
         </td>
         </tr>
@@ -1544,7 +2336,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            02 December 2021
+            21 July 2023
           
         </td>
         </tr>
@@ -1744,7 +2536,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">UN custodian agency </th>
         <td>
           
-            <p>UN Environment (UNEP)-World Conservation Monitoring Centre (WCMC), UN Environment (UNEP)</p>
+            <p>Birdlife International, International Union for Conservation of Nature (ICUN), UN Environment World Conservation Monitoring Centre (UNEP-WCMC), UN Environment (UNEP)</p>
 
           
         </td>
@@ -1969,7 +2761,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Office for National Statistics</p>
+            <p>United Nations (UN)</p>
 
           
         </td>
@@ -2001,7 +2793,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>1999</p>
+            <p>2000</p>
 
           
         </td>
@@ -2038,8 +2830,8 @@ data-event-label="Change to Sources tab"
             
             
             
-              <a href="https://www.ons.gov.uk/economy/environmentalaccounts/adhocs/13980proportionofimportantsitesforterrestrialandfreshwaterbiodiversitythatarecoveredbyprotectedareasbyecosystemtypeuk1999to2019" target="_blank">
-                Proportion of important sites for terrestrial and freshwater biodiversity that are covered by protected areas, by ecosystem type, UK, 1999 to 2019 <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://unstats.un.org/sdgs/dataportal/database" target="_blank">
+                UN SDG Indicators Database <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -2063,7 +2855,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            22 November 2021
+            17 May 2023
           
         </td>
         </tr>
@@ -2094,7 +2886,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Official</p>
+            <p>Official international</p>
 
           
         </td>
@@ -2110,7 +2902,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>Geospatial@ons.gov.uk</p>
+            <p>statistics@un.org</p>
 
           
         </td>
@@ -2121,19 +2913,14 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Other information </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this source</span></p>
+            <p> To navigate to the data, in the search bar select '15.1.2' from the Data Series, and 'United Kingdom of Great Britain and Northern Ireland' from Countries, then select 'Show results'.</p>
+<p>Data for this indicator can also be found in  the <a href="https://www.ibat-alliance.org/country_profiles/GBR">IBAT (Integrated Biodiversity Assessment Tool) UK Country Profile</a> under the Key Biodiversity Areas tab.</p>
+<p>Please note that data on the different websites may not be updated at the  same time so may give slightly different figures.</p>
 
           
         </td>
@@ -2338,15 +3125,6 @@ data-event-label="Change to Sources tab"
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
 
-<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/iso8601-js-period@0.2.1/iso8601.min.js"></script>
-<script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
-<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
-<script src="https://cdn.jsdelivr.net/gh/torfsen/leaflet.zoomhome@master/dist/leaflet.zoomhome.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
@@ -2497,7 +3275,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230721100353'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230721113905'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2505,7 +3283,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230721100353"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230721113905"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
