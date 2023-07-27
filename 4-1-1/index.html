@@ -148,7 +148,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230727002633">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230727121732">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -486,7 +486,7 @@ data-event-label="high"
 
 <div class="row" id="page-content">
   <div class="col-xs-12">
-    <p>Note that while headline data and the breakdown by sex are for all schools, the breakdowns by all other characteristics (such as special educational needs or region) are only for state schools. For age 16 proficiency, ‘achieving grade 4 or above’ is used as it is the expected standard for students in that age group.</p>
+    <p>Note that all data are for all state-funded schools in England only. For age 16 proficiency, ‘achieving grade 4 or above’ is used as it is the expected standard for students in that age group.</p>
 
   </div>
 </div>
@@ -517,9 +517,9 @@ data-event-label="high"
   data-stackeddisaggregation=""
   data-graphannotations="null"
   data-graphtargetlines="null"
-  data-graphseriesbreaks="null"
+  data-graphseriesbreaks="[{&quot;series&quot;:&quot;Attainment at age 11&quot;,&quot;value&quot;:4,&quot;label_content&quot;:null},{&quot;series&quot;:&quot;Attainment at age 11&quot;,&quot;value&quot;:5,&quot;label_content&quot;:null},{&quot;series&quot;:&quot;Attainment at age 7&quot;,&quot;value&quot;:4,&quot;label_content&quot;:null},{&quot;series&quot;:&quot;Attainment at age 7&quot;,&quot;value&quot;:5,&quot;label_content&quot;:null}]"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Attainment at age 16&quot;,&quot;Attainment at age 11&quot;,&quot;Attainment at age 7&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Subject&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;English&quot;,&quot;Maths&quot;,&quot;Reading&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Subject&quot;},{&quot;name&quot;:&quot;Sex&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Female&quot;,&quot;Male&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Sex&quot;},{&quot;name&quot;:&quot;Special educational needs&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;No special educational needs&quot;,&quot;Special educational needs&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Special educational needs&quot;},{&quot;name&quot;:&quot;Free school meals&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Free school meals&quot;,&quot;No free school meals&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Free school meals&quot;},{&quot;name&quot;:&quot;Ethnicity&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;White&quot;,&quot;Mixed&quot;,&quot;Asian&quot;,&quot;Black/African/Caribbean/Black British&quot;,&quot;Chinese&quot;,&quot;Other&quot;,&quot;Unclassified&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnicity&quot;},{&quot;name&quot;:&quot;Ethnic group&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;White British&quot;,&quot;Irish&quot;,&quot;Traveller of Irish heritage&quot;,&quot;Gypsy / Roma&quot;,&quot;Any other white background&quot;,&quot;White and black Caribbean&quot;,&quot;White and black African&quot;,&quot;White and Asian&quot;,&quot;Any other mixed background&quot;,&quot;Indian&quot;,&quot;Pakistani&quot;,&quot;Bangladeshi&quot;,&quot;Any other Asian background&quot;,&quot;Black Caribbean&quot;,&quot;Black African&quot;,&quot;Any other black background&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnic group&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;London&quot;,&quot;Yorkshire and The Humber&quot;,&quot;South West&quot;,&quot;East of England&quot;,&quot;West Midlands&quot;,&quot;North West&quot;,&quot;South East&quot;,&quot;North East&quot;,&quot;East Midlands&quot;,&quot;Inner London&quot;,&quot;Outer London&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Local Authority&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Barking and Dagenham&quot;,&quot;Barnet&quot;,&quot;Barnsley&quot;,&quot;Bath and North East Somerset&quot;,&quot;Bedford&quot;,&quot;Bexley&quot;,&quot;Birmingham&quot;,&quot;Blackburn with Darwen&quot;,&quot;Blackpool&quot;,&quot;Bolton&quot;,&quot;Bournemouth&quot;,&quot;Bournemouth, Christchurch and Poole&quot;,&quot;Bracknell Forest&quot;,&quot;Bradford&quot;,&quot;Brent&quot;,&quot;Brighton and Hove&quot;,&quot;Bristol, City of&quot;,&quot;Bromley&quot;,&quot;Buckinghamshire&quot;,&quot;Bury&quot;,&quot;Calderdale&quot;,&quot;Cambridgeshire&quot;,&quot;Camden&quot;,&quot;Central Bedfordshire&quot;,&quot;Cheshire East&quot;,&quot;Cheshire West and Chester&quot;,&quot;City of London7&quot;,&quot;Cornwall&quot;,&quot;County Durham&quot;,&quot;Coventry&quot;,&quot;Croydon&quot;,&quot;Cumbria&quot;,&quot;Darlington&quot;,&quot;Derby&quot;,&quot;Derbyshire&quot;,&quot;Devon&quot;,&quot;Doncaster&quot;,&quot;Dorset&quot;,&quot;Dudley&quot;,&quot;Ealing&quot;,&quot;East Riding of Yorkshire&quot;,&quot;East Sussex&quot;,&quot;Enfield&quot;,&quot;Essex&quot;,&quot;Gateshead&quot;,&quot;Gloucestershire&quot;,&quot;Greenwich&quot;,&quot;Hackney&quot;,&quot;Halton&quot;,&quot;Hammersmith and Fulham&quot;,&quot;Hampshire&quot;,&quot;Haringey&quot;,&quot;Harrow&quot;,&quot;Hartlepool&quot;,&quot;Havering&quot;,&quot;Herefordshire, County of&quot;,&quot;Hertfordshire&quot;,&quot;Hillingdon&quot;,&quot;Hounslow&quot;,&quot;Isle of Wight&quot;,&quot;Isles of Scilly7&quot;,&quot;Islington&quot;,&quot;Kensington and Chelsea&quot;,&quot;Kent&quot;,&quot;Kingston upon Hull, City of&quot;,&quot;Kingston upon Thames&quot;,&quot;Kirklees&quot;,&quot;Knowsley&quot;,&quot;Lambeth&quot;,&quot;Lancashire&quot;,&quot;Leeds&quot;,&quot;Leicester&quot;,&quot;Leicestershire&quot;,&quot;Lewisham&quot;,&quot;Lincolnshire&quot;,&quot;Liverpool&quot;,&quot;Luton&quot;,&quot;Manchester&quot;,&quot;Medway&quot;,&quot;Merton&quot;,&quot;Middlesbrough&quot;,&quot;Milton Keynes&quot;,&quot;Newcastle upon Tyne&quot;,&quot;Newham&quot;,&quot;Norfolk&quot;,&quot;North East Lincolnshire&quot;,&quot;North Lincolnshire&quot;,&quot;North Somerset&quot;,&quot;North Tyneside&quot;,&quot;North Yorkshire&quot;,&quot;Northamptonshire&quot;,&quot;Northumberland&quot;,&quot;Nottingham&quot;,&quot;Nottinghamshire&quot;,&quot;Oldham&quot;,&quot;Oxfordshire&quot;,&quot;Peterborough&quot;,&quot;Plymouth&quot;,&quot;Portsmouth&quot;,&quot;Reading&quot;,&quot;Redbridge&quot;,&quot;Redcar and Cleveland&quot;,&quot;Richmond upon Thames&quot;,&quot;Rochdale&quot;,&quot;Rotherham&quot;,&quot;Rutland&quot;,&quot;Salford&quot;,&quot;Sandwell&quot;,&quot;Sefton&quot;,&quot;Sheffield&quot;,&quot;Shropshire&quot;,&quot;Slough&quot;,&quot;Solihull&quot;,&quot;Somerset&quot;,&quot;South Gloucestershire&quot;,&quot;South Tyneside&quot;,&quot;Southampton&quot;,&quot;Southend-on-Sea&quot;,&quot;Southwark&quot;,&quot;St. Helens&quot;,&quot;Staffordshire&quot;,&quot;Stockport&quot;,&quot;Stockton-on-Tees&quot;,&quot;Stoke-on-Trent&quot;,&quot;Suffolk&quot;,&quot;Sunderland&quot;,&quot;Surrey&quot;,&quot;Sutton&quot;,&quot;Swindon&quot;,&quot;Tameside&quot;,&quot;Telford and Wrekin&quot;,&quot;Thurrock&quot;,&quot;Torbay&quot;,&quot;Tower Hamlets&quot;,&quot;Trafford&quot;,&quot;Wakefield&quot;,&quot;Walsall&quot;,&quot;Waltham Forest&quot;,&quot;Wandsworth&quot;,&quot;Warrington&quot;,&quot;Warwickshire&quot;,&quot;West Berkshire&quot;,&quot;West Sussex&quot;,&quot;Westminster&quot;,&quot;Wigan&quot;,&quot;Wiltshire&quot;,&quot;Windsor and Maidenhead&quot;,&quot;Wirral&quot;,&quot;Wokingham&quot;,&quot;Wolverhampton&quot;,&quot;Worcestershire&quot;,&quot;York&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Local Authority&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Attainment at age 16&quot;,&quot;Attainment at age 11&quot;,&quot;Attainment at age 7&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Subject&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;English&quot;,&quot;Maths&quot;,&quot;Reading&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Subject&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;East Midlands&quot;,&quot;East of England&quot;,&quot;Inner London&quot;,&quot;London&quot;,&quot;North East&quot;,&quot;North West&quot;,&quot;Outer London&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;West Midlands&quot;,&quot;Yorkshire and The Humber&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Local authority&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Derby&quot;,&quot;Derbyshire&quot;,&quot;Leicester&quot;,&quot;Leicestershire&quot;,&quot;Lincolnshire&quot;,&quot;North Northamptonshire&quot;,&quot;Nottingham&quot;,&quot;Nottinghamshire&quot;,&quot;Rutland&quot;,&quot;West Northamptonshire&quot;,&quot;Bedford&quot;,&quot;Cambridgeshire&quot;,&quot;Central Bedfordshire&quot;,&quot;Essex&quot;,&quot;Hertfordshire&quot;,&quot;Luton&quot;,&quot;Norfolk&quot;,&quot;Peterborough&quot;,&quot;Southend-on-Sea&quot;,&quot;Suffolk&quot;,&quot;Thurrock&quot;,&quot;Barking and Dagenham&quot;,&quot;Barnet&quot;,&quot;Bexley&quot;,&quot;Brent&quot;,&quot;Bromley&quot;,&quot;Camden&quot;,&quot;City of London&quot;,&quot;Croydon&quot;,&quot;Ealing&quot;,&quot;Enfield&quot;,&quot;Greenwich&quot;,&quot;Hackney&quot;,&quot;Hammersmith and Fulham&quot;,&quot;Haringey&quot;,&quot;Harrow&quot;,&quot;Havering&quot;,&quot;Hillingdon&quot;,&quot;Hounslow&quot;,&quot;Islington&quot;,&quot;Kensington and Chelsea&quot;,&quot;Kingston Upon Thames&quot;,&quot;Lambeth&quot;,&quot;Lewisham&quot;,&quot;Merton&quot;,&quot;Newham&quot;,&quot;Redbridge&quot;,&quot;Richmond Upon Thames&quot;,&quot;Southwark&quot;,&quot;Sutton&quot;,&quot;Tower Hamlets&quot;,&quot;Waltham Forest&quot;,&quot;Wandsworth&quot;,&quot;Westminster&quot;,&quot;County Durham&quot;,&quot;Darlington&quot;,&quot;Gateshead&quot;,&quot;Hartlepool&quot;,&quot;Middlesbrough&quot;,&quot;Newcastle Upon Tyne&quot;,&quot;North Tyneside&quot;,&quot;Northumberland&quot;,&quot;Redcar and Cleveland&quot;,&quot;South Tyneside&quot;,&quot;Stockton-on-Tees&quot;,&quot;Sunderland&quot;,&quot;Blackburn with Darwen&quot;,&quot;Blackpool&quot;,&quot;Bolton&quot;,&quot;Bury&quot;,&quot;Cheshire East&quot;,&quot;Cheshire West and Chester&quot;,&quot;Cumbria&quot;,&quot;Halton&quot;,&quot;Knowsley&quot;,&quot;Lancashire&quot;,&quot;Liverpool&quot;,&quot;Manchester&quot;,&quot;Oldham&quot;,&quot;Rochdale&quot;,&quot;Salford&quot;,&quot;Sefton&quot;,&quot;St. Helens&quot;,&quot;Stockport&quot;,&quot;Tameside&quot;,&quot;Trafford&quot;,&quot;Warrington&quot;,&quot;Wigan&quot;,&quot;Wirral&quot;,&quot;Bracknell Forest&quot;,&quot;Brighton and Hove&quot;,&quot;Buckinghamshire&quot;,&quot;East Sussex&quot;,&quot;Hampshire&quot;,&quot;Isle of Wight&quot;,&quot;Kent&quot;,&quot;Medway&quot;,&quot;Milton Keynes&quot;,&quot;Oxfordshire&quot;,&quot;Portsmouth&quot;,&quot;Reading&quot;,&quot;Slough&quot;,&quot;Southampton&quot;,&quot;Surrey&quot;,&quot;West Berkshire&quot;,&quot;West Sussex&quot;,&quot;Windsor and Maidenhead&quot;,&quot;Wokingham&quot;,&quot;Bath and North East Somerset&quot;,&quot;Bournemouth, Christchurch and Poole&quot;,&quot;Bristol, City of&quot;,&quot;Cornwall&quot;,&quot;Devon&quot;,&quot;Dorset&quot;,&quot;Gloucestershire&quot;,&quot;Isles of Scilly&quot;,&quot;North Somerset&quot;,&quot;Plymouth&quot;,&quot;Somerset&quot;,&quot;South Gloucestershire&quot;,&quot;Swindon&quot;,&quot;Torbay&quot;,&quot;Wiltshire&quot;,&quot;Birmingham&quot;,&quot;Coventry&quot;,&quot;Dudley&quot;,&quot;Herefordshire, County of&quot;,&quot;Sandwell&quot;,&quot;Shropshire&quot;,&quot;Solihull&quot;,&quot;Staffordshire&quot;,&quot;Stoke-on-Trent&quot;,&quot;Telford and Wrekin&quot;,&quot;Walsall&quot;,&quot;Warwickshire&quot;,&quot;Wolverhampton&quot;,&quot;Worcestershire&quot;,&quot;Barnsley&quot;,&quot;Bradford&quot;,&quot;Calderdale&quot;,&quot;Doncaster&quot;,&quot;East Riding of Yorkshire&quot;,&quot;Kingston Upon Hull, City of&quot;,&quot;Kirklees&quot;,&quot;Leeds&quot;,&quot;North East Lincolnshire&quot;,&quot;North Lincolnshire&quot;,&quot;North Yorkshire&quot;,&quot;Rotherham&quot;,&quot;Sheffield&quot;,&quot;Wakefield&quot;,&quot;York&quot;,&quot;Northamptonshire&quot;,&quot;Kingston upon Thames&quot;,&quot;Richmond upon Thames&quot;,&quot;Newcastle upon Tyne&quot;,&quot;Bournemouth&quot;,&quot;Kingston upon Hull, City of&quot;,&quot;Poole&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Local authority&quot;},{&quot;name&quot;:&quot;Sex&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Female&quot;,&quot;Male&quot;,&quot;Other&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Sex&quot;},{&quot;name&quot;:&quot;Ethnicity&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Other ethnic group&quot;,&quot;Asian&quot;,&quot;Black&quot;,&quot;Mixed&quot;,&quot;Unclassified&quot;,&quot;White&quot;,&quot;Chinese&quot;,&quot;Other&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnicity&quot;},{&quot;name&quot;:&quot;Ethnic group&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Any other Asian background&quot;,&quot;Bangladeshi&quot;,&quot;Indian&quot;,&quot;Pakistani&quot;,&quot;Any other Black background&quot;,&quot;Black African&quot;,&quot;Black Caribbean&quot;,&quot;Chinese&quot;,&quot;Any other Mixed background&quot;,&quot;White and Asian&quot;,&quot;White and Black African&quot;,&quot;White and Black Caribbean&quot;,&quot;Any other White background&quot;,&quot;Gypsy / Roma&quot;,&quot;Irish&quot;,&quot;Traveller of Irish heritage&quot;,&quot;White British&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnic group&quot;},{&quot;name&quot;:&quot;Special educational needs (SEN) status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;All SEN&quot;,&quot;No SEN&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Special educational needs (SEN) status&quot;},{&quot;name&quot;:&quot;Disadvantaged status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Disadvantaged&quot;,&quot;Not known to be disadvantaged&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Disadvantaged status&quot;},{&quot;name&quot;:&quot;Free school meal status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;FSM eligible&quot;,&quot;Not known to be FSM eligible&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Free school meal status&quot;},{&quot;name&quot;:&quot;First language&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;First language unclassified&quot;,&quot;Known or believed to be english&quot;,&quot;Known or believed to be other than english&quot;,&quot;&quot;]},&quot;title&quot;:&quot;First language&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
   data-proxy="proxy"
@@ -680,7 +680,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd><P>1.Figures for Poole local authority are not included, as this merged to become Bournemouth, Christchurch and Poole in 2019</P><P>2. Figures for the City of London and the Isles of Scily for attainment at age 7 have been removed due to being suppressed in the source publication, as they were based on data from a single school</P><P>3. From 2017, new reformed GCSEs were introduced into performance tables and are graded using a new 9-1 scale. A time series comparison can only be shown at agreed anchor points (9-7/A*-A, 9-4/A*-C, 9-1/A*-G) as comparisons between other grades are not possible.</p><p>4. Please note the y axis does not go to 100% for ease of visualisation. </p></dd>
+        <dd><P>1.Figures for Poole local authority are not included, as this merged to become Bournemouth, Christchurch and Poole in 2019</P><P>2. Figures for the City of London and the Isles of Scily for attainment at age 7 have been removed due to being suppressed in the source publication, as they were based on data from a single school</P><P>3. From 2016 to 2017, new reformed GCSEs were introduced into performance tables and are graded using a new 9-1 scale. A time series comparison can only be shown at agreed anchor points (9-7/A*-A, 9-4/A*-C, 9-1/A*-G) as comparisons between other grades are not possible.</p><p>4. Please note the y axis does not go to 100% for ease of visualisation. </p></dd>
         
 
         
@@ -758,7 +758,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd><P>1.Figures for Poole local authority are not included, as this merged to become Bournemouth, Christchurch and Poole in 2019</P><P>2. Figures for the City of London and the Isles of Scily for attainment at age 7 have been removed due to being suppressed in the source publication, as they were based on data from a single school</P><P>3. From 2017, new reformed GCSEs were introduced into performance tables and are graded using a new 9-1 scale. A time series comparison can only be shown at agreed anchor points (9-7/A*-A, 9-4/A*-C, 9-1/A*-G) as comparisons between other grades are not possible.</p><p>4. Please note the y axis does not go to 100% for ease of visualisation. </p></dd>
+        <dd><P>1.Figures for Poole local authority are not included, as this merged to become Bournemouth, Christchurch and Poole in 2019</P><P>2. Figures for the City of London and the Isles of Scily for attainment at age 7 have been removed due to being suppressed in the source publication, as they were based on data from a single school</P><P>3. From 2016 to 2017, new reformed GCSEs were introduced into performance tables and are graded using a new 9-1 scale. A time series comparison can only be shown at agreed anchor points (9-7/A*-A, 9-4/A*-C, 9-1/A*-G) as comparisons between other grades are not possible.</p><p>4. Please note the y axis does not go to 100% for ease of visualisation. </p></dd>
         
 
         
@@ -935,12 +935,19 @@ data-event-label="Change to Sources tab"
       
       
       
+        
+          
+          
+          
+          
+        
+      
       
       <tr>
         <th scope="row">Definitions </th>
         <td>
           
-            <p>At age 7, schools are categorised into infant schools (those with highest statutory pupil age of 7), primary schools (those with highest statutory pupil age between 8 and 11) and other schools (those with highest statutory pupil age greater than 11). At age 11, schools are categorised into primary schools (those with lowest statutory age below 7 and highest statutory age of 11), junior schools (those with lowest statutory age of 7 or above and highest statutory age of 11) and other schools (those with highest statutory age greater than 11 - this category includes middle and all-through schools. For age 16, minimum proficiency is defined for the purpose of this indicator as achieving a grade 4 or above.</p>
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
 
           
         </td>
@@ -995,8 +1002,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p> For ages 7 and 11, figures before 2016 are not comparable to figures from 2016 onwards due to a change in assesments. </p>
-<p> In response to the COVID-19 pandemic, the Department for Education has cancelled the 2019/20 national curriculum assessments (KS1 &amp; KS2) and associated data collections. Furthermore, the summer exams were cancelled in 2020. Pupils scheduled to sit GCSE and A/AS level exams in 2020 were awarded either a centre assessment grade or their calculated grade using a model developed by Ofqual. The new method of awarding grades has led to a set of pupil attainment statistics that are unlike previous years. As a result the 2019/20 data should not be directly compared to attainment data from previous years for the purposes of measuring changes in student performance and, therefore, are not presented on this graph. For more information please visit <a href="https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2019-20">DfE KS4 2019/20</a></p>
+            <p> For ages 7 and 11, figures before 2015 to 2016 are not comparable to figures from 2015 to 2016 onwards due to a change in assesments. </p>
+<p> National figures in the <a href="https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-1-and-phonics-screening-check- attainment">Key stage 1 and phonics screening check attainment</a> and <a href="https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-2-attainment">Key stage 2 attainment</a> publications report figures for all schools in England. Therefore, some percentages at national level will differ with the state-funded schools in England reported here.</p>
+<p>In response to the COVID-19 pandemic, the Department for Education cancelled the 2019 to 2020 national curriculum assessments (Key Stage 1 &amp; Key Stage 2) and associated data collections. Furthermore, the summer exams were cancelled in 2020. Pupils scheduled to sit GCSE and A/AS level exams in 2020 were awarded either a centre assessment grade or their calculated grade using a model developed by Ofqual. The new method of awarding grades has led to a set of pupil attainment statistics that are unlike previous years. As a result the 2019 to 2020 data should not be directly compared to attainment data from previous years for the purposes of measuring changes in student performance and, therefore, are not presented on this graph. For more information please visit <a href="https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2019-20">DfE Key Stage 4 2019 to 2020</a></p>
 <p>This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.</p>
 
           
@@ -1013,7 +1021,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            22 November 2021
+            26 July 2023
           
         </td>
         </tr>
@@ -1028,7 +1036,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            06 April 2023
+            27 July 2023
           
         </td>
         </tr>
@@ -1487,7 +1495,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2016</p>
+            <p>2015 to 2016</p>
 
           
         </td>
@@ -1524,8 +1532,8 @@ data-event-label="Change to Sources tab"
             
             
             
-              <a href="https://www.gov.uk/government/statistics/phonics-screening-check-and-key-stage-1-assessments-england-2019" target="_blank">
-                Key Stage 1 Statistics <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://explore-education-statistics.service.gov.uk/data-tables/key-stage-1-and-phonics-screening-check-attainment" target="_blank">
+                Explore education statistics - Create your own tables <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1549,7 +1557,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            20 December 2019
+            06 October 2022
           
         </td>
         </tr>
@@ -1564,7 +1572,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>TBA: We plan to update indicator data within 4 months of data being released</p>
+            <p>See source link: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -1612,7 +1620,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Attainment at age 7 (Key Stage 1) is based on teacher assessments. Judgements made in 2019 are not directly comparable to those made in previous years due to changes made within the 2018/19 teacher assessment frameworks.</p>
+            <p>Select "Key stage 1 and phonics screening check attainment", "Key stage 1 attainment by pupil characteristics" OR "Key stage 1 attainment by region and local authority", time period from 2015/16 to 2021/22, "Percentage of pupils meeting the expected standard in mathematics TA" and "Percentage of pupils meeting the expected standard in reading TA", all options under pupil characteristics, and all options under gender. Then click Create table and download. </p>
+<p>Attainment at age 7 (Key Stage 1) is based on teacher assessments. Judgements made since 2018 to 2019 are not directly comparable to those made in previous years due to changes made within the 2018 to 19 teacher assessment frameworks.
+</p>
 
           
         </td>
@@ -1814,7 +1824,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2016</p>
+            <p>2018 to 2019</p>
 
           
         </td>
@@ -1851,8 +1861,8 @@ data-event-label="Change to Sources tab"
             
             
             
-              <a href="https://www.gov.uk/government/collections/statistics-key-stage-2" target="_blank">
-                Key Stage 2 Statistics <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://explore-education-statistics.service.gov.uk/data-tables/key-stage-2-attainment" target="_blank">
+                Explore education statistics - Create your own tables <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1876,7 +1886,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            13 December 2019
+            15 December 2022
           
         </td>
         </tr>
@@ -1891,7 +1901,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>TBA: We plan to update indicator data within 4 months of data being released</p>
+            <p>See source link: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -1934,19 +1944,13 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Other information </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this source</span></p>
+            <p>Select "Key stage 2 attainment", "Key stage 2 attainment by region, local authority and pupil characteristics", all local authorities and regions, "time period from 2018/19 to 2021/22, "Percentage of pupils meeting the expected standard in maths" and "Percentage of pupils meeting the expected standard in reading", all options under characteristics, and all options under gender. Then click Create table and download.
+</p>
 
           
         </td>
@@ -2148,7 +2152,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2017</p>
+            <p>2009 to 2010</p>
 
           
         </td>
@@ -2185,8 +2189,8 @@ data-event-label="Change to Sources tab"
             
             
             
-              <a href="https://www.gov.uk/government/statistics/key-stage-4-performance-2019-provisional" target="_blank">
-                Key Stage 4 performance 2019 Subject Time Series tables <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://explore-education-statistics.service.gov.uk/data-tables/key-stage-4-performance-revised" target="_blank">
+                Explore education statistics - Create your own tables <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -2210,7 +2214,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            06 February 2020
+            20 October 2022
           
         </td>
         </tr>
@@ -2225,7 +2229,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>TBA: We plan to update indicator data within 4 months of data being released</p>
+            <p>See source link: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -2273,7 +2277,10 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Prior to the 2018/19 academic year, data is for the ‘English’ subject. For the 2018/19 academic year data is for the subject ‘English Language’. 2019 data for age 7 (KS1) reading and maths are not comparable to 2018 due to changes to the teacher assessment framework.</p>
+            <p>Select "KS4 subject timeseries data", time period from 2009/10 to 2021/22, "The percentage of pupils achieving the designated grade", all three options under Gender, "94AstarC" under The grade achieved, and "English, "English Language", and "Mathematics" under The subject pupils are entered for. Then click Create table and download. </p>
+<p> Prior to the 2018/19 academic year, data is for the 'English' subject. From the 2018/19 academic year data is for the subject 'English Language'. </p>
+<p> Figures used are a percentage of pupils at the end of KS4, not a percentage of those attempting the subject.
+</p>
 
           
         </td>
@@ -2292,6 +2299,321 @@ data-event-label="Change to Sources tab"
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+    </div>
+    
+    
+    
+    <div class="col-md-6">
+      
+        <h4>Source 4</h4>
+      
+      <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>Department for Education (DfE)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Annual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2016</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>England</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+            
+              <a href="https://www.gov.uk/government/collections/statistics-key-stage-2" target="_blank">
+                Statistics - Key Stage 2 <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            13 December 2019
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>Not applicable: We plan to update indicator data within 4 months of data being released</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>National Statistic</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>primary.attainment@education.gov.uk</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            <p>Since 2018 to 2019 this source has been replaced by  <a href="https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-2-attainment/2021-22">Source 2</a>.</p>
+
+          
+        </td>
+        </tr>
+        
+      
   
   
   
@@ -2453,6 +2775,8 @@ data-event-label="Change to Sources tab"
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.2.2/dist/chartjs-plugin-annotation.min.js" integrity="sha256-XuHhf6q+GD7fscc96mTm/228GXf1Nn9wOYOE0EgeFzY=" crossorigin="anonymous"></script>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
@@ -2604,7 +2928,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230727002633'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230727121732'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2612,7 +2936,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230727002633"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230727121732"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
