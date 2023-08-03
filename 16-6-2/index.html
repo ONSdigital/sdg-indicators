@@ -148,7 +148,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230803105401">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230803125200">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -461,7 +461,7 @@ data-event-label="high"
   
 <div class="row metadata-available-indicator">
   <div class="col-xs-12">
-    <h2>Average quality rating of public services in the UK</h2>
+    <h2>Percentage of people who tend to be satisfied with public services in the UK</h2>
   </div>
 </div>
 
@@ -495,24 +495,24 @@ data-event-label="high"
   id="indicatorData"
   data-indicatorid='indicator_16-6-2'
   data-id="16-6-2"
-  data-country="United Kingdom"
-  data-charttitle="Average quality rating of public services"
-  data-charttitles="null"
-  data-measurementunit="Mean quality rating"
+  data-country="Great Britain"
+  data-charttitle="Proportion of population satisfied with their last experience of public services"
+  data-charttitles="[{&quot;series&quot;:&quot;Healthcare system&quot;,&quot;title&quot;:&quot;Percentage of people who tend to be satisfied with the healthcare system in the UK (%)&quot;},{&quot;series&quot;:&quot;Education system&quot;,&quot;title&quot;:&quot;Percentage of people who tend to be satisfied with the education system in the UK (%)&quot;},{&quot;series&quot;:&quot;Police&quot;,&quot;title&quot;:&quot;Percentage of people who tend to be satisfied with the police in the UK (%)&quot;},{&quot;series&quot;:&quot;Courts and legal system&quot;,&quot;title&quot;:&quot;Percentage of people who tend to be satisfied with the courts and legal system in the UK (%)&quot;}]"
+  data-measurementunit="Percentage (%)"
   data-xaxislabel=""
   data-showdata="true"
-  data-graphtype="line"
+  data-graphtype="bar"
   data-graphtypes="null"
   data-geocoderegex=""
   data-showmap="true"
-  data-startvalues="null"
-  data-graphlimits="null"
+  data-startvalues="[{&quot;field&quot;:&quot;Series&quot;,&quot;value&quot;:&quot;Healthcare system&quot;}]"
+  data-graphlimits="[{&quot;unit&quot;:&quot;Percentage (%)&quot;,&quot;minimum&quot;:0,&quot;maximum&quot;:100}]"
   data-stackeddisaggregation=""
   data-graphannotations="null"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;18 to 24&quot;,&quot;24 to 29&quot;,&quot;30 to 34&quot;,&quot;35 to 39&quot;,&quot;40 to 44&quot;,&quot;45 to 49&quot;,&quot;50 to 54&quot;,&quot;55 to 59&quot;,&quot;60 to 64&quot;,&quot;65 to 69&quot;,&quot;70 to 74&quot;,&quot;75 to 79&quot;,&quot;80 to 84&quot;,&quot;85 and over&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Sex&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Female&quot;,&quot;Male&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Sex&quot;},{&quot;name&quot;:&quot;Country of birth&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Born in UK&quot;,&quot;Born in EU&quot;,&quot;Not born in EU&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country of birth&quot;},{&quot;name&quot;:&quot;Disability status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Limiting long-term health condition&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Disability status&quot;},{&quot;name&quot;:&quot;Income quartile&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;1st&quot;,&quot;2nd&quot;,&quot;3rd&quot;,&quot;4th&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Income quartile&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;England&quot;,&quot;Northern Ireland&quot;,&quot;Scotland&quot;,&quot;Wales&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;East&quot;,&quot;East Midlands&quot;,&quot;London&quot;,&quot;North East&quot;,&quot;North West&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;West Midlands&quot;,&quot;Yorkshire and The Humber&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Healthcare system&quot;,&quot;Education system&quot;,&quot;Police&quot;,&quot;Courts and legal system&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;16 to 24&quot;,&quot;25 to 34&quot;,&quot;35 to 49&quot;,&quot;50 to 64&quot;,&quot;65 to 74&quot;,&quot;75 and over&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Sex&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Female&quot;,&quot;Male&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Sex&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;England&quot;,&quot;Scotland&quot;,&quot;Wales&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;North East&quot;,&quot;North West&quot;,&quot;Yorkshire and The Humber&quot;,&quot;East Midlands&quot;,&quot;West Midlands&quot;,&quot;East&quot;,&quot;London&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
   data-proxy="proxy"
@@ -554,7 +554,7 @@ data-event-label="high"
     
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>Average quality rating of public services</caption>
+      <caption>Proportion of population satisfied with their last experience of public services</caption>
       <thead>
         
         
@@ -566,19 +566,19 @@ data-event-label="high"
         
         
         
+        <th scope="col">Units</th>
+        
+        
+        
+        <th scope="col">Series</th>
+        
+        
+        
         <th scope="col">GeoCode</th>
         
         
         
-        <th scope="col">Observation status</th>
-        
-        
-        
-        <th scope="col">Unit multiplier</th>
-        
-        
-        
-        <th scope="col" class="table-value">Unit measure</th>
+        <th scope="col" class="table-value">Observation status</th>
         
         
       </thead>
@@ -587,11 +587,19 @@ data-event-label="high"
         <tr>
           
           
-          <td>2011</td>
+          <td>17 May to 11 June 2023</td>
           
           
           
-          <td>6.35</td>
+          <td>53.9</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Healthcare system</td>
           
           
           
@@ -599,15 +607,7 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
-          
-          
-          
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Mean quality rating</td>
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -615,11 +615,19 @@ data-event-label="high"
         <tr>
           
           
-          <td>2016</td>
+          <td>17 May to 11 June 2023</td>
           
           
           
-          <td>6.31</td>
+          <td>66.7</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Education system</td>
           
           
           
@@ -627,15 +635,63 @@ data-event-label="high"
           
           
           
-          <td>Undefined</td>
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>17 May to 11 June 2023</td>
           
           
           
-          <td>Units</td>
+          <td>63.5</td>
           
           
           
-          <td class="table-value">Mean quality rating</td>
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Police</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>17 May to 11 June 2023</td>
+          
+          
+          
+          <td>56.2</td>
+          
+          
+          
+          <td>Percentage (%)</td>
+          
+          
+          
+          <td>Courts and legal system</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
           
           
         </tr>
@@ -648,16 +704,14 @@ data-event-label="high"
   
   <div id="datatableFooter">
     
-    <p>Source: European Quality of Life Survey</p>
+    <p>Source: Office for National Statistics (ONS)</p>
     
     
-    <p>Geographical Area: United Kingdom</p>
+    <p>Geographical Area: Great Britain</p>
     
     
-    <p>Unit of Measurement: Mean quality rating</p>
+    <p>Unit of Measurement: Percentage (%)</p>
     
-    
-    <p>Footnote: In certain disaggregations, where the sample size is smaller than 50, figures have been suppressed due to the low sample size</p>
     
   </div>
   
@@ -768,7 +822,7 @@ data-event-label="Change to Map tab"
       <figure role="group">
         <div id="chart-canvas">
           <h4 id="chart-heading" class="chart-title">
-            Average quality rating of public services
+            Percentage of people who tend to be satisfied with the healthcare system in the UK (%)
           </h4>
           <div id="chart" class="plot-container">
             <canvas
@@ -789,12 +843,12 @@ data-event-label="Change to Map tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>European Quality of Life Survey</dd>
+        <dd>Office for National Statistics (ONS)</dd>
         
 
         
         <dt>Geographical Area:</dt>
-        <dd>United Kingdom</dd>
+        <dd>Great Britain</dd>
         
 
         <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
@@ -802,9 +856,6 @@ data-event-label="Change to Map tab"
 
         
 
-        
-        <dt>Footnote:</dt>
-        <dd>In certain disaggregations, where the sample size is smaller than 50, figures have been suppressed due to the low sample size</dd>
         
 
         
@@ -867,12 +918,12 @@ data-event-label="Change to Map tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>European Quality of Life Survey</dd>
+        <dd>Office for National Statistics (ONS)</dd>
         
 
         
         <dt>Geographical Area:</dt>
-        <dd>United Kingdom</dd>
+        <dd>Great Britain</dd>
         
 
         <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
@@ -880,9 +931,6 @@ data-event-label="Change to Map tab"
 
         
 
-        
-        <dt>Footnote:</dt>
-        <dd>In certain disaggregations, where the sample size is smaller than 50, figures have been suppressed due to the low sample size</dd>
         
 
         
@@ -919,7 +967,7 @@ data-event-label="Change to Map tab"
       
         <div role="tabpanel" class="tab-pane " id="mapview" class="map">
           
-<h4 id="map-heading" class="map-title">Average quality rating of public services</h4>
+<h4 id="map-heading" class="map-title">Percentage of people who tend to be satisfied with the healthcare system in the UK (%)</h4>
 <div id="map" aria-describedby="table-alternative">
   <img class="map-loading-image" src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
 </div>
@@ -932,12 +980,12 @@ data-event-label="Change to Map tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>European Quality of Life Survey</dd>
+        <dd>Office for National Statistics (ONS)</dd>
         
 
         
         <dt>Geographical Area:</dt>
-        <dd>United Kingdom</dd>
+        <dd>Great Britain</dd>
         
 
         <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
@@ -945,9 +993,6 @@ data-event-label="Change to Map tab"
 
         
 
-        
-        <dt>Footnote:</dt>
-        <dd>In certain disaggregations, where the sample size is smaller than 50, figures have been suppressed due to the low sample size</dd>
         
 
         
@@ -1057,7 +1102,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            <p>Average quality rating of public services in the UK</p>
+            <p>Percentage of people who tend to be satisfied with public services in the UK</p>
 
           
         </td>
@@ -1073,7 +1118,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            <p>Average quality rating of public services (in all respondents who rated at least three services). The mean quality rating is based on a rating on a scale from 1 to 10 of at least three of the following public services in the relevant country - Health services, Education system, Public transport, Childcare services, Long-term care services, Social housing, State pension system.</p>
+            <p>Percentage of people who tend to be satisfied with the (i) healthcare system, (i) education system, (iii) police, and (iv) courts and legal system in the UK</p>
 
           
         </td>
@@ -1089,7 +1134,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            <p>United Kingdom</p>
+            <p>Great Britain</p>
 
           
         </td>
@@ -1105,7 +1150,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            <p>Mean quality rating</p>
+            <p>Percentage (%)</p>
 
           
         </td>
@@ -1116,13 +1161,19 @@ data-event-label="Change to Sources tab"
       
       
       
+        
+          
+          
+          
+          
+        
+      
       
       <tr>
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Quality rating - Respondents to the survey were asked "In general, how would you rate the quality of each of the following public services in [COUNTRY]?" 7 public services are rated on a scale from 1 to 10, with 1 indicating 'very poor quality', and 10 indicating 'very high quality' (Health services, Education system, Public transport, Childcare services, Long-term care services, Social housing, State pension system).</p>
-<p>Disability - The 'European Quality of Life' survey  does not use the <a href="https://gss.civilservice.gov.uk/policy-store/measuring-disability- for-the-equality-act-2010/">(GSS) harmonised "core" definition</a> for disability. Where the GSS harmonised questions ask about physical or mental health conditions lasting or expected to last 12 months or more, the European Quality of Life survbey asks for any chronic (long standing) physical or mental health problems expected to last for 6 months or more.</p>
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
 
           
         </td>
@@ -1156,19 +1207,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Calculations </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>No calculations were performed in the data acquisition of this indicator as appropriate data was readily available in the final format specified by this indicator.</p>
 
           
         </td>
@@ -1184,8 +1228,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Data are collected from the Eurofound 'European Quality of Life Survey'.</p>
-<p> Income is presented by income quartiles (from lowest income quartile 1 to highest income quartile 4), which were calculated based on equivalised income in PPP euros for the respondents who provided this information. Cases with missing values (for example when asked for respondents perceived quality of services, they answered "don't know", or refused to answer spontaneously) have been included in the calculations where the respondent has rated at least three services. Where there were fewer than fifty responses from a group, the results are not shown.</p>
+            <p>Adults aged 16 years and over were asked to rate their overall satisfaction with certain public services in the UK on a scale from 0 to 10, where 0 was "not at satisfied" and 10 was "completely satisfied". A rating score of 6 or higher represents satisfaction with the asked about public service in the UK. </p>
+<p>Survey estimates exclude respondents who refused to answer, answered "Don't know" and those with missing answers.</p>
 <p>This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.</p>
 
           
@@ -1202,7 +1246,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            22 November 2021
+            21 July 2023
           
         </td>
         </tr>
@@ -1217,7 +1261,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            06 April 2023
+            21 July 2023
           
         </td>
         </tr>
@@ -1642,7 +1686,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>European Quality of Life Survey</p>
+            <p>Office for National Statistics (ONS)</p>
 
           
         </td>
@@ -1658,7 +1702,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            <p>Various</p>
+            <p>Quarterly</p>
 
           
         </td>
@@ -1674,7 +1718,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2003</p>
+            <p>2023</p>
 
           
         </td>
@@ -1690,7 +1734,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Geographical coverage </th>
         <td>
           
-            <p>United Kingdom</p>
+            <p>Great Britain</p>
 
           
         </td>
@@ -1711,8 +1755,8 @@ data-event-label="Change to Sources tab"
             
             
             
-              <a href="https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=7348" target="_blank">
-                European Quality of Life Survey Integrated Data File, 2003-2016 <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/wellbeing/datasets/ukmeasuresofnationalwellbeing" target="_blank">
+                UK Measures of National Well-being <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1736,7 +1780,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            26 June 2018
+            05 July 2023
           
         </td>
         </tr>
@@ -1751,7 +1795,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>TBC: We plan to update indicator data within 4 months of data being released</p>
+            <p>November 2023: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -1767,7 +1811,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Non-official statistic</p>
+            <p>Official statistics</p>
 
           
         </td>
@@ -1783,7 +1827,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>tle@eurofound.europa.eu</p>
+            <p>qualityoflife@ons.gov.uk</p>
 
           
         </td>
@@ -1799,7 +1843,10 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>European Foundation for the Improvement of Living and Working Conditions. (2018). European Quality of Life Survey Integrated Data File, 2003-2016. [data collection]. 3rd Edition. UK Data Service. SN - 7348, http://doi.org/10.5255/UKDA-SN-7348-3</p>
+            <p>The relevant four questions within the <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/wellbeing/articles/ukmeasuresofnationalwellbeing/latest">UK Measures of National Well-being (UK MNW)</a> are sourced from the <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandlifeexpectancies/methodologies/opinionsandlifestylesurveyqmi">Opinion and Lifestyle Survey (OPN)</a>, which takes place on a fortnightly basis covering approximately a 10 day collection period.</p>
+<p>The relevant four questions are asked on a quarterly basis, with the most recent collection period covering 17 May to 11 June 2023.</p>
+<p>The 17 May to 11 June 2023 data is based on 2 waves of pooled data (17 to 28 May and 31 May to 11 June).</p>
+<p>An annual dataset will be created from the 4 quarterly waves to allow reporting of estimates by various socio-demographic characteristics. Please see the <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/wellbeing/articles/ukmeasuresofnationalwellbeingcurrentandupcomingwork/july2023#upcoming-work">UK Measures of National Well-being, current and upcoming work, July 2023</a> for planned future work.</p>
 
           
         </td>
@@ -2163,7 +2210,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230803105401'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230803125200'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2171,7 +2218,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230803105401"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230803125200"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
