@@ -148,7 +148,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230807100225">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230807125736">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -459,6 +459,12 @@ data-event-label="high"
   
 
   
+<div class="row metadata-available-indicator">
+  <div class="col-xs-12">
+    <h2>Worldwide weighted tariff-average</h2>
+  </div>
+</div>
+
 
   
 
@@ -477,13 +483,13 @@ data-event-label="high"
   id="indicatorData"
   data-indicatorid='indicator_17-10-1'
   data-id="17-10-1"
-  data-country="UK"
-  data-charttitle="Trade-weighted tariff average applied to imports of goods per country income level"
+  data-country="United Kingdom"
+  data-charttitle="Worldwide weighted tariff-average"
   data-charttitles="null"
   data-measurementunit="Percentage (%)"
   data-xaxislabel=""
   data-showdata="true"
-  data-graphtype="line"
+  data-graphtype="bar"
   data-graphtypes="null"
   data-geocoderegex=""
   data-showmap="false"
@@ -494,7 +500,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Country group&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Developing countries&quot;,&quot;Least developed countries&quot;,&quot;Small island developing states&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country group&quot;},{&quot;name&quot;:&quot;Product sector&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;AGRI&quot;,&quot;FISH&quot;,&quot;NAMA&quot;,&quot;PAPS&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Product sector&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Most favoured nation status&quot;,&quot;Preferential status&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Type of product&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Agricultural products&quot;,&quot;Arms&quot;,&quot;Clothing&quot;,&quot;Industrial products&quot;,&quot;Oil&quot;,&quot;Textiles&quot;,&quot;Total or no breakdown&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Type of product&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
   data-proxy=""
@@ -619,7 +625,7 @@ data-event-label="Change to Table tab"
       <figure role="group">
         <div id="chart-canvas">
           <h4 id="chart-heading" class="chart-title">
-            Trade-weighted tariff average applied to imports of goods per country income level
+            Worldwide weighted tariff-average
           </h4>
           <div id="chart" class="plot-container">
             <canvas
@@ -640,9 +646,12 @@ data-event-label="Change to Table tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>Eurostat</dd>
+        <dd>United Nations (UN)</dd>
         
 
+        
+        <dt>Geographical Area:</dt>
+        <dd>United Kingdom</dd>
         
 
         <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
@@ -652,7 +661,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd>AGRI = Agriculture; FISH = Fish; NAMA = Non-Agricultural Market Access; PAP = Processed Agricultural Products. Please not the y axis does not go to 100% for ease of visualisation</dd>
+        <dd>Please note the y axis does not go to 100% for ease of visualisation</dd>
         
 
         
@@ -715,9 +724,12 @@ data-event-label="Change to Table tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>Eurostat</dd>
+        <dd>United Nations (UN)</dd>
         
 
+        
+        <dt>Geographical Area:</dt>
+        <dd>United Kingdom</dd>
         
 
         <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
@@ -727,7 +739,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd>AGRI = Agriculture; FISH = Fish; NAMA = Non-Agricultural Market Access; PAP = Processed Agricultural Products. Please not the y axis does not go to 100% for ease of visualisation</dd>
+        <dd>Please note the y axis does not go to 100% for ease of visualisation</dd>
         
 
         
@@ -833,19 +845,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Indicator available </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Worldwide weighted tariff-average</p>
 
           
         </td>
@@ -855,20 +860,13 @@ data-event-label="Change to Sources tab"
   
       
       
-      
-        
-          
-          
-          
-          
-        
       
       
       <tr>
         <th scope="row">Indicator description </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Value in percentage of weighted average tariffs applied to the imports of goods. The average level of customs tariff rates applied worldwide can be used as an indicator of the degree of success achieved by multilateral negotiations and regional trade agreements.</p>
 
           
         </td>
@@ -879,19 +877,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Geographical coverage </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>United Kingdom</p>
 
           
         </td>
@@ -923,7 +914,10 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>The weighted average tariffs are reported overall and separately for four main product sectors - AGRI (Agriculture), FISH (Fish), NAMA (Non-Agricultural Market Access), and PAP (Processed Agricultural Products). The breakdown into country group is based on classifications by the Organisation for Economic Co-operation and Development (OECD) - OECD DAC list of Developing and Least Developed countries for 2020, and the Small Island Developing States within the OECD DAC list. AVE stands for ad valorem equivalent, defined by the World Trade Organization as a tariff estimated as a percentage of the price. AVEs are necessary to create an equivalent means of calculating tariff related outcomes between goods with different forms of tariffs applied to them (for example, specific tariffs vs ad valorem tariffs).</p>
+            <p>Most favoured nation (MFN) - treating all trading partners equally. Under the World Trade Organisation (WTO) agreements, countries cannot normally discriminate between their trading partners. MFN suggests that every time a country lowers a trade barrier or opens up a market, it has to do so for the same goods or services from all its trading partners.</p>
+<p>Preferential status - this is the term used in the WTO for trade preferences, such as lower or zero tariffs, which a member may offer to a trade partner unilaterally.</p>
+<p>Tariffs - customs duties on merchandise imports, levied either on an ad valorem basis (percentage of value) or on a specific basis (e.g. $7 per 100 kg) </p>
+<p>Weighted average - in order to aggregate tariff value for country groups it is recommended to make use of a weighting methodology based on the value of goods imported.</p>
 
           
         </td>
@@ -934,19 +928,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Available disaggregations </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Product sector</p>
 
           
         </td>
@@ -962,7 +949,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>Calculations were performed by topic experts from Department for International Trade and are in line with the methodology outlined in the UN global metadata. Weighted average tariffs are calculated as follows - the duties collected (calculated by multiplying the imports by the AVEs) for goods within a given sector in a given year, divided by the sum of the trade value for the same goods in that sector in the same year. For more information refer to the global metadata specified by the United Nations.</p>
+            <p>The statistics are provided in a ready, calculated format from the International Trade Centre (ITC), using Market Access Map data. See the metadata file link in the Global metadata tab for details on the calculations</p>
 
           
         </td>
@@ -978,7 +965,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>The indicator is focused on Trade in Goods. Imports are assigned to a product sector based on their 6 digit code, rather than the 8 digit code provided on the database. This is because at 8 digit level codes are frequently altered. Therefore, when mapping sectors using the most recently updated tariff schedule, import product codes from prior years will not be captured in instances where they have been updated. To overcome this, sectors are assigned to one 6 digit code only. Other caveats to consider - AVEs are calculated on the basis of trade between the UK and the EU between 2017-2018. This may not reflect well the trading relationship between the UK and Developing nations, Least Developed nations and Small Island Developing Nations. To this end, the use of EU imports (as opposed to Rest of the World) could yield AVE inflationary effects, as EU imports are generally of higher quantity and higher price than imports from Rest of World. Where no trade has been recorded in 2017-18 between the UK-EU no AVE estimates have been derived for these goods in the sample. Additionally, missing values for both AVE rates and sectors arising from product code alterations affect the sample size. For AVEs, some of these missing values are overcome by 0% allocation where imports belong to regimes U10 (MFN Zero), U20 (GSP Zero) or U30 (Preference Zero). However, since such replacements cannot be made for non-zero tariff rate regimes, samples may contain disproportionate amounts of 0% rate tariffs, in turn, potentially yielding underestimating effects on simple average tariffs and weighted average tariffs calculations. Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
+            <p>Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -994,7 +981,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            02 February 2022
+            07 August 2023
           
         </td>
         </tr>
@@ -1009,7 +996,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            02 February 2022
+            07 August 2023
           
         </td>
         </tr>
@@ -1434,7 +1421,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Eurostat</p>
+            <p>United Nations (UN)</p>
 
           
         </td>
@@ -1450,7 +1437,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            <p>Monthly</p>
+            <p>Annual</p>
 
           
         </td>
@@ -1466,7 +1453,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2005</p>
+            <p>2021</p>
 
           
         </td>
@@ -1503,8 +1490,8 @@ data-event-label="Change to Sources tab"
             
             
             
-              <a href="https://appsso.eurostat.ec.europa.eu/nui/show.do?query=BOOKMARK_DS-059042_QID_-C92D93E_UID_-3F171EB0&layout=PERIOD,L,X,0;DECLARANT,L,Y,0;PARTNER,L,Z,0;PRODUCT,C,Z,1;STAT_REGIME,L,Z,2;IMPORT_REGIME,L,Z,3;ELIGIBILITY,L,Z,4;INDICATORS,C,Z,5;&zSelection=DS-059042STAT_REGIME,1;DS-059042PARTNER,EU_EXTRA;DS-059042IMPORT_REGIME,U10;DS-059042INDICATORS,VALUE_IN_EUROS;DS-059042PRODUCT,TOTAL;DS-059042ELIGIBILITY,E1;&rankName1=PARTNER_1_2_-1_2&rankName2=INDICATORS_1_2_-1_2&rankName3=PRODUCT_1_2_-1_2&rankName4=STAT-REGIME_1_2_0_1&rankName5=ELIGIBILITY_1_2_0_1&rankName6=IMPORT-REGIME_1_2_0_0&rankName7=PERIOD_1_0_0_0&rankName8=DECLARANT_1_2_0_1&sortC=ASC_-1_FIRST&rStp=&cStp=&rDCh=&cDCh=&rDM=true&cDM=true&footnes=false&empty=true&wai=false&time_mode=NONE&time_most_recent=false&lang=EN&cfo=%23%23%23%2C%23%23%23.%23%23%23&cxt_bm=1&lang=en" target="_blank">
-                Adjusted EU-EXTRA imports by tariff regime, by CN8 <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://unstats.un.org/sdgs/dataportal/database" target="_blank">
+                UN SDG Global database <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1528,7 +1515,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            16 October 2020
+            10 July 2023
           
         </td>
         </tr>
@@ -1559,7 +1546,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Official statistic</p>
+            <p>Official International</p>
 
           
         </td>
@@ -1570,12 +1557,19 @@ data-event-label="Change to Sources tab"
       
       
       
+        
+          
+          
+          
+          
+        
+      
       
       <tr>
         <th scope="row">Contact details </th>
         <td>
           
-            <p>Conor.Mccormack@trade.gov.uk</p>
+            <p><span class="empty-metadata-placeholder">Not available for this source</span></p>
 
           
         </td>
@@ -1591,7 +1585,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>The source publication is of monthly frequency, but the calculations for this indicator are done on annual basis</p>
+            <p>Select 17.10.1 under ‘Data series’. Under ‘Geographic Areas’ deselect the default options and search for ‘United Kingdom’. The resulting tables can then be downloaded.</p>
 
           
         </td>
@@ -1946,7 +1940,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230807100225'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230807125736'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -1954,7 +1948,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230807100225"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230807125736"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
