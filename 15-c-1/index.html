@@ -148,7 +148,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230815125430">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230815130258">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -496,8 +496,8 @@ data-event-label="high"
   data-indicatorid='indicator_15-c-1'
   data-id="15-c-1"
   data-country="United Kingdom"
-  data-charttitle="Number of endangered species seizures"
-  data-charttitles="null"
+  data-charttitle="Proportion of traded wildlife that was poached or illicitly trafficked"
+  data-charttitles="[{&quot;series&quot;:&quot;Convention of International Trade of Endangered Species (CITES) seizures&quot;,&quot;title&quot;:&quot;Number of endangered species seizures&quot;}]"
   data-measurementunit="Number of seizures"
   data-xaxislabel=""
   data-showdata="true"
@@ -512,7 +512,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Import type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Butterflies&quot;,&quot;Caviar and caviar extract&quot;,&quot;Ivory and items containing Ivory&quot;,&quot;Live animals and birds&quot;,&quot;Live coral and coral derivatives&quot;,&quot;Live plants&quot;,&quot;Parts or derivatives of animals or birds&quot;,&quot;Parts or derivatives of plants&quot;,&quot;Preparations of Oriental medicine which include parts and derivatives of endangered species&quot;,&quot;Timber or wood products&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Import type&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Convention of International Trade of Endangered Species (CITES) seizures&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Endangered species type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Butterflies&quot;,&quot;Caviar and caviar extract&quot;,&quot;Ivory and items containing ivory&quot;,&quot;Live animals and birds&quot;,&quot;Live coral and coral derivatives&quot;,&quot;Live plants&quot;,&quot;Parts or derivatives of animals or birds&quot;,&quot;Parts or derivatives of plants&quot;,&quot;Preparations of oriental medicine which include parts and derivatives of endangered species&quot;,&quot;Timber or wood products&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Endangered species type&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Number of times seized&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
   data-proxy="proxy"
@@ -554,7 +554,7 @@ data-event-label="high"
     
     <h3>Headline data</h3>
     <table class="table-responsive table table-hover dataTable no-footer" role="grid">
-      <caption>Number of endangered species seizures</caption>
+      <caption>Proportion of traded wildlife that was poached or illicitly trafficked</caption>
       <thead>
         
         
@@ -566,15 +566,19 @@ data-event-label="high"
         
         
         
+        <th scope="col">Units</th>
+        
+        
+        
+        <th scope="col">Series</th>
+        
+        
+        
         <th scope="col">Observation status</th>
         
         
         
-        <th scope="col">Unit multiplier</th>
-        
-        
-        
-        <th scope="col" class="table-value">Unit measure</th>
+        <th scope="col" class="table-value">Unit multiplier</th>
         
         
       </thead>
@@ -591,15 +595,19 @@ data-event-label="high"
           
           
           
+          <td>Number of times seized</td>
+          
+          
+          
+          <td>Convention of International Trade of Endangered Species (CITES) seizures</td>
+          
+          
+          
           <td>Normal value</td>
           
           
           
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Number of times seized</td>
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -615,15 +623,19 @@ data-event-label="high"
           
           
           
+          <td>Number of times seized</td>
+          
+          
+          
+          <td>Convention of International Trade of Endangered Species (CITES) seizures</td>
+          
+          
+          
           <td>Normal value</td>
           
           
           
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Number of times seized</td>
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -639,15 +651,19 @@ data-event-label="high"
           
           
           
+          <td>Number of times seized</td>
+          
+          
+          
+          <td>Convention of International Trade of Endangered Species (CITES) seizures</td>
+          
+          
+          
           <td>Normal value</td>
           
           
           
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Number of times seized</td>
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -663,15 +679,19 @@ data-event-label="high"
           
           
           
+          <td>Number of times seized</td>
+          
+          
+          
+          <td>Convention of International Trade of Endangered Species (CITES) seizures</td>
+          
+          
+          
           <td>Normal value</td>
           
           
           
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Number of times seized</td>
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -687,15 +707,19 @@ data-event-label="high"
           
           
           
+          <td>Number of times seized</td>
+          
+          
+          
+          <td>Convention of International Trade of Endangered Species (CITES) seizures</td>
+          
+          
+          
           <td>Normal value</td>
           
           
           
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Number of times seized</td>
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -711,15 +735,19 @@ data-event-label="high"
           
           
           
+          <td>Number of times seized</td>
+          
+          
+          
+          <td>Convention of International Trade of Endangered Species (CITES) seizures</td>
+          
+          
+          
           <td>Normal value</td>
           
           
           
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Number of times seized</td>
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -735,15 +763,19 @@ data-event-label="high"
           
           
           
+          <td>Number of times seized</td>
+          
+          
+          
+          <td>Convention of International Trade of Endangered Species (CITES) seizures</td>
+          
+          
+          
           <td>Normal value</td>
           
           
           
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Number of times seized</td>
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -759,15 +791,19 @@ data-event-label="high"
           
           
           
+          <td>Number of times seized</td>
+          
+          
+          
+          <td>Convention of International Trade of Endangered Species (CITES) seizures</td>
+          
+          
+          
           <td>Normal value</td>
           
           
           
-          <td>Units</td>
-          
-          
-          
-          <td class="table-value">Number of times seized</td>
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -779,7 +815,15 @@ data-event-label="high"
           
           
           
-          <td>714.0</td>
+          <td>715.0</td>
+          
+          
+          
+          <td>Number of times seized</td>
+          
+          
+          
+          <td>Convention of International Trade of Endangered Species (CITES) seizures</td>
           
           
           
@@ -787,11 +831,35 @@ data-event-label="high"
           
           
           
-          <td>Units</td>
+          <td class="table-value">Units</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2022</td>
           
           
           
-          <td class="table-value">Number of times seized</td>
+          <td>749.0</td>
+          
+          
+          
+          <td>Number of times seized</td>
+          
+          
+          
+          <td>Convention of International Trade of Endangered Species (CITES) seizures</td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td class="table-value">Units</td>
           
           
         </tr>
@@ -804,7 +872,7 @@ data-event-label="high"
   
   <div id="datatableFooter">
     
-    <p>Source: Border Force, UK Visas and Immigration, and Immigration Enforcement</p>
+    <p>Source: Home Office (HO)</p>
     
     
     <p>Geographical Area: United Kingdom</p>
@@ -813,7 +881,7 @@ data-event-label="high"
     <p>Unit of Measurement: Number of seizures</p>
     
     
-    <p>Footnote: <p>Data for 2019 does not include any seizures made at Gatwick airport during Q4, due to a change in reporting systems. </p> <p> 2020 figures were impacted by the 2020 Covid-19 pandemic (see 'Other Information' below). </p> <p> Where figures have been surpressed in the source data, they have been removed. This means that in cases where all four quarters were surpressed, there is no data point available for that year.</p></p>
+    <p>Footnote: <p>Data for 2019 does not include any seizures made at Gatwick airport during Q4, due to a change in reporting systems.</p><p>2020 figures were impacted by the 2020 Covid-19 pandemic (see 'Other Information' below).</p><p>Where figures have been surpressed in the source data, they have been removed. This means that in cases where all four quarters were surpressed, there is no data point available for that year.</p></p>
     
   </div>
   
@@ -920,7 +988,7 @@ data-event-label="Change to Table tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>Border Force, UK Visas and Immigration, and Immigration Enforcement</dd>
+        <dd>Home Office (HO)</dd>
         
 
         
@@ -935,7 +1003,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd><p>Data for 2019 does not include any seizures made at Gatwick airport during Q4, due to a change in reporting systems. </p> <p> 2020 figures were impacted by the 2020 Covid-19 pandemic (see 'Other Information' below). </p> <p> Where figures have been surpressed in the source data, they have been removed. This means that in cases where all four quarters were surpressed, there is no data point available for that year.</p></dd>
+        <dd><p>Data for 2019 does not include any seizures made at Gatwick airport during Q4, due to a change in reporting systems.</p><p>2020 figures were impacted by the 2020 Covid-19 pandemic (see 'Other Information' below).</p><p>Where figures have been surpressed in the source data, they have been removed. This means that in cases where all four quarters were surpressed, there is no data point available for that year.</p></dd>
         
 
         
@@ -998,7 +1066,7 @@ data-event-label="Change to Table tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>Border Force, UK Visas and Immigration, and Immigration Enforcement</dd>
+        <dd>Home Office (HO)</dd>
         
 
         
@@ -1013,7 +1081,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd><p>Data for 2019 does not include any seizures made at Gatwick airport during Q4, due to a change in reporting systems. </p> <p> 2020 figures were impacted by the 2020 Covid-19 pandemic (see 'Other Information' below). </p> <p> Where figures have been surpressed in the source data, they have been removed. This means that in cases where all four quarters were surpressed, there is no data point available for that year.</p></dd>
+        <dd><p>Data for 2019 does not include any seizures made at Gatwick airport during Q4, due to a change in reporting systems.</p><p>2020 figures were impacted by the 2020 Covid-19 pandemic (see 'Other Information' below).</p><p>Where figures have been surpressed in the source data, they have been removed. This means that in cases where all four quarters were surpressed, there is no data point available for that year.</p></dd>
         
 
         
@@ -1188,7 +1256,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>CITES (the Convention on International Trade in Endangered Species of Wild Fauna and Flora) - An international agreement between governments. Its aim is to ensure that international trade in specimens of wild animals and plants does not threaten their survival. CITES accords varying degrees of protection to more than 39,000 species of animals and plants, whether they are traded as live specimens, fur coats or dried herbs.</p>
+            <p><a href="https://cites.org/eng">Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES)</a> - An international agreement between governments, which aims to ensure that international trade in specimens of wild animals and plants does not threaten their survival. CITES accords varying degrees of protection to <a href="https://cites.org/eng/disc/species.php">over 40,000 species</a> of animals and plants, whether they are traded as live specimens, derivative items, or dried herbs.</p>
 
           
         </td>
@@ -1199,19 +1267,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Available disaggregations </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Endangered species type</p>
 
           
         </td>
@@ -1227,7 +1288,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>Figures provided in Border Force transparency data are given on a quarterly basis. The four quarters of each year have here been summed to provide an annual figure, as number of seizures is considerably volatile.</p>
+            <p>Figures provided in Border Force transparency data are given on a quarterly basis. The four quarters of each year have been summed to provide an annual figure of number of seizures, as quarterly seizure data is particularly volatile.</p>
 
           
         </td>
@@ -1243,12 +1304,12 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>The total number of seizures may not equate to the sum of the CITES seizures, due to the possibility of multiple seizures. A multiple seizure is where two or more category types (e.g. caviar and timber) are seized on a particular occasion. The occasion is counted once in the total number of seizures, but a seizure is counted against each category.</p>
+            <p>The total number of seizures may not equate to the sum of the CITES seizures. CITES record the number of individual specimens seized, whereas <a href="https://www.gov.uk/government/publications/border-force-transparency-data-q1-2023">Border Force transparency data</a> presented here reports the number of seizures not specimens. Moreover, this number may differ due to single and multiple seizures recorded by the Border Force data. Specifically, a multiple seizure is where two or more category types (e.g., caviar and timber) are seized on a particular occasion. Each of these seizures are reported against the relevant categories, but are only counted once in the total number of seizures.</p>
 <p>The data displayed on this page does not include specimens seized by the police inland which have passed through the UK border undetected. In addition, data for 2019 does not include any seizures made at Gatwick airport during Quarter 4, due to a change in reporting systems.</p>
-<p>Seizure numbers in 2020 were impacted by the Covid-19 pandemic, as there were extremely large reductions in both number of passengers and amount of cargo. In addition, enforcement work was disrupted by a stay-at-home order between March and August, and changes to work practices on return.</p>
-<p><i>Volume</i> of seizures by type are also available in the source data.</p>
-<p>For further information on which species are protected by CITES please see <a href="http://checklist.cites.org/#/en">UNEP checklist of CITES species</a>, and for further information on trade in CITES species see the <a href="https://trade.cites.org/en/cites_trade/">CITES Trade Database</a>.</p>
-<p>This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has not been identified in collaboration with topic experts.</p>
+<p>Seizure numbers in 2020 were impacted by the Covid-19 pandemic, as there were extremely large reductions in both number of passengers and amount of cargo. In addition, enforcement work was disrupted by a stay-at-home order between March and August 2020, and changes to work practices on return.</p>
+<p>For further information on which species are protected by CITES please see <a href="http://checklist.cites.org/#/en">Checklist of CITES species</a>, and for further information on trade in CITES species see the <a href="https://trade.cites.org/en/cites_trade/">CITES Trade Database</a>.</p>
+<p>Volume of seizures by type are also available from the source data  (<a href="https://www.gov.uk/government/publications/border-force-transparency-data-q1-2023">Border Force transparency data</a>).</p>
+<p>This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global  indicator specification. This indicator has not been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -1264,7 +1325,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            24 January 2023
+            15 August 2023
           
         </td>
         </tr>
@@ -1279,7 +1340,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            06 April 2023
+            15 August 2023
           
         </td>
         </tr>
@@ -1704,7 +1765,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Border Force, UK Visas and Immigration, and Immigration Enforcement</p>
+            <p>Home Office (HO)</p>
 
           
         </td>
@@ -1773,8 +1834,8 @@ data-event-label="Change to Sources tab"
             
             
             
-              <a href="https://www.gov.uk/government/publications/border-force-transparency-data-q1-2022" target="_blank">
-                Border Force transparency data <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.gov.uk/government/publications/border-force-transparency-data-q1-2023" target="_blank">
+                Border Force transparency data Q1 2023 <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1798,7 +1859,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            26 May 2022
+            25 May 2023
           
         </td>
         </tr>
@@ -1868,8 +1929,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Table BF_04 Convention of international trade of endangered species (CITES) seizures.&lt;/p<p>The stated release date refers to the publication the current data was taken from. While this source is updated on quarterly basis, the indicator is updated annually.</p>
-</p>
+            <p>Table BF_04 Convention of international trade of endangered species (CITES) seizures.</p>
+<p>While this source is updated on quarterly basis, the indicator is updated annually.</p>
 
           
         </td>
@@ -2224,7 +2285,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230815125430'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230815130258'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2232,7 +2293,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230815125430"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230815130258"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
