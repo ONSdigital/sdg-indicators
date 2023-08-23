@@ -148,7 +148,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230823095721">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230823112231">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -461,21 +461,7 @@ data-event-label="high"
   
 <div class="row metadata-available-indicator">
   <div class="col-xs-12">
-    <h2>Total energy intake per day (kcal/day)</h2>
-  </div>
-</div>
-
-
-  
-<div class="row proxy-banner my-4 mx-1 px-2 gx-2">
-  <div class="col col-auto align-self-center">
-    <span aria-describedby="proxy-description" class="proxy-pill">Proxy</span>
-  </div>
-  <div class="col col-auto align-self-center">
-    =
-  </div>
-  <div id="proxy-description" class="col">
-    This indicator contains some alternative data to those specified by the United Nations (UN). This indicator is the most suitable match currently available.
+    <h2>Prevelance of undernourishment</h2>
   </div>
 </div>
 
@@ -484,14 +470,7 @@ data-event-label="high"
 
   
 
-<div class="row" id="page-content">
-  <div class="col-xs-12">
-    <p>The Food and Agriculture Organization of the United Nations (FAO) presents modelled data for the UK relating to this indicator, and states the prevalance of undernourishment in the UK as &lt;2.5% between 2000 and 2018.</p>
-
-<p>This indicator is being used as an approximation of the UN SDG Indicator and has not been identified in collaboration with topic experts. We will work to identify or develop UK data to meet the global indicator specification.</p>
-
-  </div>
-</div>
+  
 
 
 
@@ -505,26 +484,26 @@ data-event-label="high"
   data-indicatorid='indicator_2-1-1'
   data-id="2-1-1"
   data-country="United Kingdom"
-  data-charttitle="Total Energy intake per day"
-  data-charttitles="[{&quot;series&quot;:&quot;Median&quot;,&quot;title&quot;:&quot;Total energy intake per day (median)&quot;},{&quot;series&quot;:&quot;Percentile (2.5th)&quot;,&quot;title&quot;:&quot;Total energy intake per day (2.5th percentile) &quot;}]"
-  data-measurementunit="Calories per day (kcal/day)"
+  data-charttitle="Prevelance of undernourishment"
+  data-charttitles="null"
+  data-measurementunit="Percentage (%)"
   data-xaxislabel=""
   data-showdata="true"
   data-graphtype="line"
   data-graphtypes="null"
   data-geocoderegex=""
   data-showmap="false"
-  data-startvalues="[{&quot;field&quot;:&quot;Series&quot;,&quot;value&quot;:&quot;Median&quot;},{&quot;field&quot;:&quot;Age&quot;,&quot;value&quot;:&quot;19 to 64&quot;}]"
-  data-graphlimits="null"
+  data-startvalues="null"
+  data-graphlimits="[{&quot;unit&quot;:&quot;Percentage (%)&quot;,&quot;minimum&quot;:0,&quot;maximum&quot;:100}]"
   data-stackeddisaggregation=""
   data-graphannotations="null"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Median&quot;,&quot;Percentile (2.5th)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Sex&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Female&quot;,&quot;Male&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Sex&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;1.5 to 3&quot;,&quot;11 to 18&quot;,&quot;19 to 64&quot;,&quot;4 to 10&quot;,&quot;65 and over&quot;,&quot;65 to 74&quot;,&quot;75 and over&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Prevalence of undernourishment&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
-  data-proxy="proxy"
+  data-proxy=""
   data-proxyseries="null"
 >
   
@@ -554,15 +533,625 @@ data-event-label="high"
   <div id="datatables">
 
     
+    <a href="https://ONSdigital.github.io/sdg-data/en/headline/2-1-1.csv" class="btn btn-primary btn-download" download="indicator_2-1-1.csv" tabindex="0" role="button">Download headline data (.csv)</a>
+    
     <a href="https://ONSdigital.github.io/sdg-data/en/data/2-1-1.csv" class="btn btn-primary btn-download" download='indicator_2-1-1.csv' tabindex='0' role='button'>Download source data (.csv)</a>
 
     <p class="no-js-disaggregation-hint">Download source data for disaggregations (.csv)</p>
 
     
-    <h3>No headline data available</h3>
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>Prevelance of undernourishment</caption>
+      <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col">Value</th>
+        
+        
+        
+        <th scope="col">Series</th>
+        
+        
+        
+        <th scope="col">Observation status</th>
+        
+        
+        
+        <th scope="col">Unit multiplier</th>
+        
+        
+        
+        <th scope="col" class="table-value">Unit measure</th>
+        
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          
+          <td>2001</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2002</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2003</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2004</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2005</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2006</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2007</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2008</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2009</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2010</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2011</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2012</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>2.5</td>
+          
+          
+          
+          <td>Prevalence of undernourishment</td>
+          
+          
+          
+          <td>Estimated value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+      </tbody>
+    </table>
     
   </div>
 
+  
+  <div id="datatableFooter">
+    
+    <p>Source: Food and Agriculture Organization (FAO)</p>
+    
+    
+    <p>Geographical Area: United Kingdom</p>
+    
+    
+    <p>Unit of Measurement: Percentage (%)</p>
+    
+    
+    <p>Footnote: <p>Each observation represents a 3-year average. For example, the estimate displayed for 2001 is calculated using data from 2000 to 2002.</p><p>Data showing as 2.5 may signify a prevalence of undernourishment below 2.5% - see other information section.</p></p>
+    
+  </div>
   
 
 </div>
@@ -646,7 +1235,7 @@ data-event-label="Change to Table tab"
       <figure role="group">
         <div id="chart-canvas">
           <h4 id="chart-heading" class="chart-title">
-            Total energy intake per day (median)
+            Prevelance of undernourishment
           </h4>
           <div id="chart" class="plot-container">
             <canvas
@@ -667,7 +1256,7 @@ data-event-label="Change to Table tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>Food Standards Agency and Public Health England</dd>
+        <dd>Food and Agriculture Organization (FAO)</dd>
         
 
         
@@ -682,7 +1271,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd>Up until 2016 to 17, Data is available as a combined figure from two survey years.  Each survey year spans two calendar years.  The year shown on the x-axis refers to the middle year from the combined survey years.  For example for year 2015 on the x axis, data is combined from both the 2014 to 15 and the 2015 to 16 survey years. For Survey years between 2016 to 17 and 2018 to 19, data is combined from three survey years. For these survey years 2018 appears on the x-axis.</dd>
+        <dd><p>Each observation represents a 3-year average. For example, the estimate displayed for 2001 is calculated using data from 2000 to 2002.</p><p>Data showing as 2.5 may signify a prevalence of undernourishment below 2.5% - see other information section.</p></dd>
         
 
         
@@ -745,7 +1334,7 @@ data-event-label="Change to Table tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>Food Standards Agency and Public Health England</dd>
+        <dd>Food and Agriculture Organization (FAO)</dd>
         
 
         
@@ -760,7 +1349,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd>Up until 2016 to 17, Data is available as a combined figure from two survey years.  Each survey year spans two calendar years.  The year shown on the x-axis refers to the middle year from the combined survey years.  For example for year 2015 on the x axis, data is combined from both the 2014 to 15 and the 2015 to 16 survey years. For Survey years between 2016 to 17 and 2018 to 19, data is combined from three survey years. For these survey years 2018 appears on the x-axis.</dd>
+        <dd><p>Each observation represents a 3-year average. For example, the estimate displayed for 2001 is calculated using data from 2000 to 2002.</p><p>Data showing as 2.5 may signify a prevalence of undernourishment below 2.5% - see other information section.</p></dd>
         
 
         
@@ -871,7 +1460,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            <p>Total energy intake per day (kcal/day)</p>
+            <p>Prevelance of undernourishment</p>
 
           
         </td>
@@ -882,19 +1471,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Indicator description </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>The proportion of the population whose habitual food consumption is insufficient to provide the dietary energy levels that are required to maintain a normal active and healthy life, expressed as a percentage.</p>
 
           
         </td>
@@ -926,7 +1508,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measurement </th>
         <td>
           
-            <p>Calories per day (kcal/day)</p>
+            <p>Percentage (%)</p>
 
           
         </td>
@@ -953,12 +1535,19 @@ data-event-label="Change to Sources tab"
       
       
       
+        
+          
+          
+          
+          
+        
+      
       
       <tr>
         <th scope="row">Available disaggregations </th>
         <td>
           
-            <p>Sex; Age</p>
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
 
           
         </td>
@@ -990,7 +1579,12 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has not been identified in collaboration with topic experts.</p>
+            <p>Over the years, the approach informing the Food and Agriculture Organization (FAO) computation of the prevalence of undernourishment has been criticized, based on the presumptions that undernourishment should be assessed necessarily starting at the individual level, by comparing individual energy requirements with individual energy intakes. According to such a view, the prevalence of undernourishment could be simply computed by counting the number of individuals in a representative sample of the population that is classified as undernourished, based on a comparison of individual habitual food consumption and requirements.</p>
+<p>Unfortunately, such an approach is not feasible for two reasons - first, due to the cost of individual dietary intake surveys, individual food consumption is measured only in a few countries, every several years, on relatively small samples; moreover, individual energy requirements are practically unobservable with standard data collection methods (to the point that observed habitual energy consumption of individuals in a healthy status is still the preferred way to infer individual energy requirements). This means that even if it were possible to obtain accurate observations of the individual dietary energy consumption, this would be insufficient to infer on the undernourishment condition at individual level, unless integrated by the observation on the physical status (body mass index) and of its dynamic over time, of the same individual.</p>
+<p>The model-based approach, developed by FAO, and used to estimate the prevalence of undernourishment integrates information that is available with sufficient regularity from different sources for most countries in the world, in a theoretically consistent way, thus providing what is still one of the most reliable tools to monitor progress towards reducing global hunger.</p>
+<p>However, data reliability mostly depends on the quality of the data used to inform the estimation of the model’s parameters, which could be either from survey data or from food balances. Neither source is devoid of problems and, when comparing estimates from food balances and surveys, differences are frequently noted. To limit the impact of errors, FAO has traditionally presented estimates of prevalence of undernourishment at national level as three-year averages, on the presumption that errors induced by imprecise recording of stocks variations in each single year might be highly reduced when considering an average over three consecutive years.</p>
+<p>Finally, due to the probabilistic nature of the inference and the margins of uncertainty associated with estimates  of each of the parameters in the model, the precision of the prevalence of undernourishment estimates is generally low. While it is not possible to formally compute margins of error around prevalence of undernourishment estimates, these are expected to likely exceed 5 percent in most cases. For this reason, FAO does not consider prevalence of undernourishment estimates that result to be lower than 2.5 percent as sufficiently reliable to be reported.</p>
+<p>Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.</p>
 
           
         </td>
@@ -1006,7 +1600,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            04 January 2022
+            21 August 2023
           
         </td>
         </tr>
@@ -1021,7 +1615,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            06 April 2023
+            23 August 2023
           
         </td>
         </tr>
@@ -1446,7 +2040,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Food Standards Agency and Public Health England</p>
+            <p>Food and Agriculture Organization (FAO)</p>
 
           
         </td>
@@ -1478,7 +2072,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2008</p>
+            <p>2001</p>
 
           
         </td>
@@ -1515,8 +2109,8 @@ data-event-label="Change to Sources tab"
             
             
             
-              <a href="https://www.gov.uk/government/statistics/ndns-results-from-years-9-to-11-2016-to-2017-and-2018-to-2019" target="_blank">
-                National Diet and Nutrition Survey <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/2.1.1-prevalence-of-undernourishment/en" target="_blank">
+                SDG Indicators Data Portal <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1540,7 +2134,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            11 December 2020
+            09 May 2023
           
         </td>
         </tr>
@@ -1555,7 +2149,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>To be confirmed: We plan to update indicator data within 4 months of data being released</p>
+            <p>See source link: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -1571,7 +2165,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Official Statistic</p>
+            <p>Official International</p>
 
           
         </td>
@@ -1587,7 +2181,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>phe.enquiries@phe.gov.uk</p>
+            <p>SDG-indicators@fao.org</p>
 
           
         </td>
@@ -1965,7 +2559,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230823095721'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230823112231'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -1973,7 +2567,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230823095721"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230823112231"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
