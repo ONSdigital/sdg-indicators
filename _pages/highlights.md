@@ -7,10 +7,8 @@ toc: true
 ---
 
 ##[Goal 1](https://onsdigital.github.io/sdg-indicators/1/) 
-page.goals
-{% for  goal in page.goals%}
-{{goal.1}}
-{% endfor % }
+
+
 
 [Indicator 1.1.1](https://onsdigital.github.io/sdg-indicators/1-1-1/) The International poverty line in the UK remained stable from 2000 – 2017 but increased from 0.2 to 0.5 in 2018 and stayed at that level until 2020. in 2020 roughly 335,400 people lived under the international poverty line in the UK ($2.15 a day).
 
