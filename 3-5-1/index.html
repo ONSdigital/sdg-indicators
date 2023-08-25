@@ -148,7 +148,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230825002402">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230825132906">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -461,7 +461,7 @@ data-event-label="high"
   
 <div class="row metadata-available-indicator">
   <div class="col-xs-12">
-    <h2>Proportion of people with alcohol dependence in treatment</h2>
+    <h2>Proportion of people with alcohol, opiate, and non-opiate dependence in treatment</h2>
   </div>
 </div>
 
@@ -485,7 +485,7 @@ data-event-label="high"
   data-id="3-5-1"
   data-country="England"
   data-charttitle="Coverage of treatment interventions (pharmacological, psychosocial and rehabilitation and aftercare services) for substance use disorders"
-  data-charttitles="[{&quot;series&quot;:&quot;Alcohol - Estimated prevalence&quot;,&quot;title&quot;:&quot;Alcohol dependence prevalence&quot;},{&quot;series&quot;:&quot;Alcohol - Met need&quot;,&quot;title&quot;:&quot;Proportion of people with alcohol dependence who are in treatment&quot;},{&quot;series&quot;:&quot;Alcohol - People in treatment&quot;,&quot;title&quot;:&quot;Number of people in treatment for alcohol dependence&quot;}]"
+  data-charttitles="[{&quot;series&quot;:&quot;People in treatment&quot;,&quot;title&quot;:&quot;People in treatment for substance use&quot;},{&quot;series&quot;:&quot;Estimated prevalence&quot;,&quot;title&quot;:&quot;Estimated prevalence of substance use&quot;},{&quot;series&quot;:&quot;Met need (%)&quot;,&quot;title&quot;:&quot;Proportion of people with substance dependence who are in treatment&quot;}]"
   data-measurementunit="Number, Percentage (%)"
   data-xaxislabel=""
   data-showdata="true"
@@ -493,14 +493,14 @@ data-event-label="high"
   data-graphtypes="null"
   data-geocoderegex=""
   data-showmap="false"
-  data-startvalues="[{&quot;field&quot;:&quot;Series&quot;,&quot;value&quot;:&quot;Alcohol - Met need&quot;}]"
+  data-startvalues="[{&quot;field&quot;:&quot;Series&quot;,&quot;value&quot;:&quot;Met need (%)&quot;},{&quot;field&quot;:&quot;Drug group&quot;,&quot;value&quot;:&quot;Alcohol&quot;},{&quot;field&quot;:&quot;Age&quot;,&quot;value&quot;:&quot;18 and over&quot;}]"
   data-graphlimits="null"
   data-stackeddisaggregation=""
   data-graphannotations="null"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Met need (%)&quot;,&quot;People in treatment&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Drug group&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Alcohol&quot;,&quot;Opiates&quot;,&quot;Non-opiates&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Drug group&quot;},{&quot;name&quot;:&quot;Local authority&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Barking and Dagenham&quot;,&quot;Barnet&quot;,&quot;Barnsley&quot;,&quot;Bath and North East Somerset&quot;,&quot;Bedford&quot;,&quot;Bexley&quot;,&quot;Birmingham&quot;,&quot;Blackburn with Darwen&quot;,&quot;Blackpool&quot;,&quot;Bolton&quot;,&quot;Bournemouth&quot;,&quot;Bournemouth, Christchurch and Poole&quot;,&quot;Bracknell Forest&quot;,&quot;Bradford&quot;,&quot;Brent&quot;,&quot;Brighton and Hove&quot;,&quot;Bristol, City of&quot;,&quot;Bromley&quot;,&quot;Buckinghamshire&quot;,&quot;Bury&quot;,&quot;Calderdale&quot;,&quot;Cambridgeshire&quot;,&quot;Camden&quot;,&quot;Central Bedfordshire&quot;,&quot;Cheshire East&quot;,&quot;Cheshire West and Chester&quot;,&quot;City of London&quot;,&quot;Cornwall&quot;,&quot;County Durham&quot;,&quot;Coventry&quot;,&quot;Croydon&quot;,&quot;Cumbria&quot;,&quot;Darlington&quot;,&quot;Derby&quot;,&quot;Derbyshire&quot;,&quot;Devon&quot;,&quot;Doncaster&quot;,&quot;Dorset&quot;,&quot;Dudley&quot;,&quot;Ealing&quot;,&quot;East Riding of Yorkshire&quot;,&quot;East Sussex&quot;,&quot;Enfield&quot;,&quot;Essex&quot;,&quot;Gateshead&quot;,&quot;Gloucestershire&quot;,&quot;Greenwich&quot;,&quot;Hackney&quot;,&quot;Halton&quot;,&quot;Hammersmith and Fulham&quot;,&quot;Hampshire&quot;,&quot;Haringey&quot;,&quot;Harrow&quot;,&quot;Hartlepool&quot;,&quot;Havering&quot;,&quot;Herefordshire, County of&quot;,&quot;Hertfordshire&quot;,&quot;Hillingdon&quot;,&quot;Hounslow&quot;,&quot;Isle of Wight&quot;,&quot;Isles of Scilly&quot;,&quot;Islington&quot;,&quot;Kensington and Chelsea&quot;,&quot;Kent&quot;,&quot;Kingston Upon Hull, City of&quot;,&quot;Kingston Upon Thames&quot;,&quot;Kirklees&quot;,&quot;Knowsley&quot;,&quot;Lambeth&quot;,&quot;Lancashire&quot;,&quot;Leeds&quot;,&quot;Leicester&quot;,&quot;Leicestershire&quot;,&quot;Lewisham&quot;,&quot;Lincolnshire&quot;,&quot;Liverpool&quot;,&quot;Luton&quot;,&quot;Manchester&quot;,&quot;Medway&quot;,&quot;Merton&quot;,&quot;Middlesbrough&quot;,&quot;Milton Keynes&quot;,&quot;Newcastle Upon Tyne&quot;,&quot;Newham&quot;,&quot;Norfolk&quot;,&quot;North East Lincolnshire&quot;,&quot;North Lincolnshire&quot;,&quot;North Somerset&quot;,&quot;North Tyneside&quot;,&quot;North Yorkshire&quot;,&quot;Northamptonshire&quot;,&quot;Northumberland&quot;,&quot;Nottingham&quot;,&quot;Nottinghamshire&quot;,&quot;Oldham&quot;,&quot;Oxfordshire&quot;,&quot;Peterborough&quot;,&quot;Plymouth&quot;,&quot;Poole&quot;,&quot;Portsmouth&quot;,&quot;Reading&quot;,&quot;Redbridge&quot;,&quot;Redcar and Cleveland&quot;,&quot;Richmond Upon Thames&quot;,&quot;Rochdale&quot;,&quot;Rotherham&quot;,&quot;Rutland&quot;,&quot;Salford&quot;,&quot;Sandwell&quot;,&quot;Sefton&quot;,&quot;Sheffield&quot;,&quot;Shropshire&quot;,&quot;Slough&quot;,&quot;Solihull&quot;,&quot;Somerset&quot;,&quot;South Gloucestershire&quot;,&quot;South Tyneside&quot;,&quot;Southampton&quot;,&quot;Southend-on-Sea&quot;,&quot;Southwark&quot;,&quot;St. Helens&quot;,&quot;Staffordshire&quot;,&quot;Stockport&quot;,&quot;Stockton-on-Tees&quot;,&quot;Stoke-on-Trent&quot;,&quot;Suffolk&quot;,&quot;Sunderland&quot;,&quot;Surrey&quot;,&quot;Sutton&quot;,&quot;Swindon&quot;,&quot;Tameside&quot;,&quot;Telford and Wrekin&quot;,&quot;Thurrock&quot;,&quot;Torbay&quot;,&quot;Tower Hamlets&quot;,&quot;Trafford&quot;,&quot;Wakefield&quot;,&quot;Walsall&quot;,&quot;Waltham Forest&quot;,&quot;Wandsworth&quot;,&quot;Warrington&quot;,&quot;Warwickshire&quot;,&quot;West Berkshire&quot;,&quot;West Sussex&quot;,&quot;Westminster&quot;,&quot;Wigan&quot;,&quot;Wiltshire&quot;,&quot;Windsor and Maidenhead&quot;,&quot;Wirral&quot;,&quot;Wokingham&quot;,&quot;Wolverhampton&quot;,&quot;Worcestershire&quot;,&quot;York&quot;,&quot;Cornwall &amp; Isles of Scilly&quot;,&quot;Bedfordshire&quot;,&quot;Cheshire&quot;,&quot;North Northamptonshire&quot;,&quot;West Northamptonshire&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Local authority&quot;},{&quot;name&quot;:&quot;Sex&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Female&quot;,&quot;Male&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Sex&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;18 and over&quot;,&quot;15 to 64&quot;,&quot;18 to 29&quot;,&quot;30 to 49&quot;,&quot;50 and over&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Ethnicity&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Asian&quot;,&quot;Black&quot;,&quot;Mixed&quot;,&quot;Other&quot;,&quot;White&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnicity&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Percentage (%)&quot;,&quot;Number&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
   data-proxy=""
@@ -533,15 +533,157 @@ data-event-label="high"
   <div id="datatables">
 
     
+    <a href="https://ONSdigital.github.io/sdg-data/en/headline/3-5-1.csv" class="btn btn-primary btn-download" download="indicator_3-5-1.csv" tabindex="0" role="button">Download headline data (.csv)</a>
+    
     <a href="https://ONSdigital.github.io/sdg-data/en/data/3-5-1.csv" class="btn btn-primary btn-download" download='indicator_3-5-1.csv' tabindex='0' role='button'>Download source data (.csv)</a>
 
     <p class="no-js-disaggregation-hint">Download source data for disaggregations (.csv)</p>
 
     
-    <h3>No headline data available</h3>
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>Coverage of treatment interventions (pharmacological, psychosocial and rehabilitation and aftercare services) for substance use disorders</caption>
+      <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col">Value</th>
+        
+        
+        
+        <th scope="col">Units</th>
+        
+        
+        
+        <th scope="col">Series</th>
+        
+        
+        
+        <th scope="col" class="table-value">Observation status</th>
+        
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          
+          <td>2018/19</td>
+          
+          
+          
+          <td>268251.0</td>
+          
+          
+          
+          <td>Number</td>
+          
+          
+          
+          <td>People in treatment</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019/20</td>
+          
+          
+          
+          <td>270705.0</td>
+          
+          
+          
+          <td>Number</td>
+          
+          
+          
+          <td>People in treatment</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020/21</td>
+          
+          
+          
+          <td>275896.0</td>
+          
+          
+          
+          <td>Number</td>
+          
+          
+          
+          <td>People in treatment</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021/22</td>
+          
+          
+          
+          <td>289215.0</td>
+          
+          
+          
+          <td>Number</td>
+          
+          
+          
+          <td>People in treatment</td>
+          
+          
+          
+          <td class="table-value">Normal value</td>
+          
+          
+        </tr>
+        
+      </tbody>
+    </table>
     
   </div>
 
+  
+  <div id="datatableFooter">
+    
+    <p>Source: Office for Health Improvement and Disparities (OHID); The University of Manchester</p>
+    
+    
+    <p>Geographical Area: England</p>
+    
+    
+    <p>Unit of Measurement: Number, Percentage (%)</p>
+    
+    
+    <p>Footnote: Please note the Met need (%) series y axis does not go to 100% for ease of visualisation.</p>
+    
+  </div>
   
 
 </div>
@@ -625,7 +767,7 @@ data-event-label="Change to Table tab"
       <figure role="group">
         <div id="chart-canvas">
           <h4 id="chart-heading" class="chart-title">
-            Alcohol dependence prevalence
+            People in treatment for substance use
           </h4>
           <div id="chart" class="plot-container">
             <canvas
@@ -646,7 +788,7 @@ data-event-label="Change to Table tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>Public Health England, Public Health England & the University of Manchester</dd>
+        <dd>Office for Health Improvement and Disparities (OHID); The University of Manchester, Office for Health Improvement and Disparities (OHID), Public Health England</dd>
         
 
         
@@ -661,7 +803,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd>Please note the 'Met need' series y axis does not go to 100% for ease of visualisation.</dd>
+        <dd>Please note the Met need (%) series y axis does not go to 100% for ease of visualisation.</dd>
         
 
         
@@ -724,7 +866,7 @@ data-event-label="Change to Table tab"
     <dl>
         
         <dt>Source:</dt>
-        <dd>Public Health England, Public Health England & the University of Manchester</dd>
+        <dd>Office for Health Improvement and Disparities (OHID); The University of Manchester, Office for Health Improvement and Disparities (OHID), Public Health England</dd>
         
 
         
@@ -739,7 +881,7 @@ data-event-label="Change to Table tab"
 
         
         <dt>Footnote:</dt>
-        <dd>Please note the 'Met need' series y axis does not go to 100% for ease of visualisation.</dd>
+        <dd>Please note the Met need (%) series y axis does not go to 100% for ease of visualisation.</dd>
         
 
         
@@ -850,7 +992,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator available </th>
         <td>
           
-            <p>Proportion of people with alcohol dependence in treatment</p>
+            <p>Proportion of people with alcohol, opiate, and non-opiate dependence in treatment</p>
 
           
         </td>
@@ -866,7 +1008,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator description </th>
         <td>
           
-            <p>Coverage of treatment interventions for people with alcohol dependence</p>
+            <p>Coverage of treatment interventions for people with alcohol, opiate, and non-opiate dependence</p>
 
           
         </td>
@@ -914,8 +1056,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>Deprivation decile - Deciles of the <a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019">2019 Index of Multiple Deprivation</a></p>
-<p>The indices rank each upper tier Local Authority in England from most deprived to least deprived. Decile 10 represents the most deprived ten percent of upper tier Local Authorities in England whereas decile 1 represents the least deprived ten percent.</p>
+            <p> In treatment - People who have attended treatment centres, including community-based specialist drug and alcohol services, primary care services, residential rehabilition centres and inpatient units in the reporting year. </p>
+<p> Met need (%) - The percentage of people in treatment as a proportion of the estimated prevalence of people in treatment. </p>
 
           
         </td>
@@ -931,8 +1073,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Available disaggregations </th>
         <td>
           
-            <p>PHE data is available in the <a href="https://www.gov.uk/government/collections/alcohol-and-drug-misuse-and-treatment-statistics#alcohol-and-drug-treatment-statistics:-adults">PHE Alcohol and drug misuse and treatment statistics</a> for the number and percentage of adults (18+) and young people in treatment for substance use disorders (drug use disorders and alcohol use disorders) including by substance, sex, age, ethnicity, and disability status. This information is not presented here as we do not have estimates of prevalence of substance use disorders for these groups.</p>
-<p>Proportion of dependent drinkers in treatment by deprivation decile is currently only available for 2018 to 2019.</p>
+            <p> People in treatment available disaggregations - Drug group, Local authority, Sex, Age and Ethnicity. </p>
+<p> Estimated prevalence available disaggregations - Local authority. </p>
+<p> Met need (%) available disaggregations - Drug group, Local authority. </p>
 
           
         </td>
@@ -948,7 +1091,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Calculations </th>
         <td>
           
-            <p>Proportion of dependent drinkers in treatment  = (number of adults in treatment / estimated prevalence) x 100</p>
+            <p> People in treatment for alcohol = People in treatment for "alcohol only" + People in treatment for "alcohol &amp; non-opiates". </p>
+<p> People in treatment for non-opiates = People in treatment for "non-opiates only" + People in treatment for "alcohol &amp; non-opiates". </p>
+<p> Met need (%) = (number of adults in treatment / estimated prevalence) x 100</p>
 
           
         </td>
@@ -964,11 +1109,12 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Treatment centres from across England submitted their data to Public Health England (PHE). These treatment centres include community-based specialist drug and alcohol services, primary care services, residential rehabilition centres and inpatient units.</p>
+            <p>Treatment centres from across England submitted their data to the Office for Health Improvement and Disparities (OHID). These treatment centres include community-based specialist drug and alcohol services, primary care services, residential rehabilition centres and inpatient units.</p>
 <p>Double counting in the treatment figures may have occurred if individuals changed their Local Authority of residence during the year.</p>
 <p>Data for Local Authories on the ViewIt platform are rounded to the nearest 5, so may not exactly sum to UK figures.</p>
 <p>The <a href="https://www.gov.uk/government/publications/alcohol-dependence-prevalence-in-england">Prevalence, trends and amenability to treatment report</a> published by the University of Sheffield explains how alcohol prevalence estimates were calculated.</p>
 <p>Data were collected from 1st April to 31st March each year.</p>
+<p>Office for Health Improvement and Disparities (OHID) data is available in the <a href="https://www.gov.uk/government/collections/alcohol-and-drug-misuse-and-treatment-statistics#alcohol-and-drug-treatment-statistics:-adults">OHID Alcohol and drug misuse and treatment statistics</a> for the number and percentage of adults (18+) and young people in treatment for substance use disorders (drug use disorders and alcohol use disorders) including by substance, sex, age, ethnicity, and disability status. This information is not presented here as we do not have estimates of prevalence of substance use disorders for these groups.</p>
 <p>Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
 
           
@@ -980,20 +1126,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Data last updated </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
-
+            25 August 2023
           
         </td>
         </tr>
@@ -1008,7 +1146,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            18 August 2023
+            25 August 2023
           
         </td>
         </tr>
@@ -1435,7 +1573,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Public Health England</p>
+            <p>Office for Health Improvement and Disparities (OHID); The University of Manchester</p>
 
           
         </td>
@@ -1467,7 +1605,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2005 to 2006</p>
+            <p>2009 to 2010</p>
 
           
         </td>
@@ -1504,8 +1642,8 @@ data-event-label="Change to Sources tab"
             
             
             
-              <a href="https://www.gov.uk/government/collections/alcohol-and-drug-misuse-and-treatment-statistics" target="_blank">
-                Alcohol and drug treatment statistics - adults <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.ndtms.net/ViewIt/Adult" target="_blank">
+                National Drug Treatment Monitoring System - ViewIt <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1529,7 +1667,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            30 January 2020
+            05 July 2023
           
         </td>
         </tr>
@@ -1544,7 +1682,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>TBC: We plan to update indicator data within 4 months of data being released</p>
+            <p>See source link: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -1560,7 +1698,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Official</p>
+            <p>Official Statistic</p>
 
           
         </td>
@@ -1576,7 +1714,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>enquiries@phe.gov.uk</p>
+            <p>EvidenceApplicationteam@dhsc.gov.uk</p>
 
           
         </td>
@@ -1592,8 +1730,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Data were collected from 1st April to 31st March.</p>
-<p>Treatment centres from across England submitted the data to Public Health England (PHE). These treatment centres include - community-based specialist drug and alcohol services, primary care services, residential rehabilition centres and inpatient units.</p>
+            <p>This source is used for England and Local Authority level data on number of people in treatment.</p>
+<p>To download data for all Local Authorities select the "Download data" tab in the top left, and then select the "all indicators for all local authorities" button in the top right. Alternatively, individual LAs can be selected using the drop down menus. To download data for England leave the Local authority field blank.
+</p>
 
           
         </td>
@@ -1763,7 +1902,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Public Health England</p>
+            <p>Office for Health Improvement and Disparities (OHID)</p>
 
           
         </td>
@@ -1795,7 +1934,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2018 to 2019</p>
+            <p>2009 to 2010</p>
 
           
         </td>
@@ -1832,8 +1971,8 @@ data-event-label="Change to Sources tab"
             
             
             
-              <a href="https://healthierlives.phe.org.uk/topic/public-health-dashboard/comparisons#par/E92000001/ati/202/iid/93010/sexId/-1/gid/1938133162/pat/202" target="_blank">
-                Public Health Dashboard <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://fingertips.phe.org.uk/api#!/Data/Data_GetDataFileForOneIndicator" target="_blank">
+                Public Health Outcomes Framework <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1857,7 +1996,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            04 February 2020
+            05 July 2023
           
         </td>
         </tr>
@@ -1867,19 +2006,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Next release </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this source</span></p>
+            <p>See source link: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -1895,7 +2027,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Official</p>
+            <p>Official Statistic</p>
 
           
         </td>
@@ -1906,19 +2038,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Contact details </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this source</span></p>
+            <p>profilefeedback@dhsc.gov.uk</p>
 
           
         </td>
@@ -1934,8 +2059,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>These data give estimates for unmet need for 2018/19. To calculate met need from these data we subtracted unmet need from 100.<p>To navigate to data select Alcohol treatment - Proportion of dependent drinkers not in treatment (%) Current method</p><p>Alternatively download Public Health Dashboard data for England. </p>
-</p>
+            <p>Enter 93532 in the indicator id parameter field. This is the indicator ID for the proportion of dependent drinkers not in treatment (%) (Current method). Please see the <a href="https://fingertips.phe.org.uk/search/93532#page/6/gid/1/pat/159/par/K02000001/ati/15/are/E92000001/iid/93532/age/168/sex/4/cat/-1/ctp/-1/yrr/1/cid/4/tbm/1"> Indicator Definitions and Supporting Information </a> for further details.</p>
 
           
         </td>
@@ -2105,7 +2229,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Public Health England &amp; the University of Manchester</p>
+            <p>Office for Health Improvement and Disparities (OHID)</p>
 
           
         </td>
@@ -2137,7 +2261,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2010</p>
+            <p>2009 to 2010</p>
 
           
         </td>
@@ -2174,8 +2298,8 @@ data-event-label="Change to Sources tab"
             
             
             
-              <a href="https://www.ndtms.net/ViewIt/Adult" target="_blank">
-                National Drug Treatment Monitoring System - ViewIt <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://fingertips.phe.org.uk/api#!/Data/Data_GetDataFileForOneIndicator" target="_blank">
+                Public Health Outcomes Framework <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -2194,19 +2318,27 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Release date </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this source</span></p>
+            05 July 2023
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>See source link: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -2217,19 +2349,323 @@ data-event-label="Change to Sources tab"
       
       
       
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>Official Statistic</p>
+
+          
+        </td>
+        </tr>
         
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
           
+            <p>profilefeedback@dhsc.gov.uk</p>
+
           
-          
-          
+        </td>
+        </tr>
         
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            <p>Select 93517 in the indicator id parameter field. This is the indicator ID for the proportion of opiates and/or crack cocaine users (i.e. OCU) not in treatment (%). Please see the <a href="https://fingertips.phe.org.uk/search/93517#page/6/gid/1/pat/159/par/K02000001/ati/15/are/E92000001/iid/93517/age/182/sex/4/cat/-1/ctp/-1/yrr/1/cid/4/tbm/1"> Indicator Definitions and Supporting Information </a> for further details.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+    </div>
+    
+    
+    
+    <div class="col-md-6">
+      
+        <h4>Source 4</h4>
+      
+      <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>Public Health England</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Annual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2010 to 2011</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>England</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+            
+              <a href="https://www.gov.uk/government/publications/alcohol-dependence-prevalence-in-england" target="_blank">
+                Alcohol dependence prevalence in England <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            01 January 1970
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
       
       
       <tr>
         <th scope="row">Next release </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this source</span></p>
+            <p>Not applicable: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -2268,7 +2704,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>EvidenceApplicationteam@phe.gov.uk</p>
+            <p>dhsc.publicenquiries@dhsc.gov.uk</p>
 
           
         </td>
@@ -2284,27 +2720,13 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>This source is used for Local Authority level data on number of people in treatment.</p>
-<p>To download data for all Local Authorities use the 'all indicators for all local authorities' button in the top right. Alternatively, individual LAs can be selected using the drop down menus
-</p>
+            <p>The <a href="https://www.sheffield.ac.uk/find?query=alcohol%20prevalence&amp;f.Tabs%7CAllDocumentsFill=All+results"> prevalence, trends and amenability to treatment report</a> published by the University of Sheffield provides analysis and information on the methodology and source material of these estimates.</p>
 
           
         </td>
         </tr>
         
       
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -2617,7 +3039,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230825002402'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230825132906'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2625,7 +3047,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230825002402"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230825132906"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
