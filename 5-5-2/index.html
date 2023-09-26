@@ -148,7 +148,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230926084523">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20230926115631">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -466,13 +466,6 @@ data-event-label="high"
 
   
 
-<div class="row" id="page-content">
-  <div class="col-xs-12">
-    <p>This indicator meets the UN specification for this indicator and has been identified in collaboration with the topic expert. The Sustainable Development Goals is a collaborative project. If you have any feedback or suggestions for data please contact us at SustainableDevelopment@ons.gov.uk.</p>
-
-  </div>
-</div>
-
 
 
 
@@ -493,7 +486,7 @@ data-event-label="high"
   data-graphtype="line"
   data-graphtypes="null"
   data-geocoderegex=""
-  data-showmap="false"
+  data-showmap="true"
   data-startvalues="null"
   data-graphlimits="[{&quot;unit&quot;:&quot;Percentage (%)&quot;,&quot;minimum&quot;:0,&quot;maximum&quot;:100}]"
   data-stackeddisaggregation=""
@@ -501,7 +494,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;16 to 24&quot;,&quot;25 to 34&quot;,&quot;35 to 44&quot;,&quot;45 to 54&quot;,&quot;55 to 64&quot;,&quot;65 and over&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Disability status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Disabled (GSS harmonised)&quot;,&quot;Non-disabled (GSS harmonised)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Disability status&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;North East&quot;,&quot;North West&quot;,&quot;Yorkshire and the Humber&quot;,&quot;East Midlands&quot;,&quot;West Midlands&quot;,&quot;East of England&quot;,&quot;London&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;Wales&quot;,&quot;Scotland&quot;,&quot;Northern Ireland&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Age&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;16 to 24&quot;,&quot;25 to 34&quot;,&quot;35 to 44&quot;,&quot;45 to 54&quot;,&quot;55 to 64&quot;,&quot;65 and over&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Age&quot;},{&quot;name&quot;:&quot;Disability status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Disabled (GSS harmonised)&quot;,&quot;Non-disabled (GSS harmonised)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Disability status&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;North East&quot;,&quot;North West&quot;,&quot;Yorkshire and the Humber&quot;,&quot;East Midlands&quot;,&quot;West Midlands&quot;,&quot;East&quot;,&quot;London&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;Wales&quot;,&quot;Scotland&quot;,&quot;Northern Ireland&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
   data-proxy=""
@@ -580,7 +573,7 @@ data-event-label="high"
           
           
           
-          <td>35.7</td>
+          <td>35.7335999998</td>
           
           
           
@@ -608,7 +601,7 @@ data-event-label="high"
           
           
           
-          <td>35.5</td>
+          <td>35.4860636764</td>
           
           
           
@@ -636,7 +629,7 @@ data-event-label="high"
           
           
           
-          <td>36.6</td>
+          <td>36.5540207793</td>
           
           
           
@@ -664,7 +657,7 @@ data-event-label="high"
           
           
           
-          <td>37.3</td>
+          <td>37.3041322452</td>
           
           
           
@@ -692,7 +685,7 @@ data-event-label="high"
           
           
           
-          <td>37.3</td>
+          <td>37.2966033153</td>
           
           
           
@@ -720,7 +713,147 @@ data-event-label="high"
           
           
           
-          <td>37.9</td>
+          <td>37.8392017676</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018</td>
+          
+          
+          
+          <td>37.7543978869</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td>38.2282228406</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td>38.9785498073</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td>40.572802965</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Undefined</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2022</td>
+          
+          
+          
+          <td>40.1865562741</td>
           
           
           
@@ -757,6 +890,8 @@ data-event-label="high"
     
     <p>Unit of Measurement: Percentage (%)</p>
     
+    
+    <p>Footnote: SOC2010 classification codes were replaced with SOC2020 codes in 2021. Data from 2021 and onwards has been mapped to SOC2020.</p>
     
   </div>
   
@@ -824,6 +959,31 @@ data-event-label="Change to Table tab"
       >Table</button>
     </li>
     
+    <li role="presentation"
+      class="
+        nav-item
+        map
+        
+      ">
+      <button
+        class="nav-link "
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-mapview"
+          data-bs-target="#mapview"
+          aria-controls="mapview"
+          data-no-disagg="true"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Map tab"
+
+        
+      >Map</button>
+    </li>
+    
   </ul>
   
     <div class="tab-content data-view">
@@ -876,6 +1036,9 @@ data-event-label="Change to Table tab"
 
         
 
+        
+        <dt>Footnote:</dt>
+        <dd>SOC2010 classification codes were replaced with SOC2020 codes in 2021. Data from 2021 and onwards has been mapped to SOC2020.</dd>
         
 
         
@@ -952,6 +1115,9 @@ data-event-label="Change to Table tab"
         
 
         
+        <dt>Footnote:</dt>
+        <dd>SOC2010 classification codes were replaced with SOC2020 codes in 2021. Data from 2021 and onwards has been mapped to SOC2020.</dd>
+        
 
         
 
@@ -980,6 +1146,70 @@ data-event-label="Change to Table tab"
 </div>
 
 <div id="tableSelectionDownload" class="clearfix"></div>
+
+        </div>
+      
+    
+      
+        <div role="tabpanel" class="tab-pane " id="mapview" class="map">
+          
+<h4 id="map-heading" class="map-title">Percentage of managerial positions held by women</h4>
+<div id="map" aria-describedby="table-alternative">
+  <img class="map-loading-image" src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
+</div>
+
+
+
+
+<div id="mapFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>Office for National Statistics (ONS)</dd>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>United Kingdom</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+        <dt>Footnote:</dt>
+        <dd>SOC2010 classification codes were replaced with SOC2020 codes in 2021. Data from 2021 and onwards has been mapped to SOC2020.</dd>
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
+</div>
+
 
         </div>
       
@@ -1139,7 +1369,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definitions </th>
         <td>
           
-            <p>The International Standard Classification of Occupations (ISCO) organizes jobs into a clearly defined set of groups according to the tasks and duties undertaken in the job. Employed persons are all persons of working age who during a specified brief period, such as one week or one day, were in the following categories - i) paid employment (whether at work or with a job but not at work), or  ii) self-employment (whether at work or with an enterprise but not at work). For more detailed information, please refer to the <a href="http://ilo.org/global/statistics-and- databases/standards-and-guidelines/resolutions-adopted-byinternational-conferences-of-labour-statisticians/WCMS_230304/lang--en/index.htm">Resolution concerning statistics of work, employment and labour underutilization, adopted by the Nineteenth International Conference of Labour Statisticians (October 2013)</a>.</p>
+            <p>The International Standard Classification of Occupations (ISCO) organizes jobs into a clearly defined set of groups according to the tasks and duties undertaken in the job. Employed persons are all persons of working age who during a specified brief period, such as one week or one day, were in the following categories - i) paid employment (whether at work or with a job but not at work), or  ii) self-employment (whether at work or with an enterprise but not at work). For more detailed information, please refer to the <a href="https://www.ilo.org/public/english/bureau/stat/isco/">ISCO website</a>.</p>
 <p>Disability Status - The <a href="https://gss.civilservice.gov.uk/policy-store/measuring-disability-for-the-equality-act-2010/">(GSS) harmonised "core" definition</a> identifies a person as disabled if they have a physical or mental health condition or illness that has lasted or is expected to last 12 months or more. It must reduce their ability to carry-out day-to-day activities. It is important to note that a person who has a long-term illness that does not reduce their ability to carry-out day-to-day activities is not disabled under the definition. The GSS harmonised questions are asked of the respondent in the survey, meaning that disability status is self-reported. The GSS definition is designed to reflect the definitions that appear in legal terms in the Disability Discrimination Act 1995 (DDA) for Northern Ireland and the 2010 Equality Act for Great Britain.</p>
 
           
@@ -1151,19 +1381,14 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Available disaggregations </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Age, Region, Disability status</p>
+<p>Disability status is only reported for ages 16 to 64 years. The headline and all other disaggregations cover ages 16 years and over.<p>
+</p></p>
 
           
         </td>
@@ -1174,19 +1399,12 @@ data-event-label="Change to Sources tab"
       
       
       
-        
-          
-          
-          
-          
-        
-      
       
       <tr>
         <th scope="row">Calculations </th>
         <td>
           
-            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+            <p>Percentage of managerial positions held by women =  (number of female senior &amp; middle managers / number of senior &amp; middle managers) x 100%</p>
 
           
         </td>
@@ -1202,9 +1420,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Other information </th>
         <td>
           
-            <p>Disability status is only reported for ages 16 to 64 years. The headline and all other disaggregations cover ages 16 years and over.</p>
-<p>The Washington Group on Disability Statistics are often used to provide a cross-nationally comparable population-based measures of disability. Please see the article <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/disability/articles/measuringdisabilitycomparingapproaches/2019-08-06">Measuring disability - comparing approaches</a> for a comparison between the GSS Harmonised measure (used here) and the Washington Group measure.</p>
-<p>Data follows the UN specification for this indicator. This indicator has been identified in collaboration with topic experts.</p>
+            <p>The Washington Group on Disability Statistics are often used to provide a cross-nationally comparable population-based measures of disability. Please see the article <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/disability/articles/measuringdisabilitycomparingapproaches/2019-08-06">Measuring disability - comparing approaches</a> for a comparison between the GSS Harmonised measure (used here) and the Washington Group measure.</p>
+<p> Data represents calendar year <p> Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.
+</p></p>
 
           
         </td>
@@ -1220,7 +1438,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data last updated </th>
         <td>
           
-            08 December 2020
+            21 August 2023
           
         </td>
         </tr>
@@ -1235,7 +1453,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            08 December 2020
+            21 August 2023
           
         </td>
         </tr>
@@ -1676,7 +1894,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Periodicity </th>
         <td>
           
-            <p>NA</p>
+            <p>Ad-hoc</p>
 
           
         </td>
@@ -1729,7 +1947,7 @@ data-event-label="Change to Sources tab"
             
             
             
-              <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/adhocs/009741proportionofwomeninmanagerialpositionsuk2012to2017" target="_blank">
+              <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/adhocs/1354proportionofwomeninmanagerialpositionsuk2012to2022" target="_blank">
                 Proportion of women in managerial positions, UK - 2012 to 2017 <span class="visuallyhidden">opens in a new window</span>
               </a>
             
@@ -1754,7 +1972,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            07 March 2019
+            21 July 2023
           
         </td>
         </tr>
@@ -1769,7 +1987,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Next release </th>
         <td>
           
-            <p>NA: We plan to update indicator data within 4 months of data being released</p>
+            <p>TBC: We plan to update indicator data within 4 months of data being released</p>
 
           
         </td>
@@ -2022,6 +2240,15 @@ data-event-label="Change to Sources tab"
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
 
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/iso8601-js-period@0.2.1/iso8601.min.js"></script>
+<script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/torfsen/leaflet.zoomhome@master/dist/leaflet.zoomhome.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
@@ -2172,7 +2399,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20230926084523'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20230926115631'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2180,7 +2407,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20230926084523"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20230926115631"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
