@@ -162,7 +162,7 @@ They always need to be on.
 
 ## Surveys
 
-We use [SurveyMonkey](https://www.surveymonkey.co.uk/) to collect feedback about the website, and recruit participants to take part in user research activities (for example, usability testing). If you complete either of these surveys, SurveyMonkey will [save extra cookies](https://www.surveymonkey.co.uk/mp/legal/cookies/) to track your progress on their website.
+We use [Smart Survey](https://www.smartsurvey.co.uk/) to collect feedback about the website, and recruit participants to take part in user research activities (for example, usability testing). If you complete either of these surveys, SmartSurvey will [save extra cookies](https://www.smartsurvey.co.uk/company/how-we-use-cookies) to track your progress on their website.
 
 ## How we use the information we collect
 
