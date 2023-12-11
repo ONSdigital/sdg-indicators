@@ -22,8 +22,9 @@ We want to provide a website that has purpose and is easy to use by everybody. T
 ## Our research
 
 Research undertaken includes:
-*	user research to find out who uses the website and what for
-*	usability testing to help inform our decisions about how we develop the website
+
+-	user research to find out who uses the website and what for
+-	usability testing to help inform our decisions about how we develop the website
 
 Our approach to user research continues to be user focused and iterative. We will continue our user research and usability testing for the lifetime of this site.
 
