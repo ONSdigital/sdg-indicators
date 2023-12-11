@@ -23,7 +23,7 @@ We had a consultation on measuring and reporting SDGs in the UK where we asked f
 ## What does the reporting status mean?
 We have used two different types of reporting status for an indicator, which are also colour coded:
 
- * Reported online: As a minimum the headline national data for this indicator is available on this website but the data might not be fully disaggregated yet. We are continuing to source additional disaggregation's
+ * Reported online: As a minimum the headline national data for this indicator is available on this website but the data might not be fully disaggregated yet. We are continuing to source additional disaggregations
  
  * Exploring data sources: We are still looking for a suitable data source for this indicator
 
@@ -86,6 +86,7 @@ We are developing and testing our site in line with the [Government Digital Serv
 
 ## What do each of the three tiers mean? 
 Each of the SDG indicators are assigned to one (or more) of the following tiers:
+
  - Tier 1: Indicator is conceptually clear, has an internationally established methodology and standards are available, and data are regularly produced by countries for at least 50 per cent of countries and of the population in every region where the indicator is relevant
  
  - Tier 2: Indicator is conceptually clear, has an internationally established methodology and standards are available, but data are not regularly produced by countries
