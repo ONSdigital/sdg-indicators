@@ -17,7 +17,7 @@ jobs:
         ruby-version: '2.6'
     - name: Build the site
       run: |
-        gem install bundler
+        gem install bundler -v 2.4.22
         bundle config path vendor/bundle
         make install
         make build.staging
