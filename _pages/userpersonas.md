@@ -76,6 +76,7 @@ We identified four main user personas:
 <p class="up-text">The different user personas need different types of data on a scale from visual data to raw data in the following order: concerned citizen, connected influencer, fact gatherer, involved analyst.</p>
 
 ## Concerned citizen
+
 ### Who they are
 Someone who has an personal interest in SDGs or related topics but may also have a professional interest.
 
@@ -115,6 +116,7 @@ Concerned citizens might arrive to the site from other public facing websites an
 
 
 ## Connected influencer
+
 ### Who they are
 Someone non-statistical working in the not-for-profit space or for a private sector organisation looking to make money around sustainable development activities. Might be an individual attempting to challenge or guide on government policy.
 
@@ -153,6 +155,7 @@ They have a good knowledge of the SDGs and use the SDGs to champion the themes t
 
 
 ## Fact gatherer
+
 ### Who they are
 Policy advisers in government departments who have been tasked with reporting on SDG progress and VNR, non-governmental organisations looking to understand what is going on in the UK and think tanks wanting to understand what the UK is doing and hold the government to account.
 
@@ -191,6 +194,7 @@ They come to the website quite often  and may copy data for use in reports, whic
 
 
 ## Involved analyst
+
 ### Who they are
 Involved analysts can be a range of different people, who usually work with international data:
 
