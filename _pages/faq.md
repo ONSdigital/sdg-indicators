@@ -25,7 +25,7 @@ We have used two different types of reporting status for an indicator, which are
 
  * Reported online: As a minimum the headline national data for this indicator is available on this website but the data might not be fully disaggregated yet. We are continuing to source additional disaggregations
  
- * Exploring data sources: We are still looking for a suitable data source for this indicator
+ * No data available: We are still looking for a suitable data source for this indicator
 
 Where there is additional information about the status of indicator data collection and reporting, this will be displayed at the top of the indicator page.
 
