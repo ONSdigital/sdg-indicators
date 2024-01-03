@@ -20,7 +20,7 @@ jobs:
       
     - name: Build site
       run: |
-        gem install jekyll bundler
+        gem install jekyll bundler -v 2.4.22
         bundle install && bundle exec jekyll build
 
     - name: Install Pa11y
