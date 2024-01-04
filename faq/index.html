@@ -143,7 +143,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20240104002608">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20240104145719">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -374,10 +374,10 @@ data-event-label="high"
 
 <ul>
   <li>
-    <p>Reported online: As a minimum the headline national data for this indicator is available on this website but the data might not be fully disaggregated yet. We are continuing to source additional disaggregation’s</p>
+    <p>Reported online: As a minimum the headline national data for this indicator is available on this website but the data might not be fully disaggregated yet. We are continuing to source additional disaggregations</p>
   </li>
   <li>
-    <p>Exploring data sources: We are still looking for a suitable data source for this indicator</p>
+    <p>No data available: We are still looking for a suitable data source for this indicator</p>
   </li>
 </ul>
 
@@ -446,10 +446,12 @@ data-event-label="high"
 <p>We are developing and testing our site in line with the <a href="https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices">Government Digital Service (GDS) guidance on designing for different browsers and devices</a>. Our website works with most of the latest versions of the commonly used browsers listed in the ‘Browsers to test in’ section of the GDS guidance.</p>
 
 <h2 id="what-do-each-of-the-three-tiers-mean">What do each of the three tiers mean?</h2>
-<p>Each of the SDG indicators are assigned to one (or more) of the following tiers:
- - Tier 1: Indicator is conceptually clear, has an internationally established methodology and standards are available, and data are regularly produced by countries for at least 50 per cent of countries and of the population in every region where the indicator is relevant</p>
+<p>Each of the SDG indicators are assigned to one (or more) of the following tiers:</p>
 
 <ul>
+  <li>
+    <p>Tier 1: Indicator is conceptually clear, has an internationally established methodology and standards are available, and data are regularly produced by countries for at least 50 per cent of countries and of the population in every region where the indicator is relevant</p>
+  </li>
   <li>
     <p>Tier 2: Indicator is conceptually clear, has an internationally established methodology and standards are available, but data are not regularly produced by countries</p>
   </li>
@@ -686,7 +688,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20240104002608'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20240104145719'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -694,7 +696,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20240104002608"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20240104145719"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
