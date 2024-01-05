@@ -31,7 +31,7 @@ As one of the world leaders in providing data for the SDG indicators our aims in
   
   * promoting the SDG-related work we do
   
-Cabinet Office and the Department for International Development (DfID) have responsibility for policy implementation.
+Cabinet Office and the Foreign, Commonwealth and Development Office (FCDO) have responsibility for policy implementation.
 
 ## More resources
 
@@ -68,7 +68,7 @@ To find out more about what the UK government is doing to support the delivery o
 
 To find out more about what you personally can do to help the UK meet the sustainable development goals, see this [guide from the UN](https://www.un.org/sustainabledevelopment/takeaction/).
 
-To compare country progress towards meeting the sustainable development goals, see the [SDGindex website](https://dashboards.sdgindex.org/rankings).
+To compare country progress towards meeting the sustainable development goals, see the [SDG index website](https://dashboards.sdgindex.org/rankings).
 Note: This is a third party site that gathers data from a variety of sources and is not endorsed by ONS.
 
 
