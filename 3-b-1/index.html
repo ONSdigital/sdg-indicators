@@ -146,9 +146,8 @@ var translations = {
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20240308154615">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20240308155317">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -315,7 +314,7 @@ layout-indicator
 
                 </div>
                 <div class="header-toggles d-flex"><a title="Enable high contrast" aria-label="Enable high contrast"
-    data-contrast-switch-to="" href="javascript:void(0)" data-on="click"
+    data-contrast-switch-to="" role="button" href="javascript:void(0)" data-on="click"
 data-event-category="Accessibility"
 data-event-action="Change contrast setting"
 data-event-label="high"
@@ -511,6 +510,8 @@ data-event-label="high"
 >
   
   <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
+  <span role="status" class="visually-hidden" id="indicator-data-unit-status"></span>
+  <span role="status" class="visually-hidden" id="indicator-data-series-status"></span>
   <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
     <div id="serieses"></div>
 <div id="units"></div>
@@ -536,7 +537,7 @@ data-event-label="high"
   <div id="datatables">
 
     
-    <a href="https://ONSdigital.github.io/sdg-data/en/data/3-b-1.csv" class="btn btn-primary btn-download" download='indicator_3-b-1.csv' tabindex='0' role='button'>Download source data (.csv)</a>
+    <a role="button" href="https://ONSdigital.github.io/sdg-data/en/data/3-b-1.csv" class="btn btn-primary btn-download" download='indicator_3-b-1.csv' tabindex='0' role='button'>Download source data (.csv)</a>
 
     <p class="no-js-disaggregation-hint">Download source data for disaggregations (.csv)</p>
 
@@ -716,6 +717,7 @@ data-event-label="Change to Map tab"
         
         
     </dl>
+    
 </div>
 
         </div>
@@ -794,6 +796,7 @@ data-event-label="Change to Map tab"
         
         
     </dl>
+    
 </div>
 
 <div id="tableSelectionDownload" class="clearfix"></div>
@@ -859,6 +862,7 @@ data-event-label="Change to Map tab"
         
         
     </dl>
+    
 </div>
 
 
@@ -1496,6 +1500,7 @@ data-event-label="Change to Sources tab"
     
     <div class="col-md-6">
       
+      
         <h4>Source 1</h4>
       
       <table class="table metadata-content">
@@ -1812,6 +1817,7 @@ data-event-label="Change to Sources tab"
     
     
     <div class="col-md-6">
+      
       
         <h4>Source 2</h4>
       
@@ -2214,7 +2220,6 @@ data-event-label="Change to Sources tab"
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-<script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
@@ -2379,7 +2384,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20240308154615'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20240308155317'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -2387,7 +2392,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20240308154615"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20240308155317"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

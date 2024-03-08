@@ -1,0 +1,2046 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
+<script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
+
+        <script>
+// This is where we initialise any global variables, namespaced in "opensdg".
+var opensdg = {
+
+  // A base URL for asynchronous calls to SDG data.
+  remoteDataBaseUrl: 'https://ONSdigital.github.io/sdg-data/en',
+
+  chartConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Chart.js.
+  chartConfigAlter: function(callback) {
+    this.chartConfigAlterations.push(callback);
+  },
+
+  tableConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Datatables.
+  tableConfigAlter: function(callback) {
+    this.tableConfigAlterations.push(callback);
+  },
+
+  // A hook which can be replaced to alter whether/how the values that are
+  // displayed on indicator tables/graphs get rounded. A "context" parameter
+  // is also passed which contains additional information.
+  dataRounding: function(value, context) {
+    // Alterations go here.
+    return value;
+  },
+
+  // A hook which can be used to alter the data before it is displayed on charts/tables.
+  dataDisplayAlterations: [],
+  dataDisplayAlter: function(callback) {
+    this.dataDisplayAlterations.push(callback);
+  },
+
+  // Disaggregations which should be ignored on indicator pages.
+  ignoredDisaggregations: ["Activity (default)","Age (default)","Urbanisation (default)"],
+
+  language: 'en',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
+};
+
+</script>
+
+        <script>
+// JavaScript container for translation data.
+var translations = {
+  //Javascript version of the "t" filter from jekyll-open-sdg-plugins.
+  t: function(key) {
+
+    if (!key || typeof key !== 'string') {
+      return '';
+    }
+
+    // The majority of uses of this function are to translate disaggregation
+    // data. To spare data providers of needing to enter "data." in front of
+    // their disaggregation data, we specifically look for that here.
+    if (typeof this.data === 'object' && this.data !== null && this.data[key]) {
+      return this.data[key];
+    }
+
+    var originalKey = key;
+    var drilled = this;
+    var levelsDrilled = 0;
+    var levels = key.split('.');
+
+    for (var level in levels) {
+      // If we have drilled down to soon, abort.
+      if (typeof drilled !== 'object') {
+        break;
+      }
+
+      if (levels[level] in drilled) {
+        drilled = drilled[levels[level]];
+        levelsDrilled += 1;
+      }
+    }
+
+    // If we didn't drill the right number of levels, return the original string.
+    if (levels.length != levelsDrilled) {
+      return originalKey;
+    }
+
+    // Otherwise we must have drilled all the way.
+    return drilled;
+  },
+};
+</script>
+
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Title and meta description
+        ================================================== -->
+
+        
+    <title>
+        
+        Indicator 4.2.1 -
+        
+        Proportion of children aged 24-59 months who are developmentally on track in health, learning and psychosocial well-being, by sex - U.K. Indicators For The Sustainable Development Goals
+    </title>
+
+
+
+        
+        <meta name="robots" content="noindex, nofollow">
+        
+
+        <!--[if IE 9]>
+        <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
+        <![endif]-->
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/sdg-indicators/assets/img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/sdg-indicators/assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
+
+        
+        <link rel="manifest" href="/sdg-indicators/manifest.json">
+        
+
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20240308155317">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
+        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
+        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
+        
+
+        
+
+
+        <!--[if IE]>
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/ie.css">
+        <![endif]-->
+
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/govuk.css">
+<!-- Hotjar Tracking Code for https://sdgdata.gov.uk/ -->
+
+
+    </head>
+<body class="language-en
+layout-indicator-iframe
+">
+<!-- <div class="container"> -->
+
+<script>translations['header'] = {"alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","disclaimer":"This is a development website. We welcome your <a href=\"mailto:%email_contacts.suggestions\">feedback</a>.","enable_high_contrast":"Enable high contrast","hide_menu":"Hide navigation menu","high_contrast":"High contrast","internet_explorer_message":"We have detected that you are using Internet Explorer to visit this website. Internet Explorer is now being phased out by Microsoft. As a result, this website no longer supports any version of Internet Explorer. Some features on this site will not work. You should use a modern browser such as Edge, Chrome, Firefox, or Safari. If you have difficulty installing or accessing a different browser, please contact your IT support team.","internet_explorer_message_title":"This internet browser is no longer supported","logo_title":"Go to homepage","show_menu":"Show navigation menu","skip_link":"Skip to main content","tag_line":"17 Goals to Transform our World","toggle_menu":"Menu toggle. Click to expand or collapse the menu.","toggle_search":"Search toggle. Click to expand or collapse the search bar."};</script>
+
+
+<script type="text/template" id="item_template">
+  <% _.each(fields, function(fieldItem) { %>
+    <div class="variable-selector
+      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed <% }%>
+      <% if (typeof childFields !== 'undefined' && childFields.indexOf(fieldItem.field) !== -1) { %> child <% }%>
+      "
+      data-field="<%=fieldItem.field%>"
+    >
+      <button class='accessBtn' tabindex='0' aria-expanded='false'
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
+        <% }%>
+      >
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
+          <span aria-hidden="true"><%=translations.t(fieldItem.label)%><i class="fa fa-chevron-down"></i></span>
+          <span class="sr-only">Show sub-categories: <%=translations.t(fieldItem.label)%></span>
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
+      </button>
+      <div class="variable-options">
+        <fieldset>
+          <legend class="sr-only">Sub-categories - <%=translations.t(fieldItem.field)%></legend>
+          <div>
+            <button data-type="select">Select all</button>
+            <button data-type="clear">Clear all</button>
+          </div>
+          <% _.each(fieldItem.values, function(item) { %>
+            <label>
+              <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
+            </label>
+          <% }); %>
+        </fieldset>
+      </div>
+
+      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">Available when '<%= translations.t(_.find(edges, { To: fieldItem.field }).From) %>' is selected
+        </div>
+        <div class="no-data-hint" id="no-data-hint-<%=fieldItem.field.replace(/ /g, '-')%>">
+          No options available because of filters above
+        </div>
+      <% }%>
+
+    </div>
+  <% }); %>
+</script>
+
+<script type="text/template" id="units_template">
+  
+  <% if(units.length > 1) { %>
+  
+    <h4>Unit of Measurement</h4>
+    <fieldset>
+      <legend class="sr-only">Unit of Measurement</legend>
+      <% _.each(units, function(unitsItem, index) { %>
+        <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
+        <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
+      <% }); %>
+    </fieldset>
+  
+  <% } %>
+  
+</script>
+
+<script type="text/template" id="series_template">
+  
+  <% if(serieses.length > 1) { %>
+  
+    <h4>Series</h4>
+    <fieldset>
+      <legend class="sr-only">Series</legend>
+      <% _.each(serieses, function(seriesItem, index) { %>
+        <% var isProxy = (proxySerieses.includes(seriesItem)) %>
+        <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%> <%=isProxy ? proxyPill : ''%></label>
+      <% }); %>
+    </fieldset>
+  
+  <% } %>
+  
+</script>
+
+<script>translations['indicator'] = {"annotation_2030_target":"2030 indicator target","annotation_series_break":"Series break","announce_data_added":"Chart and table updated to include data.","announce_data_not_available":"Chart and table shows no data.","announce_data_removed":"Chart and table updated to exclude data.","announce_series_switched":"Chart and table updated to show a different series.","announce_unit_switched":"Chart and table updated to show a different unit.","apply":"Apply","cancel":"Cancel","change_breakdowns":"Change breakdowns","chart":"Chart","chart_annotation":"Chart annotation","clear_all":"Clear all","clear_selections":"Clear selections","data_keyboard_navigation":"Press enter to browse data points with left and right arrow keys.","data_not_available":"This data is not available. Please choose alternative data to display.","data_tabular_alternative":"For tabular data alternative see Table tab.","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download chart data (.csv)","download_chart_image":"Download chart image (.png)","download_chart_image_title":"Download chart image as PNG","download_csv":"Download data (.csv)","download_csv_title":"Download data as CSV","download_geojson":"Download map data (.geojson)","download_geojson_title":"Download map data as GeoJSON","download_headline":"Download headline data (.csv)","download_headline_title":"Download headline data as CSV","download_source":"Download source data (.csv)","download_source_for_disaggregations":"Download source data for disaggregations (.csv)","download_source_sdmx":"Download source SDMX (.xml)","download_source_sdmx_title":"Download source data as SDMX","download_source_title":"Download source data as CSV","download_table":"Download table data (.csv)","edit":"Edit Indicator","edit_configuration":"Edit Configuration","edit_data":"Edit Data","edit_metadata":"Edit Metadata","empty_metadata_placeholder":"Not available for this indicator","empty_metadata_placeholder_sources":"Not available for this source","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","headline_data":"Headline data","legend_help":"Click on the legend to remove individual lines from the chart.","loading":"Loading","loading_map":"Loading map","map":"Map","map_fullscreen":"View map fullscreen","map_fullscreen_exit":"Exit fullscreen map","map_search":"Map search","map_search_cancel":"Clear map search","map_search_hide":"Hide map search","map_search_show":"Show map search","map_slider_back":"View map data for previous time period","map_slider_forward":"View map data for next time period","map_slider_keyboard":"View map data throughout time period by using left and right arrow keys","map_slider_mouse":"Navigate map data by time period","map_year_slider":"Year slider","map_zoom_home":"Reset to default map zoom","map_zoom_in":"Zoom in on map","map_zoom_out":"Zoom out on map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country.name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country.adjective statistics, this table should be consulted for information on national methodology and other %country.adjective-specific metadata information.","next":"Next indicator","no_data_hint":"No options available because of filters above","no_headline_data":"No headline data available","note":"note","plot_legend_description":"Plot legend: list of lines included in chart","previous":"Previous indicator","proxy":"Proxy","proxy_description":"This indicator contains some alternative data to those specified by the United Nations (UN). This indicator is the most suitable match currently available.","select_all":"Select all","series":"Series","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","status":"Indicator status","sub_categories":"Sub-categories","sub_categories_show":"Show sub-categories:","table":"Table","table_column_sort":"Click to sort by this column","tags":"Tags","total":"Total","unit":"Unit","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
+
+<script>translations['data'] = {"Year":"Year"};</script>
+
+
+<div class="heading goal-banner indicator goal-4">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-4 col-md-3 col-lg-2 goal-icon goal-tiles">
+                <a href="/sdg-indicators/4/" aria-label="View targets and indicators for Goal 4" title="View targets and indicators for Goal 4">
+                    <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/4.svg"
+                        alt="Quality education - Goal 4"
+                        id="goal-4"
+                        class="goal-icon-image goal-icon-image-svg" />
+                </a>
+            </div>
+            <div class="col-8 col-md-9 col-lg-10 indicator-details">
+            
+                <div>
+                    <h1>
+                        
+                        Indicator 4.2.1
+                        
+                        <span class="lead-copy">Proportion of children aged 24-59 months who are developmentally on track in health, learning and psychosocial well-being, by sex</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="main-content" class="container goal-4" role="main">
+  
+
+  
+<div class="row metadata-available-indicator">
+  <div class="col-xs-12">
+    <h2>Children at expected level in early learning goals as specified by the United Kingdom early years foundation stage profile (EYFSP).</h2>
+  </div>
+</div>
+
+
+  
+<div class="row proxy-banner my-4 mx-1 px-2 gx-2">
+  <div class="col col-auto align-self-center">
+    <span aria-describedby="proxy-description" class="proxy-pill">Proxy</span>
+  </div>
+  <div class="col col-auto align-self-center">
+    =
+  </div>
+  <div id="proxy-description" class="col">
+    This indicator contains some alternative data to those specified by the United Nations (UN). This indicator is the most suitable match currently available.
+  </div>
+</div>
+
+
+  
+
+  
+
+
+<div class='inset-text'>
+  <p>This indicator was revised following <a href='https://sdgdata.gov.uk/updates/2021/02/17/2020-indicator-changes.html'>indicator changes</a> from the United Nations 2020 Comprehensive Review. The indicator from before these revisions has been <a href='https://sdgdata.gov.uk/archived-indicators'>archived</a>.</p>
+</div>
+
+
+
+  
+
+
+
+<div class="row"
+  id="indicatorData"
+  data-indicatorid='indicator_4-2-1'
+  data-id="4-2-1"
+  data-country="England"
+  data-charttitle="Children at expected level in early learning goals"
+  data-charttitles="null"
+  data-measurementunit="Percentage (%)"
+  data-xaxislabel=""
+  data-showdata="true"
+  data-graphtype="line"
+  data-graphtypes="null"
+  data-geocoderegex=""
+  data-showmap="false"
+  data-startvalues="null"
+  data-graphlimits="[{&quot;unit&quot;:&quot;Percentage (%)&quot;,&quot;minimum&quot;:0,&quot;maximum&quot;:100}]"
+  data-stackeddisaggregation=""
+  data-graphannotations="null"
+  data-graphtargetlines="null"
+  data-graphseriesbreaks="null"
+  data-indicatordownloads="null"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;EYFSP pre-reform (2012/13-2020/21)&quot;,&quot;EYFSP post-reform (2021/22 onwards)&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;London&quot;,&quot;Yorkshire and The Humber&quot;,&quot;South West&quot;,&quot;East of England&quot;,&quot;West Midlands&quot;,&quot;North West&quot;,&quot;South East&quot;,&quot;North East&quot;,&quot;East Midlands&quot;,&quot;Outer London&quot;,&quot;Inner London&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Local authority&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Barking and Dagenham&quot;,&quot;Barnet&quot;,&quot;Barnsley&quot;,&quot;Bath and North East Somerset&quot;,&quot;Bedford&quot;,&quot;Bexley&quot;,&quot;Birmingham&quot;,&quot;Blackburn with Darwen&quot;,&quot;Blackpool&quot;,&quot;Bolton&quot;,&quot;Bournemouth&quot;,&quot;Bracknell Forest&quot;,&quot;Bradford&quot;,&quot;Brent&quot;,&quot;Brighton and Hove&quot;,&quot;Bristol, City of&quot;,&quot;Bromley&quot;,&quot;Buckinghamshire&quot;,&quot;Bury&quot;,&quot;Calderdale&quot;,&quot;Cambridgeshire&quot;,&quot;Camden&quot;,&quot;Central Bedfordshire&quot;,&quot;Cheshire East&quot;,&quot;Cheshire West and Chester&quot;,&quot;City of London&quot;,&quot;Cornwall&quot;,&quot;County Durham&quot;,&quot;Coventry&quot;,&quot;Croydon&quot;,&quot;Cumbria&quot;,&quot;Darlington&quot;,&quot;Derby&quot;,&quot;Derbyshire&quot;,&quot;Devon&quot;,&quot;Doncaster&quot;,&quot;Dorset&quot;,&quot;Dudley&quot;,&quot;Ealing&quot;,&quot;East Riding of Yorkshire&quot;,&quot;East Sussex&quot;,&quot;Enfield&quot;,&quot;Essex&quot;,&quot;Gateshead&quot;,&quot;Gloucestershire&quot;,&quot;Greenwich&quot;,&quot;Hackney&quot;,&quot;Halton&quot;,&quot;Hammersmith and Fulham&quot;,&quot;Hampshire&quot;,&quot;Haringey&quot;,&quot;Harrow&quot;,&quot;Hartlepool&quot;,&quot;Havering&quot;,&quot;Herefordshire&quot;,&quot;Hertfordshire&quot;,&quot;Hillingdon&quot;,&quot;Hounslow&quot;,&quot;Isle of Wight&quot;,&quot;Islington&quot;,&quot;Kensington and Chelsea&quot;,&quot;Kent&quot;,&quot;Kingston upon Hull, City of&quot;,&quot;Kingston upon Thames&quot;,&quot;Kirklees&quot;,&quot;Knowsley&quot;,&quot;Lambeth&quot;,&quot;Lancashire&quot;,&quot;Leeds&quot;,&quot;Leicester&quot;,&quot;Leicestershire&quot;,&quot;Lewisham&quot;,&quot;Lincolnshire&quot;,&quot;Liverpool&quot;,&quot;Luton&quot;,&quot;Manchester&quot;,&quot;Medway&quot;,&quot;Merton&quot;,&quot;Middlesbrough&quot;,&quot;Milton Keynes&quot;,&quot;Newcastle upon Tyne&quot;,&quot;Newham&quot;,&quot;Norfolk&quot;,&quot;North East Lincolnshire&quot;,&quot;North Lincolnshire&quot;,&quot;North Somerset&quot;,&quot;North Tyneside&quot;,&quot;North Yorkshire&quot;,&quot;Northamptonshire&quot;,&quot;Northumberland&quot;,&quot;Nottingham&quot;,&quot;Nottinghamshire&quot;,&quot;Oldham&quot;,&quot;Oxfordshire&quot;,&quot;Peterborough&quot;,&quot;Plymouth&quot;,&quot;Poole&quot;,&quot;Portsmouth&quot;,&quot;Reading&quot;,&quot;Redbridge&quot;,&quot;Redcar and Cleveland&quot;,&quot;Richmond upon Thames&quot;,&quot;Rochdale&quot;,&quot;Rotherham&quot;,&quot;Rutland&quot;,&quot;Salford&quot;,&quot;Sandwell&quot;,&quot;Sefton&quot;,&quot;Sheffield&quot;,&quot;Shropshire&quot;,&quot;Slough&quot;,&quot;Solihull&quot;,&quot;Somerset&quot;,&quot;South Gloucestershire&quot;,&quot;South Tyneside&quot;,&quot;Southampton&quot;,&quot;Southend-on-Sea&quot;,&quot;Southwark&quot;,&quot;St. Helens&quot;,&quot;Staffordshire&quot;,&quot;Stockport&quot;,&quot;Stockton-on-Tees&quot;,&quot;Stoke-on-Trent&quot;,&quot;Suffolk&quot;,&quot;Sunderland&quot;,&quot;Surrey&quot;,&quot;Sutton&quot;,&quot;Swindon&quot;,&quot;Tameside&quot;,&quot;Telford and Wrekin&quot;,&quot;Thurrock&quot;,&quot;Torbay&quot;,&quot;Tower Hamlets&quot;,&quot;Trafford&quot;,&quot;Wakefield&quot;,&quot;Walsall&quot;,&quot;Waltham Forest&quot;,&quot;Wandsworth&quot;,&quot;Warrington&quot;,&quot;Warwickshire&quot;,&quot;West Berkshire&quot;,&quot;West Sussex&quot;,&quot;Westminster&quot;,&quot;Wigan&quot;,&quot;Wiltshire&quot;,&quot;Windsor and Maidenhead&quot;,&quot;Wirral&quot;,&quot;Wokingham&quot;,&quot;Wolverhampton&quot;,&quot;Worcestershire&quot;,&quot;York&quot;,&quot;Isles of Scilly&quot;,&quot;Bournemouth, Christchurch and Poole&quot;,&quot;North Northamptonshire&quot;,&quot;West Northamptonshire&quot;,&quot;Herefordshire, County of&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Local authority&quot;},{&quot;name&quot;:&quot;Gender&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Boys&quot;,&quot;Girls&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Gender&quot;},{&quot;name&quot;:&quot;Ethnicity&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;White&quot;,&quot;Mixed&quot;,&quot;Asian&quot;,&quot;Black/African/Caribbean/Black British&quot;,&quot;Chinese&quot;,&quot;Other ethnic group&quot;,&quot;Mixed/multiple ethnic groups&quot;,&quot;Asian/Asian British&quot;,&quot;Unclassified&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Ethnicity&quot;},{&quot;name&quot;:&quot;Free school meals&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Free school meals&quot;,&quot;No free school meals&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Free school meals&quot;},{&quot;name&quot;:&quot;Learning category&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Prime areas of learning&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Learning category&quot;},{&quot;name&quot;:&quot;Learning sub-category (higher)&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Communication and Language&quot;,&quot;Personal, Social and Emotional Development&quot;,&quot;Physical Development&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Learning sub-category (higher)&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-compositebreakdownlabel=""
+  data-precision="null"
+  data-proxy="proxy"
+  data-proxyseries="null"
+>
+  
+  <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
+  <span role="status" class="visually-hidden" id="indicator-data-unit-status"></span>
+  <span role="status" class="visually-hidden" id="indicator-data-series-status"></span>
+  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
+    <div id="serieses"></div>
+<div id="units"></div>
+<div id="toolbar">
+  <span id="series-help">
+    <h4>Sub-categories</h4>
+    <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+  </span>
+  <div id="fields">
+    <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+  </div>
+</div>
+
+  </div>
+  <div id="indicator-main" class="indicator-main col-md-9">
+    
+
+
+
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    
+    <a role="button" href="https://ONSdigital.github.io/sdg-data/en/headline/4-2-1.csv" class="btn btn-primary btn-download" download="indicator_4-2-1.csv" tabindex="0" role="button">Download headline data (.csv)</a>
+    
+    <a role="button" href="https://ONSdigital.github.io/sdg-data/en/data/4-2-1.csv" class="btn btn-primary btn-download" download='indicator_4-2-1.csv' tabindex='0' role='button'>Download source data (.csv)</a>
+
+    <p class="no-js-disaggregation-hint">Download source data for disaggregations (.csv)</p>
+
+    
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>Children at expected level in early learning goals</caption>
+      <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col">Value</th>
+        
+        
+        
+        <th scope="col">Series</th>
+        
+        
+        
+        <th scope="col">GeoCode</th>
+        
+        
+        
+        <th scope="col">Observation status</th>
+        
+        
+        
+        <th scope="col">Unit multiplier</th>
+        
+        
+        
+        <th scope="col" class="table-value">Unit measure</th>
+        
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          
+          <td>2012/13</td>
+          
+          
+          
+          <td>48.9</td>
+          
+          
+          
+          <td>EYFSP pre-reform (2012/13-2020/21)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2013/14</td>
+          
+          
+          
+          <td>58.0</td>
+          
+          
+          
+          <td>EYFSP pre-reform (2012/13-2020/21)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2014/15</td>
+          
+          
+          
+          <td>64.1</td>
+          
+          
+          
+          <td>EYFSP pre-reform (2012/13-2020/21)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2015/16</td>
+          
+          
+          
+          <td>67.3</td>
+          
+          
+          
+          <td>EYFSP pre-reform (2012/13-2020/21)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2016/17</td>
+          
+          
+          
+          <td>69.0</td>
+          
+          
+          
+          <td>EYFSP pre-reform (2012/13-2020/21)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2017/18</td>
+          
+          
+          
+          <td>70.2</td>
+          
+          
+          
+          <td>EYFSP pre-reform (2012/13-2020/21)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2018/19</td>
+          
+          
+          
+          <td>70.7</td>
+          
+          
+          
+          <td>EYFSP pre-reform (2012/13-2020/21)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021/22</td>
+          
+          
+          
+          <td>63.4</td>
+          
+          
+          
+          <td>EYFSP post-reform (2021/22 onwards)</td>
+          
+          
+          
+          <td></td>
+          
+          
+          
+          <td>Normal value</td>
+          
+          
+          
+          <td>Units</td>
+          
+          
+          
+          <td class="table-value">Percentage (%)</td>
+          
+          
+        </tr>
+        
+      </tbody>
+    </table>
+    
+  </div>
+
+  
+  <div id="datatableFooter">
+    
+    <p>Source: Department for Education (DfE)</p>
+    
+    
+    <p>Geographical Area: England</p>
+    
+    
+    <p>Unit of Measurement: Percentage (%)</p>
+    
+    
+    <p>Footnote: Dates represent academic year</p>
+    
+  </div>
+  
+
+</div>
+
+
+<section>
+
+  <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+
+  <div class="async-loaded mt-4" style="display:none;">
+
+    <div style="display: none;">
+    <span id="table-alternative">For tabular data alternative see Table tab.</span>
+  </div>
+  <ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
+    
+    <li role="presentation"
+      class="
+        nav-item
+        
+        
+      ">
+      <button
+        class="nav-link active"
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-chartview"
+          data-bs-target="#chartview"
+          aria-controls="chartview"
+          aria-describedby="table-alternative"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+
+        
+      >Chart</button>
+    </li>
+    
+    <li role="presentation"
+      class="
+        nav-item
+        
+        
+      ">
+      <button
+        class="nav-link "
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-tableview"
+          data-bs-target="#tableview"
+          aria-controls="tableview"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+
+        
+      >Table</button>
+    </li>
+    
+  </ul>
+  
+    <div class="tab-content data-view">
+    
+      
+        <div role="tabpanel" class="tab-pane active" id="chartview">
+          
+
+    <div id="dataset-size-warning" style="display:none" role="alert">
+      <i class="fa fa-bolt"><span class="sr-only">Warning:</span></i>
+      There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+    </div>
+
+    
+    <div id="selectionsChart">
+      <figure role="group">
+        <div id="chart-canvas">
+          <h4 id="chart-heading" class="chart-title">
+            Children at expected level in early learning goals
+          </h4>
+          <div id="chart" class="plot-container">
+            <canvas
+    role="img"
+    aria-labelledby="chart-heading"
+    aria-describedby="table-alternative chart-annotations"
+    tabindex="0"
+ ></canvas>
+
+          </div>
+          <div id="plotLegend"></div>
+          
+
+
+
+<div id="selectionChartFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>Department for Education (DfE)</dd>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>England</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+        <dt>Footnote:</dt>
+        <dd>Dates represent academic year</dd>
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
+    
+</div>
+
+        </div>
+      </figure>
+      <div id="chartSelectionDownload" class="clearfix">
+        <button
+          id="btnSave"
+          title="Download chart image as PNG"
+          aria-label="Download chart image as PNG"
+          class='btn btn-primary btn-download'>
+          Download chart image (.png)
+        </button><!--
+   --></div>
+    </div>
+
+
+
+        </div>
+      
+    
+      
+        <div role="tabpanel" class="tab-pane " id="tableview">
+          <div style="display: none;">
+            <span id="column-sort-info">Click to sort by this column</span>
+          </div>
+          <div id="selectionsTable"></div>
+<dl id="tableTargetLines" class="clearfix"></dl>
+
+
+
+
+<div id="selectionTableFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>Department for Education (DfE)</dd>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>England</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+        <dt>Footnote:</dt>
+        <dd>Dates represent academic year</dd>
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
+    
+</div>
+
+<div id="tableSelectionDownload" class="clearfix"></div>
+
+        </div>
+      
+    
+  </div>
+  
+
+  </div>
+
+</section>
+
+  
+  <div class="mt-4">
+<ul class="nav nav-tabs" role="tablist">
+    
+        
+<li role="presentation" class="nav-item">
+    <button type="button" class="nav-link active" data-bs-toggle="tab" id="tab-national" data-bs-target="#national" aria-controls="national" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to National Metadata tab"
+>National Metadata</button>
+</li>
+<li role="presentation" class="nav-item">
+    <button type="button" class="nav-link" data-bs-toggle="tab" id="tab-global" data-bs-target="#global" aria-controls="global" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to Global Metadata tab"
+>Global Metadata</button>
+</li>
+<li role="presentation" class="nav-item">
+    <button type="button" class="nav-link" data-bs-toggle="tab" id="tab-sources" data-bs-target="#sources" aria-controls="sources" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to Sources tab"
+>Sources</button>
+</li>
+
+    
+    
+</ul>
+
+<div class="tab-content">
+    
+        <div role="tabpanel" class="tab-pane active" id="national">
+    <!-- National Metadata -->
+    <div>
+        <article>
+            <p>
+                
+                
+                This table provides metadata for the actual indicator available from UK statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from UK statistics, this table should be consulted for information on national methodology and other UK-specific metadata information.
+            </p>
+            <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Indicator available </th>
+        <td>
+          
+            <p>Children at expected level in early learning goals as specified by the United Kingdom early years foundation stage profile (EYFSP).</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Indicator description </th>
+        <td>
+          
+            <p>The EYFSP is a teacher assessment of children’s development at the end of the early years foundation stage (the end of the academic year in which the child turns five years old – this is typically at the end of the Reception year).</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>England</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Unit of measurement </th>
+        <td>
+          
+            <p>Percentage (%)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Definitions </th>
+        <td>
+          
+            <p> Children are assessed in three prime areas of learning (communication and language, physical development and personal and social emotional development) and four specific areas of learning (expressive arts and design, literacy, mathematics, understanding the world). </p>
+<p> Children achieving the expected level across all early learning goals (ELGs) are those with an ‘expected’ level of development in all 17 ELGs.
+</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Available disaggregations </th>
+        <td>
+          
+            <p> Region and local authority, major ethnic group, free school meals, Prime areas of learning and their higher sub-categories. Minor ethnic group, special educational needs, specific areas of learning and the lower learning sub-categories are not displayed here due to the size of the complete data set. <p> Prior to 2021/22, Chinese children were included in the 'Other' category. Based on new guidance, Chinese children are now included in the 'Asian' category in the 2021/22 data, and the 'Unclassified' ethnic group category describes cases where a child's ethnicity was refused or not obtained. These children are included in the 'Total' numbers.
+</p></p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Calculations </th>
+        <td>
+          
+            <p>No calculations were performed on the data collected from this source. For more information please visit the source website.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            <p> The EYFSP is an England-specific measure. <p> This is the first publication since the 2021/22 EYFS reforms were introduced in September 2021. As part of those reforms, the EYFS profile was significantly revised. It is therefore not possible to directly compare 2021/22 assessment outcomes with earlier years. <p> It is also the first release since the publication of the 2018/19 statistics, as the 2019/20 and 2020/21 data collections were cancelled due to coronavirus (COVID-19). <a href="https://www.gov.uk/government/statistics/announcements/early-years- foundation-stage-profile-results-in-england-2019-to-2020">DfE Early years founation stage profile results 2019/20</a> and <a href="https://www.gov.uk/government/statistics/announcements/early-years-foundation-stage-profile-results-in-england-2020-to-2021">DfE Early years foundation stage profile results 2020/21</a> <p> This indicator is being used as an approximation of the UN SDG Indicator. Where possible, we will work to identify or develop UK data to meet the global indicator specification. This indicator has been identified in collaboration with topic experts.
+</p></p></p></p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Data last updated </th>
+        <td>
+          
+            06 April 2023
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Metadata last updated </th>
+        <td>
+          
+            06 April 2023
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+        </article>
+    </div>
+</div>
+<div role="tabpanel" class="tab-pane" id="global">
+    <!-- Global Metadata -->
+    <div>
+        <article>
+            <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href="https://unstats.un.org/sdgs/metadata/">Complete global metadata</a> is provided by the UN Statistics Division.</p>
+            <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Indicator name </th>
+        <td>
+          
+            <p>Proportion of children aged 24-59 months who are developmentally on track in health, learning and psychosocial well-being, by sex</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Target name </th>
+        <td>
+          
+            <p>By 2030, ensure that all girls and boys have access to quality early childhood development, care and pre‐primary education so that they are ready for primary education</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">UN designated tier </th>
+        <td>
+          
+            <p>Tier II</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">UN custodian agency </th>
+        <td>
+          
+            <p>United Nations Children’s Fund (UNICEF)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Link to UN metadata </th>
+        <td>
+          
+            
+            
+            
+            
+            
+              <a href="https://unstats.un.org/sdgs/metadata/?Text=&Goal=4&Target=4.2" target="_blank">
+                United Nations Sustainable Development Goals metadata for target 4.2 <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+        </article>
+    </div>
+</div>
+<div role="tabpanel" class="tab-pane" id="sources">
+    <!-- Count the non-empty sources (up to 5) -->
+
+
+
+
+  <div class="row">
+  
+    
+    
+    <div class="col-md-6">
+      
+        <h4 class="sr-only">Source 1</h4>
+      
+      
+      <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>Department for Education (DfE)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Annual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2012/13</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>England</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+            
+              <a href="https://www.gov.uk/government/collections/statistics-early-years-foundation-stage-profile" target="_blank">
+                Early years foundation stage profile results <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            24 November 2022
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>30/11/2023: We plan to update indicator data within 4 months of data being released</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>National Statistic</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>EarlyYears.STATISTICS@education.gov.uk</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            <p>Please see the <a href="https://explore-education-statistics.service.gov.uk/methodology/early-years-foundation-stage-profile-results-methodology">2021/22 methodology page</a></p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+    </div>
+    
+  </div>
+
+
+</div>
+    
+    
+</div>
+
+</div>
+  </div>
+</div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+
+
+<script>
+  
+
+
+var klaroConfig = {
+    noAutoLoad: true, // no autoload because we have a custom notice and form
+    storageMethod: 'cookie',
+    cookieName: 'cookie_settings',
+    cookieExpiresAfterDays: 365,
+    default: false,
+    services: [
+        {
+            name: 'contrast',
+            default: true,
+            cookies: ['contrast'],
+            required: true,
+        },
+        
+        {
+            name: 'google-analytics',
+            
+            cookies: ['_gat', '_gid', '_ga'],
+            
+        },
+        
+        
+    ],
+};
+
+  klaroConfig.lang = 'en';
+klaroConfig.translations = {
+    en: {
+        acceptAll: "Accept all",
+        acceptSelected: "Accept selected",
+        close: "Close",
+        consentModal: {
+            description: "Here you can change which cookies you're happy for us to use.",
+            title: "Cookie settings",
+        },
+        consentNotice: {
+            changeDescription: "The cookies used on this site have changed since you last visited, please renew your consent.",
+            description: "We use some essential cookies to make this service work. We’d also like to use {purposes} so we can understand how you use the service and make improvements.",
+            learnMore: "View cookies",
+            testing: "Testing mode!",
+        },
+        contextualConsent: {
+            acceptAlways: "Always",
+            acceptOnce: "Yes",
+            description: "Do you want to load external content supplied by {title}?",
+        },
+        decline: "Reject additional cookies",
+        ok: "Accept additional cookies",
+        poweredBy: "Realized with Klaro!",
+        privacyPolicy: {
+            name: "privacy policy",
+            text: "To learn more, please read our privacy policy.",
+        },
+        purposeItem: {
+            service: "service",
+            services: "services",
+        },
+        purposes: {
+            functional: {
+                description: "Essential cookies keep your information secure, and do things like remember your preferences and the choices you make whilst you use the website. They always need to be on.",
+                title: "Essential cookies",
+            },
+            analytics: {
+                description: "These services collect information about how you use the website. We use this data to help make the website better.",
+                title: "Analytics cookies",
+            },
+        },
+        save: "Save",
+        service: {
+            disableAll: {
+                description: "Use this switch to enable or disable all services.",
+                title: "Enable or disable all services",
+            },
+            optOut: {
+                description: "This services is loaded by default (but you can opt out)",
+                title: "(opt-out)",
+            },
+            purpose: "purpose",
+            purposes: "purposes",
+            required: {
+                description: "This service is always required",
+                title: "(always required)",
+            },
+        },
+    },
+};
+var allRequired = true;
+klaroConfig.services.forEach(function(service) {
+    if (!service.required) {
+        allRequired = false;
+    }
+    if (service.name === 'contrast') {
+        service.translations = {
+            en: {
+                description: "Retains active state of accessibility services",
+                title: "Accessibility mode",
+            },
+        }
+    }
+    else if (service.name === 'cookie_settings') {
+        service.translations = {
+            en: {
+                description: "Saves your cookie consent settings",
+                title: "Cookie settings",
+            },
+        }
+    }
+    else if (service.name === 'google-analytics') {
+        service.translations = {
+            en: {
+                description: "Collects information about page visits using Google Analytics",
+                title: "Google Analytics",
+            },
+        }
+    }
+});
+
+if (allRequired) {
+    klaroConfig.translations['en'].consentNotice.description = "We use some essential cookies to make this service work. They always need to be on.";
+    klaroConfig.translations['en'].ok = "OK";
+    klaroConfig.hideDeclineAll = true;
+    klaroConfig.hideLearnMore = true;
+}
+
+</script>
+<script src="https://cdn.kiprotect.com/klaro/v0.7/klaro-no-css.js"></script>
+<script>translations['cookies'] = translations['cookies'] || {};
+    translations['cookies']['cookie_settings'] = 'Cookie settings';</script>
+
+
+
+
+
+
+
+<script>translations['general'] = translations['general'] || {};
+    translations['general']['hide'] = 'hide';</script>
+
+<script>translations['search'] = translations['search'] || {};
+    translations['search']['search'] = 'Search';</script>
+
+<script src='/sdg-indicators/assets/js/sdg.js?v=20240308155317'></script>
+<script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
+<script src="/sdg-indicators/assets/js/govuk.js"></script>
+<script>
+  window.GOVUKFrontend.initAll()
+</script>
+    
+    
+    <script src="/sdg-indicators/assets/js/custom.js?v=20240308155317"></script><script>
+    new indicatorInit();
+    new accessibilitySwitcher();
+</script>
+
+<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+<script>
+    new pym.Child();
+</script>
+
+</body>
+</html>

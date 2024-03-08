@@ -146,9 +146,8 @@ var translations = {
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20240308154615">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20240308155317">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -315,7 +314,7 @@ layout-indicator
 
                 </div>
                 <div class="header-toggles d-flex"><a title="Enable high contrast" aria-label="Enable high contrast"
-    data-contrast-switch-to="" href="javascript:void(0)" data-on="click"
+    data-contrast-switch-to="" role="button" href="javascript:void(0)" data-on="click"
 data-event-category="Accessibility"
 data-event-action="Change contrast setting"
 data-event-label="high"
@@ -509,7 +508,7 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Recipient region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Africa&quot;,&quot;Americas&quot;,&quot;Asia&quot;,&quot;Europe&quot;,&quot;Pacific&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Recipient region&quot;},{&quot;name&quot;:&quot;Recipient country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Africa, regional&quot;,&quot;Algeria&quot;,&quot;Angola&quot;,&quot;Benin&quot;,&quot;Botswana&quot;,&quot;Burkina Faso&quot;,&quot;Burundi&quot;,&quot;Cameroon&quot;,&quot;Cape Verde&quot;,&quot;Central African Rep.&quot;,&quot;Chad&quot;,&quot;Democratic Republic of the Congo&quot;,&quot;Cote d'Ivoire&quot;,&quot;Djibouti&quot;,&quot;Egypt&quot;,&quot;Eritrea&quot;,&quot;Ethiopia&quot;,&quot;Gambia&quot;,&quot;Ghana&quot;,&quot;Guinea&quot;,&quot;Guinea-Bissau&quot;,&quot;Kenya&quot;,&quot;Lesotho&quot;,&quot;Liberia&quot;,&quot;Libya&quot;,&quot;Madagascar&quot;,&quot;Malawi&quot;,&quot;Mali&quot;,&quot;Mauritania&quot;,&quot;Mauritius&quot;,&quot;Morocco&quot;,&quot;Mozambique&quot;,&quot;Namibia&quot;,&quot;Niger&quot;,&quot;Nigeria&quot;,&quot;North of Sahara, regional&quot;,&quot;Rwanda&quot;,&quot;Senegal&quot;,&quot;Seychelles&quot;,&quot;Sierra Leone&quot;,&quot;Somalia&quot;,&quot;South Africa&quot;,&quot;South of Sahara, regional&quot;,&quot;St. Helena&quot;,&quot;Sudan&quot;,&quot;Swaziland&quot;,&quot;Tanzania&quot;,&quot;Togo&quot;,&quot;Tunisia&quot;,&quot;Uganda&quot;,&quot;Zambia&quot;,&quot;Zimbabwe&quot;,&quot;Anguilla&quot;,&quot;Antigua and Barbuda&quot;,&quot;Argentina&quot;,&quot;Barbados&quot;,&quot;Belize&quot;,&quot;Bolivia&quot;,&quot;Brazil&quot;,&quot;Chile&quot;,&quot;Colombia&quot;,&quot;Costa Rica&quot;,&quot;Cuba&quot;,&quot;Dominica&quot;,&quot;Dominican Republic&quot;,&quot;Ecuador&quot;,&quot;El Salvador&quot;,&quot;Grenada&quot;,&quot;Guatemala&quot;,&quot;Guyana&quot;,&quot;Haiti&quot;,&quot;Honduras&quot;,&quot;Jamaica&quot;,&quot;Mexico&quot;,&quot;Montserrat&quot;,&quot;Nicaragua&quot;,&quot;North &amp; Central America, regional&quot;,&quot;Panama&quot;,&quot;Paraguay&quot;,&quot;Peru&quot;,&quot;St. Kitts-Nevis&quot;,&quot;St. Lucia&quot;,&quot;St.Vincent &amp; Grenadines&quot;,&quot;Trinidad &amp; Tobago&quot;,&quot;Uruguay&quot;,&quot;Venezuela&quot;,&quot;West Indies, regional&quot;,&quot;Afghanistan&quot;,&quot;Armenia&quot;,&quot;Asia, regional&quot;,&quot;Azerbaijan&quot;,&quot;Bangladesh&quot;,&quot;Cambodia&quot;,&quot;China&quot;,&quot;Georgia&quot;,&quot;India&quot;,&quot;Indonesia&quot;,&quot;Iran&quot;,&quot;Iraq&quot;,&quot;Jordan&quot;,&quot;Kazakhstan&quot;,&quot;Democratic People's Republic of Korea&quot;,&quot;Kyrgyz Republic&quot;,&quot;Laos&quot;,&quot;Lebanon&quot;,&quot;Malaysia&quot;,&quot;Maldives&quot;,&quot;Middle East, regional&quot;,&quot;Mongolia&quot;,&quot;Myanmar&quot;,&quot;Nepal&quot;,&quot;Oman&quot;,&quot;Pakistan&quot;,&quot;Philippines&quot;,&quot;South Asia, regional&quot;,&quot;Sri Lanka&quot;,&quot;Syria&quot;,&quot;Tajikistan&quot;,&quot;Thailand&quot;,&quot;Timor-Leste&quot;,&quot;Turkmenistan&quot;,&quot;Uzbekistan&quot;,&quot;Vietnam&quot;,&quot;West Bank &amp; Gaza Strip&quot;,&quot;Yemen&quot;,&quot;Albania&quot;,&quot;Belarus&quot;,&quot;Bosnia-Herzegovina&quot;,&quot;Croatia&quot;,&quot;Europe, regional&quot;,&quot;Former Yugoslav Republic of Macedonia (FYROM)&quot;,&quot;Kosovo&quot;,&quot;Moldova&quot;,&quot;Montenegro&quot;,&quot;Serbia&quot;,&quot;Turkey&quot;,&quot;Ukraine&quot;,&quot;Fiji&quot;,&quot;Kiribati&quot;,&quot;Oceania, regional&quot;,&quot;Papua New Guinea&quot;,&quot;Samoa&quot;,&quot;Solomon Islands&quot;,&quot;Tonga&quot;,&quot;Vanuatu&quot;,&quot;Comoros&quot;,&quot;Congo, Rep.&quot;,&quot;Gabon&quot;,&quot;America, regional&quot;,&quot;Nauru&quot;,&quot;Palau&quot;,&quot;Tuvalu&quot;,&quot;South Sudan&quot;,&quot;Marshall Islands&quot;,&quot;Bhutan&quot;,&quot;Sao Tome &amp; Principe&quot;,&quot;South America, regional&quot;,&quot;Suriname&quot;,&quot;South &amp; Central Asia, regional&quot;,&quot;Congo&quot;,&quot;Congo, Dem. Rep.&quot;,&quot;Eswatini&quot;,&quot;St. Vincent &amp; Grenadines&quot;,&quot;Central Asia, regional&quot;,&quot;Far East Asia, regional&quot;,&quot;Korea, Dem. Rep.&quot;,&quot;North Macedonia&quot;,&quot;States Ex-Yugoslavia unspecified&quot;,&quot;Micronesia&quot;,&quot;Middle Africa, regional&quot;,&quot;Eastern Africa, regional&quot;,&quot;Western Africa, regional&quot;,&quot;Caribbean &amp; Central America, regional&quot;,&quot;Caribbean, regional&quot;,&quot;Central America, regional&quot;,&quot;Melanesia, regional&quot;,&quot;Southern Africa, regional&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Recipient country&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Recipient region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Africa&quot;,&quot;Americas&quot;,&quot;Asia&quot;,&quot;Europe&quot;,&quot;Pacific&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Recipient region&quot;},{&quot;name&quot;:&quot;Recipient country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Africa, regional&quot;,&quot;Algeria&quot;,&quot;Angola&quot;,&quot;Benin&quot;,&quot;Botswana&quot;,&quot;Burkina Faso&quot;,&quot;Burundi&quot;,&quot;Cameroon&quot;,&quot;Cape Verde&quot;,&quot;Central African Rep.&quot;,&quot;Chad&quot;,&quot;Democratic Republic of the Congo&quot;,&quot;Cote d&apos;Ivoire&quot;,&quot;Djibouti&quot;,&quot;Egypt&quot;,&quot;Eritrea&quot;,&quot;Ethiopia&quot;,&quot;Gambia&quot;,&quot;Ghana&quot;,&quot;Guinea&quot;,&quot;Guinea-Bissau&quot;,&quot;Kenya&quot;,&quot;Lesotho&quot;,&quot;Liberia&quot;,&quot;Libya&quot;,&quot;Madagascar&quot;,&quot;Malawi&quot;,&quot;Mali&quot;,&quot;Mauritania&quot;,&quot;Mauritius&quot;,&quot;Morocco&quot;,&quot;Mozambique&quot;,&quot;Namibia&quot;,&quot;Niger&quot;,&quot;Nigeria&quot;,&quot;North of Sahara, regional&quot;,&quot;Rwanda&quot;,&quot;Senegal&quot;,&quot;Seychelles&quot;,&quot;Sierra Leone&quot;,&quot;Somalia&quot;,&quot;South Africa&quot;,&quot;South of Sahara, regional&quot;,&quot;St. Helena&quot;,&quot;Sudan&quot;,&quot;Swaziland&quot;,&quot;Tanzania&quot;,&quot;Togo&quot;,&quot;Tunisia&quot;,&quot;Uganda&quot;,&quot;Zambia&quot;,&quot;Zimbabwe&quot;,&quot;Anguilla&quot;,&quot;Antigua and Barbuda&quot;,&quot;Argentina&quot;,&quot;Barbados&quot;,&quot;Belize&quot;,&quot;Bolivia&quot;,&quot;Brazil&quot;,&quot;Chile&quot;,&quot;Colombia&quot;,&quot;Costa Rica&quot;,&quot;Cuba&quot;,&quot;Dominica&quot;,&quot;Dominican Republic&quot;,&quot;Ecuador&quot;,&quot;El Salvador&quot;,&quot;Grenada&quot;,&quot;Guatemala&quot;,&quot;Guyana&quot;,&quot;Haiti&quot;,&quot;Honduras&quot;,&quot;Jamaica&quot;,&quot;Mexico&quot;,&quot;Montserrat&quot;,&quot;Nicaragua&quot;,&quot;North &amp; Central America, regional&quot;,&quot;Panama&quot;,&quot;Paraguay&quot;,&quot;Peru&quot;,&quot;St. Kitts-Nevis&quot;,&quot;St. Lucia&quot;,&quot;St.Vincent &amp; Grenadines&quot;,&quot;Trinidad &amp; Tobago&quot;,&quot;Uruguay&quot;,&quot;Venezuela&quot;,&quot;West Indies, regional&quot;,&quot;Afghanistan&quot;,&quot;Armenia&quot;,&quot;Asia, regional&quot;,&quot;Azerbaijan&quot;,&quot;Bangladesh&quot;,&quot;Cambodia&quot;,&quot;China&quot;,&quot;Georgia&quot;,&quot;India&quot;,&quot;Indonesia&quot;,&quot;Iran&quot;,&quot;Iraq&quot;,&quot;Jordan&quot;,&quot;Kazakhstan&quot;,&quot;Democratic People&apos;s Republic of Korea&quot;,&quot;Kyrgyz Republic&quot;,&quot;Laos&quot;,&quot;Lebanon&quot;,&quot;Malaysia&quot;,&quot;Maldives&quot;,&quot;Middle East, regional&quot;,&quot;Mongolia&quot;,&quot;Myanmar&quot;,&quot;Nepal&quot;,&quot;Oman&quot;,&quot;Pakistan&quot;,&quot;Philippines&quot;,&quot;South Asia, regional&quot;,&quot;Sri Lanka&quot;,&quot;Syria&quot;,&quot;Tajikistan&quot;,&quot;Thailand&quot;,&quot;Timor-Leste&quot;,&quot;Turkmenistan&quot;,&quot;Uzbekistan&quot;,&quot;Vietnam&quot;,&quot;West Bank &amp; Gaza Strip&quot;,&quot;Yemen&quot;,&quot;Albania&quot;,&quot;Belarus&quot;,&quot;Bosnia-Herzegovina&quot;,&quot;Croatia&quot;,&quot;Europe, regional&quot;,&quot;Former Yugoslav Republic of Macedonia (FYROM)&quot;,&quot;Kosovo&quot;,&quot;Moldova&quot;,&quot;Montenegro&quot;,&quot;Serbia&quot;,&quot;Turkey&quot;,&quot;Ukraine&quot;,&quot;Fiji&quot;,&quot;Kiribati&quot;,&quot;Oceania, regional&quot;,&quot;Papua New Guinea&quot;,&quot;Samoa&quot;,&quot;Solomon Islands&quot;,&quot;Tonga&quot;,&quot;Vanuatu&quot;,&quot;Comoros&quot;,&quot;Congo, Rep.&quot;,&quot;Gabon&quot;,&quot;America, regional&quot;,&quot;Nauru&quot;,&quot;Palau&quot;,&quot;Tuvalu&quot;,&quot;South Sudan&quot;,&quot;Marshall Islands&quot;,&quot;Bhutan&quot;,&quot;Sao Tome &amp; Principe&quot;,&quot;South America, regional&quot;,&quot;Suriname&quot;,&quot;South &amp; Central Asia, regional&quot;,&quot;Congo&quot;,&quot;Congo, Dem. Rep.&quot;,&quot;Eswatini&quot;,&quot;St. Vincent &amp; Grenadines&quot;,&quot;Central Asia, regional&quot;,&quot;Far East Asia, regional&quot;,&quot;Korea, Dem. Rep.&quot;,&quot;North Macedonia&quot;,&quot;States Ex-Yugoslavia unspecified&quot;,&quot;Micronesia&quot;,&quot;Middle Africa, regional&quot;,&quot;Eastern Africa, regional&quot;,&quot;Western Africa, regional&quot;,&quot;Caribbean &amp; Central America, regional&quot;,&quot;Caribbean, regional&quot;,&quot;Central America, regional&quot;,&quot;Melanesia, regional&quot;,&quot;Southern Africa, regional&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Recipient country&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;Unit multiplier&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit multiplier&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="null"
   data-proxy=""
@@ -517,6 +516,8 @@ data-event-label="high"
 >
   
   <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
+  <span role="status" class="visually-hidden" id="indicator-data-unit-status"></span>
+  <span role="status" class="visually-hidden" id="indicator-data-series-status"></span>
   <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
     <div id="serieses"></div>
 <div id="units"></div>
@@ -542,9 +543,9 @@ data-event-label="high"
   <div id="datatables">
 
     
-    <a href="https://ONSdigital.github.io/sdg-data/en/headline/10-b-1.csv" class="btn btn-primary btn-download" download="indicator_10-b-1.csv" tabindex="0" role="button">Download headline data (.csv)</a>
+    <a role="button" href="https://ONSdigital.github.io/sdg-data/en/headline/10-b-1.csv" class="btn btn-primary btn-download" download="indicator_10-b-1.csv" tabindex="0" role="button">Download headline data (.csv)</a>
     
-    <a href="https://ONSdigital.github.io/sdg-data/en/data/10-b-1.csv" class="btn btn-primary btn-download" download='indicator_10-b-1.csv' tabindex='0' role='button'>Download source data (.csv)</a>
+    <a role="button" href="https://ONSdigital.github.io/sdg-data/en/data/10-b-1.csv" class="btn btn-primary btn-download" download='indicator_10-b-1.csv' tabindex='0' role='button'>Download source data (.csv)</a>
 
     <p class="no-js-disaggregation-hint">Download source data for disaggregations (.csv)</p>
 
@@ -1967,6 +1968,7 @@ data-event-label="Change to Table tab"
         
         
     </dl>
+    
 </div>
 
         </div>
@@ -2045,6 +2047,7 @@ data-event-label="Change to Table tab"
         
         
     </dl>
+    
 </div>
 
 <div id="tableSelectionDownload" class="clearfix"></div>
@@ -2655,6 +2658,9 @@ data-event-label="Change to Sources tab"
     
     <div class="col-md-6">
       
+        <h4 class="sr-only">Source 1</h4>
+      
+      
       <table class="table metadata-content">
   <tbody>
   
@@ -3054,7 +3060,6 @@ data-event-label="Change to Sources tab"
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-<script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
@@ -3210,7 +3215,7 @@ if (allRequired) {
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/sdg-indicators/assets/js/sdg.js?v=20240308154615'></script>
+<script src='/sdg-indicators/assets/js/sdg.js?v=20240308155317'></script>
 <script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
 <script src="/sdg-indicators/assets/js/govuk.js"></script>
 <script>
@@ -3218,7 +3223,7 @@ if (allRequired) {
 </script>
     
     
-    <script src="/sdg-indicators/assets/js/custom.js?v=20240308154615"></script><script>
+    <script src="/sdg-indicators/assets/js/custom.js?v=20240308155317"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

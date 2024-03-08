@@ -806,12 +806,18 @@ body.contrast-high #legend li {
 #selectionsTable {
   padding-bottom: 20px; }
   #selectionsTable div.dataTables_wrapper {
-    overflow-x: auto; }
+    overflow-x: auto;
+    overflow-y: auto;
+    height: fit-content;
+    max-height: 100vh; }
     #selectionsTable div.dataTables_wrapper .row {
       margin-left: 0;
       margin-right: 0; }
   #selectionsTable table {
     caption-side: top; }
+    #selectionsTable table thead {
+      position: sticky;
+      inset-block-start: 0; }
     #selectionsTable table thead th {
       cursor: pointer; }
       #selectionsTable table thead th span.sort {
@@ -830,6 +836,19 @@ body.contrast-high #legend li {
         background-image: url(../img/sort_desc.png); }
     #selectionsTable table tbody th {
       font-weight: normal; }
+    #selectionsTable table th:first-child {
+      position: sticky;
+      inset-inline-start: 0; }
+  #selectionsTable div.dataTables_wrapper.scrolled-y thead {
+    background-color: white;
+    box-shadow: #0b0c0c 0px 5px 6px -6px;
+    z-index: 1; }
+  #selectionsTable div.dataTables_wrapper.scrolled-x th:first-child {
+    background-color: white; }
+  #selectionsTable div.dataTables_wrapper.scrolled-x thead th:first-child {
+    z-index: 2; }
+  #selectionsTable div.dataTables_wrapper.scrolled-x tbody th:first-child {
+    box-shadow: #0b0c0c 1px 1px 2px 0px; }
 
 caption {
   color: #0b0c0c; }
@@ -842,6 +861,14 @@ caption {
 
 .table .table-value {
   text-align: right; }
+
+body.contrast-high #selectionsTable div.dataTables_wrapper.scrolled-y thead {
+  background-color: black; }
+body.contrast-high #selectionsTable div.dataTables_wrapper.scrolled-x th:first-child {
+  background-color: black; }
+body.contrast-high #selectionsTable div.dataTables_wrapper .table-hover tbody tr:hover th, body.contrast-high #selectionsTable div.dataTables_wrapper .table-hover tbody tr:hover td {
+  background-color: #FFDD00;
+  color: black; }
 
 #dataset-size-warning {
   text-align: center;
@@ -2035,6 +2062,150 @@ body.contrast-high.layout-config-builder .config-widgets {
 body.contrast-high.layout-config-builder .config-repository-button span {
   color: black; }
 
+.layout-config-builder-2 .MuiGrid-container > .MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-true:not(:empty) {
+  border-top: 5px solid #1976d2;
+  padding-top: 20px;
+  margin-top: 20px; }
+  .layout-config-builder-2 .MuiGrid-container > .MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-true:not(:empty):first-child {
+    margin-top: -0.5em; }
+  .layout-config-builder-2 .MuiGrid-container > .MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-true:not(:empty) .MuiGrid-container > .MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-true:not(:empty) {
+    border-top: none; }
+.layout-config-builder-2 .MuiButton-root,
+.layout-config-builder-2 .MuiTab-root,
+.layout-config-builder-2 .MuiTypography-root,
+.layout-config-builder-2 .MuiFormLabel-root {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif; }
+.layout-config-builder-2 .MuiButton-root {
+  color: white;
+  border: none !important;
+  background: #00703c !important;
+  color: white !important;
+  box-shadow: 0 2px 0 #002d18;
+  border-radius: 0;
+  position: relative;
+  text-transform: capitalize; }
+  .layout-config-builder-2 .MuiButton-root:visited {
+    color: white; }
+  .layout-config-builder-2 .MuiButton-root:focus {
+    color: #0b0c0c;
+    color: #0b0c0c !important;
+    outline: 3px solid transparent !important;
+    background-color: #ffdd00 !important;
+    outline-offset: 0 !important;
+    box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c !important;
+    text-decoration: none !important; }
+  .layout-config-builder-2 .MuiButton-root:active {
+    background: #005a30 !important; }
+  .layout-config-builder-2 .MuiButton-root:hover {
+    background: #005a30 !important; }
+  .layout-config-builder-2 .MuiButton-root:visited {
+    color: white !important; }
+  .layout-config-builder-2 .MuiButton-root:focus {
+    background: #fd0 !important;
+    color: #0b0c0c !important; }
+.layout-config-builder-2 .MuiTab-root {
+  text-transform: capitalize; }
+.layout-config-builder-2 .MuiAppBar-root {
+  background-color: #eee;
+  color: #0b0c0c; }
+.layout-config-builder-2 .MuiInput-input:not([role="combobox"]) {
+  border: 1px solid #767676;
+  padding: 5px; }
+.layout-config-builder-2 .MuiTabs-scroller {
+  padding-left: 10px;
+  padding-right: 10px; }
+.layout-config-builder-2 .MuiGrid-spacing-xs-2 {
+  justify-content: space-between; }
+  .layout-config-builder-2 .MuiGrid-spacing-xs-2 > .MuiGrid-item:first-child {
+    max-width: 100%; }
+  .layout-config-builder-2 .MuiGrid-spacing-xs-2 > .MuiGrid-itm:last-child {
+    max-width: 50%; }
+    .layout-config-builder-2 .MuiGrid-spacing-xs-2 > .MuiGrid-itm:last-child .MuiListItem-root .MuiListItemText-root {
+      min-width: fit-content; }
+    .layout-config-builder-2 .MuiGrid-spacing-xs-2 > .MuiGrid-itm:last-child .MuiListItemSecondaryAction-root {
+      right: -50px; }
+
+body.contrast-high.layout-config-builder-2 .config-widgets {
+  background-color: black; }
+body.contrast-high.layout-config-builder-2 .config-repository-button span {
+  color: black; }
+body.contrast-high.layout-config-builder-2 .MuiInputBase-root textarea {
+  background-color: white; }
+body.contrast-high.layout-config-builder-2 .MuiIconButton-root {
+  background-color: white;
+  color: black; }
+body.contrast-high.layout-config-builder-2 .MuiToolbar-root .MuiIconButton-root {
+  background-color: white; }
+body.contrast-high.layout-config-builder-2 .MuiButton-root {
+  color: black !important;
+  background: #eeeeee !important; }
+  body.contrast-high.layout-config-builder-2 .MuiButton-root:visited {
+    color: black !important; }
+  body.contrast-high.layout-config-builder-2 .MuiButton-root:focus {
+    color: black !important;
+    color: #0b0c0c !important;
+    background-color: #ffdd00 !important;
+    box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c !important; }
+  body.contrast-high.layout-config-builder-2 .MuiButton-root:active {
+    background: #FFDD00 !important; }
+  body.contrast-high.layout-config-builder-2 .MuiButton-root:hover {
+    background: #DBDAD9 !important; }
+  body.contrast-high.layout-config-builder-2 .MuiButton-root:focus {
+    background: #FFDD00 !important; }
+body.contrast-high.layout-config-builder-2 .MuiInputLabel-root {
+  color: white; }
+body.contrast-high.layout-config-builder-2 .MuiInputLabel-animated {
+  color: black;
+  background-color: white;
+  z-index: 999; }
+body.contrast-high.layout-config-builder-2 .MuiAutocomplete-popper .MuiPaper-root .MuiAutocomplete-listbox .MuiAutocomplete-option {
+  color: black; }
+body.contrast-high.layout-config-builder-2 input {
+  background-color: white; }
+body.contrast-high.layout-config-builder-2 .MuiAccordionSummary-root, body.contrast-high.layout-config-builder-2 .MuiAccordionSummary-root:focus {
+  color: black !important;
+  background-color: white !important; }
+  body.contrast-high.layout-config-builder-2 .MuiAccordionSummary-root .MuiAccordionSummary-content .MuiTypography-root, body.contrast-high.layout-config-builder-2 .MuiAccordionSummary-root .MuiAccordionSummary-content span, body.contrast-high.layout-config-builder-2 .MuiAccordionSummary-root:focus .MuiAccordionSummary-content .MuiTypography-root, body.contrast-high.layout-config-builder-2 .MuiAccordionSummary-root:focus .MuiAccordionSummary-content span {
+    color: black;
+    background-color: white; }
+body.contrast-high.layout-config-builder-2 .MuiAccordionSummary-content .MuiIconButton-root {
+  background-color: black;
+  color: white !important; }
+  body.contrast-high.layout-config-builder-2 .MuiAccordionSummary-content .MuiIconButton-root .MuiSvgIcon-root {
+    z-index: 999;
+    background-color: black; }
+  body.contrast-high.layout-config-builder-2 .MuiAccordionSummary-content .MuiIconButton-root .MuiTouchRipple-root {
+    background-color: black !important; }
+  body.contrast-high.layout-config-builder-2 .MuiAccordionSummary-content .MuiIconButton-root:focus .MuiSvgIcon-root {
+    background-color: #FFDD00;
+    color: black; }
+  body.contrast-high.layout-config-builder-2 .MuiAccordionSummary-content .MuiIconButton-root:focus .MuiTouchRipple-root {
+    background-color: #FFDD00 !important; }
+body.contrast-high.layout-config-builder-2 .MuiCollapse-root {
+  background-color: black; }
+body.contrast-high.layout-config-builder-2 .MuiTableHead-root .MuiIconButton-root {
+  background-color: white; }
+body.contrast-high.layout-config-builder-2 .docs-content {
+  padding: 5px; }
+  body.contrast-high.layout-config-builder-2 .docs-content p, body.contrast-high.layout-config-builder-2 .docs-content h1, body.contrast-high.layout-config-builder-2 .docs-content h2, body.contrast-high.layout-config-builder-2 .docs-content h3, body.contrast-high.layout-config-builder-2 .docs-content h4, body.contrast-high.layout-config-builder-2 .docs-content h5, body.contrast-high.layout-config-builder-2 .docs-content h6, body.contrast-high.layout-config-builder-2 .docs-content span, body.contrast-high.layout-config-builder-2 .docs-content td, body.contrast-high.layout-config-builder-2 .docs-content th, body.contrast-high.layout-config-builder-2 .docs-content li, body.contrast-high.layout-config-builder-2 .docs-content {
+    color: black;
+    background-color: white; }
+body.contrast-high.layout-config-builder-2 .MuiCard-root {
+  background-color: black; }
+body.contrast-high.layout-config-builder-2 .MuiSwitch-track {
+  background-color: #767676;
+  opacity: 0.9; }
+body.contrast-high.layout-config-builder-2 .MuiSwitch-switchBase.Mui-checked .MuiSwitch-thumb {
+  background-color: #FFDD00; }
+body.contrast-high.layout-config-builder-2 .MuiDialog-container .MuiPaper-root {
+  background-color: black;
+  border: 1px solid white; }
+body.contrast-high.layout-config-builder-2 .Mui-error {
+  color: red; }
+body.contrast-high.layout-config-builder-2 .MuiFormHelperText-root.Mui-error {
+  background-color: white;
+  margin-bottom: 10px; }
+
 #main-content #map {
   height: 500px;
   width: 100%; }
@@ -2093,10 +2264,8 @@ body.contrast-high.layout-config-builder .config-repository-button span {
     font-size: 20px; }
   #main-content #map .disaggregation-controls {
     z-index: 801;
-    margin-right: 10px; }
-    @media only screen and (min-width: 800px) {
-      #main-content #map .disaggregation-controls {
-        max-width: 250px; } }
+    margin-right: 10px;
+    max-width: 250px; }
     #main-content #map .disaggregation-controls .disaggregation-list {
       background: white;
       padding: 5px;
@@ -2616,6 +2785,10 @@ body.contrast-high.layout-data-editor .ag-root-wrapper, body.contrast-high.layou
     #search-results .search-result .url {
       color: green;
       font-size: 16px; }
+      #search-results .search-result .url ol, #search-results .search-result .url li {
+        display: inline-block;
+        padding-left: 0;
+        margin-bottom: 0; }
     #search-results .search-result .content {
       margin-top: 2px; }
 

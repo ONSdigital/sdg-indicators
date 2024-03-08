@@ -1,0 +1,2167 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
+<script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
+
+        <script>
+// This is where we initialise any global variables, namespaced in "opensdg".
+var opensdg = {
+
+  // A base URL for asynchronous calls to SDG data.
+  remoteDataBaseUrl: 'https://ONSdigital.github.io/sdg-data/en',
+
+  chartConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Chart.js.
+  chartConfigAlter: function(callback) {
+    this.chartConfigAlterations.push(callback);
+  },
+
+  tableConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Datatables.
+  tableConfigAlter: function(callback) {
+    this.tableConfigAlterations.push(callback);
+  },
+
+  // A hook which can be replaced to alter whether/how the values that are
+  // displayed on indicator tables/graphs get rounded. A "context" parameter
+  // is also passed which contains additional information.
+  dataRounding: function(value, context) {
+    // Alterations go here.
+    return value;
+  },
+
+  // A hook which can be used to alter the data before it is displayed on charts/tables.
+  dataDisplayAlterations: [],
+  dataDisplayAlter: function(callback) {
+    this.dataDisplayAlterations.push(callback);
+  },
+
+  // Disaggregations which should be ignored on indicator pages.
+  ignoredDisaggregations: ["Activity (default)","Age (default)","Urbanisation (default)"],
+
+  language: 'en',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
+};
+
+</script>
+
+        <script>
+// JavaScript container for translation data.
+var translations = {
+  //Javascript version of the "t" filter from jekyll-open-sdg-plugins.
+  t: function(key) {
+
+    if (!key || typeof key !== 'string') {
+      return '';
+    }
+
+    // The majority of uses of this function are to translate disaggregation
+    // data. To spare data providers of needing to enter "data." in front of
+    // their disaggregation data, we specifically look for that here.
+    if (typeof this.data === 'object' && this.data !== null && this.data[key]) {
+      return this.data[key];
+    }
+
+    var originalKey = key;
+    var drilled = this;
+    var levelsDrilled = 0;
+    var levels = key.split('.');
+
+    for (var level in levels) {
+      // If we have drilled down to soon, abort.
+      if (typeof drilled !== 'object') {
+        break;
+      }
+
+      if (levels[level] in drilled) {
+        drilled = drilled[levels[level]];
+        levelsDrilled += 1;
+      }
+    }
+
+    // If we didn't drill the right number of levels, return the original string.
+    if (levels.length != levelsDrilled) {
+      return originalKey;
+    }
+
+    // Otherwise we must have drilled all the way.
+    return drilled;
+  },
+};
+</script>
+
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Title and meta description
+        ================================================== -->
+
+        
+    <title>
+        
+        Indicator 11.3.1 -
+        
+        Ratio of land consumption rate to population growth rate - U.K. Indicators For The Sustainable Development Goals
+    </title>
+
+
+
+        
+        <meta name="robots" content="noindex, nofollow">
+        
+
+        <!--[if IE 9]>
+        <script src="/sdg-indicators/assets/js/lib/classList.js"></script>
+        <![endif]-->
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/sdg-indicators/assets/img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/sdg-indicators/assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/sdg-indicators/assets/img/favicons/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/sdg-indicators/assets/img/favicons/favicon.ico" />
+
+        
+        <link rel="manifest" href="/sdg-indicators/manifest.json">
+        
+
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/style.css?v=20240308155317">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
+        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
+        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
+        
+
+        
+
+
+        <!--[if IE]>
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/ie.css">
+        <![endif]-->
+
+        <link rel="stylesheet" href="/sdg-indicators/assets/css/govuk.css">
+<!-- Hotjar Tracking Code for https://sdgdata.gov.uk/ -->
+
+
+    </head>
+<body class="language-en
+layout-indicator-iframe
+">
+<!-- <div class="container"> -->
+
+<script>translations['header'] = {"alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","disclaimer":"This is a development website. We welcome your <a href=\"mailto:%email_contacts.suggestions\">feedback</a>.","enable_high_contrast":"Enable high contrast","hide_menu":"Hide navigation menu","high_contrast":"High contrast","internet_explorer_message":"We have detected that you are using Internet Explorer to visit this website. Internet Explorer is now being phased out by Microsoft. As a result, this website no longer supports any version of Internet Explorer. Some features on this site will not work. You should use a modern browser such as Edge, Chrome, Firefox, or Safari. If you have difficulty installing or accessing a different browser, please contact your IT support team.","internet_explorer_message_title":"This internet browser is no longer supported","logo_title":"Go to homepage","show_menu":"Show navigation menu","skip_link":"Skip to main content","tag_line":"17 Goals to Transform our World","toggle_menu":"Menu toggle. Click to expand or collapse the menu.","toggle_search":"Search toggle. Click to expand or collapse the search bar."};</script>
+
+
+<script type="text/template" id="item_template">
+  <% _.each(fields, function(fieldItem) { %>
+    <div class="variable-selector
+      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed <% }%>
+      <% if (typeof childFields !== 'undefined' && childFields.indexOf(fieldItem.field) !== -1) { %> child <% }%>
+      "
+      data-field="<%=fieldItem.field%>"
+    >
+      <button class='accessBtn' tabindex='0' aria-expanded='false'
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
+        <% }%>
+      >
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
+          <span aria-hidden="true"><%=translations.t(fieldItem.label)%><i class="fa fa-chevron-down"></i></span>
+          <span class="sr-only">Show sub-categories: <%=translations.t(fieldItem.label)%></span>
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
+      </button>
+      <div class="variable-options">
+        <fieldset>
+          <legend class="sr-only">Sub-categories - <%=translations.t(fieldItem.field)%></legend>
+          <div>
+            <button data-type="select">Select all</button>
+            <button data-type="clear">Clear all</button>
+          </div>
+          <% _.each(fieldItem.values, function(item) { %>
+            <label>
+              <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
+            </label>
+          <% }); %>
+        </fieldset>
+      </div>
+
+      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">Available when '<%= translations.t(_.find(edges, { To: fieldItem.field }).From) %>' is selected
+        </div>
+        <div class="no-data-hint" id="no-data-hint-<%=fieldItem.field.replace(/ /g, '-')%>">
+          No options available because of filters above
+        </div>
+      <% }%>
+
+    </div>
+  <% }); %>
+</script>
+
+<script type="text/template" id="units_template">
+  
+  <% if(units.length > 1) { %>
+  
+    <h4>Unit of Measurement</h4>
+    <fieldset>
+      <legend class="sr-only">Unit of Measurement</legend>
+      <% _.each(units, function(unitsItem, index) { %>
+        <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
+        <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
+      <% }); %>
+    </fieldset>
+  
+  <% } %>
+  
+</script>
+
+<script type="text/template" id="series_template">
+  
+  <% if(serieses.length > 1) { %>
+  
+    <h4>Series</h4>
+    <fieldset>
+      <legend class="sr-only">Series</legend>
+      <% _.each(serieses, function(seriesItem, index) { %>
+        <% var isProxy = (proxySerieses.includes(seriesItem)) %>
+        <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%> <%=isProxy ? proxyPill : ''%></label>
+      <% }); %>
+    </fieldset>
+  
+  <% } %>
+  
+</script>
+
+<script>translations['indicator'] = {"annotation_2030_target":"2030 indicator target","annotation_series_break":"Series break","announce_data_added":"Chart and table updated to include data.","announce_data_not_available":"Chart and table shows no data.","announce_data_removed":"Chart and table updated to exclude data.","announce_series_switched":"Chart and table updated to show a different series.","announce_unit_switched":"Chart and table updated to show a different unit.","apply":"Apply","cancel":"Cancel","change_breakdowns":"Change breakdowns","chart":"Chart","chart_annotation":"Chart annotation","clear_all":"Clear all","clear_selections":"Clear selections","data_keyboard_navigation":"Press enter to browse data points with left and right arrow keys.","data_not_available":"This data is not available. Please choose alternative data to display.","data_tabular_alternative":"For tabular data alternative see Table tab.","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download chart data (.csv)","download_chart_image":"Download chart image (.png)","download_chart_image_title":"Download chart image as PNG","download_csv":"Download data (.csv)","download_csv_title":"Download data as CSV","download_geojson":"Download map data (.geojson)","download_geojson_title":"Download map data as GeoJSON","download_headline":"Download headline data (.csv)","download_headline_title":"Download headline data as CSV","download_source":"Download source data (.csv)","download_source_for_disaggregations":"Download source data for disaggregations (.csv)","download_source_sdmx":"Download source SDMX (.xml)","download_source_sdmx_title":"Download source data as SDMX","download_source_title":"Download source data as CSV","download_table":"Download table data (.csv)","edit":"Edit Indicator","edit_configuration":"Edit Configuration","edit_data":"Edit Data","edit_metadata":"Edit Metadata","empty_metadata_placeholder":"Not available for this indicator","empty_metadata_placeholder_sources":"Not available for this source","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","headline_data":"Headline data","legend_help":"Click on the legend to remove individual lines from the chart.","loading":"Loading","loading_map":"Loading map","map":"Map","map_fullscreen":"View map fullscreen","map_fullscreen_exit":"Exit fullscreen map","map_search":"Map search","map_search_cancel":"Clear map search","map_search_hide":"Hide map search","map_search_show":"Show map search","map_slider_back":"View map data for previous time period","map_slider_forward":"View map data for next time period","map_slider_keyboard":"View map data throughout time period by using left and right arrow keys","map_slider_mouse":"Navigate map data by time period","map_year_slider":"Year slider","map_zoom_home":"Reset to default map zoom","map_zoom_in":"Zoom in on map","map_zoom_out":"Zoom out on map","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country.name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country.adjective statistics, this table should be consulted for information on national methodology and other %country.adjective-specific metadata information.","next":"Next indicator","no_data_hint":"No options available because of filters above","no_headline_data":"No headline data available","note":"note","plot_legend_description":"Plot legend: list of lines included in chart","previous":"Previous indicator","proxy":"Proxy","proxy_description":"This indicator contains some alternative data to those specified by the United Nations (UN). This indicator is the most suitable match currently available.","select_all":"Select all","series":"Series","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","status":"Indicator status","sub_categories":"Sub-categories","sub_categories_show":"Show sub-categories:","table":"Table","table_column_sort":"Click to sort by this column","tags":"Tags","total":"Total","unit":"Unit","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
+
+<script>translations['data'] = {"Year":"Year"};</script>
+
+
+<div class="heading goal-banner indicator goal-11">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-4 col-md-3 col-lg-2 goal-icon goal-tiles">
+                <a href="/sdg-indicators/11/" aria-label="View targets and indicators for Goal 11" title="View targets and indicators for Goal 11">
+                    <img src="https://open-sdg.github.io/sdg-translations/assets/img/goals/en/11.svg"
+                        alt="Sustainable cities and communities - Goal 11"
+                        id="goal-11"
+                        class="goal-icon-image goal-icon-image-svg" />
+                </a>
+            </div>
+            <div class="col-8 col-md-9 col-lg-10 indicator-details">
+            
+                <div>
+                    <h1>
+                        
+                        Indicator 11.3.1
+                        
+                        <span class="lead-copy">Ratio of land consumption rate to population growth rate</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="main-content" class="container goal-11" role="main">
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+
+
+
+<div class="row"
+  id="indicatorData"
+  data-indicatorid='indicator_11-3-1'
+  data-id="11-3-1"
+  data-country="Great Britain"
+  data-charttitle="Ratio of land consumption rate to population growth rate"
+  data-charttitles="[{&quot;series&quot;:&quot;Ratio of land consumption rate to population growth rate&quot;,&quot;title&quot;:&quot;Ratio of land consumption rate to population growth rate&quot;},{&quot;series&quot;:&quot;Land consumption rate&quot;,&quot;title&quot;:&quot;Land consumption rate&quot;},{&quot;series&quot;:&quot;Population growth rate&quot;,&quot;title&quot;:&quot;Population growth rate&quot;}]"
+  data-measurementunit=""
+  data-xaxislabel=""
+  data-showdata="true"
+  data-graphtype="bar"
+  data-graphtypes="null"
+  data-geocoderegex=""
+  data-showmap="true"
+  data-startvalues="[{&quot;field&quot;:&quot;Series&quot;,&quot;value&quot;:&quot;Ratio of land consumption rate to population growth rate&quot;},{&quot;field&quot;:&quot;Country&quot;,&quot;value&quot;:&quot;Great Britain&quot;}]"
+  data-graphlimits="null"
+  data-stackeddisaggregation=""
+  data-graphannotations="null"
+  data-graphtargetlines="null"
+  data-graphseriesbreaks="null"
+  data-indicatordownloads="null"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;},{&quot;name&quot;:&quot;Series&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Land consumption rate&quot;,&quot;Population growth rate&quot;,&quot;Ratio of land consumption rate to population growth rate&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Series&quot;},{&quot;name&quot;:&quot;Units&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Rate of growth&quot;,&quot;Ratio&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Units&quot;},{&quot;name&quot;:&quot;Country&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;England&quot;,&quot;Great Britain&quot;,&quot;Scotland&quot;,&quot;Wales&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Country&quot;},{&quot;name&quot;:&quot;Region&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;East Midlands&quot;,&quot;East&quot;,&quot;London&quot;,&quot;North East&quot;,&quot;North West&quot;,&quot;South East&quot;,&quot;South West&quot;,&quot;West Midlands&quot;,&quot;Yorkshire and The Humber&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Region&quot;},{&quot;name&quot;:&quot;Local Authority&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Adur&quot;,&quot;Allerdale&quot;,&quot;Amber Valley&quot;,&quot;Arun&quot;,&quot;Ashfield&quot;,&quot;Ashford&quot;,&quot;Aylesbury Vale&quot;,&quot;Babergh&quot;,&quot;Barking and Dagenham&quot;,&quot;Barnet&quot;,&quot;Barnsley&quot;,&quot;Barrow-in-Furness&quot;,&quot;Basildon&quot;,&quot;Basingstoke and Deane&quot;,&quot;Bassetlaw&quot;,&quot;Bath and North East Somerset&quot;,&quot;Bedford&quot;,&quot;Bexley&quot;,&quot;Birmingham&quot;,&quot;Blaby&quot;,&quot;Blackburn with Darwen&quot;,&quot;Blackpool&quot;,&quot;Bolsover&quot;,&quot;Bolton&quot;,&quot;Boston&quot;,&quot;Bournemouth&quot;,&quot;Bracknell Forest&quot;,&quot;Bradford&quot;,&quot;Braintree&quot;,&quot;Breckland&quot;,&quot;Brent&quot;,&quot;Brentwood&quot;,&quot;Brighton and Hove&quot;,&quot;Bristol, City of&quot;,&quot;Broadland&quot;,&quot;Bromley&quot;,&quot;Bromsgrove&quot;,&quot;Broxbourne&quot;,&quot;Broxtowe&quot;,&quot;Burnley&quot;,&quot;Bury&quot;,&quot;Calderdale&quot;,&quot;Cambridge&quot;,&quot;Camden&quot;,&quot;Cannock Chase&quot;,&quot;Canterbury&quot;,&quot;Carlisle&quot;,&quot;Castle Point&quot;,&quot;Central Bedfordshire&quot;,&quot;Charnwood&quot;,&quot;Chelmsford&quot;,&quot;Cheltenham&quot;,&quot;Cherwell&quot;,&quot;Cheshire East&quot;,&quot;Cheshire West and Chester&quot;,&quot;Chesterfield&quot;,&quot;Chichester&quot;,&quot;Chiltern&quot;,&quot;Chorley&quot;,&quot;Christchurch&quot;,&quot;City of London&quot;,&quot;Colchester&quot;,&quot;Copeland&quot;,&quot;Corby&quot;,&quot;Cornwall&quot;,&quot;Cotswold&quot;,&quot;County Durham&quot;,&quot;Coventry&quot;,&quot;Craven&quot;,&quot;Crawley&quot;,&quot;Croydon&quot;,&quot;Dacorum&quot;,&quot;Darlington&quot;,&quot;Dartford&quot;,&quot;Daventry&quot;,&quot;Derby&quot;,&quot;Derbyshire Dales&quot;,&quot;Doncaster&quot;,&quot;Dover&quot;,&quot;Dudley&quot;,&quot;Ealing&quot;,&quot;East Cambridgeshire&quot;,&quot;East Devon&quot;,&quot;East Dorset&quot;,&quot;East Hampshire&quot;,&quot;East Hertfordshire&quot;,&quot;East Lindsey&quot;,&quot;East Northamptonshire&quot;,&quot;East Riding of Yorkshire&quot;,&quot;East Staffordshire&quot;,&quot;Eastbourne&quot;,&quot;Eastleigh&quot;,&quot;Eden&quot;,&quot;Elmbridge&quot;,&quot;Enfield&quot;,&quot;Epping Forest&quot;,&quot;Epsom and Ewell&quot;,&quot;Erewash&quot;,&quot;Exeter&quot;,&quot;Fareham&quot;,&quot;Fenland&quot;,&quot;Forest Heath&quot;,&quot;Forest of Dean&quot;,&quot;Fylde&quot;,&quot;Gateshead&quot;,&quot;Gedling&quot;,&quot;Gloucester&quot;,&quot;Gosport&quot;,&quot;Gravesham&quot;,&quot;Great Yarmouth&quot;,&quot;Greenwich&quot;,&quot;Guildford&quot;,&quot;Hackney&quot;,&quot;Halton&quot;,&quot;Hambleton&quot;,&quot;Hammersmith and Fulham&quot;,&quot;Harborough&quot;,&quot;Haringey&quot;,&quot;Harlow&quot;,&quot;Harrogate&quot;,&quot;Harrow&quot;,&quot;Hart&quot;,&quot;Hartlepool&quot;,&quot;Hastings&quot;,&quot;Havant&quot;,&quot;Havering&quot;,&quot;Herefordshire, County of&quot;,&quot;Hertsmere&quot;,&quot;High Peak&quot;,&quot;Hillingdon&quot;,&quot;Hinckley and Bosworth&quot;,&quot;Horsham&quot;,&quot;Hounslow&quot;,&quot;Huntingdonshire&quot;,&quot;Hyndburn&quot;,&quot;Ipswich&quot;,&quot;Isle of Wight&quot;,&quot;Isles of Scilly&quot;,&quot;Islington&quot;,&quot;Kensington and Chelsea&quot;,&quot;Kettering&quot;,&quot;King&apos;s Lynn and West Norfolk&quot;,&quot;Kingston upon Hull, City of&quot;,&quot;Kingston upon Thames&quot;,&quot;Kirklees&quot;,&quot;Knowsley&quot;,&quot;Lambeth&quot;,&quot;Lancaster&quot;,&quot;Leeds&quot;,&quot;Leicester&quot;,&quot;Lewes&quot;,&quot;Lewisham&quot;,&quot;Lichfield&quot;,&quot;Lincoln&quot;,&quot;Liverpool&quot;,&quot;Luton&quot;,&quot;Maidstone&quot;,&quot;Maldon&quot;,&quot;Malvern Hills&quot;,&quot;Manchester&quot;,&quot;Mansfield&quot;,&quot;Medway&quot;,&quot;Melton&quot;,&quot;Mendip&quot;,&quot;Merton&quot;,&quot;Mid Devon&quot;,&quot;Mid Suffolk&quot;,&quot;Mid Sussex&quot;,&quot;Middlesbrough&quot;,&quot;Milton Keynes&quot;,&quot;Mole Valley&quot;,&quot;New Forest&quot;,&quot;Newark and Sherwood&quot;,&quot;Newcastle upon Tyne&quot;,&quot;Newcastle-under-Lyme&quot;,&quot;Newham&quot;,&quot;North Devon&quot;,&quot;North Dorset&quot;,&quot;North East Derbyshire&quot;,&quot;North East Lincolnshire&quot;,&quot;North Hertfordshire&quot;,&quot;North Kesteven&quot;,&quot;North Lincolnshire&quot;,&quot;North Norfolk&quot;,&quot;North Somerset&quot;,&quot;North Tyneside&quot;,&quot;North Warwickshire&quot;,&quot;North West Leicestershire&quot;,&quot;Northampton&quot;,&quot;Northumberland&quot;,&quot;Norwich&quot;,&quot;Nottingham&quot;,&quot;Nuneaton and Bedworth&quot;,&quot;Oadby and Wigston&quot;,&quot;Oldham&quot;,&quot;Oxford&quot;,&quot;Pendle&quot;,&quot;Peterborough&quot;,&quot;Plymouth&quot;,&quot;Poole&quot;,&quot;Portsmouth&quot;,&quot;Preston&quot;,&quot;Purbeck&quot;,&quot;Reading&quot;,&quot;Redbridge&quot;,&quot;Redcar and Cleveland&quot;,&quot;Redditch&quot;,&quot;Reigate and Banstead&quot;,&quot;Ribble Valley&quot;,&quot;Richmond upon Thames&quot;,&quot;Richmondshire&quot;,&quot;Rochdale&quot;,&quot;Rochford&quot;,&quot;Rossendale&quot;,&quot;Rother&quot;,&quot;Rotherham&quot;,&quot;Rugby&quot;,&quot;Runnymede&quot;,&quot;Rushcliffe&quot;,&quot;Rushmoor&quot;,&quot;Rutland&quot;,&quot;Ryedale&quot;,&quot;Salford&quot;,&quot;Sandwell&quot;,&quot;Scarborough&quot;,&quot;Sedgemoor&quot;,&quot;Sefton&quot;,&quot;Selby&quot;,&quot;Sevenoaks&quot;,&quot;Sheffield&quot;,&quot;Folkestone and Hythe&quot;,&quot;Shropshire&quot;,&quot;Slough&quot;,&quot;Solihull&quot;,&quot;South Bucks&quot;,&quot;South Cambridgeshire&quot;,&quot;South Derbyshire&quot;,&quot;South Gloucestershire&quot;,&quot;South Hams&quot;,&quot;South Holland&quot;,&quot;South Kesteven&quot;,&quot;South Lakeland&quot;,&quot;South Norfolk&quot;,&quot;South Northamptonshire&quot;,&quot;South Oxfordshire&quot;,&quot;South Ribble&quot;,&quot;South Somerset&quot;,&quot;South Staffordshire&quot;,&quot;South Tyneside&quot;,&quot;Southampton&quot;,&quot;Southend-on-Sea&quot;,&quot;Southwark&quot;,&quot;Spelthorne&quot;,&quot;St Albans&quot;,&quot;St Edmundsbury&quot;,&quot;St. Helens&quot;,&quot;Stafford&quot;,&quot;Staffordshire Moorlands&quot;,&quot;Stevenage&quot;,&quot;Stockport&quot;,&quot;Stockton-on-Tees&quot;,&quot;Stoke-on-Trent&quot;,&quot;Stratford-on-Avon&quot;,&quot;Stroud&quot;,&quot;Suffolk Coastal&quot;,&quot;Sunderland&quot;,&quot;Surrey Heath&quot;,&quot;Sutton&quot;,&quot;Swale&quot;,&quot;Swindon&quot;,&quot;Tameside&quot;,&quot;Tamworth&quot;,&quot;Tandridge&quot;,&quot;Taunton Deane&quot;,&quot;Teignbridge&quot;,&quot;Telford and Wrekin&quot;,&quot;Tendring&quot;,&quot;Test Valley&quot;,&quot;Tewkesbury&quot;,&quot;Thanet&quot;,&quot;Three Rivers&quot;,&quot;Thurrock&quot;,&quot;Tonbridge and Malling&quot;,&quot;Torbay&quot;,&quot;Torridge&quot;,&quot;Tower Hamlets&quot;,&quot;Trafford&quot;,&quot;Tunbridge Wells&quot;,&quot;Uttlesford&quot;,&quot;Vale of White Horse&quot;,&quot;Wakefield&quot;,&quot;Walsall&quot;,&quot;Waltham Forest&quot;,&quot;Wandsworth&quot;,&quot;Warrington&quot;,&quot;Warwick&quot;,&quot;Watford&quot;,&quot;Waveney&quot;,&quot;Waverley&quot;,&quot;Wealden&quot;,&quot;Wellingborough&quot;,&quot;Welwyn Hatfield&quot;,&quot;West Berkshire&quot;,&quot;West Devon&quot;,&quot;West Dorset&quot;,&quot;West Lancashire&quot;,&quot;West Lindsey&quot;,&quot;West Oxfordshire&quot;,&quot;West Somerset&quot;,&quot;Westminster&quot;,&quot;Weymouth and Portland&quot;,&quot;Wigan&quot;,&quot;Wiltshire&quot;,&quot;Winchester&quot;,&quot;Windsor and Maidenhead&quot;,&quot;Wirral&quot;,&quot;Woking&quot;,&quot;Wokingham&quot;,&quot;Wolverhampton&quot;,&quot;Worcester&quot;,&quot;Worthing&quot;,&quot;Wychavon&quot;,&quot;Wycombe&quot;,&quot;Wyre&quot;,&quot;Wyre Forest&quot;,&quot;York&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Local Authority&quot;},{&quot;name&quot;:&quot;Welsh Unitary Authority&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Blaenau Gwent&quot;,&quot;Bridgend&quot;,&quot;Caerphilly&quot;,&quot;Cardiff&quot;,&quot;Carmarthenshire&quot;,&quot;Ceredigion&quot;,&quot;Conwy&quot;,&quot;Denbighshire&quot;,&quot;Flintshire&quot;,&quot;Gwynedd&quot;,&quot;Isle of Anglesey&quot;,&quot;Merthyr Tydfil&quot;,&quot;Monmouthshire&quot;,&quot;Neath Port Talbot&quot;,&quot;Newport&quot;,&quot;Pembrokeshire&quot;,&quot;Powys&quot;,&quot;Rhondda Cynon Taf&quot;,&quot;Swansea&quot;,&quot;The Vale of Glamorgan&quot;,&quot;Torfaen&quot;,&quot;Wrexham&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Welsh Unitary Authority&quot;},{&quot;name&quot;:&quot;Scottish Council Area&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Aberdeen City&quot;,&quot;Aberdeenshire&quot;,&quot;Angus&quot;,&quot;Argyll and Bute&quot;,&quot;City of Edinburgh&quot;,&quot;Clackmannanshire&quot;,&quot;Dumfries and Galloway&quot;,&quot;Dundee City&quot;,&quot;East Ayrshire&quot;,&quot;East Dunbartonshire&quot;,&quot;East Lothian&quot;,&quot;East Renfrewshire&quot;,&quot;Falkirk&quot;,&quot;Fife&quot;,&quot;Glasgow City&quot;,&quot;Highland&quot;,&quot;Inverclyde&quot;,&quot;Midlothian&quot;,&quot;Moray&quot;,&quot;Na h-Eileanan Siar&quot;,&quot;North Ayrshire&quot;,&quot;North Lanarkshire&quot;,&quot;Orkney Islands&quot;,&quot;Perth and Kinross&quot;,&quot;Renfrewshire&quot;,&quot;Scottish Borders&quot;,&quot;South Ayrshire&quot;,&quot;South Lanarkshire&quot;,&quot;Stirling&quot;,&quot;West Dunbartonshire&quot;,&quot;West Lothian&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Scottish Council Area&quot;},{&quot;name&quot;:&quot;Unit measure&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit measure&quot;},{&quot;name&quot;:&quot;Observation status&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Observation status&quot;},{&quot;name&quot;:&quot;GeoCode&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;GeoCode&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-compositebreakdownlabel=""
+  data-precision="null"
+  data-proxy=""
+  data-proxyseries="null"
+>
+  
+  <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
+  <span role="status" class="visually-hidden" id="indicator-data-unit-status"></span>
+  <span role="status" class="visually-hidden" id="indicator-data-series-status"></span>
+  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
+    <div id="serieses"></div>
+<div id="units"></div>
+<div id="toolbar">
+  <span id="series-help">
+    <h4>Sub-categories</h4>
+    <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+  </span>
+  <div id="fields">
+    <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+  </div>
+</div>
+
+  </div>
+  <div id="indicator-main" class="indicator-main col-md-9">
+    
+
+
+
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    
+    <a role="button" href="https://ONSdigital.github.io/sdg-data/en/data/11-3-1.csv" class="btn btn-primary btn-download" download='indicator_11-3-1.csv' tabindex='0' role='button'>Download source data (.csv)</a>
+
+    <p class="no-js-disaggregation-hint">Download source data for disaggregations (.csv)</p>
+
+    
+    <h3>No headline data available</h3>
+    
+  </div>
+
+  
+
+</div>
+
+
+<section>
+
+  <p class="async-loading" data-img="/sdg-indicators/assets/img/loading-small.gif"></p>
+
+  <div class="async-loaded mt-4" style="display:none;">
+
+    <div style="display: none;">
+    <span id="table-alternative">For tabular data alternative see Table tab.</span>
+  </div>
+  <ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
+    
+    <li role="presentation"
+      class="
+        nav-item
+        
+        
+      ">
+      <button
+        class="nav-link active"
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-chartview"
+          data-bs-target="#chartview"
+          aria-controls="chartview"
+          aria-describedby="table-alternative"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+
+        
+      >Chart</button>
+    </li>
+    
+    <li role="presentation"
+      class="
+        nav-item
+        
+        
+      ">
+      <button
+        class="nav-link "
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-tableview"
+          data-bs-target="#tableview"
+          aria-controls="tableview"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+
+        
+      >Table</button>
+    </li>
+    
+    <li role="presentation"
+      class="
+        nav-item
+        map
+        
+      ">
+      <button
+        class="nav-link "
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-mapview"
+          data-bs-target="#mapview"
+          aria-controls="mapview"
+          data-no-disagg="true"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Map tab"
+
+        
+      >Map</button>
+    </li>
+    
+  </ul>
+  
+    <div class="tab-content data-view">
+    
+      
+        <div role="tabpanel" class="tab-pane active" id="chartview">
+          
+
+    <div id="dataset-size-warning" style="display:none" role="alert">
+      <i class="fa fa-bolt"><span class="sr-only">Warning:</span></i>
+      There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+    </div>
+
+    
+    <div id="selectionsChart">
+      <figure role="group">
+        <div id="chart-canvas">
+          <h4 id="chart-heading" class="chart-title">
+            Ratio of land consumption rate to population growth rate
+          </h4>
+          <div id="chart" class="plot-container">
+            <canvas
+    role="img"
+    aria-labelledby="chart-heading"
+    aria-describedby="table-alternative chart-annotations"
+    tabindex="0"
+ ></canvas>
+
+          </div>
+          <div id="plotLegend"></div>
+          
+
+
+
+<div id="selectionChartFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>Ordnance Survey, ONS</dd>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>Great Britain</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
+    
+</div>
+
+        </div>
+      </figure>
+      <div id="chartSelectionDownload" class="clearfix">
+        <button
+          id="btnSave"
+          title="Download chart image as PNG"
+          aria-label="Download chart image as PNG"
+          class='btn btn-primary btn-download'>
+          Download chart image (.png)
+        </button><!--
+   --></div>
+    </div>
+
+
+
+        </div>
+      
+    
+      
+        <div role="tabpanel" class="tab-pane " id="tableview">
+          <div style="display: none;">
+            <span id="column-sort-info">Click to sort by this column</span>
+          </div>
+          <div id="selectionsTable"></div>
+<dl id="tableTargetLines" class="clearfix"></dl>
+
+
+
+
+<div id="selectionTableFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>Ordnance Survey, ONS</dd>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>Great Britain</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
+    
+</div>
+
+<div id="tableSelectionDownload" class="clearfix"></div>
+
+        </div>
+      
+    
+      
+        <div role="tabpanel" class="tab-pane " id="mapview" class="map">
+          
+<h4 id="map-heading" class="map-title">Ratio of land consumption rate to population growth rate</h4>
+<div id="map" aria-describedby="table-alternative">
+  <img class="map-loading-image" src="/sdg-indicators/assets/img/loading.gif" alt="Loading map" />
+</div>
+
+
+
+
+<div id="mapFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>Ordnance Survey, ONS</dd>
+        
+
+        
+        <dt>Geographical Area:</dt>
+        <dd>Great Britain</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
+    
+</div>
+
+
+        </div>
+      
+    
+  </div>
+  
+
+  </div>
+
+</section>
+
+  
+  <div class="mt-4">
+<ul class="nav nav-tabs" role="tablist">
+    
+        
+<li role="presentation" class="nav-item">
+    <button type="button" class="nav-link active" data-bs-toggle="tab" id="tab-national" data-bs-target="#national" aria-controls="national" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to National Metadata tab"
+>National Metadata</button>
+</li>
+<li role="presentation" class="nav-item">
+    <button type="button" class="nav-link" data-bs-toggle="tab" id="tab-global" data-bs-target="#global" aria-controls="global" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to Global Metadata tab"
+>Global Metadata</button>
+</li>
+<li role="presentation" class="nav-item">
+    <button type="button" class="nav-link" data-bs-toggle="tab" id="tab-sources" data-bs-target="#sources" aria-controls="sources" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to Sources tab"
+>Sources</button>
+</li>
+
+    
+    
+</ul>
+
+<div class="tab-content">
+    
+        <div role="tabpanel" class="tab-pane active" id="national">
+    <!-- National Metadata -->
+    <div>
+        <article>
+            <p>
+                
+                
+                This table provides metadata for the actual indicator available from UK statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from UK statistics, this table should be consulted for information on national methodology and other UK-specific metadata information.
+            </p>
+            <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      
+        
+          
+          
+          
+          
+        
+      
+      
+      <tr>
+        <th scope="row">Indicator available </th>
+        <td>
+          
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+        
+          
+          
+          
+          
+        
+      
+      
+      <tr>
+        <th scope="row">Indicator description </th>
+        <td>
+          
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>Great Britain</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+        
+          
+          
+          
+          
+        
+      
+      
+      <tr>
+        <th scope="row">Unit of measurement </th>
+        <td>
+          
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+        
+          
+          
+          
+          
+        
+      
+      
+      <tr>
+        <th scope="row">Definitions </th>
+        <td>
+          
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+        
+          
+          
+          
+          
+        
+      
+      
+      <tr>
+        <th scope="row">Available disaggregations </th>
+        <td>
+          
+            <p><span class="empty-metadata-placeholder">Not available for this indicator</span></p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Calculations </th>
+        <td>
+          
+            <p> Population growth rate = Natural logarithm ( Measurement year population / Previous population ) / Time between the measurement periods </p>
+<p> Land consumption rate = Natural logarithm ( Measurement year manmade land area / Previous manmade land area ) / Time between the measurement periods </p>
+<p> Ratio of land consumption rate to population growth rate = Land consumption rate / Population growth rate </p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            <p>The indicator is a comparison between 2013 and 2016 data on land consumption. Data was provided on land cover as manmade, unclassified, Natural or Mixed. For the calculation of this indicator, manmade was filtered out to calculate land consumption. Unclassified would cover land for which there may be building plans. For information on methodology please see the article <a href="https://www.ons.gov.uk/economy/environmentalaccounts/articles/usinginnovativemethodstoreportagainstthesustainabledevelopmentgoals/2018-10-22">Using innovative methods to report against the Sustainable Development Goals</a> Data follows the UN specification for this indicator. This indicator has not been identified in collaboration with topic experts.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Data last updated </th>
+        <td>
+          
+            04 March 2022
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Metadata last updated </th>
+        <td>
+          
+            04 March 2022
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+        </article>
+    </div>
+</div>
+<div role="tabpanel" class="tab-pane" id="global">
+    <!-- Global Metadata -->
+    <div>
+        <article>
+            <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href="https://unstats.un.org/sdgs/metadata/">Complete global metadata</a> is provided by the UN Statistics Division.</p>
+            <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Indicator name </th>
+        <td>
+          
+            <p>Ratio of land consumption rate to population growth rate</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Target name </th>
+        <td>
+          
+            <p>By 2030, enhance inclusive and sustainable urbanization and capacity for participatory, integrated and sustainable human settlement planning and management in all countries</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">UN designated tier </th>
+        <td>
+          
+            <p>Tier II</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">UN custodian agency </th>
+        <td>
+          
+            <p>United Nations Human Settlements Programme (UN-Habitat)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Link to UN metadata </th>
+        <td>
+          
+            
+            
+            
+            
+            
+              <a href="https://unstats.un.org/sdgs/metadata/?Text=&Goal=11&Target=11.3" target="_blank">
+                United Nations Sustainable Development Goals metadata for target 11.3 <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+        </article>
+    </div>
+</div>
+<div role="tabpanel" class="tab-pane" id="sources">
+    <!-- Count the non-empty sources (up to 5) -->
+
+
+
+
+  <div class="row">
+  
+    
+    
+    <div class="col-md-6">
+      
+      
+        <h4>Source 1</h4>
+      
+      <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>Ordnance Survey</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>N/A</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2013</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>Great Britain</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+            
+              <a href="https://www.ons.gov.uk/economy/environmentalaccounts/datasets/ratiooflandconsumptiongrowthratetopopulationgrowthratebycountryandlowerlayersuperoutputarea" target="_blank">
+                Ratio of land consumption growth rate to population growth rate by country and Lower layer Super Output Area <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            N/A
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>N/A: We plan to update indicator data within 4 months of data being released</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>Official</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+        
+          
+          
+          
+          
+        
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p><span class="empty-metadata-placeholder">Not available for this source</span></p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            <p>The data was provided under the Public Sector Mapping Agreement in place between ONS and OS.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+    </div>
+    
+    
+    
+    <div class="col-md-6">
+      
+      
+        <h4>Source 2</h4>
+      
+      <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>ONS</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Annual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2001</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>United Kingdom</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+            
+              <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland" target="_blank">
+                Mid year Population Estimates <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            25 June 2019
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>01/06/2020: We plan to update indicator data within 4 months of data being released</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>National Statistics</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>pop.info@ons.gov.uk</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+        
+          
+          
+          
+          
+        
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            <p><span class="empty-metadata-placeholder">Not available for this source</span></p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+    </div>
+    
+  </div>
+
+
+</div>
+    
+    
+</div>
+
+</div>
+  </div>
+</div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
+
+
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/iso8601-js-period@0.2.1/iso8601.min.js"></script>
+<script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/torfsen/leaflet.zoomhome@master/dist/leaflet.zoomhome.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+
+
+<script>
+  
+
+
+var klaroConfig = {
+    noAutoLoad: true, // no autoload because we have a custom notice and form
+    storageMethod: 'cookie',
+    cookieName: 'cookie_settings',
+    cookieExpiresAfterDays: 365,
+    default: false,
+    services: [
+        {
+            name: 'contrast',
+            default: true,
+            cookies: ['contrast'],
+            required: true,
+        },
+        
+        {
+            name: 'google-analytics',
+            
+            cookies: ['_gat', '_gid', '_ga'],
+            
+        },
+        
+        
+    ],
+};
+
+  klaroConfig.lang = 'en';
+klaroConfig.translations = {
+    en: {
+        acceptAll: "Accept all",
+        acceptSelected: "Accept selected",
+        close: "Close",
+        consentModal: {
+            description: "Here you can change which cookies you're happy for us to use.",
+            title: "Cookie settings",
+        },
+        consentNotice: {
+            changeDescription: "The cookies used on this site have changed since you last visited, please renew your consent.",
+            description: "We use some essential cookies to make this service work. We’d also like to use {purposes} so we can understand how you use the service and make improvements.",
+            learnMore: "View cookies",
+            testing: "Testing mode!",
+        },
+        contextualConsent: {
+            acceptAlways: "Always",
+            acceptOnce: "Yes",
+            description: "Do you want to load external content supplied by {title}?",
+        },
+        decline: "Reject additional cookies",
+        ok: "Accept additional cookies",
+        poweredBy: "Realized with Klaro!",
+        privacyPolicy: {
+            name: "privacy policy",
+            text: "To learn more, please read our privacy policy.",
+        },
+        purposeItem: {
+            service: "service",
+            services: "services",
+        },
+        purposes: {
+            functional: {
+                description: "Essential cookies keep your information secure, and do things like remember your preferences and the choices you make whilst you use the website. They always need to be on.",
+                title: "Essential cookies",
+            },
+            analytics: {
+                description: "These services collect information about how you use the website. We use this data to help make the website better.",
+                title: "Analytics cookies",
+            },
+        },
+        save: "Save",
+        service: {
+            disableAll: {
+                description: "Use this switch to enable or disable all services.",
+                title: "Enable or disable all services",
+            },
+            optOut: {
+                description: "This services is loaded by default (but you can opt out)",
+                title: "(opt-out)",
+            },
+            purpose: "purpose",
+            purposes: "purposes",
+            required: {
+                description: "This service is always required",
+                title: "(always required)",
+            },
+        },
+    },
+};
+var allRequired = true;
+klaroConfig.services.forEach(function(service) {
+    if (!service.required) {
+        allRequired = false;
+    }
+    if (service.name === 'contrast') {
+        service.translations = {
+            en: {
+                description: "Retains active state of accessibility services",
+                title: "Accessibility mode",
+            },
+        }
+    }
+    else if (service.name === 'cookie_settings') {
+        service.translations = {
+            en: {
+                description: "Saves your cookie consent settings",
+                title: "Cookie settings",
+            },
+        }
+    }
+    else if (service.name === 'google-analytics') {
+        service.translations = {
+            en: {
+                description: "Collects information about page visits using Google Analytics",
+                title: "Google Analytics",
+            },
+        }
+    }
+});
+
+if (allRequired) {
+    klaroConfig.translations['en'].consentNotice.description = "We use some essential cookies to make this service work. They always need to be on.";
+    klaroConfig.translations['en'].ok = "OK";
+    klaroConfig.hideDeclineAll = true;
+    klaroConfig.hideLearnMore = true;
+}
+
+</script>
+<script src="https://cdn.kiprotect.com/klaro/v0.7/klaro-no-css.js"></script>
+<script>translations['cookies'] = translations['cookies'] || {};
+    translations['cookies']['cookie_settings'] = 'Cookie settings';</script>
+
+
+
+
+
+
+
+<script>translations['general'] = translations['general'] || {};
+    translations['general']['hide'] = 'hide';</script>
+
+<script>translations['search'] = translations['search'] || {};
+    translations['search']['search'] = 'Search';</script>
+
+<script src='/sdg-indicators/assets/js/sdg.js?v=20240308155317'></script>
+<script src="//cdn.loop11.com/embed.js" type="text/javascript" async="async"></script>
+<script src="/sdg-indicators/assets/js/govuk.js"></script>
+<script>
+  window.GOVUKFrontend.initAll()
+</script>
+    
+    
+    <script src="/sdg-indicators/assets/js/custom.js?v=20240308155317"></script><script>
+    new indicatorInit();
+    new accessibilitySwitcher();
+</script>
+
+<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+<script>
+    new pym.Child();
+</script>
+
+</body>
+</html>
