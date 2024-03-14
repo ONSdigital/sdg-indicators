@@ -25,7 +25,7 @@ We collect information on:
 
 More details about the information we collect is available in our [Cookies policy]({{ site.baseurl }}/cookies). You can also change which cookies you are happy for us to use
 ​
-### Google Analytics and Hotjar
+## Google Analytics and Hotjar
 ​
 We use cookies and page tagging techniques through software such as Google Analytics and Hotjar to collect this information.
 ​
@@ -35,7 +35,7 @@ We do not store your personal information through Google Analytics or Hotjar (fo
 
 For more information about how these services process your data, please see [Google’s privacy policy](https://www.google.com/policies/privacy/), and [Hotjar’s privacy policy](https://www.hotjar.com/privacy)
 ​
-### SurveyMonkey
+## SurveyMonkey
 ​
 We use SurveyMonkey to run surveys on our website (for example, to collect feedback to help us make the site better).
 ​
@@ -133,11 +133,11 @@ sdgdata.gov.uk contains links to other websites.
 
 This privacy notice only applies to sdgdata.gov.uk and does not cover other websites that we link to. The ONS is not responsible for the privacy practices or the content of such websites
 ​
-### Following a link to another website
+## Following a link to another website
 ​
 If you go to another website from this one, read the privacy policy on that website to find out what it does with your information
 ​
-### Following a link to sdgdata.gov.uk from another website
+## Following a link to sdgdata.gov.uk from another website
 ​
 If you come to sdgdata.gov.uk from another website, we may receive personal information from the other website. You should read the privacy policy of the website you came from to find out more about this
 ​
