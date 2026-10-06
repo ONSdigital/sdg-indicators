@@ -51,7 +51,7 @@ jobs:
           valueFile: '_data/site_config.yml'
           propertyPath: 'remote_data_prefix'
           # Update this according to the public URL of your S3 bucket.
-          value: 'http://uk-sdg-feature-branches.s3-website.eu-west-2.amazonaws.com/${{ env.GITHUB_REF_SLUG }}-data'
+          value: 'https://d2y2nq4o9b7i0o.cloudfront.net/${{ env.GITHUB_REF_SLUG }}-data'
           commitChange: 'false'
           updateFile: 'true'
       - name: Build the site
