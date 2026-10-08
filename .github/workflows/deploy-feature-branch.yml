@@ -51,7 +51,7 @@ jobs:
           valueFile: '_data/site_config.yml'
           propertyPath: 'remote_data_prefix'
           # Update this according to the public URL of your S3 bucket.
-          value: 'http://uk-sdg-feature-branches.s3-website.eu-west-2.amazonaws.com/${{ env.GITHUB_REF_SLUG }}-data'
+          value: 'https://d2y2nq4o9b7i0o.cloudfront.net/${{ env.GITHUB_REF_SLUG }}-data'
           commitChange: 'false'
           updateFile: 'true'
       - name: Build the site
@@ -62,7 +62,7 @@ jobs:
           make build.staging
       - uses: jakejarvis/s3-sync-action@master
         with:
-          args: --acl public-read --follow-symlinks --delete
+          args: --follow-symlinks --delete
         env:
           # Update this according to the name of your S3 bucket.
           AWS_S3_BUCKET: uk-sdg-feature-branches
@@ -78,4 +78,4 @@ jobs:
         with:
           slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
           slack-channel: CP95DHDLY
-          slack-text: Your feature branch is available at http://uk-sdg-feature-branches.s3-website.eu-west-2.amazonaws.com/${{ env.GITHUB_REF_SLUG }}
+          slack-text: Your feature branch is available at https://d2y2nq4o9b7i0o.cloudfront.net/${{ env.GITHUB_REF_SLUG }}
