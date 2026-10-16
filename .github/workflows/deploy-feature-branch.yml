@@ -7,75 +7,78 @@ on:
 
 jobs:
   pre_job:
-    # continue-on-error: true # Uncomment once integration is finished
     runs-on: ubuntu-latest
+
     steps:
       - name: Cancel all existing duplicate workflows on branch
         uses: fkirc/skip-duplicate-actions@master
         with:
-          # All of these options are optional, so you can remove them if you are happy with the defaults
           skip_after_successful_duplicate: 'false'
           cancel_others: 'true'
-          
+
   deploy:
     runs-on: ubuntu-latest
+
     env:
       JAWG_TOKEN: ${{ secrets.JAWG_TOKEN }}
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+
       - name: Replace Jawg token
         run: |
           sed -i "s/JAWG_TOKEN_PLACEHOLDER/${JAWG_TOKEN}/g" _data/site_config.yml
+
       - name: Set up Ruby 3.2
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
+
       - name: Inject slug/short variables
         uses: rlespinasse/github-slug-action@v3.x
+
       - name: Update the baseurl
         uses: fjogeleit/yaml-update-action@master
         with:
-          # Update this if your 'baseurl' setting is in a different file.
           valueFile: '_config.yml'
           propertyPath: 'baseurl'
           value: '/${{ env.GITHUB_REF_SLUG }}'
           commitChange: 'false'
           updateFile: 'true'
+
       - name: Update the remote_data_prefix
         uses: fjogeleit/yaml-update-action@master
         if: startsWith(github.ref, 'refs/heads/feature-site-') == false
         with:
-          # Update this if your 'remote_data_prefix' setting is in a different file.
           valueFile: '_data/site_config.yml'
           propertyPath: 'remote_data_prefix'
-          # Update this according to the public URL of your S3 bucket.
           value: 'https://d2y2nq4o9b7i0o.cloudfront.net/${{ env.GITHUB_REF_SLUG }}-data'
           commitChange: 'false'
           updateFile: 'true'
+
       - name: Build the site
         run: |
           gem install bundler -v 2.4.22
           bundle config path vendor/bundle
           make install
           make build.staging
-      - uses: jakejarvis/s3-sync-action@master
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v6.3.0
         with:
-          args: --follow-symlinks --delete
-        env:
-          # Update this according to the name of your S3 bucket.
-          AWS_S3_BUCKET: uk-sdg-feature-branches
-          # Don't forget to set AWS_ACCESS as a "repository secret".
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS }}
-          # Don't forget to set AWS_SECRET as a "repository secret".
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET }}
-          SOURCE_DIR: _site
-          DEST_DIR: ${{ env.GITHUB_REF_SLUG }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET }}
+          aws-region: eu-west-2
+
+      - name: Deploy feature branch to S3
+        run: |
+          aws s3 sync _site/ "s3://uk-sdg-feature-branches/${{ env.GITHUB_REF_SLUG }}/" --delete --follow-symlinks
+
       - name: Send message to Slack channel
         uses: archive/github-actions-slack@v2.2.1
         id: notify
         with:
           slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
           slack-channel: CP95DHDLY
-          slack-text: Your feature branch is available at https://d2y2nq4o9b7i0o.cloudfront.net/${{ env.GITHUB_REF_SLUG }}
+          slack-text: 'Your feature branch is available at https://d2y2nq4o9b7i0o.cloudfront.net/${{ env.GITHUB_REF_SLUG }}'
